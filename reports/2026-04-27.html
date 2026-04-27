@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAGI 盤前報告 — 2026-04-27</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --bg2: #111827; --bg3: #1a2233;
+      --border: rgba(255,255,255,0.08); --text: #e2e8f0; --muted: #64748b;
+      --green: #4ade80; --red: #f87171; --gold: #fbbf24;
+      --magi: #a855f7; --orange: #fb923c;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'PingFang TC','Noto Sans TC',system-ui,sans-serif; }
+
+    /* Header */
+    .header { background: linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%); border-bottom:1px solid var(--border); padding:18px 32px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+    .header h1 { font-size:19px; font-weight:700; color:#fff; }
+    .header .sub { font-size:11px; color:var(--muted); margin-top:2px; }
+    .badge { font-size:10px; font-weight:700; padding:3px 9px; border-radius:12px; letter-spacing:.06em; }
+    .badge-magi  { background:rgba(168,85,247,.2); border:1px solid rgba(168,85,247,.4); color:#c084fc; }
+    .badge-live  { background:rgba(74,222,128,.15); border:1px solid rgba(74,222,128,.4); color:#4ade80; }
+
+    /* Market bar */
+    .mkt-bar { background:#0c1420; border-bottom:1px solid var(--border); padding:8px 32px; display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+    .mkt-item { font-size:12px; }
+    .mkt-item .label { color:var(--muted); margin-right:6px; }
+    .mkt-item .val { font-weight:600; }
+    .up   { color:var(--green); }
+    .down { color:var(--red); }
+    .flat { color:var(--muted); }
+
+    /* Layout */
+    .container { max-width:1400px; margin:0 auto; padding:24px 32px; }
+    .section-title { font-size:11px; font-weight:700; letter-spacing:.12em; color:var(--muted); text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+    /* Verdict banner */
+    .verdict { background:linear-gradient(135deg,#1e1040 0%,#0f0a24 100%); border:1px solid rgba(168,85,247,.3); border-radius:12px; padding:18px 24px; margin-bottom:24px; display:flex; align-items:flex-start; gap:18px; }
+    .verdict-icon { font-size:32px; flex-shrink:0; line-height:1; }
+    .verdict-body h2 { font-size:15px; color:#e9d5ff; font-weight:700; margin-bottom:5px; }
+    .verdict-body p { font-size:12px; color:rgba(196,165,253,.75); line-height:1.65; }
+    .verdict-tags { margin-left:auto; display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; align-items:flex-start; }
+    .tag { font-size:11px; font-weight:700; padding:4px 10px; border-radius:6px; cursor:pointer; transition:filter .15s; }
+    .tag:hover { filter:brightness(1.2); }
+    .tag-hot { background:rgba(251,146,60,.15); border:1px solid rgba(251,146,60,.4); color:#fb923c; }
+    .tag-normal { background:rgba(168,85,247,.12); border:1px solid rgba(168,85,247,.3); color:#c084fc; }
+
+    /* Consensus table */
+    .cons-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
+    .cons-table th { text-align:left; font-size:10px; font-weight:700; color:var(--muted); padding:7px 10px; border-bottom:1px solid var(--border); text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; }
+    .cons-table td { padding:11px 10px; font-size:13px; border-bottom:1px solid rgba(255,255,255,.04); vertical-align:middle; }
+    .cons-table tr:hover td { background:rgba(255,255,255,.02); }
+    .rank { font-size:12px; font-weight:700; color:var(--muted); }
+    .rank.r1,.rank.r2 { color:#fb923c; }
+    .vote-dots { display:flex; gap:4px; align-items:center; }
+    .dot { width:9px; height:9px; border-radius:50%; opacity:.25; }
+    .dot.on { opacity:1; }
+    .d-src1 { background:#f59e0b; }
+    .d-src2 { background:#22d3ee; }
+    .d-src3 { background:#34d399; }
+    .score { font-weight:700; color:var(--magi); font-size:14px; }
+    .tp-badge { font-size:10px; padding:2px 7px; border-radius:4px; background:rgba(168,85,247,.15); border:1px solid rgba(168,85,247,.3); color:#c084fc; white-space:nowrap; }
+    .note-cell { font-size:11px; color:var(--muted); max-width:320px; line-height:1.5; }
+
+    /* K-line */
+    .kline-wrap { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:4px; margin-bottom:24px; }
+    .tab-row { display:flex; gap:6px; padding:10px 10px 0; flex-wrap:wrap; }
+    .ktab { background:var(--bg3); border:1px solid var(--border); color:var(--muted); padding:5px 14px; border-radius:7px; font-size:12px; font-weight:600; cursor:pointer; transition:all .15s; white-space:nowrap; }
+    .ktab.active { background:rgba(168,85,247,.15); border-color:rgba(168,85,247,.4); color:#c084fc; }
+    #kline { width:100%; height:400px; }
+
+    /* Gossip */
+    .gossip-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .gossip-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:14px; }
+    .gossip-src { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+    .gossip-src .live-dot { width:6px; height:6px; border-radius:50%; background:#22c55e; flex-shrink:0; }
+    .gossip-card p { font-size:12px; color:rgba(226,232,240,.8); line-height:1.7; }
+    .ticker-row { margin-top:9px; display:flex; gap:5px; flex-wrap:wrap; }
+    .ticker { font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; background:rgba(99,102,241,.15); border:1px solid rgba(99,102,241,.3); color:#818cf8; }
+
+    /* Themes */
+    .themes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:24px; }
+    .theme-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:14px; }
+    .theme-card h3 { font-size:13px; font-weight:700; margin-bottom:8px; }
+    .theme-card ul { list-style:none; }
+    .theme-card ul li { font-size:11px; color:var(--muted); padding:3px 0; padding-left:12px; position:relative; }
+    .theme-card ul li::before { content:'›'; position:absolute; left:0; }
+
+    footer { border-top:1px solid var(--border); padding:14px 32px; text-align:center; font-size:11px; color:var(--muted); }
+
+    @media (max-width:800px) {
+      .gossip-grid,.themes-grid { grid-template-columns:1fr; }
+      .verdict { flex-direction:column; }
+      .verdict-tags { margin-left:0; justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <h1>MAGI 盤前報告</h1>
+    <div class="sub">2026-04-27 週一 · 各家開會 Notion 掃描 + TWSE 即時數據</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span class="badge badge-live">● LIVE DATA</span>
+    <span class="badge badge-magi">MAGI v2.0</span>
+  </div>
+</header>
+
+<!-- 大盤列 -->
+<div class="mkt-bar">
+  <div class="mkt-item"><span class="label">加權指數</span><span class="val up">38,932 ▲1,218 (+3.23%)</span></div>
+  <div class="mkt-item"><span class="label">資料日期</span><span class="val">2026-04-24</span></div>
+  <div class="mkt-item"><span class="label">漲家</span><span class="val up">471</span></div>
+  <div class="mkt-item"><span class="label">跌家</span><span class="val down">775</span></div>
+  <div class="mkt-item"><span class="label">大型股強勢，中小分化</span><span class="val flat">留意流動性</span></div>
+  <div style="margin-left:auto;font-size:11px;color:var(--muted)">今日開盤前掃描 · 近 15 天 Notion 各家開會</div>
+</div>
+
+<div class="container">
+
+  <!-- 裁決 -->
+  <div class="verdict">
+    <div class="verdict-icon">⚖</div>
+    <div class="verdict-body">
+      <h2>MAGI 今日裁決 — PCB/CCL + 散熱/CDU + ABF 三族群共識最強，大型股與外資票優先</h2>
+      <p>
+        多個來源（駿羽4/27、樂林4/22、麻神4/26）一致指向：google/AWS 到處找板廠鎖產能，CCL 台燿已談三次漲價；
+        高力(3017奇鋐) CDU 明年 800V 進度比想像快；景碩 NV 私募確認，ABF 結構性短缺持續至 29 年。
+        2330 台積電法說正面，全面上修 25%，大票繼續有外資申購。
+        中小股需注意流動性（跌家 775 &gt; 漲家 471）。
+      </p>
+    </div>
+    <div class="verdict-tags">
+      <span class="tag tag-hot">2383 台光電 ★</span>
+      <span class="tag tag-hot">3017 奇鋐 ★</span>
+      <span class="tag tag-normal">3189 景碩</span>
+      <span class="tag tag-normal">2345 智邦</span>
+      <span class="tag tag-normal">6187 萬潤</span>
+    </div>
+  </div>
+
+  <!-- 今日共識排行 -->
+  <div class="section-title">今日共識排行（Notion 各家開會近 15 天）</div>
+  <table class="cons-table">
+    <thead>
+      <tr>
+        <th style="width:36px">#</th>
+        <th>代號 / 名稱</th>
+        <th>提及</th>
+        <th>共識分</th>
+        <th>今日</th>
+        <th>TP / 觀點</th>
+        <th>主要來源觀點</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="rank r1">1</span></td>
+        <td><strong>2383</strong> 台光電</td>
+        <td>
+          <div class="vote-dots">
+            <div class="dot d-src1 on" title="駿羽"></div>
+            <div class="dot d-src2 on" title="樂林"></div>
+            <div class="dot d-src3 on" title="麻神"></div>
+          </div>
+        </td>
+        <td><span class="score">9.2</span></td>
+        <td><span class="up">4730 +5.70%</span></td>
+        <td><span class="tp-badge">GS TP 4020</span></td>
+        <td class="note-cell">CCL 漲價已談 3 次，PCB 上游 4764 雙鍵要求繼續擴廠；郁翔持股，4/27 布哥 PCB/光/power 三族群找強的買</td>
+      </tr>
+      <tr>
+        <td><span class="rank r2">2</span></td>
+        <td><strong>3017</strong> 奇鋐</td>
+        <td>
+          <div class="vote-dots">
+            <div class="dot d-src1 on"></div>
+            <div class="dot d-src2 on"></div>
+            <div class="dot d-src3 on"></div>
+          </div>
+        </td>
+        <td><span class="score">8.5</span></td>
+        <td><span class="down">2835 -3.74%</span></td>
+        <td><span class="tp-badge">TP 2000</span></td>
+        <td class="note-cell">CDU 散熱，高力 BE 今年 double 成長，800V 進度比想像快；4/23 Ken：今年多 2-3 倍，明年再 100%，明年 70 塊看 2000；今天回調消化獲利</td>
+      </tr>
+      <tr>
+        <td><span class="rank">3</span></td>
+        <td><strong>3189</strong> 景碩</td>
+        <td>
+          <div class="vote-dots">
+            <div class="dot d-src1 on"></div>
+            <div class="dot d-src2 on"></div>
+            <div class="dot d-src3"></div>
+          </div>
+        </td>
+        <td><span class="score">7.8</span></td>
+        <td><span class="down">515 -2.09%</span></td>
+        <td><span class="tp-badge">TP 600</span></td>
+        <td class="note-cell">NV 確認私募；ABF 擴產延到 29 年，下半年私募不只一個客戶（含 NV），下半年報價漲 8%；GS TP 600，PE rerate 到 30X</td>
+      </tr>
+      <tr>
+        <td><span class="rank">4</span></td>
+        <td><strong>2345</strong> 智邦</td>
+        <td>
+          <div class="vote-dots">
+            <div class="dot d-src1 on"></div>
+            <div class="dot d-src2 on"></div>
+            <div class="dot d-src3"></div>
+          </div>
+        </td>
+        <td><span class="score">7.1</span></td>
+        <td><span class="up">2140 +2.88%</span></td>
+        <td><span class="tp-badge">50% upside</span></td>
+        <td class="note-cell">ASIC 共識，Ann 4/24：大股票有 50% upside；OPM 市場估 12%，實際有機會到 15%，外資喜歡；麻神 ASIC 四大共識之一</td>
+      </tr>
+      <tr>
+        <td><span class="rank">5</span></td>
+        <td><strong>6187</strong> 萬潤</td>
+        <td>
+          <div class="vote-dots">
+            <div class="dot d-src1"></div>
+            <div class="dot d-src2 on"></div>
+            <div class="dot d-src3"></div>
+          </div>
+        </td>
+        <td><span class="score">6.8</span></td>
+        <td><span class="down">1080 -7.69%</span></td>
+        <td><span class="tp-badge">GS TP 1800</span></td>
+        <td class="note-cell">CoWoS 設備 + CPO 六軸機械定位；27 年估 45 元，PE 45X；去年 54E 有 80% CoWoS，CPO 設備潛力比 CoWoS 更大；今天大幅回調，注意位置</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- K 線圖 -->
+  <div class="section-title">K 線走勢（近 40 個交易日，含今日）</div>
+  <div class="kline-wrap">
+    <div class="tab-row" id="tabs">
+      <button class="ktab active" onclick="switchChart('2383',this)">2383 台光電 4730</button>
+      <button class="ktab" onclick="switchChart('3017',this)">3017 奇鋐 2835</button>
+      <button class="ktab" onclick="switchChart('3189',this)">3189 景碩 515</button>
+    </div>
+    <div id="kline"></div>
+  </div>
+
+  <!-- 主題族群 -->
+  <div class="section-title">今日三大族群 (Notion 共識)</div>
+  <div class="themes-grid">
+    <div class="theme-card">
+      <h3 style="color:#22d3ee">🔌 PCB / CCL</h3>
+      <ul>
+        <li>google / AWS 到處找板廠鎖產能（4/27 駿羽）</li>
+        <li>CCL 台燿(6274) 今年已談 3 次漲價，全年毛利 30%+</li>
+        <li>GS PCB/CCL 上修：2383 TP 4020、6274 TP 11xx</li>
+        <li>ABF 結構性短缺持續，擴產延伸至 29 年</li>
+        <li>相關：2383 台光電 / 3037 欣興 / 3189 景碩 / 8046 南電</li>
+      </ul>
+    </div>
+    <div class="theme-card">
+      <h3 style="color:#fb923c">🌡 散熱 / CDU / 800V</h3>
+      <ul>
+        <li>CSP 800V 導入比預期快，CDU 需求加速</li>
+        <li>高力(8996) BE 雙倍成長，今年下半年開始發酵</li>
+        <li>台達電(2308) 800V 進度超預期</li>
+        <li>4931 BBU 看好</li>
+        <li>相關：3017 奇鋐 / 8996 高力 / 2308 台達電</li>
+      </ul>
+    </div>
+    <div class="theme-card">
+      <h3 style="color:#a855f7">⚡ ASIC / AI 大票</h3>
+      <ul>
+        <li>麻神 4/26：ASIC 共識 2454、6669、智邦、aws</li>
+        <li>大盤短線高點 45000，川習會前不會大跌</li>
+        <li>NV 法說完一定漲，看 200-250（布哥 4/24）</li>
+        <li>2330 法說全面上修 25%（Ann 4/24）</li>
+        <li>相關：2454 聯發科 / 6669 緯穎 / 2345 智邦</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 小作文摘要 -->
+  <div class="section-title">原始來源摘要（今日 + 昨日 Notion）</div>
+  <div class="gossip-grid">
+    <div class="gossip-card">
+      <div class="gossip-src"><span class="live-dot"></span>各家開會 · 20260427 駿羽 · 07:02</div>
+      <p>PCB 狀況是 google、AWS 到處找板廠鎖產能，相關的可以佈局。CCL 漲價是真的，6274 今年已經談 3 次了，對每間都漲價（永哥：全年公司平均毛利會到 30% 以上很多）。6278 台表科受惠緯創不出貨白牌伺服器的外溢。布哥：PCB、光、power google 都說會缺，三個族群找強的買。</p>
+      <div class="ticker-row">
+        <span class="ticker">2383</span><span class="ticker">6274</span><span class="ticker">6278</span><span class="ticker">PCB</span><span class="ticker">CCL</span>
+      </div>
+    </div>
+    <div class="gossip-card">
+      <div class="gossip-src"><span class="live-dot"></span>各家開會 · 20260427 駿羽 · 07:02</div>
+      <p>3443 創意：矽品、京元不接單，外溢到矽格、欣銓，信驊從 10k 加到 20k，創意會漲到 8000，覺得都可以抱。2360 法說 result 應該會 beat，可以玩。3711 日月光 QoQ 應該也會 beat，但已有預期。2345 智邦 UT 可以上 80%，ASP 7 月開始漲，法說可能會講聯穎 TFLN。</p>
+      <div class="ticker-row">
+        <span class="ticker">3443</span><span class="ticker">2360</span><span class="ticker">3711</span><span class="ticker">2345</span><span class="ticker">3550</span>
+      </div>
+    </div>
+    <div class="gossip-card">
+      <div class="gossip-src"><span style="width:6px;height:6px;border-radius:50%;background:#818cf8;flex-shrink:0" class="live-dot"></span>各家開會 · 20260426 麻神</div>
+      <p>目前共識還是在 ASIC：2454、AWS、6669 緯穎、智邦。台積電如果投信可以塞更多 PE 會常態跑到 22 倍，TP 2700，指數不跌。中小會比較弱，3017、3037、2383 都可以看。環球晶 Q2 ASP +20~40%，12 吋占比提升到 70%，TP 900~1000。</p>
+      <div class="ticker-row">
+        <span class="ticker">2454</span><span class="ticker">6669</span><span class="ticker">2345</span><span class="ticker">2330</span><span class="ticker">3017</span>
+      </div>
+    </div>
+    <div class="gossip-card">
+      <div class="gossip-src"><span style="width:6px;height:6px;border-radius:50%;background:#c084fc;flex-shrink:0" class="live-dot"></span>各家開會 · 20260422 樂林 · 郁翔</div>
+      <p>6187 萬潤：26 年估 25 元、27 年估 45 元，買進目標價 2025 元（27 年 EPS × 45 倍），CPO 設備六軸機械定位，同業是日商，CPO 工序比 CoWoS 花多幾倍時間，未來設備拉貨數量將遠超 CoWoS。GS 也同日發報告推買進 TP 1800。目前持股：穩懋、穎崴、健策、貿聯、萬潤、台光電、愛普。</p>
+      <div class="ticker-row">
+        <span class="ticker">6187</span><span class="ticker">CoWoS</span><span class="ticker">CPO</span><span class="ticker">GS</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>MAGI 股票分析平台 · 資料來源：Notion 各家開會 + TWSE MCP · 2026-04-27 · 僅供參考，不構成投資建議</footer>
+
+<script>
+// ─── Real OHLCV data (from TWSE + FinMind) ───────────────────────────────────
+const DATA = {
+  '2383': {
+    name: '台光電', price: 4730, change: '+5.70%',
+    rows: [
+      ['2026-03-02',2280,2435,2280,2380,3331488],['2026-03-03',2355,2430,2315,2320,3063218],
+      ['2026-03-04',2255,2295,2180,2190,3828524],['2026-03-05',2350,2395,2300,2365,3883828],
+      ['2026-03-06',2340,2470,2325,2360,2912192],['2026-03-09',2125,2210,2125,2175,3391849],
+      ['2026-03-10',2315,2390,2315,2375,3065582],['2026-03-11',2390,2520,2375,2450,4829317],
+      ['2026-03-12',2440,2665,2440,2600,5442114],['2026-03-13',2580,2765,2540,2705,4417368],
+      ['2026-03-16',2785,2785,2575,2585,4463265],['2026-03-17',2645,2750,2625,2700,2921492],
+      ['2026-03-18',2740,2745,2670,2700,2925621],['2026-03-19',2700,2970,2660,2890,5842073],
+      ['2026-03-20',2905,2915,2720,2810,4588550],['2026-03-23',2715,2880,2705,2795,3517744],
+      ['2026-03-24',2865,2870,2670,2685,3977982],['2026-03-25',2790,2915,2780,2845,3332111],
+      ['2026-03-26',2920,3035,2895,2945,4555967],['2026-03-27',2900,2950,2845,2910,2066364],
+      ['2026-03-30',2815,2850,2705,2785,3755290],['2026-03-31',2780,2830,2595,2600,5256642],
+      ['2026-04-01',2800,2860,2745,2860,3039597],['2026-04-02',2920,2965,2775,2785,4147382],
+      ['2026-04-07',2875,2970,2850,2885,3251323],['2026-04-08',3160,3170,3135,3170,2230541],
+      ['2026-04-09',3225,3350,3180,3220,3254067],['2026-04-10',3280,3435,3260,3420,3018570],
+      ['2026-04-13',3430,3440,3320,3325,2472083],['2026-04-14',3490,3655,3490,3605,3407745],
+      ['2026-04-15',3870,3875,3700,3810,3998854],['2026-04-16',3950,3950,3760,3835,2880746],
+      ['2026-04-17',3770,3865,3730,3800,2796395],['2026-04-20',3780,3915,3720,3850,3606415],
+      ['2026-04-21',3900,3990,3830,3950,2771442],['2026-04-22',3960,4200,3895,4065,2907731],
+      ['2026-04-23',4215,4440,3975,4100,4565537],['2026-04-24',4300,4485,4230,4475,4429294],
+      ['2026-04-27',4660,4800,4475,4730,5437579],
+    ]
+  },
+  '3017': {
+    name: '奇鋐', price: 2835, change: '-3.74%',
+    rows: [
+      ['2026-03-02',1720,1800,1715,1765,5311930],['2026-03-03',1830,1910,1780,1795,8804200],
+      ['2026-03-04',1775,1795,1670,1750,6886787],['2026-03-05',1860,1900,1795,1820,5484692],
+      ['2026-03-06',1810,1885,1785,1845,4254526],['2026-03-09',1665,1700,1665,1665,4090895],
+      ['2026-03-10',1735,1745,1665,1695,6547366],['2026-03-11',1740,1860,1740,1860,5418586],
+      ['2026-03-12',1900,1955,1870,1875,6700536],['2026-03-13',1855,1930,1815,1865,5993158],
+      ['2026-03-16',1890,1920,1830,1830,4314909],['2026-03-17',1870,1970,1860,1905,5606630],
+      ['2026-03-18',1935,1955,1850,1850,5543887],['2026-03-19',1835,2035,1835,2015,10256997],
+      ['2026-03-20',2010,2060,1945,2050,6991270],['2026-03-23',1985,2045,1955,1995,5032899],
+      ['2026-03-24',2020,2030,1915,1945,6721340],['2026-03-25',2020,2100,2015,2100,5596612],
+      ['2026-03-26',2200,2310,2175,2275,8504254],['2026-03-27',2200,2225,2120,2195,5491400],
+      ['2026-03-30',2115,2155,2075,2135,3278469],['2026-03-31',2100,2115,1945,1990,5757841],
+      ['2026-04-01',2120,2135,2065,2110,4034786],['2026-04-02',2140,2150,2065,2070,3100871],
+      ['2026-04-07',2150,2175,2015,2030,4775019],['2026-04-08',2200,2230,2150,2230,3868944],
+      ['2026-04-09',2260,2290,2200,2235,4576820],['2026-04-10',2305,2320,2230,2265,3201925],
+      ['2026-04-13',2280,2280,2185,2200,3120709],['2026-04-14',2260,2345,2260,2310,3772108],
+      ['2026-04-15',2375,2375,2310,2325,3238805],['2026-04-16',2380,2515,2365,2440,4611118],
+      ['2026-04-17',2435,2485,2375,2400,3933545],['2026-04-20',2410,2515,2395,2490,3547518],
+      ['2026-04-21',2560,2585,2450,2565,4107167],['2026-04-22',2585,2800,2580,2695,5151543],
+      ['2026-04-23',2770,2875,2585,2680,6812966],['2026-04-24',2770,2945,2760,2945,5243084],
+      ['2026-04-27',2990,3010,2820,2835,6583986],
+    ]
+  },
+  '3189': {
+    name: '景碩', price: 515, change: '-2.09%',
+    rows: [
+      ['2026-03-02',300,323,299.5,304.5,41298007],['2026-03-03',311,330,305,309,46756665],
+      ['2026-03-04',304,312,282,284.5,45624084],['2026-03-05',308,309.5,289,297.5,36204641],
+      ['2026-03-06',295,304,291.5,291.5,20355106],['2026-03-09',262.5,271,262.5,264.5,16857608],
+      ['2026-03-10',280,286.5,267.5,274,24723052],['2026-03-11',285,296.5,284,290.5,26988757],
+      ['2026-03-12',288,300,282.5,289,29349770],['2026-03-13',283,317.5,280,317.5,48278519],
+      ['2026-03-16',322.5,348.5,312,337,91831377],['2026-03-17',342.5,368,331.5,341.5,61696256],
+      ['2026-03-18',349,373,339,365.5,59260279],['2026-03-19',356,398,352,383.5,66787097],
+      ['2026-03-20',388.5,388.5,356,380,9781675],['2026-03-23',345,360,345,346,7125514],
+      ['2026-03-24',357,357,311.5,320.5,8948825],['2026-03-25',333.5,351.5,333.5,351.5,4847721],
+      ['2026-03-26',352,370,351.5,351.5,6883559],['2026-03-27',333.5,352,333.5,352,4269127],
+      ['2026-03-30',334.5,348.5,324.5,346.5,6536532],['2026-03-31',335,339,312,313,7785444],
+      ['2026-04-01',335,335,321,332,7162420],['2026-04-02',342,352,323.5,336,8260441],
+      ['2026-04-07',350,366,350,358.5,9917650],['2026-04-08',391.5,394,381.5,394,15644754],
+      ['2026-04-09',393,408,380.5,387,51903063],['2026-04-10',399.5,400,373,381,25688029],
+      ['2026-04-13',379,381,360.5,366.5,24114477],['2026-04-14',375,386,366,371,26463388],
+      ['2026-04-15',376.5,399,363.5,383.5,42021402],['2026-04-16',389,402.5,377.5,393.5,43262498],
+      ['2026-04-17',395,405,391,391.5,27129642],['2026-04-20',397,430.5,396,430.5,33909184],
+      ['2026-04-21',453,473.5,446,473.5,38001566],['2026-04-22',496,509,484.5,491.5,53118820],
+      ['2026-04-23',496,509,453,479,58632149],['2026-04-24',499,526,498.5,526,57209204],
+      ['2026-04-27',546,555,502,515,54177803],
+    ]
+  }
+};
+
+function calcMA(rows, n) {
+  return rows.map((_,i) => {
+    if (i < n-1) return null;
+    return +(rows.slice(i-n+1,i+1).reduce((s,r)=>s+r[4],0)/n).toFixed(1);
+  });
+}
+
+let chart;
+function renderChart(code) {
+  const d = DATA[code];
+  const dates = d.rows.map(r=>r[0]);
+  const ohlcv = d.rows.map(r=>[r[1],r[4],r[3],r[2]]); // open,close,low,high for ECharts
+  const vols  = d.rows.map(r=>r[5]);
+  const ma5   = calcMA(d.rows.map(r=>({4:r[4]})).map((r,i)=>d.rows[i]), 5).map((v,i)=>v == null ? null : +d.rows[i][4]);
+  // Simpler MA
+  function ma(n) {
+    return d.rows.map((_,i) => i<n-1 ? null : +(d.rows.slice(i-n+1,i+1).reduce((s,r)=>s+r[4],0)/n).toFixed(1));
+  }
+  const up='#4ade80', dn='#f87171';
+  if (!chart) chart = echarts.init(document.getElementById('kline'));
+  chart.setOption({
+    backgroundColor:'transparent', animation:false,
+    legend:{ data:['K線','MA5','MA20'], top:8, right:12, textStyle:{color:'#94a3b8',fontSize:11}, inactiveColor:'#334155' },
+    tooltip:{
+      trigger:'axis', axisPointer:{type:'cross'},
+      backgroundColor:'#1e293b', borderColor:'#334155',
+      textStyle:{color:'#e2e8f0',fontSize:11},
+      formatter(params) {
+        const k=params.find(p=>p.seriesName==='K線'); if(!k) return '';
+        const [o,c,l,h]=k.value;
+        const col=c>=o?up:dn;
+        return `<b>${k.name}</b><br>開${o} 收<span style="color:${col};font-weight:700">${c}</span><br>高${h} 低${l}`;
+      }
+    },
+    grid:[{left:72,right:16,top:48,bottom:110},{left:72,right:16,top:'76%',bottom:36}],
+    xAxis:[
+      {type:'category',data:dates,gridIndex:0,boundaryGap:false,
+       axisLine:{lineStyle:{color:'#1e293b'}},axisLabel:{show:false},
+       splitLine:{lineStyle:{color:'#1e2d40',type:'dashed'}}},
+      {type:'category',data:dates,gridIndex:1,boundaryGap:false,
+       axisLine:{lineStyle:{color:'#1e293b'}},axisLabel:{color:'#475569',fontSize:10},splitLine:{show:false}},
+    ],
+    yAxis:[
+      {scale:true,gridIndex:0,axisLine:{lineStyle:{color:'#1e293b'}},axisLabel:{color:'#64748b',fontSize:11},splitLine:{lineStyle:{color:'#1e2d40',type:'dashed'}}},
+      {scale:true,gridIndex:1,axisLine:{lineStyle:{color:'#1e293b'}},axisLabel:{color:'#64748b',fontSize:10},splitLine:{show:false}},
+    ],
+    dataZoom:[
+      {type:'inside',xAxisIndex:[0,1],start:20,end:100},
+      {type:'slider',xAxisIndex:[0,1],start:20,end:100,bottom:4,height:22,
+       handleStyle:{color:'#475569'},textStyle:{color:'#64748b',fontSize:10},
+       borderColor:'#1e293b',fillerColor:'rgba(100,116,139,.1)',
+       dataBackground:{areaStyle:{color:'rgba(100,116,139,.1)'}}},
+    ],
+    series:[
+      {name:'K線',type:'candlestick',xAxisIndex:0,yAxisIndex:0,data:ohlcv,
+       itemStyle:{color:up,color0:dn,borderColor:up,borderColor0:dn}},
+      {name:'MA5',type:'line',data:ma(5),xAxisIndex:0,yAxisIndex:0,smooth:true,symbol:'none',
+       lineStyle:{width:1.2,color:'#fbbf24'}},
+      {name:'MA20',type:'line',data:ma(20),xAxisIndex:0,yAxisIndex:0,smooth:true,symbol:'none',
+       lineStyle:{width:1.2,color:'#818cf8'}},
+      {name:'成交量',type:'bar',xAxisIndex:1,yAxisIndex:1,data:vols,
+       itemStyle:{color(p){const r=d.rows[p.dataIndex];return r[4]>=r[1]?'rgba(74,222,128,.45)':'rgba(248,113,113,.45)'}}}
+    ]
+  },true);
+}
+
+function switchChart(code,btn) {
+  document.querySelectorAll('.ktab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderChart(code);
+}
+
+renderChart('2383');
+window.addEventListener('resize',()=>chart&&chart.resize());
+</script>
+</body>
+</html>
