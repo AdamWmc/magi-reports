@@ -73,7 +73,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 footer{border-top:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--dimmer);flex-wrap:wrap;gap:8px}
 footer a{color:var(--muted);text-decoration:none;transition:color .12s}
 footer a:hover{color:var(--text)}
+
+/* ── Theme toggle ── */
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--up-bg:rgba(220,38,38,.07);--up-bd:rgba(220,38,38,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--up-bg:rgba(224,82,82,.12);--up-bd:rgba(224,82,82,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
 </style>
+<script>(function(){var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
 </head>
 <body>
 
@@ -83,6 +90,7 @@ footer a:hover{color:var(--text)}
     <a href="/">首頁</a>
     <a href="/archive.html" class="active">報告庫</a>
   </div>
+  <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
 </nav>
 
 <div class="hero-wrap">
@@ -109,6 +117,22 @@ footer a:hover{color:var(--text)}
   <span>MAGI Stock Analysis Platform</span>
   <a href="/">magi-reports.pages.dev</a>
 </footer>
-
+<script>
+function magiToggleTheme(){
+  var h=document.documentElement;
+  var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  var next=cur==='dark'?'light':'dark';
+  h.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  magiUpdateBtn();
+}
+function magiUpdateBtn(){
+  var btn=document.getElementById('theme-btn');
+  if(!btn)return;
+  var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  btn.textContent=cur==='dark'?'☀':'🌙';
+}
+magiUpdateBtn();
+</script>
 </body>
 </html>

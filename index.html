@@ -277,7 +277,16 @@ footer{
 }
 footer a{color:var(--muted);text-decoration:none;transition:color .12s}
 footer a:hover{color:var(--text)}
+
+/* ── Theme toggle ── */
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3)}
+[data-theme="dark"] .hero-num{background:linear-gradient(160deg,#f8fafc 30%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+[data-theme="light"] .hero-num{background:none;-webkit-text-fill-color:var(--bright);color:var(--bright)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
 </style>
+<script>(function(){var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
 </head>
 <body>
 
@@ -289,6 +298,7 @@ footer a:hover{color:var(--text)}
       <a href="/" class="active">首頁</a>
       <a href="/archive.html">報告庫</a>
     </div>
+    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
   </div>
 </nav>
 
@@ -404,6 +414,22 @@ footer a:hover{color:var(--text)}
   <div>MAGI 台股智能分析</div>
   <div>資料來源：TWSE · Yahoo Finance · Exa · Notion &nbsp;·&nbsp; <a href="/archive.html">報告庫</a></div>
 </footer>
-
+<script>
+function magiToggleTheme(){
+  var h=document.documentElement;
+  var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  var next=cur==='dark'?'light':'dark';
+  h.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  magiUpdateBtn();
+}
+function magiUpdateBtn(){
+  var btn=document.getElementById('theme-btn');
+  if(!btn)return;
+  var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  btn.textContent=cur==='dark'?'☀':'🌙';
+}
+magiUpdateBtn();
+</script>
 </body>
 </html>
