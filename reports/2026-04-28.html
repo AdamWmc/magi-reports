@@ -202,16 +202,16 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
     </div>
 
     <div class="breadth">
-      <div class="b-title">市場寬度 — 上市 + 上櫃</div>
+      <div class="b-title">市場寬度 — 上市 + 上櫃合計（官方數字）</div>
       <div class="b-bar">
-        <div class="up-s" style="width:38%"></div>
-        <div class="flat-s" style="width:3%"></div>
-        <div class="dn-s" style="width:59%"></div>
+        <div class="up-s" style="width:58%"></div>
+        <div class="flat-s" style="width:9%"></div>
+        <div class="dn-s" style="width:33%"></div>
       </div>
       <div class="b-nums">
-        <span class="u">▲ 668 家上漲　盤中漲停 30+ 檔，收盤漲停 2 檔</span>
-        <span class="d">▼ 337 家下跌　持平 92 家　上櫃逆勢 +1.33%</span>
-        <span class="f">半導體指數 −1.13% · 金融 +0.6% · 上櫃 +1.33%</span>
+        <span class="u">▲ 1,113 家上漲（上市 655 + 上櫃 458）</span>
+        <span class="d">▼ 648 家下跌（上市 329 + 上櫃 319）　持平 165 家</span>
+        <span class="f">上市 漲停 42 觸板 / 跌停 2　　上櫃 漲停 30 / 跌停 4</span>
       </div>
     </div>
 
@@ -294,6 +294,70 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
         <div class="flow-stocks">電子股整體承壓</div>
         <div class="flow-theme">資金自電子股流出，航運 · 建材 · 部分傳產收跌</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- 漲停亮點 + 跌停個股 -->
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">漲停 72 檔（上市 42 + 上櫃 30）· 跌停 6 檔（上市 2 + 上櫃 4）</div>
+
+  <div style="background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.18);border-radius:6px;padding:8px 12px;margin-bottom:10px">
+    <div style="font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px;margin-bottom:5px">NOTION 共識 × 漲停（最高信號）</div>
+    <div class="flow-row" style="border-bottom:none;padding:0">
+      <div class="flow-icon u">▲</div>
+      <div style="flex:1">
+        <div class="flow-stocks">頎邦 6147</div>
+        <div class="flow-theme">光通訊族群共識 · Hyperlight / NPO LPO TIA · Arthur哥重點持股</div>
+      </div>
+      <div class="flow-pct up">+9.92%</div>
+    </div>
+  </div>
+
+  <div class="section-label">漲停族群分組</div>
+  <div class="flow-row">
+    <div class="flow-icon u">▲</div>
+    <div style="flex:1">
+      <div class="flow-stocks">記憶體族群　3 檔</div>
+      <div class="flow-theme">旺宏 2337（上市，Q1 EPS 0.9 虧轉盈，法說確認 NOR/NAND/eMMC 漲價）· 鈺創 5351（上櫃）· 威剛 3260（上櫃）</div>
+      <div class="flow-theme" style="margin-top:2px;color:var(--accent2)">催化：美光 +5.6%、SanDisk +8.1%，記憶體漲價週期確立</div>
+    </div>
+    <div class="flow-pct up">+7~10%</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-icon u">▲</div>
+    <div style="flex:1">
+      <div class="flow-stocks">矽光子 / CPO　4 檔</div>
+      <div class="flow-theme">環宇-KY 4991（上櫃）· IET-KY 4971（上櫃）· 鼎元 2426（上市）· 富采 3714（上市）</div>
+      <div class="flow-theme" style="margin-top:2px;color:var(--accent2)">CPO 滲透率加速，光通訊設備訂單持續強勁</div>
+    </div>
+    <div class="flow-pct up">+10%</div>
+  </div>
+  <div class="flow-row" style="border-bottom:none">
+    <div class="flow-icon u">▲</div>
+    <div style="flex:1">
+      <div class="flow-stocks">分散其餘　65 檔</div>
+      <div class="flow-theme">金融 · 生技 · 傳產 · 其他電子，無明確主題族群</div>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid var(--border2);margin-top:8px;padding-top:8px">
+    <div class="section-label">跌停個股（全列）</div>
+    <div class="flow-row">
+      <div class="flow-icon d">▼</div>
+      <div style="flex:1">
+        <div class="flow-stocks">上市 2 檔</div>
+        <div class="flow-theme">瑞儀 6176 · 沛爾生醫</div>
+      </div>
+      <div class="flow-pct dn">−10%</div>
+    </div>
+    <div class="flow-row" style="border-bottom:none">
+      <div class="flow-icon d">▼</div>
+      <div style="flex:1">
+        <div class="flow-stocks">上櫃 4 檔</div>
+        <div class="flow-theme">詠昇 · 琉園 1466 · 安瑞-KY · 達輝-KY</div>
+      </div>
+      <div class="flow-pct dn">−10%</div>
     </div>
   </div>
 </div>
@@ -503,7 +567,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
   <div class="wi"><span class="wn">5</span><span class="wt"><strong>MSCI 被動資金</strong>（2313、6223）— 布哥確認 2313、6223 本次季調進去；季調正式生效前，被動型外資有布局壓力</span></div>
 </div>
 
-<div class="source">資料來源：中央社 · Yahoo 財經 · FinMind · Notion 各家開會（20260423–20260428）· 指數資料：Exa 搜尋（TWSE API 尚未更新至 4/28）· 2026-04-28 收盤後</div>
+<div class="source">資料來源：TWSE RWD API（上市官方）· TPEX highlight API（上櫃官方）· FinMind（法人）· Fugle（K線）· Notion 各家開會（20260423–20260428）· Exa（新聞/題材）· 2026-04-28 收盤後</div>
 
 </div>
 
