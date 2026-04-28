@@ -1,28 +1,114 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>MAGI 報告庫</title>
-  <style>
-    body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;max-width:800px;margin:0 auto;padding:40px 24px}
-    h1{font-size:20px;font-weight:700;margin-bottom:4px}
-    .sub{font-size:12px;color:#64748b;margin-bottom:32px}
-    .list{list-style:none}
-    .list li{border-bottom:1px solid rgba(255,255,255,.06)}
-    .list li a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;color:#e2e8f0;text-decoration:none;font-size:14px}
-    .list li a:hover{color:#c084fc}
-    .list li a .date{font-weight:600}
-    .list li a .arrow{color:#64748b;font-size:16px}
-    footer{margin-top:40px;font-size:11px;color:#475569;text-align:center}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MAGI 報告庫</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;
+  --border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;
+  --up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--up-bd:rgba(224,82,82,.22);
+  --glow:rgba(124,58,237,.18);
+  --nav-bg:rgba(13,17,23,.82);
+}
+@media(prefers-color-scheme:light){
+  :root{
+    --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+    --border:#e2e8f0;--border2:#edf0f4;
+    --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+    --accent:#7c3aed;--accent2:#7c3aed;
+    --up:#dc2626;
+    --up-bg:rgba(220,38,38,.07);--up-bd:rgba(220,38,38,.2);
+    --glow:rgba(124,58,237,.07);
+    --nav-bg:rgba(255,255,255,.85);
+  }
+}
+
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* Nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent2)}
+@media(max-width:600px){.nav-links{display:none}}
+
+/* Hero */
+.hero-wrap{position:relative;overflow:hidden;padding:64px 40px 52px;text-align:center}
+.hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse at 50% 30%, var(--glow) 0%, transparent 68%);pointer-events:none}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle, var(--border) 1px, transparent 1px);background-size:28px 28px;opacity:.4;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%)}
+.hero-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+
+.page-title{font-size:32px;font-weight:800;color:var(--bright);letter-spacing:-1px;margin-bottom:10px}
+.page-sub{font-size:13px;color:var(--muted);line-height:1.7}
+.page-sub a{color:var(--accent2);text-decoration:none;transition:color .15s}
+.page-sub a:hover{color:var(--text)}
+
+/* List */
+.list-wrap{max-width:720px;margin:0 auto;padding:0 40px 72px}
+@media(max-width:600px){.list-wrap{padding:0 20px 60px}}
+
+.sec-label{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
+
+.report-list{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.report-item{display:flex;align-items:center;gap:0;padding:13px 20px;border-bottom:1px solid var(--border2);text-decoration:none;transition:background .12s}
+.report-item:last-child{border-bottom:none}
+.report-item:hover{background:var(--bg3)}
+.ri-type{font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--dimmer);background:var(--bg3);border:1px solid var(--border);padding:2px 7px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.ri-date{font-size:13px;font-weight:600;color:var(--text);margin-left:14px;white-space:nowrap}
+.ri-title{font-size:12px;color:var(--muted);margin-left:10px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ri-stat{font-size:12px;font-weight:700;margin-left:auto;padding-left:16px;white-space:nowrap;color:var(--up)}
+.ri-arrow{color:var(--border);margin-left:10px;font-size:14px;transition:color .12s}
+.report-item:hover .ri-arrow{color:var(--muted)}
+
+footer{border-top:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--dimmer);flex-wrap:wrap;gap:8px}
+footer a{color:var(--muted);text-decoration:none;transition:color .12s}
+footer a:hover{color:var(--text)}
+</style>
 </head>
 <body>
-  <h1>MAGI 報告庫</h1>
-  <p class="sub">每日 07:30 自動更新 · <a href="/" style="color:#c084fc">最新報告 →</a></p>
-  <ul class="list" id="list">
-    <li><a href="/reports/2026-04-27.html"><span class="date">2026-04-27 週一</span><span class="arrow">›</span></a></li>
-  </ul>
-  <footer>MAGI Stock Analysis Platform</footer>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-links">
+    <a href="/">首頁</a>
+    <a href="/archive.html" class="active">報告庫</a>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="page-title">報告庫</div>
+    <p class="page-sub">所有盤後報告的完整列表 · <a href="/">← 回首頁</a></p>
+  </div>
+</div>
+
+<div class="list-wrap">
+  <div class="sec-label">全部報告</div>
+  <div class="report-list" id="list">
+    <a href="/reports/2026-04-27.html" class="report-item">
+      <span class="ri-type">盤後</span>
+      <span class="ri-date">2026-04-27</span>
+      <span class="ri-title">台股史上首次盤中破4萬 · 拉積盤 · 記憶體族群漲停</span>
+      <span class="ri-stat">▲ +1.76%</span>
+      <span class="ri-arrow">›</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>MAGI Stock Analysis Platform</span>
+  <a href="/">magi-reports.pages.dev</a>
+</footer>
+
 </body>
 </html>
