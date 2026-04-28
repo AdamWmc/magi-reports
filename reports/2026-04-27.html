@@ -6,44 +6,107 @@
 <title>MAGI 盤後報告 2026-04-27</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;max-width:980px;margin:0 auto;padding:24px 18px 60px}
+
+/* ── Design Tokens ── */
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;
+  --border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;
+  --up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.13);--dn-bg:rgba(46,194,122,.13);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.16);
+  --nav-bg:rgba(13,17,23,.82);
+  --warn:#f59e0b;--blue:#3b82f6;--pink:#ec4899;
+}
+@media(prefers-color-scheme:light){
+  :root{
+    --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+    --border:#e2e8f0;--border2:#edf0f4;
+    --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+    --accent:#7c3aed;--accent2:#7c3aed;
+    --up:#dc2626;--dn:#16a34a;
+    --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+    --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+    --glow:rgba(124,58,237,.06);
+    --nav-bg:rgba(255,255,255,.85);
+  }
+}
+
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* ── Nav ── */
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-back{font-size:12px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .15s}
+.nav-back:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:6px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px}
+.nav-date{font-size:11px;color:var(--muted)}
+
+/* ── Hero wrap ── */
+.hero-wrap{
+  position:relative;overflow:hidden;
+  padding:40px 32px 32px;
+  max-width:980px;margin:0 auto;
+}
+.hero-wrap::before{
+  content:'';position:absolute;
+  top:-80px;left:50%;transform:translateX(-50%);
+  width:800px;height:460px;
+  background:radial-gradient(ellipse at 50% 30%, var(--glow) 0%, transparent 65%);
+  pointer-events:none;
+}
+.hero-wrap::after{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size:28px 28px;
+  opacity:.35;pointer-events:none;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 20%, black 0%, transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 20%, black 0%, transparent 100%);
+}
+.hero-inner{position:relative;z-index:1}
 
 /* ── Header ── */
 .header{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.badge{background:#7c3aed;color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:4px;letter-spacing:.5px}
-.header h1{font-size:17px;font-weight:700;color:#f8fafc}
-.header .sub{font-size:11px;color:#475569;margin-left:auto}
+.badge{background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:4px;letter-spacing:.5px}
+.header h1{font-size:17px;font-weight:700;color:var(--bright)}
+.header .sub{font-size:11px;color:var(--dimmer);margin-left:auto}
 
-/* ── Colors (台股: 紅漲綠跌) ── */
-.up{color:#e05252}
-.dn{color:#2ec27a}
-.up-bg{background:rgba(224,82,82,.13);color:#e05252}
-.dn-bg{background:rgba(46,194,122,.13);color:#2ec27a}
-.flat{color:#94a3b8}
-.purple{color:#c084fc}
+/* ── Colors ── */
+.up{color:var(--up)}.dn{color:var(--dn)}
+.up-bg{background:var(--up-bg);color:var(--up)}
+.dn-bg{background:var(--dn-bg);color:var(--dn)}
+.flat{color:var(--text2)}.purple{color:var(--accent2)}
 
 /* ── Market Bar ── */
-.mkt{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.mkt-idx{font-size:26px;font-weight:800;color:#f8fafc;line-height:1}
+.mkt{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.mkt-idx{font-size:26px;font-weight:800;color:var(--bright);line-height:1}
 .mkt-chg{font-size:14px;font-weight:700;padding:3px 10px;border-radius:6px}
-.mkt-meta{font-size:12px;color:#64748b;display:flex;flex-direction:column;gap:3px}
-.mkt-meta span{color:#94a3b8}
-.mkt-badge{font-size:10px;background:#7c3aed22;color:#c084fc;padding:2px 9px;border-radius:4px;white-space:nowrap}
+.mkt-meta{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.mkt-meta span{color:var(--text2)}
+.mkt-badge{font-size:10px;background:rgba(124,58,237,.12);color:var(--accent2);border:1px solid rgba(124,58,237,.2);padding:2px 9px;border-radius:4px;white-space:nowrap}
 
 /* ── Alert ── */
-.alert{background:#1e1b2e;border:1px solid #7c3aed44;border-radius:8px;padding:9px 14px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.alert-t{font-size:13px;color:#c084fc;font-weight:600}
-.alert-d{font-size:11px;color:#64748b;margin-left:auto}
+.alert{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.2);border-radius:8px;padding:9px 14px;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.alert-t{font-size:13px;color:var(--accent2);font-weight:600}
+.alert-d{font-size:11px;color:var(--muted);margin-left:auto}
 
 /* ── Breadth ── */
-.breadth{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:11px 14px;margin-bottom:14px}
-.b-title{font-size:10px;color:#475569;letter-spacing:.5px;margin-bottom:7px;text-transform:uppercase;font-weight:600}
+.breadth{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;margin-bottom:14px}
+.b-title{font-size:10px;color:var(--dimmer);letter-spacing:.5px;margin-bottom:7px;text-transform:uppercase;font-weight:600}
 .b-bar{height:7px;border-radius:4px;display:flex;overflow:hidden;margin-bottom:7px}
-.b-bar .up-s{background:linear-gradient(90deg,#e05252,#c23a3a)}
-.b-bar .dn-s{background:linear-gradient(90deg,#2ec27a,#209055)}
-.b-bar .flat-s{background:#334155}
+.b-bar .up-s{background:linear-gradient(90deg,var(--up),#c23a3a)}
+.b-bar .dn-s{background:linear-gradient(90deg,var(--dn),#209055)}
+.b-bar .flat-s{background:var(--bg3)}
 .b-nums{display:flex;gap:14px;font-size:11px;flex-wrap:wrap}
-.b-nums .u{color:#e05252} .b-nums .d{color:#2ec27a} .b-nums .f{color:#475569}
+.b-nums .u{color:var(--up)}.b-nums .d{color:var(--dn)}.b-nums .f{color:var(--dimmer)}
+
+/* ── Main content ── */
+.content{max-width:980px;margin:0 auto;padding:0 32px 60px}
+@media(max-width:600px){.content{padding:0 18px 60px}.hero-wrap{padding:28px 18px 24px}}
 
 /* ── Grid ── */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
@@ -52,174 +115,189 @@ body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',s
 @media(max-width:420px){.grid3{grid-template-columns:1fr}}
 
 /* ── Card ── */
-.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:14px}
-.card-title{font-size:10px;color:#475569;font-weight:700;letter-spacing:.6px;margin-bottom:11px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
-.card-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:#7c3aed;flex-shrink:0}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.card-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:11px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.card-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
 
 /* ── 資金流向 ── */
-.flow-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #1a1f2a;font-size:12px}
+.flow-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--border2);font-size:12px}
 .flow-row:last-child{border-bottom:none}
 .flow-icon{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
-.flow-icon.u{background:rgba(224,82,82,.2);color:#e05252}
-.flow-icon.d{background:rgba(46,194,122,.2);color:#2ec27a}
-.flow-content{}
-.flow-stocks{color:#e2e8f0;font-weight:600;line-height:1.4}
-.flow-theme{font-size:10px;color:#64748b;margin-top:2px}
+.flow-icon.u{background:var(--up-bg);color:var(--up)}
+.flow-icon.d{background:var(--dn-bg);color:var(--dn)}
+.flow-stocks{color:var(--text);font-weight:600;line-height:1.4}
+.flow-theme{font-size:10px;color:var(--muted);margin-top:2px}
 .flow-pct{font-weight:700;font-size:12px;margin-left:auto;white-space:nowrap;padding-top:1px}
 
-/* ── Notion 共識股 Table ── */
-.consensus-wrap{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:14px;margin-bottom:14px;overflow-x:auto}
+/* ── Notion 共識股 ── */
+.consensus-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;overflow-x:auto}
 .tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:560px}
-.tbl th{color:#475569;font-weight:600;padding:5px 6px;text-align:left;border-bottom:1px solid #21262d;font-size:10px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.tbl th{color:var(--dimmer);font-weight:600;padding:5px 6px;text-align:left;border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
 .tbl th:not(:first-child){text-align:center}
-.tbl td{padding:8px 6px;border-bottom:1px solid #1a1f2a;vertical-align:middle}
+.tbl td{padding:8px 6px;border-bottom:1px solid var(--border2);vertical-align:middle}
 .tbl td:not(:first-child){text-align:center}
 .tbl tr:last-child td{border-bottom:none}
-.stk-name{font-weight:700;color:#f8fafc;font-size:12px;display:block}
-.stk-code{font-size:10px;color:#475569}
+.tbl tr:hover td{background:var(--bg3)}
+.stk-name{font-weight:700;color:var(--bright);font-size:12px;display:block}
+.stk-code{font-size:10px;color:var(--dimmer)}
 .chip{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px}
-.chip.buy{background:rgba(224,82,82,.15);color:#e05252}
-.chip.sell{background:rgba(46,194,122,.15);color:#2ec27a}
-.price{font-weight:700;color:#f8fafc;font-size:13px}
-.consensus-tag{display:inline-block;font-size:9px;background:#21262d;color:#64748b;padding:1px 5px;border-radius:3px;white-space:nowrap}
+.chip.buy{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.chip.sell{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.price{font-weight:700;color:var(--bright);font-size:13px}
+.consensus-tag{display:inline-block;font-size:9px;background:var(--bg3);color:var(--muted);padding:1px 5px;border-radius:3px;white-space:nowrap}
 .consensus-score{display:flex;gap:2px;justify-content:center}
-.dot{width:5px;height:5px;border-radius:50%;background:#334155}
-.dot.on{background:#7c3aed}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--border)}
+.dot.on{background:var(--accent)}
 
 /* ── Inst rows ── */
-.inst-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #1a1f2a;font-size:12px}
+.inst-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border2);font-size:12px}
 .inst-row:last-child{border-bottom:none}
-.inst-label{color:#94a3b8}
+.inst-label{color:var(--text2)}
 .inst-val{font-weight:700;font-size:13px}
 
 /* ── Insight ── */
-.insight{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:13px;border-left:3px solid #334155}
-.insight.bull{border-left-color:#e05252}
-.insight.bear{border-left-color:#2ec27a}
-.insight.info{border-left-color:#3b82f6}
-.insight.warn{border-left-color:#f59e0b}
-.insight.purple{border-left-color:#7c3aed}
-.insight.mem{border-left-color:#ec4899}
+.insight{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px;border-left:3px solid var(--border)}
+.insight.bull{border-left-color:var(--up)}
+.insight.bear{border-left-color:var(--dn)}
+.insight.info{border-left-color:var(--blue)}
+.insight.warn{border-left-color:var(--warn)}
+.insight.purple{border-left-color:var(--accent)}
+.insight.mem{border-left-color:var(--pink)}
 .itag{font-size:9px;font-weight:700;letter-spacing:.5px;margin-bottom:5px;text-transform:uppercase}
-.insight.bull .itag{color:#e05252}
-.insight.bear .itag{color:#2ec27a}
-.insight.info .itag{color:#60a5fa}
-.insight.warn .itag{color:#f59e0b}
-.insight.purple .itag{color:#c084fc}
-.insight.mem .itag{color:#ec4899}
-.insight p{font-size:11px;color:#94a3b8;line-height:1.65}
-.insight strong{color:#e2e8f0}
+.insight.bull .itag{color:var(--up)}
+.insight.bear .itag{color:var(--dn)}
+.insight.info .itag{color:var(--blue)}
+.insight.warn .itag{color:var(--warn)}
+.insight.purple .itag{color:var(--accent2)}
+.insight.mem .itag{color:var(--pink)}
+.insight p{font-size:11px;color:var(--text2);line-height:1.65}
+.insight strong{color:var(--text)}
 
 /* ── Notion intel ── */
 .notion-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 @media(max-width:600px){.notion-grid{grid-template-columns:1fr}}
-.nc{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:13px}
-.nc .spk{font-size:10px;color:#7c3aed;font-weight:700;margin-bottom:5px;letter-spacing:.3px}
-.nc p{font-size:11px;color:#94a3b8;line-height:1.65}
-.nc strong{color:#e2e8f0}
-.nc .tag{display:inline-block;font-size:9px;background:#1a1f2a;color:#475569;padding:1px 5px;border-radius:3px;margin-top:5px}
+.nc{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:13px}
+.nc .spk{font-size:10px;color:var(--accent);font-weight:700;margin-bottom:5px;letter-spacing:.3px}
+.nc p{font-size:11px;color:var(--text2);line-height:1.65}
+.nc strong{color:var(--text)}
+.nc .tag{display:inline-block;font-size:9px;background:var(--bg3);color:var(--muted);padding:1px 5px;border-radius:3px;margin-top:5px}
 
 /* ── Watch ── */
-.watch{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:14px}
-.watch-title{font-size:10px;color:#475569;font-weight:700;letter-spacing:.6px;margin-bottom:11px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
-.watch-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:#f59e0b;flex-shrink:0}
-.wi{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid #1a1f2a;font-size:11px}
+.watch{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.watch-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:11px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.watch-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--warn);flex-shrink:0}
+.wi{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid var(--border2);font-size:11px}
 .wi:last-child{border-bottom:none}
-.wn{color:#f59e0b;font-weight:700;min-width:14px;flex-shrink:0}
-.wt{color:#94a3b8;line-height:1.55}
-.wt strong{color:#e2e8f0}
+.wn{color:var(--warn);font-weight:700;min-width:14px;flex-shrink:0}
+.wt{color:var(--text2);line-height:1.55}
+.wt strong{color:var(--text)}
 
-.section-label{font-size:10px;color:#475569;font-weight:700;letter-spacing:.6px;margin-bottom:8px;text-transform:uppercase}
-.source{font-size:10px;color:#2d3748;text-align:center;margin-top:20px;padding-top:10px;border-top:1px solid #1a1f2a}
-
-/* ── K-line cell ── */
+.section-label{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:8px;text-transform:uppercase}
+.source{font-size:10px;color:var(--border);text-align:center;margin-top:20px;padding-top:10px;border-top:1px solid var(--border2)}
 .kline-cell{line-height:0}
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<div class="header">
-  <span class="badge">盤後報告</span>
-  <h1>2026-04-27 週一</h1>
-  <span class="sub">收盤後更新 · MAGI</span>
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <span class="nav-badge">盤後報告</span>
+    <span class="nav-date">2026-04-27</span>
+  </div>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    首頁
+  </a>
+</nav>
+
+<!-- Hero wrap -->
+<div class="hero-wrap">
+  <div class="hero-inner">
+
+    <!-- Header -->
+    <div class="header">
+      <span class="badge">盤後報告</span>
+      <h1>2026-04-27 週一</h1>
+      <span class="sub">收盤後更新 · MAGI</span>
+    </div>
+
+    <!-- Market Bar -->
+    <div class="mkt">
+      <div>
+        <div style="font-size:10px;color:var(--muted);margin-bottom:3px">加權指數</div>
+        <div class="mkt-idx">39,616.63</div>
+      </div>
+      <div class="mkt-chg up-bg">▲ +684.23 &nbsp;+1.76%</div>
+      <div class="mkt-meta">
+        <span>成交量 <strong style="color:var(--text)">1兆1,844億</strong>（史上第3大）</span>
+        <span>盤中最高 <strong class="purple">40,194.92</strong></span>
+      </div>
+      <div class="mkt-meta">
+        <span>台積電 2330 <strong class="up">+3.66% → 2,265</strong></span>
+        <span>盤中觸 <strong class="purple">2,330 = 股號</strong></span>
+      </div>
+      <div class="mkt-badge">🏆 台股史上首次盤中突破 4 萬點</div>
+    </div>
+
+    <!-- Alert -->
+    <div class="alert">
+      <span class="alert-t">⚡ 拉積盤：台積電條款引發恐慌性換股</span>
+      <span class="alert-d">金管會 ETF 單一持股上限 10% → 25%，投信增持潛在空間 2,000 億</span>
+    </div>
+
+    <!-- Breadth -->
+    <div class="breadth">
+      <div class="b-title">市場寬度 — 上市 + 上櫃</div>
+      <div class="b-bar">
+        <div class="up-s" style="width:26%"></div>
+        <div class="flat-s" style="width:2%"></div>
+        <div class="dn-s" style="width:72%"></div>
+      </div>
+      <div class="b-nums">
+        <span class="u">▲ 漲 485　上市 278（17漲停）· 上櫃 207（23漲停）</span>
+        <span class="d">▼ 跌 1,354　上市 739（8跌停）· 上櫃 615（13跌停）</span>
+        <span class="f">上櫃 −1.18%，中小型股全面失血</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<!-- Market Bar -->
-<div class="mkt">
-  <div>
-    <div style="font-size:10px;color:#475569;margin-bottom:3px">加權指數</div>
-    <div class="mkt-idx">39,616.63</div>
-  </div>
-  <div class="mkt-chg up-bg">▲ +684.23 &nbsp;+1.76%</div>
-  <div class="mkt-meta">
-    <span>成交量 <strong style="color:#e2e8f0">1兆1,844億</strong>（史上第3大）</span>
-    <span>盤中最高 <strong class="purple">40,194.92</strong></span>
-  </div>
-  <div class="mkt-meta">
-    <span>台積電 2330 <strong class="up">+3.66% → 2,265</strong></span>
-    <span>盤中觸 <strong class="purple">2,330 = 股號</strong></span>
-  </div>
-  <div class="mkt-badge">🏆 台股史上首次盤中突破 4 萬點</div>
-</div>
-
-<!-- Alert -->
-<div class="alert">
-  <span class="alert-t">⚡ 拉積盤：台積電條款引發恐慌性換股</span>
-  <span class="alert-d">金管會 ETF 單一持股上限 10% → 25%，投信增持潛在空間 2,000 億</span>
-</div>
-
-<!-- Breadth -->
-<div class="breadth">
-  <div class="b-title">市場寬度 — 上市 + 上櫃</div>
-  <div class="b-bar">
-    <div class="up-s" style="width:26%"></div>
-    <div class="flat-s" style="width:2%"></div>
-    <div class="dn-s" style="width:72%"></div>
-  </div>
-  <div class="b-nums">
-    <span class="u">▲ 漲 485　上市 278（17漲停）· 上櫃 207（23漲停）</span>
-    <span class="d">▼ 跌 1,354　上市 739（8跌停）· 上櫃 615（13跌停）</span>
-    <span class="f">上櫃 −1.18%，中小型股全面失血</span>
-  </div>
-</div>
+<!-- Main Content -->
+<div class="content">
 
 <!-- 資金流向 -->
 <div class="grid2">
-  <!-- 漲停族群 -->
   <div class="card">
     <div class="card-title">漲停族群與主題</div>
-
     <div class="flow-row">
       <div class="flow-icon u">▲</div>
       <div class="flow-content" style="flex:1">
         <div class="flow-stocks">記憶體半導體（11 檔漲停）</div>
         <div class="flow-theme">旺宏 2337 · 南亞科 2408 · 十銓 4967 · 威剛 3260 · 廣穎 4973 · 中美晶 5483</div>
-        <div class="flow-theme" style="margin-top:2px;color:#c084fc">主題：eMMC / MLC NAND 供不應求，漲價週期啟動</div>
+        <div class="flow-theme" style="margin-top:2px;color:var(--accent2)">主題：eMMC / MLC NAND 供不應求，漲價週期啟動</div>
       </div>
       <div class="flow-pct up">+10%</div>
     </div>
-
     <div class="flow-row">
       <div class="flow-icon u">▲</div>
       <div class="flow-content" style="flex:1">
         <div class="flow-stocks">ETF 吸磁效應</div>
         <div class="flow-theme">0050 +4.1% · 006208 +4.0% · 00631L（2倍）+6.2%</div>
-        <div class="flow-theme" style="margin-top:2px;color:#c084fc">主題：台積電條款，被動 ETF 強制增持</div>
+        <div class="flow-theme" style="margin-top:2px;color:var(--accent2)">主題：台積電條款，被動 ETF 強制增持</div>
       </div>
       <div class="flow-pct up">+4~6%</div>
     </div>
-
     <div class="flow-row">
       <div class="flow-icon u">▲</div>
       <div class="flow-content" style="flex:1">
         <div class="flow-stocks">半導體類股指數（最強板塊）</div>
         <div class="flow-theme">精材 3374 · 類比科 3438 · 竑騰 7751 · 大中 6435 亦漲停</div>
-        <div class="flow-theme" style="margin-top:2px;color:#c084fc">主題：AI ASIC 備貨潮，CoWoS 晶片週邊受惠</div>
+        <div class="flow-theme" style="margin-top:2px;color:var(--accent2)">主題：AI ASIC 備貨潮，CoWoS 晶片週邊受惠</div>
       </div>
       <div class="flow-pct up">+3.03%</div>
     </div>
-
     <div class="flow-row">
       <div class="flow-icon u">▲</div>
       <div class="flow-content" style="flex:1">
@@ -229,39 +307,34 @@ body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',s
     </div>
   </div>
 
-  <!-- 跌停族群 -->
   <div class="card">
     <div class="card-title">跌停族群與主題</div>
-
     <div class="flow-row">
       <div class="flow-icon d">▼</div>
       <div class="flow-content" style="flex:1">
         <div class="flow-stocks">千金精密設備股（跌停）</div>
         <div class="flow-theme">均華 6640（1,355）· 印能科技 7734（3,390）· IET-KY 4971（687）</div>
-        <div class="flow-theme" style="margin-top:2px;color:#f59e0b">主題：高價股獲利了結 + 恐慌換股，資金撤出中小型設備</div>
+        <div class="flow-theme" style="margin-top:2px;color:var(--warn)">主題：高價股獲利了結 + 恐慌換股，資金撤出中小型設備</div>
       </div>
       <div class="flow-pct dn">−10%</div>
     </div>
-
     <div class="flow-row">
       <div class="flow-icon d">▼</div>
       <div class="flow-content" style="flex:1">
         <div class="flow-stocks">化合物半導體跌停</div>
         <div class="flow-theme">穩懋 3105（492.5）跌停</div>
-        <div class="flow-theme" style="margin-top:2px;color:#f59e0b">主題：RF/GaAs 題材降溫，資金輪出</div>
+        <div class="flow-theme" style="margin-top:2px;color:var(--warn)">主題：RF/GaAs 題材降溫，資金輪出</div>
       </div>
       <div class="flow-pct dn">−10%</div>
     </div>
-
     <div class="flow-row">
       <div class="flow-icon d">▼</div>
       <div class="flow-content" style="flex:1">
         <div class="flow-stocks">其他權值股</div>
         <div class="flow-theme">台達電 2308 −2.65% · 聯發科 2454 平盤 · 鴻海 2317 +2.93%</div>
-        <div class="flow-theme" style="margin-top:2px;color:#f59e0b">主題：選股性輪動，非台積電相關承壓</div>
+        <div class="flow-theme" style="margin-top:2px;color:var(--warn)">主題：選股性輪動，非台積電相關承壓</div>
       </div>
     </div>
-
     <div class="flow-row">
       <div class="flow-icon d">▼</div>
       <div class="flow-content" style="flex:1">
@@ -274,18 +347,12 @@ body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',s
 
 <!-- Notion 共識股 -->
 <div class="consensus-wrap">
-  <div class="card-title" style="margin-bottom:12px">Notion 共識股　<span style="font-size:10px;color:#334155;font-weight:400;text-transform:none;letter-spacing:0">近10日 · 最近3日2倍權重 · K線15日</span></div>
+  <div class="card-title" style="margin-bottom:12px">Notion 共識股　<span style="font-size:10px;color:var(--bg3);font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">近10日 · 最近3日2倍權重 · K線15日</span></div>
   <table class="tbl">
     <thead>
       <tr>
-        <th>股票</th>
-        <th>近15日K線</th>
-        <th>收盤</th>
-        <th>漲跌</th>
-        <th>外資</th>
-        <th>投信</th>
-        <th>共識度</th>
-        <th>主題</th>
+        <th>股票</th><th>近15日K線</th><th>收盤</th><th>漲跌</th>
+        <th>外資</th><th>投信</th><th>共識度</th><th>主題</th>
       </tr>
     </thead>
     <tbody>
@@ -350,34 +417,22 @@ body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',s
     <div class="inst-row"><span class="inst-label">外資及陸資</span><span class="inst-val dn">賣超 −511.96 億</span></div>
     <div class="inst-row"><span class="inst-label">投信</span><span class="inst-val up">買超 +135.18 億</span></div>
     <div class="inst-row"><span class="inst-label">自營商</span><span class="inst-val dn">賣超 −105.43 億</span></div>
-    <div class="inst-row" style="border-top:1px solid #334155;padding-top:8px;margin-top:4px">
-      <span class="inst-label" style="font-weight:700;color:#e2e8f0">三大合計</span>
+    <div class="inst-row" style="border-top:1px solid var(--bg3);padding-top:8px;margin-top:4px">
+      <span class="inst-label" style="font-weight:700;color:var(--text)">三大合計</span>
       <span class="inst-val dn">賣超 −482.2 億</span>
     </div>
-    <div style="margin-top:8px;padding-top:8px;border-top:1px solid #1a1f2a;font-size:11px;color:#64748b;line-height:1.6">
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border2);font-size:11px;color:var(--muted);line-height:1.6">
       外資重砍非因看壞後市，主係 ETF 持股上限調整引發排擠效應，台積電條款造成籌碼重新分配。
     </div>
   </div>
   <div class="card">
     <div class="card-title">板塊漲跌概覽</div>
-    <div class="flow-row" style="padding:5px 0">
-      <div style="font-size:11px;flex:1"><span class="up" style="font-weight:700">半導體</span><span style="color:#64748b;margin-left:4px">+3.03%（最強）</span></div>
-    </div>
-    <div class="flow-row" style="padding:5px 0">
-      <div style="font-size:11px;flex:1"><span class="up" style="font-weight:700">電子 · 通訊 · 光電</span><span style="color:#64748b;margin-left:4px">收紅</span></div>
-    </div>
-    <div class="flow-row" style="padding:5px 0">
-      <div style="font-size:11px;flex:1"><span class="dn" style="font-weight:700">上櫃指數</span><span style="color:#64748b;margin-left:4px">−1.18%（377.05）</span></div>
-    </div>
-    <div class="flow-row" style="padding:5px 0">
-      <div style="font-size:11px;flex:1"><span class="dn" style="font-weight:700">航運 · 鋼鐵 · 金融 · 生技</span><span style="color:#64748b;margin-left:4px">收跌</span></div>
-    </div>
-    <div class="flow-row" style="padding:5px 0">
-      <div style="font-size:11px;flex:1"><span class="dn" style="font-weight:700">數位雲端 · 綠能 · 營建</span><span style="color:#64748b;margin-left:4px">收跌</span></div>
-    </div>
-    <div class="flow-row" style="padding:5px 0;border-bottom:none">
-      <div style="font-size:11px;flex:1;color:#64748b">台指期收 39,888，盤中最高 40,458（期貨新天價）</div>
-    </div>
+    <div class="flow-row" style="padding:5px 0"><div style="font-size:11px;flex:1"><span class="up" style="font-weight:700">半導體</span><span style="color:var(--muted);margin-left:4px">+3.03%（最強）</span></div></div>
+    <div class="flow-row" style="padding:5px 0"><div style="font-size:11px;flex:1"><span class="up" style="font-weight:700">電子 · 通訊 · 光電</span><span style="color:var(--muted);margin-left:4px">收紅</span></div></div>
+    <div class="flow-row" style="padding:5px 0"><div style="font-size:11px;flex:1"><span class="dn" style="font-weight:700">上櫃指數</span><span style="color:var(--muted);margin-left:4px">−1.18%（377.05）</span></div></div>
+    <div class="flow-row" style="padding:5px 0"><div style="font-size:11px;flex:1"><span class="dn" style="font-weight:700">航運 · 鋼鐵 · 金融 · 生技</span><span style="color:var(--muted);margin-left:4px">收跌</span></div></div>
+    <div class="flow-row" style="padding:5px 0"><div style="font-size:11px;flex:1"><span class="dn" style="font-weight:700">數位雲端 · 綠能 · 營建</span><span style="color:var(--muted);margin-left:4px">收跌</span></div></div>
+    <div class="flow-row" style="padding:5px 0;border-bottom:none"><div style="font-size:11px;flex:1;color:var(--muted)">台指期收 39,888，盤中最高 40,458（期貨新天價）</div></div>
   </div>
 </div>
 
@@ -457,92 +512,36 @@ body{background:#0d1117;color:#e2e8f0;font-family:'PingFang TC','Noto Sans TC',s
 
 <div class="source">資料來源：TWSE · Yahoo Finance · FinMind · Notion 各家開會（20260423–20260427）· 旺宏法說 · 2026-04-27 收盤後</div>
 
+</div><!-- /content -->
+
 <script>
-// ── K-line OHLC 資料 (台股: 紅=漲, 綠=跌) ──
 const kdata = {
-  '2383': [
-    {o:2875,h:2970,l:2850,c:2885},{o:3160,h:3170,l:3135,c:3170},
-    {o:3225,h:3350,l:3180,c:3220},{o:3280,h:3435,l:3260,c:3420},
-    {o:3430,h:3440,l:3320,c:3325},{o:3490,h:3655,l:3490,c:3605},
-    {o:3870,h:3875,l:3700,c:3810},{o:3950,h:3950,l:3760,c:3835},
-    {o:3770,h:3865,l:3730,c:3800},{o:3780,h:3915,l:3720,c:3850},
-    {o:3900,h:3990,l:3830,c:3950},{o:3960,h:4200,l:3895,c:4065},
-    {o:4215,h:4440,l:3975,c:4100},{o:4300,h:4485,l:4230,c:4475},
-    {o:4660,h:4800,l:4475,c:4730}
-  ],
-  '3017': [
-    {o:2150,h:2175,l:2015,c:2030},{o:2200,h:2230,l:2150,c:2230},
-    {o:2260,h:2290,l:2200,c:2235},{o:2305,h:2320,l:2230,c:2265},
-    {o:2280,h:2280,l:2185,c:2200},{o:2260,h:2345,l:2260,c:2310},
-    {o:2375,h:2375,l:2310,c:2325},{o:2380,h:2515,l:2365,c:2440},
-    {o:2435,h:2485,l:2375,c:2400},{o:2410,h:2515,l:2395,c:2490},
-    {o:2560,h:2585,l:2450,c:2565},{o:2585,h:2800,l:2580,c:2695},
-    {o:2770,h:2875,l:2585,c:2680},{o:2770,h:2945,l:2760,c:2945},
-    {o:2990,h:3010,l:2820,c:2835}
-  ],
-  '3189': [
-    {o:350,h:366,l:350,c:358.5},{o:391.5,h:394,l:381.5,c:394},
-    {o:393,h:408,l:380.5,c:387},{o:399.5,h:400,l:373,c:381},
-    {o:379,h:381,l:360.5,c:366.5},{o:375,h:386,l:366,c:371},
-    {o:376.5,h:399,l:363.5,c:383.5},{o:389,h:402.5,l:377.5,c:393.5},
-    {o:395,h:405,l:391,c:391.5},{o:397,h:430.5,l:396,c:430.5},
-    {o:453,h:473.5,l:446,c:473.5},{o:496,h:509,l:484.5,c:491.5},
-    {o:496,h:509,l:453,c:479},{o:499,h:526,l:498.5,c:526},
-    {o:546,h:555,l:502,c:515}
-  ],
-  '2345': [
-    {o:1660,h:1685,l:1600,c:1615},{o:1680,h:1765,l:1680,c:1710},
-    {o:1730,h:1760,l:1670,c:1690},{o:1750,h:1855,l:1720,c:1835},
-    {o:1820,h:1855,l:1785,c:1820},{o:1885,h:1910,l:1850,c:1890},
-    {o:1900,h:2075,l:1870,c:1970},{o:2025,h:2050,l:1975,c:2035},
-    {o:2035,h:2110,l:2020,c:2070},{o:2045,h:2060,l:1995,c:2005},
-    {o:2100,h:2205,l:2060,c:2190},{o:2150,h:2250,l:2130,c:2200},
-    {o:2220,h:2230,l:2010,c:2080},{o:2105,h:2170,l:2050,c:2140},
-    {o:2205,h:2225,l:2105,c:2175}
-  ],
-  '6187': [
-    {o:915,h:924,l:911,c:920},{o:968,h:984,l:940,c:980},
-    {o:961,h:961,l:886,c:886},{o:930,h:974,l:900,c:974},
-    {o:996,h:1070,l:996,c:1040},{o:1055,h:1055,l:995,c:1035},
-    {o:1055,h:1135,l:1000,c:1135},{o:1130,h:1175,l:1045,c:1105},
-    {o:1105,h:1215,l:1105,c:1215},{o:1275,h:1290,l:1205,c:1225},
-    {o:1340,h:1340,l:1230,c:1330},{o:1380,h:1435,l:1355,c:1390},
-    {o:1465,h:1490,l:1255,c:1255},{o:1260,h:1300,l:1145,c:1170},
-    {o:1170,h:1170,l:1055,c:1080}
-  ]
+  '2383': [{o:2875,h:2970,l:2850,c:2885},{o:3160,h:3170,l:3135,c:3170},{o:3225,h:3350,l:3180,c:3220},{o:3280,h:3435,l:3260,c:3420},{o:3430,h:3440,l:3320,c:3325},{o:3490,h:3655,l:3490,c:3605},{o:3870,h:3875,l:3700,c:3810},{o:3950,h:3950,l:3760,c:3835},{o:3770,h:3865,l:3730,c:3800},{o:3780,h:3915,l:3720,c:3850},{o:3900,h:3990,l:3830,c:3950},{o:3960,h:4200,l:3895,c:4065},{o:4215,h:4440,l:3975,c:4100},{o:4300,h:4485,l:4230,c:4475},{o:4660,h:4800,l:4475,c:4730}],
+  '3017': [{o:2150,h:2175,l:2015,c:2030},{o:2200,h:2230,l:2150,c:2230},{o:2260,h:2290,l:2200,c:2235},{o:2305,h:2320,l:2230,c:2265},{o:2280,h:2280,l:2185,c:2200},{o:2260,h:2345,l:2260,c:2310},{o:2375,h:2375,l:2310,c:2325},{o:2380,h:2515,l:2365,c:2440},{o:2435,h:2485,l:2375,c:2400},{o:2410,h:2515,l:2395,c:2490},{o:2560,h:2585,l:2450,c:2565},{o:2585,h:2800,l:2580,c:2695},{o:2770,h:2875,l:2585,c:2680},{o:2770,h:2945,l:2760,c:2945},{o:2990,h:3010,l:2820,c:2835}],
+  '3189': [{o:350,h:366,l:350,c:358.5},{o:391.5,h:394,l:381.5,c:394},{o:393,h:408,l:380.5,c:387},{o:399.5,h:400,l:373,c:381},{o:379,h:381,l:360.5,c:366.5},{o:375,h:386,l:366,c:371},{o:376.5,h:399,l:363.5,c:383.5},{o:389,h:402.5,l:377.5,c:393.5},{o:395,h:405,l:391,c:391.5},{o:397,h:430.5,l:396,c:430.5},{o:453,h:473.5,l:446,c:473.5},{o:496,h:509,l:484.5,c:491.5},{o:496,h:509,l:453,c:479},{o:499,h:526,l:498.5,c:526},{o:546,h:555,l:502,c:515}],
+  '2345': [{o:1660,h:1685,l:1600,c:1615},{o:1680,h:1765,l:1680,c:1710},{o:1730,h:1760,l:1670,c:1690},{o:1750,h:1855,l:1720,c:1835},{o:1820,h:1855,l:1785,c:1820},{o:1885,h:1910,l:1850,c:1890},{o:1900,h:2075,l:1870,c:1970},{o:2025,h:2050,l:1975,c:2035},{o:2035,h:2110,l:2020,c:2070},{o:2045,h:2060,l:1995,c:2005},{o:2100,h:2205,l:2060,c:2190},{o:2150,h:2250,l:2130,c:2200},{o:2220,h:2230,l:2010,c:2080},{o:2105,h:2170,l:2050,c:2140},{o:2205,h:2225,l:2105,c:2175}],
+  '6187': [{o:915,h:924,l:911,c:920},{o:968,h:984,l:940,c:980},{o:961,h:961,l:886,c:886},{o:930,h:974,l:900,c:974},{o:996,h:1070,l:996,c:1040},{o:1055,h:1055,l:995,c:1035},{o:1055,h:1135,l:1000,c:1135},{o:1130,h:1175,l:1045,c:1105},{o:1105,h:1215,l:1105,c:1215},{o:1275,h:1290,l:1205,c:1225},{o:1340,h:1340,l:1230,c:1330},{o:1380,h:1435,l:1355,c:1390},{o:1465,h:1490,l:1255,c:1255},{o:1260,h:1300,l:1145,c:1170},{o:1170,h:1170,l:1055,c:1080}]
 };
-
-function drawKline(data, el) {
-  const W = 80, H = 30, n = data.length;
-  const step = W / n;
-  const bw = Math.max(step * 0.55, 1.5);
-  const prices = data.flatMap(d => [d.h, d.l]);
-  const mn = Math.min(...prices), mx = Math.max(...prices);
-  const rng = mx - mn || 1;
-  const pad = 1.5;
-  const py = p => pad + (H - pad*2) * (1 - (p - mn) / rng);
-
-  let s = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">`;
-  data.forEach((d, i) => {
-    const cx = (i + 0.5) * step;
-    const up = d.c >= d.o;
-    const col = up ? '#e05252' : '#2ec27a';
-    const bodyTop = py(Math.max(d.o, d.c));
-    const bodyBot = py(Math.min(d.o, d.c));
-    const bodyH = Math.max(bodyBot - bodyTop, 1);
-    // Wick
-    s += `<line x1="${cx.toFixed(1)}" y1="${py(d.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${py(d.l).toFixed(1)}" stroke="${col}" stroke-width="0.8" opacity="0.55"/>`;
-    // Body
-    s += `<rect x="${(cx - bw/2).toFixed(1)}" y="${bodyTop.toFixed(1)}" width="${bw.toFixed(1)}" height="${bodyH.toFixed(1)}" fill="${col}"/>`;
+function drawKline(data,el){
+  const W=80,H=30,n=data.length,step=W/n,bw=Math.max(step*0.55,1.5);
+  const prices=data.flatMap(d=>[d.h,d.l]);
+  const mn=Math.min(...prices),mx=Math.max(...prices),rng=mx-mn||1,pad=1.5;
+  const py=p=>pad+(H-pad*2)*(1-(p-mn)/rng);
+  let s=`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" style="display:block">`;
+  data.forEach((d,i)=>{
+    const cx=(i+0.5)*step,up=d.c>=d.o;
+    const col=up?'var(--up)':'var(--dn)';
+    const bt=py(Math.max(d.o,d.c)),bb=py(Math.min(d.o,d.c)),bh=Math.max(bb-bt,1);
+    s+=`<line x1="${cx.toFixed(1)}" y1="${py(d.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${py(d.l).toFixed(1)}" stroke="${col}" stroke-width="0.8" opacity="0.55"/>`;
+    s+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${bt.toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"/>`;
   });
-  s += '</svg>';
-  el.innerHTML = s;
+  s+='</svg>';
+  el.innerHTML=s;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  Object.entries(kdata).forEach(([id, data]) => {
-    const el = document.getElementById('k-' + id);
-    if (el) drawKline(data, el);
+document.addEventListener('DOMContentLoaded',()=>{
+  Object.entries(kdata).forEach(([id,data])=>{
+    const el=document.getElementById('k-'+id);
+    if(el) drawKline(data,el);
   });
 });
 </script>
