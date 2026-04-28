@@ -41,51 +41,99 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 4
 .theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:13px;color:var(--muted);line-height:1}
 .theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
 
-/* Hero */
-.hero{position:relative;overflow:hidden;padding:40px 40px 32px;border-bottom:1px solid var(--border)}
-.hero::before{content:'';position:absolute;top:-80px;left:30%;width:600px;height:400px;background:radial-gradient(ellipse at 50% 30%, var(--glow) 0%, transparent 68%);pointer-events:none}
+.hero{position:relative;overflow:hidden;padding:36px 40px 28px;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;top:-80px;left:30%;width:600px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
 .hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
-.stock-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:4px 14px;font-size:11px;color:var(--muted);margin-bottom:16px}
-.stock-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.stock-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:4px 14px;font-size:11px;color:var(--muted);margin-bottom:14px}
+.stock-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 .hero-title{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
-.stock-name{font-size:32px;font-weight:800;color:var(--bright);letter-spacing:-1px}
-.stock-code{font-size:16px;color:var(--muted);font-weight:500}
-.stock-price{font-size:40px;font-weight:800;color:var(--bright);letter-spacing:-2px;margin-bottom:4px}
-.price-change{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:700;padding:4px 14px;border-radius:7px}
+.stock-name{font-size:30px;font-weight:800;color:var(--bright);letter-spacing:-1px}
+.stock-code{font-size:14px;color:var(--muted);font-weight:500}
+.stock-price{font-size:38px;font-weight:800;color:var(--bright);letter-spacing:-2px}
+.price-change{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:700;padding:4px 13px;border-radius:7px;vertical-align:middle;margin-left:10px}
 .price-change.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
 .price-change.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
-.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.7}
+.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.75}
 .hero-sub strong{color:var(--text2)}
 
-/* Stats row */
-.stats-row{display:flex;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:20px;flex-wrap:wrap}
-.stat{padding:10px 18px;text-align:center;flex:1;min-width:90px}
+.stats-row{display:flex;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:18px;flex-wrap:wrap}
+.stat{padding:10px 16px;text-align:center;flex:1;min-width:80px}
 .stat+.stat{border-left:1px solid var(--border)}
 .stat-label{font-size:10px;color:var(--dimmer);margin-bottom:4px;letter-spacing:.3px}
 .stat-val{font-size:14px;font-weight:700;color:var(--bright)}
 .stat-val.up{color:var(--up)}.stat-val.dn{color:var(--dn)}
 .stat-sub{font-size:10px;color:var(--dimmer);margin-top:2px}
-@media(max-width:540px){.stat{padding:8px 12px}.stat-val{font-size:12px}}
+@media(max-width:580px){.stat{padding:8px 10px}.stat-val{font-size:12px}.stat-sub{display:none}}
 
-/* Layout */
-.content{max-width:900px;margin:0 auto;padding:28px 40px 72px}
-@media(max-width:600px){.content{padding:20px 18px 60px}.hero{padding:28px 18px 24px}}
+.content{max-width:900px;margin:0 auto;padding:24px 40px 72px}
+@media(max-width:600px){.content{padding:18px 16px 60px}.hero{padding:24px 16px 22px}}
 
-.section{margin-bottom:28px}
+.section{margin-bottom:26px}
 .section-title{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .section-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
 
-/* K 線圖區 */
-.kline-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px}
-.kline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+/* ── Interactive K-line ── */
+.kline-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px 14px}
+.kline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
 .kline-label{font-size:12px;font-weight:600;color:var(--text2)}
-.kline-range{display:flex;gap:12px}
-.krange-item{font-size:11px;color:var(--muted)}
-.krange-item span{font-weight:700;color:var(--text)}
-#kline-svg{display:block;width:100%;overflow:visible}
-.vol-label{font-size:10px;color:var(--dimmer);margin-top:6px}
+.kline-legend{display:flex;align-items:center;gap:14px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.legend-dot{width:16px;height:2px;border-radius:1px;flex-shrink:0}
+.kline-svg-wrap{position:relative;width:100%;user-select:none;-webkit-user-select:none}
+.kline-svg-wrap::before{content:'';display:block;padding-bottom:29%}
+#kline-svg{position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair;display:block}
+.k-tooltip{
+  position:absolute;pointer-events:none;opacity:0;
+  transition:opacity .08s;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;padding:9px 11px;min-width:130px;
+  box-shadow:0 4px 20px rgba(0,0,0,.18);z-index:10;
+}
+.tt-date{font-size:10px;font-weight:700;color:var(--text2);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid var(--border);letter-spacing:.3px}
+.tt-table{width:100%;border-collapse:collapse}
+.tt-table td{font-size:11px;padding:1.5px 0;vertical-align:middle}
+.tt-table td:first-child{color:var(--dimmer);padding-right:10px;width:30px}
+.tt-table td:last-child{font-weight:600;color:var(--text);text-align:right}
+.tt-up{color:var(--up)!important}.tt-dn{color:var(--dn)!important}
+.kline-hint{font-size:10px;color:var(--dimmer);margin-top:8px;text-align:right}
 
-/* Thesis cards */
+/* ── Profile / EPS / Timeline ── */
+.profile-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:640px){.profile-grid{grid-template-columns:1fr 1fr}}
+.profile-item{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:12px 14px}
+.pi-label{font-size:10px;color:var(--dimmer);margin-bottom:4px;letter-spacing:.3px}
+.pi-val{font-size:13px;font-weight:700;color:var(--bright);line-height:1.4}
+.pi-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+.eps-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.eps-table{width:100%;border-collapse:collapse}
+.eps-table th{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.5px;padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);background:var(--bg3)}
+.eps-table th:first-child{text-align:left}
+.eps-table td{font-size:12px;padding:10px 14px;text-align:center;border-bottom:1px solid var(--border2);color:var(--text2)}
+.eps-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
+.eps-table tr:last-child td{border-bottom:none}
+.eps-table .bull{color:var(--up);font-weight:700}
+.eps-table .bear{color:var(--dn)}
+.eps-table .base{color:var(--accent2);font-weight:700}
+.eps-source{font-size:10px;color:var(--dimmer);padding:8px 14px;background:var(--bg3);border-top:1px solid var(--border)}
+
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border2)}
+.tl-item:last-child{border-bottom:none}
+.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:2px}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0}
+.tl-dot.hot{background:var(--up);box-shadow:0 0 6px var(--up)}
+.tl-dot.med{background:var(--warn)}
+.tl-dot.low{background:var(--accent)}
+.tl-line{width:1px;background:var(--border);flex:1;margin-top:4px}
+.tl-item:last-child .tl-line{display:none}
+.tl-body{flex:1;min-width:0}
+.tl-when{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.3px;margin-bottom:3px}
+.tl-title{font-size:13px;font-weight:600;color:var(--bright);margin-bottom:2px}
+.tl-desc{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* ── Thesis cards ── */
 .thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 @media(max-width:640px){.thesis-grid{grid-template-columns:1fr}}
 .thesis-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;overflow:hidden}
@@ -100,7 +148,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 4
 .thesis-num{font-size:22px;font-weight:800;color:var(--accent2);letter-spacing:-1px;margin-top:8px}
 .thesis-num-label{font-size:10px;color:var(--dimmer)}
 
-/* Notion quotes */
+/* ── Notion ── */
 .notion-list{display:flex;flex-direction:column;gap:10px}
 .notion-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
 .notion-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
@@ -114,15 +162,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 4
 .tag-pcb{background:rgba(59,130,246,.1);color:var(--blue)}
 .tag-us{background:rgba(245,158,11,.1);color:var(--warn)}
 
-/* News */
+/* ── News ── */
 .news-list{display:flex;flex-direction:column;gap:8px}
 .news-item{display:flex;align-items:flex-start;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;text-decoration:none;transition:background .12s,border-color .12s}
 .news-item:hover{background:var(--bg3);border-color:var(--accent2)}
 .news-dot{width:3px;border-radius:2px;align-self:stretch;flex-shrink:0;min-height:36px}
-.news-dot.red{background:var(--up)}
-.news-dot.purple{background:var(--accent)}
-.news-dot.blue{background:var(--blue)}
-.news-dot.warn{background:var(--warn)}
+.news-dot.red{background:var(--up)}.news-dot.purple{background:var(--accent)}.news-dot.blue{background:var(--blue)}.news-dot.warn{background:var(--warn)}
 .news-body{flex:1;min-width:0}
 .news-title{font-size:13px;font-weight:600;color:var(--bright);line-height:1.5;margin-bottom:3px}
 .news-desc{font-size:11px;color:var(--muted);line-height:1.6}
@@ -131,7 +176,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 4
 .news-date{font-size:10px;color:var(--dimmer)}
 .news-link{font-size:11px;color:var(--accent2);margin-left:auto;white-space:nowrap;flex-shrink:0}
 
-/* Peers */
+/* ── Peers ── */
 .peers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 @media(max-width:640px){.peers-grid{grid-template-columns:repeat(2,1fr)}}
 .peer-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;text-decoration:none;transition:border-color .12s}
@@ -143,15 +188,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 4
 .peer-chg.up{color:var(--up)}.peer-chg.dn{color:var(--dn)}
 .peer-label{font-size:9px;color:var(--dimmer);margin-top:4px;padding:1px 6px;background:var(--bg3);border-radius:3px;display:inline-block}
 
-/* Watch */
+/* ── Watch ── */
 .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:500px){.watch-grid{grid-template-columns:1fr}}
 .watch-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
-.watch-card.bull{border-left:3px solid var(--up)}
-.watch-card.bear{border-left:3px solid var(--dn)}
+.watch-card.bull{border-left:3px solid var(--up)}.watch-card.bear{border-left:3px solid var(--dn)}
 .watch-card-title{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
-.watch-card.bull .watch-card-title{color:var(--up)}
-.watch-card.bear .watch-card-title{color:var(--dn)}
+.watch-card.bull .watch-card-title{color:var(--up)}.watch-card.bear .watch-card-title{color:var(--dn)}
 .watch-item{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border2);line-height:1.6}
 .watch-item:last-child{border-bottom:none}
 .watch-item::before{content:'›';margin-right:6px;color:var(--dimmer)}
@@ -167,272 +210,314 @@ footer a{color:var(--muted);text-decoration:none}
   <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
   <div class="nav-right">
     <a href="/reports/2026-04-28.html" class="nav-back">← 回日報</a>
-    <button class="theme-btn" onclick="(function(){var h=document.documentElement,c=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('magi-theme',n);document.querySelector('.theme-btn').textContent=n==='dark'?'☀':'🌙'})()" id="theme-btn">🌙</button>
+    <button class="theme-btn" id="theme-btn" onclick="magiToggle()">🌙</button>
   </div>
 </nav>
 
-<!-- Hero -->
 <div class="hero">
   <div class="hero-inner">
     <div class="stock-badge">
       <span class="dot"></span>
-      <span>個股分析 · 2026-04-28 盤後</span>
+      <span>個股分析 · 2026-04-28 盤後 · Fugle 真實資料</span>
     </div>
-
     <div class="hero-title">
       <span class="stock-name">台表科</span>
       <span class="stock-code">6278 ｜ TSE 上市 ｜ PCB / 光通訊打件</span>
     </div>
-
-    <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+    <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
       <div class="stock-price">158.5</div>
       <span class="price-change up">▲ +11.5 &nbsp;+7.82%</span>
     </div>
-
     <p class="hero-sub">
       AAOI CW Laser 打件獨家代工 · 緯創白牌伺服器 PCB 外溢受益 · 美國設廠備戰關稅壁壘<br>
       <strong>Surf 哥：明年 EPS 15+ 元，昨天談完看 18–19 元</strong>
     </p>
-
     <div class="stats-row">
-      <div class="stat">
-        <div class="stat-label">開盤</div>
-        <div class="stat-val">153.5</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">最高</div>
-        <div class="stat-val up">161.5</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">最低</div>
-        <div class="stat-val">153.0</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">收盤</div>
-        <div class="stat-val up">158.5</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">昨收</div>
-        <div class="stat-val">147.0</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">成交量</div>
-        <div class="stat-val">790萬</div>
-        <div class="stat-sub">今日</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">52週高</div>
-        <div class="stat-val up">172.5</div>
-        <div class="stat-sub">4/20</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">52週低</div>
-        <div class="stat-val">91.4</div>
-      </div>
+      <div class="stat"><div class="stat-label">開盤</div><div class="stat-val">153.5</div></div>
+      <div class="stat"><div class="stat-label">最高</div><div class="stat-val up">161.5</div></div>
+      <div class="stat"><div class="stat-label">最低</div><div class="stat-val">153.0</div></div>
+      <div class="stat"><div class="stat-label">昨收</div><div class="stat-val">147.0</div></div>
+      <div class="stat"><div class="stat-label">成交量</div><div class="stat-val">790萬股</div><div class="stat-sub">今日</div></div>
+      <div class="stat"><div class="stat-label">26日高</div><div class="stat-val up">172.5</div><div class="stat-sub">4/20</div></div>
+      <div class="stat"><div class="stat-label">26日低</div><div class="stat-val">92.5</div><div class="stat-sub">3/31</div></div>
+      <div class="stat"><div class="stat-label">漲幅(26日)</div><div class="stat-val up">+71.4%</div><div class="stat-sub">92.5→158.5</div></div>
     </div>
   </div>
 </div>
 
 <div class="content">
 
-<!-- K 線圖 -->
+<!-- ① Interactive K-line -->
 <div class="section">
-  <div class="section-title">近 26 日走勢（Fugle 真實資料）</div>
+  <div class="section-title">近 26 日走勢（Fugle 真實日K）</div>
   <div class="kline-wrap">
     <div class="kline-header">
-      <div class="kline-label">台表科 6278 — 日K + 成交量</div>
-      <div class="kline-range">
-        <div class="krange-item">區間低 <span>92.5</span></div>
-        <div class="krange-item">區間高 <span>172.5</span></div>
-        <div class="krange-item">今收 <span style="color:var(--up)">158.5</span></div>
+      <div class="kline-label">台表科 6278 — 日K ＋ 成交量</div>
+      <div class="kline-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>MA5</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7c3aed;opacity:.6"></div>MA20</div>
+        <div class="legend-item" style="font-size:10px;color:var(--dimmer)">滑動查看細節</div>
       </div>
     </div>
-    <svg id="kline-svg" height="110" viewBox="0 0 520 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- 價格K線 (上半部 80px) + 成交量 (下半部 25px，中間留5px間距) -->
-    </svg>
-    <div class="vol-label">灰底 = 成交量（下方）</div>
+    <div class="kline-svg-wrap" id="kline-container">
+      <svg id="kline-svg" viewBox="0 0 800 232" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="k-tooltip" id="k-tooltip">
+        <div class="tt-date" id="tt-date"></div>
+        <table class="tt-table" id="tt-table"></table>
+      </div>
+    </div>
+    <div class="kline-hint">觸控 / 滑鼠懸停查看 OHLCV ｜ 資料來源：Fugle Market Data</div>
   </div>
 </div>
 
-<!-- 投資論點 -->
+<!-- ② 公司概況 -->
+<div class="section">
+  <div class="section-title">公司概況</div>
+  <div class="profile-grid">
+    <div class="profile-item">
+      <div class="pi-label">主營業務</div>
+      <div class="pi-val">PCB 製造 + 光通訊打件</div>
+      <div class="pi-sub">高階 HDI / 伺服器板 + CW Laser 封裝</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">主要客戶</div>
+      <div class="pi-val">AAOI、緯創、Google / AWS 間接</div>
+      <div class="pi-sub">CW Laser 打件獨家 → AAOI</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">市值（估）</div>
+      <div class="pi-val">約 540 億</div>
+      <div class="pi-sub">158.5 元 × 約 3.4 億股</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">2025 EPS（法人估）</div>
+      <div class="pi-val" style="color:var(--up)">6–7 元</div>
+      <div class="pi-sub">PCB 毛利率提升 + 打件貢獻初期</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">2026 EPS（Surf哥）</div>
+      <div class="pi-val" style="color:var(--up)">18–19 元</div>
+      <div class="pi-sub">含 AAOI 打件，不含 15 元基礎</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">本益比（FY26 bull）</div>
+      <div class="pi-val">8.4x</div>
+      <div class="pi-sub">以 158.5 / 19 元計算</div>
+    </div>
+  </div>
+</div>
+
+<!-- ③ EPS 估算 -->
+<div class="section">
+  <div class="section-title">EPS 情境估算</div>
+  <div class="eps-wrap">
+    <table class="eps-table">
+      <thead>
+        <tr>
+          <th>情境</th>
+          <th>FY2025E</th>
+          <th>FY2026E EPS</th>
+          <th>本益比（@158.5）</th>
+          <th>假設</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>悲觀</td>
+          <td>6 元</td>
+          <td class="bear">10–12 元</td>
+          <td>13–16x</td>
+          <td>AWS 測試延遲，打件 2026H2 才貢獻</td>
+        </tr>
+        <tr>
+          <td>基本</td>
+          <td>7 元</td>
+          <td class="base">15 元</td>
+          <td class="base">10.6x</td>
+          <td>PCB 毛利維持 30%+，AAOI 打件穩定</td>
+        </tr>
+        <tr>
+          <td>樂觀</td>
+          <td>7 元</td>
+          <td class="bull">18–19 元</td>
+          <td class="bull">8.4–8.8x</td>
+          <td>AWS Q2 確認 + 軍工 / 美國廠溢價</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="eps-source">來源：Surf 哥（駿羽資本）4/28 · Vic 哥 4/28 · 內部法說情報</div>
+  </div>
+</div>
+
+<!-- ④ 催化劑時間表 -->
+<div class="section">
+  <div class="section-title">催化劑時間表</div>
+  <div class="kline-wrap" style="padding:14px 18px">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot hot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">近 1–2 個月（最高優先）</div>
+          <div class="tl-title">AWS CW Laser 測試結果出爐</div>
+          <div class="tl-desc">AAOI AMD 客戶 CW Laser 打件外包台表科，AWS 測試最快這 1-2 個月公布結果。若通過，訂單確認 → 明年 EPS 上修至 15–19 元。是整個多頭論點的關鍵里程碑。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot hot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">5–6 月（月營收）</div>
+          <div class="tl-title">月營收數字確認打件放量</div>
+          <div class="tl-desc">愛德恩 4/20 提到 Q1 雷射光通訂單已外溢，5-6 月月營收應可看到打件貢獻開始放量。若月營收年增明顯加速，確認打件業務已落地。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot med"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">Q2 法說（約 5 月底）</div>
+          <div class="tl-title">毛利率走勢 + PCB 產能利用率</div>
+          <div class="tl-desc">法說確認 CCL 漲價後的毛利率是否維持 30%+，以及 Google / AWS 鎖板廠效應是否持續。同時揭露美國設廠最新進度。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot low"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">年底前（長線）</div>
+          <div class="tl-title">美國設廠公告 → 評價重估</div>
+          <div class="tl-desc">美國在地 PCB 廠具稀缺性，設廠確認後可能觸發外資重新評價。軍工訂單若有具體進展，進一步擴大本益比空間。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 三大投資論點 -->
 <div class="section">
   <div class="section-title">三大投資論點</div>
   <div class="thesis-grid">
     <div class="thesis-card primary">
       <div class="thesis-tag">核心題材 · AAOI 打件</div>
       <div class="thesis-title">AAOI CW Laser 獨家代工</div>
-      <div class="thesis-body">
-        AAOI AMD 客戶的 <strong>CW Laser 打件</strong>外包給台表科，AWS 測試結果最快這 1-2 個月出爐。明年貢獻 EPS <strong>多 5–6 元</strong>，以現有基礎算明年 15 元起跳（Surf 哥談完看 18–19 元）。
-      </div>
+      <div class="thesis-body">AAOI AMD 客戶的 <strong>CW Laser 打件</strong>外包給台表科，AWS 測試結果最快 1-2 個月出爐。明年貢獻 EPS <strong>多 5–6 元</strong>，以現有基礎算明年 15 元起跳（Surf 哥談完看 18–19 元）。</div>
       <div class="thesis-num">15–19<span style="font-size:14px;font-weight:600"> 元</span></div>
-      <div class="thesis-num-label">Surf 哥明年 EPS 預估</div>
+      <div class="thesis-num-label">Surf 哥明年 EPS 預估（含打件）</div>
     </div>
     <div class="thesis-card secondary">
       <div class="thesis-tag">短期動能 · PCB 外溢</div>
       <div class="thesis-title">緯創白牌伺服器外溢</div>
-      <div class="thesis-body">
-        緯創暫停出貨白牌伺服器，<strong>PCB 訂單外溢</strong>至台表科。Google / AWS 到處鎖 PCB 產能，CCL 年內已漲價 3 次，中低階毛利率拉升至 <strong>30% 以上</strong>（永哥 4/27）。
-      </div>
+      <div class="thesis-body">緯創暫停出貨白牌伺服器，<strong>PCB 訂單外溢</strong>至台表科。Google / AWS 到處鎖 PCB 產能，CCL 年內已漲價 3 次，中低階毛利率拉升至 <strong>30% 以上</strong>。</div>
       <div class="thesis-num" style="color:var(--blue)">30%+<span style="font-size:14px;font-weight:600"> 毛利</span></div>
       <div class="thesis-num-label">全年平均毛利率目標</div>
     </div>
     <div class="thesis-card tertiary">
       <div class="thesis-tag">長線布局 · 美國設廠</div>
       <div class="thesis-title">在地化 + 軍工新客戶</div>
-      <div class="thesis-body">
-        接下來要在<strong>美國設廠</strong>，有足夠空間因應各品牌廠要求，後面也有<strong>軍工訂單</strong>機會（Surf 哥 4/20）。關稅壁壘下，美國在地 PCB 廠具稀缺性，評價空間大。
-      </div>
+      <div class="thesis-body">接下來要在<strong>美國設廠</strong>，因應各品牌廠要求，後面也有<strong>軍工訂單</strong>機會（Surf 哥 4/20）。關稅壁壘下，美國在地 PCB 廠具稀缺性，評價空間大。</div>
       <div class="thesis-num" style="color:var(--warn)">美國<span style="font-size:14px;font-weight:600"> 設廠中</span></div>
       <div class="thesis-num-label">因應 CSP 品牌廠在地化需求</div>
     </div>
   </div>
 </div>
 
-<!-- Notion 情報 -->
+<!-- ⑥ Notion 情報 -->
 <div class="section">
   <div class="section-title">Notion 群組情報 — 近 10 日原文摘錄</div>
   <div class="notion-list">
-
     <div class="notion-card">
       <div class="notion-meta">
         <span class="notion-source">各家開會</span>
         <span class="notion-date">2026-04-28</span>
         <span class="notion-author">Vic 哥 @ 駿羽資本</span>
       </div>
-      <div class="notion-quote">
-        「<strong>6278 台表科明年把 AAOI 打件算一算多 5-6 塊沒問題，明年 15 塊起跳</strong>」
-      </div>
+      <div class="notion-quote">「<strong>6278 台表科明年把 AAOI 打件算一算多 5-6 塊沒問題，明年 15 塊起跳</strong>」</div>
       <span class="notion-tag tag-aaoi">AAOI 打件</span>
     </div>
-
     <div class="notion-card">
       <div class="notion-meta">
         <span class="notion-source">各家開會</span>
         <span class="notion-date">2026-04-28</span>
         <span class="notion-author">Surf 哥 @ 駿羽資本</span>
       </div>
-      <div class="notion-quote">
-        「<strong>6278 不算光通訊明年 15 塊，昨天談完覺得可以到 18-19</strong>」
-        <br><span style="font-size:11px;color:var(--dimmer);margin-top:4px;display:block">（脈絡：AAOI 的 AMD CW Laser，AWS 這 1-2 個月測試結果會出來，持續關注 4979）</span>
-      </div>
+      <div class="notion-quote">「<strong>6278 不算光通訊明年 15 塊，昨天談完覺得可以到 18-19</strong>」<br><span style="font-size:11px;color:var(--dimmer);margin-top:4px;display:block">脈絡：AAOI 的 AMD CW Laser，AWS 這 1-2 個月測試結果會出來，持續關注 4979</span></div>
       <span class="notion-tag tag-aaoi">AAOI 打件</span>
     </div>
-
     <div class="notion-card">
       <div class="notion-meta">
         <span class="notion-source">各家開會</span>
         <span class="notion-date">2026-04-27</span>
         <span class="notion-author">Surf 哥 @ 駿羽資本</span>
       </div>
-      <div class="notion-quote">
-        「<strong>6278 台表科 受惠緯創不出貨白牌伺服器的外溢</strong>；PCB 狀況是 Google、AWS 到處找板廠鎖產能，相關的可以佈局」
-        <br><span style="font-size:11px;color:var(--dimmer);margin-top:4px;display:block">（補充：CCL 漲價已談 3 次，全年平均毛利率有望超過外部預估 10%）</span>
-      </div>
+      <div class="notion-quote">「<strong>6278 台表科受惠緯創不出貨白牌伺服器的外溢</strong>；PCB 狀況是 Google、AWS 到處找板廠鎖產能，相關的可以佈局」<br><span style="font-size:11px;color:var(--dimmer);margin-top:4px;display:block">補充：CCL 漲價已談 3 次，全年平均毛利率有望超過外部預估 10%</span></div>
       <span class="notion-tag tag-pcb">PCB 外溢</span>
     </div>
-
-    <div class="notion-card">
-      <div class="notion-meta">
-        <span class="notion-source">各家開會</span>
-        <span class="notion-date">2026-04-20</span>
-        <span class="notion-author">Surf 哥 @ 駿羽資本</span>
-      </div>
-      <div class="notion-quote">
-        「<strong>6278 台表科 接下來要在美國設廠，有足夠空間因應各品牌廠的要求，後面也有軍工等等也有機會接</strong>」
-      </div>
-      <span class="notion-tag tag-us">美國設廠</span>
-    </div>
-
     <div class="notion-card">
       <div class="notion-meta">
         <span class="notion-source">各家開會</span>
         <span class="notion-date">2026-04-24</span>
         <span class="notion-author">樂林</span>
       </div>
-      <div class="notion-quote">
-        「昨天處置股很多跌停，<strong>接了些台表科 / 瑞軒 / 雙鍵 / GIS / 華星光，如果還有跌還會接</strong>」
-        <br><span style="font-size:11px;color:var(--dimmer);margin-top:4px;display:block">（脈絡：4/23 台表科被列處置股，主力逢低積極承接）</span>
-      </div>
+      <div class="notion-quote">「昨天處置股很多跌停，<strong>接了些台表科 / 瑞軒 / 雙鍵 / GIS / 華星光，如果還有跌還會接</strong>」<br><span style="font-size:11px;color:var(--dimmer);margin-top:4px;display:block">脈絡：4/23 台表科被列處置股，主力逢低積極承接</span></div>
       <span class="notion-tag tag-pcb">主力逢低</span>
     </div>
-
+    <div class="notion-card">
+      <div class="notion-meta">
+        <span class="notion-source">各家開會</span>
+        <span class="notion-date">2026-04-20</span>
+        <span class="notion-author">Surf 哥 @ 駿羽資本</span>
+      </div>
+      <div class="notion-quote">「<strong>6278 台表科接下來要在美國設廠，有足夠空間因應各品牌廠的要求，後面也有軍工等等也有機會接</strong>」</div>
+      <span class="notion-tag tag-us">美國設廠</span>
+    </div>
   </div>
 </div>
 
-<!-- 新聞 -->
+<!-- ⑦ 新聞 -->
 <div class="section">
   <div class="section-title">近期相關新聞</div>
   <div class="news-list">
-
     <a class="news-item" href="https://www.sinotrade.com.tw/richclub/hotstock/AAOI%E9%80%A3%E6%8E%A5%E7%8D%B2%E9%80%BE2-5%E5%84%84%E7%BE%8E%E5%85%83%E5%A4%A7%E5%96%AE-%E5%8F%B0%E5%BB%A0%E8%AA%B0%E5%8F%97%E6%83%A0--%E7%BE%8E%E8%82%A1%E5%85%89%E9%80%9A%E8%A8%8A%E4%B8%89%E9%9B%84-AAOI-AXTI-LITE%E7%94%A2%E6%A5%AD%E5%AE%9A%E4%BD%8D%E6%9C%89%E4%BD%95%E4%B8%8D%E5%90%8C--%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-%E7%BE%8E%E8%82%A1%E8%A7%80%E5%AF%9F-69c36f4a435757638e929001" target="_blank" rel="noopener">
       <div class="news-dot red"></div>
       <div class="news-body">
         <div class="news-title">AAOI 連接獲逾 2.5 億美元大單，台廠誰受惠？</div>
         <div class="news-desc">AAOI 3/23 宣布 5,300 萬美元 800G 訂單，繼 3/9 逾 2 億 1.6T 大單後，同一雲端客戶兩筆合計突破 2.5 億。台灣打件廠台表科被視為核心受益者。</div>
-        <div class="news-meta">
-          <span class="news-source">豐雲學堂</span>
-          <span class="news-date">2026-03-25</span>
-          <span class="news-link">閱讀 →</span>
-        </div>
+        <div class="news-meta"><span class="news-source">豐雲學堂</span><span class="news-date">2026-03-25</span><span class="news-link">閱讀 →</span></div>
       </div>
     </a>
-
     <a class="news-item" href="https://tw.stock.yahoo.com/news/%E5%85%89%E9%80%9A%E8%A8%8A%E6%BA%96%E5%82%99%E7%88%86%E8%B5%B0-%E9%80%993%E6%AA%94-%E6%9C%89%E6%9C%9B%E5%88%86%E9%A3%9F%E5%B8%82%E5%A0%B4%E5%88%A9%E5%A4%9A-%E5%85%A8%E5%8A%9B%E8%A1%9D%E5%88%BAcpo%E9%A0%98%E5%9F%9F-051000137.html" target="_blank" rel="noopener">
       <div class="news-dot purple"></div>
       <div class="news-body">
         <div class="news-title">光通訊準備爆走！這 3 檔有望分食市場利多，全力衝刺 CPO 領域</div>
         <div class="news-desc">隨 CPO 加速推進，波若威、華星光、光環全面備戰。台積電 CPO 今年量產，FAU / CW Laser 等關鍵元件商機同步起飛，供應鏈受益延伸至台表科打件端。</div>
-        <div class="news-meta">
-          <span class="news-source">Yahoo 財經</span>
-          <span class="news-date">2026-04-27</span>
-          <span class="news-link">閱讀 →</span>
-        </div>
+        <div class="news-meta"><span class="news-source">Yahoo 財經</span><span class="news-date">2026-04-27</span><span class="news-link">閱讀 →</span></div>
       </div>
     </a>
-
-    <a class="news-item" href="https://tw.stock.yahoo.com/news/%E5%85%89%E9%80%9A%E8%A8%8A%E6%99%82%E4%BB%A3%E4%BE%86%E8%87%A8-%E6%B3%95%E4%BA%BA%E9%BB%9E%E5%90%8D-%E9%80%99%E5%B9%BE%E6%AA%94-%E5%BE%8C%E5%B8%82%E7%9C%8B%E6%97%BA-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%88%90%E6%9C%80%E5%A4%A7%E6%8E%A8%E6%89%8B-231500517.html" target="_blank" rel="noopener">
-      <div class="news-dot blue"></div>
-      <div class="news-body">
-        <div class="news-title">光通訊時代來臨！法人點名這幾檔後市看旺，台積電成最大推手</div>
-        <div class="news-desc">法人預測 CPO 年複合成長率 66%（2026–2036）。台積電 COUPE 平台量產帶動全鏈受益，本土法人點名華星光、聯亞被點名次數最多，光通訊打件端同步受惠。</div>
-        <div class="news-meta">
-          <span class="news-source">Yahoo 財經</span>
-          <span class="news-date">2026-04-25</span>
-          <span class="news-link">閱讀 →</span>
-        </div>
-      </div>
-    </a>
-
     <a class="news-item" href="https://cmnews.com.tw/article/cmoneyairesearcher-9d57f109-1644-11f1-93b5-61d16af01106" target="_blank" rel="noopener">
       <div class="news-dot red"></div>
       <div class="news-body">
         <div class="news-title">AAOI 暴漲 30%，衝刺 800G/1.6T，2026 年營收逾 10 億美元題材點火</div>
-        <div class="news-desc">AAOI 法說：2025 年營收年增 83% 達 4.56 億美元；第 4 筆 800G 雲端訂單；2026 年預估突破 10 億美元，800G 自 Q2 起大幅放量，產能受限而非需求。</div>
-        <div class="news-meta">
-          <span class="news-source">CMoney</span>
-          <span class="news-date">2026-03-02</span>
-          <span class="news-link">閱讀 →</span>
-        </div>
+        <div class="news-desc">AAOI 法說：2025 年營收年增 83% 達 4.56 億美元；第 4 筆 800G 雲端訂單；2026 年預估突破 10 億美元，800G 自 Q2 起大幅放量。</div>
+        <div class="news-meta"><span class="news-source">CMoney</span><span class="news-date">2026-03-02</span><span class="news-link">閱讀 →</span></div>
       </div>
     </a>
-
+    <a class="news-item" href="https://tw.stock.yahoo.com/news/%E5%85%89%E9%80%9A%E8%A8%8A%E6%99%82%E4%BB%A3%E4%BE%86%E8%87%A8-%E6%B3%95%E4%BA%BA%E9%BB%9E%E5%90%8D-%E9%80%99%E5%B9%BE%E6%AA%94-%E5%BE%8C%E5%B8%82%E7%9C%8B%E6%97%BA-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%88%90%E6%9C%80%E5%A4%A7%E6%8E%A8%E6%89%8B-231500517.html" target="_blank" rel="noopener">
+      <div class="news-dot blue"></div>
+      <div class="news-body">
+        <div class="news-title">光通訊時代來臨！法人點名這幾檔後市看旺，台積電成最大推手</div>
+        <div class="news-desc">法人預測 CPO 年複合成長率 66%（2026–2036）。台積電 COUPE 平台量產帶動全鏈受益，本土法人點名光通訊打件端同步受惠。</div>
+        <div class="news-meta"><span class="news-source">Yahoo 財經</span><span class="news-date">2026-04-25</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
     <a class="news-item" href="https://readmo.cmoney.tw/article/87ed802d-1826-4526-8a23-9dcdedfa27ce" target="_blank" rel="noopener">
       <div class="news-dot warn"></div>
       <div class="news-body">
         <div class="news-title">AAOI 估值修正解析：當 AI 光通訊需求不如預期會發生什麼？</div>
-        <div class="news-desc">風險角度分析：AAOI 估值建立在需求持續爆發假設上，若 800G/1.6T 出貨節奏延誤，高本益比面臨壓縮；台表科打件業務能見度與訂單確認是關鍵觀察指標。</div>
-        <div class="news-meta">
-          <span class="news-source">CMoney 研究</span>
-          <span class="news-date">2026-04-23</span>
-          <span class="news-link">閱讀 →</span>
-        </div>
+        <div class="news-desc">風險角度：AAOI 估值建立在需求持續爆發假設上，若 800G/1.6T 出貨節奏延誤，高本益比面臨壓縮；台表科打件業務能見度與訂單確認是關鍵觀察指標。</div>
+        <div class="news-meta"><span class="news-source">CMoney 研究</span><span class="news-date">2026-04-23</span><span class="news-link">閱讀 →</span></div>
       </div>
     </a>
-
   </div>
 </div>
 
-<!-- 同族群 -->
+<!-- ⑧ 同族群 -->
 <div class="section">
   <div class="section-title">同族群個股（光通訊 / CW Laser / 打件）</div>
   <div class="peers-grid">
@@ -474,16 +559,16 @@ footer a{color:var(--muted);text-decoration:none}
   </div>
 </div>
 
-<!-- 觀察重點 -->
+<!-- ⑨ 觀察重點 -->
 <div class="section">
   <div class="section-title">觀察重點 / 催化劑 / 風險</div>
   <div class="watch-grid">
     <div class="watch-card bull">
       <div class="watch-card-title">催化劑（多方）</div>
       <div class="watch-item">AWS CW Laser 測試結果出爐（1-2 個月內），訂單確認帶動明年 EPS 大幅上修</div>
-      <div class="watch-item">月營收突破：愛德恩 4/20 提到 Q1 雷射光通訂單已開始外溢，5-6 月數字可觀察</div>
+      <div class="watch-item">5–6 月月營收加速：雷射光通訂單外溢效果從數字驗證</div>
       <div class="watch-item">美國設廠公告 — 觸發評價重估（在地 PCB 稀缺性溢價）</div>
-      <div class="watch-item">CCL / PCB 進一步漲價 + 毛利率公告超預期</div>
+      <div class="watch-item">CCL / PCB 進一步漲價 + 法說毛利率公告超外部預估</div>
     </div>
     <div class="watch-card bear">
       <div class="watch-card-title">風險（空方）</div>
@@ -503,7 +588,24 @@ footer a{color:var(--muted);text-decoration:none}
 </footer>
 
 <script>
-// K 線繪製（價格 + 成交量）
+// ── Theme ──────────────────────────────────────────────────
+function magiToggle(){
+  var h=document.documentElement;
+  var c=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  var n=c==='dark'?'light':'dark';
+  h.setAttribute('data-theme',n);
+  localStorage.setItem('magi-theme',n);
+  document.getElementById('theme-btn').textContent=n==='dark'?'☀':'🌙';
+  render();
+}
+(function(){
+  var btn=document.getElementById('theme-btn');
+  if(!btn)return;
+  var c=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  btn.textContent=c==='dark'?'☀':'🌙';
+})();
+
+// ── K-line Data (Fugle 26-day OHLCV) ──────────────────────
 const raw=[
   {d:'3/20',o:99.3,h:101.5,l:99.1,c:99.1,v:1414668},
   {d:'3/23',o:97,h:98.2,l:96.2,c:97.6,v:1254173},
@@ -518,84 +620,233 @@ const raw=[
   {d:'4/7',o:94.5,h:95.2,l:93.3,c:93.4,v:1140240},
   {d:'4/8',o:94.6,h:95.1,l:93.6,c:94.7,v:1594744},
   {d:'4/9',o:94.9,h:95,l:93.5,c:94.8,v:1298568},
-  {d:'4/10',o:95.2,h:104,l:95.1,c:104,v:7759553},
+  {d:'4/10',o:95.2,h:104,l:95.1,c:104,v:7759553},   // AAOI大單突破
   {d:'4/13',o:114,h:114,l:114,c:114,v:5350892},
-  {d:'4/14',o:125,h:125,l:121,c:125,v:32258477},
+  {d:'4/14',o:125,h:125,l:121,c:125,v:32258477},     // 首次漲停
   {d:'4/15',o:127,h:137.5,l:122,c:137,v:33365776},
   {d:'4/16',o:140,h:147.5,l:132.5,c:143,v:24569853},
   {d:'4/17',o:145,h:157,l:143,c:157,v:27549290},
-  {d:'4/20',o:162,h:172.5,l:157,c:158.5,v:10973356},
+  {d:'4/20',o:162,h:172.5,l:157,c:158.5,v:10973356}, // 52週高
   {d:'4/21',o:162.5,h:171.5,l:152.5,c:158.5,v:8985001},
   {d:'4/22',o:159.5,h:167,l:158,c:158,v:5843637},
-  {d:'4/23',o:161,h:162,l:142.5,c:142.5,v:8559982},
+  {d:'4/23',o:161,h:162,l:142.5,c:142.5,v:8559982},  // 處置股
   {d:'4/24',o:147,h:147,l:132,c:145,v:4967893},
   {d:'4/27',o:151,h:152,l:141,c:147,v:3274115},
   {d:'4/28',o:153.5,h:161.5,l:153,c:158.5,v:7905205},
 ];
 
-function drawChart(){
-  const W=520, KH=78, VH=22, GAP=6, PAD=1.5;
-  const n=raw.length, step=W/n, bw=Math.max(step*0.6,2);
+// Annotations at specific bars
+const annotations=[
+  {idx:13, label:'AAOI 大單', color:'#7c3aed'},
+  {idx:15, label:'首次漲停', color:'#dc2626'},
+  {idx:22, label:'處置股', color:'#f59e0b'},
+];
 
-  const prices=raw.flatMap(d=>[d.h,d.l]);
-  const mn=Math.min(...prices), mx=Math.max(...prices), rng=mx-mn||1;
-  const py=p=>PAD+(KH-PAD*2)*(1-(p-mn)/rng);
+// ── Chart constants (viewBox 800×232) ──────────────────────
+const VBW=800, VBH=232;
+const AX=50, ARX=797;    // chart x range (50 left for axis)
+const AY=6, ABY=158;     // price chart y range
+const VT=168, VB=222;    // volume y range
+const CW=ARX-AX;         // 747
+const CH=ABY-AY;         // 152
+const N=raw.length;      // 26
+const stepX=CW/N;        // ~28.7
+const barW=stepX*0.62;   // ~17.8
 
-  const maxV=Math.max(...raw.map(d=>d.v));
-  const vy=v=>KH+GAP+VH*(1-v/maxV);
-
-  const isDark=()=>{
-    const t=document.documentElement.getAttribute('data-theme');
-    if(t) return t==='dark';
-    return matchMedia('(prefers-color-scheme:dark)').matches;
-  };
-
-  function render(){
-    const dark=isDark();
-    const upC=dark?'#e05252':'#dc2626';
-    const dnC=dark?'#2ec27a':'#16a34a';
-    const volC=dark?'rgba(100,116,139,.35)':'rgba(148,163,184,.4)';
-
-    let s='';
-    raw.forEach((d,i)=>{
-      const cx=(i+0.5)*step;
-      const up=d.c>=d.o;
-      const col=up?upC:dnC;
-      const bt=py(Math.max(d.o,d.c)), bb=py(Math.min(d.o,d.c)), bh=Math.max(bb-bt,1);
-      // wick
-      s+=`<line x1="${cx.toFixed(1)}" y1="${py(d.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${py(d.l).toFixed(1)}" stroke="${col}" stroke-width="0.8" opacity="0.5"/>`;
-      // body
-      s+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${bt.toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"/>`;
-      // volume
-      const vtop=vy(d.v), vbot=KH+GAP+VH;
-      s+=`<rect x="${(cx-bw/2).toFixed(1)}" y="${vtop.toFixed(1)}" width="${bw.toFixed(1)}" height="${(vbot-vtop).toFixed(1)}" fill="${volC}"/>`;
-    });
-
-    // 今日標記
-    const last=raw[raw.length-1];
-    const lx=((n-0.5)*step).toFixed(1);
-    s+=`<circle cx="${lx}" cy="${py(last.c).toFixed(1)}" r="3" fill="${upC}" opacity="0.9"/>`;
-
-    document.getElementById('kline-svg').innerHTML=s;
-  }
-
-  render();
-
-  // 主題切換後重繪
-  const obs=new MutationObserver(render);
-  obs.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
-  matchMedia('(prefers-color-scheme:dark)').addEventListener('change',render);
+function isDark(){
+  var t=document.documentElement.getAttribute('data-theme');
+  if(t) return t==='dark';
+  return matchMedia('(prefers-color-scheme:dark)').matches;
 }
 
-document.addEventListener('DOMContentLoaded',drawChart);
+function render(){
+  const dark=isDark();
+  const upC=dark?'#e05252':'#dc2626';
+  const dnC=dark?'#2ec27a':'#16a34a';
+  const gridC=dark?'rgba(33,38,45,1)':'rgba(226,232,240,1)';
+  const axisTextC=dark?'#475569':'#94a3b8';
+  const volC=dark?'rgba(100,116,139,.28)':'rgba(148,163,184,.32)';
+  const ma5C='#f59e0b';
+  const ma20C=dark?'rgba(192,132,252,.55)':'rgba(124,58,237,.4)';
+  const bgC=dark?'#161b22':'#f8fafc';
+  const lastPriceLineC=dark?'rgba(224,82,82,.25)':'rgba(220,38,38,.18)';
 
-// theme btn init
-(function(){
-  var btn=document.getElementById('theme-btn');
-  if(!btn)return;
-  var cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  btn.textContent=cur==='dark'?'☀':'🌙';
-})();
+  // Price range
+  const prices=raw.flatMap(d=>[d.h,d.l]);
+  const pmin=Math.min(...prices), pmax=Math.max(...prices), prng=pmax-pmin||1;
+  const py=p=>AY+CH*(1-(p-pmin)/prng);
+
+  // Volume range
+  const vmax=Math.max(...raw.map(d=>d.v));
+  const vy=v=>VT+(VB-VT)*(1-v/vmax);
+
+  // MA helper
+  const ma=(arr,n)=>arr.map((_,i)=>i<n-1?null:arr.slice(i-n+1,i+1).reduce((s,x)=>s+x.c,0)/n);
+  const ma5=ma(raw,5), ma20=ma(raw,20);
+
+  let s='';
+
+  // Background grid lines + Y-axis labels (5 levels)
+  for(let i=0;i<=4;i++){
+    const p=pmin+prng*i/4;
+    const y=py(p);
+    s+=`<line x1="${AX}" y1="${y.toFixed(1)}" x2="${ARX}" y2="${y.toFixed(1)}" stroke="${gridC}" stroke-width="0.6"/>`;
+    s+=`<text x="${(AX-4)}" y="${(y+3.5).toFixed(1)}" text-anchor="end" font-size="7.5" fill="${axisTextC}" font-family="system-ui,sans-serif">${p.toFixed(0)}</text>`;
+  }
+
+  // Separator line between price and volume
+  s+=`<line x1="${AX}" y1="${(VT-2)}" x2="${ARX}" y2="${(VT-2)}" stroke="${gridC}" stroke-width="0.6"/>`;
+
+  // Annotation vertical lines
+  annotations.forEach(a=>{
+    const cx=AX+(a.idx+0.5)*stepX;
+    s+=`<line x1="${cx.toFixed(1)}" y1="${AY}" x2="${cx.toFixed(1)}" y2="${VB}" stroke="${a.color}" stroke-width="0.7" stroke-dasharray="2,3" opacity="0.45"/>`;
+    s+=`<text x="${cx.toFixed(1)}" y="${(VB+10)}" text-anchor="middle" font-size="7" fill="${a.color}" font-family="system-ui,sans-serif" opacity="0.85">${a.label}</text>`;
+  });
+
+  // Last price horizontal guide
+  const lastClose=raw[N-1].c;
+  const ly=py(lastClose);
+  s+=`<line x1="${AX}" y1="${ly.toFixed(1)}" x2="${ARX}" y2="${ly.toFixed(1)}" stroke="${upC}" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.5"/>`;
+  s+=`<rect x="${ARX}" y="${(ly-6).toFixed(1)}" width="3" height="12" fill="${upC}" opacity="0.6"/>`;
+
+  // MA20 line
+  let p20='';
+  ma20.forEach((m,i)=>{
+    if(m===null)return;
+    const x=(AX+(i+0.5)*stepX).toFixed(1), y=py(m).toFixed(1);
+    p20+=p20?` L${x},${y}`:`M${x},${y}`;
+  });
+  if(p20) s+=`<path d="${p20}" stroke="${ma20C}" stroke-width="1.1" fill="none"/>`;
+
+  // MA5 line
+  let p5='';
+  ma5.forEach((m,i)=>{
+    if(m===null)return;
+    const x=(AX+(i+0.5)*stepX).toFixed(1), y=py(m).toFixed(1);
+    p5+=p5?` L${x},${y}`:`M${x},${y}`;
+  });
+  if(p5) s+=`<path d="${p5}" stroke="${ma5C}" stroke-width="1.1" fill="none"/>`;
+
+  // Candles + volume
+  raw.forEach((d,i)=>{
+    const cx=AX+(i+0.5)*stepX;
+    const up=d.c>=d.o;
+    const col=up?upC:dnC;
+    // wick
+    s+=`<line x1="${cx.toFixed(1)}" y1="${py(d.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${py(d.l).toFixed(1)}" stroke="${col}" stroke-width="0.9" opacity="0.55"/>`;
+    // body
+    const bt=py(Math.max(d.o,d.c)), bb=py(Math.min(d.o,d.c)), bh=Math.max(bb-bt,0.9);
+    s+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${bt.toFixed(1)}" width="${barW.toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"/>`;
+    // volume
+    const vtop=vy(d.v);
+    s+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${vtop.toFixed(1)}" width="${barW.toFixed(1)}" height="${(VB-vtop).toFixed(1)}" fill="${col}" opacity="0.45"/>`;
+  });
+
+  // Date labels on x-axis (every ~5 bars)
+  const labelIdxs=[0,5,10,13,15,20,25];
+  labelIdxs.forEach(i=>{
+    if(i>=N)return;
+    const cx=AX+(i+0.5)*stepX;
+    s+=`<text x="${cx.toFixed(1)}" y="${(VB+10)}" text-anchor="middle" font-size="7" fill="${axisTextC}" font-family="system-ui,sans-serif">${raw[i].d}</text>`;
+  });
+
+  // Crosshair (hidden initially)
+  s+=`<line id="ch-v" x1="0" y1="${AY}" x2="0" y2="${VB}" stroke="${axisTextC}" stroke-width="0.6" stroke-dasharray="2,2" opacity="0" pointer-events="none"/>`;
+  s+=`<line id="ch-h" x1="${AX}" y1="0" x2="${ARX}" y2="0" stroke="${axisTextC}" stroke-width="0.6" stroke-dasharray="2,2" opacity="0" pointer-events="none"/>`;
+  // Hover dot on close
+  s+=`<circle id="ch-dot" cx="0" cy="0" r="3" fill="${upC}" opacity="0" pointer-events="none"/>`;
+
+  // Transparent overlay for mouse events
+  s+=`<rect id="chart-overlay" x="${AX}" y="${AY}" width="${CW}" height="${VB-AY}" fill="transparent" style="cursor:crosshair"/>`;
+
+  document.getElementById('kline-svg').innerHTML=s;
+  setupInteraction(py, prng);
+}
+
+function setupInteraction(py, prng){
+  const svg=document.getElementById('kline-svg');
+  const tooltip=document.getElementById('k-tooltip');
+  const ttDate=document.getElementById('tt-date');
+  const ttTable=document.getElementById('tt-table');
+  const container=document.getElementById('kline-container');
+
+  function getIdx(clientX){
+    const rect=svg.getBoundingClientRect();
+    const vbX=(clientX-rect.left)*VBW/rect.width;
+    return Math.max(0,Math.min(N-1,Math.floor((vbX-AX)/stepX)));
+  }
+
+  function onMove(e){
+    const touch=e.touches?e.touches[0]:e;
+    const rect=svg.getBoundingClientRect();
+    const vbX=(touch.clientX-rect.left)*VBW/rect.width;
+    const vbY=(touch.clientY-rect.top)*VBH/rect.height;
+    if(vbX<AX||vbX>ARX)return;
+
+    const idx=getIdx(touch.clientX);
+    const d=raw[idx];
+    const cx=AX+(idx+0.5)*stepX;
+
+    // Update crosshair
+    const chv=document.getElementById('ch-v');
+    const chh=document.getElementById('ch-h');
+    const dot=document.getElementById('ch-dot');
+    if(chv){chv.setAttribute('x1',cx.toFixed(1));chv.setAttribute('x2',cx.toFixed(1));chv.setAttribute('opacity','1')}
+    if(chh){const cy=py(d.c).toFixed(1);chh.setAttribute('y1',cy);chh.setAttribute('y2',cy);chh.setAttribute('opacity','1')}
+    if(dot){dot.setAttribute('cx',cx.toFixed(1));dot.setAttribute('cy',py(d.c).toFixed(1));dot.setAttribute('opacity','1')}
+
+    // Fill tooltip
+    const up=d.c>=d.o;
+    const chg=(d.c-d.o).toFixed(1);
+    const chgPct=((d.c-d.o)/d.o*100).toFixed(2);
+    const vol=(d.v/10000).toFixed(1);
+    ttDate.textContent=`台表科 6278  ${d.d}`;
+    ttTable.innerHTML=`
+      <tr><td>開</td><td>${d.o}</td></tr>
+      <tr><td>高</td><td class="tt-up">${d.h}</td></tr>
+      <tr><td>低</td><td class="tt-dn">${d.l}</td></tr>
+      <tr><td>收</td><td class="${up?'tt-up':'tt-dn'}">${d.c}</td></tr>
+      <tr><td>漲跌</td><td class="${up?'tt-up':'tt-dn'}">${up?'+':''}${chg} (${up?'+':''}${chgPct}%)</td></tr>
+      <tr><td>量</td><td>${vol} 萬股</td></tr>
+    `;
+
+    // Position tooltip
+    const cRect=container.getBoundingClientRect();
+    const screenCX=rect.left+(cx/VBW)*rect.width;
+    const relX=screenCX-cRect.left;
+    const relY=touch.clientY-cRect.top;
+    const toRight=cx<VBW*0.58;
+    tooltip.style.opacity='1';
+    tooltip.style.top=Math.max(4,relY-80)+'px';
+    if(toRight){tooltip.style.left=(relX+12)+'px';tooltip.style.right='auto'}
+    else{tooltip.style.right=(cRect.width-relX+12)+'px';tooltip.style.left='auto'}
+  }
+
+  function onLeave(){
+    tooltip.style.opacity='0';
+    const chv=document.getElementById('ch-v');
+    const chh=document.getElementById('ch-h');
+    const dot=document.getElementById('ch-dot');
+    if(chv)chv.setAttribute('opacity','0');
+    if(chh)chh.setAttribute('opacity','0');
+    if(dot)dot.setAttribute('opacity','0');
+  }
+
+  const overlay=document.getElementById('chart-overlay');
+  if(overlay){
+    overlay.addEventListener('mousemove',onMove);
+    overlay.addEventListener('mouseleave',onLeave);
+    overlay.addEventListener('touchmove',e=>{e.preventDefault();onMove(e)},{passive:false});
+    overlay.addEventListener('touchend',onLeave);
+  }
+}
+
+// Initial render + re-render on theme change
+document.addEventListener('DOMContentLoaded',render);
+const obs=new MutationObserver(render);
+obs.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',render);
 </script>
 </body>
 </html>
