@@ -1,1145 +1,573 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MAGI 盤後日報 · 2026-04-30</title>
+<title>MAGI 盤後報告 2026-04-30</title>
 <style>
-:root{
-  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
-  --border:#e2e8f0;--border2:#edf0f4;
-  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
-  --accent:#7c3aed;--accent2:#7c3aed;
-  --up:#dc2626;--dn:#16a34a;
-  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
-  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
-  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);
-  --warn:#f59e0b;--blue:#3b82f6;
-}
-@media(prefers-color-scheme:dark){:root{
-  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;
-  --border:#21262d;--border2:#1a1f2a;
-  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
-  --accent2:#c084fc;
-  --up:#e05252;--dn:#2ec27a;
-  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
-  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
-  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
-}}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+:root{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--warn:#f59e0b;--blue:#3b82f6}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82)}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit;text-decoration:none}
-
-/* NAV */
 nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
 .nav-logo em{color:var(--accent2);font-style:normal}
-.nav-right{display:flex;align-items:center;gap:10px}
-.nav-badge{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px;background:rgba(124,58,237,.08);padding:3px 8px;border-radius:4px;border:1px solid rgba(124,58,237,.15)}
+.nav-center{display:flex;align-items:center;gap:10px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px;background:var(--glow);padding:3px 10px;border-radius:100px;border:1px solid rgba(124,58,237,.2)}
 .nav-date{font-size:11px;color:var(--muted)}
-.nav-back{font-size:12px;color:var(--muted);transition:color .15s}
-.nav-back:hover{color:var(--text)}
-
-/* HERO */
-.hero-wrap{position:relative;overflow:hidden;padding:40px 32px 32px;background:var(--bg2)}
+.nav-back{font-size:12px;color:var(--muted)}
+.hero-wrap{position:relative;overflow:hidden;padding:40px 32px 32px;background:var(--bg2);border-bottom:1px solid var(--border)}
 .hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
-.hero-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:28px 28px;opacity:.4;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%)}
-.hero-inner{position:relative;z-index:1}
-.hero-title{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px}
-.hero-num{font-size:52px;font-weight:800;color:var(--bright);line-height:1;letter-spacing:-2px;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:28px 28px;opacity:.35;pointer-events:none;mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black 0%,transparent 100%)}
+.hero-inner{position:relative;z-index:1;max-width:900px}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:11px;color:var(--muted);margin-bottom:20px}
+.hero-pill .live{width:6px;height:6px;border-radius:50%;background:var(--up);box-shadow:0 0 7px var(--up);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-num{font-size:clamp(44px,9vw,80px);font-weight:800;color:var(--bright);line-height:.9;letter-spacing:-3px;margin-bottom:14px}
 @media(prefers-color-scheme:dark){.hero-num{background:linear-gradient(160deg,#f8fafc 30%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
-.hero-badge{display:inline-flex;align-items:center;font-size:18px;font-weight:700;padding:4px 14px;border-radius:8px}
+.hero-badge{display:inline-block;font-size:clamp(14px,2.5vw,20px);font-weight:700;padding:4px 16px;border-radius:8px;vertical-align:middle;margin-left:14px}
 .hero-badge.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
 .hero-badge.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
-.hero-sub{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.6}
-.hero-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.hero-meta span{font-size:12px;color:var(--muted)}
-.hero-meta b{color:var(--text)}
-
-/* SIGNALS */
+.hero-headline{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:20px;max-width:720px}
+.hero-headline strong{color:var(--text)}
 .signals{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .sig{display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:100px;font-size:12px;border:1px solid var(--border);background:var(--bg)}
 .sig-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.sig-label{color:var(--muted)}
-.sig-val{font-weight:700}
-.sig-dn .sig-dot{background:var(--up);box-shadow:0 0 6px var(--up)}
-.sig-dn .sig-val{color:var(--up)}
-.sig-up .sig-dot{background:var(--dn);box-shadow:0 0 6px var(--dn)}
-.sig-up .sig-val{color:var(--dn)}
-.sig-warn .sig-dot{background:var(--warn);box-shadow:0 0 6px var(--warn)}
-.sig-warn .sig-val{color:var(--warn)}
-
-/* BREADTH BAR */
-.breadth{margin-top:4px}
-.b-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:6px 0}
-.up-s{background:var(--up)}
-.flat-s{background:var(--dimmer)}
-.dn-s{background:var(--dn)}
-.b-nums{display:flex;gap:12px;flex-wrap:wrap;font-size:11px}
-.b-nums .u{color:var(--up);font-weight:600}
-.b-nums .f{color:var(--muted)}
-.b-nums .d{color:var(--dn);font-weight:600}
-
-/* LAYOUT */
-.content{max-width:1100px;margin:0 auto;padding:24px 24px 64px}
-.section{margin-bottom:36px}
-.section-title{font-size:13px;font-weight:700;color:var(--bright);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.section-title::before{content:'';display:inline-block;width:3px;height:14px;border-radius:2px;background:var(--accent);flex-shrink:0}
-
-/* CARD */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
-.card+.card{margin-top:10px}
-.card-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:11px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.sig-label{color:var(--muted)}.sig-val{font-weight:700}
+.sig-dn .sig-dot{background:var(--up);box-shadow:0 0 6px var(--up)}.sig-dn .sig-val{color:var(--up)}
+.sig-up .sig-dot{background:var(--dn);box-shadow:0 0 6px var(--dn)}.sig-up .sig-val{color:var(--dn)}
+.sig-warn .sig-dot{background:var(--warn);box-shadow:0 0 6px var(--warn)}.sig-warn .sig-val{color:var(--warn)}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;font-size:13px}
+.hs-item{display:flex;flex-direction:column;gap:2px}
+.hs-label{font-size:10px;color:var(--dimmer);font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+.hs-val{font-weight:700;color:var(--text)}.hs-val.up{color:var(--up)}.hs-val.dn{color:var(--dn)}
+.b-title{font-size:10px;color:var(--dimmer);font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.b-bar{height:8px;border-radius:100px;display:flex;overflow:hidden;gap:1px}
+.up-s{background:var(--up);border-radius:100px 0 0 100px}
+.flat-s{background:var(--border)}
+.dn-s{background:var(--dn);border-radius:0 100px 100px 0}
+.b-nums{display:flex;gap:14px;font-size:11px;margin-top:6px;flex-wrap:wrap}
+.b-nums .u{color:var(--up);font-weight:600}.b-nums .d{color:var(--dn);font-weight:600}.b-nums .f{color:var(--muted)}
+.content{max-width:960px;margin:0 auto;padding:24px 32px;display:flex;flex-direction:column;gap:28px}
+.sec-head{font-size:11px;font-weight:700;color:var(--dimmer);letter-spacing:.6px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.sec-head::before{content:'';display:inline-block;width:3px;height:12px;border-radius:2px;background:var(--accent);flex-shrink:0}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.card-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:12px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
 .card-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
-
-/* GRID */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
-
-/* SECTOR CARD */
-.sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
-.sc-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.sc-name{font-size:14px;font-weight:700;color:var(--bright)}
-.sc-count{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
-.sc-stocks{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
-.sc-stock{display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 0}
-.sc-stock .code{color:var(--muted);font-size:11px;min-width:36px}
-.sc-stock .name{color:var(--text);font-weight:600}
-.sc-stock .chg{margin-left:auto;font-weight:700}
-.chg.up{color:var(--up)}
-.chg.dn{color:var(--dn)}
-.limit-badge{font-size:9px;font-weight:700;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);padding:1px 5px;border-radius:3px}
-.sc-notion{border-top:1px solid var(--border2);padding-top:8px;margin-top:4px}
-.sc-notion-title{font-size:10px;color:var(--accent2);font-weight:700;margin-bottom:6px;letter-spacing:.3px}
-.sc-notion-item{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:4px;padding-left:8px;border-left:2px solid rgba(124,58,237,.2)}
-.sc-notion-speaker{font-weight:700;color:var(--text)}
-
-/* INSTITUTIONAL */
-.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-@media(max-width:640px){.inst-grid{grid-template-columns:1fr 1fr}}
-.inst-card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center}
-.inst-label{font-size:10px;color:var(--muted);margin-bottom:4px}
-.inst-val{font-size:18px;font-weight:800}
-.inst-val.up{color:var(--up)}
-.inst-val.dn{color:var(--dn)}
-.inst-sub{font-size:10px;color:var(--dimmer);margin-top:2px}
-.inst-detail{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.inst-col{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px}
-.inst-col-title{font-size:10px;color:var(--muted);font-weight:700;margin-bottom:8px;letter-spacing:.4px}
-.inst-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;font-size:12px;border-bottom:1px solid var(--border2)}
-.inst-row:last-child{border-bottom:none}
-.inst-row .stk{color:var(--text);font-weight:600}
-.inst-row .code{color:var(--muted);font-size:10px}
-.inst-row .vol{font-weight:700;font-size:11px}
-
-/* RADAR FEED */
-.radar-feed{display:flex;flex-direction:column;gap:6px}
-.rf-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+.sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px}
+.sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sc-name{font-size:13px;font-weight:700;color:var(--text)}
+.sc-count{font-size:11px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);border-radius:4px;padding:2px 8px;font-weight:700}
+.sc-stocks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.sc-stk{font-size:11px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--text2)}
+.sc-stk.limitup{background:var(--up-bg);border-color:var(--up-bd);color:var(--up);font-weight:700}
+.sc-says{border-top:1px solid var(--border2);padding-top:8px}
+.sc-says-title{font-size:9px;font-weight:700;color:var(--dimmer);letter-spacing:.4px;text-transform:uppercase;margin-bottom:5px}
+.sc-say{font-size:11px;color:var(--text2);line-height:1.55;margin-bottom:4px}
+.sc-say-who{color:var(--accent2);font-weight:600}
+.sc-say-tp{background:var(--glow);color:var(--accent2);border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700;margin-left:4px}
+.inst-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.inst-item{background:var(--bg3);border-radius:8px;padding:12px;text-align:center}
+.inst-label{font-size:10px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.inst-val{font-size:20px;font-weight:800;line-height:1}.inst-val.pos{color:var(--up)}.inst-val.neg{color:var(--dn)}
+.inst-streak{font-size:10px;color:var(--dimmer);margin-top:3px}
+.fi-table{width:100%;font-size:12px;border-collapse:collapse}
+.fi-table th{text-align:left;padding:4px 8px;color:var(--dimmer);font-size:10px;font-weight:600;letter-spacing:.3px;border-bottom:1px solid var(--border)}
+.fi-table td{padding:5px 8px;border-bottom:1px solid var(--border2)}.fi-table tr:last-child td{border-bottom:none}
+.chip{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px}
+.chip.buy{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.chip.sell{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.rf-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
 .rf-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .rf-person{font-weight:700;font-size:14px;color:var(--bright)}
 .rf-group{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
 .rf-date{font-size:11px;color:var(--dimmer);margin-left:auto}
 .rf-mentions{display:flex;flex-direction:column;gap:5px}
-.rf-mention{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;padding:8px 10px;border-radius:7px;background:var(--bg);border:1px solid var(--border2);transition:background .12s}
-.rf-mention:hover{background:var(--bg3)}
-.rf-code{font-size:11px;color:var(--muted);min-width:32px;padding-top:1px}
-.rf-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap}
+.rf-mention{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;padding:7px 10px;border-radius:7px;background:var(--bg);border:1px solid var(--border2)}
+.rf-code{font-size:11px;color:var(--muted);min-width:36px;flex-shrink:0;padding-top:1px}
+.rf-name{font-size:13px;font-weight:600;color:var(--text);min-width:48px;flex-shrink:0}
 .rf-quote{font-size:12px;color:var(--text2);font-style:italic;flex:1;line-height:1.5}
 .rf-sentiment{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;flex-shrink:0}
 .rf-s-bull{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
 .rf-s-watch{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
-.rf-s-bear{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
-
-/* CONSENSUS TABLE */
-.tbl{width:100%;border-collapse:collapse;font-size:12px}
-.tbl th{text-align:left;padding:6px 10px;font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.4px;border-bottom:1px solid var(--border);white-space:nowrap}
-.tbl td{padding:8px 10px;border-bottom:1px solid var(--border2)}
-.tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:var(--bg3)}
-.stk-name{font-weight:700;color:var(--bright);font-size:13px;display:block}
-.stk-code{font-size:10px;color:var(--muted)}
-.chip{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px}
-.chip.buy{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
-.chip.sell{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
-.chip.neutral{background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--border);margin-right:2px}
-.dot.on{background:var(--accent2)}
-.price{color:var(--text);font-weight:700}
-
-/* STOCK CARDS */
-.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.stock-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;transition:box-shadow .15s}
-.stock-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.sc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
-.sc-info{}
-.sc-title{font-size:16px;font-weight:800;color:var(--bright)}
-.sc-code{font-size:11px;color:var(--muted)}
-.sc-price{text-align:right}
-.sc-close{font-size:20px;font-weight:800;color:var(--bright)}
-.sc-chg{font-size:12px;font-weight:700;padding:2px 8px;border-radius:5px;margin-top:2px;display:inline-block}
-.sc-chg.up{background:var(--up-bg);color:var(--up)}
-.sc-chg.dn{background:var(--dn-bg);color:var(--dn)}
-.sc-kline{margin:10px 0;height:32px}
-.sc-kline canvas{display:block}
-.sc-notion-box{background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.12);border-radius:7px;padding:8px 10px;margin:8px 0}
-.sc-notion-score{font-size:10px;color:var(--accent2);font-weight:700;margin-bottom:4px}
-.sc-notion-thesis{font-size:12px;color:var(--text2);line-height:1.5}
-.sc-notion-pushers{font-size:11px;color:var(--muted);margin-top:4px}
-.sc-notion-tp{font-size:11px;font-weight:700;color:var(--accent2);margin-top:3px}
-.sc-news{margin-top:10px;border-top:1px solid var(--border2);padding-top:8px}
-.sc-news-item{font-size:11px;color:var(--text2);padding:3px 0;line-height:1.5;border-bottom:1px solid var(--border2)}
-.sc-news-item:last-child{border-bottom:none}
-.sc-news-date{color:var(--dimmer);font-size:10px;margin-left:4px}
-.sc-badge-wrap{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
-.sc-sector-badge{font-size:10px;color:var(--muted);background:var(--bg3);padding:2px 7px;border-radius:4px}
-.sc-notion-hit{font-size:10px;font-weight:700;background:rgba(124,58,237,.1);color:var(--accent2);border:1px solid rgba(124,58,237,.2);padding:2px 7px;border-radius:4px}
-.sc-limit-badge{font-size:10px;font-weight:700;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);padding:2px 7px;border-radius:4px}
-
-/* FORECAST */
-.event-list{display:flex;flex-direction:column;gap:6px}
-.event-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border2);font-size:13px}
-.event-item:last-child{border-bottom:none}
-.event-date{font-size:11px;color:var(--muted);min-width:60px;padding-top:2px}
-.event-text{color:var(--text2);line-height:1.5}
-.event-text strong{color:var(--text);font-weight:700}
-.tag{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;margin-right:4px;letter-spacing:.3px}
-.tag-hot{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
-.tag-fomc{background:rgba(59,130,246,.1);color:var(--blue);border:1px solid rgba(59,130,246,.2)}
-.tag-tw{background:rgba(124,58,237,.1);color:var(--accent2);border:1px solid rgba(124,58,237,.2)}
-
-/* FOOTER */
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.footer-brand{font-size:13px;font-weight:700;color:var(--muted)}
-.footer-brand em{color:var(--accent2);font-style:normal}
-.footer-sources{display:flex;gap:8px;flex-wrap:wrap}
-.source-badge{font-size:10px;color:var(--dimmer);background:var(--bg3);border:1px solid var(--border);padding:3px 8px;border-radius:4px}
+.rf-tp{font-size:10px;font-weight:700;background:var(--glow);color:var(--accent2);border-radius:3px;padding:2px 6px;white-space:nowrap;flex-shrink:0}
+.tbl{width:100%;font-size:12px;border-collapse:collapse}
+.tbl th{text-align:left;padding:5px 8px;color:var(--dimmer);font-size:10px;font-weight:600;letter-spacing:.3px;border-bottom:1px solid var(--border);white-space:nowrap}
+.tbl td{padding:6px 8px;border-bottom:1px solid var(--border2)}.tbl tr:hover td{background:var(--bg3)}.tbl tr:last-child td{border-bottom:none}
+.stk-name{font-weight:700;color:var(--text)}.stk-code{font-size:10px;color:var(--muted);margin-left:5px}
+.dots{display:flex;gap:3px}.dot{width:6px;height:6px;border-radius:50%;background:var(--border)}.dot.on{background:var(--accent2)}
+.score-val{font-weight:800;color:var(--up)}.rank-num{font-size:11px;font-weight:700;color:var(--dimmer)}
+.stkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stkgrid-sm{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+@media(max-width:768px){.stkgrid{grid-template-columns:1fr 1fr}.stkgrid-sm{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.stkgrid,.stkgrid-sm{grid-template-columns:1fr}}
+.stkcard{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .15s}
+.stkcard:hover{border-color:rgba(124,58,237,.3)}.stkcard.intersect{border-color:var(--up-bd)}
+.sk-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.sk-info{display:flex;flex-direction:column;gap:2px}
+.sk-code{font-size:10px;color:var(--muted)}.sk-name{font-size:15px;font-weight:800;color:var(--bright)}.sk-sector{font-size:10px;color:var(--accent2);margin-top:1px}
+.sk-price-block{text-align:right}
+.sk-close{font-size:17px;font-weight:800;display:block}.sk-chg{font-size:11px;font-weight:700;display:block;margin-top:1px}
+.sk-close.up,.sk-chg.up{color:var(--up)}.sk-close.dn,.sk-chg.dn{color:var(--dn)}
+.sk-limitup{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);margin-left:4px;vertical-align:middle}
+canvas.kline{display:block;margin:8px 0;width:88px;height:32px}
+.sk-notion-bar{display:flex;align-items:center;gap:6px;margin:6px 0;flex-wrap:wrap}
+.sk-notion-rank{font-size:10px;font-weight:700;background:var(--glow);color:var(--accent2);border-radius:4px;padding:2px 7px}
+.sk-notion-score{font-size:10px;color:var(--muted)}.sk-notion-tp{font-size:10px;font-weight:700;background:var(--up-bg);color:var(--up);border-radius:4px;padding:2px 7px}
+.sk-hit-badge{font-size:9px;font-weight:700;background:var(--glow);color:var(--accent2);border:1px solid rgba(124,58,237,.2);border-radius:4px;padding:2px 8px;display:inline-flex;align-items:center;gap:3px;margin-bottom:6px}
+.sk-thesis{font-size:11px;color:var(--text2);line-height:1.5;margin:4px 0}
+.sk-pushers{font-size:10px;color:var(--dimmer);margin-top:3px}
+.sk-news-item{font-size:11px;border-top:1px solid var(--border2);padding-top:6px;margin-top:6px;display:flex;gap:6px;align-items:flex-start}
+.sk-news-title{color:var(--text2);flex:1}.sk-news-date{color:var(--dimmer);white-space:nowrap;flex-shrink:0}
+.stkcard-sm{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px}
+.stkcard-sm.notion-hit{border-color:var(--up-bd)}
+.sk-sm-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.sk-sm-left{display:flex;flex-direction:column;gap:1px}
+.sk-sm-code{font-size:10px;color:var(--muted)}.sk-sm-name{font-size:13px;font-weight:800;color:var(--bright)}
+.sk-sm-right{text-align:right}.sk-sm-close{font-size:15px;font-weight:800;color:var(--up)}.sk-sm-chg{font-size:11px;color:var(--up);font-weight:700}
+.sk-sm-ref{font-size:10px;color:var(--accent2);line-height:1.5;border-top:1px solid var(--border2);padding-top:5px;margin-top:4px}
+.sk-sm-news{font-size:10px;color:var(--muted);margin-top:3px}
+.out-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:640px){.out-grid{grid-template-columns:1fr}}
+.out-block{background:var(--bg3);border-radius:8px;padding:12px}
+.out-title{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.4px;text-transform:uppercase;margin-bottom:8px}
+.out-item{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border2);display:flex;gap:6px;line-height:1.4}
+.out-item:last-child{border-bottom:none}
+.out-item .tag{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.tag-event{background:rgba(59,130,246,.1);color:var(--blue);border:1px solid rgba(59,130,246,.2)}
+.tag-sup{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.tag-res{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.tag-watch{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.2)}
+.sector-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.sc-chip{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px}
+.sc-chip .sc-chip-name{font-weight:600;color:var(--text)}.sc-chip .sc-chip-cnt{font-size:10px;color:var(--muted)}
+.sc-chip.hot{border-color:rgba(124,58,237,.3);background:var(--glow)}.sc-chip.hot .sc-chip-name{color:var(--accent2)}
+footer{margin-top:40px;border-top:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ft-badge{font-size:10px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:3px 8px;color:var(--muted)}
+.ft-note{font-size:11px;color:var(--dimmer);flex:1}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
-  <div class="nav-right">
-    <span class="nav-badge">盤後報告</span>
-    <span class="nav-date">2026-04-30 週四</span>
-  </div>
+  <a href="/" class="nav-logo"><em>MAGI</em>&nbsp;智能分析</a>
+  <div class="nav-center"><span class="nav-badge">盤後報告</span><span class="nav-date">2026-04-30 · 民國115年</span></div>
   <a href="/" class="nav-back">← 首頁</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero-wrap">
-  <div class="hero-inner">
-    <div class="hero-title">加權指數 · 2026-04-30 收盤</div>
-    <div class="hero-num">
-      38,926
-      <span class="hero-badge dn">▼ 376.87（-0.96%）</span>
-    </div>
-    <p class="hero-sub">
-      4月史上最強月線 +7,203 點收官，台股高檔跳水——台積電尾盤急跌回測 10 日線，<strong>外資連 4 日賣超 535 億</strong>，指數失守 39K 摜破 5 日線收最低點；然 ABF 載板、光通訊、機器人族群逆勢漲停，多空強烈分歧。
-    </p>
-    <div class="hero-meta">
-      <span>成交 <b>10,020 億</b></span>
-      <span>三大法人 <b style="color:var(--up)">−531.67 億</b></span>
-      <span>漲停 <b>47</b>（TSE 19 / OTC 28）</span>
-      <span>跌停 <b>4</b></span>
-      <span>上櫃 <b style="color:var(--dn)">384.58 ▲1.83</b></span>
-    </div>
-    <div class="signals">
-      <div class="sig sig-dn"><span class="sig-dot"></span><span class="sig-label">大盤方向</span><span class="sig-val">−0.96%</span></div>
-      <div class="sig sig-dn"><span class="sig-dot"></span><span class="sig-label">法人合力</span><span class="sig-val">−532億</span></div>
-      <div class="sig sig-dn"><span class="sig-dot"></span><span class="sig-label">市場廣度</span><span class="sig-val">漲301／跌695</span></div>
-    </div>
-    <div class="breadth">
-      <div style="font-size:10px;color:var(--muted);margin-bottom:4px">上市漲跌分布（上漲 28.1% · 持平 6.9% · 下跌 65.0%）</div>
-      <div class="b-bar">
-        <div class="up-s" style="width:28.1%"></div>
-        <div class="flat-s" style="width:6.9%"></div>
-        <div class="dn-s" style="width:65%"></div>
+<div class="hero-inner">
+  <div class="hero-pill"><span class="live"></span><span>台股盤後 · 2026-04-30 週四</span></div>
+  <div class="hero-num">38,926 <span class="hero-badge dn">▼ −376 (−0.96%)</span></div>
+  <p class="hero-headline">4月史上最強月線 <strong>+22%</strong> 收官日，台積電尾盤急殺帶指數失守萬九；矽光子七檔、ABF三強逆勢漲停，AI結構需求輪動不止——外資四日合計狂砍 <strong>1,922 億</strong>，五一長假前獲利了結壓力猶存。</p>
+  <div class="signals">
+    <div class="sig sig-dn"><span class="sig-dot"></span><span class="sig-label">大盤方向</span><span class="sig-val">偏空 −0.96%</span></div>
+    <div class="sig sig-dn"><span class="sig-dot"></span><span class="sig-label">法人合力</span><span class="sig-val">−532 億</span></div>
+    <div class="sig sig-dn"><span class="sig-dot"></span><span class="sig-label">市場廣度</span><span class="sig-val">上漲僅 28%</span></div>
+  </div>
+  <div class="hero-stats">
+    <div class="hs-item"><span class="hs-label">TSE 成交額</span><span class="hs-val">10,020 億</span></div>
+    <div class="hs-item"><span class="hs-label">上市漲停</span><span class="hs-val up">19 檔</span></div>
+    <div class="hs-item"><span class="hs-label">上櫃漲停</span><span class="hs-val up">28 檔</span></div>
+    <div class="hs-item"><span class="hs-label">合計漲停</span><span class="hs-val up">47 檔</span></div>
+    <div class="hs-item"><span class="hs-label">跌停</span><span class="hs-val dn">4 檔</span></div>
+    <div class="hs-item"><span class="hs-label">4 月月漲</span><span class="hs-val up">+22.71%</span></div>
+  </div>
+  <div style="max-width:480px;margin-top:14px">
+    <div class="b-title">上市漲跌分布（TSE）</div>
+    <div class="b-bar"><div class="up-s" style="width:28.1%"></div><div class="flat-s" style="width:6.9%"></div><div class="dn-s" style="width:65%"></div></div>
+    <div class="b-nums"><span class="u">漲 301</span><span class="f">平 74</span><span class="d">跌 695</span><span style="color:var(--up);font-weight:700">漲停 19</span><span style="color:var(--dn)">跌停 1</span></div>
+  </div>
+</div>
+</div>
+
+<div class="content">
+
+<!-- 今日市場方向 -->
+<div>
+  <div class="sec-head">今日市場方向</div>
+  <div class="g2">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.4px;text-transform:uppercase;margin-bottom:10px">強勢族群 · 漲停集中</div>
+      <div class="sector-card">
+        <div class="sc-header"><span class="sc-name">矽光子 / 光通訊</span><span class="sc-count">7+ 檔漲停</span></div>
+        <div class="sc-stocks">
+          <span class="sc-stk limitup">3163 波若威 +9.57%</span>
+          <span class="sc-stk limitup">4991 環宇-KY +9.92%</span>
+          <span class="sc-stk limitup">6830 汎銓 漲停</span>
+          <span class="sc-stk limitup">2455 全新 漲停</span>
+          <span class="sc-stk limitup">6530 創威 漲停</span>
+          <span class="sc-stk limitup">6426 統新 漲停</span>
+          <span class="sc-stk">3081 聯亞 +7.98%</span>
+          <span class="sc-stk">4979 華星光 +8.75%</span>
+        </div>
+        <div class="sc-says">
+          <div class="sc-says-title">群組怎麼說</div>
+          <div class="sc-say"><span class="sc-say-who">小魚（樂林 04-22）</span>：「環宇-KY 法說，200G PD 提前量產，市佔率目標2026/2027積極」<span class="sc-say-tp">TP 1040</span></div>
+          <div class="sc-say"><span class="sc-say-who">Eddie（樂林 04-28）</span>：「光通13%（頎邦、聯亞）；衛星CPO 抱聯亞、穩懋」</div>
+          <div class="sc-say"><span class="sc-say-who">謝董（駿羽 04-28）</span>：「AAOI AMD CW laser 一季下2000萬顆，AWS 1-2個月 CW 測試結果出來，持續關注」</div>
+        </div>
       </div>
-      <div class="b-nums">
-        <span class="u">▲ 漲 301</span>
-        <span class="f">─ 平 74</span>
-        <span class="d">▼ 跌 695</span>
-        <span style="color:var(--up);font-weight:700">漲停 19</span>
-        <span style="color:var(--dn)">跌停 1</span>
+      <div class="sector-card">
+        <div class="sc-header"><span class="sc-name">ABF 載板</span><span class="sc-count">3 檔漲停</span></div>
+        <div class="sc-stocks">
+          <span class="sc-stk limitup">3037 欣興 883元</span>
+          <span class="sc-stk limitup">4958 臻鼎-KY 421元</span>
+          <span class="sc-stk limitup">8046 南電 &gt;1000元</span>
+          <span class="sc-stk">3189 景碩 +3.94%</span>
+        </div>
+        <div class="sc-says">
+          <div class="sc-says-title">群組怎麼說</div>
+          <div class="sc-say"><span class="sc-say-who">Eddie（樂林 04-29）</span>：「欣興 1Q26 GM 18% 符合預期，EPS beat，第二季毛利率增幅大，漲價+UTR往上」<span class="sc-say-tp">TP 1020</span></div>
+          <div class="sc-say"><span class="sc-say-who">Eddie（樂林 04-28）</span>：「臻鼎 TP 466，Upside+30%，光通訊 MSAP 40~50%，載板 1Q26 tun 往上」<span class="sc-say-tp">TP 466</span></div>
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sc-header"><span class="sc-name">機器人 / 精密傳動</span><span class="sc-count">3 檔漲停</span></div>
+        <div class="sc-stocks">
+          <span class="sc-stk limitup">1597 直得 143.5元</span>
+          <span class="sc-stk limitup">4561 健椿 漲停</span>
+          <span class="sc-stk limitup">8027 鈦昇 193.5元</span>
+        </div>
+        <div class="sc-says">
+          <div class="sc-says-title">群組怎麼說</div>
+          <div class="sc-say"><span class="sc-say-who">駿羽（04-27）</span>：「盟立跟敏實集團策略合作，送樣特斯拉供應鏈，第一家過特斯拉審核，欣興砸10億買盟立設備」</div>
+        </div>
+      </div>
+      <div class="sector-card" style="margin-bottom:0">
+        <div class="sc-header"><span class="sc-name">AI 測試 / 探針卡</span><span class="sc-count">1 檔漲停</span></div>
+        <div class="sc-stocks">
+          <span class="sc-stk limitup">6683 雍智科技 2125元</span>
+          <span class="sc-stk">6515 穎崴 +1.96%</span>
+        </div>
+        <div class="sc-says">
+          <div class="sc-says-title">群組怎麼說</div>
+          <div class="sc-say"><span class="sc-say-who">布哥（駿羽 04-29）</span>：「MTK 5922 還沒充分反映，還有空間」<span class="sc-say-tp">TP 3000</span></div>
+          <div class="sc-say"><span class="sc-say-who">Kevin（駿羽 04-29）</span>：「明年全拿可能有3位數 EPS，load board/burn-in 也拿一半，長線不錯」</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.4px;text-transform:uppercase;margin-bottom:10px">弱勢 · 重挫個股</div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">今日重挫</div>
+        <table class="fi-table">
+          <thead><tr><th>股票</th><th>收盤</th><th>漲跌</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td><b>台積電 2330</b></td><td>2,135</td><td style="color:var(--dn)">▼ −2.06%</td><td style="font-size:10px;color:var(--muted)">尾盤急殺，拖累指數353點</td></tr>
+            <tr><td><b>南亞科 2408</b></td><td>—</td><td style="color:var(--dn)">▼ −8.30%</td><td style="font-size:10px;color:var(--muted)">外資大砍4.1萬張翻臉</td></tr>
+            <tr><td><b>鴻海 2317</b></td><td>219.5</td><td style="color:var(--dn)">▼ −2.44%</td><td style="font-size:10px;color:var(--muted)">電腦週邊走弱</td></tr>
+            <tr><td><b>廣達 2382</b></td><td>—</td><td style="color:var(--dn)">走弱</td><td style="font-size:10px;color:var(--muted)">AI伺服器代工承壓</td></tr>
+            <tr><td><b>旺宏 2337</b></td><td>—</td><td style="color:var(--dn)">重挫</td><td style="font-size:10px;color:var(--muted)">外資昨買今砍</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="margin-bottom:10px">
+        <div class="card-title">盤面解讀</div>
+        <p style="font-size:12px;color:var(--text2);line-height:1.65">台股盤中一度衝至 39,848 點，高低震盪 <strong>921 點</strong>。台積電最後一盤跳水急殺，單股拉倒指數 353 點。法人合計賣超 531 億，五一連假前外資 4 天累積砍出 <strong>1,922 億</strong>，獲利了結意圖明顯。AI 結構性需求仍驅動資金輪動：矽光子、ABF 載板逆勢主演，南電首登千元大關，矽光子族群 3 天累漲逾 30%。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">上櫃大盤</div>
+        <div style="display:flex;gap:16px;font-size:13px;flex-wrap:wrap">
+          <div><span style="color:var(--muted);font-size:10px">OTC 指數</span><br><strong>384.58</strong> <span style="color:var(--dn);font-size:11px">▼ +1.83</span></div>
+          <div><span style="color:var(--muted);font-size:10px">漲</span><br><strong style="color:var(--up)">341</strong></div>
+          <div><span style="color:var(--muted);font-size:10px">跌</span><br><strong style="color:var(--dn)">457</strong></div>
+          <div><span style="color:var(--muted);font-size:10px">OTC漲停</span><br><strong style="color:var(--up)">28</strong></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CONTENT -->
-<div class="content">
-
-  <!-- 今日市場方向 -->
-  <div class="section">
-    <div class="section-title">今日市場方向</div>
-    <div class="grid2">
-
-      <!-- 強勢族群 -->
+<!-- 三大法人 -->
+<div>
+  <div class="sec-head">三大法人動向</div>
+  <div class="card">
+    <div class="inst-row">
+      <div class="inst-item"><div class="inst-label">外資及陸資</div><div class="inst-val neg">−535.6億</div><div class="inst-streak">連 4 日賣超 · 累計 −1,922億</div></div>
+      <div class="inst-item"><div class="inst-label">投信</div><div class="inst-val pos">+11.8億</div><div class="inst-streak">連 8 日買超</div></div>
+      <div class="inst-item"><div class="inst-label">自營商（合計）</div><div class="inst-val neg">−7.9億</div><div class="inst-streak">連 2 日賣超</div></div>
+    </div>
+    <div style="background:var(--bg3);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:12px;color:var(--text2);line-height:1.6">
+      <strong style="color:var(--up)">外資操作解讀：</strong>長假前大規模套現，連4日合計 −1,922億；昨日買進的記憶體今日全數倒出（南亞科賣超 4.1 萬張居冠），持續血洗台積電（連4日 −2.1 萬張）。買盤轉向：爆買聯電（+3.9 萬張）與主動式 ETF，顯示資金未完全撤出，呈現籌碼輪動特徵。
+    </div>
+    <div class="g2">
       <div>
-        <div style="font-size:11px;color:var(--up);font-weight:700;margin-bottom:8px">◆ 強勢族群（逆勢攻堅）</div>
-
-        <!-- ABF載板 -->
-        <div class="sector-card" style="margin-bottom:10px">
-          <div class="sc-head">
-            <span class="sc-name">ABF 載板</span>
-            <span class="sc-count">3 漲停</span>
-          </div>
-          <div class="sc-stocks">
-            <div class="sc-stock"><span class="code">3037</span><span class="name">欣興</span><span class="chg up">+9.96% <span class="limit-badge">漲停 883</span></span></div>
-            <div class="sc-stock"><span class="code">8046</span><span class="name">南電</span><span class="chg up">+9.72% <span class="limit-badge">漲停 1005</span></span></div>
-            <div class="sc-stock"><span class="code">4958</span><span class="name">臻鼎-KY</span><span class="chg up">+9.9% 漲停</span></div>
-            <div class="sc-stock"><span class="code">3046</span><span class="name">景碩</span><span class="chg up">+3.94%</span></div>
-          </div>
-          <div class="sc-notion">
-            <div class="sc-notion-title">🎯 群組怎麼說</div>
-            <div class="sc-notion-item"><span class="sc-notion-speaker">Eddie（樂林 04/29）：</span>「3037欣興 1Q26 GM 18%符合預期，EPS beat主要業外評價貢獻，2Q毛利率增幅較大，漲價+UTR往上，維持 TP 1020 用 27年EPS 34×30X」</div>
-            <div class="sc-notion-item"><span class="sc-notion-speaker">Ann（駿羽 04/24）：</span>「3037今年14塊，出貨就一定可以認列，今年漲很多小客戶，明年 EPS 比較不擔心」</div>
-          </div>
-        </div>
-
-        <!-- 光通訊/CPO -->
-        <div class="sector-card" style="margin-bottom:10px">
-          <div class="sc-head">
-            <span class="sc-name">光通訊 / CPO</span>
-            <span class="sc-count">3 漲停 + 強勢</span>
-          </div>
-          <div class="sc-stocks">
-            <div class="sc-stock"><span class="code">3163</span><span class="name">波若威</span><span class="chg up">漲停</span></div>
-            <div class="sc-stock"><span class="code">2455</span><span class="name">全新</span><span class="chg up">漲停</span></div>
-            <div class="sc-stock"><span class="code">4991</span><span class="name">環宇-KY</span><span class="chg up">漲停</span></div>
-            <div class="sc-stock"><span class="code">4979</span><span class="name">華星光</span><span class="chg up">+8.75%</span></div>
-            <div class="sc-stock"><span class="code">3081</span><span class="name">聯亞</span><span class="chg up">+7.98%</span></div>
-          </div>
-          <div class="sc-notion">
-            <div class="sc-notion-title">🎯 群組怎麼說</div>
-            <div class="sc-notion-item"><span class="sc-notion-speaker">Eddie（樂林 04/28）：</span>「光通 13%（頎邦、聯亞）；衛星 CPO 抱聯亞、穩懋」</div>
-            <div class="sc-notion-item"><span class="sc-notion-speaker">小魚（樂林 04/24）：</span>「GS 報告TP 3165→4738，用 2029 EPS 94.5、PE 61X，2026/27/28 EPS 18.49/38.63/63.5」</div>
-          </div>
-        </div>
-
-        <!-- 機器人 -->
-        <div class="sector-card" style="margin-bottom:10px">
-          <div class="sc-head">
-            <span class="sc-name">機器人 / 智慧機械</span>
-            <span class="sc-count">4 漲停</span>
-          </div>
-          <div class="sc-stocks">
-            <div class="sc-stock"><span class="code">1597</span><span class="name">直得</span><span class="chg up">+9.96% <span class="limit-badge">漲停</span></span></div>
-            <div class="sc-stock"><span class="code">2467</span><span class="name">志聖</span><span class="chg up">漲停</span></div>
-            <div class="sc-stock"><span class="code">3498</span><span class="name">陽程</span><span class="chg up">漲停</span></div>
-            <div class="sc-stock"><span class="code">6230</span><span class="name">大銀微系統</span><span class="chg up">漲停</span></div>
-          </div>
-          <div class="sc-notion" style="border-top:none;padding-top:4px">
-            <div style="font-size:11px;color:var(--dimmer)">※ Notion 群組本週未提及機器人族群個股</div>
-          </div>
-        </div>
-
-        <!-- 散熱/GPU -->
-        <div class="sector-card">
-          <div class="sc-head">
-            <span class="sc-name">散熱 / GPU 測試</span>
-            <span class="sc-count">2 漲停</span>
-          </div>
-          <div class="sc-stocks">
-            <div class="sc-stock"><span class="code">6683</span><span class="name">雍智科技</span><span class="chg up">+9.82% <span class="limit-badge">漲停 2125</span></span></div>
-            <div class="sc-stock"><span class="code">8996</span><span class="name">高力</span><span class="chg up">+9.65% <span class="limit-badge">漲停 1250</span></span></div>
-            <div class="sc-stock"><span class="code">6107</span><span class="name">萬潤</span><span class="chg up">漲停</span></div>
-          </div>
-          <div class="sc-notion">
-            <div class="sc-notion-title">🎯 群組怎麼說</div>
-            <div class="sc-notion-item"><span class="sc-notion-speaker">Eddie（樂林 04/29）：</span>「雍智 5922 明年下半年貢獻、測試版卡獨供，一套 ASP 1500 萬，TP 3000」</div>
-            <div class="sc-notion-item"><span class="sc-notion-speaker">Kevin（樂林）：</span>「雍智 GPU 測試版卡切入 Google 供應鏈，明年開始放量」</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 弱勢族群 -->
-      <div>
-        <div style="font-size:11px;color:var(--dn);font-weight:700;margin-bottom:8px">◆ 弱勢族群（外資提款）</div>
-
-        <div class="card" style="margin-bottom:10px">
-          <div class="card-title">記憶體族群 承壓</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.8">
-            <div style="display:flex;justify-content:space-between"><span>南亞科 2408</span><span style="color:var(--dn);font-weight:700">−8.30%（外資賣超 4.13 萬張）</span></div>
-            <div style="display:flex;justify-content:space-between"><span>旺宏 2337</span><span style="color:var(--dn);font-weight:700">大跌（外資賣超 1.78 萬張）</span></div>
-            <div style="display:flex;justify-content:space-between"><span>華邦電 / 力積電 / 群聯</span><span style="color:var(--dn)">全面收黑</span></div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-bottom:10px">
-          <div class="card-title">台積電 回測 10 日線</div>
-          <div style="font-size:13px;color:var(--text2);line-height:1.7">
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-              <span style="font-weight:700;color:var(--bright)">台積電 2330</span>
-              <span style="color:var(--dn);font-weight:700">▼ 2,135 元（−2.06%）</span>
-            </div>
-            <p style="font-size:12px">尾盤急殺，終場收最低點，回測 10 日均線 2121 元支撐。外資賣超 2.12 萬張（連 4 日，累計 7.8 萬張）。台積電影響指數約 130 點。</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">半導體 / 電子指標股</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.8">
-            <div style="display:flex;justify-content:space-between"><span>鴻海 2317</span><span style="color:var(--dn)">−2.44%（219.5元）</span></div>
-            <div style="display:flex;justify-content:space-between"><span>廣達 2382</span><span style="color:var(--dn)">下跌（外資賣超）</span></div>
-            <div style="display:flex;justify-content:space-between"><span>日月光 3711</span><span style="color:var(--dn)">轉弱</span></div>
-            <div style="display:flex;justify-content:space-between"><span>台達電 2308</span><span style="color:var(--muted)">平盤 2,165 元</span></div>
-            <div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border2)">
-              <span style="color:var(--dn);font-size:11px">● 聯發科 2454 逆勢收紅 +1.36%；聯電 2303 大漲 +3.76%，獲外資買超 3.92 萬張</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 法人動向 -->
-  <div class="section">
-    <div class="section-title">三大法人動向</div>
-    <div class="inst-grid">
-      <div class="inst-card">
-        <div class="inst-label">外資（含陸資）</div>
-        <div class="inst-val up">−535.62 億</div>
-        <div class="inst-sub">連 4 日賣超 · 本週累計 1,922 億</div>
-      </div>
-      <div class="inst-card">
-        <div class="inst-label">投信</div>
-        <div class="inst-val dn">+11.84 億</div>
-        <div class="inst-sub">逆勢承接電子 · 華通霸榜</div>
-      </div>
-      <div class="inst-card">
-        <div class="inst-label">自營商（合計）</div>
-        <div class="inst-val up">−7.89 億</div>
-        <div class="inst-sub">自行 −8.1 億 · 避險 +0.21 億</div>
-      </div>
-    </div>
-    <div class="inst-detail">
-      <div class="inst-col">
-        <div class="inst-col-title">外資賣超 TOP 5</div>
-        <div class="inst-row"><span><span class="stk">南亞科</span> <span class="code">2408</span></span><span class="vol up">41,281 張</span></div>
-        <div class="inst-row"><span><span class="stk">中鋼</span> <span class="code">2002</span></span><span class="vol up">25,500 張</span></div>
-        <div class="inst-row"><span><span class="stk">台積電</span> <span class="code">2330</span></span><span class="vol up">21,183 張</span></div>
-        <div class="inst-row"><span><span class="stk">友達</span> <span class="code">2409</span></span><span class="vol up">19,200 張</span></div>
-        <div class="inst-row"><span><span class="stk">旺宏</span> <span class="code">2337</span></span><span class="vol up">17,816 張</span></div>
-      </div>
-      <div class="inst-col">
-        <div class="inst-col-title">外資買超 TOP 5</div>
-        <div class="inst-row"><span><span class="stk">聯電</span> <span class="code">2303</span></span><span class="vol dn">39,192 張</span></div>
-        <div class="inst-row"><span><span class="stk">京元電子</span> <span class="code">2449</span></span><span class="vol dn">25,000 張</span></div>
-        <div class="inst-row"><span><span class="stk">第一金</span> <span class="code">2892</span></span><span class="vol dn">18,000 張</span></div>
-        <div class="inst-row"><span><span class="stk">凱基金</span> <span class="code">2883</span></span><span class="vol dn">12,417 張 ★本週天天買</span></div>
-        <div class="inst-row"><span><span class="stk">群創</span> <span class="code">3481</span></span><span class="vol dn">11,300 張</span></div>
-      </div>
-    </div>
-    <div style="margin-top:10px;font-size:12px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;line-height:1.7">
-      <strong style="color:var(--text)">投信積極承接：</strong>華通（3039張 +6.3%）、日月光（2871張）、欣興（793張）、南電（700張）。
-      外資本週針對台積電持股比重已降至 70.69%，5 天累計砍 7.8 萬張。
-    </div>
-  </div>
-
-  <!-- Notion 智囊雷達 -->
-  <div class="section">
-    <div class="section-title">Notion 智囊雷達</div>
-
-    <!-- 共識排行榜 -->
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-title">本週共識排行（近 7 日加權）</div>
-      <div style="overflow-x:auto">
-        <table class="tbl">
-          <thead>
-            <tr><th>排名</th><th>股票</th><th>分數</th><th>近3日</th><th>TP</th><th>主推手</th><th>核心論點</th></tr>
-          </thead>
+        <div style="font-size:10px;color:var(--dimmer);font-weight:600;letter-spacing:.3px;text-transform:uppercase;margin-bottom:8px">外資買超 Top 5</div>
+        <table class="fi-table">
+          <thead><tr><th>股票</th><th>張數</th><th>漲跌</th></tr></thead>
           <tbody>
-            <tr>
-              <td><b style="color:var(--accent2)">#1</b></td>
-              <td><span class="stk-name">頎邦</span><span class="stk-code">6147 · 光通訊/CPO</span></td>
-              <td><b class="up">20</b></td>
-              <td><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></td>
-              <td style="font-weight:700;color:var(--accent2)">300</td>
-              <td style="font-size:11px;color:var(--muted)">Andrew/Arthur/高哥/Eddie</td>
-              <td style="font-size:11px;color:var(--muted)">AWS金凸塊+MRVL量產</td>
-            </tr>
-            <tr>
-              <td><b style="color:var(--text2)">#2</b></td>
-              <td><span class="stk-name">台表科</span><span class="stk-code">6278 · 光通訊/CPO</span></td>
-              <td><b class="up">9</b></td>
-              <td><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></td>
-              <td style="font-size:11px;color:var(--muted)">—</td>
-              <td style="font-size:11px;color:var(--muted)">Frank/Surf哥/Vic哥</td>
-              <td style="font-size:11px;color:var(--muted)">AAOI 3Q放量、代工毛利30-40%</td>
-            </tr>
-            <tr>
-              <td><b style="color:var(--text2)">#3</b></td>
-              <td><span class="stk-name">愛普</span><span class="stk-code">6531 · 光通訊/CPO</span></td>
-              <td><b class="up">7</b></td>
-              <td><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></td>
-              <td style="font-size:11px;color:var(--muted)">—</td>
-              <td style="font-size:11px;color:var(--muted)">Arthur/郁翔/雅婷姊</td>
-              <td style="font-size:11px;color:var(--muted)">Google TPU 8e EMIB IPD放量</td>
-            </tr>
-            <tr>
-              <td><b style="color:var(--text2)">#4</b></td>
-              <td><span class="stk-name">雍智科技</span><span class="stk-code">6683 · GPU測試</span></td>
-              <td><b class="up">7</b></td>
-              <td><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></td>
-              <td style="font-weight:700;color:var(--accent2)">3000</td>
-              <td style="font-size:11px;color:var(--muted)">Eddie/Kevin/布哥/派哥</td>
-              <td style="font-size:11px;color:var(--muted)">5922明下半年、版卡獨供</td>
-            </tr>
-            <tr>
-              <td><b style="color:var(--text2)">#5</b></td>
-              <td><span class="stk-name">緯穎</span><span class="stk-code">6669 · AI伺服器</span></td>
-              <td><b class="up">7</b></td>
-              <td><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></td>
-              <td style="font-weight:700;color:var(--accent2)">7000–8000</td>
-              <td style="font-size:11px;color:var(--muted)">Eddie/佑哥/小魚/郁翔</td>
-              <td style="font-size:11px;color:var(--muted)">share gain智邦、T3新機種</td>
-            </tr>
-            <tr>
-              <td><b style="color:var(--text2)">#6</b></td>
-              <td><span class="stk-name">欣興</span><span class="stk-code">3037 · ABF載板</span></td>
-              <td><b class="up">6</b></td>
-              <td><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></td>
-              <td style="font-weight:700;color:var(--accent2)">1020</td>
-              <td style="font-size:11px;color:var(--muted)">Ann/Eddie/郁翔</td>
-              <td style="font-size:11px;color:var(--muted)">出關+漲價+UTR，1Q EPS beat</td>
-            </tr>
+            <tr><td>聯電 2303</td><td style="color:var(--up);font-weight:700">+39,191</td><td style="color:var(--dn)">+3.76%</td></tr>
+            <tr><td>京元電子 2449</td><td style="color:var(--up);font-weight:700">+24,968</td><td style="color:var(--up)">+6.70%</td></tr>
+            <tr><td>第一金 2892</td><td style="color:var(--up);font-weight:700">+18,027</td><td>+1.05%</td></tr>
+            <tr><td>凱基金 2883</td><td style="color:var(--up);font-weight:700">+12,417</td><td>−0.92%</td></tr>
+            <tr><td>華通 2313</td><td style="color:var(--up);font-weight:700">+10,303</td><td style="color:var(--up)">+6.30%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:10px;color:var(--dimmer);font-weight:600;letter-spacing:.3px;text-transform:uppercase;margin-bottom:8px">外資賣超 Top 5</div>
+        <table class="fi-table">
+          <thead><tr><th>股票</th><th>張數</th><th>漲跌</th></tr></thead>
+          <tbody>
+            <tr><td>南亞科 2408</td><td style="color:var(--dn);font-weight:700">−41,000+</td><td style="color:var(--dn)">−8.30%</td></tr>
+            <tr><td>元大台灣50 0050</td><td style="color:var(--dn);font-weight:700">−26,000</td><td>—</td></tr>
+            <tr><td>中鋼 2002</td><td style="color:var(--dn);font-weight:700">−25,000</td><td style="color:var(--dn)">走弱</td></tr>
+            <tr><td>台積電 2330</td><td style="color:var(--dn);font-weight:700">−21,000</td><td style="color:var(--dn)">−2.06%</td></tr>
+            <tr><td>旺宏 2337</td><td style="color:var(--dn);font-weight:700">−17,000</td><td style="color:var(--dn)">重挫</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-
-    <!-- 誰在看什麼 feed -->
-    <div class="radar-feed">
-      <div class="rf-item">
-        <div class="rf-header">
-          <span class="rf-person">高哥</span>
-          <span class="rf-group">駿羽</span>
-          <span class="rf-date">04-29</span>
-        </div>
-        <div class="rf-mentions">
-          <div class="rf-mention">
-            <span class="rf-code">6147</span><span class="rf-name">頎邦</span>
-            <span class="rf-quote">「幫AWS做金凸塊，每個ASIC都要DSP，明年MRVL量產，3Q27認證完成，明年10以上後年16塊」</span>
-            <span class="rf-sentiment rf-s-bull">積極買進</span>
-          </div>
-        </div>
-      </div>
-      <div class="rf-item">
-        <div class="rf-header">
-          <span class="rf-person">Arthur 哥</span>
-          <span class="rf-group">駿羽</span>
-          <span class="rf-date">04-28</span>
-        </div>
-        <div class="rf-mentions">
-          <div class="rf-mention">
-            <span class="rf-code">6531</span><span class="rf-name">愛普</span>
-            <span class="rf-quote">「Intel EMIB包產能、AWS T3.5、下一代TPU都會用EMIB，今明年EPS 30/70-90塊」</span>
-            <span class="rf-sentiment rf-s-bull">積極看多</span>
-          </div>
-          <div class="rf-mention">
-            <span class="rf-code">6147</span><span class="rf-name">頎邦</span>
-            <span class="rf-quote">「lite/coherent/credo客戶持續送樣，CPO下一代封裝領先者，金凸塊壁壘高」</span>
-            <span class="rf-sentiment rf-s-bull">積極買進</span>
-          </div>
-        </div>
-      </div>
-      <div class="rf-item">
-        <div class="rf-header">
-          <span class="rf-person">Eddie</span>
-          <span class="rf-group">樂林</span>
-          <span class="rf-date">04-29</span>
-        </div>
-        <div class="rf-mentions">
-          <div class="rf-mention">
-            <span class="rf-code">3037</span><span class="rf-name">欣興</span>
-            <span class="rf-quote">「1Q26 GM 18% EPS beat，2Q毛利率增幅較大，漲價+UTR往上，維持TP 1020」</span>
-            <span class="rf-sentiment rf-s-bull">持股</span>
-          </div>
-          <div class="rf-mention">
-            <span class="rf-code">6683</span><span class="rf-name">雍智科技</span>
-            <span class="rf-quote">「5922明年下半年大量貢獻，測試版卡幾乎獨供，一套 ASP 1500 萬，TP 3000」</span>
-            <span class="rf-sentiment rf-s-bull">積極看多</span>
-          </div>
-          <div class="rf-mention">
-            <span class="rf-code">6669</span><span class="rf-name">緯穎</span>
-            <span class="rf-quote">「share gain智邦 L6-9 段，T3 新機種下半年，GM 提升明確」</span>
-            <span class="rf-sentiment rf-s-bull">積極買進</span>
-          </div>
-        </div>
-      </div>
-      <div class="rf-item">
-        <div class="rf-header">
-          <span class="rf-person">郁翔</span>
-          <span class="rf-group">樂林</span>
-          <span class="rf-date">04-29</span>
-        </div>
-        <div class="rf-mentions">
-          <div class="rf-mention">
-            <span class="rf-code">6515</span><span class="rf-name">穎崴</span>
-            <span class="rf-quote">「昨天穎崴小場講得不錯，26年抓120、27年250、28年510，先用27年看50x推12500；Rubin/AMD Server都在加單」</span>
-            <span class="rf-sentiment rf-s-bull">積極看多</span>
-          </div>
-          <div class="rf-mention">
-            <span class="rf-code">3037</span><span class="rf-name">欣興</span>
-            <span class="rf-quote">「持股欣興，出關後應該比較強；LTA長約保底，HDI良率改善」</span>
-            <span class="rf-sentiment rf-s-bull">持股</span>
-          </div>
-        </div>
-      </div>
-      <div class="rf-item">
-        <div class="rf-header">
-          <span class="rf-person">Surf 哥</span>
-          <span class="rf-group">駿羽</span>
-          <span class="rf-date">04-29</span>
-        </div>
-        <div class="rf-mentions">
-          <div class="rf-mention">
-            <span class="rf-code">6278</span><span class="rf-name">台表科</span>
-            <span class="rf-quote">「台表科原本緯創的主機板，切入AI主機板，AAOI 3Q開始貢獻、4Q佔5%營收，純代工毛利 30-40%」</span>
-            <span class="rf-sentiment rf-s-bull">積極買進</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 熱門族群 -->
-    <div class="card" style="margin-top:12px">
-      <div class="card-title">本週熱門族群（近 7 日提及頻率）</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <span style="background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px">光通訊/CPO <span style="font-size:10px;opacity:.8">8股 全有近3日</span></span>
-        <span style="background:var(--bg3);color:var(--text);border:1px solid var(--border);font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px">AI伺服器 <span style="font-size:10px;color:var(--muted)">9股</span></span>
-        <span style="background:var(--bg3);color:var(--text);border:1px solid var(--border);font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px">ABF載板 <span style="font-size:10px;color:var(--muted)">8股</span></span>
-        <span style="background:var(--bg3);color:var(--text);border:1px solid var(--border);font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px">AI測試/探針卡 <span style="font-size:10px;color:var(--muted)">7股</span></span>
-        <span style="background:var(--bg3);color:var(--text);border:1px solid var(--border);font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px">機器人 <span style="font-size:10px;color:var(--muted)">5股</span></span>
-        <span style="background:var(--bg3);color:var(--text);border:1px solid var(--border);font-size:12px;font-weight:700;padding:4px 12px;border-radius:6px">半導體設備 <span style="font-size:10px;color:var(--muted)">5股</span></span>
-      </div>
-    </div>
   </div>
+</div>
 
-  <!-- 精選個股 -->
-  <div class="section">
-    <div class="section-title">精選個股</div>
-    <div style="font-size:12px;color:var(--muted);margin-bottom:14px">🎯 = Notion 群組歷史曾提及 · ★ = 今日漲停</div>
-
-    <div class="stock-grid">
-
-      <!-- 6147 頎邦 -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">頎邦</div>
-            <div class="sc-code">6147 · 光通訊/CPO</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">163</div>
-            <div class="sc-chg up">▲ +5（+3.16%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-notion-hit">🎯 Notion #1 · 分數 20</span>
-          <span class="sc-sector-badge">光通訊</span>
-        </div>
-        <div class="sc-kline">
-          <canvas id="k6147" width="88" height="32"></canvas>
-        </div>
-        <div class="sc-notion-box">
-          <div class="sc-notion-score">共識分數 20 · 近3日 8 次 · 推手 10 位</div>
-          <div class="sc-notion-thesis">幫 AWS 做金凸塊，每個 ASIC 都要 DSP，MRVL 明年量產，3Q27 認證完成</div>
-          <div class="sc-notion-pushers">推手：Andrew哥 / Arthur哥 / 高哥 / Eddie / 強尼（駿羽+樂林跨平台）</div>
-          <div class="sc-notion-tp">TP：300 元 · EPS估：明年10+，後年16</div>
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">頎邦法說矽光子量產投資亮點 <span class="sc-news-date">04-11</span></div>
-          <div class="sc-news-item">Q1穩成長 LPO/RF/RFID佔三成以上 <span class="sc-news-date">04-14</span></div>
+<!-- 智囊雷達 -->
+<div>
+  <div class="sec-head">智囊雷達 · 誰在看什麼</div>
+  <div class="g2">
+    <div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">愛德恩週三</span><span class="rf-group">愛德恩</span><span class="rf-date">04-29</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">6531</span><span class="rf-name">愛普</span><span class="rf-quote">「IPD ASP 一直在上修，本來4000 USD，有人說賣13000-15000 USD，如果愛普也賣這個價格明年 EPS 60 可期」</span><span class="rf-sentiment rf-s-bull">積極看多</span></div>
+          <div class="rf-mention"><span class="rf-code">8064</span><span class="rf-name">東捷</span><span class="rf-quote">「跟日本 Toppan 合作，做雷射改質跟基本設備，有出台積 CoWoS 但量還沒確定，炒題材看 150 以上」</span><span class="rf-tp">TP 150+</span><span class="rf-sentiment rf-s-watch">題材觀察</span></div>
         </div>
       </div>
-
-      <!-- 3037 欣興 -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">欣興 <span style="font-size:12px;color:var(--up)">★</span></div>
-            <div class="sc-code">3037 · ABF載板</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">883</div>
-            <div class="sc-chg up">▲ +80（+9.96%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-notion-hit">🎯 Notion #6 · 分數 6</span>
-          <span class="sc-limit-badge">漲停</span>
-          <span class="sc-sector-badge">ABF</span>
-        </div>
-        <div class="sc-kline">
-          <canvas id="k3037" width="88" height="32"></canvas>
-        </div>
-        <div class="sc-notion-box">
-          <div class="sc-notion-score">共識分數 6 · 近3日 2 次</div>
-          <div class="sc-notion-thesis">出關後更強、漲價+UTR往上，AI伺服器 HDI 良率改善，1Q26 EPS beat</div>
-          <div class="sc-notion-pushers">推手：Ann（駿羽）/ Eddie / 郁翔（樂林）</div>
-          <div class="sc-notion-tp">TP：1020 元 · EPS估：2027年 34元</div>
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">野村大幅上調TP至1350元，ABF超級循環 <span class="sc-news-date">04-30</span></div>
-          <div class="sc-news-item">漲停883元，多頭結構，ABF長約推升 <span class="sc-news-date">04-30</span></div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">駿羽</span><span class="rf-group">駿羽</span><span class="rf-date">04-29</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">6147</span><span class="rf-name">頎邦</span><span class="rf-quote">「題材都是真的，幫 AWS 做金凸塊，MRVL 量產，加碼應該漲到 300」</span><span class="rf-tp">TP 300</span><span class="rf-sentiment rf-s-bull">加碼</span></div>
+          <div class="rf-mention"><span class="rf-code">6683</span><span class="rf-name">雍智</span><span class="rf-quote">「MTK 5922 還沒充分反映，明年全拿可能有3位數EPS，load board/burn-in 也拿一半，長線不錯」</span><span class="rf-tp">TP 3000</span><span class="rf-sentiment rf-s-bull">長線看多</span></div>
         </div>
       </div>
-
-      <!-- 6683 雍智 -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">雍智科技 <span style="font-size:12px;color:var(--up)">★</span></div>
-            <div class="sc-code">6683 · GPU測試版卡</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">2,125</div>
-            <div class="sc-chg up">▲ +190（+9.82%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-notion-hit">🎯 Notion #4 · 分數 7</span>
-          <span class="sc-limit-badge">漲停</span>
-        </div>
-        <div class="sc-kline">
-          <canvas id="k6683" width="88" height="32"></canvas>
-        </div>
-        <div class="sc-notion-box">
-          <div class="sc-notion-score">共識分數 7 · 近3日 3 次</div>
-          <div class="sc-notion-thesis">5922 GPU 測試版卡明年下半年大量貢獻，獨供地位，一套 ASP 1500 萬</div>
-          <div class="sc-notion-pushers">推手：Eddie / Kevin / 布哥 / 派哥（樂林+駿羽）</div>
-          <div class="sc-notion-tp">TP：3000 元</div>
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">Q1營收6.65億創新高，年增46% <span class="sc-news-date">04-27</span></div>
-          <div class="sc-news-item">連2日漲停，Google TPU供應鏈題材 <span class="sc-news-date">04-30</span></div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">樂林</span><span class="rf-group">樂林</span><span class="rf-date">04-29</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">6515</span><span class="rf-name">穎崴</span><span class="rf-quote">「昨天小場講得不錯，26年抓120、27年250、28年510，先用27年看50x推12500」</span><span class="rf-tp">TP 12500</span><span class="rf-sentiment rf-s-bull">積極看多</span></div>
+          <div class="rf-mention"><span class="rf-code">6669</span><span class="rf-name">緯穎</span><span class="rf-quote">「共識變高，明年 EPS 450~500 都有人看，目標7000~8000，4月營收月增10%以上」</span><span class="rf-tp">TP 7000-8000</span><span class="rf-sentiment rf-s-bull">積極看多</span></div>
         </div>
       </div>
-
-      <!-- 6278 台表科 -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">台表科</div>
-            <div class="sc-code">6278 · 光通訊/CPO</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">168</div>
-            <div class="sc-chg up">▲ +6.5（+4.02%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-notion-hit">🎯 Notion #2 · 分數 9</span>
-          <span class="sc-sector-badge">光通訊代工</span>
-        </div>
-        <div class="sc-kline">
-          <canvas id="k6278" width="88" height="32"></canvas>
-        </div>
-        <div class="sc-notion-box">
-          <div class="sc-notion-score">共識分數 9 · 近3日 3 次</div>
-          <div class="sc-notion-thesis">AAOI 3Q開始貢獻、4Q佔5%營收，純代工毛利率 30–40%，2H成長加速</div>
-          <div class="sc-notion-pushers">推手：Frank LIN / Surf哥 / Vic哥（駿羽）</div>
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">AAOI財測報喜，台灣光通訊代工族群飆漲 <span class="sc-news-date">03-02</span></div>
-          <div class="sc-news-item">CPO光通訊4月大漲，法人看好下半年放量 <span class="sc-news-date">04-16</span></div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">駿羽</span><span class="rf-group">駿羽</span><span class="rf-date">04-27</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">2464</span><span class="rf-name">盟立</span><span class="rf-quote">「跟敏實集團策略合作，送樣特斯拉供應鏈，第一家過特斯拉審核，欣興砸10億買盟立設備為利多」</span><span class="rf-sentiment rf-s-bull">積極看多</span></div>
+          <div class="rf-mention"><span class="rf-code">6278</span><span class="rf-name">台表科</span><span class="rf-quote">「受惠緯創不出貨白牌伺服器的外溢；Google、AWS 到處找板廠鎖產能，相關的可以佈局」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
         </div>
       </div>
-
-      <!-- 6531 愛普 -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">愛普</div>
-            <div class="sc-code">6531 · IPD/矽電容</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">840</div>
-            <div class="sc-chg up">▲ +20（+2.44%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-notion-hit">🎯 Notion #3 · 分數 7</span>
-          <span class="sc-sector-badge">IPD</span>
-        </div>
-        <div class="sc-kline">
-          <canvas id="k6531" width="88" height="32"></canvas>
-        </div>
-        <div class="sc-notion-box">
-          <div class="sc-notion-score">共識分數 7 · 近3日 2 次</div>
-          <div class="sc-notion-thesis">Google TPU 8e EMIB 外掛 IPD，力積電明年 5000 片，下半年月產 2 萬片</div>
-          <div class="sc-notion-pushers">推手：Arthur哥 / 郁翔 / 雅婷姊 / 匿名（愛德恩）</div>
-          <div class="sc-notion-tp">EPS估：今年30 / 明年70–90</div>
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">Q1營收年增116%創新高，IPD量產2026下半年 <span class="sc-news-date">04-21</span></div>
-          <div class="sc-news-item">Google TPU 8代分訓練推論兩款 <span class="sc-news-date">04-23</span></div>
-        </div>
-      </div>
-
-      <!-- 6669 緯穎 -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">緯穎</div>
-            <div class="sc-code">6669 · AI伺服器</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">4,675</div>
-            <div class="sc-chg dn">▼ −170（−3.51%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-notion-hit">🎯 Notion #5 · 分數 7</span>
-          <span class="sc-sector-badge">AI伺服器</span>
-        </div>
-        <div class="sc-kline">
-          <canvas id="k6669" width="88" height="32"></canvas>
-        </div>
-        <div class="sc-notion-box">
-          <div class="sc-notion-score">共識分數 7 · 近3日 2 次</div>
-          <div class="sc-notion-thesis">share gain 智邦 L6–9 段，T3 新機種下半年放量，GM 提升明確，AMD MI450 入場</div>
-          <div class="sc-notion-pushers">推手：Eddie / 佑哥 / 小魚 / 郁翔（樂林）</div>
-          <div class="sc-notion-tp">TP：7000–8000 元</div>
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">AI伺服器Q1累計2765億年增62% <span class="sc-news-date">04-25</span></div>
-          <div class="sc-news-item">大摩上調TP至5500，T3 UBB訂單確認 <span class="sc-news-date">01-09</span></div>
-        </div>
-      </div>
-
-      <!-- 8046 南電（強勢漲停） -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">南電 <span style="font-size:12px;color:var(--up)">★</span></div>
-            <div class="sc-code">8046 · ABF載板</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">1,005</div>
-            <div class="sc-chg up">▲ +89（+9.72%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-limit-badge">漲停 · 首登千元</span>
-          <span class="sc-sector-badge">ABF</span>
-        </div>
-        <div style="font-size:12px;color:var(--text2);margin:10px 0;line-height:1.6;padding:8px 10px;background:var(--bg);border:1px solid var(--border2);border-radius:7px">
-          ABF 超級循環首登千元關卡，供需缺口 2028 年擴至 35%。漲價循環延續至 2027 H1。
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">滙豐上調TP至1050，ABF缺口擴大至2028 <span class="sc-news-date">04-28</span></div>
-          <div class="sc-news-item">Q1營收年增32%，法人目標價看千元 <span class="sc-news-date">04-24</span></div>
-        </div>
-      </div>
-
-      <!-- 1597 直得（機器人漲停） -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">直得 <span style="font-size:12px;color:var(--up)">★</span></div>
-            <div class="sc-code">1597 · 精密傳動</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">143.5</div>
-            <div class="sc-chg up">▲ +13（+9.96%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-limit-badge">漲停</span>
-          <span class="sc-sector-badge">機器人</span>
-        </div>
-        <div style="font-size:12px;color:var(--text2);margin:10px 0;line-height:1.6;padding:8px 10px;background:var(--bg);border:1px solid var(--border2);border-radius:7px">
-          機器人族群強勢，線性滑軌應用拓展，Musk 宣布 Tesla 機器人明年量產十倍目標帶動題材延燒。
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">線性滑軌+機器人業務雙驅動漲停 <span class="sc-news-date">04-13</span></div>
-          <div class="sc-news-item">Tesla機器人明年擴產10倍，機器人概念強勢 <span class="sc-news-date">04-30</span></div>
-        </div>
-      </div>
-
-      <!-- 8996 高力（散熱漲停） -->
-      <div class="stock-card">
-        <div class="sc-top">
-          <div class="sc-info">
-            <div class="sc-title">高力 <span style="font-size:12px;color:var(--up)">★</span></div>
-            <div class="sc-code">8996 · 液冷散熱</div>
-          </div>
-          <div class="sc-price">
-            <div class="sc-close">1,250</div>
-            <div class="sc-chg up">▲ +110（+9.65%）</div>
-          </div>
-        </div>
-        <div class="sc-badge-wrap">
-          <span class="sc-limit-badge">漲停</span>
-          <span class="sc-sector-badge">散熱</span>
-        </div>
-        <div style="font-size:12px;color:var(--text2);margin:10px 0;line-height:1.6;padding:8px 10px;background:var(--bg);border:1px solid var(--border2);border-radius:7px">
-          液冷散熱轉型加速，CDU出貨放量，3月EPS 2.95元創歷史新高，全年營收成長指引 80%。
-        </div>
-        <div class="sc-news">
-          <div class="sc-news-item">3月EPS 2.95元創新高，CDU放量 <span class="sc-news-date">04-15</span></div>
-          <div class="sc-news-item">散熱族群強勢，AI伺服器訂單能見度提升 <span class="sc-news-date">04-29</span></div>
-        </div>
-      </div>
-
     </div>
-  </div>
-
-  <!-- 明日前瞻 -->
-  <div class="section">
-    <div class="section-title">明日前瞻</div>
-    <div class="grid2">
-      <div class="card">
-        <div class="card-title">即將到來的重大事件</div>
-        <div class="event-list">
-          <div class="event-item">
-            <div class="event-date">今晚</div>
-            <div class="event-text"><span class="tag tag-fomc">FOMC</span><strong>聯準會利率決策</strong> — 市場預期維持 3.5–3.75%，鮑爾任期最後一次 FOMC，關注後續指引</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">今晚</div>
-            <div class="event-text"><span class="tag tag-hot">財報</span><strong>CSP 超級財報</strong> — GOOGL、MSFT、AMZN、META、QCOM、KLAC 同步開獎，AI 資本支出方向決定短線走勢</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">今晚</div>
-            <div class="event-text"><span class="tag tag-fomc">總經</span>美國 Q1 GDP 初值 + 核心 PCE（通膨數據）</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">05-01</div>
-            <div class="event-text"><span class="tag tag-tw">台灣</span><strong>勞動節休市</strong>，下一交易日為 5/4（一）</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">05-01</div>
-            <div class="event-text"><span class="tag tag-hot">財報</span>AAPL、CVX、XOM 財報 + 美國 ISM 製造業指數</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">05-04</div>
-            <div class="event-text"><span class="tag tag-tw">開盤</span>台股 5/4 開盤受今晚美股財報+FOMC 雙重影響，若 CSP 資本支出指引超預期，科技族群有望反彈</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">05-11</div>
-            <div class="event-text"><span class="tag tag-tw">台灣</span>MSCI 季度調整生效——穎崴、旺矽等概念股被動資金流入</div>
-          </div>
-          <div class="event-item">
-            <div class="event-date">05-13</div>
-            <div class="event-text"><span class="tag tag-tw">催化劑</span>穎崴 CPO 技術論壇（200–300 人公開場），預計帶動光通訊族群行情</div>
-          </div>
-        </div>
+    <div>
+      <div class="card" style="margin-bottom:14px">
+        <div class="card-title">共識排行榜 · 近7日加權</div>
+        <table class="tbl">
+          <thead><tr><th>#</th><th>股票</th><th>分</th><th>近3日</th><th>目標</th><th>Sector</th></tr></thead>
+          <tbody>
+            <tr><td class="rank-num">1</td><td><span class="stk-name">頎邦</span><span class="stk-code">6147</span></td><td><span class="score-val">20</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">300</td><td style="font-size:10px;color:var(--muted)">光通訊/CPO</td></tr>
+            <tr><td class="rank-num">2</td><td><span class="stk-name">台表科</span><span class="stk-code">6278</span></td><td><span class="score-val">9</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div></td><td style="font-size:11px;color:var(--dimmer)">—</td><td style="font-size:10px;color:var(--muted)">光通訊/CPO</td></tr>
+            <tr><td class="rank-num">3</td><td><span class="stk-name">愛普</span><span class="stk-code">6531</span></td><td><span class="score-val">7</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div></td><td style="font-size:11px;color:var(--dimmer)">—</td><td style="font-size:10px;color:var(--muted)">矽電容/IPD</td></tr>
+            <tr><td class="rank-num">4</td><td><span class="stk-name">雍智</span><span class="stk-code">6683</span></td><td><span class="score-val">7</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">3000</td><td style="font-size:10px;color:var(--muted)">AI測試/探針卡</td></tr>
+            <tr><td class="rank-num">5</td><td><span class="stk-name">緯穎</span><span class="stk-code">6669</span></td><td><span class="score-val">7</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">7000-8000</td><td style="font-size:10px;color:var(--muted)">AI伺服器</td></tr>
+            <tr><td class="rank-num">6</td><td><span class="stk-name">欣興</span><span class="stk-code">3037</span></td><td><span class="score-val">6</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">1020</td><td style="font-size:10px;color:var(--muted)">ABF載板</td></tr>
+            <tr><td class="rank-num">7</td><td><span class="stk-name">穎崴</span><span class="stk-code">6515</span></td><td><span class="score-val">5</span></td><td><div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">12500</td><td style="font-size:10px;color:var(--muted)">AI測試/探針卡</td></tr>
+            <tr><td class="rank-num">8</td><td><span class="stk-name">博智</span><span class="stk-code">8155</span></td><td><span class="score-val">5</span></td><td><div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">500</td><td style="font-size:10px;color:var(--muted)">ABF載板</td></tr>
+            <tr><td class="rank-num">9</td><td><span class="stk-name">聯亞</span><span class="stk-code">3081</span></td><td><span class="score-val">5</span></td><td><div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div></td><td style="color:var(--up);font-size:11px;font-weight:700">4738</td><td style="font-size:10px;color:var(--muted)">光通訊/CPO</td></tr>
+            <tr><td class="rank-num">10</td><td><span class="stk-name">華星光</span><span class="stk-code">4979</span></td><td><span class="score-val">5</span></td><td><div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div></td><td style="font-size:11px;color:var(--dimmer)">—</td><td style="font-size:10px;color:var(--muted)">光通訊/CPO</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="card">
-        <div class="card-title">技術面關卡 + 觀察條件</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.9">
-          <div style="margin-bottom:10px">
-            <div style="font-weight:700;color:var(--text);margin-bottom:4px">加權指數</div>
-            <div>今日收 38,926 點，摜破 5 日線失守 39K</div>
-            <div>次支撐：<b>38,500</b>（前波整理平台）</div>
-            <div>強支撐：<b>38,000</b>（月線重要關卡）</div>
-            <div>壓力：<b>39,000–39,300</b>（5 日線附近）</div>
-          </div>
-          <div style="border-top:1px solid var(--border2);padding-top:10px;margin-bottom:10px">
-            <div style="font-weight:700;color:var(--text);margin-bottom:4px">欣興 3037 / 南電 8046 後續觀察</div>
-            <div>漲停板量能是否放大（>5 萬張為積極信號）</div>
-            <div>ABF 族群能否帶動指數 5/4 反彈</div>
-          </div>
-          <div style="border-top:1px solid var(--border2);padding-top:10px;margin-bottom:10px">
-            <div style="font-weight:700;color:var(--text);margin-bottom:4px">台積電 2330</div>
-            <div>今收 2135 元，10 日線支撐約 2121</div>
-            <div>若 CSP 財報好 → ADR 強 → 5/4 收復 2180</div>
-            <div>若 FOMC 偏鷹 → 確認整理格局</div>
-          </div>
-          <div style="border-top:1px solid var(--border2);padding-top:10px">
-            <div style="font-weight:700;color:var(--text);margin-bottom:4px">記憶體族群（南亞科跌8.3%）</div>
-            <div>外資連日提款，觀察 5/4 是否止跌</div>
-          </div>
+        <div class="card-title">熱門族群</div>
+        <div class="sector-chips">
+          <div class="sc-chip hot"><span class="sc-chip-name">光通訊/CPO</span><span class="sc-chip-cnt">8股 近3日×18</span></div>
+          <div class="sc-chip hot"><span class="sc-chip-name">AI測試/探針卡</span><span class="sc-chip-cnt">7股 近3日×9</span></div>
+          <div class="sc-chip"><span class="sc-chip-name">AI伺服器</span><span class="sc-chip-cnt">9股 近3日×5</span></div>
+          <div class="sc-chip"><span class="sc-chip-name">ABF載板</span><span class="sc-chip-cnt">8股 近3日×4</span></div>
+          <div class="sc-chip"><span class="sc-chip-name">機器人/精密傳動</span><span class="sc-chip-cnt">5股 近3日×4</span></div>
+          <div class="sc-chip"><span class="sc-chip-name">半導體設備</span><span class="sc-chip-cnt">5股 近3日×2</span></div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- 精選個股 -->
+<div>
+  <div class="sec-head">精選個股 · Notion 共識股</div>
+  <div class="stkgrid">
+    <div class="stkcard">
+      <div class="sk-top">
+        <div class="sk-info"><span class="sk-code">6147</span><span class="sk-name">頎邦</span><span class="sk-sector">光通訊/CPO</span></div>
+        <div class="sk-price-block"><span class="sk-close up">163</span><span class="sk-chg up">▲ +3.16%</span></div>
+      </div>
+      <canvas id="k6147" class="kline"></canvas>
+      <div class="sk-notion-bar"><span class="sk-notion-rank">#1 共識</span><span class="sk-notion-score">分數 20 · 近3日 8次</span><span class="sk-notion-tp">TP 300</span></div>
+      <div class="sk-thesis">幫 AWS 做金凸塊，每個 ASIC 都要 DSP，明年 MRVL 量產，3Q27 認證完成</div>
+      <div class="sk-pushers">Jako / 布哥 / 高哥 / Eddie / 強尼哥 +5人</div>
+      <div class="sk-news-item"><span class="sk-news-title">頎邦26Q1營收刷近15季新高，矽光子+LPO量產</span><span class="sk-news-date">04-30</span></div>
+    </div>
+    <div class="stkcard">
+      <div class="sk-top">
+        <div class="sk-info"><span class="sk-code">6278</span><span class="sk-name">台表科</span><span class="sk-sector">光通訊/CPO</span></div>
+        <div class="sk-price-block"><span class="sk-close up">168</span><span class="sk-chg up">▲ +4.02%</span></div>
+      </div>
+      <canvas id="k6278" class="kline"></canvas>
+      <div class="sk-notion-bar"><span class="sk-notion-rank">#2 共識</span><span class="sk-notion-score">分數 9 · 近3日 3次</span></div>
+      <div class="sk-thesis">受惠緯創白牌主機板轉單，切入 AI 主機板；Google/AWS 到處鎖台灣板廠產能</div>
+      <div class="sk-pushers">Surf哥 / Tsmt / Vic哥 / Frank LIN</div>
+      <div class="sk-news-item"><span class="sk-news-title">AI光世代爆發，台廠搶進1.6T矽光子商機</span><span class="sk-news-date">04-20</span></div>
+    </div>
+    <div class="stkcard">
+      <div class="sk-top">
+        <div class="sk-info"><span class="sk-code">6531</span><span class="sk-name">愛普</span><span class="sk-sector">矽電容/IPD</span></div>
+        <div class="sk-price-block"><span class="sk-close up">840</span><span class="sk-chg up">▲ +2.44%</span></div>
+      </div>
+      <canvas id="k6531" class="kline"></canvas>
+      <div class="sk-notion-bar"><span class="sk-notion-rank">#3 共識</span><span class="sk-notion-score">分數 7 · 近3日 2次</span></div>
+      <div class="sk-thesis">IPD ASP 上修從4000 USD往13000-15000 USD看，明年 EPS 40-60 可期，Google TPU 8e 外掛 IPD</div>
+      <div class="sk-pushers">Arthur哥 / 雅婷姊 / 郁翔</div>
+      <div class="sk-news-item"><span class="sk-news-title">愛普法說：IPD Q2量產，3月EPS 2.29元年增62%</span><span class="sk-news-date">04-20</span></div>
+    </div>
+    <div class="stkcard intersect">
+      <div class="sk-hit-badge">🎯 共識 × 今日漲停</div>
+      <div class="sk-top">
+        <div class="sk-info"><span class="sk-code">6683</span><span class="sk-name">雍智科技<span class="sk-limitup">漲停</span></span><span class="sk-sector">AI測試/探針卡</span></div>
+        <div class="sk-price-block"><span class="sk-close up">2,125</span><span class="sk-chg up">▲ +9.82%</span></div>
+      </div>
+      <canvas id="k6683" class="kline"></canvas>
+      <div class="sk-notion-bar"><span class="sk-notion-rank">#4 共識</span><span class="sk-notion-score">分數 7 · 近3日 3次</span><span class="sk-notion-tp">TP 3000</span></div>
+      <div class="sk-thesis">MTK 5922 尚未充分反映，切入 Google TPU 供應鏈，明年 load board/burn-in 全拿可能有3位數 EPS</div>
+      <div class="sk-pushers">布哥 / 派哥 / Kevin（駿羽）/ Eddie（樂林）</div>
+      <div class="sk-news-item"><span class="sk-news-title">雍智Q1營收創新高，透過聯發科切入Google TPU供應鏈</span><span class="sk-news-date">04-27</span></div>
+    </div>
+    <div class="stkcard">
+      <div class="sk-top">
+        <div class="sk-info"><span class="sk-code">6669</span><span class="sk-name">緯穎</span><span class="sk-sector">AI伺服器</span></div>
+        <div class="sk-price-block"><span class="sk-close dn">4,675</span><span class="sk-chg dn">▼ −3.51%</span></div>
+      </div>
+      <canvas id="k6669" class="kline"></canvas>
+      <div class="sk-notion-bar"><span class="sk-notion-rank">#5 共識</span><span class="sk-notion-score">分數 7 · 近3日 2次</span><span class="sk-notion-tp">TP 7000-8000</span></div>
+      <div class="sk-thesis">明年 EPS 450~500，甲骨文轉單+德州廠放量，4月營收月增10%+，2Q 超共識</div>
+      <div class="sk-pushers">Eddie / 佑哥 / 郁翔 / 小魚</div>
+      <div class="sk-news-item"><span class="sk-news-title">緯穎3月自結EPS 27.1元，法人調高目標至8000元</span><span class="sk-news-date">04-30</span></div>
+    </div>
+    <div class="stkcard intersect">
+      <div class="sk-hit-badge">🎯 共識 × 今日漲停</div>
+      <div class="sk-top">
+        <div class="sk-info"><span class="sk-code">3037</span><span class="sk-name">欣興<span class="sk-limitup">漲停</span></span><span class="sk-sector">ABF載板</span></div>
+        <div class="sk-price-block"><span class="sk-close up">883</span><span class="sk-chg up">▲ +9.96%</span></div>
+      </div>
+      <canvas id="k3037" class="kline"></canvas>
+      <div class="sk-notion-bar"><span class="sk-notion-rank">#6 共識</span><span class="sk-notion-score">分數 6 · 近3日 2次</span><span class="sk-notion-tp">TP 1020</span></div>
+      <div class="sk-thesis">1Q26 GM 18% 符合預期，EPS beat，Q2 毛利率增幅大，漲價+UTR往上，下半年 AI 伺服器 HDI 良率改善</div>
+      <div class="sk-pushers">Eddie / Ann / 郁翔</div>
+      <div class="sk-news-item"><span class="sk-news-title">ABF超級循環！欣興Q1獲利創13季新高，外資野村TP上修1350元</span><span class="sk-news-date">04-30</span></div>
+    </div>
+  </div>
+  <div style="margin-top:14px">
+    <div style="font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">今日強勢 · Notion 記憶庫命中</div>
+    <div class="stkgrid-sm">
+      <div class="stkcard-sm notion-hit">
+        <div class="sk-sm-top"><div class="sk-sm-left"><span class="sk-sm-code">3163</span><span class="sk-sm-name">波若威 <span class="sk-limitup">漲停</span></span></div><div class="sk-sm-right"><div class="sk-sm-close">1,145</div><div class="sk-sm-chg">▲ +9.57%</div></div></div>
+        <div class="sk-sm-ref">🎯 小魚（樂林 04-09）：「法說，市場喊3e可能小miss」→ 3月實際 EPS 2.85元，獲利年增 858%</div>
+        <div class="sk-sm-news">Shuffle Box 打入輝達 Vera Rubin，法人 TP 1600，2027 EPS 估 40元</div>
+      </div>
+      <div class="stkcard-sm notion-hit">
+        <div class="sk-sm-top"><div class="sk-sm-left"><span class="sk-sm-code">4991</span><span class="sk-sm-name">環宇-KY <span class="sk-limitup">漲停</span></span></div><div class="sk-sm-right"><div class="sk-sm-close">676</div><div class="sk-sm-chg">▲ +9.92%</div></div></div>
+        <div class="sk-sm-ref">🎯 小魚（樂林 04-22）：「200G PD 提前一季量產，市佔率目標2026/2027積極」 TP 1040</div>
+        <div class="sk-sm-news">800G PD 市占&gt;70%，法人估2026 EPS 7元（年增4667%）</div>
+      </div>
+      <div class="stkcard-sm notion-hit">
+        <div class="sk-sm-top"><div class="sk-sm-left"><span class="sk-sm-code">4958</span><span class="sk-sm-name">臻鼎-KY <span class="sk-limitup">漲停</span></span></div><div class="sk-sm-right"><div class="sk-sm-close">421</div><div class="sk-sm-chg">▲ +9.92%</div></div></div>
+        <div class="sk-sm-ref">🎯 Eddie（樂林 04-28）：「TP 466，Upside+30%，光通訊 MSAP 40~50%，載板 tun 往上」</div>
+        <div class="sk-sm-news">正式納入台積電3DFabric聯盟，投信近5日買超11,285張</div>
+      </div>
+      <div class="stkcard-sm notion-hit">
+        <div class="sk-sm-top"><div class="sk-sm-left"><span class="sk-sm-code">8064</span><span class="sk-sm-name">東捷 <span class="sk-limitup">漲停</span></span></div><div class="sk-sm-right"><div class="sk-sm-close">104</div><div class="sk-sm-chg">▲ +9.59%</div></div></div>
+        <div class="sk-sm-ref">🎯 愛德恩（04-29）：「Toppan合作雷射改質，台積CoWoS有出但未放量，炒題材看150+」</div>
+        <div class="sk-sm-news">外資連2日大舉加碼，FOPLP/玻璃基板TGV先進封裝設備題材</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 明日前瞻 -->
+<div>
+  <div class="sec-head">明日前瞻 · 觀察重點</div>
+  <div class="out-grid">
+    <div class="out-block">
+      <div class="out-title">近期事件</div>
+      <div class="out-item"><span class="tag tag-event">休市</span>5/1 勞動節 台灣休市</div>
+      <div class="out-item"><span class="tag tag-event">美國</span>5/2 非農就業數據</div>
+      <div class="out-item"><span class="tag tag-event">財報</span>5/7 AMD 法說</div>
+      <div class="out-item"><span class="tag tag-event">財報</span>5/22 輝達 NVDA 財報</div>
+      <div class="out-item"><span class="tag tag-event">總經</span>FOMC 結果持續消化</div>
+    </div>
+    <div class="out-block">
+      <div class="out-title">技術關卡</div>
+      <div class="out-item"><span class="tag tag-sup">支撐</span>38,500 — 10日均線附近</div>
+      <div class="out-item"><span class="tag tag-sup">支撐</span>38,000 — 月線強支撐</div>
+      <div class="out-item"><span class="tag tag-res">壓力</span>39,300 — 前日收盤區</div>
+      <div class="out-item"><span class="tag tag-res">壓力</span>39,800 — 本週兩度試攻未果</div>
+      <div class="out-item"><span class="tag tag-res">壓力</span>40,000 — 整數心理關口</div>
+    </div>
+    <div class="out-block">
+      <div class="out-title">觀察條件</div>
+      <div class="out-item"><span class="tag tag-watch">外資</span>連假後賣壓是否趨緩（4日 −1922億）</div>
+      <div class="out-item"><span class="tag tag-watch">台積</span>能否重站10日線（2121元）</div>
+      <div class="out-item"><span class="tag tag-watch">矽光子</span>波若威/環宇-KY 漲停後是否續強</div>
+      <div class="out-item"><span class="tag tag-watch">ABF</span>欣興883漲停後，南電千元能否守住</div>
+      <div class="out-item"><span class="tag tag-watch">記憶體</span>外資翻臉後南亞科是否有回補機會</div>
+    </div>
+  </div>
+</div>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-brand"><em>MAGI</em> 智能分析 · 2026-04-30 盤後日報</div>
-  <div class="footer-sources">
-    <span class="source-badge">市場數據 TWSE</span>
-    <span class="source-badge">Fugle API</span>
-    <span class="source-badge">FinMind</span>
-    <span class="source-badge">Notion 智囊團</span>
-    <span class="source-badge">Exa 新聞</span>
-  </div>
+  <span class="ft-badge">市場數據 TWSE/TPEX</span>
+  <span class="ft-badge">法人 FinMind</span>
+  <span class="ft-badge">個股 Fugle</span>
+  <span class="ft-badge">新聞 Exa</span>
+  <span class="ft-badge">智囊 Notion Cache</span>
+  <span class="ft-note">資料截止 2026-04-30 收盤後 · MAGI 智能分析系統自動生成 · 僅供參考，不構成投資建議</span>
 </footer>
 
 <script>
-// K-line canvas 繪製
-const stocks = {
-  k6147: [
-    {o:99.9,h:104.5,l:95.5,c:96.5},
-    {o:98.0,h:98.7,l:98.0,c:98.7},
-    {o:103.5,h:106.0,l:102.5,c:106.0},
-    {o:112.0,h:116.5,l:111.5,c:116.5},
-    {o:114.0,h:115.5,l:108.0,c:113.0},
-    {o:114.0,h:115.0,l:102.5,c:106.0},
-    {o:107.5,h:114.5,l:102.0,c:114.0},
-    {o:116.5,h:125.0,l:115.0,c:115.0},
-    {o:118.5,h:126.5,l:118.5,c:126.5},
-    {o:133.0,h:139.0,l:130.0,c:135.5},
-    {o:143.5,h:148.0,l:138.0,c:141.5},
-    {o:146.0,h:149.0,l:128.5,c:134.0},
-    {o:145.0,h:145.0,l:135.5,c:145.0},
-    {o:149.5,h:151.5,l:130.5,c:131.0},
-    {o:134.0,h:144.0,l:134.0,c:144.0},
-    {o:141.0,h:158.0,l:133.5,c:163.0}
-  ],
-  k3037: [
-    {o:624,h:655,l:614,c:625},
-    {o:606,h:620,l:597,c:620},
-    {o:641,h:660,l:620,c:638},
-    {o:635,h:648,l:624,c:626},
-    {o:630,h:630,l:592,c:597},
-    {o:600,h:629,l:600,c:618},
-    {o:620,h:646,l:606,c:645},
-    {o:640,h:645,l:633,c:643},
-    {o:644,h:707,l:644,c:678},
-    {o:710,h:715,l:700,c:710},
-    {o:718,h:730,l:711,c:716},
-    {o:726,h:749,l:660,c:728},
-    {o:775,h:790,l:760,c:790},
-    {o:835,h:839,l:790,c:839},
-    {o:864,h:886,l:822,c:825},
-    {o:828,h:883,l:815,c:883}
-  ],
-  k6683: [
-    {o:1490,h:1595,l:1485,c:1595},
-    {o:1615,h:1730,l:1610,c:1700},
-    {o:1700,h:1865,l:1685,c:1850},
-    {o:1860,h:1900,l:1785,c:1795},
-    {o:1775,h:1940,l:1775,c:1910},
-    {o:1950,h:1950,l:1850,c:1890},
-    {o:1900,h:2005,l:1865,c:1870},
-    {o:1900,h:1955,l:1900,c:1935},
-    {o:1925,h:1955,l:1875,c:1875},
-    {o:1905,h:1970,l:1885,c:1890},
-    {o:1980,h:1995,l:1705,c:1800},
-    {o:1880,h:1935,l:1730,c:1825},
-    {o:1950,h:1995,l:1645,c:1710},
-    {o:1710,h:1880,l:1620,c:1845},
-    {o:1845,h:1990,l:1800,c:1935},
-    {o:1935,h:2125,l:1935,c:2125}
-  ],
-  k6278: [
-    {o:94.5,h:95.2,l:93.3,c:93.4},
-    {o:94.6,h:95.1,l:93.6,c:94.7},
-    {o:94.9,h:95.0,l:93.5,c:94.8},
-    {o:95.2,h:104.0,l:95.1,c:104.0},
-    {o:114.0,h:114.0,l:114.0,c:114.0},
-    {o:125.0,h:125.0,l:121.0,c:125.0},
-    {o:127.0,h:137.5,l:122.0,c:137.0},
-    {o:140.0,h:147.5,l:132.5,c:143.0},
-    {o:145.0,h:157.0,l:143.0,c:157.0},
-    {o:162.0,h:172.5,l:157.0,c:158.5},
-    {o:162.5,h:171.5,l:152.5,c:158.5},
-    {o:159.5,h:167.0,l:158.0,c:158.0},
-    {o:161.0,h:162.0,l:142.5,c:142.5},
-    {o:147.0,h:147.0,l:132.0,c:145.0},
-    {o:151.0,h:152.0,l:141.0,c:147.0},
-    {o:151.5,h:172.0,l:151.5,c:168.0}
-  ],
-  k6531: [
-    {o:469,h:484,l:469,c:471.5},
-    {o:490,h:496.5,l:472.5,c:478},
-    {o:480,h:502,l:475,c:480.5},
-    {o:494,h:528,l:492,c:516},
-    {o:510,h:567,l:502,c:567},
-    {o:586,h:614,l:555,c:606},
-    {o:630,h:652,l:586,c:591},
-    {o:594,h:596,l:573,c:586},
-    {o:593,h:644,l:591,c:644},
-    {o:670,h:708,l:656,c:682},
-    {o:725,h:750,l:707,c:720},
-    {o:788,h:792,l:787,c:792},
-    {o:852,h:871,l:713,c:785},
-    {o:850,h:863,l:785,c:788},
-    {o:792,h:793,l:710,c:753},
-    {o:810,h:835,l:775,c:840}
-  ],
-  k6669: [
-    {o:3580,h:3605,l:3540,c:3580},
-    {o:3615,h:3670,l:3550,c:3630},
-    {o:3595,h:3665,l:3535,c:3645},
-    {o:3695,h:3815,l:3675,c:3755},
-    {o:3830,h:3845,l:3705,c:3720},
-    {o:3780,h:3800,l:3690,c:3700},
-    {o:3755,h:3915,l:3755,c:3805},
-    {o:3960,h:3980,l:3870,c:3980},
-    {o:4030,h:4270,l:4030,c:4220},
-    {o:4285,h:4390,l:4180,c:4350},
-    {o:4410,h:4480,l:4130,c:4250},
-    {o:4335,h:4675,l:4320,c:4635},
-    {o:4980,h:5045,l:4855,c:4890},
-    {o:4925,h:5000,l:4795,c:4800},
-    {o:4810,h:4920,l:4710,c:4845},
-    {o:4925,h:4940,l:4660,c:4675}
-  ]
+const KDATA={
+  k6147:[{o:99.9,h:104.5,l:95.5,c:96.5},{o:103.5,h:106,l:102.5,c:106},{o:112,h:116.5,l:111.5,c:116.5},{o:114,h:115.5,l:108,c:113},{o:114,h:115,l:102.5,c:106},{o:107.5,h:114.5,l:102,c:114},{o:116.5,h:125,l:115,c:115},{o:118.5,h:126.5,l:118.5,c:126.5},{o:133,h:139,l:130,c:135.5},{o:143.5,h:148,l:138,c:141.5},{o:146,h:149,l:128.5,c:134},{o:145,h:145,l:135.5,c:145},{o:149.5,h:151.5,l:130.5,c:131},{o:134,h:144,l:134,c:144},{o:141,h:158,l:133.5,c:158},{o:164.5,h:173,l:155,c:163}],
+  k6278:[{o:94.9,h:95.0,l:93.5,c:94.8},{o:95.2,h:104.0,l:95.1,c:104.0},{o:114,h:114,l:114,c:114},{o:125,h:125,l:121,c:125},{o:127,h:137.5,l:122,c:137},{o:140,h:147.5,l:132.5,c:143},{o:145,h:157,l:143,c:157},{o:162,h:172.5,l:157,c:158.5},{o:162.5,h:171.5,l:152.5,c:158.5},{o:159.5,h:167,l:158,c:158},{o:161,h:162,l:142.5,c:142.5},{o:147,h:147,l:132,c:145},{o:151,h:152,l:141,c:147},{o:153.5,h:161.5,l:153,c:158.5},{o:151.5,h:172,l:151.5,c:161.5},{o:175.5,h:177.5,l:168,c:168}],
+  k6531:[{o:469,h:484,l:469,c:471.5},{o:490,h:496.5,l:472.5,c:478},{o:480,h:502,l:475,c:480.5},{o:494,h:528,l:492,c:516},{o:510,h:567,l:502,c:567},{o:586,h:614,l:555,c:606},{o:630,h:652,l:586,c:591},{o:594,h:596,l:573,c:586},{o:593,h:644,l:591,c:644},{o:670,h:708,l:656,c:682},{o:725,h:750,l:707,c:720},{o:788,h:792,l:787,c:792},{o:852,h:871,l:713,c:785},{o:850,h:863,l:785,c:788},{o:810,h:835,l:781,c:820},{o:877,h:902,l:840,c:840}],
+  k6683:[{o:1490,h:1595,l:1485,c:1595},{o:1615,h:1730,l:1610,c:1700},{o:1700,h:1865,l:1685,c:1850},{o:1860,h:1900,l:1785,c:1795},{o:1775,h:1940,l:1775,c:1910},{o:1950,h:1950,l:1850,c:1890},{o:1900,h:2005,l:1865,c:1870},{o:1900,h:1955,l:1900,c:1935},{o:1925,h:1955,l:1875,c:1875},{o:1905,h:1970,l:1885,c:1890},{o:1980,h:1995,l:1705,c:1800},{o:1880,h:1935,l:1730,c:1825},{o:1950,h:1995,l:1645,c:1710},{o:1710,h:1880,l:1620,c:1845},{o:1845,h:1990,l:1800,c:1935},{o:2125,h:2125,l:2125,c:2125}],
+  k6669:[{o:3580,h:3605,l:3540,c:3580},{o:3615,h:3670,l:3550,c:3630},{o:3595,h:3665,l:3535,c:3645},{o:3695,h:3815,l:3675,c:3755},{o:3830,h:3845,l:3705,c:3720},{o:3780,h:3800,l:3690,c:3700},{o:3755,h:3915,l:3755,c:3805},{o:3960,h:3980,l:3870,c:3980},{o:4030,h:4270,l:4030,c:4220},{o:4285,h:4390,l:4180,c:4350},{o:4410,h:4480,l:4130,c:4250},{o:4335,h:4675,l:4320,c:4635},{o:4980,h:5045,l:4855,c:4890},{o:4925,h:5000,l:4795,c:4800},{o:4810,h:4920,l:4710,c:4845},{o:4925,h:4940,l:4660,c:4675}],
+  k3037:[{o:624,h:655,l:614,c:625},{o:641,h:660,l:620,c:638},{o:635,h:648,l:624,c:626},{o:630,h:630,l:592,c:597},{o:600,h:629,l:600,c:618},{o:620,h:646,l:606,c:645},{o:640,h:645,l:633,c:643},{o:644,h:707,l:644,c:678},{o:710,h:715,l:700,c:710},{o:718,h:730,l:711,c:716},{o:726,h:749,l:660,c:728},{o:775,h:790,l:760,c:790},{o:835,h:839,l:790,c:839},{o:864,h:886,l:822,c:825},{o:805,h:832,l:782,c:803},{o:828,h:883,l:815,c:883}]
 };
-
-function drawKline(id, kdata) {
-  const canvas = document.getElementById(id);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
-  const n = kdata.length;
-  const pad = 2;
-
-  // 計算範圍
-  let mn = Infinity, mx = -Infinity;
-  kdata.forEach(d => { mn = Math.min(mn, d.l); mx = Math.max(mx, d.h); });
-  const range = mx - mn || 1;
-  const toY = v => H - pad - ((v - mn) / range) * (H - pad * 2);
-
-  const bw = Math.max(1, (W - pad * 2) / n - 1);
-  const gap = (W - pad * 2) / n;
-
-  // 取深色模式顏色
-  const isDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
-  const upCol  = isDark ? '#e05252' : '#dc2626';
-  const dnCol  = isDark ? '#2ec27a' : '#16a34a';
-
-  ctx.clearRect(0, 0, W, H);
-  kdata.forEach((d, i) => {
-    const x = pad + i * gap + gap / 2;
-    const isUp = d.c >= d.o;
-    const col = isUp ? upCol : dnCol;
-    ctx.strokeStyle = col;
-    ctx.fillStyle = col;
-
-    // wick
-    ctx.lineWidth = 0.6;
-    ctx.beginPath();
-    ctx.moveTo(x, toY(d.h));
-    ctx.lineTo(x, toY(d.l));
-    ctx.stroke();
-
-    // body
-    const yTop = toY(Math.max(d.o, d.c));
-    const yBot = toY(Math.min(d.o, d.c));
-    const bh = Math.max(1, yBot - yTop);
-    ctx.fillRect(x - bw / 2, yTop, bw, bh);
+function drawKline(id,raw){
+  const c=document.getElementById(id);
+  if(!c||!raw||!raw.length)return;
+  const dpr=Math.min(window.devicePixelRatio||1,2),W=88,H=32;
+  c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';
+  const ctx=c.getContext('2d');ctx.scale(dpr,dpr);
+  const d=raw.slice(-16),n=d.length;
+  const mxH=Math.max(...d.map(k=>k.h)),mnL=Math.min(...d.map(k=>k.l)),rng=mxH-mnL||1;
+  const isDk=window.matchMedia('(prefers-color-scheme:dark)').matches;
+  const upC=isDk?'#e05252':'#dc2626',dnC=isDk?'#2ec27a':'#16a34a';
+  const p=1,sw=(W-p*2)/n,bw=Math.max(2,Math.floor(sw*.65));
+  const sy=v=>H-p-((v-mnL)/rng)*(H-p*2);
+  d.forEach((k,i)=>{
+    const x=p+i*sw+(sw-bw)/2,isUp=k.c>=k.o,col=isUp?upC:dnC;
+    ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=0.7;
+    const cx=x+bw/2;
+    ctx.beginPath();ctx.moveTo(cx,sy(k.h));ctx.lineTo(cx,sy(k.l));ctx.stroke();
+    const bt=sy(Math.max(k.o,k.c)),bh=Math.max(1.5,sy(Math.min(k.o,k.c))-bt);
+    ctx.fillRect(x,bt,bw,bh);
   });
 }
-
-// 繪製所有K線
-Object.entries(stocks).forEach(([id, data]) => drawKline(id, data));
-
-// Dark mode 切換後重繪
-window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', () => {
-  Object.entries(stocks).forEach(([id, data]) => drawKline(id, data));
+document.addEventListener('DOMContentLoaded',()=>{
+  Object.entries(KDATA).forEach(([id,data])=>drawKline(id,data));
 });
 </script>
 </body>
