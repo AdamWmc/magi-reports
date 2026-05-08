@@ -388,6 +388,127 @@ nav{padding:14px 20px}.hero-wrap,.content,footer{padding-left:20px;padding-right
 </div>
 </div>
 
+<!-- 信用交易 -->
+<div class="section">
+<div class="sec-title">信用交易 · 融資融券</div>
+<div class="card">
+<div class="card-title">融資結算（2026-05-08）</div>
+<table class="tbl" style="margin-bottom:14px">
+<thead>
+<tr>
+  <th></th>
+  <th>增減（億）</th>
+  <th>餘額（億）</th>
+  <th>使用率</th>
+  <th>融資維持率</th>
+  <th>整戶擔保維持率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><b>上市 TSE</b></td>
+  <td style="color:var(--dn);font-weight:700">−54.8</td>
+  <td style="font-weight:700">4,771.8</td>
+  <td>4.62%</td>
+  <td>177.68%</td>
+  <td>177.84%</td>
+</tr>
+<tr>
+  <td><b>上櫃 OTC</b></td>
+  <td style="color:var(--dn);font-weight:700">−30.4</td>
+  <td style="font-weight:700">1,954.8</td>
+  <td>13.14%</td>
+  <td>176.83%</td>
+  <td>176.94%</td>
+</tr>
+</tbody>
+</table>
+<div style="font-size:11px;color:var(--dimmer);margin-bottom:12px">上市融資維持率 177.68%，高檔回落但仍屬健康（&gt;160%），融資餘額單日減少 54.8 億 — 散戶跟著法人同步縮手，非強制斷頭。</div>
+
+<div class="card-title" style="margin-top:4px">上市 60 日趨勢（融資維持率 × 餘額）</div>
+<div style="position:relative">
+  <canvas id="margin-chart" width="800" height="120" style="width:100%;height:auto;display:block"></canvas>
+</div>
+<div style="display:flex;gap:16px;font-size:10px;color:var(--dimmer);margin-top:6px;flex-wrap:wrap">
+  <span style="color:#c084fc">■ 融資維持率（左軸 %）</span>
+  <span style="color:#f59e0b">■ 融資餘額（右軸 億元）</span>
+  <span>60日高/低/今：維持率 182.1 / 152.5 / 177.7%　餘額 4826.6 / 3682.4 / 4771.8 億</span>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+  var data = [{"d":"01/30","close":32063.75,"bal":3838.9,"rate":170.6312},{"d":"02/02","close":31624.03,"bal":3788.5,"rate":165.1621},{"d":"02/03","close":32195.36,"bal":3821.3,"rate":166.9483},{"d":"02/04","close":32289.81,"bal":3840.5,"rate":169.8492},{"d":"02/05","close":31801.27,"bal":3829.2,"rate":164.7814},{"d":"02/06","close":31782.92,"bal":3739.9,"rate":161.1983},{"d":"02/09","close":32404.62,"bal":3754.7,"rate":164.655},{"d":"02/10","close":33072.97,"bal":3725.9,"rate":165.7823},{"d":"02/11","close":33605.71,"bal":3675.0,"rate":166.6695},{"d":"02/23","close":33773.26,"bal":3721.6,"rate":170.0188},{"d":"02/24","close":34700.82,"bal":3775.0,"rate":174.5803},{"d":"02/25","close":35413.07,"bal":3831.3,"rate":175.1137},{"d":"02/26","close":35414.49,"bal":3898.6,"rate":176.0177},{"d":"03/02","close":35095.09,"bal":3915.2,"rate":174.9883},{"d":"03/03","close":34323.65,"bal":3843.6,"rate":168.3466},{"d":"03/04","close":32828.88,"bal":3766.2,"rate":158.6198},{"d":"03/05","close":33672.94,"bal":3791.7,"rate":164.4533},{"d":"03/06","close":33599.54,"bal":3826.8,"rate":163.7001},{"d":"03/09","close":32110.42,"bal":3719.6,"rate":153.8081},{"d":"03/10","close":32771.87,"bal":3682.4,"rate":158.1126},{"d":"03/11","close":34114.19,"bal":3761.5,"rate":166.1295},{"d":"03/12","close":33581.86,"bal":3793.7,"rate":164.5959},{"d":"03/13","close":33400.32,"bal":3854.5,"rate":165.25},{"d":"03/16","close":33342.51,"bal":3922.8,"rate":166.8655},{"d":"03/17","close":33836.57,"bal":3934.7,"rate":169.4601},{"d":"03/18","close":34348.58,"bal":3997.7,"rate":172.024},{"d":"03/19","close":33689.68,"bal":4021.0,"rate":170.1866},{"d":"03/20","close":33543.88,"bal":3985.9,"rate":167.997},{"d":"03/23","close":32722.5,"bal":3933.3,"rate":161.0689},{"d":"03/24","close":32612.24,"bal":3901.0,"rate":158.4569},{"d":"03/25","close":33439.11,"bal":3955.0,"rate":164.2291},{"d":"03/26","close":33337.62,"bal":3911.4,"rate":162.5914},{"d":"03/27","close":33112.59,"bal":3937.2,"rate":162.5712},{"d":"03/30","close":32518.16,"bal":3927.1,"rate":159.7193},{"d":"03/31","close":31722.99,"bal":3817.2,"rate":152.4658},{"d":"04/01","close":33174.82,"bal":3859.1,"rate":159.5343},{"d":"04/02","close":32572.43,"bal":3842.0,"rate":157.2438},{"d":"04/07","close":33229.82,"bal":3877.3,"rate":160.4439},{"d":"04/08","close":34761.38,"bal":3953.3,"rate":168.6951},{"d":"04/09","close":34861.16,"bal":3965.2,"rate":168.4458},{"d":"04/10","close":35417.83,"bal":4012.4,"rate":170.6905},{"d":"04/13","close":35457.29,"bal":4086.5,"rate":171.7983},{"d":"04/14","close":36296.12,"bal":4149.9,"rate":173.247},{"d":"04/15","close":36722.14,"bal":4162.5,"rate":173.212},{"d":"04/16","close":37132.02,"bal":4224.1,"rate":175.2202},{"d":"04/17","close":36804.34,"bal":4271.2,"rate":175.5221},{"d":"04/20","close":36958.8,"bal":4298.3,"rate":177.0906},{"d":"04/21","close":37605.11,"bal":4331.6,"rate":179.5918},{"d":"04/22","close":37878.47,"bal":4385.5,"rate":180.592},{"d":"04/23","close":37714.15,"bal":4308.3,"rate":174.0611},{"d":"04/24","close":38932.4,"bal":4409.1,"rate":175.4933},{"d":"04/27","close":39616.63,"bal":4520.4,"rate":175.2079},{"d":"04/28","close":39521.73,"bal":4571.1,"rate":176.922},{"d":"04/29","close":39303.5,"bal":4609.7,"rate":176.0345},{"d":"04/30","close":38926.63,"bal":4609.1,"rate":175.8451},{"d":"05/04","close":40705.14,"bal":4703.9,"rate":180.9067},{"d":"05/05","close":40769.29,"bal":4751.5,"rate":182.0207},{"d":"05/06","close":41138.85,"bal":4756.5,"rate":180.6349},{"d":"05/07","close":41933.78,"bal":4826.6,"rate":182.1352},{"d":"05/08","close":41603.94,"bal":4771.8,"rate":177.6839}];
+
+  var canvas = document.getElementById('margin-chart');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height, padL = 40, padR = 44, padT = 8, padB = 20;
+  var n = data.length;
+  var slotW = (W - padL - padR) / n;
+
+  var rates = data.map(function(d){ return d.rate; });
+  var bals  = data.map(function(d){ return d.bal; });
+  var rMin = Math.min.apply(null, rates) - 2, rMax = Math.max.apply(null, rates) + 2;
+  var bMin = Math.min.apply(null, bals) * 0.98, bMax = Math.max.apply(null, bals) * 1.01;
+
+  function toYr(v){ return padT + (1 - (v - rMin)/(rMax - rMin)) * (H - padT - padB); }
+  function toYb(v){ return padT + (1 - (v - bMin)/(bMax - bMin)) * (H - padT - padB); }
+  function toX(i){ return padL + i * slotW + slotW / 2; }
+
+  ctx.clearRect(0, 0, W, H);
+
+  // grid lines
+  ctx.strokeStyle = 'rgba(128,128,128,0.15)'; ctx.lineWidth = 0.5;
+  for (var g = 0; g <= 4; g++) {
+    var gy = padT + g * (H - padT - padB) / 4;
+    ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(W - padR, gy); ctx.stroke();
+  }
+
+  // draw balance line (yellow, right axis)
+  ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 1.5; ctx.beginPath();
+  data.forEach(function(d, i){
+    i === 0 ? ctx.moveTo(toX(i), toYb(d.bal)) : ctx.lineTo(toX(i), toYb(d.bal));
+  });
+  ctx.stroke();
+
+  // draw rate line (purple, left axis)
+  ctx.strokeStyle = '#c084fc'; ctx.lineWidth = 2; ctx.beginPath();
+  data.forEach(function(d, i){
+    i === 0 ? ctx.moveTo(toX(i), toYr(d.rate)) : ctx.lineTo(toX(i), toYr(d.rate));
+  });
+  ctx.stroke();
+
+  // x-axis labels (every 10)
+  ctx.fillStyle = 'rgba(148,163,184,0.8)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center';
+  data.forEach(function(d, i){
+    if (i % 10 === 0 || i === n - 1) {
+      ctx.fillText(d.d, toX(i), H - 4);
+    }
+  });
+
+  // y-axis left (rate)
+  ctx.textAlign = 'right'; ctx.fillStyle = '#c084fc';
+  [rMin+2, (rMin+rMax)/2, rMax-2].forEach(function(v){
+    ctx.fillText(v.toFixed(0)+'%', padL - 3, toYr(v) + 3);
+  });
+
+  // y-axis right (bal)
+  ctx.textAlign = 'left'; ctx.fillStyle = '#f59e0b';
+  [bMin*1.005, (bMin+bMax)/2, bMax*0.99].forEach(function(v){
+    ctx.fillText(v.toFixed(0)+'億', W - padR + 3, toYb(v) + 3);
+  });
+
+  // last dot highlight
+  var last = data[n-1];
+  ctx.fillStyle = '#c084fc';
+  ctx.beginPath(); ctx.arc(toX(n-1), toYr(last.rate), 3, 0, 2*Math.PI); ctx.fill();
+  ctx.fillStyle = '#f59e0b';
+  ctx.beginPath(); ctx.arc(toX(n-1), toYb(last.bal), 3, 0, 2*Math.PI); ctx.fill();
+})();
+</script>
+
 <!-- Notion 智囊雷達 -->
 <div class="section">
 <div class="sec-title">Notion 智囊雷達 · 本週投資人動態</div>
