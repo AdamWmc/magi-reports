@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI 知識庫 · 智囊語錄搜尋</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;
+  --up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);}
+}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+/* Nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;
+  position:sticky;top:0;z-index:100;background:var(--nav-bg);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent2);font-weight:600}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;
+  cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+@media(max-width:600px){.nav-links{display:none}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:52px 40px 40px;text-align:center}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:28px 28px;
+  opacity:.4;pointer-events:none;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%)}
+.hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.hero-title{font-size:30px;font-weight:800;color:var(--bright);letter-spacing:-1px;margin-bottom:8px}
+.hero-sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+
+/* Search box */
+.search-wrap{position:relative;max-width:520px;margin:0 auto}
+.search-input{width:100%;padding:14px 20px 14px 46px;font-size:16px;
+  background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;
+  color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;
+  font-family:inherit}
+.search-input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.search-input::placeholder{color:var(--dimmer)}
+.search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);
+  color:var(--dimmer);font-size:17px;pointer-events:none}
+.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--dimmer);cursor:pointer;font-size:16px;
+  padding:2px;display:none;line-height:1}
+.search-clear:hover{color:var(--text)}
+
+.search-meta{font-size:12px;color:var(--dimmer);margin-top:10px;min-height:18px}
+
+/* Content */
+.content{max-width:760px;margin:0 auto;padding:24px 40px 80px}
+@media(max-width:600px){.content{padding:16px 16px 60px}.hero{padding:36px 20px 28px}}
+
+/* Stock header */
+.stock-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.stock-code{font-size:13px;font-weight:700;color:var(--accent2);background:var(--glow);
+  border:1px solid rgba(124,58,237,.2);border-radius:6px;padding:3px 10px}
+.stock-name{font-size:22px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
+.stock-count{font-size:12px;color:var(--muted);margin-left:auto}
+
+/* Mention card */
+.mention-feed{display:flex;flex-direction:column;gap:10px}
+.mention-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;
+  transition:border-color .15s}
+.mention-card:hover{border-color:var(--accent2)}
+
+.mc-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.mc-date{font-size:11px;font-weight:700;color:var(--accent2);background:var(--glow);
+  border:1px solid rgba(124,58,237,.15);padding:2px 8px;border-radius:100px;white-space:nowrap}
+.mc-speaker{font-size:13px;font-weight:700;color:var(--bright)}
+.mc-host{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
+.mc-sector{font-size:10px;color:var(--dimmer);margin-left:auto;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;max-width:120px}
+
+.mc-quote{font-size:13px;color:var(--text2);line-height:1.7;font-style:italic;
+  border-left:2px solid var(--accent2);padding-left:10px;margin-bottom:10px}
+.mc-quote.collapsed{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+.mc-footer{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.mc-tp{font-size:11px;font-weight:700;color:var(--up);background:var(--up-bg);
+  border:1px solid var(--up-bd);padding:2px 8px;border-radius:4px}
+.mc-sentiment{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;border:1px solid}
+.mc-sentiment.bull{background:var(--up-bg);color:var(--up);border-color:var(--up-bd)}
+.mc-sentiment.bear{background:var(--dn-bg);color:var(--dn);border-color:var(--dn-bd)}
+.mc-sentiment.watch{background:rgba(245,158,11,.1);color:#f59e0b;border-color:rgba(245,158,11,.25)}
+.mc-sentiment.hold{background:var(--bg3);color:var(--muted);border-color:var(--border)}
+.mc-expand{font-size:11px;color:var(--accent2);background:none;border:none;cursor:pointer;
+  padding:0;margin-left:auto;font-family:inherit}
+.mc-expand:hover{text-decoration:underline}
+
+/* Empty / loading state */
+.state-box{text-align:center;padding:60px 20px;color:var(--muted)}
+.state-box .icon{font-size:40px;margin-bottom:12px;opacity:.5}
+.state-box p{font-size:14px;line-height:1.7}
+
+/* Stock index (default view) */
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.index-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:11px 14px;
+  cursor:pointer;transition:border-color .15s,background .12s;text-align:left}
+.index-card:hover{border-color:var(--accent2);background:var(--bg3)}
+.ic-code{font-size:10px;color:var(--accent2);font-weight:700;letter-spacing:.3px;margin-bottom:3px}
+.ic-name{font-size:14px;font-weight:700;color:var(--bright);margin-bottom:4px}
+.ic-meta{font-size:10px;color:var(--dimmer)}
+
+.sec-label{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.8px;
+  text-transform:uppercase;margin-bottom:12px}
+
+/* Suggestions dropdown */
+.suggestions{position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:50;overflow:hidden;display:none}
+.sug-item{padding:10px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;
+  transition:background .1s;font-size:13px}
+.sug-item:hover,.sug-item.active{background:var(--bg3)}
+.sug-code{font-size:11px;color:var(--accent2);font-weight:700;min-width:38px}
+.sug-name{color:var(--bright);font-weight:600}
+.sug-count{font-size:11px;color:var(--dimmer);margin-left:auto}
+
+@media(max-width:600px){.index-grid{grid-template-columns:1fr 1fr}}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em>&nbsp;智能分析</a>
+  <div class="nav-links">
+    <a href="/">首頁</a>
+    <a href="/archive.html">報告庫</a>
+    <a href="/search.html" class="active">知識庫</a>
+  </div>
+  <button class="theme-btn" onclick="magiToggleTheme()" id="theme-btn" aria-label="切換主題">🌙</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-title">智囊知識庫</div>
+    <p class="hero-sub">搜尋各家開會、每日廢想法的個股觀點<br>輸入股票代號或名稱</p>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" id="q" type="search" placeholder="搜尋代號或股名，例如 6278 或 台表科"
+        autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="search-clear" id="clear-btn" onclick="clearSearch()">✕</button>
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <div class="search-meta" id="search-meta"></div>
+  </div>
+</div>
+
+<div class="content" id="content">
+  <div class="state-box"><div class="icon">⏳</div><p>資料載入中…</p></div>
+</div>
+
+<footer style="padding:24px 40px;text-align:center;font-size:11px;color:var(--dimmer);border-top:1px solid var(--border)">
+  MAGI Stock Analysis Platform · 資料來源：各家開會 / 每日廢想法
+</footer>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────
+var DB = null;        // { code: [mentions...] }
+var INDEX = [];       // [{ code, name, count, latest }] sorted by count
+
+// ── Load data ─────────────────────────────────────────────────────────────
+fetch('/data/notion_history.json')
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    DB = data;
+    buildIndex();
+    renderDefault();
+  })
+  .catch(function(){
+    document.getElementById('content').innerHTML =
+      '<div class="state-box"><div class="icon">⚠️</div><p>資料載入失敗，請重新整理</p></div>';
+  });
+
+function buildIndex(){
+  INDEX = [];
+  for(var code in DB){
+    var mentions = DB[code];
+    if(!mentions || !mentions.length) continue;
+    var name = mentions[0].name || code;
+    var latest = mentions.reduce(function(a,b){ return a.date > b.date ? a : b; }).date;
+    INDEX.push({ code: code, name: name, count: mentions.length, latest: latest });
+  }
+  INDEX.sort(function(a,b){ return b.count - a.count; });
+}
+
+// ── Default view: stock index grid ────────────────────────────────────────
+function renderDefault(){
+  var html = '<div class="sec-label">所有個股（' + INDEX.length + ' 支）</div>';
+  html += '<div class="index-grid">';
+  INDEX.forEach(function(s){
+    html += '<div class="index-card" onclick="selectStock(\'' + esc(s.code) + '\')">'
+      + '<div class="ic-code">' + esc(s.code) + '</div>'
+      + '<div class="ic-name">' + esc(s.name) + '</div>'
+      + '<div class="ic-meta">' + s.count + ' 則 · ' + fmtDate(s.latest) + '</div>'
+      + '</div>';
+  });
+  html += '</div>';
+  setContent(html);
+  setMeta('');
+}
+
+// ── Render mentions for a stock ────────────────────────────────────────────
+function renderStock(code){
+  var mentions = DB[code];
+  if(!mentions || !mentions.length){
+    setContent('<div class="state-box"><div class="icon">🤷</div><p>找不到這支股票的記錄</p></div>');
+    return;
+  }
+  // Sort newest first
+  var sorted = mentions.slice().sort(function(a,b){ return b.date > a.date ? 1 : -1; });
+  var name = sorted[0].name || code;
+
+  var html = '<div class="stock-header">'
+    + '<span class="stock-code">' + esc(code) + '</span>'
+    + '<span class="stock-name">' + esc(name) + '</span>'
+    + '<span class="stock-count">' + sorted.length + ' 則記錄</span>'
+    + '</div>';
+
+  html += '<div class="mention-feed">';
+  sorted.forEach(function(m, i){
+    html += renderCard(m, i);
+  });
+  html += '</div>';
+  setContent(html);
+  setMeta(sorted.length + ' 則，按日期由新到舊');
+}
+
+function renderCard(m, idx){
+  var long = m.quote && m.quote.length > 120;
+  var cardId = 'card-' + idx;
+
+  var sentiment = m.sentiment || '';
+  var sentClass = 'hold';
+  if(/(積極|看多|買進|多)/.test(sentiment)) sentClass = 'bull';
+  else if(/(看空|賣|空|減碼)/.test(sentiment)) sentClass = 'bear';
+  else if(/(關注|注意|觀察|看多看空)/.test(sentiment)) sentClass = 'watch';
+
+  var d = m.date ? m.date.slice(5).replace('-','/') : '';
+
+  var html = '<div class="mention-card">'
+    + '<div class="mc-meta">'
+    + '<span class="mc-date">' + esc(d) + '</span>'
+    + '<span class="mc-speaker">' + esc(m.speaker||'') + '</span>';
+  if(m.host) html += '<span class="mc-host">' + esc(m.host) + '</span>';
+  if(m.sector) html += '<span class="mc-sector">' + esc(m.sector) + '</span>';
+  html += '</div>';
+
+  if(m.quote){
+    html += '<div class="mc-quote' + (long ? ' collapsed' : '') + '" id="q-' + cardId + '">'
+      + esc(m.quote) + '</div>';
+  }
+
+  html += '<div class="mc-footer">';
+  if(m.tp) html += '<span class="mc-tp">TP ' + esc(m.tp) + '</span>';
+  if(sentiment) html += '<span class="mc-sentiment ' + sentClass + '">' + esc(sentiment) + '</span>';
+  if(long) html += '<button class="mc-expand" onclick="toggleExpand(\'' + cardId + '\')">展開 ↓</button>';
+  html += '</div></div>';
+
+  return html;
+}
+
+function toggleExpand(cardId){
+  var q = document.getElementById('q-' + cardId);
+  var btn = q && q.parentNode.querySelector('.mc-expand');
+  if(!q) return;
+  if(q.classList.contains('collapsed')){
+    q.classList.remove('collapsed');
+    if(btn) btn.textContent = '收起 ↑';
+  } else {
+    q.classList.add('collapsed');
+    if(btn) btn.textContent = '展開 ↓';
+  }
+}
+
+// ── Suggestions ───────────────────────────────────────────────────────────
+var _sugActive = -1;
+
+function getSuggestions(q){
+  if(!q || !INDEX.length) return [];
+  q = q.toLowerCase();
+  return INDEX.filter(function(s){
+    return s.code.startsWith(q) || s.name.includes(q);
+  }).slice(0, 8);
+}
+
+function renderSuggestions(sugs){
+  var box = document.getElementById('suggestions');
+  if(!sugs.length){ box.style.display = 'none'; return; }
+  box.innerHTML = sugs.map(function(s, i){
+    return '<div class="sug-item" data-code="' + esc(s.code) + '" onmousedown="selectStock(\'' + esc(s.code) + '\')">'
+      + '<span class="sug-code">' + esc(s.code) + '</span>'
+      + '<span class="sug-name">' + esc(s.name) + '</span>'
+      + '<span class="sug-count">' + s.count + ' 則</span>'
+      + '</div>';
+  }).join('');
+  box.style.display = 'block';
+  _sugActive = -1;
+}
+
+// ── Search input handlers ─────────────────────────────────────────────────
+document.getElementById('q').addEventListener('input', function(){
+  var val = this.value.trim();
+  document.getElementById('clear-btn').style.display = val ? 'block' : 'none';
+
+  if(!val){
+    hideSuggestions();
+    renderDefault();
+    return;
+  }
+
+  var sugs = getSuggestions(val);
+
+  // Exact match → render directly
+  if(DB && DB[val]){
+    hideSuggestions();
+    renderStock(val);
+    return;
+  }
+
+  // Single name match → render directly
+  var nameMatch = INDEX.filter(function(s){ return s.name === val; });
+  if(nameMatch.length === 1){
+    hideSuggestions();
+    renderStock(nameMatch[0].code);
+    return;
+  }
+
+  renderSuggestions(sugs);
+
+  if(sugs.length === 0){
+    setContent('<div class="state-box"><div class="icon">🔍</div><p>找不到「' + esc(val) + '」相關記錄</p></div>');
+    setMeta('');
+  } else if(sugs.length === 1){
+    hideSuggestions();
+    renderStock(sugs[0].code);
+  } else {
+    setContent('<div class="state-box" style="padding:30px 20px"><div class="icon">👆</div><p>找到 ' + sugs.length + ' 支相關個股<br>請從下拉選單選擇</p></div>');
+    setMeta('');
+  }
+});
+
+// Keyboard navigation in suggestions
+document.getElementById('q').addEventListener('keydown', function(e){
+  var box = document.getElementById('suggestions');
+  var items = box.querySelectorAll('.sug-item');
+  if(e.key === 'ArrowDown'){ e.preventDefault(); _sugActive = Math.min(_sugActive+1, items.length-1); highlightSug(items); }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); _sugActive = Math.max(_sugActive-1, -1); highlightSug(items); }
+  else if(e.key === 'Enter'){
+    if(_sugActive >= 0 && items[_sugActive]){
+      selectStock(items[_sugActive].dataset.code);
+    }
+  } else if(e.key === 'Escape'){
+    hideSuggestions();
+  }
+});
+
+document.getElementById('q').addEventListener('blur', function(){
+  setTimeout(hideSuggestions, 150);
+});
+
+function highlightSug(items){
+  items.forEach(function(el,i){ el.classList.toggle('active', i === _sugActive); });
+}
+
+function hideSuggestions(){
+  document.getElementById('suggestions').style.display = 'none';
+}
+
+function selectStock(code){
+  hideSuggestions();
+  var stock = INDEX.find(function(s){ return s.code === code; });
+  if(stock){
+    var input = document.getElementById('q');
+    input.value = stock.code + ' ' + stock.name;
+    document.getElementById('clear-btn').style.display = 'block';
+  }
+  renderStock(code);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function clearSearch(){
+  var input = document.getElementById('q');
+  input.value = '';
+  document.getElementById('clear-btn').style.display = 'none';
+  input.focus();
+  hideSuggestions();
+  renderDefault();
+  setMeta('');
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function setContent(html){ document.getElementById('content').innerHTML = html; }
+function setMeta(t){ document.getElementById('search-meta').textContent = t; }
+function fmtDate(d){ return d ? d.slice(5).replace('-','/') : ''; }
+function esc(s){
+  return String(s||'')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// ── Theme ─────────────────────────────────────────────────────────────────
+function magiToggleTheme(){
+  var h = document.documentElement;
+  var cur = h.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  var next = cur === 'dark' ? 'light' : 'dark';
+  h.setAttribute('data-theme', next);
+  localStorage.setItem('magi-theme', next);
+  updateThemeBtn();
+}
+function updateThemeBtn(){
+  var btn = document.getElementById('theme-btn');
+  if(!btn) return;
+  var cur = document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  btn.textContent = cur === 'dark' ? '☀' : '🌙';
+}
+updateThemeBtn();
+</script>
+</body>
+</html>
