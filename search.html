@@ -187,7 +187,7 @@ var DB = null;        // { code: [mentions...] }
 var INDEX = [];       // [{ code, name, count, latest }] sorted by count
 
 // ── Load data ─────────────────────────────────────────────────────────────
-fetch('/data/notion_history.json')
+fetch('/data/notion_history.json?v=' + Date.now())
   .then(function(r){ return r.json(); })
   .then(function(data){
     DB = data;
