@@ -253,10 +253,10 @@ function loadKline(code){
   fetch(url, { headers: { 'X-API-KEY': FUGLE_KEY } })
     .then(function(r){ return r.json(); })
     .then(function(data){
-      var rows = (data.candles || []);
+      var rows = (data.data || data.candles || []);
       if(!rows.length){ wrap.innerHTML = '<div class="kline-err">暫無 K 線資料</div>'; return; }
-      // Fugle 欄位：date, open, high, low, close（由舊到新）
-      var candles = rows.slice(-60);
+      // Fugle 回傳由新到舊，需反轉後取最近 60 根
+      var candles = rows.slice().reverse().slice(-60);
       var kdata = candles.map(function(c){
         var d = (c.date||'').slice(5).replace('-','/');
         return { d:d, o:c.open, h:c.high, l:c.low, c:c.close };
