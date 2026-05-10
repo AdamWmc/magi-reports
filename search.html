@@ -253,7 +253,7 @@ var _krawData = {};
 function loadKline(code){
   var widget = document.getElementById('kw-' + code);
   if(!widget) return;
-  var fromDate = new Date(Date.now() - 365*24*3600*1000).toISOString().slice(0,10);
+  var fromDate = new Date(Date.now() - 90*24*3600*1000).toISOString().slice(0,10);
   var toDate   = new Date().toISOString().slice(0,10);
   var url = 'https://api.fugle.tw/marketdata/v1.0/stock/historical/candles/' + encodeURIComponent(code)
     + '?from=' + fromDate + '&to=' + toDate + '&fields=open,high,low,close';
