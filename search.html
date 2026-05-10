@@ -191,7 +191,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 
 <script>
 // ── Config ────────────────────────────────────────────────────────────────
-var FINMIND_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoid21jMzAwNUBnbWFpbC5jb20iLCJlbWFpbCI6IndtYzMwMDVAZ21haWwuY29tIn0.9POnv-rtnce9V8WKZxxs-Wubv997Y9VVQamZJEhBOY0';
+var FUGLE_KEY = 'OGM4Y2U3ZGMtZjNjNC00NGE4LTkxNzktY2NiNDJjMDk3ZTU3IGRkMDhkYjZiLTZiODEtNGZlNS1iZDA0LTYyM2Q4NWY3MzUzNA==';
 
 // ── State ─────────────────────────────────────────────────────────────────
 var DB = null;        // { code: [mentions...] }
@@ -244,24 +244,22 @@ function loadKline(code){
   var wrap   = document.getElementById('kline-wrap-' + code);
   if(!canvas || !wrap) return;
 
-  // FinMind: 取 90 天資料確保有 60 根 K 棒
-  var startDate = new Date(Date.now() - 90*24*3600*1000).toISOString().slice(0,10);
-  var url = 'https://api.finmindtrade.com/api/v4/data'
-    + '?dataset=TaiwanStockPrice'
-    + '&data_id=' + encodeURIComponent(code)
-    + '&start_date=' + startDate
-    + '&token=' + FINMIND_TOKEN;
+  // Fugle: 近 90 天確保 60 根交易日 K 棒
+  var fromDate = new Date(Date.now() - 90*24*3600*1000).toISOString().slice(0,10);
+  var toDate   = new Date().toISOString().slice(0,10);
+  var url = 'https://api.fugle.tw/marketdata/v1.0/stock/historical/candles/' + encodeURIComponent(code)
+    + '?from=' + fromDate + '&to=' + toDate + '&fields=open,high,low,close';
 
-  fetch(url)
+  fetch(url, { headers: { 'X-API-KEY': FUGLE_KEY } })
     .then(function(r){ return r.json(); })
     .then(function(data){
-      var rows = (data.data || []);
+      var rows = (data.candles || []);
       if(!rows.length){ wrap.innerHTML = '<div class="kline-err">暫無 K 線資料</div>'; return; }
-      // FinMind 欄位：date, Open, Max, Min, Close
+      // Fugle 欄位：date, open, high, low, close（由舊到新）
       var candles = rows.slice(-60);
       var kdata = candles.map(function(c){
         var d = (c.date||'').slice(5).replace('-','/');
-        return { d:d, o:c.Open, h:c.Max, l:c.Min, c:c.Close };
+        return { d:d, o:c.open, h:c.high, l:c.low, c:c.close };
       });
       // Show price info
       var last = kdata[kdata.length-1];
