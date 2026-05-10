@@ -44,12 +44,21 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 @media(max-width:600px){.nav-links{display:none}}
 
 /* K-line section */
-.kline-section{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:20px}
-.kline-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.kline-label{font-size:12px;color:var(--muted);font-weight:500}
-.kline-price{font-size:13px}
-.kline-wrap{border-radius:8px;overflow:hidden}
-.kline-err{font-size:12px;color:var(--muted);padding:12px 0;text-align:center}
+/* K-line widget — always dark, distinct from mention cards */
+.kw{background:linear-gradient(160deg,#0f1219 0%,#0d1117 100%);border:1px solid rgba(124,58,237,.22);border-top:2.5px solid var(--accent2);border-radius:14px;padding:14px 16px 10px;margin-bottom:24px}
+.kw-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.kw-sym{font-size:10px;font-weight:700;color:#a78bfa;letter-spacing:.6px;background:rgba(124,58,237,.18);padding:2px 8px;border-radius:4px;flex-shrink:0}
+.kw-lbl{font-size:10px;color:#4b5563;flex-shrink:0}
+.kw-price-wrap{flex:1;padding-left:4px}
+.kw-tabs{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:7px;padding:3px;flex-shrink:0}
+.kw-tab{background:none;border:none;color:#4b5563;font-size:11px;font-weight:600;padding:3px 12px;border-radius:5px;cursor:pointer;transition:all .15s;font-family:inherit}
+.kw-tab.active{background:rgba(124,58,237,.35);color:#c084fc}
+.kw-tab:hover:not(.active){color:#9ca3af;background:rgba(255,255,255,.05)}
+.kw-chart{position:relative;border-radius:8px;overflow:hidden;background:rgba(0,0,0,.25)}
+.kw-legend{display:flex;gap:12px;margin-top:7px;flex-wrap:wrap}
+.kw-leg-item{font-size:9px;color:#4b5563;display:flex;align-items:center;gap:4px}
+.kw-leg-dot{width:12px;height:2px;border-radius:1px;flex-shrink:0}
+.kw-err{font-size:11px;color:#4b5563;text-align:center;padding:30px 0}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;padding:52px 40px 40px;text-align:center}
@@ -239,115 +248,160 @@ function renderDefault(){
 }
 
 // ── K-line ────────────────────────────────────────────────────────────────
-function loadKline(code){
-  var canvas = document.getElementById('kline-' + code);
-  var wrap   = document.getElementById('kline-wrap-' + code);
-  if(!canvas || !wrap) return;
+var _krawData = {};
 
-  // Fugle: 近 90 天確保 60 根交易日 K 棒
-  var fromDate = new Date(Date.now() - 90*24*3600*1000).toISOString().slice(0,10);
+function loadKline(code){
+  var widget = document.getElementById('kw-' + code);
+  if(!widget) return;
+  var fromDate = new Date(Date.now() - 365*24*3600*1000).toISOString().slice(0,10);
   var toDate   = new Date().toISOString().slice(0,10);
   var url = 'https://api.fugle.tw/marketdata/v1.0/stock/historical/candles/' + encodeURIComponent(code)
-    + '?from=' + fromDate + '&to=' + toDate + '&fields=open,high,low,close';
-
-  fetch(url, { headers: { 'X-API-KEY': FUGLE_KEY } })
-    .then(function(r){ return r.json(); })
+    + '?from=' + fromDate + '&to=' + toDate + '&fields=open,high,low,close,volume';
+  fetch(url, {headers:{'X-API-KEY':FUGLE_KEY}})
+    .then(function(r){return r.json();})
     .then(function(data){
-      var rows = (data.data || data.candles || []);
-      if(!rows.length){ wrap.innerHTML = '<div class="kline-err">暫無 K 線資料</div>'; return; }
-      // Fugle 回傳由新到舊，需反轉後取最近 60 根
-      var candles = rows.slice().reverse().slice(-60);
-      var kdata = candles.map(function(c){
-        var d = (c.date||'').slice(5).replace('-','/');
-        return { d:d, o:c.open, h:c.high, l:c.low, c:c.close };
+      var rows = data.data || data.candles || [];
+      if(!rows.length){widget.innerHTML='<div class="kw-err">暫無 K 線資料</div>';return;}
+      _krawData[code] = rows.slice().reverse().map(function(c){
+        return {date:c.date, d:(c.date||'').slice(5).replace('-','/'),
+                o:c.open, h:c.high, l:c.low, c:c.close, v:c.volume||0};
       });
-      // Show price info
-      var last = kdata[kdata.length-1];
-      var prev = kdata[kdata.length-2];
-      var chg  = prev ? ((last.c - prev.c)/prev.c*100).toFixed(2) : '0.00';
-      var isUp = parseFloat(chg) >= 0;
-      var priceEl = document.getElementById('kline-price-' + code);
-      if(priceEl) priceEl.innerHTML =
-        '<span style="font-size:22px;font-weight:700;color:var(--' + (isUp?'up':'dn') + ')">'
-        + last.c + '</span>'
-        + '<span style="font-size:13px;margin-left:6px;color:var(--' + (isUp?'up':'dn') + ')">'
-        + (isUp?'▲':'▼') + Math.abs(chg) + '%</span>';
-      initKline('kline-' + code, kdata);
-      wrap.style.opacity = '1';
+      renderKline(code, 'D');
+      widget.querySelectorAll('.kw-tab').forEach(function(tab){
+        tab.addEventListener('click', function(){
+          widget.querySelectorAll('.kw-tab').forEach(function(t){t.classList.remove('active');});
+          tab.classList.add('active');
+          renderKline(code, tab.getAttribute('data-tf'));
+        });
+      });
     })
-    .catch(function(e){
-      wrap.innerHTML = '<div class="kline-err">K 線載入失敗（' + e.message + '）</div>';
-    });
+    .catch(function(){widget.innerHTML='<div class="kw-err">K 線載入失敗</div>';});
+}
+
+function aggregateCandles(daily, tf){
+  var groups={}, keys=[];
+  daily.forEach(function(c){
+    var key;
+    if(tf==='W'){
+      var d=new Date(c.date); var day=d.getDay();
+      d.setDate(d.getDate()-day+(day===0?-6:1)); key=d.toISOString().slice(0,10);
+    } else { key=c.date.slice(0,7); }
+    if(!groups[key]){groups[key]={d:c.d,o:c.o,h:c.h,l:c.l,c:c.c,v:c.v};keys.push(key);}
+    else{var g=groups[key];g.h=Math.max(g.h,c.h);g.l=Math.min(g.l,c.l);g.c=c.c;g.v+=c.v;}
+  });
+  return keys.map(function(k){
+    var g=groups[k];
+    g.d = tf==='W' ? k.slice(5).replace('-','/') : k.slice(2,7).replace('-','/');
+    return g;
+  });
+}
+
+function renderKline(code, tf){
+  var daily=_krawData[code]; if(!daily) return;
+  var kdata = tf==='W' ? aggregateCandles(daily,'W').slice(-52)
+            : tf==='M' ? aggregateCandles(daily,'M').slice(-24)
+            : daily.slice(-60);
+  var last=kdata[kdata.length-1], prev=kdata[kdata.length-2];
+  var chg=prev?((last.c-prev.c)/prev.c*100).toFixed(2):'0.00';
+  var isUp=parseFloat(chg)>=0;
+  var col=isUp?'#e05252':'#2ec27a';
+  var priceEl=document.getElementById('kw-price-'+code);
+  if(priceEl) priceEl.innerHTML=
+    '<span style="font-size:19px;font-weight:700;color:'+col+'">'+last.c+'</span>'
+    +'<span style="font-size:12px;margin-left:5px;color:'+col+'">'+(isUp?'▲':'▼')+Math.abs(chg)+'%</span>';
+  initKline('kline-'+code, kdata);
+  var chart=document.getElementById('kline-'+code);
+  if(chart) chart.closest('.kw-chart').style.opacity='1';
 }
 
 function initKline(canvasId, kdata){
-  var canvas = document.getElementById(canvasId);
-  if(!canvas || !kdata || !kdata.length) return;
-  var tip   = canvas.nextElementSibling;
-  var ctx   = canvas.getContext('2d');
-  var W=canvas.width, H=canvas.height, pad=4, n=kdata.length;
-  var high  = Math.max.apply(null, kdata.map(function(d){return d.h;}));
-  var low   = Math.min.apply(null, kdata.map(function(d){return d.l;}));
-  var range = high - low || 1;
-  var slotW = (W - pad*2) / n;
-  var bodyW = Math.max(1, slotW * 0.55);
-  var cs    = getComputedStyle(document.documentElement);
-  var up    = cs.getPropertyValue('--up').trim();
-  var dn    = cs.getPropertyValue('--dn').trim();
-  var toY   = function(v){ return pad + (1-(v-low)/range)*(H-pad*2); };
+  var canvas=document.getElementById(canvasId);
+  if(!canvas||!kdata||!kdata.length) return;
+  var tip=canvas.nextElementSibling;
+  var ctx=canvas.getContext('2d');
+  var W=canvas.width, H=canvas.height, pad=6, n=kdata.length;
+
+  // Layout: OHLC zone top 74%, volume zone bottom 20%, gap between
+  var chartH=Math.floor(H*0.74);
+  var volTop=chartH+8, volH=H-volTop-pad;
+
+  var high=Math.max.apply(null,kdata.map(function(d){return d.h;}));
+  var low =Math.min.apply(null,kdata.map(function(d){return d.l;}));
+  var range=high-low||1;
+  var slotW=(W-pad*2)/n;
+  var bodyW=Math.max(1,slotW*0.55);
+  var toY=function(v){return pad+(1-(v-low)/range)*(chartH-pad*2);};
+
+  var maxVol=Math.max.apply(null,kdata.map(function(d){return d.v||0;}))||1;
+
+  ctx.clearRect(0,0,W,H);
+
+  // Grid lines
+  ctx.strokeStyle='rgba(255,255,255,.05)'; ctx.lineWidth=1;
+  [0.25,0.5,0.75].forEach(function(r){
+    var y=pad+r*(chartH-pad*2);
+    ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(W-pad,y); ctx.stroke();
+  });
 
   // MA
-  var calcMA = function(p){ return kdata.map(function(_,i){
+  var calcMA=function(p){return kdata.map(function(_,i){
     if(i<p-1) return null;
     var s=0; for(var j=i-p+1;j<=i;j++) s+=kdata[j].c; return s/p;
-  }); };
-  var ma5=calcMA(5), ma10=calcMA(10), ma20=calcMA(20), ma60=calcMA(60);
+  });};
+  var ma5=calcMA(5),ma10=calcMA(10),ma20=calcMA(20),ma60=calcMA(60);
 
-  var drawMA = function(ma, color, lw){
+  var drawMA=function(ma,color,lw){
     ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.beginPath();
     var started=false;
     ma.forEach(function(v,i){
       if(v===null) return;
       var cx=pad+i*slotW+slotW/2;
-      if(started) ctx.lineTo(cx,toY(v)); else { ctx.moveTo(cx,toY(v)); started=true; }
+      if(started) ctx.lineTo(cx,toY(v)); else{ctx.moveTo(cx,toY(v));started=true;}
     });
     ctx.stroke();
   };
+  drawMA(ma60,'#f97316',0.9); drawMA(ma20,'#3b82f6',0.9);
+  drawMA(ma10,'#c084fc',0.8); drawMA(ma5,'#f59e0b',0.8);
 
-  ctx.clearRect(0,0,W,H);
-  drawMA(ma60,'#f97316',0.8);
-  drawMA(ma20,'#3b82f6',0.8);
-  drawMA(ma10,'#c084fc',0.7);
-  drawMA(ma5, '#f59e0b',0.7);
-
+  // K bars + volume
   kdata.forEach(function(d,i){
-    var cx    = pad+i*slotW+slotW/2;
-    var color = d.c>=d.o ? up : dn;
+    var cx=pad+i*slotW+slotW/2;
+    var isUp=d.c>=d.o;
+    var up='#e05252', dn='#2ec27a';
+    var color=isUp?up:dn;
     ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=0.6;
     ctx.beginPath(); ctx.moveTo(cx,toY(d.h)); ctx.lineTo(cx,toY(d.l)); ctx.stroke();
     var top=toY(Math.max(d.o,d.c)), bot=toY(Math.min(d.o,d.c));
     ctx.fillRect(cx-bodyW/2, top, bodyW, Math.max(1,bot-top));
+    // Volume bar
+    if(d.v && maxVol>1){
+      var vh=Math.max(1,((d.v)/maxVol)*volH);
+      ctx.fillStyle=isUp?'rgba(224,82,82,.4)':'rgba(46,194,122,.4)';
+      ctx.fillRect(cx-bodyW/2, volTop+volH-vh, bodyW, vh);
+    }
   });
 
   if(!tip) return;
-  var fmt=function(v){ return v!=null ? v.toFixed(v>=100?0:1) : '-'; };
-  canvas.onmousemove = function(e){
+  var fmt=function(v){return v!=null?v.toFixed(v>=100?0:1):'-';};
+  var fmtV=function(v){return v>=1e8?(v/1e8).toFixed(1)+'億':v>=1e4?(v/1e4).toFixed(0)+'萬':String(v);};
+  canvas.onmousemove=function(e){
     var rect=canvas.getBoundingClientRect();
     var x=(e.clientX-rect.left)*(W/rect.width);
     var i=Math.min(n-1,Math.max(0,Math.floor((x-pad)/slotW)));
     var d=kdata[i];
     var chg2=((d.c-d.o)/d.o*100).toFixed(2);
-    var col=d.c>=d.o?up:dn;
+    var col=d.c>=d.o?'#e05252':'#2ec27a';
     tip.innerHTML='<b>'+d.d+'</b> 開'+d.o+' 高'+d.h+' 低'+d.l
-      +' 收<b style="color:'+col+'">'+d.c+'</b> '+(d.c>=d.o?'▲':'▼')+Math.abs(chg2)+'%<br>'
+      +' 收<b style="color:'+col+'">'+d.c+'</b> '+(d.c>=d.o?'▲':'▼')+Math.abs(chg2)+'%'
+      +(d.v?' 量'+fmtV(d.v):'')+'<br>'
       +'<span style="color:#f59e0b">MA5 '+fmt(ma5[i])+'</span>　'
       +'<span style="color:#c084fc">MA10 '+fmt(ma10[i])+'</span>　'
       +'<span style="color:#3b82f6">MA20 '+fmt(ma20[i])+'</span>　'
       +'<span style="color:#f97316">MA60 '+fmt(ma60[i])+'</span>';
     tip.style.display='block';
-    tip.style.left=Math.min(x, W-230)+'px';
+    tip.style.left=Math.min(x,W-240)+'px';
   };
-  canvas.onmouseleave = function(){ tip.style.display='none'; };
+  canvas.onmouseleave=function(){tip.style.display='none';};
 }
 
 // ── Render mentions for a stock ────────────────────────────────────────────
@@ -367,17 +421,28 @@ function renderStock(code){
     + '<span class="stock-count">' + sorted.length + ' 則記錄</span>'
     + '</div>';
 
-  // K-line section
-  html += '<div class="kline-section">'
-    + '<div class="kline-top">'
-    + '<span class="kline-label">' + esc(code) + ' 近 60 日 K 線</span>'
-    + '<span id="kline-price-' + esc(code) + '" class="kline-price"></span>'
+  // K-line widget
+  html += '<div class="kw" id="kw-' + esc(code) + '">'
+    + '<div class="kw-header">'
+    + '<span class="kw-sym">' + esc(code) + '</span>'
+    + '<span class="kw-lbl">K 線</span>'
+    + '<div id="kw-price-' + esc(code) + '" class="kw-price-wrap" style="flex:1;padding-left:6px"></div>'
+    + '<div class="kw-tabs">'
+    + '<button class="kw-tab active" data-tf="D">日</button>'
+    + '<button class="kw-tab" data-tf="W">週</button>'
+    + '<button class="kw-tab" data-tf="M">月</button>'
     + '</div>'
-    + '<div id="kline-wrap-' + esc(code) + '" class="kline-wrap" style="opacity:0;transition:opacity .3s">'
-    + '<div style="position:relative">'
-    + '<canvas id="kline-' + esc(code) + '" width="680" height="80" style="width:100%;height:80px;display:block"></canvas>'
-    + '<div class="k-tip" style="display:none;position:absolute;bottom:84px;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:10px;color:var(--text2);white-space:nowrap;pointer-events:none;z-index:10;line-height:1.6"></div>'
-    + '</div></div>'
+    + '</div>'
+    + '<div class="kw-chart" style="opacity:0;transition:opacity .4s">'
+    + '<canvas id="kline-' + esc(code) + '" width="680" height="130" style="width:100%;height:130px;display:block"></canvas>'
+    + '<div class="k-tip" style="display:none;position:absolute;top:4px;left:0;background:#1a1f2a;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 10px;font-size:10px;color:#9ca3af;white-space:nowrap;pointer-events:none;z-index:10;line-height:1.7"></div>'
+    + '</div>'
+    + '<div class="kw-legend">'
+    + '<span class="kw-leg-item"><span class="kw-leg-dot" style="background:#f59e0b"></span>MA5</span>'
+    + '<span class="kw-leg-item"><span class="kw-leg-dot" style="background:#c084fc"></span>MA10</span>'
+    + '<span class="kw-leg-item"><span class="kw-leg-dot" style="background:#3b82f6"></span>MA20</span>'
+    + '<span class="kw-leg-item"><span class="kw-leg-dot" style="background:#f97316"></span>MA60</span>'
+    + '</div>'
     + '</div>';
 
   html += '<div class="mention-feed">';
