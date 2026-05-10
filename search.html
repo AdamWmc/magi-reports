@@ -253,7 +253,7 @@ var _krawData = {};
 function loadKline(code){
   var widget = document.getElementById('kw-' + code);
   if(!widget) return;
-  var fromDate = new Date(Date.now() - 90*24*3600*1000).toISOString().slice(0,10);
+  var fromDate = new Date(Date.now() - 120*24*3600*1000).toISOString().slice(0,10);
   var toDate   = new Date().toISOString().slice(0,10);
   var url = 'https://api.fugle.tw/marketdata/v1.0/stock/historical/candles/' + encodeURIComponent(code)
     + '?from=' + fromDate + '&to=' + toDate + '&fields=open,high,low,close';
@@ -298,9 +298,9 @@ function aggregateCandles(daily, tf){
 
 function renderKline(code, tf){
   var daily=_krawData[code]; if(!daily) return;
-  var kdata = tf==='W' ? aggregateCandles(daily,'W').slice(-52)
-            : tf==='M' ? aggregateCandles(daily,'M').slice(-24)
-            : daily.slice(-60);
+  var kdata = tf==='W' ? aggregateCandles(daily,'W').slice(-13)
+            : tf==='M' ? aggregateCandles(daily,'M').slice(-4)
+            : daily.slice(-30);
   var last=kdata[kdata.length-1], prev=kdata[kdata.length-2];
   var chg=prev?((last.c-prev.c)/prev.c*100).toFixed(2):'0.00';
   var isUp=parseFloat(chg)>=0;
