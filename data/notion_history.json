@@ -13531,6 +13531,30 @@
       "parsed_at": "2026-05-10T13:27:32"
     }
   ],
+  "4722": [
+    {
+      "code": "4722",
+      "name": "國精化",
+      "date": "2026-05-05",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "強尼",
+      "host": null,
+      "sector": "特化/電子材料",
+      "quote": "國精化台燿好會跟著很好",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "台燿受益帶動國精化"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T16:32:39"
+    }
+  ],
   "8147": [
     {
       "code": "8147",
