@@ -207,17 +207,39 @@ var DB = null;        // { code: [mentions...] }
 var INDEX = [];       // [{ code, name, count, latest }] sorted by count
 
 // ── Load data ─────────────────────────────────────────────────────────────
-fetch('/data/notion_history.json?v=' + Date.now())
-  .then(function(r){ return r.json(); })
-  .then(function(data){
-    DB = data;
-    buildIndex();
-    renderDefault();
-  })
-  .catch(function(){
-    document.getElementById('content').innerHTML =
-      '<div class="state-box"><div class="icon">⚠️</div><p>資料載入失敗，請重新整理</p></div>';
+function lastNMonths(n){
+  var months=[], d=new Date();
+  for(var i=0;i<n;i++){
+    months.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'));
+    d.setMonth(d.getMonth()-1);
+  }
+  return months;
+}
+
+var _v = Date.now();
+var _months = lastNMonths(3);
+var _urls = [];
+['meeting','daily'].forEach(function(t){
+  _months.forEach(function(m){ _urls.push('/data/'+t+'/'+m+'.json?v='+_v); });
+});
+
+Promise.all(_urls.map(function(url){
+  return fetch(url).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
+})).then(function(results){
+  DB = {};
+  results.forEach(function(records){
+    records.forEach(function(rec){
+      var code = rec.code; if(!code) return;
+      if(!DB[code]) DB[code] = [];
+      DB[code].push(rec);
+    });
   });
+  buildIndex();
+  renderDefault();
+}).catch(function(){
+  document.getElementById('content').innerHTML =
+    '<div class="state-box"><div class="icon">⚠️</div><p>資料載入失敗，請重新整理</p></div>';
+});
 
 function buildIndex(){
   INDEX = [];

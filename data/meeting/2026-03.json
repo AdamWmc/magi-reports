@@ -1,0 +1,228 @@
+[
+  {
+    "code": "2313",
+    "name": "華通",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "上翔",
+    "host": "樂林",
+    "sector": "PCB/光通訊",
+    "quote": "賣光華通，態度謹慎",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "謹慎",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "小魚",
+    "host": "樂林",
+    "sector": "砷化鎵/化合物半導體",
+    "quote": "PD 2026貢獻持續，InP佈局",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "PD 2026貢獻"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "強尼",
+    "host": "樂林",
+    "sector": "AI伺服器/CCL",
+    "quote": "老AI擴廠，CCL需求持續旺",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AI擴廠"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "6147",
+    "name": "頎邦",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "強尼",
+    "host": "樂林",
+    "sector": "光通訊/半導體封測",
+    "quote": "轉頎邦，看光通訊滲透率提升",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "光通訊滲透"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "郁翔",
+    "host": "樂林",
+    "sector": "砷化鎵/化合物半導體",
+    "quote": "持股觀察",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "2313",
+    "name": "華通",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "郁翔",
+    "host": "樂林",
+    "sector": "PCB/光通訊",
+    "quote": "持股觀察",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "6147",
+    "name": "頎邦",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_樂林",
+    "speaker": "龍哥",
+    "host": "樂林",
+    "sector": "光通訊/半導體封測",
+    "quote": "本業矽光進展，光通訊貢獻持續提升",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "矽光子進展"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "8996",
+    "name": "高力",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_聚泓",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "散熱",
+    "quote": "EPS 25，Q3 Rubin水冷需求啟動",
+    "tp": null,
+    "eps_est": {
+      "2026": "25"
+    },
+    "catalysts": [
+      "Q3 Rubin水冷"
+    ],
+    "customers": [
+      "NVIDIA"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "3563",
+    "name": "牧德",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_聚泓",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "PCB設備",
+    "quote": "TP 990，EPS 28，日月光驗證通過",
+    "tp": "990",
+    "eps_est": {
+      "2026": "28"
+    },
+    "catalysts": [
+      "日月光驗證"
+    ],
+    "customers": [
+      "日月光"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  },
+  {
+    "code": "4770",
+    "name": "上品",
+    "date": "2026-03-31",
+    "source_type": "meeting",
+    "source_page": "20260331_聚泓",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "半導體材料",
+    "quote": "EPS 16，台積電前段供應鏈受惠",
+    "tp": null,
+    "eps_est": {
+      "2026": "16"
+    },
+    "catalysts": [
+      "台積電前段供應鏈"
+    ],
+    "customers": [
+      "台積電"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-10T09:20:37"
+  }
+]
