@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI 盤後報告 2026-05-11</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);
+  --card-hover:rgba(124,58,237,.2);--warn:#f59e0b;--blue:#3b82f6;--pink:#ec4899;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3);
+}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px;text-transform:uppercase}
+.nav-date{font-size:11px;color:var(--muted)}
+.nav-back{font-size:12px;color:var(--muted);transition:color .15s}
+.nav-back:hover{color:var(--text)}
+
+.hero-wrap{position:relative;overflow:hidden;padding:40px 40px 32px;background:var(--bg)}
+.hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:28px 28px;opacity:.4;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%)}
+.hero-inner{position:relative;z-index:1}
+
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:11px;color:var(--muted);margin-bottom:18px}
+.hero-pill .live{width:6px;height:6px;border-radius:50%;background:var(--up);box-shadow:0 0 7px var(--up);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+.hero-dual{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.hero-mkt{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 24px}
+.hero-mkt-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.hero-mkt-idx{font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--bright);letter-spacing:-1.5px;line-height:1}
+.hero-mkt-chg{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:6px;font-size:13px;font-weight:700}
+.hero-mkt-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.hero-mkt-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.hero-mkt-meta{margin-top:8px;font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px}
+
+.hero-headline{font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.7;max-width:700px}
+.hero-headline strong{color:var(--text)}
+
+.signals{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sig{display:flex;align-items:center;gap:7px;padding:5px 12px;border-radius:100px;font-size:12px;border:1px solid var(--border);background:var(--bg2)}
+.sig-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sig-label{color:var(--muted)}
+.sig-val{font-weight:700}
+.sig-up .sig-dot{background:var(--up);box-shadow:0 0 6px var(--up)}
+.sig-up .sig-val{color:var(--up)}
+.sig-dn .sig-dot{background:var(--dn);box-shadow:0 0 6px var(--dn)}
+.sig-dn .sig-val{color:var(--dn)}
+.sig-warn .sig-dot{background:var(--warn);box-shadow:0 0 6px var(--warn)}
+.sig-warn .sig-val{color:var(--warn)}
+
+.breadth-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+.b-title{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.b-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:8px}
+.up-s{background:var(--up)}
+.flat-s{background:var(--dimmer)}
+.dn-s{background:var(--dn)}
+.b-nums{display:flex;flex-wrap:wrap;gap:12px;font-size:12px}
+.b-nums .u{color:var(--up);font-weight:600}
+.b-nums .d{color:var(--dn);font-weight:600}
+.b-nums .f{color:var(--muted)}
+.otc-breadth{margin-top:8px;font-size:11px;color:var(--muted);padding-top:8px;border-top:1px solid var(--border2)}
+
+.content{max-width:1200px;margin:0 auto;padding:0 40px 60px}
+
+.section-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin:32px 0 14px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:inline-block;width:3px;height:12px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px}
+.card-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:12px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.card-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+
+/* 族群卡片 */
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sc-name{font-size:13px;font-weight:700;color:var(--bright)}
+.sc-count{font-size:11px;padding:2px 7px;border-radius:4px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);font-weight:700}
+.sc-stocks{font-size:11px;color:var(--text2);line-height:1.7}
+.sc-stocks span.hit{color:var(--accent2);font-weight:600}
+.sc-notion{margin-top:8px;padding-top:8px;border-top:1px solid var(--border2)}
+.sc-notion-title{font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px;letter-spacing:.3px}
+.sc-quote{font-size:11px;color:var(--text2);font-style:italic;line-height:1.6}
+.sc-quote-who{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* 弱勢區塊 */
+.weak-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.weak-tag{font-size:11px;padding:3px 9px;border-radius:4px;background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+
+/* 法人卡片 */
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.inst-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.inst-name{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.inst-val{font-size:22px;font-weight:800;letter-spacing:-0.5px}
+.inst-val.up{color:var(--up)}
+.inst-val.dn{color:var(--dn)}
+.inst-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* 期貨籌碼 */
+.fut-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.fut-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.fut-card.accent{border-color:var(--accent2);background:var(--glow)}
+.fut-name{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.3px;margin-bottom:4px;text-transform:uppercase}
+.fut-val{font-size:16px;font-weight:800;letter-spacing:-0.3px}
+.fut-val.up{color:var(--up)}
+.fut-val.dn{color:var(--dn)}
+.fut-sub{font-size:9px;color:var(--muted);margin-top:2px}
+
+/* 個股買賣超 */
+.fin-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fin-tbl{width:100%}
+.fin-tbl tr+tr{border-top:1px solid var(--border2)}
+.fin-tbl td{padding:5px 6px;font-size:12px;vertical-align:middle}
+.fin-tbl td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.fin-tbl td .code{font-size:10px;color:var(--muted)}
+.fin-tbl td .name{font-weight:600;color:var(--text)}
+
+/* 信用交易表格 */
+.margin-tbl{width:100%;border-collapse:collapse}
+.margin-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:right;padding:5px 8px;border-bottom:1px solid var(--border)}
+.margin-tbl th:first-child{text-align:left}
+.margin-tbl td{font-size:12px;padding:8px 8px;text-align:right;border-bottom:1px solid var(--border2)}
+.margin-tbl td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.margin-tbl tr:last-child td{border-bottom:none}
+.val-up{color:var(--up);font-weight:700}
+.val-dn{color:var(--dn);font-weight:700}
+
+/* K線容器 */
+.kline-wrap{position:relative;margin:8px 0}
+.k-tip{display:none;position:absolute;bottom:64px;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:10px;color:var(--text2);white-space:nowrap;pointer-events:none;z-index:10;line-height:1.6}
+
+/* 個股卡片 */
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.stock-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .15s}
+.stock-card:hover{border-color:var(--accent2)}
+.stock-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.stock-meta{flex:1}
+.stock-code{font-size:10px;color:var(--muted)}
+.stock-name{font-size:16px;font-weight:800;color:var(--bright);line-height:1.2}
+.stock-price-wrap{text-align:right}
+.stock-price{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.stock-chg{font-size:11px;padding:2px 6px;border-radius:4px;font-weight:700;margin-top:2px;display:inline-block}
+.stock-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.stock-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.badge-limitup{background:var(--up);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.badge-punish{background:rgba(245,158,11,.15);color:var(--warn);font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;border:1px solid rgba(245,158,11,.3)}
+.notion-score-bar{display:flex;align-items:center;gap:6px;margin:8px 0;padding:6px 8px;background:var(--bg3);border-radius:6px}
+.ns-label{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;width:40px;flex-shrink:0}
+.ns-score{font-size:13px;font-weight:800;color:var(--accent2)}
+.ns-pushers{font-size:10px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stock-thesis{font-size:11px;color:var(--text2);margin:6px 0;line-height:1.6}
+.stock-news{margin-top:8px;padding-top:8px;border-top:1px solid var(--border2)}
+.news-item{font-size:11px;margin-bottom:4px}
+.news-title{color:var(--text);font-weight:600}
+.news-date{color:var(--muted);font-size:10px;margin-left:4px}
+
+/* 智囊雷達 */
+.radar-feed{display:flex;flex-direction:column;gap:8px}
+.rf-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.rf-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rf-person{font-weight:700;font-size:14px;color:var(--bright)}
+.rf-group{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
+.rf-date{font-size:11px;color:var(--dimmer);margin-left:auto}
+.rf-mentions{display:flex;flex-direction:column;gap:5px}
+.rf-mention{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:7px 10px;border-radius:7px;background:var(--bg);border:1px solid var(--border2)}
+.rf-code{font-size:10px;color:var(--muted);min-width:32px}
+.rf-name{font-size:13px;font-weight:600;color:var(--text)}
+.rf-quote{font-size:11px;color:var(--text2);font-style:italic;flex:1}
+.rf-sentiment{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.rf-s-bull{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.rf-s-watch{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
+.rf-s-bear{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+
+/* 共識排行 */
+.consensus-tbl{width:100%;border-collapse:collapse}
+.consensus-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;padding:5px 8px;text-align:left;border-bottom:1px solid var(--border)}
+.consensus-tbl td{padding:8px 8px;border-bottom:1px solid var(--border2);vertical-align:middle;font-size:12px}
+.consensus-tbl tr:last-child td{border-bottom:none}
+.stk-name{font-weight:700;color:var(--text);display:block}
+.stk-code{font-size:10px;color:var(--muted)}
+.score-badge{font-size:12px;font-weight:800;color:var(--accent2)}
+.pushers-cell{font-size:10px;color:var(--muted);max-width:200px}
+
+/* 警示股 */
+.warn-section{margin-bottom:16px}
+.warn-title{font-size:11px;font-weight:700;color:var(--warn);letter-spacing:.4px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.warn-title::before{content:'⚠';font-size:12px}
+.warn-grid{display:flex;flex-wrap:wrap;gap:8px}
+.warn-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.warn-chip.attention{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
+.warn-chip.punish{background:rgba(220,38,38,.07);color:var(--up);border:1px solid rgba(220,38,38,.2)}
+.warn-chip.punish-new{background:rgba(220,38,38,.14);color:var(--up);border:2px solid var(--up);font-weight:800}
+.warn-chip .days{font-size:9px;opacity:.7;margin-left:2px}
+
+/* 熱門族群 badge */
+.sector-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;font-size:11px;border:1px solid var(--border);background:var(--bg3);margin:3px}
+.sector-badge .cnt{font-weight:700;color:var(--accent2)}
+.sector-badge .recent{font-size:9px;padding:1px 5px;border-radius:3px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);margin-left:4px}
+
+footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.src-badge{padding:3px 8px;border-radius:4px;background:var(--bg3);border:1px solid var(--border);font-size:10px}
+
+@media(max-width:760px){
+  .hero-dual,.grid2{grid-template-columns:1fr;gap:14px}
+  .grid3,.grid4,.grid5,.fut-grid,.fin-grid,.inst-grid{grid-template-columns:1fr 1fr}
+  .sector-grid{grid-template-columns:1fr}
+  nav{padding:12px 16px}
+  .hero-wrap{padding:24px 16px 20px}
+  .content{padding:0 16px 40px}
+  footer{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <span class="nav-badge">盤後報告</span>
+    <span class="nav-date">2026-05-11 週一</span>
+  </div>
+  <a href="/" class="nav-back">← 首頁</a>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="live"></span><span>2026年5月11日 盤後總結</span></div>
+
+    <div class="hero-dual">
+      <div class="hero-mkt">
+        <div class="hero-mkt-label">加權指數（上市）</div>
+        <div class="hero-mkt-idx">41,790</div>
+        <div class="hero-mkt-chg up">▲ +186.12 (+0.45%)</div>
+        <div class="hero-mkt-meta">
+          <span>成交 <strong>1.09兆</strong></span>
+          <span>漲停 <strong style="color:var(--up)">57</strong></span>
+          <span>跌停 <strong style="color:var(--dn)">3</strong></span>
+        </div>
+      </div>
+      <div class="hero-mkt">
+        <div class="hero-mkt-label">上櫃指數（OTC）</div>
+        <div class="hero-mkt-idx">422.01</div>
+        <div class="hero-mkt-chg up">▲ +12.57 (+3.07%)</div>
+        <div class="hero-mkt-meta">
+          <span>成交 <strong>304億</strong></span>
+          <span>漲停 <strong style="color:var(--up)">45</strong></span>
+          <span>⚡ OTC 漲幅遠超大盤</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hero-headline">
+      台積電尾盤遭外資追殺 <strong>-2.4%</strong>，但聯發科頂著處置逆勢飆 <strong>+6.89%</strong>，記憶體族群群聯、南亞科、華邦電等多檔亮燈漲停，IC設計、PCB全面開花；OTC中小股漲幅 +3.07% 遠超加權，三大法人合計買超 <strong>+52.4億</strong>，投信連續積極買進。
+    </p>
+
+    <div class="signals">
+      <div class="sig sig-up"><span class="sig-dot"></span><span class="sig-label">大盤方向</span><span class="sig-val">偏多 +0.45%</span></div>
+      <div class="sig sig-up"><span class="sig-dot"></span><span class="sig-label">上市上櫃同向</span><span class="sig-val">同漲 ✓</span></div>
+      <div class="sig sig-up"><span class="sig-dot"></span><span class="sig-label">法人合力</span><span class="sig-val">+52.4億</span></div>
+      <div class="sig sig-up"><span class="sig-dot"></span><span class="sig-label">市場廣度</span><span class="sig-val">上漲541 > 下跌473</span></div>
+    </div>
+
+    <div class="breadth-wrap">
+      <div class="b-title">上市漲跌分布</div>
+      <div class="b-bar">
+        <div class="up-s" style="width:50.5%"></div>
+        <div class="flat-s" style="width:5.4%"></div>
+        <div class="dn-s" style="width:44.1%"></div>
+      </div>
+      <div class="b-nums">
+        <span class="u">漲 541（50.5%）</span>
+        <span class="f">平 58</span>
+        <span class="d">跌 473（44.1%）</span>
+        <span style="color:var(--up);font-weight:700">漲停 57</span>
+        <span style="color:var(--dn)">跌停 3</span>
+      </div>
+      <div class="otc-breadth">
+        上櫃：上漲 <strong>418</strong>（47.6%）&nbsp; 持平 62 &nbsp; 下跌 <strong>398</strong>（45.3%）&nbsp; 漲停 <strong style="color:var(--up)">45</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONTENT ═══════════════ -->
+<div class="content">
+
+<!-- 今日市場方向 -->
+<div class="section-title">今日市場方向</div>
+
+<div class="sector-grid">
+  <div class="sector-card">
+    <div class="sc-header"><span class="sc-name">💾 記憶體族群</span><span class="sc-count">7+ 漲停</span></div>
+    <div class="sc-stocks">
+      群聯(8299)漲停 &bull; 南亞科(2408)漲停 &bull; 華邦電(2344)漲停<br>
+      宜鼎(5289)漲停 &bull; 創見(2451)漲停 &bull; 晶豪科(3006)漲停<br>
+      凌航(3135)漲停 &bull; 旺宏 +4%
+    </div>
+    <div class="sc-notion"><div class="sc-notion-title">族群背景</div>
+    <div class="sc-quote">群聯 Q1 EPS 68.8元改寫新高、慧榮釋出樂觀展望，DRAM缺貨潮延續至2028年；MSCI調整前法人積極卡位</div></div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header"><span class="sc-name">🔧 IC設計族群</span><span class="sc-count">8+ 漲停</span></div>
+    <div class="sc-stocks">
+      <span class="hit">創意(3443)漲停</span> &bull; 聯發科(2454)+6.89%⚠️<br>
+      世芯-KY(3661)漲停 &bull; M31(6643)漲停 &bull; 矽力-KY漲停<br>
+      智原漲停 &bull; 愛普(6531)漲停 &bull; 群聯漲停
+    </div>
+    <div class="sc-notion"><div class="sc-notion-title">群組怎麼說（駿羽 05/11）</div>
+    <div class="sc-quote">「Cerebras第二季wafer out 2k，第三季4k，gross die 112顆，投5奈米」</div>
+    <div class="sc-quote-who">Jason（駿羽）</div></div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header"><span class="sc-name">🔌 PCB族群</span><span class="sc-count">5+ 漲停</span></div>
+    <div class="sc-stocks">
+      志超漲停 &bull; 立誠漲停 &bull; 景碩漲停 &bull; 楠梓電漲停<br>
+      <span class="hit">台表科(6278)+7%</span> &bull; <span class="hit">台燿(6274)+6.2%</span>⚠️<br>
+      南電+6% &bull; 欣興(3037)+5% &bull; 金像電+5%
+    </div>
+    <div class="sc-notion"><div class="sc-notion-title">群組怎麼說（駿羽 05/11）</div>
+    <div class="sc-quote">「2383台光到2028產能多50%」</div>
+    <div class="sc-quote-who">永（駿羽）</div></div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header"><span class="sc-name">🤖 機器人概念</span><span class="sc-count">4 漲停</span></div>
+    <div class="sc-stocks">
+      上銀(2049)漲停 &bull; 聯策(6658)漲停<br>
+      大銀微系統(4576)漲停 &bull; 蔚華科(3055)漲停<br>
+      貿聯-KY(3665)+5.64% &bull; 和椿(6215)+6.7%
+    </div>
+    <div class="sc-notion"><div class="sc-notion-title">今日亮點</div>
+    <div class="sc-quote">Tesla AI5 專案下半年認證在即，機器人供應鏈加速卡位</div></div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header"><span class="sc-name">⚡ 第三代半導體</span><span class="sc-count">4+ 漲停</span></div>
+    <div class="sc-stocks">
+      嘉晶(3016)漲停⚠️ &bull; 精材漲停 &bull; 中美晶漲停 &bull; 華新科漲停<br>
+      <span class="hit">穩懋(3105)+6.8%</span> &bull; 全新(2455)+6%
+    </div>
+    <div class="sc-notion"><div class="sc-notion-title">族群背景</div>
+    <div class="sc-quote">GaAs原料漲價 + AI光通訊元件量產，穩懋Q2法說看mid-teens成長</div></div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header"><span class="sc-name">🖥 面板 + 其他強勢</span><span class="sc-count">多檔</span></div>
+    <div class="sc-stocks">
+      群創(3481)漲停（台積電FOPLP題材）<br>
+      鴻勁(7769)+10%（6380元刷新高）<br>
+      智邦(2345)+9%（外資買超68.6億）<br>
+      台達電(2308)+2.05%
+    </div>
+  </div>
+</div>
+
+<div style="margin-bottom:14px">
+  <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">⬇ 弱勢 / 跌停</div>
+  <div class="weak-row">
+    <div class="weak-tag">台積電(2330) -2.4%（外資追殺-397億）</div>
+    <div class="weak-tag">緯創(3231) 外資賣-74.7億</div>
+    <div class="weak-tag">永擎(7711) -9.96% 跌停</div>
+    <div class="weak-tag">悅城(6405) -9.94% 跌停⚠️新進處置</div>
+    <div class="weak-tag">三集瑞-KY(6862) -9.89%</div>
+    <div class="weak-tag">京元電(2449) 外資賣-54.7億</div>
+  </div>
+</div>
+
+<!-- 法人動向 -->
+<div class="section-title">法人動向</div>
+
+<div class="inst-grid" style="margin-bottom:14px">
+  <div class="inst-card">
+    <div class="inst-name">外資</div>
+    <div class="inst-val dn">-109.8億</div>
+    <div class="inst-sub">大賣台積電-397億，但積極買IC設計</div>
+  </div>
+  <div class="inst-card">
+    <div class="inst-name">投信</div>
+    <div class="inst-val up">+124.9億</div>
+    <div class="inst-sub">連續積極買進，IC設計/PCB為主</div>
+  </div>
+  <div class="inst-card">
+    <div class="inst-name">自營商</div>
+    <div class="inst-val up">+37.3億</div>
+    <div class="inst-sub">三大合計 <strong style="color:var(--up)">+52.4億</strong></div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">期貨未平倉籌碼（口數，TX+MTX/4）</div>
+  <div class="fut-grid">
+    <div class="fut-card">
+      <div class="fut-name">外資及陸資</div>
+      <div class="fut-val dn">-54,225</div>
+      <div class="fut-sub">大空</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">投信</div>
+      <div class="fut-val up">+46,609</div>
+      <div class="fut-sub">大多</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">自營商</div>
+      <div class="fut-val up">+26</div>
+      <div class="fut-sub">中性</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">前五大特定法人</div>
+      <div class="fut-val up">+5,222</div>
+      <div class="fut-sub">淨多</div>
+    </div>
+    <div class="fut-card accent">
+      <div class="fut-name">小外資 ★</div>
+      <div class="fut-val dn">-12,838</div>
+      <div class="fut-sub">外資全−前五大+投信</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:var(--text2)">
+    ⚠️ 現貨多（投信買超）但期貨外資空單仍高達 -54,225 口，「現多期空」對沖結構持續；小外資 -12,838 口偏空，指數短期承壓風險仍存。若期貨空單未見明顯回補，4萬2關卡將持續壓力測試。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">個股法人買賣超金額（億元，估算）</div>
+  <div class="fin-grid">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--up);margin-bottom:6px">外資買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2345</span><br><span class="name">智邦</span></td><td class="val-up">+68.6億</td></tr>
+        <tr><td><span class="code">2408</span><br><span class="name">南亞科</span></td><td class="val-up">+51.9億</td></tr>
+        <tr><td><span class="code">8046</span><br><span class="name">南電</span></td><td class="val-up">+29.0億</td></tr>
+        <tr><td><span class="code">3443</span><br><span class="name">創意</span></td><td class="val-up">+28.1億</td></tr>
+        <tr><td><span class="code">3037</span><br><span class="name">欣興</span></td><td class="val-up">+25.5億</td></tr>
+        <tr><td><span class="code">2317</span><br><span class="name">鴻海</span></td><td class="val-up">+23.7億</td></tr>
+        <tr><td><span class="code">2303</span><br><span class="name">聯電</span></td><td class="val-up">+22.7億</td></tr>
+        <tr><td><span class="code">3189</span><br><span class="name">景碩</span></td><td class="val-up">+21.6億</td></tr>
+        <tr><td><span class="code">2301</span><br><span class="name">光寶科</span></td><td class="val-up">+21.3億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--dn);margin-bottom:6px">外資賣超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2330</span><br><span class="name">台積電</span></td><td class="val-dn">-396.8億</td></tr>
+        <tr><td><span class="code">3231</span><br><span class="name">緯創</span></td><td class="val-dn">-74.7億</td></tr>
+        <tr><td><span class="code">2449</span><br><span class="name">京元電</span></td><td class="val-dn">-54.7億</td></tr>
+        <tr><td><span class="code">2313</span><br><span class="name">華通</span></td><td class="val-dn">-39.9億</td></tr>
+        <tr><td><span class="code">2327</span><br><span class="name">國巨</span></td><td class="val-dn">-35.5億</td></tr>
+        <tr><td><span class="code">0050</span><br><span class="name">元大台灣50</span></td><td class="val-dn">-26.1億</td></tr>
+        <tr><td><span class="code">6669</span><br><span class="name">緯穎</span></td><td class="val-dn">-20.7億</td></tr>
+        <tr><td><span class="code">6139</span><br><span class="name">亞翔</span></td><td class="val-dn">-20.5億</td></tr>
+        <tr><td><span class="code">6278</span><br><span class="name">台表科</span></td><td class="val-dn">-16.5億</td></tr>
+        <tr><td><span class="code">6770</span><br><span class="name">力積電</span></td><td class="val-dn">-15.4億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--accent2);margin-bottom:6px">投信買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2327</span><br><span class="name">國巨</span></td><td style="color:var(--accent2);font-weight:700">+26.7億</td></tr>
+        <tr><td><span class="code">6669</span><br><span class="name">緯穎</span></td><td style="color:var(--accent2);font-weight:700">+21.3億</td></tr>
+        <tr><td><span class="code">2345</span><br><span class="name">智邦</span></td><td style="color:var(--accent2);font-weight:700">+17.3億</td></tr>
+        <tr><td><span class="code">3036</span><br><span class="name">文曄</span></td><td style="color:var(--accent2);font-weight:700">+15.5億</td></tr>
+        <tr><td><span class="code">3017</span><br><span class="name">奇鋐</span></td><td style="color:var(--accent2);font-weight:700">+15.4億</td></tr>
+        <tr><td><span class="code">8210</span><br><span class="name">勤誠</span></td><td style="color:var(--accent2);font-weight:700">+13.3億</td></tr>
+        <tr><td><span class="code">2408</span><br><span class="name">南亞科</span></td><td style="color:var(--accent2);font-weight:700">+11.8億</td></tr>
+        <tr><td><span class="code">3665</span><br><span class="name">貿聯-KY</span></td><td style="color:var(--accent2);font-weight:700">+10.0億</td></tr>
+        <tr><td><span class="code">6278</span><br><span class="name">台表科</span></td><td style="color:var(--accent2);font-weight:700">+8.9億</td></tr>
+        <tr><td><span class="code">3037</span><br><span class="name">欣興</span></td><td style="color:var(--accent2);font-weight:700">+8.4億</td></tr>
+      </table>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:var(--text2)">
+    📊 外資「棄台積（-397億）買IC設計/記憶體/PCB」的換股結構明顯。投信持續重押智邦、緯穎、奇鋐等AI供應鏈。台積電外資賣超如此巨量，但整體外資僅賣超110億，代表買方力道極強。
+  </div>
+</div>
+
+<!-- 信用交易 -->
+<div class="section-title">信用交易（散戶融資籌碼）</div>
+
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">融資融券當日結算</div>
+  <table class="margin-tbl">
+    <thead>
+      <tr>
+        <th>市場</th>
+        <th>融資增減（億）</th>
+        <th>融資餘額（億）</th>
+        <th>使用率</th>
+        <th>融資維持率</th>
+        <th>整戶擔保維持率</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>上市（TSE）</td>
+        <td class="val-up">+74.1億</td>
+        <td>4,845.9億</td>
+        <td>4.69%</td>
+        <td>181.88%</td>
+        <td>181.64%</td>
+      </tr>
+      <tr>
+        <td>上櫃（OTC）</td>
+        <td class="val-up">+30.9億</td>
+        <td>1,985.7億</td>
+        <td>13.31%</td>
+        <td>181.83%</td>
+        <td>181.63%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:8px;font-size:11px;color:var(--muted)">融資維持率 181% 屬正常範圍（&gt;200% 始有補繳壓力）。今日融資增加顯示散戶積極追買，需留意指數高位加碼風險。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">上市融資維持率 × 融資餘額 60日趨勢</div>
+  <div style="position:relative">
+    <canvas id="marginChart" width="900" height="120" style="width:100%;height:auto"></canvas>
+    <div id="marginTip" style="display:none;position:absolute;top:0;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:10px;color:var(--text2);white-space:nowrap;pointer-events:none;z-index:10;line-height:1.8"></div>
+  </div>
+  <div style="margin-top:8px;display:flex;gap:16px;font-size:11px">
+    <span><span style="display:inline-block;width:10px;height:2px;background:#c084fc;vertical-align:middle;margin-right:4px"></span>融資維持率（左軸）</span>
+    <span><span style="display:inline-block;width:10px;height:2px;background:#f59e0b;vertical-align:middle;margin-right:4px"></span>融資餘額（右軸，億）</span>
+    <span style="color:var(--muted)">60日區間：維持率 低 152.5% / 高 182.1% / 今 181.9%｜融資餘額 低 3,788億 / 高 4,846億 / 今 4,846億</span>
+  </div>
+</div>
+
+<!-- Notion 智囊雷達 -->
+<div class="section-title">Notion 智囊雷達</div>
+
+<div class="grid2" style="margin-bottom:14px;grid-template-columns:1.3fr 1fr">
+  <div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">誰在看什麼（駿羽 05/11）</div>
+    <div class="radar-feed">
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">Jason</span><span class="rf-group">駿羽</span><span class="rf-date">05-11</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">3443</span><span class="rf-name">創意</span><span class="rf-quote">「Cerebras Q2 wafer out 2k，Q3 4k，gross die 112顆，投5奈米」</span><span class="rf-sentiment rf-s-bull">積極</span></div>
+          <div class="rf-mention"><span class="rf-code">2308</span><span class="rf-name">台達電</span><span class="rf-quote">「2Q26 QOQ+20%，Google 400V Q4出來，NV希望Rubin直接上800V」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+          <div class="rf-mention"><span class="rf-code">3026</span><span class="rf-name">禾伸堂</span><span class="rf-quote">「Murata說高容很缺，Vishay發漲價函漲電容，高容禾伸堂佔比高」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">大E</span><span class="rf-group">駿羽</span><span class="rf-date">05-11</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">3450</span><span class="rf-name">聯鈞</span><span class="rf-quote">「上游不缺貨了，Coherent、Oracle、Lite要擴廠，落後補漲」</span><span class="rf-sentiment rf-s-bull">積極</span></div>
+          <div class="rf-mention"><span class="rf-code">4764</span><span class="rf-name">雙鍵</span><span class="rf-quote">「今年7-8塊，明年大爆發，台光M8往上衝EPS會很可觀」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+          <div class="rf-mention"><span class="rf-code">2351</span><span class="rf-name">順德</span><span class="rf-quote">「第二季漲價，明年EPS估8-9塊，4Q26單月EPS很好」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">常恩</span><span class="rf-group">駿羽</span><span class="rf-date">05-11</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">4749</span><span class="rf-name">新應材</span><span class="rf-quote">「這周競拍，大咖會拍滿高，5月營收回升，下半年5E」</span><span class="rf-sentiment rf-s-bull">積極</span></div>
+          <div class="rf-mention"><span class="rf-code">1785</span><span class="rf-name">光洋科</span><span class="rf-quote">「三月賺1.5 四月也有1塊水準 今年12塊以上，子公司這禮拜法說」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">湯姆 / Vic / Kevin</span><span class="rf-group">駿羽</span><span class="rf-date">05-11</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">2454</span><span class="rf-name">聯發科</span><span class="rf-quote">「Meta、特斯拉機會滿高，v10結果出來之前還可以炒」</span><span class="rf-sentiment rf-s-bull">積極</span></div>
+          <div class="rf-mention"><span class="rf-code">6643</span><span class="rf-name">M31</span><span class="rf-quote">「n2p IP確定給高通，高速傳輸，有6奈米 SRAM translator IP」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+          <div class="rf-mention"><span class="rf-code">3036</span><span class="rf-name">文曄</span><span class="rf-quote">「代理主要產品有TPU，今年EPS 20塊，明年持續成長」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header"><span class="rf-person">永</span><span class="rf-group">駿羽</span><span class="rf-date">05-11</span></div>
+        <div class="rf-mentions">
+          <div class="rf-mention"><span class="rf-code">2383</span><span class="rf-name">台光電</span><span class="rf-quote">「2383台光到2028產能多50%」</span><span class="rf-sentiment rf-s-bull">積極</span></div>
+          <div class="rf-mention"><span class="rf-code">2368</span><span class="rf-name">金像電</span><span class="rf-quote">「敬鵬也有接到金像電外溢的單」</span><span class="rf-sentiment rf-s-bull">看多</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">共識排行榜（近期加權分數）</div>
+    <table class="consensus-tbl">
+      <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--up);font-weight:700">1</td><td><span class="stk-name">頎邦</span><span class="stk-code">6147</span></td><td><span class="score-badge">17.67</span></td><td class="pushers-cell">麻神、Eddie、高哥、大E⋯23人</td></tr>
+        <tr><td style="color:var(--up);font-weight:700">2</td><td><span class="stk-name">台燿 <span class="badge-punish">⚠處置</span></span><span class="stk-code">6274</span></td><td><span class="score-badge">12.61</span></td><td class="pushers-cell">Eddie、Johnny、WL、永哥⋯9人</td></tr>
+        <tr><td style="color:var(--up);font-weight:700">3</td><td><span class="stk-name">創意 <span class="badge-limitup">漲停</span></span><span class="stk-code">3443</span></td><td><span class="score-badge">11.15</span></td><td class="pushers-cell">麻神、Jason、大E、布哥⋯15人</td></tr>
+        <tr><td>4</td><td><span class="stk-name">穩懋</span><span class="stk-code">3105</span></td><td><span class="score-badge">9.99</span></td><td class="pushers-cell">郁翔、永哥、麻神、Vic⋯14人</td></tr>
+        <tr><td>5</td><td><span class="stk-name">台光電</span><span class="stk-code">2383</span></td><td><span class="score-badge">9.65</span></td><td class="pushers-cell">聚泓、郁翔、Eddie、麻神⋯17人</td></tr>
+        <tr><td>6</td><td><span class="stk-name">緯穎</span><span class="stk-code">6669</span></td><td><span class="score-badge">7.89</span></td><td class="pushers-cell">Ann、愛德恩、小魚⋯9人</td></tr>
+        <tr><td>7</td><td><span class="stk-name">聯亞</span><span class="stk-code">3081</span></td><td><span class="score-badge">6.86</span></td><td class="pushers-cell">小魚、Jacky、Eddie⋯12人</td></tr>
+        <tr><td>8</td><td><span class="stk-name">欣興</span><span class="stk-code">3037</span></td><td><span class="score-badge">6.53</span></td><td class="pushers-cell">Eddie、Ann、永哥⋯12人</td></tr>
+        <tr><td>9</td><td><span class="stk-name">台表科</span><span class="stk-code">6278</span></td><td><span class="score-badge">6.43</span></td><td class="pushers-cell">Johnny、Surf哥⋯9人</td></tr>
+        <tr><td>10</td><td><span class="stk-name">華通</span><span class="stk-code">2313</span></td><td><span class="score-badge">6.41</span></td><td class="pushers-cell">Eddie、翔哥⋯8人</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px">
+      <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">熱門族群</div>
+      <div>
+        <div class="sector-badge">PCB <span class="cnt">11次</span><span class="recent">近3日5次</span></div>
+        <div class="sector-badge">光通訊 <span class="cnt">10次</span><span class="recent">近3日2次</span></div>
+        <div class="sector-badge">化合物半導體 <span class="cnt">6次</span><span class="recent">近3日1次</span></div>
+        <div class="sector-badge">晶圓代工 <span class="cnt">6次</span></div>
+        <div class="sector-badge">散熱 <span class="cnt">6次</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 精選個股 -->
+<div class="section-title">精選個股</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:12px">共識排行前6名 · K線 hover 顯示 OHLC + MA5/10/20/60</div>
+<div class="stock-grid">
+
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta"><div class="stock-code">6147 · PCB / 光通訊</div><div class="stock-name">頎邦 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #1</span></div></div>
+      <div class="stock-price-wrap"><div class="stock-price" style="color:var(--dn)">196.5</div><div class="stock-chg dn">▼ -0.76%</div></div>
+    </div>
+    <div class="kline-wrap"><canvas id="k6147" width="320" height="60"></canvas><div class="k-tip" id="t6147"></div></div>
+    <div class="notion-score-bar"><span class="ns-label">共識分</span><span class="ns-score">17.67</span><span class="ns-pushers">麻神、Eddie、高哥、大E、Arthur哥⋯23人</span></div>
+    <div class="stock-thesis">光通訊/CPO題材，DDIC主力廠商，矽光子封裝量產，韓國轉單效益顯現</div>
+    <div class="stock-news">
+      <div class="news-item"><span class="news-title">Q1營收57.56億創近15季新高</span><span class="news-date">2026-04-30</span></div>
+      <div class="news-item"><span class="news-title">LPO矽光子題材燒 漲停158元</span><span class="news-date">2026-04-29</span></div>
+    </div>
+  </div>
+
+  <div class="stock-card" style="border-color:var(--warn)">
+    <div class="stock-card-header">
+      <div class="stock-meta"><div class="stock-code">6274 · PCB / CCL</div><div class="stock-name">台燿科技 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #2</span></div></div>
+      <div class="stock-price-wrap"><div class="stock-price" style="color:var(--up)">1,455</div><div class="stock-chg up">▲ +6.2%</div></div>
+    </div>
+    <div style="margin-bottom:8px"><span class="badge-punish">⚠️ 今日新進OTC處置（05/11～05/22）</span></div>
+    <div class="kline-wrap"><canvas id="k6274" width="320" height="60"></canvas><div class="k-tip" id="t6274"></div></div>
+    <div class="notion-score-bar"><span class="ns-label">共識分</span><span class="ns-score">12.61</span><span class="ns-pushers">Eddie、Johnny、Jako、WL、永哥⋯9人</span></div>
+    <div class="stock-thesis">PCB高階銅箔基板，AI伺服器ABF材料；泰國廠Q2量產，2027年產能+46%</div>
+    <div class="stock-news">
+      <div class="news-item"><span class="news-title">台燿躍CCL第二檔千金股</span><span class="news-date">2026-04-24</span></div>
+      <div class="news-item"><span class="news-title">Q1累計營收100.56億年增57.9%</span><span class="news-date">2026-04-22</span></div>
+    </div>
+  </div>
+
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta"><div class="stock-code">3443 · IC設計服務</div><div class="stock-name">創意 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #3</span></div></div>
+      <div class="stock-price-wrap"><div class="stock-price" style="color:var(--up)">5,730</div><div class="stock-chg up">▲ +9.98% <span class="badge-limitup">漲停</span></div></div>
+    </div>
+    <div class="kline-wrap"><canvas id="k3443" width="320" height="60"></canvas><div class="k-tip" id="t3443"></div></div>
+    <div class="notion-score-bar"><span class="ns-label">共識分</span><span class="ns-score">11.15</span><span class="ns-pushers">麻神、Jason、大E、WL、聚泓⋯15人</span></div>
+    <div class="stock-thesis">Cerebras IPO倒數，Q2 wafer out 2k→Q3 4k，Tesla AI5、Google CPU 訂單驗證中</div>
+    <div class="stock-news">
+      <div class="news-item"><span class="news-title">AI訂單爆發！4月營收42.94億年增156%</span><span class="news-date">2026-05-05</span></div>
+      <div class="news-item"><span class="news-title">外資上調EPS：58→100.6→134元</span><span class="news-date">2026-05-05</span></div>
+    </div>
+  </div>
+
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta"><div class="stock-code">3105 · 化合物半導體</div><div class="stock-name">穩懋 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #4</span></div></div>
+      <div class="stock-price-wrap"><div class="stock-price" style="color:var(--up)">526</div><div class="stock-chg up">▲ +6.8%</div></div>
+    </div>
+    <div class="kline-wrap"><canvas id="k3105" width="320" height="60"></canvas><div class="k-tip" id="t3105"></div></div>
+    <div class="notion-score-bar"><span class="ns-label">共識分</span><span class="ns-score">9.99</span><span class="ns-pushers">郁翔、永哥、麻神、聚泓、Vic⋯14人</span></div>
+    <div class="stock-thesis">GaAs/GaN代工龍頭，AI光通訊元件量產，低軌衛星認證，GaAs Q2漲價</div>
+    <div class="stock-news">
+      <div class="news-item"><span class="news-title">Q1法說：Q2營收季增mid-teens%</span><span class="news-date">2026-05-05</span></div>
+      <div class="news-item"><span class="news-title">砷化鎵漲風 股價首破500元創新高</span><span class="news-date">2026-04-17</span></div>
+    </div>
+  </div>
+
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta"><div class="stock-code">2383 · PCB / 銅箔基板</div><div class="stock-name">台光電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #5</span></div></div>
+      <div class="stock-price-wrap"><div class="stock-price" style="color:var(--up)">4,850</div><div class="stock-chg up">▲ +2.11%</div></div>
+    </div>
+    <div class="kline-wrap"><canvas id="k2383" width="320" height="60"></canvas><div class="k-tip" id="t2383"></div></div>
+    <div class="notion-score-bar"><span class="ns-label">共識分</span><span class="ns-score">9.65</span><span class="ns-pushers">聚泓、郁翔、Eddie、Jacky、麻神⋯17人</span></div>
+    <div class="stock-thesis">NVIDIA AI伺服器無鹵素CCL核心供應商，CoWoS尺寸擴大直接受益，2028產能+50%</div>
+    <div class="stock-news">
+      <div class="news-item"><span class="news-title">台積電CPO COUPE 2026量產，CCL受益</span><span class="news-date">2026-04-24</span></div>
+      <div class="news-item"><span class="news-title">CoWoS路線圖：2029年推40倍SoW-X</span><span class="news-date">2026-05-10</span></div>
+    </div>
+  </div>
+
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta"><div class="stock-code">6669 · AI伺服器 ODM</div><div class="stock-name">緯穎 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #6</span></div></div>
+      <div class="stock-price-wrap"><div class="stock-price" style="color:var(--up)">5,340</div><div class="stock-chg up">▲ +2.69%</div></div>
+    </div>
+    <div class="kline-wrap"><canvas id="k6669" width="320" height="60"></canvas><div class="k-tip" id="t6669"></div></div>
+    <div class="notion-score-bar"><span class="ns-label">共識分</span><span class="ns-score">7.89</span><span class="ns-pushers">Ann、愛德恩、小魚、郁翔、Eddie⋯9人</span></div>
+    <div class="stock-thesis">AI伺服器ODM龍頭，GB300/Rubin首批供應商，Oracle轉單效應，投信買超+21.3億</div>
+    <div class="stock-news">
+      <div class="news-item"><span class="news-title">傳承接Oracle 300-400個GB300機櫃</span><span class="news-date">2026-04-28</span></div>
+      <div class="news-item"><span class="news-title">展示Vera Rubin NVL72全液冷架構</span><span class="news-date">2026-03-17</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 警示股看板 -->
+<div class="section-title">警示股看板</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">上市（TSE）注意 + 處置</div>
+    <div class="warn-section">
+      <div class="warn-title" style="color:var(--up)">TSE 新進處置（今日起生效）</div>
+      <div class="warn-grid">
+        <div class="warn-chip punish-new">3532 台勝科<span class="days"> 05/11~05/22</span></div>
+        <div class="warn-chip punish-new">6405 悅城<span class="days"> 05/11~05/22</span></div>
+      </div>
+    </div>
+    <div class="warn-section">
+      <div class="warn-title">TSE 處置中（代表股）</div>
+      <div class="warn-grid">
+        <div class="warn-chip punish" style="border:2px solid var(--up)">2454 聯發科 ⚠️<span class="days"> ~05/20</span></div>
+        <div class="warn-chip punish">1597 直得<span class="days"> ~05/20</span></div>
+        <div class="warn-chip punish">2233 宇隆<span class="days"> ~05/20</span></div>
+        <div class="warn-chip punish">2426 鼎元<span class="days"> ~05/21</span></div>
+        <div class="warn-chip punish">2455 全新<span class="days"> ~05/19</span></div>
+        <div class="warn-chip punish">2486 一詮<span class="days"> ~05/20</span></div>
+        <div class="warn-chip punish">3016 嘉晶<span class="days"> ~05/25</span></div>
+        <div class="warn-chip punish">3026 禾伸堂<span class="days"> ~05/25</span></div>
+        <div class="warn-chip punish">4764 雙鍵<span class="days"> ~05/20</span></div>
+        <div class="warn-chip punish">6658 聯策<span class="days"> ~05/18</span></div>
+      </div>
+    </div>
+    <div class="warn-section">
+      <div class="warn-title">TSE 注意（9檔）</div>
+      <div class="warn-grid">
+        <div class="warn-chip attention">2342 茂矽<span class="days">連4次</span></div>
+        <div class="warn-chip attention" style="border-color:var(--up)">2454 聯發科<span class="days">連2次</span></div>
+        <div class="warn-chip attention">1809 中釉<span class="days">連4次</span></div>
+        <div class="warn-chip attention">2059 川湖<span class="days">連2次</span></div>
+        <div class="warn-chip attention">2395 研華<span class="days">連2次</span></div>
+        <div class="warn-chip attention">3450 聯鈞<span class="days">連2次</span></div>
+        <div class="warn-chip attention">3653 健策<span class="days">連2次</span></div>
+        <div class="warn-chip attention">6526 達發<span class="days">連2次</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">上櫃（OTC）注意 + 處置</div>
+    <div class="warn-section">
+      <div class="warn-title" style="color:var(--up)">OTC 新進處置（今日起生效）</div>
+      <div class="warn-grid">
+        <div class="warn-chip punish-new" style="border-color:var(--warn)">6274 台燿 ⚠️共識#2<span class="days"> 05/11~05/22</span></div>
+        <div class="warn-chip punish-new">1595 川寶<span class="days"> 05/11~05/22</span></div>
+        <div class="warn-chip punish-new">4991 環宇-KY<span class="days"> 05/11~05/22</span></div>
+        <div class="warn-chip punish-new">5464 霖宏<span class="days"> 05/11~05/22</span></div>
+        <div class="warn-chip punish-new">8042 金山電<span class="days"> 05/11~05/22</span></div>
+        <div class="warn-chip punish-new">8291 尚茂<span class="days"> 05/11~05/22</span></div>
+      </div>
+    </div>
+    <div class="warn-section">
+      <div class="warn-title">OTC 處置中（代表股）</div>
+      <div class="warn-grid">
+        <div class="warn-chip punish">4561 健椿<span class="days"> ~05/25</span></div>
+        <div class="warn-chip punish">6173 信昌電<span class="days"> ~05/25</span></div>
+        <div class="warn-chip punish">6182 合晶<span class="days"> ~05/25</span></div>
+        <div class="warn-chip punish">6488 環球晶<span class="days"> ~05/25</span></div>
+        <div class="warn-chip punish">3455 由田<span class="days"> ~05/21</span></div>
+        <div class="warn-chip punish">3581 博磊<span class="days"> ~05/21</span></div>
+      </div>
+    </div>
+    <div class="warn-section">
+      <div class="warn-title">OTC 注意（61檔，代表股）</div>
+      <div class="warn-grid">
+        <div class="warn-chip attention">3354 律勝<span class="days">連2</span></div>
+        <div class="warn-chip attention">3430 奇鈦科<span class="days">連1</span></div>
+        <div class="warn-chip attention">3581 博磊<span class="days">連3</span></div>
+        <div class="warn-chip attention">4749 新應材<span class="days">連2</span></div>
+        <div class="warn-chip attention">4966 譜瑞-KY<span class="days">連1</span></div>
+        <div class="warn-chip attention">5464 霖宏<span class="days">連3</span></div>
+        <div class="warn-chip attention">6173 信昌電<span class="days">連3</span></div>
+        <div class="warn-chip attention">6182 合晶<span class="days">連3</span></div>
+        <div style="font-size:10px;color:var(--muted);width:100%;padding-top:4px">⋯ 共61檔</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 明日前瞻 -->
+<div class="section-title">明日前瞻（2026-05-12）</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">本週重大事件</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <tr style="border-bottom:1px solid var(--border2)"><td style="padding:6px 4px;color:var(--muted)">05/14（四）</td><td style="padding:6px 4px;font-weight:600">台積電北美技術論壇（CPO、CoWoS路線圖）</td></tr>
+      <tr style="border-bottom:1px solid var(--border2)"><td style="padding:6px 4px;color:var(--muted)">本週</td><td style="padding:6px 4px;font-weight:600">川習會（川普訪中，貿易/台灣/稀土/科技管制）</td></tr>
+      <tr style="border-bottom:1px solid var(--border2)"><td style="padding:6px 4px;color:var(--muted)">下週</td><td style="padding:6px 4px;font-weight:600">輝達財報 · Google IO開發者大會</td></tr>
+      <tr style="border-bottom:1px solid var(--border2)"><td style="padding:6px 4px;color:var(--muted)">05/29</td><td style="padding:6px 4px;font-weight:600">MSCI季度調整生效（台灣權重重評估）</td></tr>
+      <tr><td style="padding:6px 4px;color:var(--muted)">6月初</td><td style="padding:6px 4px;font-weight:600">Computex 2026</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">技術關卡與操作提示</div>
+    <div style="font-size:12px;line-height:2">
+      <div><span style="color:var(--dn);font-weight:700">上方壓力：</span>42,000 ~ 42,100（連三日盤中衝過未守住）</div>
+      <div><span style="color:var(--up);font-weight:700">下方支撐：</span>41,000（整數）/ 40,245（10日線 40,245）</div>
+      <div><span style="font-weight:700">注意：</span>台積電跌破5日+10日線，短線觀察止穩</div>
+      <div><span style="font-weight:700">聯發科：</span>處置到05/20，但資金積極追買</div>
+      <div style="color:var(--muted)">⚠️ 季線正乖離超18%（2009年來新高），建議降槓桿</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<footer>
+  <span>MAGI 盤後報告 2026-05-11</span>
+  <span class="src-badge">TWSE RWD</span><span class="src-badge">TPEX</span>
+  <span class="src-badge">FinMind</span><span class="src-badge">Fugle</span>
+  <span class="src-badge">TAIFEX</span><span class="src-badge">cmoney</span>
+  <span class="src-badge">Notion 智囊</span><span class="src-badge">Exa News</span>
+  <span style="margin-left:auto;color:var(--dimmer)">本報告由 MAGI 系統自動生成，僅供參考</span>
+</footer>
+
+<script>
+function norm(arr){
+  if(!arr||!arr.length)return[];
+  let r=arr.map(x=>({d:(x.d||x.date||'').replace(/\d{4}-(\d{2})-(\d{2})/,'$1/$2'),o:x.o??x.open,h:x.h??x.high,l:x.l??x.low,c:x.c??x.close}));
+  if(r.length>1&&r[0].d>r[r.length-1].d)r.reverse();
+  return r.slice(-60);
+}
+function initKline(cid,tid,rawData){
+  const kdata=norm(rawData);
+  const canvas=document.getElementById(cid);const tip=document.getElementById(tid);
+  if(!canvas||!kdata.length)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height,pad=2,n=kdata.length;
+  const hi=Math.max(...kdata.map(d=>d.h)),lo=Math.min(...kdata.map(d=>d.l));
+  const range=hi-lo||1,slotW=(W-pad*2)/n,bodyW=Math.max(1,slotW*.5);
+  const cs=getComputedStyle(document.documentElement);
+  const UP=cs.getPropertyValue('--up').trim(),DN=cs.getPropertyValue('--dn').trim();
+  const toY=v=>pad+(1-(v-lo)/range)*(H-pad*2);
+  const calcMA=p=>kdata.map((_,i)=>i<p-1?null:kdata.slice(i-p+1,i+1).reduce((s,d)=>s+d.c,0)/p);
+  const ma5=calcMA(5),ma10=calcMA(10),ma20=calcMA(20),ma60=calcMA(60);
+  const drawMA=(ma,col,lw)=>{ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.beginPath();let s=false;ma.forEach((v,i)=>{if(v===null)return;const cx=pad+i*slotW+slotW/2;s?ctx.lineTo(cx,toY(v)):(ctx.moveTo(cx,toY(v)),s=true);});ctx.stroke();};
+  ctx.clearRect(0,0,W,H);
+  drawMA(ma60,'#f97316',.8);drawMA(ma20,'#3b82f6',.8);drawMA(ma10,'#c084fc',.7);drawMA(ma5,'#f59e0b',.7);
+  kdata.forEach((d,i)=>{
+    const cx=pad+i*slotW+slotW/2,col=d.c>=d.o?UP:DN;
+    ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=.5;
+    ctx.beginPath();ctx.moveTo(cx,toY(d.h));ctx.lineTo(cx,toY(d.l));ctx.stroke();
+    const top=toY(Math.max(d.o,d.c)),bot=toY(Math.min(d.o,d.c));
+    ctx.fillRect(cx-bodyW/2,top,bodyW,Math.max(1,bot-top));
+  });
+  const fmt=v=>v!=null?v.toFixed(v>=1000?0:v>=100?1:2):'-';
+  canvas.addEventListener('mousemove',e=>{
+    const rect=canvas.getBoundingClientRect();
+    const x=(e.clientX-rect.left)*(W/rect.width);
+    const i=Math.min(n-1,Math.max(0,Math.floor((x-pad)/slotW)));
+    const d=kdata[i],chg=((d.c-d.o)/d.o*100).toFixed(2),col=d.c>=d.o?UP:DN;
+    tip.innerHTML=`<b>${d.d}</b> 開${d.o} 高${d.h} 低${d.l} 收<b style="color:${col}">${d.c}</b> ${d.c>=d.o?'▲':'▼'}${Math.abs(chg)}%<br><span style="color:#f59e0b">MA5 ${fmt(ma5[i])}</span>　<span style="color:#c084fc">MA10 ${fmt(ma10[i])}</span>　<span style="color:#3b82f6">MA20 ${fmt(ma20[i])}</span>　<span style="color:#f97316">MA60 ${fmt(ma60[i])}</span>`;
+    tip.style.display='block';tip.style.left=Math.min(x,W-230)+'px';
+  });
+  canvas.addEventListener('mouseleave',()=>{tip.style.display='none';});
+}
+
+const k6147d=[{"d":"03/06","o":52.2,"h":52.9,"l":51.9,"c":52.7},{"d":"03/09","o":51.2,"h":51.3,"l":50.2,"c":51.3},{"d":"03/10","o":52.3,"h":52.5,"l":51.8,"c":52.2},{"d":"03/11","o":53.1,"h":56.2,"l":52.7,"c":55.5},{"d":"03/12","o":55.6,"h":61.0,"l":55.3,"c":61.0},{"d":"03/13","o":60.4,"h":62.1,"l":57.9,"c":58.8},{"d":"03/16","o":59.8,"h":60.7,"l":58.2,"c":59.5},{"d":"03/17","o":61.0,"h":65.4,"l":60.9,"c":65.4},{"d":"03/18","o":69.8,"h":71.9,"l":67.5,"c":71.9},{"d":"03/19","o":71.7,"h":73.4,"l":70.0,"c":71.1},{"d":"03/20","o":72.3,"h":72.5,"l":66.6,"c":67.0},{"d":"03/23","o":60.3,"h":65.3,"l":60.3,"c":64.2},{"d":"03/24","o":67.5,"h":69.3,"l":63.5,"c":64.5},{"d":"03/25","o":67.6,"h":70.9,"l":66.4,"c":70.8},{"d":"03/26","o":73.5,"h":77.8,"l":73.1,"c":77.8},{"d":"03/27","o":77.0,"h":78.7,"l":75.2,"c":76.8},{"d":"03/30","o":74.6,"h":78.2,"l":74.3,"c":76.7},{"d":"03/31","o":75.2,"h":76.5,"l":69.2,"c":69.5},{"d":"04/01","o":75.4,"h":76.4,"l":72.3,"c":76.4},{"d":"04/02","o":80.0,"h":84.0,"l":79.7,"c":84.0},{"d":"04/07","o":91.0,"h":92.4,"l":85.1,"c":89.8},{"d":"04/08","o":98.0,"h":98.7,"l":98.0,"c":98.7},{"d":"04/09","o":99.9,"h":104.5,"l":95.5,"c":96.5},{"d":"04/10","o":103.5,"h":106.0,"l":102.5,"c":106.0},{"d":"04/13","o":112.0,"h":116.5,"l":111.5,"c":116.5},{"d":"04/14","o":114.0,"h":115.5,"l":108.0,"c":113.0},{"d":"04/15","o":114.0,"h":115.0,"l":102.5,"c":106.0},{"d":"04/16","o":107.5,"h":114.5,"l":102.0,"c":114.0},{"d":"04/17","o":116.5,"h":125.0,"l":115.0,"c":115.0},{"d":"04/20","o":118.5,"h":126.5,"l":118.5,"c":126.5},{"d":"04/21","o":133.0,"h":139.0,"l":130.0,"c":135.5},{"d":"04/22","o":143.5,"h":148.0,"l":138.0,"c":141.5},{"d":"04/23","o":146.0,"h":149.0,"l":128.5,"c":134.0},{"d":"04/24","o":145.0,"h":145.0,"l":135.5,"c":145.0},{"d":"04/27","o":149.5,"h":151.5,"l":130.5,"c":131.0},{"d":"04/28","o":134.0,"h":144.0,"l":134.0,"c":144.0},{"d":"04/29","o":141.0,"h":158.0,"l":133.5,"c":158.0},{"d":"04/30","o":164.5,"h":173.0,"l":155.0,"c":163.0},{"d":"05/04","o":179.0,"h":179.0,"l":176.0,"c":179.0},{"d":"05/05","o":179.0,"h":193.5,"l":176.0,"c":177.5},{"d":"05/06","o":180.0,"h":182.5,"l":167.0,"c":175.0},{"d":"05/07","o":187.5,"h":192.5,"l":185.0,"c":192.5},{"d":"05/08","o":189.0,"h":202.5,"l":181.5,"c":198.0},{"d":"05/11","o":191.0,"h":211.5,"l":187.0,"c":196.5}];
+const k6274d=[{"d":"02/03","o":510,"h":515,"l":500,"c":505},{"d":"02/04","o":504,"h":539,"l":500,"c":537},{"d":"02/05","o":529,"h":533,"l":515,"c":520},{"d":"02/06","o":514,"h":525,"l":491,"c":519},{"d":"02/09","o":544,"h":544,"l":528,"c":528},{"d":"02/10","o":532,"h":538,"l":526,"c":532},{"d":"02/11","o":534,"h":539,"l":523,"c":532},{"d":"02/23","o":540,"h":548,"l":525,"c":539},{"d":"02/24","o":543,"h":566,"l":539,"c":562},{"d":"02/25","o":577,"h":579,"l":560,"c":577},{"d":"02/26","o":579,"h":583,"l":545,"c":545},{"d":"03/02","o":520,"h":545,"l":520,"c":540},{"d":"03/03","o":542,"h":559,"l":532,"c":538},{"d":"03/04","o":530,"h":533,"l":487.5,"c":490.5},{"d":"03/05","o":515,"h":527,"l":503,"c":506},{"d":"03/06","o":508,"h":513,"l":489.5,"c":504},{"d":"03/09","o":454.5,"h":470,"l":454,"c":454},{"d":"03/10","o":472,"h":492,"l":462.5,"c":467},{"d":"03/11","o":477.5,"h":496,"l":477.5,"c":488.5},{"d":"03/12","o":481.5,"h":482,"l":441,"c":452.5},{"d":"03/13","o":450,"h":497.5,"l":447.5,"c":497.5},{"d":"03/16","o":515,"h":520,"l":491,"c":503},{"d":"03/17","o":512,"h":517,"l":501,"c":505},{"d":"03/18","o":512,"h":533,"l":503,"c":531},{"d":"03/19","o":523,"h":584,"l":519,"c":584},{"d":"03/20","o":598,"h":600,"l":543,"c":554},{"d":"03/23","o":527,"h":560,"l":527,"c":538},{"d":"03/24","o":558,"h":562,"l":528,"c":541},{"d":"03/25","o":558,"h":585,"l":556,"c":580},{"d":"03/26","o":594,"h":630,"l":586,"c":606},{"d":"03/27","o":594,"h":626,"l":585,"c":626},{"d":"03/30","o":606,"h":611,"l":589,"c":602},{"d":"03/31","o":598,"h":615,"l":563,"c":569},{"d":"04/01","o":600,"h":625,"l":594,"c":623},{"d":"04/02","o":639,"h":653,"l":615,"c":621},{"d":"04/07","o":645,"h":683,"l":641,"c":683},{"d":"04/08","o":723,"h":736,"l":697,"c":725},{"d":"04/09","o":731,"h":797,"l":731,"c":797},{"d":"04/10","o":838,"h":838,"l":786,"c":808},{"d":"04/13","o":810,"h":831,"l":795,"c":801},{"d":"04/14","o":839,"h":880,"l":837,"c":860},{"d":"04/15","o":906,"h":946,"l":895,"c":946},{"d":"04/16","o":945,"h":983,"l":910,"c":960},{"d":"04/17","o":950,"h":966,"l":940,"c":946},{"d":"04/20","o":936,"h":962,"l":935,"c":950},{"d":"04/21","o":959,"h":969,"l":938,"c":963},{"d":"04/22","o":963,"h":984,"l":952,"c":973},{"d":"04/23","o":990,"h":1000,"l":880,"c":950},{"d":"04/24","o":974,"h":1045,"l":972,"c":1045},{"d":"04/27","o":1080,"h":1080,"l":958,"c":990},{"d":"04/28","o":995,"h":996,"l":965,"c":966},{"d":"04/29","o":966,"h":989,"l":941,"c":975},{"d":"04/30","o":993,"h":1015,"l":968,"c":1010},{"d":"05/04","o":1085,"h":1110,"l":1060,"c":1110},{"d":"05/05","o":1140,"h":1220,"l":1125,"c":1220},{"d":"05/06","o":1275,"h":1340,"l":1160,"c":1315},{"d":"05/07","o":1445,"h":1445,"l":1415,"c":1445},{"d":"05/08","o":1400,"h":1475,"l":1320,"c":1370},{"d":"05/11","o":1375,"h":1455,"l":1350,"c":1455}];
+const k3443d=[{"date":"2026-05-11","open":5300,"high":5730,"low":5245,"close":5730},{"date":"2026-05-08","open":5465,"high":5555,"low":5210,"close":5210},{"date":"2026-05-07","open":4955,"high":5450,"low":4945,"close":5450},{"date":"2026-05-06","open":4925,"high":4965,"low":4520,"close":4955},{"date":"2026-05-05","open":4700,"high":4930,"low":4570,"close":4835},{"date":"2026-05-04","open":4580,"high":4685,"low":4475,"close":4685},{"date":"2026-04-30","open":4180,"high":4350,"low":4070,"close":4260},{"date":"2026-04-29","open":4140,"high":4140,"low":3960,"close":4120},{"date":"2026-04-28","open":4015,"high":4245,"low":4015,"close":4190},{"date":"2026-04-27","open":4120,"high":4120,"low":3705,"close":3955},{"date":"2026-04-24","open":4200,"high":4300,"low":3975,"close":4035},{"date":"2026-04-23","open":4035,"high":4040,"low":3710,"close":3910},{"date":"2026-04-22","open":3755,"high":3755,"low":3660,"close":3675},{"date":"2026-04-21","open":3605,"high":3830,"low":3605,"close":3735},{"date":"2026-04-20","open":3495,"high":3580,"low":3450,"close":3580},{"date":"2026-04-17","open":3340,"high":3380,"low":3250,"close":3255},{"date":"2026-04-16","open":3165,"high":3375,"low":3140,"close":3345},{"date":"2026-04-15","open":3150,"high":3225,"low":3070,"close":3070},{"date":"2026-04-14","open":2850,"high":3050,"low":2845,"close":3050},{"date":"2026-04-13","open":2620,"high":2800,"low":2575,"close":2775},{"date":"2026-04-10","open":2695,"high":2720,"low":2645,"close":2665},{"date":"2026-04-09","open":2530,"high":2685,"low":2460,"close":2655},{"date":"2026-04-08","open":2500,"high":2570,"low":2360,"close":2510},{"date":"2026-04-07","open":2400,"high":2400,"low":2325,"close":2365},{"date":"2026-04-02","open":2375,"high":2410,"low":2315,"close":2320},{"date":"2026-04-01","open":2300,"high":2380,"low":2255,"close":2355},{"date":"2026-03-31","open":2260,"high":2285,"low":2140,"close":2165},{"date":"2026-03-30","open":2375,"high":2390,"low":2250,"close":2310},{"date":"2026-03-27","open":2470,"high":2510,"low":2415,"close":2460},{"date":"2026-03-26","open":2490,"high":2570,"low":2455,"close":2540},{"date":"2026-03-25","open":2575,"high":2635,"low":2475,"close":2475},{"date":"2026-03-24","open":2680,"high":2695,"low":2465,"close":2505},{"date":"2026-03-23","open":2515,"high":2645,"low":2505,"close":2590},{"date":"2026-03-20","open":2660,"high":2735,"low":2635,"close":2645},{"date":"2026-03-19","open":2500,"high":2660,"low":2465,"close":2610},{"date":"2026-03-18","open":2350,"high":2515,"low":2350,"close":2515},{"date":"2026-03-17","open":2310,"high":2345,"low":2290,"close":2290},{"date":"2026-03-16","open":2345,"high":2345,"low":2250,"close":2260},{"date":"2026-03-13","open":2255,"high":2330,"low":2245,"close":2285},{"date":"2026-03-12","open":2375,"high":2395,"low":2270,"close":2290},{"date":"2026-03-11","open":2285,"high":2385,"low":2285,"close":2375},{"date":"2026-03-10","open":2255,"high":2300,"low":2190,"close":2245},{"date":"2026-03-09","open":2150,"high":2200,"low":2150,"close":2190},{"date":"2026-03-06","open":2325,"high":2435,"low":2295,"close":2385},{"date":"2026-03-05","open":2405,"high":2425,"low":2315,"close":2355},{"date":"2026-03-04","open":2380,"high":2415,"low":2270,"close":2280},{"date":"2026-03-03","open":2665,"high":2680,"low":2485,"close":2490},{"date":"2026-03-02","open":2700,"high":2735,"low":2625,"close":2645},{"date":"2026-02-26","open":2610,"high":2800,"low":2595,"close":2770},{"date":"2026-02-25","open":2510,"high":2590,"low":2440,"close":2575},{"date":"2026-02-24","open":2385,"high":2515,"low":2360,"close":2500},{"date":"2026-02-23","open":2510,"high":2515,"low":2335,"close":2370},{"date":"2026-02-11","open":2510,"high":2510,"low":2450,"close":2475},{"date":"2026-02-10","open":2480,"high":2515,"low":2425,"close":2505},{"date":"2026-02-09","open":2480,"high":2505,"low":2430,"close":2445},{"date":"2026-02-06","open":2360,"high":2410,"low":2255,"close":2375},{"date":"2026-02-05","open":2495,"high":2520,"low":2340,"close":2340},{"date":"2026-02-04","open":2690,"high":2705,"low":2525,"close":2530},{"date":"2026-02-03","open":2780,"high":2830,"low":2650,"close":2705},{"date":"2026-02-02","open":2580,"high":2745,"low":2570,"close":2685},{"date":"2026-01-30","open":2635,"high":2670,"low":2540,"close":2620},{"date":"2026-01-29","open":2600,"high":2720,"low":2545,"close":2695},{"date":"2026-01-28","open":2625,"high":2630,"low":2530,"close":2580},{"date":"2026-01-27","open":2630,"high":2660,"low":2555,"close":2585},{"date":"2026-01-26","open":2700,"high":2720,"low":2600,"close":2620},{"date":"2026-01-23","open":2700,"high":2790,"low":2675,"close":2725},{"date":"2026-01-22","open":2710,"high":2755,"low":2525,"close":2575},{"date":"2026-01-21","open":2660,"high":2735,"low":2610,"close":2625},{"date":"2026-01-20","open":2645,"high":2730,"low":2620,"close":2700},{"date":"2026-01-19","open":2525,"high":2735,"low":2465,"close":2695},{"date":"2026-01-16","open":2610,"high":2675,"low":2475,"close":2510},{"date":"2026-01-15","open":2435,"high":2525,"low":2435,"close":2505},{"date":"2026-01-14","open":2475,"high":2550,"low":2415,"close":2420},{"date":"2026-01-13","open":2475,"high":2475,"low":2355,"close":2420},{"date":"2026-01-12","open":2375,"high":2475,"low":2335,"close":2435},{"date":"2026-01-09","open":2420,"high":2420,"low":2315,"close":2365},{"date":"2026-01-08","open":2475,"high":2495,"low":2410,"close":2450},{"date":"2026-01-07","open":2490,"high":2515,"low":2435,"close":2490},{"date":"2026-01-06","open":2350,"high":2525,"low":2340,"close":2485},{"date":"2026-01-05","open":2290,"high":2330,"low":2255,"close":2320},{"date":"2026-01-02","open":2180,"high":2240,"low":2150,"close":2185}];
+const k3105d=[{"date":"2026-05-11","open":500,"high":538,"low":493.5,"close":526},{"date":"2026-05-08","open":494.5,"high":518,"low":481.5,"close":492.5},{"date":"2026-05-07","open":496,"high":522,"low":473,"close":500},{"date":"2026-05-06","open":555,"high":556,"low":499.5,"close":500},{"date":"2026-05-05","open":524,"high":566,"low":516,"close":555},{"date":"2026-05-04","open":553,"high":557,"low":510,"close":524},{"date":"2026-04-30","open":530,"high":552,"low":528,"close":536},{"date":"2026-04-29","open":499.5,"high":516,"low":491,"close":502},{"date":"2026-04-28","open":493.5,"high":512,"low":484,"close":499.5},{"date":"2026-04-27","open":555,"high":560,"low":492.5,"close":492.5},{"date":"2026-04-24","open":576,"high":604,"low":533,"close":547},{"date":"2026-04-23","open":612,"high":622,"low":540,"close":560},{"date":"2026-04-22","open":615,"high":626,"low":598,"close":600},{"date":"2026-04-21","open":625,"high":637,"low":585,"close":617},{"date":"2026-04-20","open":546,"high":592,"low":539,"close":592},{"date":"2026-04-17","open":511,"high":539,"low":503,"close":539},{"date":"2026-04-16","open":448,"high":491,"low":447.5,"close":490.5},{"date":"2026-04-15","open":459,"high":472,"low":444,"close":446.5},{"date":"2026-04-14","open":468,"high":472,"low":437,"close":457},{"date":"2026-04-13","open":466,"high":481,"low":458,"close":458},{"date":"2026-04-10","open":447,"high":474,"low":434,"close":464},{"date":"2026-04-09","open":443.5,"high":453.5,"low":431.5,"close":436},{"date":"2026-04-08","open":430.5,"high":445,"low":424.5,"close":440},{"date":"2026-04-07","open":396.5,"high":413,"low":391,"close":407},{"date":"2026-04-02","open":384,"high":404,"low":374,"close":376},{"date":"2026-04-01","open":375,"high":385,"low":370,"close":376.5},{"date":"2026-03-31","open":372.5,"high":385.5,"low":351.5,"close":351.5},{"date":"2026-03-30","open":373,"high":397.5,"low":358.5,"close":390.5},{"date":"2026-03-27","open":343,"high":387.5,"low":340,"close":382.5},{"date":"2026-03-26","open":350,"high":377.5,"low":348.5,"close":358.5},{"date":"2026-03-25","open":344.5,"high":344.5,"low":344.5,"close":344.5},{"date":"2026-03-24","open":330,"high":334.5,"low":306,"close":313.5},{"date":"2026-03-23","open":313.5,"high":332,"low":311,"close":315},{"date":"2026-03-20","open":372,"high":381,"low":340,"close":344},{"date":"2026-03-19","open":332.5,"high":354.5,"low":332,"close":354.5},{"date":"2026-03-18","open":302,"high":322.5,"low":298,"close":322.5},{"date":"2026-03-17","open":303,"high":316.5,"low":290.5,"close":293.5},{"date":"2026-03-16","open":314,"high":314,"low":300.5,"close":303.5},{"date":"2026-03-13","open":297,"high":315,"low":297,"close":313},{"date":"2026-03-12","open":295,"high":321,"low":295,"close":306.5},{"date":"2026-03-11","open":283,"high":299,"low":283,"close":299},{"date":"2026-03-10","open":281,"high":281,"low":260,"close":272},{"date":"2026-03-09","open":269,"high":269,"low":269,"close":269},{"date":"2026-03-06","open":289,"high":305,"low":289,"close":298.5},{"date":"2026-03-05","open":311,"high":315.5,"low":282.5,"close":300},{"date":"2026-03-04","open":310,"high":310.5,"low":293.5,"close":293.5},{"date":"2026-03-03","open":341,"high":352.5,"low":309,"close":326},{"date":"2026-03-02","open":331,"high":354,"low":330,"close":331.5},{"date":"2026-02-26","open":331,"high":348.5,"low":321,"close":338},{"date":"2026-02-25","open":319,"high":325.5,"low":306.5,"close":322},{"date":"2026-02-24","open":274.5,"high":297.5,"low":274,"close":297.5},{"date":"2026-02-23","open":270,"high":270.5,"low":266.5,"close":270.5},{"date":"2026-02-11","open":255.5,"high":258.5,"low":240,"close":246},{"date":"2026-02-10","open":243,"high":259,"low":241.5,"close":255.5},{"date":"2026-02-09","open":230,"high":240.5,"low":225.5,"close":236.5},{"date":"2026-02-06","open":228,"high":231,"low":216,"close":219.5},{"date":"2026-02-05","open":247,"high":258.5,"low":240,"close":240},{"date":"2026-02-04","open":236,"high":253,"low":228,"close":251.5},{"date":"2026-02-03","open":237.5,"high":238,"low":224.5,"close":236.5},{"date":"2026-02-02","open":227,"high":232,"low":214.5,"close":221.5},{"date":"2026-01-30","open":242.5,"high":245,"low":233.5,"close":234.5},{"date":"2026-01-29","open":259.5,"high":261.5,"low":245,"close":245},{"date":"2026-01-28","open":250.5,"high":265,"low":250.5,"close":258},{"date":"2026-01-27","open":237,"high":244,"low":230.5,"close":241},{"date":"2026-01-26","open":235,"high":243,"low":230,"close":234},{"date":"2026-01-23","open":238.5,"high":240,"low":224,"close":230.5},{"date":"2026-01-22","open":232.5,"high":243.5,"low":232,"close":234.5},{"date":"2026-01-21","open":225.5,"high":240.5,"low":218.5,"close":222},{"date":"2026-01-20","open":213,"high":229,"low":213,"close":227},{"date":"2026-01-19","open":217,"high":219.5,"low":211,"close":213},{"date":"2026-01-16","open":225.5,"high":225.5,"low":215,"close":218.5},{"date":"2026-01-15","open":215.5,"high":225.5,"low":212,"close":222},{"date":"2026-01-14","open":208,"high":222,"low":202,"close":215.5},{"date":"2026-01-13","open":233,"high":233,"low":210,"close":210},{"date":"2026-01-12","open":220,"high":235,"low":218.5,"close":233},{"date":"2026-01-09","open":202,"high":217,"low":197,"close":216.5},{"date":"2026-01-08","open":186.5,"high":204.5,"low":181,"close":197.5},{"date":"2026-01-07","open":184.5,"high":194.5,"low":184.5,"close":186},{"date":"2026-01-06","open":186.5,"high":191,"low":180,"close":184},{"date":"2026-01-05","open":183,"high":188,"low":182.5,"close":183},{"date":"2026-01-02","open":186,"high":188.5,"low":177,"close":179}];
+const k2383d=[{"date":"2026-05-11","open":4480,"high":4860,"low":4480,"close":4850},{"date":"2026-05-08","open":4810,"high":4905,"low":4670,"close":4750},{"date":"2026-05-07","open":5110,"high":5115,"low":4825,"close":4960},{"date":"2026-05-06","open":4855,"high":4995,"low":4745,"close":4950},{"date":"2026-05-05","open":4740,"high":4775,"low":4600,"close":4730},{"date":"2026-05-04","open":4605,"high":4770,"low":4530,"close":4755},{"date":"2026-04-30","open":4550,"high":4660,"low":4485,"close":4545},{"date":"2026-04-29","open":4165,"high":4460,"low":4160,"close":4440},{"date":"2026-04-28","open":4650,"high":4655,"low":4340,"close":4375},{"date":"2026-04-27","open":4660,"high":4800,"low":4475,"close":4730},{"date":"2026-04-24","open":4300,"high":4485,"low":4230,"close":4475},{"date":"2026-04-23","open":4215,"high":4440,"low":3975,"close":4100},{"date":"2026-04-22","open":3960,"high":4200,"low":3895,"close":4065},{"date":"2026-04-21","open":3900,"high":3990,"low":3830,"close":3950},{"date":"2026-04-20","open":3780,"high":3915,"low":3720,"close":3850},{"date":"2026-04-17","open":3770,"high":3865,"low":3730,"close":3800},{"date":"2026-04-16","open":3950,"high":3950,"low":3760,"close":3835},{"date":"2026-04-15","open":3870,"high":3875,"low":3700,"close":3810},{"date":"2026-04-14","open":3490,"high":3655,"low":3490,"close":3605},{"date":"2026-04-13","open":3430,"high":3440,"low":3320,"close":3325},{"date":"2026-04-10","open":3280,"high":3435,"low":3260,"close":3420},{"date":"2026-04-09","open":3225,"high":3350,"low":3180,"close":3220},{"date":"2026-04-08","open":3160,"high":3170,"low":3135,"close":3170},{"date":"2026-04-07","open":2875,"high":2970,"low":2850,"close":2885},{"date":"2026-04-02","open":2920,"high":2965,"low":2775,"close":2785},{"date":"2026-04-01","open":2800,"high":2860,"low":2745,"close":2860},{"date":"2026-03-31","open":2780,"high":2830,"low":2595,"close":2600},{"date":"2026-03-30","open":2815,"high":2850,"low":2705,"close":2785},{"date":"2026-03-27","open":2900,"high":2950,"low":2845,"close":2910},{"date":"2026-03-26","open":2920,"high":3035,"low":2895,"close":2945},{"date":"2026-03-25","open":2790,"high":2915,"low":2780,"close":2845},{"date":"2026-03-24","open":2865,"high":2870,"low":2670,"close":2685},{"date":"2026-03-23","open":2715,"high":2880,"low":2705,"close":2795},{"date":"2026-03-20","open":2905,"high":2915,"low":2720,"close":2810},{"date":"2026-03-19","open":2700,"high":2970,"low":2660,"close":2890},{"date":"2026-03-18","open":2740,"high":2745,"low":2670,"close":2700},{"date":"2026-03-17","open":2645,"high":2750,"low":2625,"close":2700},{"date":"2026-03-16","open":2785,"high":2785,"low":2575,"close":2585},{"date":"2026-03-13","open":2580,"high":2765,"low":2540,"close":2705},{"date":"2026-03-12","open":2440,"high":2665,"low":2440,"close":2600},{"date":"2026-03-11","open":2390,"high":2520,"low":2375,"close":2450},{"date":"2026-03-10","open":2315,"high":2390,"low":2315,"close":2375},{"date":"2026-03-09","open":2125,"high":2210,"low":2125,"close":2175},{"date":"2026-03-06","open":2340,"high":2470,"low":2325,"close":2360},{"date":"2026-03-05","open":2350,"high":2395,"low":2300,"close":2365},{"date":"2026-03-04","open":2255,"high":2295,"low":2180,"close":2190},{"date":"2026-03-03","open":2355,"high":2430,"low":2315,"close":2320},{"date":"2026-03-02","open":2280,"high":2435,"low":2280,"close":2380},{"date":"2026-02-26","open":2500,"high":2500,"low":2395,"close":2440},{"date":"2026-02-25","open":2335,"high":2460,"low":2315,"close":2420},{"date":"2026-02-24","open":2210,"high":2330,"low":2155,"close":2310},{"date":"2026-02-23","open":2275,"high":2370,"low":2160,"close":2175},{"date":"2026-02-11","open":2100,"high":2210,"low":2065,"close":2195},{"date":"2026-02-10","open":2080,"high":2130,"low":2050,"close":2105},{"date":"2026-02-09","open":2005,"high":2110,"low":1975,"close":2080},{"date":"2026-02-06","open":1920,"high":2005,"low":1840,"close":1925},{"date":"2026-02-05","open":1980,"high":2035,"low":1905,"close":1950},{"date":"2026-02-04","open":1885,"high":2040,"low":1870,"close":2040},{"date":"2026-02-03","open":1810,"high":1875,"low":1775,"close":1855},{"date":"2026-02-02","open":1720,"high":1815,"low":1720,"close":1785},{"date":"2026-01-30","open":1795,"high":1820,"low":1735,"close":1745},{"date":"2026-01-29","open":1925,"high":1925,"low":1785,"close":1790}];
+const k6669d=[{"date":"2026-01-02","open":4540,"high":4595,"low":4445,"close":4480},{"date":"2026-01-05","open":4510,"high":4585,"low":4460,"close":4540},{"date":"2026-01-06","open":4525,"high":4620,"low":4470,"close":4615},{"date":"2026-01-07","open":4675,"high":4720,"low":4515,"close":4670},{"date":"2026-01-08","open":4710,"high":4850,"low":4615,"close":4650},{"date":"2026-01-09","open":4240,"high":4310,"low":4185,"close":4240},{"date":"2026-01-12","open":4300,"high":4305,"low":4095,"close":4095},{"date":"2026-01-13","open":4140,"high":4145,"low":3900,"close":3900},{"date":"2026-01-14","open":3950,"high":4010,"low":3920,"close":3960},{"date":"2026-01-15","open":3980,"high":4005,"low":3920,"close":3945},{"date":"2026-01-16","open":3970,"high":3975,"low":3800,"close":3825},{"date":"2026-01-19","open":3795,"high":3805,"low":3710,"close":3720},{"date":"2026-01-20","open":3710,"high":3765,"low":3660,"close":3670},{"date":"2026-01-21","open":3695,"high":3720,"low":3565,"close":3605},{"date":"2026-01-22","open":3690,"high":3765,"low":3610,"close":3765},{"date":"2026-01-23","open":3820,"high":3830,"low":3680,"close":3695},{"date":"2026-01-26","open":3745,"high":3875,"low":3740,"close":3840},{"date":"2026-01-27","open":3840,"high":3840,"low":3670,"close":3700},{"date":"2026-01-28","open":3720,"high":3760,"low":3615,"close":3705},{"date":"2026-01-29","open":3750,"high":3770,"low":3685,"close":3720},{"date":"2026-01-30","open":3725,"high":3750,"low":3575,"close":3575},{"date":"2026-02-02","open":3585,"high":3670,"low":3570,"close":3605},{"date":"2026-02-03","open":3720,"high":3760,"low":3630,"close":3725},{"date":"2026-02-04","open":3725,"high":3755,"low":3600,"close":3680},{"date":"2026-02-05","open":3655,"high":3760,"low":3610,"close":3610},{"date":"2026-02-06","open":3645,"high":3650,"low":3520,"close":3645},{"date":"2026-02-09","open":3705,"high":3770,"low":3615,"close":3630},{"date":"2026-02-10","open":3700,"high":3735,"low":3575,"close":3685},{"date":"2026-02-11","open":3720,"high":3750,"low":3660,"close":3740},{"date":"2026-02-23","open":3810,"high":3855,"low":3610,"close":3820},{"date":"2026-02-24","open":3835,"high":3865,"low":3720,"close":3835},{"date":"2026-02-25","open":3855,"high":4075,"low":3840,"close":4060},{"date":"2026-02-26","open":4200,"high":4200,"low":3950,"close":4000},{"date":"2026-03-02","open":4185,"high":4230,"low":4085,"close":4150},{"date":"2026-03-03","open":4195,"high":4320,"low":4145,"close":4145},{"date":"2026-03-04","open":4045,"high":4065,"low":3910,"close":3910},{"date":"2026-03-05","open":4080,"high":4225,"low":4065,"close":4220},{"date":"2026-03-06","open":4180,"high":4220,"low":4100,"close":4215},{"date":"2026-03-09","open":3840,"high":3945,"low":3815,"close":3930},{"date":"2026-03-10","open":4045,"high":4090,"low":3935,"close":3960},{"date":"2026-03-11","open":4040,"high":4220,"low":4040,"close":4190},{"date":"2026-03-12","open":4115,"high":4185,"low":4085,"close":4085},{"date":"2026-03-13","open":4060,"high":4085,"low":3955,"close":4070},{"date":"2026-03-16","open":4085,"high":4130,"low":3975,"close":4005},{"date":"2026-03-17","open":4065,"high":4070,"low":3965,"close":3965},{"date":"2026-03-18","open":3985,"high":4035,"low":3815,"close":3825},{"date":"2026-03-19","open":3790,"high":3840,"low":3720,"close":3765},{"date":"2026-03-20","open":3775,"high":3840,"low":3755,"close":3805},{"date":"2026-03-23","open":3685,"high":3710,"low":3640,"close":3645},{"date":"2026-03-24","open":3735,"high":3785,"low":3645,"close":3725},{"date":"2026-03-25","open":3820,"high":3855,"low":3735,"close":3760},{"date":"2026-03-26","open":3600,"high":3645,"low":3465,"close":3465},{"date":"2026-03-27","open":3330,"high":3450,"low":3320,"close":3395},{"date":"2026-03-30","open":3300,"high":3380,"low":3295,"close":3370},{"date":"2026-03-31","open":3330,"high":3430,"low":3290,"close":3300},{"date":"2026-04-01","open":3425,"high":3480,"low":3385,"close":3420},{"date":"2026-04-02","open":3495,"high":3510,"low":3375,"close":3410},{"date":"2026-04-07","open":3500,"high":3510,"low":3330,"close":3395},{"date":"2026-04-08","open":3495,"high":3570,"low":3450,"close":3570},{"date":"2026-04-09","open":3580,"high":3605,"low":3540,"close":3580},{"date":"2026-04-10","open":3615,"high":3670,"low":3550,"close":3630},{"date":"2026-04-13","open":3595,"high":3665,"low":3535,"close":3645},{"date":"2026-04-14","open":3695,"high":3815,"low":3675,"close":3755},{"date":"2026-04-15","open":3830,"high":3845,"low":3705,"close":3720},{"date":"2026-04-16","open":3780,"high":3800,"low":3690,"close":3700},{"date":"2026-04-17","open":3755,"high":3915,"low":3755,"close":3805},{"date":"2026-04-20","open":3960,"high":3980,"low":3870,"close":3980},{"date":"2026-04-21","open":4030,"high":4270,"low":4030,"close":4220},{"date":"2026-04-22","open":4285,"high":4390,"low":4180,"close":4350},{"date":"2026-04-23","open":4410,"high":4480,"low":4130,"close":4250},{"date":"2026-04-24","open":4335,"high":4675,"low":4320,"close":4635},{"date":"2026-04-27","open":4980,"high":5045,"low":4855,"close":4890},{"date":"2026-04-28","open":4925,"high":5000,"low":4795,"close":4800},{"date":"2026-04-29","open":4810,"high":4920,"low":4710,"close":4845},{"date":"2026-04-30","open":4925,"high":4940,"low":4660,"close":4675},{"date":"2026-05-04","open":4700,"high":4865,"low":4615,"close":4860},{"date":"2026-05-05","open":4855,"high":4860,"low":4670,"close":4755},{"date":"2026-05-06","open":4855,"high":4985,"low":4630,"close":4970},{"date":"2026-05-07","open":5050,"high":5060,"low":4870,"close":4880},{"date":"2026-05-08","open":4920,"high":5250,"low":4890,"close":5200},{"date":"2026-05-11","open":5290,"high":5345,"low":5115,"close":5340}];
+
+initKline('k6147','t6147',k6147d);
+initKline('k6274','t6274',k6274d);
+initKline('k3443','t3443',k3443d);
+initKline('k3105','t3105',k3105d);
+initKline('k2383','t2383',k2383d);
+initKline('k6669','t6669',k6669d);
+
+// ── 60日融資趨勢雙軸圖 ──
+(function(){
+  const hist=[{"date":"20260202","close":31624.03,"融資金額_千元":378848321,"融資維持率":165.1621},{"date":"20260203","close":32195.36,"融資金額_千元":382125198,"融資維持率":166.9483},{"date":"20260204","close":32289.81,"融資金額_千元":384045976,"融資維持率":169.8492},{"date":"20260205","close":31801.27,"融資金額_千元":382917735,"融資維持率":164.7814},{"date":"20260206","close":31782.92,"融資金額_千元":373990690,"融資維持率":161.1983},{"date":"20260209","close":32404.62,"融資金額_千元":375470000,"融資維持率":164.655},{"date":"20260210","close":33072.97,"融資金額_千元":372586397,"融資維持率":165.7823},{"date":"20260211","close":33605.71,"融資金額_千元":367498071,"融資維持率":166.6695},{"date":"20260223","close":33773.26,"融資金額_千元":372155937,"融資維持率":170.0188},{"date":"20260224","close":34700.82,"融資金額_千元":377495245,"融資維持率":174.5803},{"date":"20260225","close":35413.07,"融資金額_千元":383126958,"融資維持率":175.1137},{"date":"20260226","close":35414.49,"融資金額_千元":389861168,"融資維持率":176.0177},{"date":"20260302","close":35095.09,"融資金額_千元":391522964,"融資維持率":174.9883},{"date":"20260303","close":34323.65,"融資金額_千元":384358090,"融資維持率":168.3466},{"date":"20260304","close":32828.88,"融資金額_千元":376616368,"融資維持率":158.6198},{"date":"20260305","close":33672.94,"融資金額_千元":379166583,"融資維持率":164.4533},{"date":"20260306","close":33599.54,"融資金額_千元":382683585,"融資維持率":163.7001},{"date":"20260309","close":32110.42,"融資金額_千元":371960474,"融資維持率":153.8081},{"date":"20260310","close":32771.87,"融資金額_千元":368236327,"融資維持率":158.1126},{"date":"20260311","close":34114.19,"融資金額_千元":376147937,"融資維持率":166.1295},{"date":"20260312","close":33581.86,"融資金額_千元":379366977,"融資維持率":164.5959},{"date":"20260313","close":33400.32,"融資金額_千元":385446747,"融資維持率":165.25},{"date":"20260316","close":33342.51,"融資金額_千元":392284076,"融資維持率":166.8655},{"date":"20260317","close":33836.57,"融資金額_千元":393467032,"融資維持率":169.4601},{"date":"20260318","close":34348.58,"融資金額_千元":399772079,"融資維持率":172.024},{"date":"20260319","close":33689.68,"融資金額_千元":402095986,"融資維持率":170.1866},{"date":"20260320","close":33543.88,"融資金額_千元":398591068,"融資維持率":167.997},{"date":"20260323","close":32722.5,"融資金額_千元":393333759,"融資維持率":161.0689},{"date":"20260324","close":32612.24,"融資金額_千元":390102627,"融資維持率":158.4569},{"date":"20260325","close":33439.11,"融資金額_千元":395499024,"融資維持率":164.2291},{"date":"20260326","close":33337.62,"融資金額_千元":391136469,"融資維持率":162.5914},{"date":"20260327","close":33112.59,"融資金額_千元":393722769,"融資維持率":162.5712},{"date":"20260330","close":32518.16,"融資金額_千元":392708634,"融資維持率":159.7193},{"date":"20260331","close":31722.99,"融資金額_千元":381724855,"融資維持率":152.4658},{"date":"20260401","close":33174.82,"融資金額_千元":385907934,"融資維持率":159.5343},{"date":"20260402","close":32572.43,"融資金額_千元":384200709,"融資維持率":157.2438},{"date":"20260407","close":33229.82,"融資金額_千元":387734358,"融資維持率":160.4439},{"date":"20260408","close":34761.38,"融資金額_千元":395333852,"融資維持率":168.6951},{"date":"20260409","close":34861.16,"融資金額_千元":396518141,"融資維持率":168.4458},{"date":"20260410","close":35417.83,"融資金額_千元":401240705,"融資維持率":170.6905},{"date":"20260413","close":35457.29,"融資金額_千元":408651307,"融資維持率":171.7983},{"date":"20260414","close":36296.12,"融資金額_千元":414988177,"融資維持率":173.247},{"date":"20260415","close":36722.14,"融資金額_千元":416253786,"融資維持率":173.212},{"date":"20260416","close":37132.02,"融資金額_千元":422408742,"融資維持率":175.2202},{"date":"20260417","close":36804.34,"融資金額_千元":427120788,"融資維持率":175.5221},{"date":"20260420","close":36958.8,"融資金額_千元":429829952,"融資維持率":177.0906},{"date":"20260421","close":37605.11,"融資金額_千元":433163894,"融資維持率":179.5918},{"date":"20260422","close":37878.47,"融資金額_千元":438545241,"融資維持率":180.592},{"date":"20260423","close":37714.15,"融資金額_千元":430825725,"融資維持率":174.0611},{"date":"20260424","close":38932.4,"融資金額_千元":440907083,"融資維持率":175.4933},{"date":"20260427","close":39616.63,"融資金額_千元":452044394,"融資維持率":175.2079},{"date":"20260428","close":39521.73,"融資金額_千元":457112797,"融資維持率":176.922},{"date":"20260429","close":39303.5,"融資金額_千元":460974804,"融資維持率":176.0345},{"date":"20260430","close":38926.63,"融資金額_千元":460905599,"融資維持率":175.8451},{"date":"20260504","close":40705.14,"融資金額_千元":470389635,"融資維持率":180.9067},{"date":"20260505","close":40769.29,"融資金額_千元":475145292,"融資維持率":182.0207},{"date":"20260506","close":41138.85,"融資金額_千元":475648471,"融資維持率":180.6349},{"date":"20260507","close":41933.78,"融資金額_千元":482664170,"融資維持率":182.1352},{"date":"20260508","close":41603.94,"融資金額_千元":477184758,"融資維持率":177.6839},{"date":"20260511","close":41790.06,"融資金額_千元":484592746,"融資維持率":181.8785}];
+  const canvas=document.getElementById('marginChart'),tip=document.getElementById('marginTip');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height,padL=8,padR=8,padT=8,padB=8,n=hist.length;
+  const rates=hist.map(d=>d['融資維持率']),amts=hist.map(d=>Math.round(d['融資金額_千元']/100000));
+  const rMin=Math.min(...rates)*.995,rMax=Math.max(...rates)*1.005;
+  const aMin=Math.min(...amts)*.99,aMax=Math.max(...amts)*1.01;
+  const xOf=i=>padL+i*(W-padL-padR)/(n-1);
+  const yOfR=v=>padT+(1-(v-rMin)/(rMax-rMin))*(H-padT-padB);
+  const yOfA=v=>padT+(1-(v-aMin)/(aMax-aMin))*(H-padT-padB);
+  ctx.clearRect(0,0,W,H);
+  ctx.strokeStyle='#f59e0b';ctx.lineWidth=1.5;ctx.beginPath();
+  hist.forEach((d,i)=>{const x=xOf(i),y=yOfA(amts[i]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});ctx.stroke();
+  ctx.strokeStyle='#c084fc';ctx.lineWidth=1.5;ctx.beginPath();
+  hist.forEach((d,i)=>{const x=xOf(i),y=yOfR(rates[i]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});ctx.stroke();
+  canvas.addEventListener('mousemove',e=>{
+    const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*(W/rect.width);
+    const i=Math.min(n-1,Math.max(0,Math.round((x-padL)/(W-padL-padR)*(n-1))));
+    const d=hist[i],dt=d.date,ds=`${dt.slice(0,4)}/${dt.slice(4,6)}/${dt.slice(6,8)}`;
+    tip.innerHTML=`<b>${ds}</b> 加權${Math.round(d.close).toLocaleString()} &nbsp;<span style="color:#c084fc">維持率 ${d['融資維持率'].toFixed(1)}%</span> &nbsp;<span style="color:#f59e0b">融資餘額 ${amts[i].toLocaleString()}億</span>`;
+    tip.style.display='block';tip.style.left=Math.min(xOf(i),W-200)+'px';tip.style.top='4px';
+  });
+  canvas.addEventListener('mouseleave',()=>{tip.style.display='none';});
+})();
+</script>
+</body>
+</html>
