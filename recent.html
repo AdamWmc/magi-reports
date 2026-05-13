@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI · 近日熱點</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;
+  --up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);}
+}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmed:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;
+  position:sticky;top:0;z-index:100;background:var(--nav-bg);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent2);font-weight:600}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;
+  cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+@media(max-width:600px){.nav-links{display:none}}
+
+.page-wrap{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+
+.page-header{margin-bottom:32px}
+.page-title{font-size:22px;font-weight:800;color:var(--bright);letter-spacing:-.4px;margin-bottom:6px}
+.page-sub{font-size:13px;color:var(--muted)}
+
+/* date section */
+.date-section{margin-bottom:40px}
+.date-label{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.date-badge{font-size:13px;font-weight:700;color:var(--accent2);background:var(--glow);
+  border:1px solid rgba(124,58,237,.2);padding:3px 12px;border-radius:100px}
+.date-today{font-size:11px;font-weight:600;color:var(--up);background:var(--up-bg);
+  border:1px solid var(--up-bd);padding:2px 8px;border-radius:100px}
+.date-count{font-size:11px;color:var(--muted);margin-left:auto}
+
+/* stock card */
+.stock-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  margin-bottom:12px;overflow:hidden;transition:border-color .15s}
+.stock-card:hover{border-color:rgba(124,58,237,.35)}
+
+.sc-header{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;
+  border-bottom:1px solid var(--border2)}
+.sc-code{font-size:11px;font-weight:700;color:var(--accent2);background:rgba(124,58,237,.1);
+  padding:2px 8px;border-radius:4px;font-family:monospace;flex-shrink:0}
+.sc-name{font-size:14px;font-weight:700;color:var(--bright)}
+.sc-sector{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
+.sc-meta{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
+.sc-cnt{font-size:11px;color:var(--dimmer)}
+.sc-toggle{font-size:11px;color:var(--accent2);background:none;border:none;cursor:pointer;padding:0;
+  transition:transform .2s;flex-shrink:0}
+.sc-toggle.open{transform:rotate(180deg)}
+
+/* sentiment */
+.sent{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;border:1px solid;white-space:nowrap}
+.sent.bull{background:var(--up-bg);color:var(--up);border-color:var(--up-bd)}
+.sent.bear{background:var(--dn-bg);color:var(--dn);border-color:var(--dn-bd)}
+.sent.hold{background:var(--bg3);color:var(--muted);border-color:var(--border)}
+.sent.watch{background:rgba(245,158,11,.1);color:#f59e0b;border-color:rgba(245,158,11,.25)}
+
+/* mentions list */
+.sc-body{padding:0}
+.mention-row{display:flex;flex-direction:column;gap:6px;padding:10px 16px;
+  border-bottom:1px solid var(--border2)}
+.mention-row:last-child{border-bottom:none}
+.mr-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.mr-speaker{font-size:11px;font-weight:600;color:var(--text2);background:var(--bg3);
+  padding:2px 8px;border-radius:100px}
+.mr-host{font-size:10px;color:var(--muted);background:rgba(124,58,237,.07);
+  border:1px solid rgba(124,58,237,.12);padding:1px 7px;border-radius:100px}
+.mr-tp{font-size:10px;font-weight:700;color:#f59e0b;background:rgba(245,158,11,.1);
+  border:1px solid rgba(245,158,11,.2);padding:2px 7px;border-radius:4px}
+.mr-quote{font-size:13px;color:var(--text2);line-height:1.6;border-left:2px solid rgba(124,58,237,.3);
+  padding-left:10px;margin-top:2px}
+
+/* group pills */
+.sc-groups{display:flex;gap:4px;flex-wrap:wrap;padding:8px 16px;background:var(--bg3)}
+.grp-pill{font-size:10px;font-weight:600;color:var(--muted);background:var(--bg2);
+  border:1px solid var(--border);padding:2px 8px;border-radius:100px}
+
+/* loading / empty */
+.loading{text-align:center;padding:60px 0;color:var(--muted);font-size:14px}
+.empty-day{font-size:13px;color:var(--dimmer);padding:16px 0;text-align:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/">首頁</a>
+      <a href="/archive.html">報告庫</a>
+      <a href="/recent.html" class="active">近日熱點</a>
+      <a href="/search.html">知識庫</a>
+    </div>
+    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <div class="page-title">近日熱點</div>
+    <div class="page-sub">過去 3 天各家開會 + 廢想法的個股討論，依日期整理</div>
+  </div>
+  <div id="content"><div class="loading">載入中…</div></div>
+</div>
+
+<script>
+// ── Theme ────────────────────────────────────────────────────────────────────
+(function(){
+  var t=localStorage.getItem('magi-theme');
+  if(t) document.documentElement.setAttribute('data-theme',t);
+  else if(window.matchMedia('(prefers-color-scheme:dark)').matches)
+    document.documentElement.setAttribute('data-theme','dark');
+})();
+function magiToggleTheme(){
+  var cur=document.documentElement.getAttribute('data-theme');
+  var next=cur==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  document.getElementById('theme-btn').textContent=next==='dark'?'☀️':'🌙';
+}
+(function(){
+  var t=document.documentElement.getAttribute('data-theme');
+  var btn=document.getElementById('theme-btn');
+  if(btn) btn.textContent=t==='dark'?'☀️':'🌙';
+})();
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function fmtDate(d){
+  if(!d) return '';
+  var p=d.split('-');
+  return p[1]+'/'+p[2];
+}
+
+function sentClass(s){
+  if(!s) return 'hold';
+  var sl=s.toLowerCase();
+  if(sl.includes('積極看多')||sl.includes('強烈看多')) return 'bull';
+  if(sl.includes('看多')||sl.includes('加碼')||sl.includes('買入')||sl.includes('計劃買')) return 'bull';
+  if(sl.includes('看空')||sl.includes('空頭')||sl.includes('減碼')||sl.includes('存疑')) return 'bear';
+  if(sl.includes('中性')||sl.includes('持有')) return 'hold';
+  return 'watch';
+}
+
+function sentLabel(s){ return s||'觀察'; }
+
+// ── Data loading ───────────────────────────────────────────────────────────────
+function getMonthStr(d){
+  return d.getFullYear()+'-'+(String(d.getMonth()+1).padStart(2,'0'));
+}
+
+function getDates(){
+  var today=new Date();
+  var dates=[];
+  for(var i=0;i<3;i++){
+    var d=new Date(today);
+    d.setDate(today.getDate()-i);
+    dates.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'));
+  }
+  return dates; // [today, yesterday, day-before]
+}
+
+function getMonthsNeeded(dates){
+  var months={};
+  dates.forEach(function(d){ months[d.slice(0,7)]=1; });
+  return Object.keys(months);
+}
+
+async function fetchJSON(url){
+  try{
+    var r=await fetch(url+'?t='+Date.now());
+    if(!r.ok) return [];
+    return await r.json();
+  }catch(e){ return []; }
+}
+
+async function loadAll(){
+  var dates=getDates();
+  var months=getMonthsNeeded(dates);
+  var dateSet=new Set(dates);
+
+  // fetch meeting + daily for each needed month
+  var fetches=[];
+  months.forEach(function(m){
+    fetches.push(fetchJSON('/data/meeting/'+m+'.json'));
+    fetches.push(fetchJSON('/data/daily/'+m+'.json'));
+  });
+
+  var results=await Promise.all(fetches);
+  var all=[];
+  results.forEach(function(arr){ all=all.concat(arr||[]); });
+
+  // filter to target dates only
+  return all.filter(function(r){ return dateSet.has(r.date); });
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function groupByDateAndStock(records){
+  // { date -> { code -> { info, mentions:[] } } }
+  var byDate={};
+  records.forEach(function(r){
+    if(!byDate[r.date]) byDate[r.date]={};
+    var code=r.code;
+    if(!byDate[r.date][code]){
+      byDate[r.date][code]={
+        code:code, name:r.name, sector:r.sector,
+        mentions:[], hosts:new Set(), maxSent:'hold'
+      };
+    }
+    var entry=byDate[r.date][code];
+    entry.mentions.push(r);
+    if(r.host) entry.hosts.add(r.source_type==='daily'?'廢想法':r.host);
+    else if(r.source_type==='daily') entry.hosts.add('廢想法');
+    // track strongest sentiment
+    var sc=sentClass(r.sentiment);
+    if(sc==='bull') entry.maxSent='bull';
+    else if(sc==='bear'&&entry.maxSent!=='bull') entry.maxSent='bear';
+    else if(sc==='watch'&&entry.maxSent==='hold') entry.maxSent='watch';
+  });
+  return byDate;
+}
+
+function renderMentionRow(m){
+  var host=m.source_type==='daily'?'廢想法':(m.host||'');
+  var speaker=m.speaker||'';
+  var sc=sentClass(m.sentiment);
+  var sl=sentLabel(m.sentiment);
+  var tp=m.tp?'<span class="mr-tp">TP '+esc(m.tp)+'</span>':'';
+  var quote=m.quote?'<div class="mr-quote">'+esc(m.quote)+'</div>':'';
+
+  return '<div class="mention-row">'
+    +'<div class="mr-top">'
+    +(speaker?'<span class="mr-speaker">'+esc(speaker)+'</span>':'')
+    +(host?'<span class="mr-host">'+esc(host)+'</span>':'')
+    +'<span class="sent '+sc+'">'+esc(sl)+'</span>'
+    +tp
+    +'</div>'
+    +quote
+    +'</div>';
+}
+
+function renderStockCard(entry, idx){
+  var id='sc-'+idx;
+  var groupPills=Array.from(entry.hosts).map(function(h){
+    return '<span class="grp-pill">'+esc(h)+'</span>';
+  }).join('');
+
+  var mentionRows=entry.mentions.map(renderMentionRow).join('');
+
+  return '<div class="stock-card">'
+    +'<div class="sc-header" onclick="toggleCard(\''+id+'\')">'
+    +'<span class="sc-code">'+esc(entry.code)+'</span>'
+    +'<span class="sc-name">'+esc(entry.name)+'</span>'
+    +(entry.sector?'<span class="sc-sector">'+esc(entry.sector)+'</span>':'')
+    +'<div class="sc-meta">'
+    +'<span class="sc-cnt">'+entry.mentions.length+' 則</span>'
+    +'<button id="btn-'+id+'" class="sc-toggle open">▲</button>'
+    +'</div>'
+    +'</div>'
+    +'<div id="'+id+'">'
+    +(groupPills?'<div class="sc-groups">'+groupPills+'</div>':'')
+    +'<div class="sc-body">'+mentionRows+'</div>'
+    +'</div>'
+    +'</div>';
+}
+
+function toggleCard(id){
+  var el=document.getElementById(id);
+  var btn=document.getElementById('btn-'+id);
+  if(!el) return;
+  var hidden=el.style.display==='none';
+  el.style.display=hidden?'':'none';
+  btn.textContent=hidden?'▲':'▼';
+  btn.className='sc-toggle'+(hidden?' open':'');
+}
+
+function renderPage(byDate, dates){
+  var today=dates[0];
+  var html='';
+
+  dates.forEach(function(date){
+    var stocks=byDate[date];
+    var isToday=date===today;
+
+    // sort stocks by mention count desc
+    var stockList=stocks?Object.values(stocks):[];
+    stockList.sort(function(a,b){ return b.mentions.length-a.mentions.length; });
+
+    html+='<div class="date-section">';
+    html+='<div class="date-label">';
+    html+='<span class="date-badge">'+date.slice(5).replace('-','/')+'</span>';
+    if(isToday) html+='<span class="date-today">今日</span>';
+    html+='<span class="date-count">'+stockList.length+' 支個股</span>';
+    html+='</div>';
+
+    if(!stockList.length){
+      html+='<div class="empty-day">當日無資料</div>';
+    } else {
+      stockList.forEach(function(entry, i){
+        html+=renderStockCard(entry, date.replace(/-/g,'')+'_'+entry.code);
+      });
+    }
+
+    html+='</div>';
+  });
+
+  return html;
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+(async function(){
+  var dates=getDates();
+  var records=await loadAll();
+
+  if(!records.length){
+    document.getElementById('content').innerHTML='<div class="loading">近 3 日暫無資料</div>';
+    return;
+  }
+
+  var byDate=groupByDateAndStock(records);
+  document.getElementById('content').innerHTML=renderPage(byDate, dates);
+})();
+</script>
+</body>
+</html>
