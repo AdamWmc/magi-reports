@@ -250,7 +250,7 @@ function buildIndex(){
     var latest = mentions.reduce(function(a,b){ return a.date > b.date ? a : b; }).date;
     INDEX.push({ code: code, name: name, count: mentions.length, latest: latest });
   }
-  INDEX.sort(function(a,b){ return b.count - a.count; });
+  INDEX.sort(function(a,b){ return b.latest > a.latest ? 1 : b.latest < a.latest ? -1 : b.count - a.count; });
 }
 
 // ── Default view: stock index grid ────────────────────────────────────────
