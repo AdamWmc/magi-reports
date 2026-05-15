@@ -2226,6 +2226,28 @@
     {
       "code": "6147",
       "name": "頎邦",
+      "date": "2026-05-15",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體封測",
+      "quote": "傳：6147 Lite 驗證過",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Lite驗證通過"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-15T03:10:00"
+    },
+    {
+      "code": "6147",
+      "name": "頎邦",
       "date": "2026-05-14",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
@@ -14958,6 +14980,26 @@
     {
       "code": "8358",
       "name": "金居",
+      "date": "2026-05-15",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "PCB",
+      "quote": "金居改下周二出，因為不爽大家都知道",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-15T03:10:00"
+    },
+    {
+      "code": "8358",
+      "name": "金居",
       "code_source": "name_exact",
       "speaker": "Eddie",
       "host": "樂林",
@@ -18574,306 +18616,6 @@
       "validated": true
     }
   ],
-  "1569": [
-    {
-      "code": "1569",
-      "name": "濱川",
-      "date": "2026-05-04",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "黛安娜",
-      "host": null,
-      "sector": "散熱",
-      "quote": "黛安娜：濱川有再說VR manifold，然後800一套，25%share",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "VR manifold 25%份額"
-      ],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "3455": [
-    {
-      "code": "3455",
-      "name": "由田",
-      "date": "2026-05-04",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "精密機械",
-      "quote": "由田有在台積電驗機台，但還在非常初期，大概率最後還是倍力科（關係戶），而且不只驗由田一間",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "謹慎",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "6217": [
-    {
-      "code": "6217",
-      "name": "中探針",
-      "date": "2026-05-13",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "半導體測試",
-      "quote": "中探針說要出6515的甚麼東西?? 之前朋友說不會用，現在又說會用了",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "中性",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-13T15:20:00"
-    },
-    {
-      "code": "6217",
-      "name": "中探針",
-      "date": "2026-05-04",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "半導體測試",
-      "quote": "中探針不能碰不會用到pogopin（應該是不能講出去）",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "謹慎",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "6715": [
-    {
-      "code": "6715",
-      "name": "嘉基",
-      "date": "2026-05-04",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "其他",
-      "quote": "6715老闆說要600以上增資",
-      "tp": "600",
-      "eps_est": null,
-      "catalysts": [
-        "增資"
-      ],
-      "customers": [],
-      "sentiment": "中性",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "6874": [
-    {
-      "code": "6874",
-      "name": "倍力",
-      "date": "2026-05-04",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "精密機械",
-      "quote": "大概率最後還是倍力科（台積電關係戶），不只驗由田一間",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "台積電關係戶優勢"
-      ],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "7918": [
-    {
-      "code": "7918",
-      "name": "創鉅材料",
-      "date": "2026-05-05",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "特殊材料",
-      "quote": "創鉅材料 說看1000",
-      "tp": "1000",
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "看多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "8431": [
-    {
-      "code": "8431",
-      "name": "匯鑽科",
-      "date": "2026-05-05",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "散熱材料",
-      "quote": "TIM2不鍍金，受傷的是匯鑽科",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "謹慎",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "1815": [
-    {
-      "code": "1815",
-      "name": "富喬",
-      "date": "2026-05-06",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "Frank Lin",
-      "host": null,
-      "sector": "玻纖",
-      "quote": "Frank Lin：1815明年算到10。中國E glass漲價，Q2 DK2比例變高，TR2單價是TR1兩倍，今年EPS 5，明年EPS 10",
-      "tp": null,
-      "eps_est": {
-        "2026": "5",
-        "2027": "10"
-      },
-      "catalysts": [
-        "中國E glass漲價",
-        "TR2單價翻倍"
-      ],
-      "customers": [],
-      "sentiment": "積極看多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "3004": [
-    {
-      "code": "3004",
-      "name": "豐達科",
-      "date": "2026-05-06",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "幾百億大戶",
-      "host": null,
-      "sector": "電子/LED",
-      "quote": "幾百億大戶：3004有位仁兄買多，不知道他是聽到啥，那位仁兄也是凱北大戶，但是他買都會很久，他之前紅勁買800~900到現在還在",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "中性",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "7848": [
-    {
-      "code": "7848",
-      "name": "騏億鑫",
-      "date": "2026-05-06",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "勞倫斯",
-      "host": null,
-      "sector": "其他",
-      "quote": "勞倫斯：7848在這週五前500以下可以買一些，放到六月中",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "短線500以下進場"
-      ],
-      "customers": [],
-      "sentiment": "看多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "6187": [
-    {
-      "code": "6187",
-      "name": "萬潤",
-      "date": "2026-05-08",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "幾百億大戶",
-      "host": null,
-      "sector": "設備/耗材",
-      "quote": "幾百億大戶說他要買點萬潤",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "3388": [
-    {
-      "code": "3388",
-      "name": "崇越電",
-      "date": "2026-05-13",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "電子通路",
-      "quote": "3388明年8-10塊",
-      "tp": "10",
-      "eps_est": {
-        "2027": "8-10"
-      },
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-13T15:20:00"
-    }
-  ],
   "2481": [
     {
       "code": "2481",
@@ -19013,6 +18755,306 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-05-14T13:15:00"
+    }
+  ],
+  "3388": [
+    {
+      "code": "3388",
+      "name": "崇越電",
+      "date": "2026-05-13",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "電子通路",
+      "quote": "3388明年8-10塊",
+      "tp": "10",
+      "eps_est": {
+        "2027": "8-10"
+      },
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-13T15:20:00"
+    }
+  ],
+  "6217": [
+    {
+      "code": "6217",
+      "name": "中探針",
+      "date": "2026-05-13",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體測試",
+      "quote": "中探針說要出6515的甚麼東西?? 之前朋友說不會用，現在又說會用了",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-13T15:20:00"
+    },
+    {
+      "code": "6217",
+      "name": "中探針",
+      "date": "2026-05-04",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體測試",
+      "quote": "中探針不能碰不會用到pogopin（應該是不能講出去）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "6187": [
+    {
+      "code": "6187",
+      "name": "萬潤",
+      "date": "2026-05-08",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "幾百億大戶",
+      "host": null,
+      "sector": "設備/耗材",
+      "quote": "幾百億大戶說他要買點萬潤",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "1815": [
+    {
+      "code": "1815",
+      "name": "富喬",
+      "date": "2026-05-06",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "Frank Lin",
+      "host": null,
+      "sector": "玻纖",
+      "quote": "Frank Lin：1815明年算到10。中國E glass漲價，Q2 DK2比例變高，TR2單價是TR1兩倍，今年EPS 5，明年EPS 10",
+      "tp": null,
+      "eps_est": {
+        "2026": "5",
+        "2027": "10"
+      },
+      "catalysts": [
+        "中國E glass漲價",
+        "TR2單價翻倍"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "3004": [
+    {
+      "code": "3004",
+      "name": "豐達科",
+      "date": "2026-05-06",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "幾百億大戶",
+      "host": null,
+      "sector": "電子/LED",
+      "quote": "幾百億大戶：3004有位仁兄買多，不知道他是聽到啥，那位仁兄也是凱北大戶，但是他買都會很久，他之前紅勁買800~900到現在還在",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "7848": [
+    {
+      "code": "7848",
+      "name": "騏億鑫",
+      "date": "2026-05-06",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "勞倫斯",
+      "host": null,
+      "sector": "其他",
+      "quote": "勞倫斯：7848在這週五前500以下可以買一些，放到六月中",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "短線500以下進場"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "7918": [
+    {
+      "code": "7918",
+      "name": "創鉅材料",
+      "date": "2026-05-05",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "特殊材料",
+      "quote": "創鉅材料 說看1000",
+      "tp": "1000",
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "8431": [
+    {
+      "code": "8431",
+      "name": "匯鑽科",
+      "date": "2026-05-05",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "散熱材料",
+      "quote": "TIM2不鍍金，受傷的是匯鑽科",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "1569": [
+    {
+      "code": "1569",
+      "name": "濱川",
+      "date": "2026-05-04",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "黛安娜",
+      "host": null,
+      "sector": "散熱",
+      "quote": "黛安娜：濱川有再說VR manifold，然後800一套，25%share",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "VR manifold 25%份額"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "3455": [
+    {
+      "code": "3455",
+      "name": "由田",
+      "date": "2026-05-04",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "精密機械",
+      "quote": "由田有在台積電驗機台，但還在非常初期，大概率最後還是倍力科（關係戶），而且不只驗由田一間",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "6715": [
+    {
+      "code": "6715",
+      "name": "嘉基",
+      "date": "2026-05-04",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "其他",
+      "quote": "6715老闆說要600以上增資",
+      "tp": "600",
+      "eps_est": null,
+      "catalysts": [
+        "增資"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "6874": [
+    {
+      "code": "6874",
+      "name": "倍力",
+      "date": "2026-05-04",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "精密機械",
+      "quote": "大概率最後還是倍力科（台積電關係戶），不只驗由田一間",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "台積電關係戶優勢"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
     }
   ]
 }
