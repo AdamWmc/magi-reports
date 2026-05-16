@@ -186,6 +186,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4
 .warn-chip.punish-new{background:rgba(220,38,38,.14);color:var(--up);border:2px solid var(--up);font-weight:800}
 .warn-chip.punish-new.consensus{border-color:var(--warn);color:var(--warn)}
 .warn-chip .days{font-size:9px;opacity:.7;margin-left:2px}
+.wc-mkt{font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--bg3);color:var(--muted);margin-right:1px}
 
 .sector-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;font-size:11px;border:1px solid var(--border);background:var(--bg3);margin:3px}
 .sector-badge .cnt{font-weight:700;color:var(--accent2)}
@@ -1268,216 +1269,284 @@ footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color
 
 <div class="section-title">警示股看板</div>
 <div class="grid2">
+
   <div class="card">
-    <div class="card-title">上市（TSE）注意 + 處置</div>
-
-    <div class="warn-section">
-      <div class="warn-title" style="color:var(--up)">TSE 新進處置（今日起生效）</div>
-      <div class="warn-grid">
-        <div class="warn-chip punish-new">2492 華新科<span class="days"> 115/05/15～115/05/28</span></div>
-        <div class="warn-chip punish-new">3026 禾伸堂<span class="days"> 115/05/15～115/05/28</span></div>
-        <div class="warn-chip punish-new">6831 邁科<span class="days"> 115/05/15～115/05/28</span></div>
-        <div class="warn-chip punish-new">8114 振樺電<span class="days"> 115/05/15～115/05/28</span></div>
+    <div class="card-title">⚡ 快進處置 · 注意累計次數異常</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">連續達標，明日再觸發即進處置</div>
+    <div class="warn-grid">
+      <div class="warn-chip attention" style="opacity:.9">
+        <span class="wc-mkt">上市</span>
+        6449 鈺邦<span class="days"> 連2次</span>
+      </div>
+      <div class="warn-chip attention" style="opacity:.9">
+        <span class="wc-mkt">上櫃</span>
+        3374 精材<span class="days"> 連2次</span>
+      </div>
+      <div class="warn-chip attention" style="opacity:.9">
+        <span class="wc-mkt">上櫃</span>
+        3498 陽程<span class="days"> 連2次</span>
+      </div>
+      <div class="warn-chip attention" style="border-color:var(--up);font-weight:800">
+        <span class="wc-mkt">上櫃</span>
+        4971 IET-KY<span class="days"> 連4次 🚨</span>
+      </div>
+      <div class="warn-chip attention" style="opacity:.9">
+        <span class="wc-mkt">上櫃</span>
+        6419 京晨科<span class="days"> 連2次</span>
       </div>
     </div>
-
-    <div class="warn-section">
-      <div class="warn-title">TSE 處置中</div>
-      <div class="warn-grid">
-        <div class="warn-chip punish">
-          1597 直得<span class="days"> ~5/20</span>
-        </div>
-        <div class="warn-chip punish">
-          1809 中釉<span class="days"> ~5/26</span>
-        </div>
-        <div class="warn-chip punish">
-          2059 川湖<span class="days"> ~5/26</span>
-        </div>
-        <div class="warn-chip punish">
-          2233 宇隆<span class="days"> ~5/20</span>
-        </div>
-        <div class="warn-chip punish">
-          2426 鼎元<span class="days"> ~5/21</span>
-        </div>
-        <div class="warn-chip punish">
-          2454 聯發科<span class="days"> ~5/20</span>
-        </div>
-        <div class="warn-chip punish">
-          2455 全新<span class="days"> ~5/19</span>
-        </div>
-        <div class="warn-chip punish">
-          2486 一詮<span class="days"> ~5/20</span>
-        </div>
-        <div class="warn-chip punish">
-          3016 嘉晶<span class="days"> ~5/25</span>
-        </div>
-        <div class="warn-chip punish">
-          3030 德律<span class="days"> ~5/21</span>
-        </div>
-        <div class="warn-chip punish">
-          3135 凌航<span class="days"> ~5/29</span>
-        </div>
-        <div class="warn-chip punish">
-          3167 大量<span class="days"> ~5/18</span>
-        </div>
-        <div class="warn-chip punish" style="border:2px solid var(--up)">
-          3450 聯鈞 ⚠️<span class="days"> ~5/26</span>
-        </div>
-        <div class="warn-chip punish">
-          3532 台勝科<span class="days"> ~5/22</span>
-        </div>
-        <div class="warn-chip punish">
-          3653 健策<span class="days"> ~5/26</span>
-        </div>
-        <div class="warn-chip punish">
-          4764 雙鍵<span class="days"> ~5/20</span>
-        </div>
-        <div class="warn-chip punish">
-          6405 悅城<span class="days"> ~5/22</span>
-        </div>
-        <div class="warn-chip punish">
-          6658 聯策<span class="days"> ~5/18</span>
-        </div>
-        <div class="warn-chip punish">
-          6861 睿生光電<span class="days"> ~5/21</span>
-        </div>
-        <div class="warn-chip punish">
-          7769 鴻勁<span class="days"> ~5/27</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="warn-section">
-      <div class="warn-title">TSE 注意（1檔）</div>
-      <div class="warn-grid">
-        <div class="warn-chip attention">
-          6449 鈺邦<span class="days">連2次</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="warn-section">
-      <div class="warn-title" style="color:var(--warn)">⏰ TSE 持股留意（明日再觸發即進處置）</div>
-      <div class="warn-grid">
-        <div class="warn-chip attention" style="opacity:.85;">
-          6449 鈺邦<span class="days"> 連2次</span>
-        </div>
-      </div>
-      <div style="font-size:10px;color:var(--muted);margin-top:6px">連2次/5次以上 = 明日再觸發即進處置；🚨 = 極高風險（連3次 或 10日5次）</div>
-    </div>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px">🚨 = 極高風險（連3次以上 或 10日5次）</div>
   </div>
 
   <div class="card">
-    <div class="card-title">上櫃（OTC）注意 + 處置</div>
+    <div class="card-title">🔒 處置中</div>
 
     <div class="warn-section">
-      <div class="warn-title" style="color:var(--up)">OTC 新進處置（今日起生效）</div>
+      <div class="warn-title" style="color:var(--up)">⏰ 快出處置（剩 ≤3 交易日）</div>
       <div class="warn-grid">
-        <div class="warn-chip punish-new">
-          4966 譜瑞-KY<span class="days"> 115/05/15~115/05/28</span>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          4951 精拓科<span class="days"> 剩2日</span>
         </div>
-        <div class="warn-chip punish-new">
-          6173 信昌電<span class="days"> 115/05/15~115/05/28</span>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          6234 高僑<span class="days"> 剩2日</span>
         </div>
-        <div class="warn-chip punish-new">
-          6263 普萊德<span class="days"> 115/05/15~115/05/28</span>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          9949 琉園<span class="days"> 剩2日</span>
         </div>
-        <div class="warn-chip punish-new">
-          8069 元太<span class="days"> 115/05/15~115/05/28</span>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          3167 大量<span class="days"> 剩2日</span>
         </div>
-        <div class="warn-chip punish-new">
-          8291 尚茂<span class="days"> 115/05/15~115/05/28</span>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          6658 聯策<span class="days"> 剩2日</span>
         </div>
-        <div class="warn-chip punish-new">
-          8358 金居<span class="days"> 115/05/15~115/05/28</span>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          6861 睿生光電<span class="days"> 剩2日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          8027 鈦昇<span class="days"> 剩3日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          2455 全新<span class="days"> 剩3日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          6405 悅城<span class="days"> 剩3日</span>
         </div>
       </div>
     </div>
 
     <div class="warn-section">
-      <div class="warn-title">OTC 處置中</div>
+      <div class="warn-title" style="color:var(--warn)">🆕 剛進處置 / 即將生效</div>
       <div class="warn-grid">
-        <div class="warn-chip punish">5228 鈺鎧<span class="days"> ~5/29</span></div>
-        <div class="warn-chip punish">6829 千附精密<span class="days"> ~5/29</span></div>
-        <div class="warn-chip punish">7751 竑騰<span class="days"> ~5/29</span></div>
-        <div class="warn-chip punish">8444 綠河-KY<span class="days"> ~5/29</span></div>
-        <div class="warn-chip punish">5464 霖宏<span class="days"> ~5/27</span></div>
-        <div class="warn-chip punish">8042 金山電<span class="days"> ~5/27</span></div>
-        <div class="warn-chip punish">3664 安瑞-KY<span class="days"> ~5/26</span></div>
-        <div class="warn-chip punish">4979 華星光<span class="days"> ~5/26</span></div>
-        <div class="warn-chip punish">4561 健椿<span class="days"> ~5/25</span></div>
-        <div class="warn-chip punish">6182 合晶<span class="days"> ~5/25</span></div>
-        <div class="warn-chip punish">6488 環球晶<span class="days"> ~5/25</span></div>
-        <div class="warn-chip punish">8227 巨有科技<span class="days"> ~5/25</span></div>
-        <div class="warn-chip punish">1595 川寶<span class="days"> ~5/22</span></div>
-        <div class="warn-chip punish">4991 環宇-KY<span class="days"> ~5/22</span></div>
-        <div class="warn-chip punish">6274 台燿<span class="days"> ~5/22</span></div>
-        <div class="warn-chip punish">3455 由田<span class="days"> ~5/21</span></div>
-        <div class="warn-chip punish">3581 博磊<span class="days"> ~5/21</span></div>
-        <div class="warn-chip punish">4951 精拓科<span class="days"> ~5/21</span></div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上櫃</span>
+          4966 譜瑞-KY<span class="days"> 今日起 · 每5分撮合</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上櫃</span>
+          6173 信昌電<span class="days"> 今日起 · 每20分撮合</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上櫃</span>
+          6263 普萊德<span class="days"> 今日起 · 每5分撮合</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上櫃</span>
+          8069 元太<span class="days"> 今日起 · 每5分撮合</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上櫃</span>
+          8291 尚茂<span class="days"> 今日起 · 每25分撮合</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上櫃</span>
+          8358 金居<span class="days"> 今日起 · 每20分撮合</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上市</span>
+          2492 華新科<span class="days"> 今日起 · 第一次處置</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上市</span>
+          3026 禾伸堂<span class="days"> 今日起 · 第二次處置</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上市</span>
+          6831 邁科<span class="days"> 今日起 · 第一次處置</span>
+        </div>
+        <div class="warn-chip punish-new">
+          <span class="wc-mkt">上市</span>
+          8114 振樺電<span class="days"> 今日起 · 第一次處置</span>
+        </div>
+        <div class="warn-chip attention" style="opacity:.9">
+          <span class="wc-mkt">上櫃</span>
+          5228 鈺鎧<span class="days"> 05/18 起生效</span>
+        </div>
+        <div class="warn-chip attention" style="opacity:.9">
+          <span class="wc-mkt">上櫃</span>
+          6829 千附精密<span class="days"> 05/18 起生效</span>
+        </div>
+        <div class="warn-chip attention" style="opacity:.9">
+          <span class="wc-mkt">上櫃</span>
+          8444 綠河-KY<span class="days"> 05/18 起生效</span>
+        </div>
+        <div class="warn-chip attention" style="opacity:.9">
+          <span class="wc-mkt">上市</span>
+          3135 凌航<span class="days"> 05/18 起生效</span>
+        </div>
       </div>
     </div>
 
     <div class="warn-section">
-      <div class="warn-title">OTC 注意（66檔，代表股）</div>
+      <div class="warn-title">📋 處置中（34）</div>
       <div class="warn-grid">
-        <div class="warn-chip attention">4979 華星光<span class="days">連7</span></div>
-        <div class="warn-chip attention">6173 信昌電<span class="days">連7</span></div>
-        <div class="warn-chip attention">7751 竑騰<span class="days">連7</span></div>
-        <div class="warn-chip attention">8291 尚茂<span class="days">連7</span></div>
-        <div class="warn-chip attention">5464 霖宏<span class="days">連7</span></div>
-        <div class="warn-chip attention">8042 金山電<span class="days">連7</span></div>
-        <div class="warn-chip attention">8358 金居<span class="days">連7</span></div>
-        <div class="warn-chip attention">4971 IET-KY<span class="days">連6</span></div>
-        <div class="warn-chip attention">3664 安瑞-KY<span class="days">連6</span></div>
-        <div class="warn-chip attention">4966 譜瑞-KY<span class="days">連5</span></div>
-        <div style="font-size:10px;color:var(--muted);width:100%;padding-top:4px">⋯ 共66檔</div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          3163 波若威<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          4542 科嶠<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          4908 前鼎<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          6683 雍智科技<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          8064 東捷<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          1597 直得<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          2233 宇隆<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          2454 聯發科<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          2486 一詮<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          3016 嘉晶<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          4764 雙鍵<span class="days"> 剩4日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          3455 由田<span class="days"> 剩5日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          3581 博磊<span class="days"> 剩5日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          5386 青雲<span class="days"> 剩5日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          2426 鼎元<span class="days"> 剩5日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          3030 德律<span class="days"> 剩5日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          1595 川寶<span class="days"> 剩6日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          4991 環宇-KY<span class="days"> 剩6日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          5464 霖宏<span class="days"> 剩6日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          6274 台燿<span class="days"> 剩6日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          8042 金山電<span class="days"> 剩6日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          3532 台勝科<span class="days"> 剩6日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          4561 健椿<span class="days"> 剩7日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          6182 合晶<span class="days"> 剩7日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          6488 環球晶<span class="days"> 剩7日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          8227 巨有科技<span class="days"> 剩7日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          3664 安瑞-KY<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          4979 華星光<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上櫃</span>
+          7751 竑騰<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          1809 中釉<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          2059 川湖<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          3450 聯鈞<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          3653 健策<span class="days"> 剩8日</span>
+        </div>
+        <div class="warn-chip punish">
+          <span class="wc-mkt">上市</span>
+          7769 鴻勁<span class="days"> 剩9日</span>
+        </div>
       </div>
     </div>
 
-    <div class="warn-section">
-      <div class="warn-title" style="color:var(--warn)">⏰ OTC 持股留意（明日再觸發即進處置）</div>
-      <div class="warn-grid">
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          4979 華星光<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          6173 信昌電<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          7751 竑騰<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          8291 尚茂<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          5464 霖宏<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          8042 金山電<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          8358 金居<span class="days"> 連7次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          4971 IET-KY<span class="days"> 連6次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          3664 安瑞-KY<span class="days"> 連6次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          4966 譜瑞-KY<span class="days"> 連5次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          5289 宜鼎<span class="days"> 連5次 🚨</span>
-        </div>
-        <div class="warn-chip attention" style="border-color:var(--up);font-weight:800;">
-          8043 蜜望實<span class="days"> 連5次 🚨</span>
-        </div>
-        <div style="font-size:10px;color:var(--muted);width:100%;padding-top:2px">⋯ 共12檔</div>
-      </div>
-      <div style="font-size:10px;color:var(--muted);margin-top:6px">連2次/10日5次 = 明日再觸發即進處置；🚨 = 極高風險（連3次 或 10日5次）</div>
-    </div>
   </div>
 </div>
 
