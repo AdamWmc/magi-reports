@@ -186,7 +186,22 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4
 .warn-chip.punish-new{background:rgba(220,38,38,.14);color:var(--up);border:2px solid var(--up);font-weight:800}
 .warn-chip.punish-new.consensus{border-color:var(--warn);color:var(--warn)}
 .warn-chip .days{font-size:9px;opacity:.7;margin-left:2px}
-.wc-mkt{font-size:8px;font-weight:700;padding:1px 4px;border-radius:3px;background:var(--bg3);color:var(--muted);margin-right:1px}
+
+.disposal-tbl{width:100%;border-collapse:collapse}
+.disposal-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);text-transform:uppercase}
+.disposal-tbl th:last-child{text-align:right}
+.disposal-tbl td{padding:7px 10px;border-bottom:1px solid var(--border2);font-size:12px;vertical-align:middle}
+.disposal-tbl tr:last-child td{border-bottom:none}
+.disposal-tbl .code{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .nm{font-weight:600;color:var(--text);width:99%}
+.disposal-tbl .period{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .rel{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .left{text-align:right;font-weight:700;white-space:nowrap;color:var(--text2)}
+.disposal-tbl tr.row-soon{background:var(--up-bg)}
+.disposal-tbl tr.row-soon .left{color:var(--up)}
+.disposal-tbl tr.row-new{background:rgba(245,158,11,.06)}
+.disposal-tbl tr.row-new .left{color:var(--warn)}
+.disposal-tbl tr.row-upcoming{opacity:.6}
 
 .sector-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;font-size:11px;border:1px solid var(--border);background:var(--bg3);margin:3px}
 .sector-badge .cnt{font-weight:700;color:var(--accent2)}
@@ -1268,285 +1283,439 @@ footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color
 </div>
 
 <div class="section-title">警示股看板</div>
-<div class="grid2">
 
-  <div class="card">
-    <div class="card-title">⚡ 快進處置 · 注意累計次數異常</div>
-    <div style="font-size:11px;color:var(--muted);margin-bottom:10px">連續達標，明日再觸發即進處置</div>
-    <div class="warn-grid">
-      <div class="warn-chip attention" style="opacity:.9">
-        <span class="wc-mkt">上市</span>
-        6449 鈺邦<span class="days"> 連2次</span>
-      </div>
-      <div class="warn-chip attention" style="opacity:.9">
-        <span class="wc-mkt">上櫃</span>
-        3374 精材<span class="days"> 連2次</span>
-      </div>
-      <div class="warn-chip attention" style="opacity:.9">
-        <span class="wc-mkt">上櫃</span>
-        3498 陽程<span class="days"> 連2次</span>
-      </div>
-      <div class="warn-chip attention" style="border-color:var(--up);font-weight:800">
-        <span class="wc-mkt">上櫃</span>
-        4971 IET-KY<span class="days"> 連4次 🚨</span>
-      </div>
-      <div class="warn-chip attention" style="opacity:.9">
-        <span class="wc-mkt">上櫃</span>
-        6419 京晨科<span class="days"> 連2次</span>
-      </div>
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">⚡ 快進處置 · 注意累計次數異常</div>
+  <div style="font-size:11px;color:var(--muted);margin-bottom:10px">連續達標，明日再觸發即進處置</div>
+  <div class="warn-grid">
+    <div class="warn-chip attention" style="opacity:.9">
+      6449 鈺邦<span class="days"> 連2次</span>
     </div>
-    <div style="font-size:10px;color:var(--muted);margin-top:8px">🚨 = 極高風險（連3次以上 或 10日5次）</div>
+    <div class="warn-chip attention" style="opacity:.9">
+      3374 精材<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      3498 陽程<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="border-color:var(--up);font-weight:800">
+      4971 IET-KY<span class="days"> 連4次 🚨</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6419 京晨科<span class="days"> 連2次</span>
+    </div>
   </div>
+</div>
 
-  <div class="card">
-    <div class="card-title">🔒 處置中</div>
-
-    <div class="warn-section">
-      <div class="warn-title" style="color:var(--up)">⏰ 快出處置（剩 ≤3 交易日）</div>
-      <div class="warn-grid">
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          4951 精拓科<span class="days"> 剩2日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          6234 高僑<span class="days"> 剩2日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          9949 琉園<span class="days"> 剩2日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          3167 大量<span class="days"> 剩2日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          6658 聯策<span class="days"> 剩2日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          6861 睿生光電<span class="days"> 剩2日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          8027 鈦昇<span class="days"> 剩3日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          2455 全新<span class="days"> 剩3日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          6405 悅城<span class="days"> 剩3日</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="warn-section">
-      <div class="warn-title" style="color:var(--warn)">🆕 剛進處置 / 即將生效</div>
-      <div class="warn-grid">
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上櫃</span>
-          4966 譜瑞-KY<span class="days"> 今日起 · 每5分撮合</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上櫃</span>
-          6173 信昌電<span class="days"> 今日起 · 每20分撮合</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上櫃</span>
-          6263 普萊德<span class="days"> 今日起 · 每5分撮合</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上櫃</span>
-          8069 元太<span class="days"> 今日起 · 每5分撮合</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上櫃</span>
-          8291 尚茂<span class="days"> 今日起 · 每25分撮合</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上櫃</span>
-          8358 金居<span class="days"> 今日起 · 每20分撮合</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上市</span>
-          2492 華新科<span class="days"> 今日起 · 第一次處置</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上市</span>
-          3026 禾伸堂<span class="days"> 今日起 · 第二次處置</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上市</span>
-          6831 邁科<span class="days"> 今日起 · 第一次處置</span>
-        </div>
-        <div class="warn-chip punish-new">
-          <span class="wc-mkt">上市</span>
-          8114 振樺電<span class="days"> 今日起 · 第一次處置</span>
-        </div>
-        <div class="warn-chip attention" style="opacity:.9">
-          <span class="wc-mkt">上櫃</span>
-          5228 鈺鎧<span class="days"> 05/18 起生效</span>
-        </div>
-        <div class="warn-chip attention" style="opacity:.9">
-          <span class="wc-mkt">上櫃</span>
-          6829 千附精密<span class="days"> 05/18 起生效</span>
-        </div>
-        <div class="warn-chip attention" style="opacity:.9">
-          <span class="wc-mkt">上櫃</span>
-          8444 綠河-KY<span class="days"> 05/18 起生效</span>
-        </div>
-        <div class="warn-chip attention" style="opacity:.9">
-          <span class="wc-mkt">上市</span>
-          3135 凌航<span class="days"> 05/18 起生效</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="warn-section">
-      <div class="warn-title">📋 處置中（34）</div>
-      <div class="warn-grid">
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          3163 波若威<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          4542 科嶠<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          4908 前鼎<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          6683 雍智科技<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          8064 東捷<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          1597 直得<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          2233 宇隆<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          2454 聯發科<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          2486 一詮<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          3016 嘉晶<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          4764 雙鍵<span class="days"> 剩4日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          3455 由田<span class="days"> 剩5日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          3581 博磊<span class="days"> 剩5日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          5386 青雲<span class="days"> 剩5日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          2426 鼎元<span class="days"> 剩5日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          3030 德律<span class="days"> 剩5日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          1595 川寶<span class="days"> 剩6日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          4991 環宇-KY<span class="days"> 剩6日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          5464 霖宏<span class="days"> 剩6日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          6274 台燿<span class="days"> 剩6日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          8042 金山電<span class="days"> 剩6日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          3532 台勝科<span class="days"> 剩6日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          4561 健椿<span class="days"> 剩7日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          6182 合晶<span class="days"> 剩7日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          6488 環球晶<span class="days"> 剩7日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          8227 巨有科技<span class="days"> 剩7日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          3664 安瑞-KY<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          4979 華星光<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上櫃</span>
-          7751 竑騰<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          1809 中釉<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          2059 川湖<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          3450 聯鈞<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          3653 健策<span class="days"> 剩8日</span>
-        </div>
-        <div class="warn-chip punish">
-          <span class="wc-mkt">上市</span>
-          7769 鴻勁<span class="days"> 剩9日</span>
-        </div>
-      </div>
-    </div>
-
+<div class="card">
+  <div class="card-title">🔒 處置中 · 57 檔</div>
+  <table class="disposal-tbl">
+    <thead>
+      <tr><th>代號</th><th>名稱</th><th>處置期間</th><th>解禁</th><th>剩餘</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-soon">
+        <td class="code">4951</td>
+        <td class="nm">精拓科</td>
+        <td class="period">5/05–5/18</td>
+        <td class="rel">5/18</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6234</td>
+        <td class="nm">高僑</td>
+        <td class="period">5/05–5/18</td>
+        <td class="rel">5/18</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">9949</td>
+        <td class="nm">琉園</td>
+        <td class="period">5/05–5/18</td>
+        <td class="rel">5/18</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3167</td>
+        <td class="nm">大量</td>
+        <td class="period">5/05–5/18</td>
+        <td class="rel">5/18</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6658</td>
+        <td class="nm">聯策</td>
+        <td class="period">5/05–5/18</td>
+        <td class="rel">5/18</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6861</td>
+        <td class="nm">睿生光電</td>
+        <td class="period">5/05–5/18</td>
+        <td class="rel">5/18</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">8027</td>
+        <td class="nm">鈦昇</td>
+        <td class="period">5/06–5/19</td>
+        <td class="rel">5/19</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">2455</td>
+        <td class="nm">全新</td>
+        <td class="period">5/06–5/19</td>
+        <td class="rel">5/19</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6405</td>
+        <td class="nm">悅城</td>
+        <td class="period">5/06–5/19</td>
+        <td class="rel">5/19</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3163</td>
+        <td class="nm">波若威</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4542</td>
+        <td class="nm">科嶠</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4908</td>
+        <td class="nm">前鼎</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6683</td>
+        <td class="nm">雍智科技</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8064</td>
+        <td class="nm">東捷</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1597</td>
+        <td class="nm">直得</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2233</td>
+        <td class="nm">宇隆</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2454</td>
+        <td class="nm">聯發科</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2486</td>
+        <td class="nm">一詮</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3016</td>
+        <td class="nm">嘉晶</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4764</td>
+        <td class="nm">雙鍵</td>
+        <td class="period">5/07–5/20</td>
+        <td class="rel">5/20</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3455</td>
+        <td class="nm">由田</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">剩 5 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3581</td>
+        <td class="nm">博磊</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">剩 5 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">5386</td>
+        <td class="nm">青雲</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">剩 5 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2426</td>
+        <td class="nm">鼎元</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">剩 5 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3030</td>
+        <td class="nm">德律</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">剩 5 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1595</td>
+        <td class="nm">川寶</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4991</td>
+        <td class="nm">環宇-KY</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">5464</td>
+        <td class="nm">霖宏</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6274</td>
+        <td class="nm">台燿</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8042</td>
+        <td class="nm">金山電</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3532</td>
+        <td class="nm">台勝科</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4561</td>
+        <td class="nm">健椿</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6182</td>
+        <td class="nm">合晶</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6488</td>
+        <td class="nm">環球晶</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8227</td>
+        <td class="nm">巨有科技</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3664</td>
+        <td class="nm">安瑞-KY</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4979</td>
+        <td class="nm">華星光</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7751</td>
+        <td class="nm">竑騰</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1809</td>
+        <td class="nm">中釉</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2059</td>
+        <td class="nm">川湖</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3450</td>
+        <td class="nm">聯鈞</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3653</td>
+        <td class="nm">健策</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7769</td>
+        <td class="nm">鴻勁</td>
+        <td class="period">5/14–5/27</td>
+        <td class="rel">5/27</td>
+        <td class="left">剩 9 日        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">4966</td>
+        <td class="nm">譜瑞-KY</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">6173</td>
+        <td class="nm">信昌電</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">6263</td>
+        <td class="nm">普萊德</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8069</td>
+        <td class="nm">元太</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8291</td>
+        <td class="nm">尚茂</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8358</td>
+        <td class="nm">金居</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">2492</td>
+        <td class="nm">華新科</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">3026</td>
+        <td class="nm">禾伸堂</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">6831</td>
+        <td class="nm">邁科</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8114</td>
+        <td class="nm">振樺電</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">5228</td>
+        <td class="nm">鈺鎧</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">⏳ 5/18 起        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">6829</td>
+        <td class="nm">千附精密</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">⏳ 5/18 起        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">8444</td>
+        <td class="nm">綠河-KY</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">⏳ 5/18 起        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">3135</td>
+        <td class="nm">凌航</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">⏳ 5/18 起        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:10px;color:var(--muted);margin-top:8px">
+    ⏰ 快出（剩 ≤3 交易日）· 🆕 今日新進 · ⏳ 已公告未開始；剩餘日數僅扣週末為估算值
   </div>
 </div>
 
