@@ -16,7 +16,7 @@
   --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);
   --card-hover:rgba(124,58,237,.2);--warn:#f59e0b;--blue:#3b82f6;
 }
-@media(prefers-color-scheme:dark){:root{
+@media(prefers-color-scheme:dark) and (min-width:99999px){:root{
   --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;
   --border:#21262d;--border2:#1a1f2a;
   --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
@@ -53,7 +53,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 3
 .idx-block{}
 .idx-label{font-size:10px;color:var(--dimmer);font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px}
 .idx-num{font-size:clamp(32px,6vw,52px);font-weight:800;color:var(--bright);line-height:1;letter-spacing:-2px}
-@media(prefers-color-scheme:dark){.idx-num{background:linear-gradient(160deg,#f8fafc 30%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
+@media(prefers-color-scheme:dark) and (min-width:99999px){.idx-num{background:linear-gradient(160deg,#f8fafc 30%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}}
 .idx-chg{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:6px;margin-left:10px;vertical-align:middle}
 .idx-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
 .idx-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}

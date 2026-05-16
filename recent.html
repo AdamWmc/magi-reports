@@ -134,10 +134,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:18px 4
 
 <script>
 (function(){
-  var t=localStorage.getItem('magi-theme');
-  if(t) document.documentElement.setAttribute('data-theme',t);
-  else if(window.matchMedia('(prefers-color-scheme:dark)').matches)
-    document.documentElement.setAttribute('data-theme','dark');
+  var t=localStorage.getItem('magi-theme')||'light';
+  document.documentElement.setAttribute('data-theme',t);
 })();
 function magiToggleTheme(){
   var cur=document.documentElement.getAttribute('data-theme');
