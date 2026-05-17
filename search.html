@@ -236,7 +236,16 @@ Promise.all(_urls.map(function(url){
     });
   });
   buildIndex();
-  renderDefault();
+  var _q = new URLSearchParams(location.search).get('q');
+  if(_q && DB[_q]){
+    selectStock(_q);
+  } else if(_q){
+    var _m = INDEX.filter(function(s){ return s.name === _q; });
+    if(_m.length === 1) selectStock(_m[0].code);
+    else renderDefault();
+  } else {
+    renderDefault();
+  }
 }).catch(function(){
   document.getElementById('content').innerHTML =
     '<div class="state-box"><div class="icon">⚠️</div><p>資料載入失敗，請重新整理</p></div>';
