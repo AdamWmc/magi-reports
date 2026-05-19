@@ -21572,6 +21572,37 @@
     {
       "code": "8358",
       "name": "金居",
+      "date": "2026-05-19",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "銅箔/材料",
+      "quote": "GS 高盛正式出報告：Initiate Buy，12個月目標價 NT$900（現價429，上漲空間110%）。高階銅箔 TAM 2028E 達 US$2.4bn（2025-28E CAGR 122%），HVLP4 自2H26起被多數主流AI伺服器專案採用。金居為高階AI銅箔第二家通過認證的供應商，2028 EPS 估較 2025 成長10倍（120% CAGR），靠產能翻倍+ASP翻倍；HVLP3+ ASP 為 HTE 2倍以上，GM 40-60%+ vs HTE 0-10%。預期 2H26 起調漲加工費，2Q26 起每季漲幅至少3-5%。估值給 22x 2028E EPS。",
+      "tp": "900",
+      "eps_est": {
+        "2025": "4.21",
+        "2026": "10.19",
+        "2027": "25.89",
+        "2028": "44.77"
+      },
+      "catalysts": [
+        "GS高盛Initiate Buy TP 900",
+        "HVLP4自2H26主流AI伺服器採用",
+        "高階AI銅箔第二家認證供應商",
+        "2H26起調漲加工費，2Q26每季漲3-5%",
+        "2028 EPS較2025成長10倍"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-19T22:30:00"
+    },
+    {
+      "code": "8358",
+      "name": "金居",
       "code_source": "name_exact",
       "speaker": "sunny",
       "host": "樂林",
@@ -25894,142 +25925,50 @@
       "validated": true
     }
   ],
-  "5258": [
+  "1569": [
     {
-      "code": "5258",
-      "name": "虹堡",
-      "date": "2026-05-18",
+      "code": "1569",
+      "name": "濱川",
+      "date": "2026-05-04",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
-      "speaker": "bobo",
+      "speaker": "黛安娜",
       "host": null,
-      "sector": "電子零組件",
-      "quote": "bobo 虹堡也漲停，拿到超大案子，應該先回100",
-      "tp": 100,
-      "eps_est": null,
-      "catalysts": [
-        "拿到超大案子"
-      ],
-      "customers": [],
-      "sentiment": "正面",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-18T14:00:00"
-    }
-  ],
-  "8261": [
-    {
-      "code": "8261",
-      "name": "富鼎",
-      "date": "2026-05-14",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "功率半導體",
-      "quote": "台達轉單，富鼎現在拿比較多，跟強茂一起供",
+      "sector": "散熱",
+      "quote": "黛安娜：濱川有再說VR manifold，然後800一套，25%share",
       "tp": null,
       "eps_est": null,
       "catalysts": [
-        "台達轉單拿更多份額"
-      ],
-      "customers": [],
-      "sentiment": "看多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-05-14T13:15:00"
-    }
-  ],
-  "6451": [
-    {
-      "code": "6451",
-      "name": "訊芯-KY",
-      "date": "2026-05-14",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "Diana",
-      "host": null,
-      "sector": "半導體",
-      "quote": "Diana：6451陳族元有買單了",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "陳族元（大股東）買單"
+        "VR manifold 25%份額"
       ],
       "customers": [],
       "sentiment": "偏多",
       "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-18T00:00:00"
-    }
-  ],
-  "6207": [
-    {
-      "code": "6207",
-      "name": "雷科",
-      "date": "2026-05-14",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "阿威",
-      "host": null,
-      "sector": "LED",
-      "quote": "雷科 阿威：真的有",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
       "code_source": "name_exact",
       "validated": true,
-      "parsed_at": "2026-05-14T13:15:00"
+      "parsed_at": "2026-05-10T13:27:32"
     }
   ],
-  "3363": [
+  "3455": [
     {
-      "code": "3363",
-      "name": "上詮",
-      "date": "2026-05-14",
+      "code": "3455",
+      "name": "由田",
+      "date": "2026-05-04",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
       "speaker": null,
       "host": null,
-      "sector": "光通訊",
-      "quote": "3363可能要被3008取代了，因為3363沒有量產能力，台積電現在聽說全力支持3008",
+      "sector": "精密機械",
+      "quote": "由田有在台積電驗機台，但還在非常初期，大概率最後還是倍力科（關係戶），而且不只驗由田一間",
       "tp": null,
       "eps_est": null,
       "catalysts": [],
       "customers": [],
       "sentiment": "謹慎",
       "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-14T13:15:00"
-    }
-  ],
-  "2492": [
-    {
-      "code": "2492",
-      "name": "華新科",
-      "date": "2026-05-14",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "被動元件",
-      "quote": "大家都買被動元件去了，華新科 國巨 3026 跟6173",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
       "code_source": "name_exact",
       "validated": true,
-      "parsed_at": "2026-05-14T13:15:00"
+      "parsed_at": "2026-05-10T13:27:32"
     }
   ],
   "6217": [
@@ -26074,94 +26013,26 @@
       "parsed_at": "2026-05-10T13:27:32"
     }
   ],
-  "3388": [
+  "6715": [
     {
-      "code": "3388",
-      "name": "崇越電",
-      "date": "2026-05-13",
+      "code": "6715",
+      "name": "嘉基",
+      "date": "2026-05-04",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
       "speaker": null,
       "host": null,
-      "sector": "電子通路",
-      "quote": "3388明年8-10塊",
-      "tp": "10",
-      "eps_est": {
-        "2027": "8-10"
-      },
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-13T15:20:00"
-    }
-  ],
-  "7848": [
-    {
-      "code": "7848",
-      "name": "騏億鑫",
-      "date": "2026-05-06",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "勞倫斯",
-      "host": null,
       "sector": "其他",
-      "quote": "勞倫斯：7848在這週五前500以下可以買一些，放到六月中",
-      "tp": null,
+      "quote": "6715老闆說要600以上增資",
+      "tp": "600",
       "eps_est": null,
       "catalysts": [
-        "短線500以下進場"
+        "增資"
       ],
-      "customers": [],
-      "sentiment": "看多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "3004": [
-    {
-      "code": "3004",
-      "name": "豐達科",
-      "date": "2026-05-06",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": "幾百億大戶",
-      "host": null,
-      "sector": "電子/LED",
-      "quote": "幾百億大戶：3004有位仁兄買多，不知道他是聽到啥，那位仁兄也是凱北大戶，但是他買都會很久，他之前紅勁買800~900到現在還在",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
       "customers": [],
       "sentiment": "中性",
       "holding": false,
       "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "8431": [
-    {
-      "code": "8431",
-      "name": "匯鑽科",
-      "date": "2026-05-05",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "散熱材料",
-      "quote": "TIM2不鍍金，受傷的是匯鑽科",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "謹慎",
-      "holding": false,
-      "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-05-10T13:27:32"
     }
@@ -26190,41 +26061,17 @@
       "parsed_at": "2026-05-10T13:27:32"
     }
   ],
-  "6715": [
+  "8431": [
     {
-      "code": "6715",
-      "name": "嘉基",
-      "date": "2026-05-04",
+      "code": "8431",
+      "name": "匯鑽科",
+      "date": "2026-05-05",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
       "speaker": null,
       "host": null,
-      "sector": "其他",
-      "quote": "6715老闆說要600以上增資",
-      "tp": "600",
-      "eps_est": null,
-      "catalysts": [
-        "增資"
-      ],
-      "customers": [],
-      "sentiment": "中性",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
-    }
-  ],
-  "3455": [
-    {
-      "code": "3455",
-      "name": "由田",
-      "date": "2026-05-04",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "精密機械",
-      "quote": "由田有在台積電驗機台，但還在非常初期，大概率最後還是倍力科（關係戶），而且不只驗由田一間",
+      "sector": "散熱材料",
+      "quote": "TIM2不鍍金，受傷的是匯鑽科",
       "tp": null,
       "eps_est": null,
       "catalysts": [],
@@ -26236,28 +26083,212 @@
       "parsed_at": "2026-05-10T13:27:32"
     }
   ],
-  "1569": [
+  "3004": [
     {
-      "code": "1569",
-      "name": "濱川",
-      "date": "2026-05-04",
+      "code": "3004",
+      "name": "豐達科",
+      "date": "2026-05-06",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
-      "speaker": "黛安娜",
+      "speaker": "幾百億大戶",
       "host": null,
-      "sector": "散熱",
-      "quote": "黛安娜：濱川有再說VR manifold，然後800一套，25%share",
+      "sector": "電子/LED",
+      "quote": "幾百億大戶：3004有位仁兄買多，不知道他是聽到啥，那位仁兄也是凱北大戶，但是他買都會很久，他之前紅勁買800~900到現在還在",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "7848": [
+    {
+      "code": "7848",
+      "name": "騏億鑫",
+      "date": "2026-05-06",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "勞倫斯",
+      "host": null,
+      "sector": "其他",
+      "quote": "勞倫斯：7848在這週五前500以下可以買一些，放到六月中",
       "tp": null,
       "eps_est": null,
       "catalysts": [
-        "VR manifold 25%份額"
+        "短線500以下進場"
       ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-10T13:27:32"
+    }
+  ],
+  "3388": [
+    {
+      "code": "3388",
+      "name": "崇越電",
+      "date": "2026-05-13",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "電子通路",
+      "quote": "3388明年8-10塊",
+      "tp": "10",
+      "eps_est": {
+        "2027": "8-10"
+      },
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-13T15:20:00"
+    }
+  ],
+  "2492": [
+    {
+      "code": "2492",
+      "name": "華新科",
+      "date": "2026-05-14",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "被動元件",
+      "quote": "大家都買被動元件去了，華新科 國巨 3026 跟6173",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
       "customers": [],
       "sentiment": "偏多",
       "holding": false,
       "code_source": "name_exact",
       "validated": true,
-      "parsed_at": "2026-05-10T13:27:32"
+      "parsed_at": "2026-05-14T13:15:00"
+    }
+  ],
+  "3363": [
+    {
+      "code": "3363",
+      "name": "上詮",
+      "date": "2026-05-14",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "光通訊",
+      "quote": "3363可能要被3008取代了，因為3363沒有量產能力，台積電現在聽說全力支持3008",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-14T13:15:00"
+    }
+  ],
+  "6207": [
+    {
+      "code": "6207",
+      "name": "雷科",
+      "date": "2026-05-14",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "阿威",
+      "host": null,
+      "sector": "LED",
+      "quote": "雷科 阿威：真的有",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-14T13:15:00"
+    }
+  ],
+  "6451": [
+    {
+      "code": "6451",
+      "name": "訊芯-KY",
+      "date": "2026-05-14",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "Diana",
+      "host": null,
+      "sector": "半導體",
+      "quote": "Diana：6451陳族元有買單了",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "陳族元（大股東）買單"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-18T00:00:00"
+    }
+  ],
+  "8261": [
+    {
+      "code": "8261",
+      "name": "富鼎",
+      "date": "2026-05-14",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "功率半導體",
+      "quote": "台達轉單，富鼎現在拿比較多，跟強茂一起供",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "台達轉單拿更多份額"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-14T13:15:00"
+    }
+  ],
+  "5258": [
+    {
+      "code": "5258",
+      "name": "虹堡",
+      "date": "2026-05-18",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "bobo",
+      "host": null,
+      "sector": "電子零組件",
+      "quote": "bobo 虹堡也漲停，拿到超大案子，應該先回100",
+      "tp": 100,
+      "eps_est": null,
+      "catalysts": [
+        "拿到超大案子"
+      ],
+      "customers": [],
+      "sentiment": "正面",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-18T14:00:00"
     }
   ]
 }
