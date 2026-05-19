@@ -1,5 +1,140 @@
 [
   {
+    "code": "6182",
+    "name": "合晶",
+    "date": "2026-05-19",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": "Lawrence",
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "合晶 (6182) 現在5萬片，明年平均20萬片，台積電 dummy die 要給他做，預計增加 20% 左右營收。今年4,明年8",
+    "tp": 150,
+    "eps_est": "今年4，明年8",
+    "catalysts": [
+      "台積電 dummy die 外包，現在5萬片→明年20萬片，增加20%營收"
+    ],
+    "customers": [
+      "台積電"
+    ],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-19T09:00:00"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-05-19",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "覆銅板",
+    "quote": "台光電 2027年底產能945萬張/月，2028年會增加到1145萬張/月，以因應強勁的M8-M9的出貨需求，對於上游電子布LK2和Q布需求強勁，供不應求趨勢不變",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "2027底產能945萬張/月，2028增至1145萬張/月",
+      "M8-M9出貨需求強勁，供不應求"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-05-19T09:00:00"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-05-19",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "覆銅板",
+    "quote": "台燿自結回沖打掉一塊 市場預期四塊多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "自結回沖打掉一塊，市場預期4月EPS四塊多"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-05-19T09:00:00"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-05-19",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": "Eddie",
+    "host": null,
+    "sector": "覆銅板",
+    "quote": "台燿這自結單按照營收比例的話，4月共識EPS要2.7元，GM回推有27.5%左右，2Q就會符合共識平均28.5%的毛利率",
+    "tp": null,
+    "eps_est": "4月EPS 2.7元",
+    "catalysts": [
+      "4月部分客戶漲價，5~6月陸續漲，GM逐月上，2Q毛利率估28.5%"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-05-19T09:00:00"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-05-19",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": "Johnny",
+    "host": null,
+    "sector": "覆銅板",
+    "quote": "台燿七月後量能增加加上漲價提列回沖會增加很多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "7月後量能增加+漲價提列回沖，EPS大幅提升"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-05-19T09:00:00"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-05-19",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": "Eddie",
+    "host": null,
+    "sector": "覆銅板",
+    "quote": "按照台光/台燿的講法4月喊漲，部分客戶4月漲，部分5~6月漲，所以GM是逐月上",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "4月部分客戶漲價，5~6月陸續調漲，GM逐月提升"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-05-19T09:00:00"
+  },
+  {
     "code": "8021",
     "name": "尖點",
     "date": "2026-05-18",
