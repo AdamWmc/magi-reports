@@ -2058,6 +2058,53 @@
     "parsed_at": "2026-05-19T21:21:08"
   },
   {
+    "code": "2441",
+    "name": "超豐",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "封測",
+    "quote": "2441：預計3月營收可達16~17億，4月創新高，5月後月月高。今年保底7塊，給20倍PE，TP 150，籌碼乾淨",
+    "tp": "150",
+    "eps_est": {
+      "2026": "7"
+    },
+    "catalysts": [
+      "3月營收16-17億",
+      "4月創新高",
+      "籌碼乾淨"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-24",
+    "source_type": "meeting",
+    "source_page": "20260324_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "6451",
+    "name": "訊芯-KY",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "光通訊",
+    "quote": "6451的訊芯，Broadcom除了tomahawk5&6還有新的CPO交換機，scale up量很大，市場估30%share",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Broadcom新CPO交換機",
+      "Scale up量大"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-24",
+    "source_type": "meeting",
+    "source_page": "20260324_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
     "code": "2308",
     "name": "台達電",
     "code_source": "explicit",
@@ -2637,6 +2684,201 @@
     "source_type": "meeting",
     "source_page": "20260325_聚泓",
     "parsed_at": "2026-05-19T22:00:00",
+    "validated": true
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "code_source": "name_exact",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "散熱",
+    "quote": "GTC大會NV推出全CPU rack，散熱奇鋐、富世達有機會受惠",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "NV全CPU rack受惠"
+    ],
+    "sentiment": "中性",
+    "holding": null,
+    "date": "2026-03-27",
+    "source_type": "meeting",
+    "source_page": "20260327_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "3533",
+    "name": "嘉澤",
+    "code_source": "name_exact",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "連接器",
+    "quote": "前幾天ARM大會提到CPU因為agent AI用量提升非常多，受惠的可能如嘉澤CPU socket",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Agent AI CPU用量提升"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-27",
+    "source_type": "meeting",
+    "source_page": "20260327_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "5439",
+    "name": "高技",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "網通",
+    "quote": "5439有一些買盤投信進場，待3月營收開完後再做進場",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": null,
+    "sentiment": "中性",
+    "holding": null,
+    "date": "2026-03-27",
+    "source_type": "meeting",
+    "source_page": "20260327_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "6451",
+    "name": "訊芯-KY",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "光通訊",
+    "quote": "6451 客戶AVGO、molex、jabil，終端4大CSP都有，市場估30%share，先往20塊看，更確認應該比30%還要多",
+    "tp": "20",
+    "eps_est": null,
+    "catalysts": [
+      "4大CSP客戶",
+      "30%+份額主供"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-27",
+    "source_type": "meeting",
+    "source_page": "20260327_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "散熱",
+    "quote": "持續看好3017跟3653",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": null,
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-30",
+    "source_type": "meeting",
+    "source_page": "20260330_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "3167",
+    "name": "大量",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "PCB設備",
+    "quote": "推3167大量，今年保底1200台CCD鑽孔機，上看1800-2000，四月規劃2班制，今明年EPS 25、43，給20x，TP 860",
+    "tp": "860",
+    "eps_est": {
+      "2026": "25",
+      "2027": "43"
+    },
+    "catalysts": [
+      "CCD鑽孔機super cycle",
+      "2班制擴產"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-30",
+    "source_type": "meeting",
+    "source_page": "20260330_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "散熱",
+    "quote": "3324 3月營收還是會不錯但是下半年可能要小心，NV覺得他品質達不到水準",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": null,
+    "sentiment": "看空",
+    "holding": null,
+    "date": "2026-03-30",
+    "source_type": "meeting",
+    "source_page": "20260330_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "散熱",
+    "quote": "3653健策，CL發27年143元，VR期待從3324雙鴻移到3653，NV覺得3324品質達不到水準",
+    "tp": null,
+    "eps_est": {
+      "2027": "143"
+    },
+    "catalysts": [
+      "VR散熱份額轉移自雙鴻"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-30",
+    "source_type": "meeting",
+    "source_page": "20260330_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
+    "validated": true
+  },
+  {
+    "code": "8996",
+    "name": "高力",
+    "code_source": "explicit",
+    "speaker": "聚泓",
+    "host": "聚泓",
+    "sector": "散熱",
+    "quote": "8996高力，強力買進，TP1325；散熱年增三位數，中壢廠完工後27年3倍燃料電池產能，EPS 2026 22.28，2027 33.12",
+    "tp": "1325",
+    "eps_est": {
+      "2026": "22.28",
+      "2027": "33.12"
+    },
+    "catalysts": [
+      "散熱年增三位數",
+      "中壢廠27年3倍產能",
+      "BE漲價GM向上"
+    ],
+    "sentiment": "看多",
+    "holding": null,
+    "date": "2026-03-30",
+    "source_type": "meeting",
+    "source_page": "20260330_聚泓",
+    "parsed_at": "2026-05-20T10:00:00",
     "validated": true
   },
   {

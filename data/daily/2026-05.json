@@ -2190,5 +2190,233 @@
   "code_source": "explicit",
   "validated": true,
   "parsed_at": "2026-05-19T22:30:00"
+ },
+ {
+  "code": "6239",
+  "name": "力成",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "封測",
+  "quote": "力成可能要停牌",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "可能要停牌"
+  ],
+  "customers": [],
+  "sentiment": "看空",
+  "holding": false,
+  "code_source": "name_exact",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "8039",
+  "name": "台虹",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "PCB材料",
+  "quote": "台虹原本送M9，後來改M10了，驗證沒跟上伺服器出的速度就改驗M10，年底確認驗證，明年底量產",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "M9改M10驗證",
+   "年底確認驗證",
+   "明年底量產"
+  ],
+  "customers": [],
+  "sentiment": "偏多",
+  "holding": false,
+  "code_source": "name_exact",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "6138",
+  "name": "茂達",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "被動元件",
+  "quote": "6138下午或明天應該會傳新的被動漲價函，日商的",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "被動元件漲價函即將傳出"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "explicit",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "2327",
+  "name": "國巨*",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": "被動專家",
+  "host": null,
+  "sector": "被動元件",
+  "quote": "被動專家：國巨目前下單漲價30%，後面出貨前再漲你30%；另外全品項漲60%，ODM問到電阻漲50%",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "下單漲價30%+出貨前再漲30%",
+   "全品項漲60%"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "name_exact",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "3537",
+  "name": "堡達",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "被動元件代理",
+  "quote": "Panasonic漲價40%，3537 90%代理",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "代理Panasonic被動元件漲價40%",
+   "3537代理比重90%"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "explicit",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "6274",
+  "name": "台燿",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "PCB材料",
+  "quote": "6274 6月要漲價；有人推高技說金像電訂單外溢，台光電需求爆掉，所以台燿基本也是全滿",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "6月漲價",
+   "台光電需求爆產能全滿"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "explicit",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "2383",
+  "name": "台光電",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "PCB材料",
+  "quote": "台光電需求爆掉，所以台燿基本也是全滿",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "需求爆掉"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "name_exact",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "5439",
+  "name": "高技",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "PCB",
+  "quote": "有人在推高技說金像電訂單外溢",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "金像電訂單外溢受惠"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "name_exact",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "2368",
+  "name": "金像電",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "PCB",
+  "quote": "有人在推高技說金像電訂單外溢，台光電需求爆掉",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "訂單外溢"
+  ],
+  "customers": [],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "name_exact",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
+ },
+ {
+  "code": "3443",
+  "name": "創意",
+  "date": "2026-05-20",
+  "source_type": "daily",
+  "source_page": "2026-05_廢想法_monthly",
+  "speaker": null,
+  "host": null,
+  "sector": "IC設計服務",
+  "quote": "前陣子3443外資場有上修展望，說全年成長幅度比去年好，主要因為Google CPU上修，本來100多萬顆上修到200-250萬顆",
+  "tp": null,
+  "eps_est": null,
+  "catalysts": [
+   "外資上修展望",
+   "Google CPU訂單上修 100→200-250萬顆"
+  ],
+  "customers": [
+   "Google"
+  ],
+  "sentiment": "看多",
+  "holding": false,
+  "code_source": "explicit",
+  "validated": true,
+  "parsed_at": "2026-05-20T09:58:57"
  }
 ]
