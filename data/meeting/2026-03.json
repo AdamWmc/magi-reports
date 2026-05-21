@@ -1426,6 +1426,39 @@
     "parsed_at": "2026-05-19T21:21:08"
   },
   {
+    "code": "3324",
+    "name": "雙鴻",
+    "speaker": "聚泓",
+    "quote": "3324雙鴻週五座談，做DIMM CP，月產能30k一片1000-3000usd，smci出事夜盤大跌30%，是雙鴻三大客戶",
+    "date": "2026-03-22",
+    "source_type": "meeting",
+    "source_page": "20260322_聚泓",
+    "host": "聚泓",
+    "parsed_at": "2026-05-21T10:00:00"
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "speaker": "聚泓",
+    "quote": "相對來說奇鋐會是好的標的",
+    "date": "2026-03-22",
+    "source_type": "meeting",
+    "source_page": "20260322_聚泓",
+    "host": "聚泓",
+    "parsed_at": "2026-05-21T10:00:00"
+  },
+  {
+    "code": "2441",
+    "name": "超豐",
+    "speaker": "聚泓",
+    "quote": "mpwr幫nv做電源管理ic，2441超豐幫他做封測，三月開始16-17億，毛利23-25%，eps7-8",
+    "date": "2026-03-22",
+    "source_type": "meeting",
+    "source_page": "20260322_聚泓",
+    "host": "聚泓",
+    "parsed_at": "2026-05-21T10:00:00"
+  },
+  {
     "code": "2441",
     "name": "超豐",
     "code_source": "name_exact",
