@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI 盤後報告 2026-05-21</title>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--warn:#f59e0b;
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px;text-transform:uppercase}
+.nav-date{font-size:11px;color:var(--muted)}
+.nav-back{font-size:12px;color:var(--muted);transition:color .15s}
+.nav-back:hover{color:var(--text)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 7px;cursor:pointer;font-size:13px;line-height:1;transition:border-color .15s}
+.theme-btn:hover{border-color:var(--accent2)}
+
+.hero-wrap{position:relative;overflow:hidden;padding:40px 40px 32px;background:var(--bg)}
+.hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:28px 28px;opacity:.4;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%)}
+.hero-inner{position:relative;z-index:1}
+
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:11px;color:var(--muted);margin-bottom:18px}
+.hero-pill .live{width:6px;height:6px;border-radius:50%;background:var(--up);box-shadow:0 0 7px var(--up);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+.hero-dual{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.hero-mkt{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 24px}
+.hero-mkt-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.hero-mkt-idx{font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--bright);letter-spacing:-1.5px;line-height:1}
+.hero-mkt-chg{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:6px;font-size:13px;font-weight:700}
+.hero-mkt-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.hero-mkt-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.hero-mkt-meta{margin-top:8px;font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px}
+.hero-headline{font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.7;max-width:700px}
+.hero-headline strong{color:var(--text)}
+
+.signals{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sig{display:flex;align-items:center;gap:7px;padding:5px 12px;border-radius:100px;font-size:12px;border:1px solid var(--border);background:var(--bg2)}
+.sig-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sig-label{color:var(--muted)}
+.sig-val{font-weight:700}
+.sig-up .sig-dot{background:var(--up);box-shadow:0 0 6px var(--up)}
+.sig-up .sig-val{color:var(--up)}
+.sig-dn .sig-dot{background:var(--dn);box-shadow:0 0 6px var(--dn)}
+.sig-dn .sig-val{color:var(--dn)}
+.sig-warn .sig-dot{background:var(--warn);box-shadow:0 0 6px var(--warn)}
+.sig-warn .sig-val{color:var(--warn)}
+
+.breadth-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+.b-title{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.b-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:8px}
+.up-s{background:var(--up)}.flat-s{background:var(--dimmer)}.dn-s{background:var(--dn)}
+.b-nums{display:flex;flex-wrap:wrap;gap:12px;font-size:12px}
+.b-nums .u{color:var(--up);font-weight:600}.b-nums .d{color:var(--dn);font-weight:600}.b-nums .f{color:var(--muted)}
+.otc-breadth{margin-top:8px;font-size:11px;color:var(--muted);padding-top:8px;border-top:1px solid var(--border2)}
+
+.content{max-width:1200px;margin:0 auto;padding:0 40px 60px}
+.section-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin:32px 0 14px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:inline-block;width:3px;height:12px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px}
+.card-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:12px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.card-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sc-name{font-size:13px;font-weight:700;color:var(--bright)}
+.sc-count{font-size:11px;padding:2px 7px;border-radius:4px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);font-weight:700}
+.sc-stocks{font-size:11px;color:var(--text2);line-height:1.7}
+.sc-notion{margin-top:8px;padding-top:8px;border-top:1px solid var(--border2)}
+.sc-notion-title{font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px;letter-spacing:.3px}
+.sc-quote{font-size:11px;color:var(--text2);font-style:italic;line-height:1.6}
+.sc-quote-who{font-size:10px;color:var(--muted);margin-top:2px}
+.weak-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.weak-tag{font-size:11px;padding:3px 9px;border-radius:4px;background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.inst-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.inst-name{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.inst-val{font-size:22px;font-weight:800;letter-spacing:-0.5px}
+.inst-val.up{color:var(--up)}.inst-val.dn{color:var(--dn)}
+.inst-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+.fut-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.fut-card.accent{border-color:var(--accent2);background:var(--glow)}
+.fut-name{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.3px;margin-bottom:4px;text-transform:uppercase}
+.fut-val{font-size:16px;font-weight:800;letter-spacing:-0.3px}
+.fut-val.up{color:var(--up)}.fut-val.dn{color:var(--dn)}
+.fut-sub{font-size:9px;color:var(--muted);margin-top:2px}
+
+.fin-tbl{width:100%}
+.fin-tbl tr+tr{border-top:1px solid var(--border2)}
+.fin-tbl td{padding:5px 6px;font-size:12px;vertical-align:middle}
+.fin-tbl td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.fin-tbl td .code{font-size:10px;color:var(--muted)}
+.fin-tbl td .name{font-weight:600;color:var(--text)}
+.val-up{color:var(--up);font-weight:700}.val-dn{color:var(--dn);font-weight:700}
+
+.margin-tbl{width:100%;border-collapse:collapse}
+.margin-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:right;padding:5px 8px;border-bottom:1px solid var(--border)}
+.margin-tbl th:first-child{text-align:left}
+.margin-tbl td{font-size:12px;padding:8px 8px;text-align:right;border-bottom:1px solid var(--border2)}
+.margin-tbl td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.margin-tbl tr:last-child td{border-bottom:none}
+
+.radar-feed{display:flex;flex-direction:column;gap:8px}
+.rf-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.rf-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rf-person{font-weight:700;font-size:14px;color:var(--bright)}
+.rf-group{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
+.rf-date{font-size:11px;color:var(--dimmer);margin-left:auto}
+.rf-mentions{display:flex;flex-direction:column;gap:5px}
+.rf-mention{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:7px 10px;border-radius:7px;background:var(--bg);border:1px solid var(--border2)}
+.rf-code{font-size:10px;color:var(--muted);min-width:32px}
+.rf-name{font-size:13px;font-weight:600;color:var(--text)}
+.rf-quote{font-size:11px;color:var(--text2);font-style:italic;flex:1}
+.rf-sentiment{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.rf-s-bull{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.rf-s-watch{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
+.rf-s-bear{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+
+.consensus-tbl{width:100%;border-collapse:collapse}
+.consensus-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;padding:5px 8px;text-align:left;border-bottom:1px solid var(--border)}
+.consensus-tbl td{padding:8px 8px;border-bottom:1px solid var(--border2);vertical-align:middle;font-size:12px}
+.consensus-tbl tr:last-child td{border-bottom:none}
+.stk-name{font-weight:700;color:var(--text);display:block}
+.stk-code{font-size:10px;color:var(--muted)}
+.score-badge{font-size:12px;font-weight:800;color:var(--accent2)}
+.pushers-cell{font-size:10px;color:var(--muted);max-width:200px}
+
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.stock-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .15s}
+.stock-card:hover{border-color:var(--accent2)}
+.stock-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.stock-meta{flex:1}
+.stock-code-label{font-size:10px;color:var(--muted)}
+.stock-name{font-size:16px;font-weight:800;color:var(--bright);line-height:1.2}
+.stock-price-wrap{text-align:right}
+.stock-price{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.stock-chg{font-size:11px;padding:2px 6px;border-radius:4px;font-weight:700;margin-top:2px;display:inline-block}
+.stock-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.stock-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.badge-limitup{background:var(--up);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.badge-punish{background:rgba(245,158,11,.15);color:var(--warn);font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;border:1px solid rgba(245,158,11,.3)}
+.notion-score-bar{display:flex;align-items:center;gap:6px;margin:8px 0;padding:6px 8px;background:var(--bg3);border-radius:6px}
+.ns-label{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;width:40px;flex-shrink:0}
+.ns-score{font-size:13px;font-weight:800;color:var(--accent2)}
+.ns-pushers{font-size:10px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stock-thesis{font-size:11px;color:var(--text2);margin:6px 0;line-height:1.6}
+.stock-quote{font-size:11px;color:var(--text2);font-style:italic;margin:4px 0;padding:6px 8px;background:var(--bg3);border-left:2px solid var(--accent2);border-radius:0 4px 4px 0}
+.kline-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent2);margin-top:8px;padding:4px 10px;border:1px solid var(--accent2);border-radius:100px;transition:background .12s}
+.kline-link:hover{background:var(--glow)}
+
+.warn-section{margin-bottom:16px}
+.warn-title{font-size:11px;font-weight:700;color:var(--warn);letter-spacing:.4px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.warn-title::before{content:'⚠';font-size:12px}
+.warn-grid{display:flex;flex-wrap:wrap;gap:8px}
+.warn-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.warn-chip.attention{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
+.warn-chip.punish{background:rgba(220,38,38,.07);color:var(--up);border:1px solid rgba(220,38,38,.2)}
+.warn-chip.punish-new{background:rgba(220,38,38,.14);color:var(--up);border:2px solid var(--up);font-weight:800}
+.warn-chip.punish-new.consensus{border-color:var(--warn);color:var(--warn)}
+.warn-chip .days{font-size:9px;opacity:.7;margin-left:2px}
+
+.disposal-tbl{width:100%;border-collapse:collapse}
+.disposal-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);text-transform:uppercase}
+.disposal-tbl th:last-child{text-align:right}
+.disposal-tbl td{padding:7px 10px;border-bottom:1px solid var(--border2);font-size:12px;vertical-align:middle}
+.disposal-tbl tr:last-child td{border-bottom:none}
+.disposal-tbl .code{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .nm{font-weight:600;color:var(--text);width:99%}
+.disposal-tbl .period{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .rel{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .left{text-align:right;font-weight:700;white-space:nowrap;color:var(--text2)}
+.disposal-tbl tr.row-soon{background:var(--up-bg)}
+.disposal-tbl tr.row-soon .left{color:var(--up)}
+.disposal-tbl tr.row-new{background:rgba(245,158,11,.06)}
+.disposal-tbl tr.row-new .left{color:var(--warn)}
+.disposal-tbl tr.row-upcoming{opacity:.6}
+
+.sector-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;font-size:11px;border:1px solid var(--border);background:var(--bg3);margin:3px}
+.sector-badge .cnt{font-weight:700;color:var(--accent2)}
+.sector-badge .recent{font-size:9px;padding:1px 5px;border-radius:3px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);margin-left:4px}
+
+footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.src-badge{padding:3px 8px;border-radius:4px;background:var(--bg3);border:1px solid var(--border);font-size:10px}
+
+@media(max-width:760px){
+  .hero-dual,.grid2{grid-template-columns:1fr !important;gap:14px}
+  .grid3,.grid5,.inst-grid{grid-template-columns:1fr 1fr}
+  .sector-grid{grid-template-columns:1fr}
+  nav{padding:12px 16px}
+  .hero-wrap,.content{padding-left:16px;padding-right:16px}
+  footer{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <span class="nav-badge">盤後報告</span>
+    <span class="nav-date">2026-05-21 週四</span>
+    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+  <a href="/" class="nav-back">← 首頁</a>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="live"></span><span>2026-05-21 盤後總結</span></div>
+
+    <div class="hero-dual">
+      <div class="hero-mkt">
+        <div class="hero-mkt-label">加權指數（上市）</div>
+        <div class="hero-mkt-idx">41,368</div>
+        <div class="hero-mkt-chg up">
+          ▲ 1347.39 (3.37%)
+        </div>
+        <div class="hero-mkt-meta">
+          <span>成交 <strong>10,129億</strong></span>
+          <span>漲停 <strong style="color:var(--up)">60</strong></span>
+          <span>跌停 <strong style="color:var(--dn)">3</strong></span>
+        </div>
+      </div>
+      <div class="hero-mkt">
+        <div class="hero-mkt-label">上櫃指數（OTC）</div>
+        <div class="hero-mkt-idx">409.8</div>
+        <div class="hero-mkt-chg up">
+          ▲ 13.38 (3.38%)
+        </div>
+        <div class="hero-mkt-meta">
+          <span>漲停 <strong style="color:var(--up)">44</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hero-headline"><strong>輝達救全村</strong>，台股報復性反彈大漲 1,347 點，創史上第 5 大收盤漲點，重返 41,300，成交量爆出 1.01 兆。聯發科出關首日噴漲停一價到底（3,550 元）、國巨*亮燈漲停（572 元）、被動元件與 ABF 載板族群全面點火（<strong>欣興、景碩、創意</strong>同奔漲停）。三大法人翻多買超 <strong>+853 億</strong>，外資轉買 603 億，投信續多。市場廣度極佳：上漲 1,503 vs 下跌 314，上市/上櫃同步噴出。</p>
+
+    <div class="signals">
+      <div class="sig sig-up">
+        <span class="sig-dot"></span><span class="sig-label">大盤方向</span>
+        <span class="sig-val">偏多 3.37%</span>
+      </div>
+      <div class="sig sig-up">
+        <span class="sig-dot"></span><span class="sig-label">上市上櫃同向</span>
+        <span class="sig-val">同漲 ✓</span>
+      </div>
+      <div class="sig sig-up">
+        <span class="sig-dot"></span><span class="sig-label">法人合力</span>
+        <span class="sig-val">+853.2億</span>
+      </div>
+      <div class="sig sig-up">
+        <span class="sig-dot"></span><span class="sig-label">市場廣度</span>
+        <span class="sig-val">上漲850 &gt; 下跌156</span>
+      </div>
+    </div>
+
+    <div class="breadth-wrap">
+      <div class="b-title">上市漲跌分布</div>
+      <div class="b-bar">
+        <div class="up-s" style="width:79.4%"></div>
+        <div class="flat-s" style="width:6.1%"></div>
+        <div class="dn-s" style="width:14.6%"></div>
+      </div>
+      <div class="b-nums">
+        <span class="u">漲 850（79.4%）</span>
+        <span class="f">平 65</span>
+        <span class="d">跌 156（14.6%）</span>
+        <span style="color:var(--up);font-weight:700">漲停 60</span>
+        <span style="color:var(--dn)">跌停 3</span>
+      </div>
+      <div class="otc-breadth">
+        上櫃：上漲 <strong>653</strong> &nbsp; 持平 66 &nbsp; 下跌 <strong>158</strong> &nbsp; 漲停 <strong style="color:var(--up)">44</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="section-title">今日市場方向</div>
+<div class="sector-grid">
+  <div class="sector-card">
+    <div class="sc-header">
+      <span class="sc-name">🧠 IC設計/AI ASIC</span>
+      <span class="sc-count">5 漲停</span>
+    </div>
+    <div class="sc-stocks"><b>聯發科 +10%（出關噴停）</b>、創意 +10%、世芯 +9%、矽力 +10%、致茂 +10%</div>
+    <div class="sc-notion">
+      <div class="sc-notion-title">群組怎麼說</div>
+      <div class="sc-quote">「買回3443，明年投片最終定案是在7月第三禮拜final，2Q26毛利率會下來，但google量大所以看EPS絕對值」</div>
+<div class="sc-quote-who">Ken（駿羽 05-21）</div>    </div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header">
+      <span class="sc-name">🟨 ABF載板/PCB</span>
+      <span class="sc-count">4 漲停</span>
+    </div>
+    <div class="sc-stocks"><b>欣興 +9.69%</b>、景碩 +9.92%（漲停）、台光電 +6.71%、台燿 +9.96%（漲停）</div>
+    <div class="sc-notion">
+      <div class="sc-notion-title">群組怎麼說</div>
+      <div class="sc-quote">「6274 6月要漲價。有人在推高技說金像電訂單外溢，台光電需求爆掉，所以台燿基本也是全滿」</div>
+<div class="sc-quote-who">每日廢想法（05-21）</div>    </div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header">
+      <span class="sc-name">⚡ 被動元件 (MLCC)</span>
+      <span class="sc-count">8 漲停</span>
+    </div>
+    <div class="sc-stocks"><b>國巨* +10%（漲停）</b>、華新科、大毅、天二科技、凱美、信昌電、鈺邦、堡達、禾伸堂（多檔急漲後分析師提醒乖離過大）</div>
+    <div class="sc-notion">
+      <div class="sc-notion-title">群組怎麼說</div>
+      <div class="sc-quote">「國巨目前下單漲價30%，後面出貨前再漲30%；另全品項漲60%」</div>
+<div class="sc-quote-who">被動專家（每日廢想法）</div>    </div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header">
+      <span class="sc-name">🚀 高價股/AI伺服器</span>
+      <span class="sc-count">3 漲停</span>
+    </div>
+    <div class="sc-stocks"><b>緯穎 +8.86%</b>、大立光 +10%（漲停）、川湖 +近半停、健策、嘉澤、貿聯</div>
+    <div class="sc-notion">
+      <div class="sc-notion-title">群組怎麼說</div>
+      <div class="sc-quote">「貿聯明年看140塊，是AI零組件中少數明年15倍的」</div>
+<div class="sc-quote-who">Ken（駿羽 05-21）</div>    </div>
+  </div>
+  <div class="sector-card">
+    <div class="sc-header">
+      <span class="sc-name">🛰️ 低軌衛星/SpaceX</span>
+      <span class="sc-count">3 漲停</span>
+    </div>
+    <div class="sc-stocks"><b>群創 +10%（漲停 40.6，15年新高）</b>、昇達科、啟碁、華通（SpaceX 那斯達克掛牌題材）</div>
+  </div>
+</div>
+
+<div style="margin-bottom:14px">
+  <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">⬇ 弱勢 / 跌停</div>
+  <div class="weak-row">
+    <div class="weak-tag">森崴能源</div>
+    <div class="weak-tag">睿生光電</div>
+  </div>
+</div>
+
+<div class="section-title">法人動向</div>
+<div class="inst-grid" style="margin-bottom:14px">
+  <div class="inst-card">
+    <div class="inst-name">外資</div>
+    <div class="inst-val up">
+      +603.4億
+    </div>
+    <div class="inst-sub">轉買，集中ABF/PCB/IC設計</div>
+  </div>
+  <div class="inst-card">
+    <div class="inst-name">投信</div>
+    <div class="inst-val up">
+      +53.8億
+    </div>
+    <div class="inst-sub">續多，加碼廣達、臻鼎、景碩</div>
+  </div>
+  <div class="inst-card">
+    <div class="inst-name">自營商</div>
+    <div class="inst-val up">
+      +196.0億
+    </div>
+    <div class="inst-sub">三大合計 <strong style="color:var(--up)">+853.2億</strong></div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">期貨未平倉籌碼（口數）</div>
+  <div class="grid5">
+    <div class="fut-card">
+      <div class="fut-name">外資及陸資</div>
+      <div class="fut-val dn">-44,454</div>
+      <div class="fut-sub">空</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">投信</div>
+      <div class="fut-val up">40,713</div>
+      <div class="fut-sub">多</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">自營商</div>
+      <div class="fut-val up">+1,255</div>
+      <div class="fut-sub">中性</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">前五大特定法人</div>
+      <div class="fut-val up">+6,709</div>
+      <div class="fut-sub">淨多</div>
+    </div>
+    <div class="fut-card accent">
+      <div class="fut-name">小外資 ★</div>
+      <div class="fut-val dn">-10,450</div>
+      <div class="fut-sub">外資全−前五大+投信</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:var(--text2)">投信續多 <strong>+40,713</strong> 口刷新近期高、小外資 <strong>-10,450</strong> 口偏空、外資全空單 <strong>-44,454</strong> 口擴大，呈現「<strong>現多期空</strong>」結構，現貨大反彈但期貨方仍未轉多，明日是否續攻看現貨買盤能否再延伸。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">個股法人買賣超金額（億元，估算）</div>
+  <div class="grid3">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--up);margin-bottom:6px">外資買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">3189</span><br><span class="name">景碩</span></td><td class="val-up">+66.0億</td></tr>
+        <tr><td><span class="code">3037</span><br><span class="name">欣興</span></td><td class="val-up">+61.7億</td></tr>
+        <tr><td><span class="code">2317</span><br><span class="name">鴻海</span></td><td class="val-up">+59.5億</td></tr>
+        <tr><td><span class="code">2303</span><br><span class="name">聯電</span></td><td class="val-up">+50.8億</td></tr>
+        <tr><td><span class="code">3481</span><br><span class="name">群創</span></td><td class="val-up">+39.8億</td></tr>
+        <tr><td><span class="code">3231</span><br><span class="name">緯創</span></td><td class="val-up">+38.7億</td></tr>
+        <tr><td><span class="code">2409</span><br><span class="name">友達</span></td><td class="val-up">+31.7億</td></tr>
+        <tr><td><span class="code">2404</span><br><span class="name">漢唐</span></td><td class="val-up">+31.5億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--dn);margin-bottom:6px">外資賣超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">3443</span><br><span class="name">創意</span></td><td class="val-dn">45.1億</td></tr>
+        <tr><td><span class="code">2344</span><br><span class="name">華邦電</span></td><td class="val-dn">35.6億</td></tr>
+        <tr><td><span class="code">2337</span><br><span class="name">旺宏</span></td><td class="val-dn">32.3億</td></tr>
+        <tr><td><span class="code">2455</span><br><span class="name">全新</span></td><td class="val-dn">23.7億</td></tr>
+        <tr><td><span class="code">2892</span><br><span class="name">第一金</span></td><td class="val-dn">19.9億</td></tr>
+        <tr><td><span class="code">3533</span><br><span class="name">嘉澤</span></td><td class="val-dn">19.7億</td></tr>
+        <tr><td><span class="code">6531</span><br><span class="name">愛普*</span></td><td class="val-dn">18.6億</td></tr>
+        <tr><td><span class="code">3167</span><br><span class="name">大量</span></td><td class="val-dn">15.8億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--accent2);margin-bottom:6px">投信買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2382</span><br><span class="name">廣達</span></td><td style="color:var(--accent2);font-weight:700">+29.1億</td></tr>
+        <tr><td><span class="code">4958</span><br><span class="name">臻鼎-KY</span></td><td style="color:var(--accent2);font-weight:700">+16.1億</td></tr>
+        <tr><td><span class="code">3189</span><br><span class="name">景碩</span></td><td style="color:var(--accent2);font-weight:700">+9.8億</td></tr>
+        <tr><td><span class="code">8046</span><br><span class="name">南電</span></td><td style="color:var(--accent2);font-weight:700">+9.2億</td></tr>
+        <tr><td><span class="code">2887</span><br><span class="name">台新新光金</span></td><td style="color:var(--accent2);font-weight:700">+7.3億</td></tr>
+        <tr><td><span class="code">3533</span><br><span class="name">嘉澤</span></td><td style="color:var(--accent2);font-weight:700">+7.0億</td></tr>
+        <tr><td><span class="code">3045</span><br><span class="name">台灣大</span></td><td style="color:var(--accent2);font-weight:700">+7.0億</td></tr>
+        <tr><td><span class="code">3017</span><br><span class="name">奇鋐</span></td><td style="color:var(--accent2);font-weight:700">+6.9億</td></tr>
+      </table>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:var(--text2)">外資大買 <strong>景碩 66 億 / 欣興 61.7 億 / 鴻海 59.5 億 / 聯電 50.8 億</strong>，ABF 載板+PCB+IC 設計三線齊發；外資反向大賣 <strong>創意 -45.1 億、華邦電 -35.6 億、旺宏 -32.3 億</strong>（DRAM/Flash 殺出反彈賣壓）。投信主買 <strong>廣達 29.1 億、臻鼎 16.1 億、景碩 9.8 億</strong>。</div>
+</div>
+
+<div class="section-title">信用交易（散戶融資籌碼）</div>
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">融資融券當日結算</div>
+  <table class="margin-tbl">
+    <thead>
+      <tr>
+        <th>市場</th><th>融資增減（億）</th><th>融資餘額（億）</th>
+        <th>使用率</th><th>融資維持率</th><th>整戶擔保維持率</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>上市（TSE）</td>
+        <td class="val-up">+90.7億</td>
+        <td>5,111.5億</td>
+        <td>4.81%</td>
+        <td>174.161%</td>
+        <td>174.3948%</td>
+      </tr>
+      <tr>
+        <td>上櫃（OTC）</td>
+        <td class="val-up">+33.7億</td>
+        <td>1,970.3億</td>
+        <td>13.34%</td>
+        <td>169.0044%</td>
+        <td>169.4012%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:8px;font-size:11px;color:var(--muted)">上市融資 &lt;strong&gt;+90.7 億&lt;/strong&gt;（大反彈散戶大舉進場），維持率回升至 &lt;strong&gt;174.16%&lt;/strong&gt;（&amp;gt; 170% 健康）；上櫃融資 &lt;strong&gt;+33.7 億&lt;/strong&gt;，維持率 169.00%。兩市維持率同步走高，融資餘額擴張屬「健康加碼」型，短線買盤動能足。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">上市融資維持率 × 融資餘額 60日趨勢</div>
+  <div style="position:relative">
+    <canvas id="marginChart" width="900" height="120" style="width:100%;height:auto"></canvas>
+    <div id="marginTip" style="display:none;position:absolute;top:0;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:10px;color:var(--text2);white-space:nowrap;pointer-events:none;z-index:10;line-height:1.8"></div>
+  </div>
+  <div style="margin-top:8px;display:flex;gap:16px;font-size:11px">
+    <span><span style="display:inline-block;width:10px;height:2px;background:#c084fc;vertical-align:middle;margin-right:4px"></span>融資維持率（左軸）</span>
+    <span><span style="display:inline-block;width:10px;height:2px;background:#f59e0b;vertical-align:middle;margin-right:4px"></span>融資餘額（右軸，億）</span>
+    <span style="color:var(--muted)">
+      60日：維持率 低 152.5% / 高 182.1% / 今 174.2%
+    </span>
+  </div>
+</div>
+
+<div class="section-title">Notion 智囊雷達</div>
+<div class="grid2" style="margin-bottom:14px;grid-template-columns:1.3fr 1fr">
+  <div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">誰在看什麼</div>
+    <div class="radar-feed">
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Eddie</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">4974</span>
+            <span class="rf-name">亞泰</span>
+            <span class="rf-quote">「持股相對集中的是亞泰、台燿、頎邦、華通、大量」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「持股相對集中的是亞泰、台燿、頎邦、華通、大量，PCB 56%」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「持股相對集中的是亞泰、台燿、頎邦、華通、大量」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2313</span>
+            <span class="rf-name">華通</span>
+            <span class="rf-quote">「持股相對集中的是亞泰、台燿、頎邦、華通、大量」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3167</span>
+            <span class="rf-name">大量</span>
+            <span class="rf-quote">「持股相對集中的是亞泰、台燿、頎邦、華通、大量」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">每日廢想法</span>
+          <span class="rf-group">每日廢想法</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6239</span>
+            <span class="rf-name">力成</span>
+            <span class="rf-quote">「力成 （Andy Kung 說）AMD BRCM 都會有好消息，BRCM and Powertech 會合資成立公司，6/10 前公布，不過今天簽約，我喊400 布哥喊500」</span>
+            <span class="rf-sentiment rf-s-bull">積極看多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6669</span>
+            <span class="rf-name">緯穎</span>
+            <span class="rf-quote">「今天問到一些緯穎新東西很屌，GOOG TPU目前系統廠是Celestica，未來TPU量太大GOOG找第二三供應商，緯穎是三供，這是緯穎第一次跟GOOG做AI生意。估算800萬顆晶片2027年，緯穎拿15%份額，保守抓150萬美元一櫃，估算出緯穎營收8718億台幣。OpenAI也找緯穎洽談8-10萬rack」</span>
+            <span class="rf-sentiment rf-s-bull">積極看多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2383</span>
+            <span class="rf-name">台光電</span>
+            <span class="rf-quote">「台光 亞泰金屬：台光要下單給亞泰，會連發三張各10億 會重訊。然後暐龍跟我說他亞泰金屬快出完了因為覺得500差不多」</span>
+            <span class="rf-sentiment rf-s-bull">看多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6727</span>
+            <span class="rf-name">亞泰金屬</span>
+            <span class="rf-quote">「台光要下單給亞泰，會連發三張各10億 會重訊。暐龍說亞泰金屬快出完了因為覺得500差不多」</span>
+            <span class="rf-sentiment rf-s-bull">看多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8039</span>
+            <span class="rf-name">台虹</span>
+            <span class="rf-quote">「台虹原本送M9 後來改M10了，對 驗證沒跟上伺服器出的速度就改驗M10，年底確認驗證 明年底量產這樣」</span>
+            <span class="rf-sentiment rf-s-watch">中性</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">小魚</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3167</span>
+            <span class="rf-name">大量</span>
+            <span class="rf-quote">「3167大量4M26開自結1.55，相較3M26 1.63低一些，猜是海外IPO費用較高，毛利率應該還是在46%以上」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3624</span>
+            <span class="rf-name">光頡</span>
+            <span class="rf-quote">「3624光頡傳5M26營收很好」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「預計持股台燿、大量、頎邦、信昌電、景碩、保瑞」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「預計持股台燿、大量、頎邦、信昌電、景碩、保瑞」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6173</span>
+            <span class="rf-name">信昌電</span>
+            <span class="rf-quote">「預計持股台燿、大量、頎邦、信昌電、景碩、保瑞」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Ken</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3105</span>
+            <span class="rf-name">穩懋</span>
+            <span class="rf-quote">「買回3105，PD很多客戶跟案子，博通100/200G是不同project，LD也是」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3443</span>
+            <span class="rf-name">創意</span>
+            <span class="rf-quote">「買回3443，明年投片最終定案是在7月第三禮拜final，2Q26毛利率會下來，但google量大所以看EPS絕對值」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3665</span>
+            <span class="rf-name">貿聯-KY</span>
+            <span class="rf-quote">「貿聯明年看140塊，是AI零組件中少數明年15倍的」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">5347</span>
+            <span class="rf-name">世界</span>
+            <span class="rf-quote">「5347世界有聽到利多，雖然評價滿貴，但有台積電合作案子、漲價」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8021</span>
+            <span class="rf-name">尖點</span>
+            <span class="rf-quote">「8021下周要訂私募價格，要給那三家板認，明年28-30塊，還要漲價幾次，他擴的基本上4958會全收」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Joson</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2327</span>
+            <span class="rf-name">國巨*</span>
+            <span class="rf-quote">「繼續推被動，2327會分兩個季度，MLCC第三季會漲，電阻現在也很緊，鉭6月也要漲」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2454</span>
+            <span class="rf-name">聯發科</span>
+            <span class="rf-quote">「icefish是2454的不是博通，rubin也沒delay，有一個N5的die要重做，應該延後2個月」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2449</span>
+            <span class="rf-name">京元電子</span>
+            <span class="rf-quote">「2449第二季QoQ10%多，NV blackwell持平，rubin有出10多k」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3231</span>
+            <span class="rf-name">緯創</span>
+            <span class="rf-quote">「3231第二季GB跟第一季差不多，高通之後要找他們做CPU rack」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「6805第三季營收會大跳，5月營收跟4月差不多，6月越往上跳，明年100塊，另外有在驗Rail Kit」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Andy哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6239</span>
+            <span class="rf-name">力成</span>
+            <span class="rf-quote">「6239力成外面傳的消息都是真的，6月跟博通、AMD會有好消息，這次漲到350-400沒問題」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2383</span>
+            <span class="rf-name">台光電</span>
+            <span class="rf-quote">「去香港看2383，台光電老闆有說最近會擴線，到2028會擴到11.5m，供應鏈有4764」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「去香港看6274」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">4764</span>
+            <span class="rf-name">雙鍵</span>
+            <span class="rf-quote">「台光電供應鏈有4764」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6727</span>
+            <span class="rf-name">亞泰金屬</span>
+            <span class="rf-quote">「6274說現在最缺上膠機，看6727」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Amy</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3105</span>
+            <span class="rf-name">穩懋</span>
+            <span class="rf-quote">「3105有送自己epi，200G比較難做，今年第一年，明年epi無法接上也會變成穩茂自己跟全新買」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6442</span>
+            <span class="rf-name">光聖</span>
+            <span class="rf-quote">「6442下半年可以回來看，google訂單很好，好到會挑毛利更高的做」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">4979</span>
+            <span class="rf-name">華星光</span>
+            <span class="rf-quote">「4979也可以看」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「6274低階東西6月會漲20%」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8021</span>
+            <span class="rf-name">尖點</span>
+            <span class="rf-quote">「8021空間還是滿大」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Bo</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「頎邦、緯穎、保瑞」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6669</span>
+            <span class="rf-name">緯穎</span>
+            <span class="rf-quote">「加碼緯穎」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6472</span>
+            <span class="rf-name">保瑞</span>
+            <span class="rf-quote">「頎邦、緯穎、保瑞」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2233</span>
+            <span class="rf-name">宇隆</span>
+            <span class="rf-quote">「宇隆AWS 7M26開始交貨，明年佔營收雙位數」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">鋒哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3443</span>
+            <span class="rf-name">創意</span>
+            <span class="rf-quote">「3443 2027年先抓低標1200E，EPS120塊，2028特斯拉要1萬片/月，營收全年2000E，EPS200塊」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6116</span>
+            <span class="rf-name">彩晶</span>
+            <span class="rf-quote">「6116彩晶賣很多touch的cover glass」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3583</span>
+            <span class="rf-name">辛耘</span>
+            <span class="rf-quote">「3583要發CB」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">布哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">05-21</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6213</span>
+            <span class="rf-name">聯茂</span>
+            <span class="rf-quote">「CCL全面漲價，6213 M6以下漲更多，但還是要買6274」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「CCL全面漲價，還是要買6274」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3105</span>
+            <span class="rf-name">穩懋</span>
+            <span class="rf-quote">「3105 PD很多客戶跟案子，博通100/200G是不同project，LD應該會成功30%，成功一個就會很多」</span>
+            <span class="rf-sentiment rf-s-watch">None</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">共識排行榜</div>
+    <table class="consensus-tbl">
+      <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--up);font-weight:700">1</td>
+          <td>
+            <span class="stk-name">台燿科技
+<span class="badge-limitup">漲停</span><span class="badge-punish">⚠處置</span>            </span>
+            <span class="stk-code">6274</span>
+          </td>
+          <td><span class="score-badge">12.35</span></td>
+          <td class="pushers-cell">Eddie（樂林）、Jako（樂林）、WL（樂林）⋯18人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">2</td>
+          <td>
+            <span class="stk-name">頎邦
+            </span>
+            <span class="stk-code">6147</span>
+          </td>
+          <td><span class="score-badge">11.82</span></td>
+          <td class="pushers-cell">Eddie（樂林）、Johnny（樂林）、Andrew哥（駿羽）⋯24人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">3</td>
+          <td>
+            <span class="stk-name">緯穎
+            </span>
+            <span class="stk-code">6669</span>
+          </td>
+          <td><span class="score-badge">10.77</span></td>
+          <td class="pushers-cell">愛德恩、小魚（樂林）、郁翔（樂林）⋯16人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">4</td>
+          <td>
+            <span class="stk-name">國巨*
+<span class="badge-limitup">漲停</span>            </span>
+            <span class="stk-code">2327</span>
+          </td>
+          <td><span class="score-badge">9.97</span></td>
+          <td class="pushers-cell">愛德恩、Alan哥（駿羽）、Jason（駿羽）⋯16人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">5</td>
+          <td>
+            <span class="stk-name">聯電
+            </span>
+            <span class="stk-code">2303</span>
+          </td>
+          <td><span class="score-badge">9.08</span></td>
+          <td class="pushers-cell">Jason（駿羽）、麻神、Ken（駿羽）⋯15人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">6</td>
+          <td>
+            <span class="stk-name">穩懋
+            </span>
+            <span class="stk-code">3105</span>
+          </td>
+          <td><span class="score-badge">7.89</span></td>
+          <td class="pushers-cell">小魚（樂林）、郁翔（樂林）、上翔（樂林）⋯17人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">7</td>
+          <td>
+            <span class="stk-name">創意
+<span class="badge-limitup">漲停</span>            </span>
+            <span class="stk-code">3443</span>
+          </td>
+          <td><span class="score-badge">6.5</span></td>
+          <td class="pushers-cell">Seb（駿羽）、永哥（駿羽）、鋒哥（駿羽）⋯12人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">8</td>
+          <td>
+            <span class="stk-name">景碩
+<span class="badge-limitup">漲停</span>            </span>
+            <span class="stk-code">3189</span>
+          </td>
+          <td><span class="score-badge">6.26</span></td>
+          <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、永哥（駿羽）⋯9人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">9</td>
+          <td>
+            <span class="stk-name">台光電
+            </span>
+            <span class="stk-code">2383</span>
+          </td>
+          <td><span class="score-badge">6.17</span></td>
+          <td class="pushers-cell">Jacky（樂林）、Andy哥（駿羽）、Andrew哥（駿羽）⋯15人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">10</td>
+          <td>
+            <span class="stk-name">雙鍵化工
+            </span>
+            <span class="stk-code">4764</span>
+          </td>
+          <td><span class="score-badge">5.99</span></td>
+          <td class="pushers-cell">Andrew哥（駿羽）、大E（駿羽）、Sunny（樂林）⋯7人</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:14px">
+      <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">熱門族群</div>
+      <div>
+        <div class="sector-badge">
+          PCB <span class="cnt">29次</span>
+        </div>
+        <div class="sector-badge">
+          被動元件 <span class="cnt">23次</span>
+        </div>
+        <div class="sector-badge">
+          半導體 <span class="cnt">17次</span>
+        </div>
+        <div class="sector-badge">
+          光通訊 <span class="cnt">15次</span>
+        </div>
+        <div class="sector-badge">
+          PCB材料 <span class="cnt">9次</span>
+        </div>
+        <div class="sector-badge">
+          晶圓代工 <span class="cnt">8次</span>
+        </div>
+        <div class="sector-badge">
+          被動元件代理 <span class="cnt">7次</span>
+        </div>
+        <div class="sector-badge">
+          CCL <span class="cnt">6次</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">精選個股</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:12px">共識排行前10名 · 點「查看走勢」連結到搜尋頁</div>
+<div class="stock-grid">
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">6274 · PCB/CCL</div>
+        <div class="stock-name">台燿科技 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #1</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">1,325.0</div>
+        <div class="stock-chg up">
+          ▲ 9.96%
+<span class="badge-limitup">漲停</span>        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:8px"><span class="badge-punish">⚠️ 處置中（5/11–5/22）</span></div>
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">12.35</span>
+      <span class="ns-pushers">Eddie（樂林）、Jako（樂林）、WL（樂林）⋯18人</span>
+    </div>
+
+    <div class="stock-thesis">6274 6月要漲價。有人在推高技說金像電訂單外溢 台光電需求爆掉 所以台燿基本也是全滿</div>
+
+    <div class="stock-quote">「台燿關最後兩天統計上要轉強，持續看好」 — 修齊（樂林 05-21）</div>
+
+    <a href="/search.html?q=6274" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">6147 · -</div>
+        <div class="stock-name">頎邦 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #2</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">222.5</div>
+        <div class="stock-chg up">
+          ▲ 3.25%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">11.82</span>
+      <span class="ns-pushers">Eddie（樂林）、Johnny（樂林）、Andrew哥（駿羽）⋯24人</span>
+    </div>
+
+    <div class="stock-thesis">傳：6147 Lite 驗證過</div>
+
+    <div class="stock-quote">「持股相對集中的是亞泰、台燿、頎邦、華通、大量」 — Eddie（樂林 05-21）</div>
+
+    <a href="/search.html?q=6147" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">6669 · AI伺服器</div>
+        <div class="stock-name">緯穎 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #3</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">5,345.0</div>
+        <div class="stock-chg up">
+          ▲ 8.86%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">10.77</span>
+      <span class="ns-pushers">愛德恩、小魚（樂林）、郁翔（樂林）⋯16人</span>
+    </div>
+
+    <div class="stock-thesis">今天問到一些緯穎新東西很屌，GOOG TPU目前系統廠是Celestica，未來TPU量太大GOOG找第二三供應商，緯穎是三供，這是緯穎第一次跟GOOG做AI生</div>
+
+    <div class="stock-quote">「6669緯穎26年估340元，27年估900-1000元，看破萬。OpenAI找鴻海跟緯穎談2027年ASIC組裝，量是8-10w rack，緯穎是二供」 — 郁翔（樂林 05-21）</div>
+
+    <a href="/search.html?q=6669" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2327 · 被動元件</div>
+        <div class="stock-name">國巨* <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #4</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">572.0</div>
+        <div class="stock-chg up">
+          ▲ 10.00%
+<span class="badge-limitup">漲停</span>        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">9.97</span>
+      <span class="ns-pushers">愛德恩、Alan哥（駿羽）、Jason（駿羽）⋯16人</span>
+    </div>
+
+    <div class="stock-thesis">國巨 幾百億大戶看800</div>
+
+    <div class="stock-quote">「繼續推被動，2327會分兩個季度，MLCC第三季會漲，電阻現在也很緊，鉭6月也要漲」 — Joson（駿羽 05-21）</div>
+
+    <a href="/search.html?q=2327" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2303 · 晶圓代工</div>
+        <div class="stock-name">聯電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #5</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">116.0</div>
+        <div class="stock-chg up">
+          ▲ 7.41%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">9.08</span>
+      <span class="ns-pushers">Jason（駿羽）、麻神、Ken（駿羽）⋯15人</span>
+    </div>
+
+    <div class="stock-thesis">聯電上週決定將Fab 8AB轉為矽光子8&#34;SiPH TFLN產線</div>
+
+    <div class="stock-quote">「2303 12吋早就滿了，8吋有看到聯電說非常緊，聯電今明年5/7-9塊，年底看150以上有機會」 — Aaron（駿羽 05-20）</div>
+
+    <a href="/search.html?q=2303" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">3105 · 化合物半導體</div>
+        <div class="stock-name">穩懋 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #6</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">483.0</div>
+        <div class="stock-chg up">
+          ▲ 8.17%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">7.89</span>
+      <span class="ns-pushers">小魚（樂林）、郁翔（樂林）、上翔（樂林）⋯17人</span>
+    </div>
+
+    <div class="stock-thesis">覺得6147、3105、4991、2426都有相關，3105私募對象應該都是美系廠商，不只一家</div>
+
+    <div class="stock-quote">「3105 PD很多客戶跟案子，博通100/200G是不同project，LD應該會成功30%，成功一個就會很多」 — 布哥（駿羽 05-21）</div>
+
+    <a href="/search.html?q=3105" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">3443 · IC設計服務</div>
+        <div class="stock-name">創意 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #7</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">5,065.0</div>
+        <div class="stock-chg up">
+          ▲ 9.99%
+<span class="badge-limitup">漲停</span>        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">6.5</span>
+      <span class="ns-pushers">Seb（駿羽）、永哥（駿羽）、鋒哥（駿羽）⋯12人</span>
+    </div>
+
+    <div class="stock-thesis">創意consensus喊到明年200塊TP8000，與緯穎合作4-5K rack，每個rack 128顆，GUC N5</div>
+
+    <div class="stock-quote">「3443過去兩周跌是說張麗絲不會當董事長，今天已當董事長，不攻而破，2Q26毛利率會下來，google量大看EPS絕對值」 — 永哥（駿羽 05-21）</div>
+
+    <a href="/search.html?q=3443" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">3189 · PCB</div>
+        <div class="stock-name">景碩 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #8</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">554.0</div>
+        <div class="stock-chg up">
+          ▲ 9.92%
+<span class="badge-limitup">漲停</span>        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">6.26</span>
+      <span class="ns-pushers">Eddie（樂林）、小魚（樂林）、永哥（駿羽）⋯9人</span>
+    </div>
+
+    <div class="stock-thesis">Diana：3189五月份有很多新的合作東西好像昨天有簽訂NDA陶瓷基板的，可以關注一下說要低調</div>
+
+    <div class="stock-quote">「3189 明年產能會超過南電，新擴的都是for CPU」 — 佑哥（駿羽 05-20）</div>
+
+    <a href="/search.html?q=3189" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2383 · AI伺服器/CCL</div>
+        <div class="stock-name">台光電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #9</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">4,690.0</div>
+        <div class="stock-chg up">
+          ▲ 6.71%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">6.17</span>
+      <span class="ns-pushers">Jacky（樂林）、Andy哥（駿羽）、Andrew哥（駿羽）⋯15人</span>
+    </div>
+
+    <div class="stock-thesis">台光 亞泰金屬：台光要下單給亞泰，會連發三張各10億 會重訊。然後暐龍跟我說他亞泰金屬快出完了因為覺得500差不多</div>
+
+    <div class="stock-quote">「去香港看2383，台光電老闆有說最近會擴線，到2028會擴到11.5m，供應鏈有4764」 — Andy哥（駿羽 05-21）</div>
+
+    <a href="/search.html?q=2383" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">4764 · 特化材料</div>
+        <div class="stock-name">雙鍵化工 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #10</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--dn)">320.0</div>
+        <div class="stock-chg dn">
+          ▼ 3.03%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">5.99</span>
+      <span class="ns-pushers">Andrew哥（駿羽）、大E（駿羽）、Sunny（樂林）⋯7人</span>
+    </div>
+
+    <div class="stock-thesis">台光電供應鏈有4764</div>
+
+    <div class="stock-quote">「台光電供應鏈有4764」 — Andy哥（駿羽 05-21）</div>
+
+    <a href="/search.html?q=4764" class="kline-link">📈 查看走勢 →</a>
+  </div>
+</div>
+
+<div class="section-title">警示股看板</div>
+
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">⚡ 快進處置 · 注意累計次數異常</div>
+  <div style="font-size:11px;color:var(--muted);margin-bottom:10px">連續達標，明日再觸發即進處置</div>
+  <div class="warn-grid">
+    <div class="warn-chip attention" style="opacity:.9">
+      2911 麗嬰房<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6742 澤米<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6834 天二科技<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      7610 聯友金屬-創<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      7730 暉盛-創<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="border-color:var(--up);font-weight:800">
+      8021 尖點<span class="days"> 9日已5次 🚨</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      3675 德微<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      5321 美而快<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6538 倉和<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="border-color:var(--up);font-weight:800">
+      8027 鈦昇<span class="days"> 9日已5次 🚨</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      8291 尚茂<span class="days"> 連2次</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔒 處置中 · 54 檔</div>
+  <table class="disposal-tbl">
+    <thead>
+      <tr><th>代號</th><th>名稱</th><th>處置期間</th><th>解禁</th><th>剩餘</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-soon">
+        <td class="code">3455</td>
+        <td class="nm">由田</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3581</td>
+        <td class="nm">博磊</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">4951</td>
+        <td class="nm">精拓科</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">5386</td>
+        <td class="nm">青雲</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">2426</td>
+        <td class="nm">鼎元</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3030</td>
+        <td class="nm">德律</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6861</td>
+        <td class="nm">睿生光電</td>
+        <td class="period">5/08–5/21</td>
+        <td class="rel">5/21</td>
+        <td class="left">⏰ 剩 1 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">1595</td>
+        <td class="nm">川寶</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">4991</td>
+        <td class="nm">環宇-KY</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">5464</td>
+        <td class="nm">霖宏</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6274</td>
+        <td class="nm">台燿</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">8042</td>
+        <td class="nm">金山電</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3532</td>
+        <td class="nm">台勝科</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6405</td>
+        <td class="nm">悅城</td>
+        <td class="period">5/11–5/22</td>
+        <td class="rel">5/22</td>
+        <td class="left">⏰ 剩 2 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">4561</td>
+        <td class="nm">健椿</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6173</td>
+        <td class="nm">信昌電</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6182</td>
+        <td class="nm">合晶</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6488</td>
+        <td class="nm">環球晶</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">8227</td>
+        <td class="nm">巨有科技</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">8291</td>
+        <td class="nm">尚茂</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3016</td>
+        <td class="nm">嘉晶</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3026</td>
+        <td class="nm">禾伸堂</td>
+        <td class="period">5/12–5/25</td>
+        <td class="rel">5/25</td>
+        <td class="left">⏰ 剩 3 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3664</td>
+        <td class="nm">安瑞-KY</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4979</td>
+        <td class="nm">華星光</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7751</td>
+        <td class="nm">竑騰</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1809</td>
+        <td class="nm">中釉</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2059</td>
+        <td class="nm">川湖</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3450</td>
+        <td class="nm">聯鈞</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3653</td>
+        <td class="nm">健策</td>
+        <td class="period">5/13–5/26</td>
+        <td class="rel">5/26</td>
+        <td class="left">剩 4 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7769</td>
+        <td class="nm">鴻勁</td>
+        <td class="period">5/14–5/27</td>
+        <td class="rel">5/27</td>
+        <td class="left">剩 5 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4966</td>
+        <td class="nm">譜瑞-KY</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6263</td>
+        <td class="nm">普萊德</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8069</td>
+        <td class="nm">元太</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8358</td>
+        <td class="nm">金居</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2492</td>
+        <td class="nm">華新科</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6831</td>
+        <td class="nm">邁科</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8114</td>
+        <td class="nm">振樺電</td>
+        <td class="period">5/15–5/28</td>
+        <td class="rel">5/28</td>
+        <td class="left">剩 6 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">5228</td>
+        <td class="nm">鈺鎧</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6829</td>
+        <td class="nm">千附精密</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8444</td>
+        <td class="nm">綠河-KY</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3135</td>
+        <td class="nm">凌航</td>
+        <td class="period">5/18–5/29</td>
+        <td class="rel">5/29</td>
+        <td class="left">剩 7 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3498</td>
+        <td class="nm">陽程</td>
+        <td class="period">5/19–6/01</td>
+        <td class="rel">6/01</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4971</td>
+        <td class="nm">IET-KY</td>
+        <td class="period">5/19–6/01</td>
+        <td class="rel">6/01</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6449</td>
+        <td class="nm">鈺邦</td>
+        <td class="period">5/19–6/01</td>
+        <td class="rel">6/01</td>
+        <td class="left">剩 8 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6217</td>
+        <td class="nm">中探針</td>
+        <td class="period">5/20–6/02</td>
+        <td class="rel">6/02</td>
+        <td class="left">剩 9 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8091</td>
+        <td class="nm">翔名</td>
+        <td class="period">5/20–6/02</td>
+        <td class="rel">6/02</td>
+        <td class="left">剩 9 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3008</td>
+        <td class="nm">大立光</td>
+        <td class="period">5/20–6/02</td>
+        <td class="rel">6/02</td>
+        <td class="left">剩 9 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3665</td>
+        <td class="nm">貿聯-KY</td>
+        <td class="period">5/20–6/02</td>
+        <td class="rel">6/02</td>
+        <td class="left">剩 9 日        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6924</td>
+        <td class="nm">榮惠-KY創</td>
+        <td class="period">5/20–6/02</td>
+        <td class="rel">6/02</td>
+        <td class="left">剩 9 日        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">1591</td>
+        <td class="nm">駿吉-KY</td>
+        <td class="period">5/21–6/03</td>
+        <td class="rel">6/03</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">3624</td>
+        <td class="nm">光頡</td>
+        <td class="period">5/21–6/03</td>
+        <td class="rel">6/03</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8455</td>
+        <td class="nm">大拓-KY</td>
+        <td class="period">5/21–6/03</td>
+        <td class="rel">6/03</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">6806</td>
+        <td class="nm">森崴能源</td>
+        <td class="period">5/21–6/03</td>
+        <td class="rel">6/03</td>
+        <td class="left">🆕 今日進        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">3090</td>
+        <td class="nm">日電貿</td>
+        <td class="period">5/22–6/04</td>
+        <td class="rel">6/04</td>
+        <td class="left">⏳ 5/22 起        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:10px;color:var(--muted);margin-top:8px">
+    ⏰ 快出（剩 ≤3 交易日）· 🆕 今日新進 · ⏳ 已公告未開始；剩餘日數僅扣週末為估算值
+  </div>
+</div>
+
+<div class="section-title">出關走勢</div>
+<div class="grid2" style="margin-bottom:14px">
+  <div class="card">
+    <div class="card-title">🔓 今日出關（2026-05-20 處置最後日）</div>
+    <table class="disposal-tbl">
+      <thead>
+        <tr><th>代號</th><th>名稱</th><th>開盤</th><th>收盤</th><th>漲跌%</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code">3163</td>
+          <td class="nm">波若威</td>
+          <td>995.00</td>
+          <td>1,045.00</td>
+          <td class="val-up">▲ 5.03%</td>
+        </tr>
+        <tr>
+          <td class="code">4542</td>
+          <td class="nm">科嶠</td>
+          <td>244.50</td>
+          <td>259.50</td>
+          <td class="val-up">▲ 6.13%</td>
+        </tr>
+        <tr>
+          <td class="code">4908</td>
+          <td class="nm">前鼎</td>
+          <td>252.50</td>
+          <td>243.00</td>
+          <td class="val-dn">▼ 3.76%</td>
+        </tr>
+        <tr>
+          <td class="code">6683</td>
+          <td class="nm">雍智科技</td>
+          <td>1,880.00</td>
+          <td>1,685.00</td>
+          <td class="val-dn">▼ 10.37%</td>
+        </tr>
+        <tr>
+          <td class="code">8064</td>
+          <td class="nm">東捷</td>
+          <td>123.50</td>
+          <td>120.50</td>
+          <td class="val-dn">▼ 2.43%</td>
+        </tr>
+        <tr>
+          <td class="code">1597</td>
+          <td class="nm">直得</td>
+          <td>177.50</td>
+          <td>166.50</td>
+          <td class="val-dn">▼ 6.20%</td>
+        </tr>
+        <tr>
+          <td class="code">2233</td>
+          <td class="nm">宇隆</td>
+          <td>346.00</td>
+          <td>345.00</td>
+          <td class="val-dn">▼ 0.29%</td>
+        </tr>
+        <tr>
+          <td class="code">2454</td>
+          <td class="nm">聯發科</td>
+          <td>3,415.00</td>
+          <td>3,550.00</td>
+          <td class="val-up">▲ 3.95%</td>
+        </tr>
+        <tr>
+          <td class="code">2486</td>
+          <td class="nm">一詮</td>
+          <td>271.00</td>
+          <td>278.50</td>
+          <td class="val-up">▲ 2.77%</td>
+        </tr>
+        <tr>
+          <td class="code">3016</td>
+          <td class="nm">嘉晶</td>
+          <td>112.00</td>
+          <td>115.50</td>
+          <td class="val-up">▲ 3.12%</td>
+        </tr>
+        <tr>
+          <td class="code">4764</td>
+          <td class="nm">雙鍵</td>
+          <td>-</td>
+          <td>-</td>
+          <td class="val-up">▲ -%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🟢 出關兩天（2026-05-19 處置最後日）</div>
+    <div style="font-size:11px;color:var(--muted)">今日無</div>
+  </div>
+</div>
+
+<div class="section-title">明日前瞻</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">本週 / 近期重大事件</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">5/21 美股盤後</td>
+        <td style="padding:6px 4px;font-weight:600">焦點輪到關注 OPEC 動向、美伊談判進展</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">5/22 (週五)</td>
+        <td style="padding:6px 4px;font-weight:600">聯發科解禁後第 2 日續勢觀察、台燿/金山電 處置期最後一日（解禁前最後賣壓）</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">5/26</td>
+        <td style="padding:6px 4px;font-weight:600">群創（3481）SpaceX 題材續燒；中釉、川湖、聯鈞、健策 處置期解禁</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">6 月</td>
+        <td style="padding:6px 4px;font-weight:600">台燿、CCL 廠 6 月新一輪漲價生效；FOMC 利率決議（6/17-18）</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">技術關卡</div>
+    <div style="font-size:12px;line-height:2">
+      <div><span style="color:var(--dn);font-weight:700">上方壓力：</span>41,934 點（近20日高）／4 月高點 42,000 附近／心理關卡 42,000</div>
+      <div><span style="color:var(--up);font-weight:700">下方支撐：</span>37,714 點（近20日低）／月線約 40,500／4 萬整數關</div>
+      <div style="color:var(--muted)">✅ 一根 K 棒收復短中期所有均線，技術面 KD 黃金交叉、MACD 紅柱重現；融資維持率同步走高屬健康反彈</div>
+      <div style="color:var(--muted)">⚠ 期貨外資空單未回補、小外資轉空，短線急彈後留意 41,600 附近賣壓</div>
+      <div style="color:var(--muted)">資料源：daily_chips 60 日 K（參考值）</div>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer>
+  <span>MAGI 盤後報告 2026-05-21</span>
+  <span class="src-badge">TWSE RWD</span>
+  <span class="src-badge">TPEX</span>
+  <span class="src-badge">FinMind</span>
+  <span class="src-badge">Fugle</span>
+  <span class="src-badge">TAIFEX</span>
+  <span class="src-badge">cmoney</span>
+  <span class="src-badge">Notion 智囊</span>
+  <span class="src-badge">Exa News</span>
+  <span style="margin-left:auto;color:var(--dimmer)">本報告由 MAGI 系統自動生成，僅供參考</span>
+</footer>
+
+<script>
+(function(){
+  const hist = [{"date": "20260223", "close": 33773.26, "融資金額_千元": 372155937, "融資維持率": 170.0188}, {"date": "20260224", "close": 34700.82, "融資金額_千元": 377495245, "融資維持率": 174.5803}, {"date": "20260225", "close": 35413.07, "融資金額_千元": 383126958, "融資維持率": 175.1137}, {"date": "20260226", "close": 35414.49, "融資金額_千元": 389861168, "融資維持率": 176.0177}, {"date": "20260302", "close": 35095.09, "融資金額_千元": 391522964, "融資維持率": 174.9883}, {"date": "20260303", "close": 34323.65, "融資金額_千元": 384358090, "融資維持率": 168.3466}, {"date": "20260304", "close": 32828.88, "融資金額_千元": 376616368, "融資維持率": 158.6198}, {"date": "20260305", "close": 33672.94, "融資金額_千元": 379166583, "融資維持率": 164.4533}, {"date": "20260306", "close": 33599.54, "融資金額_千元": 382683585, "融資維持率": 163.7001}, {"date": "20260309", "close": 32110.42, "融資金額_千元": 371960474, "融資維持率": 153.8081}, {"date": "20260310", "close": 32771.87, "融資金額_千元": 368236327, "融資維持率": 158.1126}, {"date": "20260311", "close": 34114.19, "融資金額_千元": 376147937, "融資維持率": 166.1295}, {"date": "20260312", "close": 33581.86, "融資金額_千元": 379366977, "融資維持率": 164.5959}, {"date": "20260313", "close": 33400.32, "融資金額_千元": 385446747, "融資維持率": 165.25}, {"date": "20260316", "close": 33342.51, "融資金額_千元": 392284076, "融資維持率": 166.8655}, {"date": "20260317", "close": 33836.57, "融資金額_千元": 393467032, "融資維持率": 169.4601}, {"date": "20260318", "close": 34348.58, "融資金額_千元": 399772079, "融資維持率": 172.024}, {"date": "20260319", "close": 33689.68, "融資金額_千元": 402095986, "融資維持率": 170.1866}, {"date": "20260320", "close": 33543.88, "融資金額_千元": 398591068, "融資維持率": 167.997}, {"date": "20260323", "close": 32722.5, "融資金額_千元": 393333759, "融資維持率": 161.0689}, {"date": "20260324", "close": 32612.24, "融資金額_千元": 390102627, "融資維持率": 158.4569}, {"date": "20260325", "close": 33439.11, "融資金額_千元": 395499024, "融資維持率": 164.2291}, {"date": "20260326", "close": 33337.62, "融資金額_千元": 391136469, "融資維持率": 162.5914}, {"date": "20260327", "close": 33112.59, "融資金額_千元": 393722769, "融資維持率": 162.5712}, {"date": "20260330", "close": 32518.16, "融資金額_千元": 392708634, "融資維持率": 159.7193}, {"date": "20260331", "close": 31722.99, "融資金額_千元": 381724855, "融資維持率": 152.4658}, {"date": "20260401", "close": 33174.82, "融資金額_千元": 385907934, "融資維持率": 159.5343}, {"date": "20260402", "close": 32572.43, "融資金額_千元": 384200709, "融資維持率": 157.2438}, {"date": "20260407", "close": 33229.82, "融資金額_千元": 387734358, "融資維持率": 160.4439}, {"date": "20260408", "close": 34761.38, "融資金額_千元": 395333852, "融資維持率": 168.6951}, {"date": "20260409", "close": 34861.16, "融資金額_千元": 396518141, "融資維持率": 168.4458}, {"date": "20260410", "close": 35417.83, "融資金額_千元": 401240705, "融資維持率": 170.6905}, {"date": "20260413", "close": 35457.29, "融資金額_千元": 408651307, "融資維持率": 171.7983}, {"date": "20260414", "close": 36296.12, "融資金額_千元": 414988177, "融資維持率": 173.247}, {"date": "20260415", "close": 36722.14, "融資金額_千元": 416253786, "融資維持率": 173.212}, {"date": "20260416", "close": 37132.02, "融資金額_千元": 422408742, "融資維持率": 175.2202}, {"date": "20260417", "close": 36804.34, "融資金額_千元": 427120788, "融資維持率": 175.5221}, {"date": "20260420", "close": 36958.8, "融資金額_千元": 429829952, "融資維持率": 177.0906}, {"date": "20260421", "close": 37605.11, "融資金額_千元": 433163894, "融資維持率": 179.5918}, {"date": "20260422", "close": 37878.47, "融資金額_千元": 438545241, "融資維持率": 180.592}, {"date": "20260423", "close": 37714.15, "融資金額_千元": 430825725, "融資維持率": 174.0611}, {"date": "20260424", "close": 38932.4, "融資金額_千元": 440907083, "融資維持率": 175.4933}, {"date": "20260427", "close": 39616.63, "融資金額_千元": 452044394, "融資維持率": 175.2079}, {"date": "20260428", "close": 39521.73, "融資金額_千元": 457112797, "融資維持率": 176.922}, {"date": "20260429", "close": 39303.5, "融資金額_千元": 460974804, "融資維持率": 176.0345}, {"date": "20260430", "close": 38926.63, "融資金額_千元": 460905599, "融資維持率": 175.8451}, {"date": "20260504", "close": 40705.14, "融資金額_千元": 470389635, "融資維持率": 180.9067}, {"date": "20260505", "close": 40769.29, "融資金額_千元": 475145292, "融資維持率": 182.0207}, {"date": "20260506", "close": 41138.85, "融資金額_千元": 475648471, "融資維持率": 180.6349}, {"date": "20260507", "close": 41933.78, "融資金額_千元": 482664170, "融資維持率": 182.1352}, {"date": "20260508", "close": 41603.94, "融資金額_千元": 477184758, "融資維持率": 177.6839}, {"date": "20260511", "close": 41790.06, "融資金額_千元": 484592746, "融資維持率": 181.8785}, {"date": "20260512", "close": 41898.32, "融資金額_千元": 491194846, "融資維持率": 181.3175}, {"date": "20260513", "close": 41374.5, "融資金額_千元": 494418035, "融資維持率": 177.2795}, {"date": "20260514", "close": 41751.75, "融資金額_千元": 499134883, "融資維持率": 177.1961}, {"date": "20260515", "close": 41172.36, "融資金額_千元": 492797137, "融資維持率": 172.0822}, {"date": "20260518", "close": 40891.82, "融資金額_千元": 501619604, "融資維持率": 171.9616}, {"date": "20260519", "close": 40175.56, "融資金額_千元": 496886917, "融資維持率": 167.346}, {"date": "20260520", "close": 40020.82, "融資金額_千元": 502079489, "融資維持率": 166.9352}, {"date": "20260521", "close": 41368.21, "融資金額_千元": 511154475, "融資維持率": 174.161}];
+  const canvas = document.getElementById('marginChart');
+  const tip = document.getElementById('marginTip');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d'), W = canvas.width, H = canvas.height;
+  const padL=8, padR=8, padT=8, padB=8, n = hist.length;
+  const rates = hist.map(d => d['融資維持率']);
+  const amts  = hist.map(d => Math.round(d['融資金額_千元'] / 100000));
+  const rMin = Math.min(...rates) * .995, rMax = Math.max(...rates) * 1.005;
+  const aMin = Math.min(...amts)  * .99,  aMax = Math.max(...amts)  * 1.01;
+  const xOf  = i => padL + i * (W - padL - padR) / (n - 1);
+  const yOfR = v => padT + (1 - (v - rMin) / (rMax - rMin)) * (H - padT - padB);
+  const yOfA = v => padT + (1 - (v - aMin) / (aMax - aMin)) * (H - padT - padB);
+  ctx.clearRect(0, 0, W, H);
+  const draw = (vals, yFn, col) => {
+    ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.beginPath();
+    vals.forEach((v, i) => { const x = xOf(i), y = yFn(v); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); });
+    ctx.stroke();
+  };
+  draw(amts,  yOfA, '#f59e0b');
+  draw(rates, yOfR, '#c084fc');
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (W / rect.width);
+    const i = Math.min(n - 1, Math.max(0, Math.round((x - padL) / (W - padL - padR) * (n - 1))));
+    const d = hist[i], dt = d.date;
+    const ds = dt.length === 8 ? `${dt.slice(0,4)}/${dt.slice(4,6)}/${dt.slice(6,8)}` : dt;
+    tip.innerHTML = `<b>${ds}</b> 加權${Math.round(d.close).toLocaleString()} &nbsp;<span style="color:#c084fc">維持率 ${d['融資維持率'].toFixed(1)}%</span> &nbsp;<span style="color:#f59e0b">融資餘額 ${amts[i].toLocaleString()}億</span>`;
+    tip.style.display = 'block';
+    tip.style.left = Math.min(xOf(i), W - 200) + 'px';
+    tip.style.top = '4px';
+  });
+  canvas.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+})();
+</script>
+
+<script>
+function magiToggleTheme(){
+  var h=document.documentElement;
+  var next=h.getAttribute('data-theme')==='dark'?'light':'dark';
+  h.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  var b=document.getElementById('theme-btn');
+  if(b)b.textContent=next==='dark'?'☀️':'🌙';
+}
+(function(){
+  var b=document.getElementById('theme-btn');
+  if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';
+})();
+</script>
+</body>
+</html>
