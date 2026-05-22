@@ -8656,6 +8656,33 @@
     {
       "code": "3189",
       "name": "景碩",
+      "date": "2026-05-22",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "ABF載板",
+      "quote": "3189景碩ing。26年展望，營收YOY+25~30%，毛利率25~26%，費用率13~14%。ABF最大客戶是NV、AMD，Vera CPU的份額持續增加，現在40%，2H26往40~50%。擴充高階產能10M到50M，26年底~27年初開，@楊梅幼獅K6。2028 65M，設備由客戶出(協商中)，公司出廠房；2029 80M。28年因為設備是客戶出錢，折舊只算廠房，所以28年初多的一千萬顆ABF產能毛利率會好很多",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "NV/AMD Vera CPU份額增至40-50%",
+        "高階產能擴充10M→50M 26年底開出",
+        "2028客戶出資設備折舊減少毛利改善"
+      ],
+      "customers": [
+        "NVIDIA",
+        "AMD"
+      ],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-22T15:00:00"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
       "speaker": "小魚",
       "quote": "預計持股台燿、大量、頎邦、信昌電、景碩、保瑞",
       "date": "2026-05-21",
@@ -24224,6 +24251,28 @@
     }
   ],
   "3211": [
+    {
+      "code": "3211",
+      "name": "順達",
+      "date": "2026-05-22",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "充電器/電源",
+      "quote": "panasonic 出包，順達gain share",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "panasonic出包受益gain share"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-22T15:00:00"
+    },
     {
       "code": "3211",
       "name": "順達科技",
