@@ -322,6 +322,28 @@
     {
       "code": "6187",
       "name": "萬潤",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "光學/FAU",
+      "quote": "惠特萬潤FAU CPO貼合做不完外包給惠特",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "FAU CPO貼合需求旺"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
+    {
+      "code": "6187",
+      "name": "萬潤",
       "date": "2026-05-08",
       "source_type": "daily",
       "source_page": "2026-05_廢想法_monthly",
@@ -3621,6 +3643,29 @@
     }
   ],
   "1582": [
+    {
+      "code": "1582",
+      "name": "信錦",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "衛星通訊",
+      "quote": "信錦說上禮拜簽到第二個LEO客戶，現在就SpaceX，第二個是AMAZON。推我的人很有把握，說今年10億明年20後年40。如果算AMAZON就再更多，第一次在比較公開的場合講第二個客戶",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "第二個LEO客戶Amazon確定",
+        "今年10億明年20億後年40億"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
     {
       "code": "1582",
       "name": "信錦",
@@ -13841,6 +13886,26 @@
     {
       "code": "3026",
       "name": "禾伸堂",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "被動元件/NP0",
+      "quote": "禾伸堂看1000",
+      "tp": "1000",
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
+    {
+      "code": "3026",
+      "name": "禾伸堂",
       "code_source": "explicit",
       "speaker": "永哥",
       "host": "駿羽",
@@ -18151,6 +18216,30 @@
     {
       "code": "6515",
       "name": "穎崴",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "探針卡/Socket",
+      "quote": "6515副總做多，產能沒有馬上增加3~5倍也許就接不到訂單，這是前所未有的盛況。原本2H26結束擴到9m pin，現在預計1H27要擴產到14m pin。1H27要擴產到7.2k socket組裝產能，這是仁武二廠。高階socket未來幾年每年營收成長50~60%都是太保守。後續MES探針卡每年都翻倍成長",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MEMS探針卡訂單爆量",
+        "Socket產能擴充1H27",
+        "仁武二廠擴產"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
+    {
+      "code": "6515",
+      "name": "穎崴",
       "date": "2026-05-25",
       "source_type": "meeting",
       "source_page": "20260526_樂林",
@@ -19255,6 +19344,31 @@
     {
       "code": "2344",
       "name": "華邦電",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "記憶體",
+      "quote": "華邦300有機會，明年SiCap賺3塊給30倍，記憶體賺50塊給4倍就好，300妥。別人推WL 2344 看300",
+      "tp": "300",
+      "eps_est": {
+        "2027": "53"
+      },
+      "catalysts": [
+        "SiCap明年貢獻",
+        "記憶體高價環境"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
       "code_source": "alias",
       "speaker": "andrew",
       "host": "駿羽",
@@ -19327,6 +19441,26 @@
     }
   ],
   "2408": [
+    {
+      "code": "2408",
+      "name": "南亞科",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
     {
       "code": "2408",
       "name": "南亞科",
@@ -25732,6 +25866,28 @@
     {
       "code": "6173",
       "name": "信昌電",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "被動元件",
+      "quote": "信昌電明年11~12",
+      "tp": null,
+      "eps_est": {
+        "2027": "11"
+      },
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
+    {
+      "code": "6173",
+      "name": "信昌電",
       "date": "2026-05-25",
       "source_type": "meeting",
       "source_page": "20260526_樂林",
@@ -28868,6 +29024,28 @@
     {
       "code": "6706",
       "name": "惠特",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "光學/FAU",
+      "quote": "惠特萬潤FAU CPO貼合做不完外包給惠特",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "FAU CPO貼合訂單外溢"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    },
+    {
+      "code": "6706",
+      "name": "惠特",
       "code_source": "name_exact",
       "speaker": "Sunny",
       "host": "樂林",
@@ -31260,6 +31438,204 @@
       "source_page": "2026-04_廢想法_monthly",
       "parsed_at": "2026-05-09T17:14:44",
       "validated": true
+    }
+  ],
+  "8054": [
+    {
+      "code": "8054",
+      "name": "安國",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "控制IC",
+      "quote": "andy kung在買安國，好像要買十天",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "2542": [
+    {
+      "code": "2542",
+      "name": "興富發",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "2451": [
+    {
+      "code": "2451",
+      "name": "創見",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "1303": [
+    {
+      "code": "1303",
+      "name": "南亞",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "8464": [
+    {
+      "code": "8464",
+      "name": "億豐",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "1319": [
+    {
+      "code": "1319",
+      "name": "東陽",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "1477": [
+    {
+      "code": "1477",
+      "name": "聚陽",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "2006": [
+    {
+      "code": "2006",
+      "name": "東和鋼鐵",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "6176": [
+    {
+      "code": "6176",
+      "name": "瑞儀",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
     }
   ],
   "6435": [
