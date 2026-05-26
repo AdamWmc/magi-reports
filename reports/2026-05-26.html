@@ -102,6 +102,33 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4
 .weak-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .weak-tag{font-size:11px;padding:3px 9px;border-radius:4px;background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
 
+/* 漲跌停 2x2 卡片（市場 × 第一天/連續） */
+.mover-block{margin-bottom:18px}
+.mover-block-title{font-size:13px;font-weight:800;color:var(--bright);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.mover-block-title .mb-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}
+.mover-block.up-block .mb-count{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.mover-block.dn-block .mb-count{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.mover-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mover-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.mover-card.streak-card{border-color:rgba(245,158,11,.35)}
+.mc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed var(--border2)}
+.mc-label{font-size:11px;font-weight:700;color:var(--text);letter-spacing:.3px}
+.mc-label .mc-market{color:var(--muted);font-weight:600}
+.mc-label .mc-kind-streak{color:var(--warn)}
+.mc-num{font-size:10px;color:var(--muted)}
+.mc-list{display:flex;flex-direction:column;gap:3px;max-height:280px;overflow-y:auto}
+.mc-row{display:flex;align-items:center;gap:6px;font-size:11px;padding:3px 4px;border-radius:4px}
+.mc-row:hover{background:var(--bg3)}
+.mc-code{color:var(--muted);min-width:36px;font-variant-numeric:tabular-nums}
+.mc-name{color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-close{color:var(--text2);font-variant-numeric:tabular-nums;font-size:10px}
+.mc-pct{font-weight:700;font-variant-numeric:tabular-nums;min-width:52px;text-align:right}
+.mc-pct.up{color:var(--up)}.mc-pct.dn{color:var(--dn)}
+.mc-streak{font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;background:rgba(245,158,11,.15);color:var(--warn);border:1px solid rgba(245,158,11,.3)}
+.mc-streak.s3{background:var(--up-bg);color:var(--up);border-color:var(--up-bd)}
+.mc-notion{font-size:10px;color:var(--accent2);cursor:help}
+.mc-empty{font-size:11px;color:var(--dimmer);font-style:italic;padding:8px 4px}
+
 .inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .inst-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
 .inst-name{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
@@ -217,6 +244,7 @@ footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color
   .hero-dual,.grid2{grid-template-columns:1fr !important;gap:14px}
   .grid3,.grid5,.inst-grid{grid-template-columns:1fr 1fr}
   .sector-grid{grid-template-columns:1fr}
+  .mover-grid{grid-template-columns:1fr}
   nav{padding:12px 16px}
   .hero-wrap,.content{padding-left:16px;padding-right:16px}
   footer{padding:16px}
@@ -319,61 +347,700 @@ footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color
 
 <div class="content">
 
+
 <div class="section-title">今日市場方向</div>
-<div class="sector-grid">
-  <div class="sector-card">
-    <div class="sc-header">
-      <span class="sc-name">🧩 封測/IC</span>
-      <span class="sc-count">8 漲停</span>
-    </div>
-    <div class="sc-stocks">2429 銘旺科 +9.99%<br>3229 晟鈦 +9.99%<br>6239 力成 +9.97%<br>2369 菱生 +9.91%</div>
+
+
+<div class="mover-block up-block">
+  <div class="mover-block-title">
+    ▲ 漲停 <span class="mb-count">87 檔（上市 45｜上櫃 42）</span>
   </div>
-  <div class="sector-card">
-    <div class="sc-header">
-      <span class="sc-name">⚙️ 設備/材料</span>
-      <span class="sc-count">6 漲停</span>
-    </div>
-    <div class="sc-stocks">6449 鈺邦 +10.0%<br>6442 光聖 +9.95%<br>6658 聯策 +9.91%<br>2464 盟立 +9.81%</div>
+  <div class="mover-grid">
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">45 檔</span>
   </div>
-  <div class="sector-card">
-    <div class="sc-header">
-      <span class="sc-name">🚀 其他強勢</span>
-      <span class="sc-count">6 漲停</span>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">1563</span>
+      <span class="mc-name">巧新</span>
+      <span class="mc-close">50.6</span>
+      <span class="mc-pct up">+10.00%</span>
     </div>
-    <div class="sc-stocks">1563 巧新 +10.0%<br>2321 東訊 +10.0%<br>2929 淘帝-KY +10.0%<br>6405 悅城 +10.0%</div>
-  </div>
-  <div class="sector-card">
-    <div class="sc-header">
-      <span class="sc-name">🪜 PCB/ABF載板</span>
-      <span class="sc-count">4 漲停</span>
+    <div class="mc-row">
+      <span class="mc-code">2321</span>
+      <span class="mc-name">東訊</span>
+      <span class="mc-close">14.3</span>
+      <span class="mc-pct up">+10.00%</span>
     </div>
-    <div class="sc-stocks">6141 柏承 +10.0%<br>8110 華東 +9.98%<br>8261 富鼎 +9.94%<br>3037 欣興 +9.6%</div>
-  </div>
-  <div class="sector-card">
-    <div class="sc-header">
-      <span class="sc-name">🔧 矽晶圓/半導體材料</span>
-      <span class="sc-count">3 漲停</span>
+    <div class="mc-row">
+      <span class="mc-code">2929</span>
+      <span class="mc-name">淘帝-KY</span>
+      <span class="mc-close">6.05</span>
+      <span class="mc-pct up">+10.00%</span>
     </div>
-    <div class="sc-stocks">6182 合晶 +9.9% [OTC]<br>6488 環球晶 +9.9% [OTC]<br>3532 台勝科 +9.89%</div>
-  </div>
-  <div class="sector-card">
-    <div class="sc-header">
-      <span class="sc-name">⚡ 被動元件</span>
-      <span class="sc-count">3 漲停</span>
+    <div class="mc-row">
+      <span class="mc-code">6141</span>
+      <span class="mc-name">柏承</span>
+      <span class="mc-close">35.75</span>
+      <span class="mc-pct up">+10.00%</span>
     </div>
-    <div class="sc-stocks">2929 淘帝-KY +10.0%<br>2351 順德 +9.92%<br>2472 立隆電 +9.84%</div>
+    <div class="mc-row">
+      <span class="mc-code">6405</span>
+      <span class="mc-name">悅城</span>
+      <span class="mc-close">75.9</span>
+      <span class="mc-pct up">+10.00%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6449</span>
+      <span class="mc-name">鈺邦</span>
+      <span class="mc-close">352.0</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8249</span>
+      <span class="mc-name">菱光</span>
+      <span class="mc-close">58.3</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8466</span>
+      <span class="mc-name">美吉吉-KY</span>
+      <span class="mc-close">15.95</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2429</span>
+      <span class="mc-name">銘旺科</span>
+      <span class="mc-close">51.2</span>
+      <span class="mc-pct up">+9.99%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3229</span>
+      <span class="mc-name">晟鈦</span>
+      <span class="mc-close">47.9</span>
+      <span class="mc-pct up">+9.99%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1530</span>
+      <span class="mc-name">亞崴</span>
+      <span class="mc-close">31.95</span>
+      <span class="mc-pct up">+9.98%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8110</span>
+      <span class="mc-name">華東</span>
+      <span class="mc-close">55.1</span>
+      <span class="mc-pct up">+9.98%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3321</span>
+      <span class="mc-name">同泰</span>
+      <span class="mc-close">18.2</span>
+      <span class="mc-pct up">+9.97%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6239</span>
+      <span class="mc-name">力成</span>
+      <span class="mc-close">342.0</span>
+      <span class="mc-pct up">+9.97%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">9105</span>
+      <span class="mc-name">泰金寶-DR</span>
+      <span class="mc-close">8.16</span>
+      <span class="mc-pct up">+9.97%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1597</span>
+      <span class="mc-name">直得</span>
+      <span class="mc-close">221.0</span>
+      <span class="mc-pct up">+9.95%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6442</span>
+      <span class="mc-name">光聖</span>
+      <span class="mc-close">2265.0</span>
+      <span class="mc-pct up">+9.95%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3673</span>
+      <span class="mc-name">TPK-KY</span>
+      <span class="mc-close">87.4</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5285</span>
+      <span class="mc-name">界霖</span>
+      <span class="mc-close">89.6</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8261</span>
+      <span class="mc-name">富鼎</span>
+      <span class="mc-close">193.5</span>
+      <span class="mc-pct up">+9.94%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3021</span>
+      <span class="mc-name">鴻名</span>
+      <span class="mc-close">22.7</span>
+      <span class="mc-pct up">+9.93%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3257</span>
+      <span class="mc-name">虹冠電</span>
+      <span class="mc-close">59.8</span>
+      <span class="mc-pct up">+9.93%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2351</span>
+      <span class="mc-name">順德</span>
+      <span class="mc-close">216.0</span>
+      <span class="mc-pct up">+9.92%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6456</span>
+      <span class="mc-name">GIS-KY</span>
+      <span class="mc-close">82.0</span>
+      <span class="mc-pct up">+9.92%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8926</span>
+      <span class="mc-name">台汽電</span>
+      <span class="mc-close">68.7</span>
+      <span class="mc-pct up">+9.92%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2369</span>
+      <span class="mc-name">菱生</span>
+      <span class="mc-close">37.7</span>
+      <span class="mc-pct up">+9.91%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4526</span>
+      <span class="mc-name">東台</span>
+      <span class="mc-close">44.35</span>
+      <span class="mc-pct up">+9.91%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6658</span>
+      <span class="mc-name">聯策</span>
+      <span class="mc-close">233.0</span>
+      <span class="mc-pct up">+9.91%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6799</span>
+      <span class="mc-name">來頡</span>
+      <span class="mc-close">111.0</span>
+      <span class="mc-pct up">+9.90%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2312</span>
+      <span class="mc-name">金寶</span>
+      <span class="mc-close">40.0</span>
+      <span class="mc-pct up">+9.89%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3532</span>
+      <span class="mc-name">台勝科</span>
+      <span class="mc-close">300.0</span>
+      <span class="mc-pct up">+9.89%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8162</span>
+      <span class="mc-name">微矽電子-創</span>
+      <span class="mc-close">73.4</span>
+      <span class="mc-pct up">+9.88%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2302</span>
+      <span class="mc-name">麗正</span>
+      <span class="mc-close">33.95</span>
+      <span class="mc-pct up">+9.87%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1568</span>
+      <span class="mc-name">倉佑</span>
+      <span class="mc-close">35.1</span>
+      <span class="mc-pct up">+9.86%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2472</span>
+      <span class="mc-name">立隆電</span>
+      <span class="mc-close">307.0</span>
+      <span class="mc-pct up">+9.84%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6525</span>
+      <span class="mc-name">捷敏-KY</span>
+      <span class="mc-close">134.0</span>
+      <span class="mc-pct up">+9.84%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2464</span>
+      <span class="mc-name">盟立</span>
+      <span class="mc-close">173.5</span>
+      <span class="mc-pct up">+9.81%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6579</span>
+      <span class="mc-name">研揚</span>
+      <span class="mc-close">174.5</span>
+      <span class="mc-pct up">+9.75%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6706</span>
+      <span class="mc-name">惠特</span>
+      <span class="mc-close">197.0</span>
+      <span class="mc-pct up">+9.75%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2344</span>
+      <span class="mc-name">華邦電</span>
+      <span class="mc-close">141.0</span>
+      <span class="mc-pct up">+9.73%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2493</span>
+      <span class="mc-name">揚博</span>
+      <span class="mc-close">163.5</span>
+      <span class="mc-pct up">+9.73%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6451</span>
+      <span class="mc-name">訊芯-KY</span>
+      <span class="mc-close">632.0</span>
+      <span class="mc-pct up">+9.72%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2481</span>
+      <span class="mc-name">強茂</span>
+      <span class="mc-close">147.0</span>
+      <span class="mc-pct up">+9.70%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8996</span>
+      <span class="mc-name">高力</span>
+      <span class="mc-close">1245.0</span>
+      <span class="mc-pct up">+9.69%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3037</span>
+      <span class="mc-name">欣興</span>
+      <span class="mc-close">1085.0</span>
+      <span class="mc-pct up">+9.60%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
   </div>
 </div>
 
-<div style="margin-bottom:14px">
-  <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">⬇ 弱勢 / 跌停</div>
-  <div class="weak-row">
-    <div class="weak-tag">6806 森崴能源 -9.94%</div>
-    <div class="weak-tag">6550 北極星藥業-KY -9.85%</div>
-    <div class="weak-tag">2409 友達 -9.84%</div>
-    <div class="weak-tag">3537 堡達 -9.91%</div>
-    <div class="weak-tag">8227 巨有科技 -9.84%</div>
-    <div class="weak-tag">4416 三圓 -9.76%</div>
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">0 檔</span>
+  </div>
+  <div class="mc-empty">（今日無）</div>
+</div>
+
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">42 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">6983</span>
+      <span class="mc-name">華洋精機</span>
+      <span class="mc-close">472.0</span>
+      <span class="mc-pct up">+22.60%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6127</span>
+      <span class="mc-name">九豪</span>
+      <span class="mc-close">57.2</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6441</span>
+      <span class="mc-name">廣錠</span>
+      <span class="mc-close">26.4</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8255</span>
+      <span class="mc-name">朋程</span>
+      <span class="mc-close">187.0</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8291</span>
+      <span class="mc-name">尚茂</span>
+      <span class="mc-close">110.0</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1591</span>
+      <span class="mc-name">駿吉-KY</span>
+      <span class="mc-close">45.7</span>
+      <span class="mc-pct up">+9.99%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4923</span>
+      <span class="mc-name">力士</span>
+      <span class="mc-close">45.15</span>
+      <span class="mc-pct up">+9.99%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6161</span>
+      <span class="mc-name">捷波</span>
+      <span class="mc-close">65.0</span>
+      <span class="mc-pct up">+9.98%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6821</span>
+      <span class="mc-name">聯寶</span>
+      <span class="mc-close">69.4</span>
+      <span class="mc-pct up">+9.98%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6877</span>
+      <span class="mc-name">鏵友益</span>
+      <span class="mc-close">176.5</span>
+      <span class="mc-pct up">+9.97%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3211</span>
+      <span class="mc-name">順達</span>
+      <span class="mc-close">469.0</span>
+      <span class="mc-pct up">+9.96%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4939</span>
+      <span class="mc-name">亞電</span>
+      <span class="mc-close">43.6</span>
+      <span class="mc-pct up">+9.96%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3485</span>
+      <span class="mc-name">敘豐</span>
+      <span class="mc-close">320.5</span>
+      <span class="mc-pct up">+9.95%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6654</span>
+      <span class="mc-name">天正國際</span>
+      <span class="mc-close">116.0</span>
+      <span class="mc-pct up">+9.95%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5321</span>
+      <span class="mc-name">美而快</span>
+      <span class="mc-close">47.0</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6234</span>
+      <span class="mc-name">高僑</span>
+      <span class="mc-close">55.3</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6290</span>
+      <span class="mc-name">良維</span>
+      <span class="mc-close">332.0</span>
+      <span class="mc-pct up">+9.93%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6291</span>
+      <span class="mc-name">沛亨</span>
+      <span class="mc-close">587.0</span>
+      <span class="mc-pct up">+9.93%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3191</span>
+      <span class="mc-name">雲嘉南</span>
+      <span class="mc-close">19.95</span>
+      <span class="mc-pct up">+9.92%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6147</span>
+      <span class="mc-name">頎邦</span>
+      <span class="mc-close">260.5</span>
+      <span class="mc-pct up">+9.92%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2070</span>
+      <span class="mc-name">精湛</span>
+      <span class="mc-close">75.4</span>
+      <span class="mc-pct up">+9.91%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5299</span>
+      <span class="mc-name">杰力</span>
+      <span class="mc-close">127.5</span>
+      <span class="mc-pct up">+9.91%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2061</span>
+      <span class="mc-name">風青</span>
+      <span class="mc-close">32.2</span>
+      <span class="mc-pct up">+9.90%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3467</span>
+      <span class="mc-name">台灣精材</span>
+      <span class="mc-close">73.3</span>
+      <span class="mc-pct up">+9.90%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6182</span>
+      <span class="mc-name">合晶</span>
+      <span class="mc-close">84.4</span>
+      <span class="mc-pct up">+9.90%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6488</span>
+      <span class="mc-name">環球晶</span>
+      <span class="mc-close">866.0</span>
+      <span class="mc-pct up">+9.90%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6570</span>
+      <span class="mc-name">維田</span>
+      <span class="mc-close">65.5</span>
+      <span class="mc-pct up">+9.90%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5011</span>
+      <span class="mc-name">久陽</span>
+      <span class="mc-close">19.45</span>
+      <span class="mc-pct up">+9.89%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8477</span>
+      <span class="mc-name">創業家</span>
+      <span class="mc-close">18.9</span>
+      <span class="mc-pct up">+9.88%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8050</span>
+      <span class="mc-name">廣積</span>
+      <span class="mc-close">60.1</span>
+      <span class="mc-pct up">+9.87%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7712</span>
+      <span class="mc-name">博盛半導體</span>
+      <span class="mc-close">184.0</span>
+      <span class="mc-pct up">+9.85%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6435</span>
+      <span class="mc-name">大中</span>
+      <span class="mc-close">279.0</span>
+      <span class="mc-pct up">+9.84%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6548</span>
+      <span class="mc-name">長科*</span>
+      <span class="mc-close">60.3</span>
+      <span class="mc-pct up">+9.84%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6207</span>
+      <span class="mc-name">雷科</span>
+      <span class="mc-close">108.5</span>
+      <span class="mc-pct up">+9.82%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8086</span>
+      <span class="mc-name">宏捷科</span>
+      <span class="mc-close">179.0</span>
+      <span class="mc-pct up">+9.82%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6761</span>
+      <span class="mc-name">穩得</span>
+      <span class="mc-close">230.0</span>
+      <span class="mc-pct up">+9.79%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3508</span>
+      <span class="mc-name">位速</span>
+      <span class="mc-close">21.35</span>
+      <span class="mc-pct up">+9.77%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7828</span>
+      <span class="mc-name">創新服務</span>
+      <span class="mc-close">1405.0</span>
+      <span class="mc-pct up">+9.77%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5425</span>
+      <span class="mc-name">台半</span>
+      <span class="mc-close">100.5</span>
+      <span class="mc-pct up">+9.72%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3713</span>
+      <span class="mc-name">新晶投控</span>
+      <span class="mc-close">14.2</span>
+      <span class="mc-pct up">+9.65%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6425</span>
+      <span class="mc-name">易發</span>
+      <span class="mc-close">101.5</span>
+      <span class="mc-pct up">+9.61%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3523</span>
+      <span class="mc-name">迎輝</span>
+      <span class="mc-close">12.0</span>
+      <span class="mc-pct up">+9.59%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">0 檔</span>
+  </div>
+  <div class="mc-empty">（今日無）</div>
+</div>
+
+  </div>
+</div>
+
+
+<div class="mover-block dn-block">
+  <div class="mover-block-title">
+    ▼ 跌停 <span class="mb-count">6 檔（上市 3｜上櫃 3）</span>
+  </div>
+  <div class="mover-grid">
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">3 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">6806</span>
+      <span class="mc-name">森崴能源</span>
+      <span class="mc-close">7.52</span>
+      <span class="mc-pct dn">-9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6550</span>
+      <span class="mc-name">北極星藥業-KY</span>
+      <span class="mc-close">15.1</span>
+      <span class="mc-pct dn">-9.85%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2409</span>
+      <span class="mc-name">友達</span>
+      <span class="mc-close">22.0</span>
+      <span class="mc-pct dn">-9.84%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">0 檔</span>
+  </div>
+  <div class="mc-empty">（今日無）</div>
+</div>
+
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">3 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">3537</span>
+      <span class="mc-name">堡達</span>
+      <span class="mc-close">69.1</span>
+      <span class="mc-pct dn">-9.91%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8227</span>
+      <span class="mc-name">巨有科技</span>
+      <span class="mc-close">224.5</span>
+      <span class="mc-pct dn">-9.84%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4416</span>
+      <span class="mc-name">三圓</span>
+      <span class="mc-close">11.1</span>
+      <span class="mc-pct dn">-9.76%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">0 檔</span>
+  </div>
+  <div class="mc-empty">（今日無）</div>
+</div>
+
   </div>
 </div>
 
