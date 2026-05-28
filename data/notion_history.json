@@ -11954,6 +11954,26 @@
   "6531": [
     {
       "code": "6531",
+      "name": "愛普*",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "謝董",
+      "host": null,
+      "sector": "IC設計",
+      "quote": "謝董那邊出了一些愛普",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
+    {
+      "code": "6531",
       "name": "愛普",
       "code_source": "explicit",
       "speaker": "小魚",
@@ -15551,6 +15571,29 @@
     }
   ],
   "6147": [
+    {
+      "code": "6147",
+      "name": "頎邦",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "IC封測/金凸塊",
+      "quote": "頎邦富邦小場：南茂一定能做但頎邦有先進優勢，台灣只有南茂跟頎邦有黃金製程，日月光矽品都切不進來，南茂進來可能也要明年才有貢獻",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "黃金製程先進優勢",
+        "餅變大競爭者只有南茂"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
     {
       "code": "6147",
       "name": "頎邦",
@@ -21122,6 +21165,26 @@
     {
       "code": "3443",
       "name": "創意",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "MS",
+      "host": null,
+      "sector": "ASIC設計",
+      "quote": "MS DG（downgrade）GUC：AI用量比預期少一半，系統改版原2顆AI5改成1顆AI4+1顆AI5，AI4在三星用量少一半；AI6可能被三星拿走大部分",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "看空",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
       "code_source": "explicit",
       "speaker": "鋒哥",
       "host": "駿羽",
@@ -22064,6 +22127,26 @@
     }
   ],
   "2327": [
+    {
+      "code": "2327",
+      "name": "國巨*",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "幾百億大戶",
+      "host": null,
+      "sector": "被動元件",
+      "quote": "2327（幾百億大戶說）[圖片]",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
     {
       "code": "2327",
       "name": "國巨",
@@ -23698,6 +23781,28 @@
     {
       "code": "6278",
       "name": "台表科",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體封測",
+      "quote": "6278客戶有中繼旭創",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "旭創為客戶"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
+    {
+      "code": "6278",
+      "name": "台表科",
       "code_source": "explicit",
       "speaker": "Surf哥",
       "host": "駿羽",
@@ -25080,6 +25185,26 @@
     {
       "code": "2345",
       "name": "智邦",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "百億大戶",
+      "host": null,
+      "sector": "網通",
+      "quote": "2345說數字漂亮（百億大戶說）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
+    {
+      "code": "2345",
+      "name": "智邦",
       "code_source": "explicit",
       "speaker": "佑哥",
       "host": "駿羽",
@@ -26359,6 +26484,28 @@
     }
   ],
   "8150": [
+    {
+      "code": "8150",
+      "name": "南茂",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "封裝測試",
+      "quote": "頎邦說南茂製程跟設備都有，但開發一年多，南茂進來可能也要明年才有貢獻",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "光通金凸塊製程具備，明年才貢獻"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
     {
       "code": "8150",
       "name": "南茂",
@@ -34527,6 +34674,26 @@
   "2493": [
     {
       "code": "2493",
+      "name": "揚博",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": "阿威",
+      "host": null,
+      "sector": null,
+      "quote": "揚博定錨之後出報告TP300，阿威：朋友也有看，見老闆覺得在待退休，物料沒在準備，產能也是收訂金才擴產，相比敘豐好像比較積極",
+      "tp": "300",
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
+    },
+    {
+      "code": "2493",
       "name": "揚博科技",
       "code_source": "explicit",
       "speaker": "宋容",
@@ -35210,6 +35377,36 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-05-27T14:30:00"
+    }
+  ],
+  "6770": [
+    {
+      "code": "6770",
+      "name": "力積電",
+      "date": "2026-05-28",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "6770力積電 昨天NDR總經理去香港講，毛利率年底接近50%（保守）單季2.5，明年全年EPS 10塊，4月漲價5月漲6月繼續漲，MS現在才估明年4塊；6770說拿到美光後段的單大約2萬片，INTEL EMIB要進去，說下半年毛利50+，明年EPS 10+",
+      "tp": null,
+      "eps_est": {
+        "2027": "10"
+      },
+      "catalysts": [
+        "NDR香港路演",
+        "連續三個月漲價",
+        "美光後段訂單2萬片",
+        "INTEL EMIB導入",
+        "毛利率H2 50%+"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-28T14:00:00"
     }
   ]
 }
