@@ -4059,5 +4059,53 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-05-29T16:00:00"
+  },
+  {
+    "code": "4764",
+    "name": "雙鍵",
+    "date": "2026-05-31",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB材料",
+    "quote": "這幾天有人在說台光M9都給昱鐳，雙鍵沒接到M9。台光想先用李長榮HC但廢水問題，榮科HC 1kg生產40kg廢水只賺代工費2000/kg，mPPO 1kg廢水5-10kg賣2600/kg，同樣廢水mPPO更賺。雙鍵不想做榮科HC，要等自研COC HC（ASP 7000+/kg）。雙鍵股東會議事手冊已放自研COC HC，昱鐳送樣還沒過，只有雙鍵有過",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "台光M9分工：M8以上給雙鍵，M7給昱鐳（非全轉昱鐳）",
+      "自研COC HC ASP 7000+/kg廢水更少",
+      "昱鐳IPO掛牌預計八月，送樣未過"
+    ],
+    "customers": [
+      "台光"
+    ],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-05-31T15:10:00"
+  },
+  {
+    "code": "6770",
+    "name": "力積電",
+    "date": "2026-05-31",
+    "source_type": "daily",
+    "source_page": "2026-05_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體",
+    "quote": "力積7/1邏輯漲10%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "7月1日起邏輯IC漲價10%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-05-31T15:10:00"
   }
 ]
