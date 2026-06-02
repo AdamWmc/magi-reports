@@ -1,0 +1,105 @@
+[
+  {
+    "code": "6456",
+    "name": "GIS-KY",
+    "date": "2026-06-01",
+    "source_type": "essay",
+    "source_page": "2026-06_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "CPO光通訊",
+    "quote": "GIS-KY（6456 TP 150）觸控華麗轉身光通！切入CPO外置雷射源（ELSFP CW Laser）封裝，光通訊毛利30-40%遠勝觸控5%。2026年底量產、2027-2030 CPO大爆發；摺疊機防折薄膜急單；AR眼鏡2027下半年放量；鴻海集團支持。EPS 2027=6元、2028=11元，淨值88元，股價嚴重低估，強烈建議逢低布局。",
+    "tp": 150,
+    "eps_est": {
+      "2027": "6",
+      "2028": "11"
+    },
+    "catalysts": [
+      "切入美系核心CPO/ELSFP雷射封裝，毛利30-40%",
+      "摺疊機防折薄膜急單",
+      "AR眼鏡2027下半年放量",
+      "鴻海集團擴大投入光通"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-01T13:30:00"
+  },
+  {
+    "code": "8215",
+    "name": "明基材",
+    "date": "2026-06-01",
+    "source_type": "essay",
+    "source_page": "2026-06_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "半導體封裝材料",
+    "quote": "8215 明基材 提供頎邦bump乾膜材料，從傳統偏光片轉型切入半導體先進製程與封裝材料（Micro-bump乾膜光阻、銅柱、CMP清洗刷輪、晶圓研磨膠帶、UV解黏切割膠帶）。半導體與高階醫材雙引擎。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "Micro-bump乾膜光阻打入先進封裝",
+      "CMP清洗刷輪打入晶圓廠與記憶體大廠"
+    ],
+    "customers": [
+      "頎邦"
+    ],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-01T13:30:00"
+  },
+  {
+    "code": "6155",
+    "name": "鈞寶",
+    "date": "2026-06-01",
+    "source_type": "essay",
+    "source_page": "2026-06_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "磁性元件",
+    "quote": "6155 鈞寶從被動元件題材切入，主攻磁性元件、電感、EMI濾波（鐵氧體磁材、共模抗流圈、功率電感）。客戶以日系歐系為主，Hitachi為主要客戶。車用、AI/3C、家電與綠能拉貨積極，產能近滿載、評估擴產，部分產品已展開漲價協商。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "車用/AI終端需求強勁，產能近滿載",
+      "啟動漲價協商，評估擴產"
+    ],
+    "customers": [
+      "Hitachi"
+    ],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-01T13:30:00"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-06-01",
+    "source_type": "essay",
+    "source_page": "2026-06_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "晶圓代工",
+    "quote": "台積中科15廠要轉28nm去N4/5，會關100k相當於砍半，只有聯電能承接（GF 28nm是Gate-first但台積/聯電Gate-last，既有台積客戶會往聯電轉），聯電已接到很多NTO request、在新加坡12i P3/4做，之後新加坡會宣布再擴廠。聯電股東會說2027全面性漲價，極可能重演2021-2022季季漲，2027 EPS $10保底。",
+    "tp": null,
+    "eps_est": {
+      "2027": "10"
+    },
+    "catalysts": [
+      "台積中科28nm轉單聯電",
+      "2027全面性漲價，新加坡擴廠"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-01T13:30:00"
+  }
+]
