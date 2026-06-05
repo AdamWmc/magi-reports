@@ -1,0 +1,4343 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI 盤後報告 2026-06-05</title>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--warn:#f59e0b;
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.4px;text-transform:uppercase}
+.nav-date{font-size:11px;color:var(--muted)}
+.nav-back{font-size:12px;color:var(--muted);transition:color .15s}
+.nav-back:hover{color:var(--text)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 7px;cursor:pointer;font-size:13px;line-height:1;transition:border-color .15s}
+.theme-btn:hover{border-color:var(--accent2)}
+
+.hero-wrap{position:relative;overflow:hidden;padding:40px 40px 32px;background:var(--bg)}
+.hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);background-size:28px 28px;opacity:.4;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 0%,transparent 100%)}
+.hero-inner{position:relative;z-index:1}
+
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:11px;color:var(--muted);margin-bottom:18px}
+.hero-pill .live{width:6px;height:6px;border-radius:50%;background:var(--up);box-shadow:0 0 7px var(--up);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+.hero-dual{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px}
+.hero-mkt{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 24px}
+.hero-mkt-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.hero-mkt-idx{font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--bright);letter-spacing:-1.5px;line-height:1}
+.hero-mkt-chg{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:6px;font-size:13px;font-weight:700}
+.hero-mkt-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.hero-mkt-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.hero-mkt-meta{margin-top:8px;font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px}
+.hero-headline{font-size:14px;color:var(--text2);margin-bottom:16px;line-height:1.7;max-width:700px}
+.hero-headline strong{color:var(--text)}
+
+.signals{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sig{display:flex;align-items:center;gap:7px;padding:5px 12px;border-radius:100px;font-size:12px;border:1px solid var(--border);background:var(--bg2)}
+.sig-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sig-label{color:var(--muted)}
+.sig-val{font-weight:700}
+.sig-up .sig-dot{background:var(--up);box-shadow:0 0 6px var(--up)}
+.sig-up .sig-val{color:var(--up)}
+.sig-dn .sig-dot{background:var(--dn);box-shadow:0 0 6px var(--dn)}
+.sig-dn .sig-val{color:var(--dn)}
+.sig-warn .sig-dot{background:var(--warn);box-shadow:0 0 6px var(--warn)}
+.sig-warn .sig-val{color:var(--warn)}
+
+.breadth-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+.b-title{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px;text-transform:uppercase}
+.b-bar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:8px}
+.up-s{background:var(--up)}.flat-s{background:var(--dimmer)}.dn-s{background:var(--dn)}
+.b-nums{display:flex;flex-wrap:wrap;gap:12px;font-size:12px}
+.b-nums .u{color:var(--up);font-weight:600}.b-nums .d{color:var(--dn);font-weight:600}.b-nums .f{color:var(--muted)}
+.otc-breadth{margin-top:8px;font-size:11px;color:var(--muted);padding-top:8px;border-top:1px solid var(--border2)}
+
+.content{max-width:1200px;margin:0 auto;padding:0 40px 60px}
+.section-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin:32px 0 14px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:inline-block;width:3px;height:12px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px}
+.card-title{font-size:10px;color:var(--dimmer);font-weight:700;letter-spacing:.6px;margin-bottom:12px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.card-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:14px}
+.sector-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.sc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sc-name{font-size:13px;font-weight:700;color:var(--bright)}
+.sc-count{font-size:11px;padding:2px 7px;border-radius:4px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);font-weight:700}
+.sc-stocks{font-size:11px;color:var(--text2);line-height:1.7}
+.sc-notion{margin-top:8px;padding-top:8px;border-top:1px solid var(--border2)}
+.sc-notion-title{font-size:10px;color:var(--muted);font-weight:700;margin-bottom:4px;letter-spacing:.3px}
+.sc-quote{font-size:11px;color:var(--text2);font-style:italic;line-height:1.6}
+.sc-quote-who{font-size:10px;color:var(--muted);margin-top:2px}
+.weak-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.weak-tag{font-size:11px;padding:3px 9px;border-radius:4px;background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+
+/* 漲跌停 2x2 卡片（市場 × 第一天/連續） */
+.mover-block{margin-bottom:18px}
+.mover-block-title{font-size:13px;font-weight:800;color:var(--bright);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.mover-block-title .mb-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}
+.mover-block.up-block .mb-count{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.mover-block.dn-block .mb-count{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.mover-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mover-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.mover-card.streak-card{border-color:rgba(245,158,11,.35)}
+.mc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed var(--border2)}
+.mc-label{font-size:11px;font-weight:700;color:var(--text);letter-spacing:.3px}
+.mc-label .mc-market{color:var(--muted);font-weight:600}
+.mc-label .mc-kind-streak{color:var(--warn)}
+.mc-num{font-size:10px;color:var(--muted)}
+.mc-list{column-count:2;column-gap:14px;column-fill:balance}
+.mc-row{display:flex;align-items:center;gap:5px;font-size:11px;padding:2px 4px;border-radius:3px;break-inside:avoid;page-break-inside:avoid}
+.mc-row:hover{background:var(--bg3)}
+.mc-code{color:var(--muted);min-width:34px;font-variant-numeric:tabular-nums;font-size:10px}
+.mc-name{color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
+.mc-close{color:var(--text2);font-variant-numeric:tabular-nums;font-size:10px}
+.mc-pct{font-weight:700;font-variant-numeric:tabular-nums;min-width:48px;text-align:right;font-size:10.5px}
+/* 「連續」卡 + 沒幾檔的卡 → 維持單欄較易讀 */
+.streak-card .mc-list,
+.mc-list.mc-list-single{column-count:1}
+@media(max-width:760px){
+  .mc-list{column-count:1}
+}
+.mc-pct.up{color:var(--up)}.mc-pct.dn{color:var(--dn)}
+.mc-streak{font-size:10px;font-weight:700;padding:1px 5px;border-radius:3px;background:rgba(245,158,11,.15);color:var(--warn);border:1px solid rgba(245,158,11,.3)}
+.mc-streak.s3{background:var(--up-bg);color:var(--up);border-color:var(--up-bd)}
+.mc-notion{font-size:10px;color:var(--accent2);cursor:help}
+.mc-empty{font-size:11px;color:var(--dimmer);font-style:italic;padding:8px 4px}
+
+/* 今日主流（產業分群）*/
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:18px}
+.theme-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+.theme-card.top-theme{border-color:var(--up);background:linear-gradient(180deg, var(--up-bg) 0%, var(--bg2) 100%)}
+.theme-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed var(--border2)}
+.theme-name{font-size:13px;font-weight:800;color:var(--bright)}
+.theme-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.theme-card.dn-theme .theme-count{background:var(--dn-bg);color:var(--dn);border-color:var(--dn-bd)}
+.theme-stocks{display:flex;flex-direction:column;gap:2px}
+
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.inst-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.inst-name{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.inst-val{font-size:22px;font-weight:800;letter-spacing:-0.5px}
+.inst-val.up{color:var(--up)}.inst-val.dn{color:var(--dn)}
+.inst-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+.fut-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.fut-card.accent{border-color:var(--accent2);background:var(--glow)}
+.fut-name{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.3px;margin-bottom:4px;text-transform:uppercase}
+.fut-val{font-size:16px;font-weight:800;letter-spacing:-0.3px}
+.fut-val.up{color:var(--up)}.fut-val.dn{color:var(--dn)}
+.fut-sub{font-size:9px;color:var(--muted);margin-top:2px}
+
+.fin-tbl{width:100%}
+.fin-tbl tr+tr{border-top:1px solid var(--border2)}
+.fin-tbl td{padding:5px 6px;font-size:12px;vertical-align:middle}
+.fin-tbl td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.fin-tbl td .code{font-size:10px;color:var(--muted)}
+.fin-tbl td .name{font-weight:600;color:var(--text)}
+.val-up{color:var(--up);font-weight:700}.val-dn{color:var(--dn);font-weight:700}
+
+.margin-tbl{width:100%;border-collapse:collapse}
+.margin-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:right;padding:5px 8px;border-bottom:1px solid var(--border)}
+.margin-tbl th:first-child{text-align:left}
+.margin-tbl td{font-size:12px;padding:8px 8px;text-align:right;border-bottom:1px solid var(--border2)}
+.margin-tbl td:first-child{text-align:left;font-weight:700;color:var(--text)}
+.margin-tbl tr:last-child td{border-bottom:none}
+
+.radar-feed{display:flex;flex-direction:column;gap:8px}
+.rf-item{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.rf-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rf-person{font-weight:700;font-size:14px;color:var(--bright)}
+.rf-group{font-size:11px;color:var(--muted);background:var(--bg3);padding:2px 8px;border-radius:100px}
+.rf-date{font-size:11px;color:var(--dimmer);margin-left:auto}
+.rf-mentions{display:flex;flex-direction:column;gap:5px}
+.rf-mention{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:7px 10px;border-radius:7px;background:var(--bg);border:1px solid var(--border2)}
+.rf-code{font-size:10px;color:var(--muted);min-width:32px}
+.rf-name{font-size:13px;font-weight:600;color:var(--text)}
+.rf-quote{font-size:11px;color:var(--text2);font-style:italic;flex:1}
+.rf-sentiment{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.rf-s-bull{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.rf-s-watch{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
+.rf-s-bear{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+
+.consensus-tbl{width:100%;border-collapse:collapse}
+.consensus-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;padding:5px 8px;text-align:left;border-bottom:1px solid var(--border)}
+.consensus-tbl td{padding:8px 8px;border-bottom:1px solid var(--border2);vertical-align:middle;font-size:12px}
+.consensus-tbl tr:last-child td{border-bottom:none}
+.stk-name{font-weight:700;color:var(--text);display:block}
+.stk-code{font-size:10px;color:var(--muted)}
+.score-badge{font-size:12px;font-weight:800;color:var(--accent2)}
+.pushers-cell{font-size:10px;color:var(--muted);max-width:200px}
+
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.stock-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;transition:border-color .15s}
+.stock-card:hover{border-color:var(--accent2)}
+.stock-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.stock-meta{flex:1}
+.stock-code-label{font-size:10px;color:var(--muted)}
+.stock-name{font-size:16px;font-weight:800;color:var(--bright);line-height:1.2}
+.stock-price-wrap{text-align:right}
+.stock-price{font-size:18px;font-weight:800;letter-spacing:-.5px}
+.stock-chg{font-size:11px;padding:2px 6px;border-radius:4px;font-weight:700;margin-top:2px;display:inline-block}
+.stock-chg.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.stock-chg.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.badge-limitup{background:var(--up);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:4px;vertical-align:middle}
+.badge-punish{background:rgba(245,158,11,.15);color:var(--warn);font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;border:1px solid rgba(245,158,11,.3)}
+.notion-score-bar{display:flex;align-items:center;gap:6px;margin:8px 0;padding:6px 8px;background:var(--bg3);border-radius:6px}
+.ns-label{font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;width:40px;flex-shrink:0}
+.ns-score{font-size:13px;font-weight:800;color:var(--accent2)}
+.ns-pushers{font-size:10px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stock-thesis{font-size:11px;color:var(--text2);margin:6px 0;line-height:1.6}
+.stock-quote{font-size:11px;color:var(--text2);font-style:italic;margin:4px 0;padding:6px 8px;background:var(--bg3);border-left:2px solid var(--accent2);border-radius:0 4px 4px 0}
+.kline-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent2);margin-top:8px;padding:4px 10px;border:1px solid var(--accent2);border-radius:100px;transition:background .12s}
+.kline-link:hover{background:var(--glow)}
+
+.warn-section{margin-bottom:16px}
+.warn-title{font-size:11px;font-weight:700;color:var(--warn);letter-spacing:.4px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.warn-title::before{content:'⚠';font-size:12px}
+.warn-grid{display:flex;flex-wrap:wrap;gap:8px}
+.warn-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.warn-chip.attention{background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25)}
+.warn-chip.punish{background:rgba(220,38,38,.07);color:var(--up);border:1px solid rgba(220,38,38,.2)}
+.warn-chip.punish-new{background:rgba(220,38,38,.14);color:var(--up);border:2px solid var(--up);font-weight:800}
+.warn-chip.punish-new.consensus{border-color:var(--warn);color:var(--warn)}
+.warn-chip .days{font-size:9px;opacity:.7;margin-left:2px}
+
+.disposal-tbl{width:100%;border-collapse:collapse}
+.disposal-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);text-transform:uppercase}
+.disposal-tbl th:last-child{text-align:right}
+.disposal-tbl td{padding:7px 10px;border-bottom:1px solid var(--border2);font-size:12px;vertical-align:middle}
+.disposal-tbl tr:last-child td{border-bottom:none}
+.disposal-tbl .code{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .nm{font-weight:600;color:var(--text);width:99%}
+.disposal-tbl .period{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .rel{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;white-space:nowrap}
+.disposal-tbl .left{text-align:right;font-weight:700;white-space:nowrap;color:var(--text2)}
+.disposal-tbl tr.row-soon{background:var(--up-bg)}
+.disposal-tbl tr.row-soon .left{color:var(--up)}
+.disposal-tbl tr.row-new{background:rgba(245,158,11,.06)}
+.disposal-tbl tr.row-new .left{color:var(--warn)}
+.disposal-tbl tr.row-upcoming{opacity:.6}
+
+.sector-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:6px;font-size:11px;border:1px solid var(--border);background:var(--bg3);margin:3px}
+.sector-badge .cnt{font-weight:700;color:var(--accent2)}
+.sector-badge .recent{font-size:9px;padding:1px 5px;border-radius:3px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);margin-left:4px}
+
+footer{border-top:1px solid var(--border);padding:24px 40px;font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.src-badge{padding:3px 8px;border-radius:4px;background:var(--bg3);border:1px solid var(--border);font-size:10px}
+
+@media(max-width:760px){
+  .hero-dual,.grid2{grid-template-columns:1fr !important;gap:14px}
+  .grid3,.grid5,.inst-grid{grid-template-columns:1fr 1fr}
+  .sector-grid{grid-template-columns:1fr}
+  .mover-grid{grid-template-columns:1fr}
+  nav{padding:12px 16px}
+  .hero-wrap,.content{padding-left:16px;padding-right:16px}
+  footer{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <span class="nav-badge">盤後報告</span>
+    <span class="nav-date">2026-06-05 週五</span>
+    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+  <a href="/" class="nav-back">← 首頁</a>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="live"></span><span>2026-06-05 盤後總結</span></div>
+
+    <div class="hero-dual">
+      <div class="hero-mkt">
+        <div class="hero-mkt-label">加權指數（上市）</div>
+        <div class="hero-mkt-idx">45,071</div>
+        <div class="hero-mkt-chg dn">
+          ▼ 606.52 (1.33%)
+        </div>
+        <div class="hero-mkt-meta">
+          <span>成交 <strong>11,772億</strong></span>
+          <span>漲停 <strong style="color:var(--up)">19</strong></span>
+          <span>跌停 <strong style="color:var(--dn)">10</strong></span>
+        </div>
+      </div>
+      <div class="hero-mkt">
+        <div class="hero-mkt-label">上櫃指數（OTC）</div>
+        <div class="hero-mkt-idx">431.07</div>
+        <div class="hero-mkt-chg dn">
+          ▼ 9.03 (2.05%)
+        </div>
+        <div class="hero-mkt-meta">
+          <span>漲停 <strong style="color:var(--up)">33</strong></span>
+          <span>⚡ OTC 跌幅遠大於大盤</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="hero-headline">台股連 2 黑，今日開低走低、盤中一度崩跌近 <strong>1,468 點</strong>（史上盤中第 5 大跌點）跌破 45,000，尾盤靠金融、被動元件、光學買盤回補，終場收 <strong>45,070</strong> 跌 606 點（<strong style='color:var(--dn)'>-1.33%</strong>），力守 45K、週線連 3 紅，成交 1.22 兆。禍首是美光重挫 7.7%＋Raymond James 警告 DRAM／NAND 價格年中觸頂——<strong style='color:var(--dn)'>記憶體全面殺盤</strong>：華邦電、創見鎖跌停，南亞科 -8.86%、威剛十銓 -7%。<strong>台積電</strong>早盤上攻 2,405 後翻黑收 2,365（-0.84%）。上市櫃下跌家數皆逾 6 成、<strong>市場廣度明顯轉弱</strong>，外資狂賣 826 億、三大法人合計提款逾 1,100 億。抗跌亮點落在金融、富邦媒（漲停）、被動元件（國巨 +3.5% 收復）與重電。</p>
+
+    <div class="signals">
+      <div class="sig sig-dn">
+        <span class="sig-dot"></span><span class="sig-label">大盤方向</span>
+        <span class="sig-val">偏空 1.33%</span>
+      </div>
+      <div class="sig sig-up">
+        <span class="sig-dot"></span><span class="sig-label">上市上櫃同向</span>
+        <span class="sig-val">同跌</span>
+      </div>
+      <div class="sig sig-dn">
+        <span class="sig-dot"></span><span class="sig-label">法人合力</span>
+        <span class="sig-val">1,094.4億</span>
+      </div>
+      <div class="sig sig-dn">
+        <span class="sig-dot"></span><span class="sig-label">市場廣度</span>
+        <span class="sig-val">上漲342 &lt; 下跌671</span>
+      </div>
+    </div>
+
+    <div class="breadth-wrap">
+      <div class="b-title">上市漲跌分布</div>
+      <div class="b-bar">
+        <div class="up-s" style="width:31.9%"></div>
+        <div class="flat-s" style="width:5.5%"></div>
+        <div class="dn-s" style="width:62.6%"></div>
+      </div>
+      <div class="b-nums">
+        <span class="u">漲 342（31.9%）</span>
+        <span class="f">平 59</span>
+        <span class="d">跌 671（62.6%）</span>
+        <span style="color:var(--up);font-weight:700">漲停 19</span>
+        <span style="color:var(--dn)">跌停 10</span>
+      </div>
+      <div class="b-title" style="margin-top:14px">上櫃漲跌分布</div>
+      <div class="b-bar">
+        <div class="up-s" style="width:36.4%"></div>
+        <div class="flat-s" style="width:7.0%"></div>
+        <div class="dn-s" style="width:56.7%"></div>
+      </div>
+      <div class="b-nums">
+        <span class="u">漲 319（36.4%）</span>
+        <span class="f">平 61</span>
+        <span class="d">跌 497（56.7%）</span>
+        <span style="color:var(--up);font-weight:700">漲停 33</span>
+        <span style="color:var(--dn)">跌停 6</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+
+<div class="section-title">今日市場方向</div>
+
+<div style="margin-bottom:14px">
+  <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px;letter-spacing:.3px">📊 今日主流（漲停產業分群）</div>
+  <div class="theme-grid">
+    <div class="theme-card top-theme">
+      <div class="theme-header">
+        <span class="theme-name">電子零組件業</span>
+        <span class="theme-count">▲ 18</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">4542</span>
+          <span class="mc-name">科嶠</span>
+          <span class="mc-pct up">+10.00%</span>
+<span class="mc-streak ">連2</span><span class="mc-notion" title="Notion 有人提過">🎯</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">3520</span>
+          <span class="mc-name">華盈</span>
+          <span class="mc-pct up">+10.00%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3537</span>
+          <span class="mc-name">堡達</span>
+          <span class="mc-pct up">+10.00%</span>
+<span class="mc-notion" title="Notion 有人提過">🎯</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">6597</span>
+          <span class="mc-name">立誠</span>
+          <span class="mc-pct up">+10.00%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">8043</span>
+          <span class="mc-name">蜜望實</span>
+          <span class="mc-pct up">+10.00%</span>
+<span class="mc-notion" title="Notion 有人提過">🎯</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">6155</span>
+          <span class="mc-name">鈞寶</span>
+          <span class="mc-pct up">+9.99%</span>
+<span class="mc-notion" title="Notion 有人提過">🎯</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">3376</span>
+          <span class="mc-name">新日興</span>
+          <span class="mc-pct up">+9.98%</span>
+<span class="mc-notion" title="Notion 有人提過">🎯</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">3114</span>
+          <span class="mc-name">好德</span>
+          <span class="mc-pct up">+9.98%</span>
+<span class="mc-streak s3">連3</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">5228</span>
+          <span class="mc-name">鈺鎧</span>
+          <span class="mc-pct up">+9.98%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6432</span>
+          <span class="mc-name">今展科</span>
+          <span class="mc-pct up">+9.97%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6862</span>
+          <span class="mc-name">三集瑞-KY</span>
+          <span class="mc-pct up">+9.95%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">4939</span>
+          <span class="mc-name">亞電</span>
+          <span class="mc-pct up">+9.94%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">2483</span>
+          <span class="mc-name">百容</span>
+          <span class="mc-pct up">+9.93%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6175</span>
+          <span class="mc-name">立敦</span>
+          <span class="mc-pct up">+9.90%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6284</span>
+          <span class="mc-name">佳邦</span>
+          <span class="mc-pct up">+9.90%</span>
+<span class="mc-notion" title="Notion 有人提過">🎯</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">3015</span>
+          <span class="mc-name">全漢</span>
+          <span class="mc-pct up">+9.89%</span>
+<span class="mc-streak ">連2</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">7788</span>
+          <span class="mc-name">松川精密</span>
+          <span class="mc-pct up">+9.80%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3548</span>
+          <span class="mc-name">兆利</span>
+          <span class="mc-pct up">+9.54%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">生技醫療業</span>
+        <span class="theme-count">▲ 5</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6885</span>
+          <span class="mc-name">全福生技</span>
+          <span class="mc-pct up">+9.94%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">4190</span>
+          <span class="mc-name">佐登-KY</span>
+          <span class="mc-pct up">+9.88%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6645</span>
+          <span class="mc-name">金萬林-創</span>
+          <span class="mc-pct up">+9.75%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">7799</span>
+          <span class="mc-name">禾榮科</span>
+          <span class="mc-pct up">+9.70%</span>
+<span class="mc-streak ">連2</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">4109</span>
+          <span class="mc-name">加捷生醫</span>
+          <span class="mc-pct up">+9.66%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">電子工業</span>
+        <span class="theme-count">▲ 3</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6409</span>
+          <span class="mc-name">旭隼</span>
+          <span class="mc-pct up">+9.95%</span>
+<span class="mc-streak ">連2</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">2461</span>
+          <span class="mc-name">光群雷</span>
+          <span class="mc-pct up">+9.86%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3018</span>
+          <span class="mc-name">隆銘綠能</span>
+          <span class="mc-pct up">+9.81%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">半導體業</span>
+        <span class="theme-count">▲ 3</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6684</span>
+          <span class="mc-name">安格</span>
+          <span class="mc-pct up">+10.00%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6907</span>
+          <span class="mc-name">雅特力-KY</span>
+          <span class="mc-pct up">+9.74%</span>
+<span class="mc-streak s3">連3</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">6895</span>
+          <span class="mc-name">宏碩系統</span>
+          <span class="mc-pct up">+9.71%</span>
+<span class="mc-streak ">連2</span>        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">數位雲端類</span>
+        <span class="theme-count">▲ 3</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6925</span>
+          <span class="mc-name">意藍</span>
+          <span class="mc-pct up">+9.96%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6763</span>
+          <span class="mc-name">綠界科技*</span>
+          <span class="mc-pct up">+9.92%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">7714</span>
+          <span class="mc-name">創泓科技</span>
+          <span class="mc-pct up">+9.80%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">數位雲端</span>
+        <span class="theme-count">▲ 2</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">8454</span>
+          <span class="mc-name">富邦媒</span>
+          <span class="mc-pct up">+9.97%</span>
+<span class="mc-streak s3">連4</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">7722</span>
+          <span class="mc-name">LINEPAY</span>
+          <span class="mc-pct up">+9.89%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">電腦及週邊設備業</span>
+        <span class="theme-count">▲ 2</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">5426</span>
+          <span class="mc-name">振發</span>
+          <span class="mc-pct up">+9.91%</span>
+<span class="mc-streak s3">連5</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">3213</span>
+          <span class="mc-name">茂訊</span>
+          <span class="mc-pct up">+9.88%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">居家生活類</span>
+        <span class="theme-count">▲ 2</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">7794</span>
+          <span class="mc-name">宏碁智新</span>
+          <span class="mc-pct up">+9.92%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">2924</span>
+          <span class="mc-name">宏太-KY</span>
+          <span class="mc-pct up">+9.86%</span>
+<span class="mc-streak ">連2</span>        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">其他</span>
+        <span class="theme-count">▲ 2</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">5345</span>
+          <span class="mc-name">馥鴻</span>
+          <span class="mc-pct up">+10.00%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">2221</span>
+          <span class="mc-name">大甲</span>
+          <span class="mc-pct up">+9.99%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <span class="theme-name">光電業</span>
+        <span class="theme-count">▲ 2</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6517</span>
+          <span class="mc-name">保勝光學</span>
+          <span class="mc-pct up">+10.00%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3441</span>
+          <span class="mc-name">聯一光</span>
+          <span class="mc-pct up">+9.85%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-bottom:14px">
+  <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px;letter-spacing:.3px">📉 弱勢產業（跌停分群）</div>
+  <div class="theme-grid">
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">電子工業</span>
+        <span class="theme-count">▼ 4</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6116</span>
+          <span class="mc-name">彩晶</span>
+          <span class="mc-pct dn">-9.78%</span>
+<span class="mc-streak">連2</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">2451</span>
+          <span class="mc-name">創見</span>
+          <span class="mc-pct dn">-9.94%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3021</span>
+          <span class="mc-name">鴻名</span>
+          <span class="mc-pct dn">-10.00%</span>
+<span class="mc-streak">連2</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">2406</span>
+          <span class="mc-name">國碩</span>
+          <span class="mc-pct dn">-10.00%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">電子零組件業</span>
+        <span class="theme-count">▼ 4</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6538</span>
+          <span class="mc-name">倉和</span>
+          <span class="mc-pct dn">-9.56%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">6282</span>
+          <span class="mc-name">康舒</span>
+          <span class="mc-pct dn">-9.89%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">8291</span>
+          <span class="mc-name">尚茂</span>
+          <span class="mc-pct dn">-9.90%</span>
+<span class="mc-streak">連6</span>        </div>
+        <div class="mc-row">
+          <span class="mc-code">2440</span>
+          <span class="mc-name">太空梭</span>
+          <span class="mc-pct dn">-10.00%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">電機機械</span>
+        <span class="theme-count">▼ 3</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">1514</span>
+          <span class="mc-name">亞力</span>
+          <span class="mc-pct dn">-9.70%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">1503</span>
+          <span class="mc-name">士電</span>
+          <span class="mc-pct dn">-9.89%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">1504</span>
+          <span class="mc-name">東元</span>
+          <span class="mc-pct dn">-9.89%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">半導體業</span>
+        <span class="theme-count">▼ 3</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6485</span>
+          <span class="mc-name">點序</span>
+          <span class="mc-pct dn">-9.68%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">2344</span>
+          <span class="mc-name">華邦電</span>
+          <span class="mc-pct dn">-9.75%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3581</span>
+          <span class="mc-name">博磊</span>
+          <span class="mc-pct dn">-9.87%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">光電業</span>
+        <span class="theme-count">▼ 2</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">3066</span>
+          <span class="mc-name">李洲</span>
+          <span class="mc-pct dn">-9.81%</span>
+        </div>
+        <div class="mc-row">
+          <span class="mc-code">3523</span>
+          <span class="mc-name">迎輝</span>
+          <span class="mc-pct dn">-9.89%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">綠能環保</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6806</span>
+          <span class="mc-name">森崴能源</span>
+          <span class="mc-pct dn">-9.90%</span>
+<span class="mc-streak">連3</span>        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">存託憑證</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">9105</span>
+          <span class="mc-name">泰金寶-DR</span>
+          <span class="mc-pct dn">-9.84%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">紡織纖維</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">4426</span>
+          <span class="mc-name">利勤</span>
+          <span class="mc-pct dn">-9.68%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">食品工業</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">1256</span>
+          <span class="mc-name">鮮活果汁-KY</span>
+          <span class="mc-pct dn">-9.50%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">數位雲端類</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">5321</span>
+          <span class="mc-name">美而快</span>
+          <span class="mc-pct dn">-9.80%</span>
+<span class="mc-streak">連2</span>        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">電子通路業</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">6265</span>
+          <span class="mc-name">方土昶</span>
+          <span class="mc-pct dn">-9.86%</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-card dn-theme">
+      <div class="theme-header">
+        <span class="theme-name">綠能環保類</span>
+        <span class="theme-count">▼ 1</span>
+      </div>
+      <div class="theme-stocks">
+        <div class="mc-row">
+          <span class="mc-code">3073</span>
+          <span class="mc-name">天方能源</span>
+          <span class="mc-pct dn">-9.68%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px;letter-spacing:.3px">📋 完整清單（依市場 / 第一天 vs 連續）</div>
+
+
+<div class="mover-block up-block">
+  <div class="mover-block-title">
+    ▲ 漲停 <span class="mb-count">53 檔（上市 20｜上櫃 33）</span>
+  </div>
+  <div class="mover-grid">
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">16 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">6155</span>
+      <span class="mc-name">鈞寶</span>
+      <span class="mc-close">79.3</span>
+      <span class="mc-pct up">+9.99%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1810</span>
+      <span class="mc-name">和成</span>
+      <span class="mc-close">22.6</span>
+      <span class="mc-pct up">+9.98%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3376</span>
+      <span class="mc-name">新日興</span>
+      <span class="mc-close">237.0</span>
+      <span class="mc-pct up">+9.98%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6862</span>
+      <span class="mc-name">三集瑞-KY</span>
+      <span class="mc-close">204.5</span>
+      <span class="mc-pct up">+9.95%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2241</span>
+      <span class="mc-name">艾姆勒</span>
+      <span class="mc-close">35.4</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6885</span>
+      <span class="mc-name">全福生技</span>
+      <span class="mc-close">26.55</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2483</span>
+      <span class="mc-name">百容</span>
+      <span class="mc-close">30.45</span>
+      <span class="mc-pct up">+9.93%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7722</span>
+      <span class="mc-name">LINEPAY</span>
+      <span class="mc-close">305.5</span>
+      <span class="mc-pct up">+9.89%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2528</span>
+      <span class="mc-name">皇普</span>
+      <span class="mc-close">23.35</span>
+      <span class="mc-pct up">+9.88%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4190</span>
+      <span class="mc-name">佐登-KY</span>
+      <span class="mc-close">27.25</span>
+      <span class="mc-pct up">+9.88%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2461</span>
+      <span class="mc-name">光群雷</span>
+      <span class="mc-close">19.5</span>
+      <span class="mc-pct up">+9.86%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2025</span>
+      <span class="mc-name">千興</span>
+      <span class="mc-close">13.4</span>
+      <span class="mc-pct up">+9.84%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3018</span>
+      <span class="mc-name">隆銘綠能</span>
+      <span class="mc-close">11.75</span>
+      <span class="mc-pct up">+9.81%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7788</span>
+      <span class="mc-name">松川精密</span>
+      <span class="mc-close">224.0</span>
+      <span class="mc-pct up">+9.80%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6645</span>
+      <span class="mc-name">金萬林-創</span>
+      <span class="mc-close">12.95</span>
+      <span class="mc-pct up">+9.75%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1906</span>
+      <span class="mc-name">寶隆</span>
+      <span class="mc-close">12.55</span>
+      <span class="mc-pct up">+9.61%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">4 檔</span>
+  </div>
+  <div class="mc-list mc-list-single">
+    <div class="mc-row">
+      <span class="mc-code">8454</span>
+      <span class="mc-name">富邦媒</span>
+      <span class="mc-close">353.0</span>
+      <span class="mc-pct up">+9.97%</span>
+        <span class="mc-streak s3">連4根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6409</span>
+      <span class="mc-name">旭隼</span>
+      <span class="mc-close">928.0</span>
+      <span class="mc-pct up">+9.95%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3015</span>
+      <span class="mc-name">全漢</span>
+      <span class="mc-close">68.9</span>
+      <span class="mc-pct up">+9.89%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7799</span>
+      <span class="mc-name">禾榮科</span>
+      <span class="mc-close">390.0</span>
+      <span class="mc-pct up">+9.70%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">25 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">3520</span>
+      <span class="mc-name">華盈</span>
+      <span class="mc-close">17.05</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3537</span>
+      <span class="mc-name">堡達</span>
+      <span class="mc-close">83.6</span>
+      <span class="mc-pct up">+10.00%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5345</span>
+      <span class="mc-name">馥鴻</span>
+      <span class="mc-close">24.2</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6517</span>
+      <span class="mc-name">保勝光學</span>
+      <span class="mc-close">69.3</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6597</span>
+      <span class="mc-name">立誠</span>
+      <span class="mc-close">78.1</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6684</span>
+      <span class="mc-name">安格</span>
+      <span class="mc-close">48.95</span>
+      <span class="mc-pct up">+10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8043</span>
+      <span class="mc-name">蜜望實</span>
+      <span class="mc-close">159.5</span>
+      <span class="mc-pct up">+10.00%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2221</span>
+      <span class="mc-name">大甲</span>
+      <span class="mc-close">46.8</span>
+      <span class="mc-pct up">+9.99%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5228</span>
+      <span class="mc-name">鈺鎧</span>
+      <span class="mc-close">69.4</span>
+      <span class="mc-pct up">+9.98%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6432</span>
+      <span class="mc-name">今展科</span>
+      <span class="mc-close">67.3</span>
+      <span class="mc-pct up">+9.97%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6925</span>
+      <span class="mc-name">意藍</span>
+      <span class="mc-close">76.2</span>
+      <span class="mc-pct up">+9.96%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6270</span>
+      <span class="mc-name">倍微</span>
+      <span class="mc-close">32.6</span>
+      <span class="mc-pct up">+9.95%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4939</span>
+      <span class="mc-name">亞電</span>
+      <span class="mc-close">59.7</span>
+      <span class="mc-pct up">+9.94%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6763</span>
+      <span class="mc-name">綠界科技*</span>
+      <span class="mc-close">50.4</span>
+      <span class="mc-pct up">+9.92%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7794</span>
+      <span class="mc-name">宏碁智新</span>
+      <span class="mc-close">34.9</span>
+      <span class="mc-pct up">+9.92%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6175</span>
+      <span class="mc-name">立敦</span>
+      <span class="mc-close">96.6</span>
+      <span class="mc-pct up">+9.90%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6284</span>
+      <span class="mc-name">佳邦</span>
+      <span class="mc-close">111.0</span>
+      <span class="mc-pct up">+9.90%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3213</span>
+      <span class="mc-name">茂訊</span>
+      <span class="mc-close">139.0</span>
+      <span class="mc-pct up">+9.88%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4402</span>
+      <span class="mc-name">郡都開發</span>
+      <span class="mc-close">13.35</span>
+      <span class="mc-pct up">+9.88%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8099</span>
+      <span class="mc-name">大世科</span>
+      <span class="mc-close">70.2</span>
+      <span class="mc-pct up">+9.86%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3441</span>
+      <span class="mc-name">聯一光</span>
+      <span class="mc-close">60.2</span>
+      <span class="mc-pct up">+9.85%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">8089</span>
+      <span class="mc-name">康全電訊</span>
+      <span class="mc-close">22.35</span>
+      <span class="mc-pct up">+9.83%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">7714</span>
+      <span class="mc-name">創泓科技</span>
+      <span class="mc-close">140.0</span>
+      <span class="mc-pct up">+9.80%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4109</span>
+      <span class="mc-name">加捷生醫</span>
+      <span class="mc-close">13.05</span>
+      <span class="mc-pct up">+9.66%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3548</span>
+      <span class="mc-name">兆利</span>
+      <span class="mc-close">104.5</span>
+      <span class="mc-pct up">+9.54%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">8 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">5701</span>
+      <span class="mc-name">劍湖山</span>
+      <span class="mc-close">6.43</span>
+      <span class="mc-pct up">+9.91%</span>
+        <span class="mc-streak s3">連7根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5426</span>
+      <span class="mc-name">振發</span>
+      <span class="mc-close">29.95</span>
+      <span class="mc-pct up">+9.91%</span>
+        <span class="mc-streak s3">連5根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3114</span>
+      <span class="mc-name">好德</span>
+      <span class="mc-close">44.65</span>
+      <span class="mc-pct up">+9.98%</span>
+        <span class="mc-streak s3">連3根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6907</span>
+      <span class="mc-name">雅特力-KY</span>
+      <span class="mc-close">169.0</span>
+      <span class="mc-pct up">+9.74%</span>
+        <span class="mc-streak s3">連3根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4542</span>
+      <span class="mc-name">科嶠</span>
+      <span class="mc-close">286.0</span>
+      <span class="mc-pct up">+10.00%</span>
+        <span class="mc-streak ">連2根</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6624</span>
+      <span class="mc-name">萬年清</span>
+      <span class="mc-close">47.3</span>
+      <span class="mc-pct up">+10.00%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2924</span>
+      <span class="mc-name">宏太-KY</span>
+      <span class="mc-close">18.95</span>
+      <span class="mc-pct up">+9.86%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6895</span>
+      <span class="mc-name">宏碩系統</span>
+      <span class="mc-close">169.5</span>
+      <span class="mc-pct up">+9.71%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+<div class="mover-block dn-block">
+  <div class="mover-block-title">
+    ▼ 跌停 <span class="mb-count">23 檔（上市 14｜上櫃 9）</span>
+  </div>
+  <div class="mover-grid">
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">11 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">1256</span>
+      <span class="mc-name">鮮活果汁-KY</span>
+      <span class="mc-close">181.0</span>
+      <span class="mc-pct dn">-9.50%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">4426</span>
+      <span class="mc-name">利勤</span>
+      <span class="mc-close">8.49</span>
+      <span class="mc-pct dn">-9.68%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1514</span>
+      <span class="mc-name">亞力</span>
+      <span class="mc-close">135.0</span>
+      <span class="mc-pct dn">-9.70%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2344</span>
+      <span class="mc-name">華邦電</span>
+      <span class="mc-close">162.0</span>
+      <span class="mc-pct dn">-9.75%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">9105</span>
+      <span class="mc-name">泰金寶-DR</span>
+      <span class="mc-close">11.45</span>
+      <span class="mc-pct dn">-9.84%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1503</span>
+      <span class="mc-name">士電</span>
+      <span class="mc-close">241.5</span>
+      <span class="mc-pct dn">-9.89%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">1504</span>
+      <span class="mc-name">東元</span>
+      <span class="mc-close">78.4</span>
+      <span class="mc-pct dn">-9.89%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6282</span>
+      <span class="mc-name">康舒</span>
+      <span class="mc-close">63.8</span>
+      <span class="mc-pct dn">-9.89%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2451</span>
+      <span class="mc-name">創見</span>
+      <span class="mc-close">321.5</span>
+      <span class="mc-pct dn">-9.94%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2406</span>
+      <span class="mc-name">國碩</span>
+      <span class="mc-close">34.65</span>
+      <span class="mc-pct dn">-10.00%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">2440</span>
+      <span class="mc-name">太空梭</span>
+      <span class="mc-close">18.45</span>
+      <span class="mc-pct dn">-10.00%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上市</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">3 檔</span>
+  </div>
+  <div class="mc-list mc-list-single">
+    <div class="mc-row">
+      <span class="mc-code">6806</span>
+      <span class="mc-name">森崴能源</span>
+      <span class="mc-close">5.64</span>
+      <span class="mc-pct dn">-9.90%</span>
+        <span class="mc-streak s3">連3根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6116</span>
+      <span class="mc-name">彩晶</span>
+      <span class="mc-close">18.45</span>
+      <span class="mc-pct dn">-9.78%</span>
+        <span class="mc-streak ">連2根</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3021</span>
+      <span class="mc-name">鴻名</span>
+      <span class="mc-close">32.4</span>
+      <span class="mc-pct dn">-10.00%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card ">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="">第一天</span>
+    </span>
+    <span class="mc-num">7 檔</span>
+  </div>
+  <div class="mc-list">
+    <div class="mc-row">
+      <span class="mc-code">6538</span>
+      <span class="mc-name">倉和</span>
+      <span class="mc-close">123.0</span>
+      <span class="mc-pct dn">-9.56%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3073</span>
+      <span class="mc-name">天方能源</span>
+      <span class="mc-close">22.4</span>
+      <span class="mc-pct dn">-9.68%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6485</span>
+      <span class="mc-name">點序</span>
+      <span class="mc-close">112.0</span>
+      <span class="mc-pct dn">-9.68%</span>
+        <span class="mc-notion" title="Notion 有人提過">🎯</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3066</span>
+      <span class="mc-name">李洲</span>
+      <span class="mc-close">21.6</span>
+      <span class="mc-pct dn">-9.81%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">6265</span>
+      <span class="mc-name">方土昶</span>
+      <span class="mc-close">57.6</span>
+      <span class="mc-pct dn">-9.86%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3581</span>
+      <span class="mc-name">博磊</span>
+      <span class="mc-close">173.5</span>
+      <span class="mc-pct dn">-9.87%</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">3523</span>
+      <span class="mc-name">迎輝</span>
+      <span class="mc-close">20.95</span>
+      <span class="mc-pct dn">-9.89%</span>
+    </div>
+  </div>
+</div>
+
+    <div class="mover-card streak-card">
+  <div class="mc-header">
+    <span class="mc-label">
+      <span class="mc-market">上櫃</span>
+      <span class="mc-kind-streak">連續 ≥2</span>
+    </span>
+    <span class="mc-num">2 檔</span>
+  </div>
+  <div class="mc-list mc-list-single">
+    <div class="mc-row">
+      <span class="mc-code">8291</span>
+      <span class="mc-name">尚茂</span>
+      <span class="mc-close">71.0</span>
+      <span class="mc-pct dn">-9.90%</span>
+        <span class="mc-streak s3">連6根</span>
+    </div>
+    <div class="mc-row">
+      <span class="mc-code">5321</span>
+      <span class="mc-name">美而快</span>
+      <span class="mc-close">45.55</span>
+      <span class="mc-pct dn">-9.80%</span>
+        <span class="mc-streak ">連2根</span>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<div class="section-title">法人動向</div>
+<div class="inst-grid" style="margin-bottom:14px">
+  <div class="inst-card">
+    <div class="inst-name">外資</div>
+    <div class="inst-val dn">
+      826.3億
+    </div>
+    <div class="inst-sub">連 3 買後反手大賣 826 億</div>
+  </div>
+  <div class="inst-card">
+    <div class="inst-name">投信</div>
+    <div class="inst-val up">
+      +16.2億
+    </div>
+    <div class="inst-sub">投信逆勢小買</div>
+  </div>
+  <div class="inst-card">
+    <div class="inst-name">自營商</div>
+    <div class="inst-val dn">
+      284.3億
+    </div>
+    <div class="inst-sub">三大合計 <strong style="color:var(--dn)">1,094.4億</strong></div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">期貨未平倉籌碼（口數）</div>
+  <div class="grid5">
+    <div class="fut-card">
+      <div class="fut-name">外資及陸資</div>
+      <div class="fut-val dn">-69,146</div>
+      <div class="fut-sub">空</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">投信</div>
+      <div class="fut-val up">52,160</div>
+      <div class="fut-sub">多</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">自營商</div>
+      <div class="fut-val up">+4,807</div>
+      <div class="fut-sub">中性</div>
+    </div>
+    <div class="fut-card">
+      <div class="fut-name">前五大特定法人</div>
+      <div class="fut-val dn">-8,181</div>
+      <div class="fut-sub">淨空</div>
+    </div>
+    <div class="fut-card accent">
+      <div class="fut-name">小外資 ★</div>
+      <div class="fut-val dn">-8,805</div>
+      <div class="fut-sub">外資全−前五大+投信</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:var(--text2)">盤中崩近 1,468 點（史上盤中第 5 大跌點）後守回 45K，外資台指期淨空單微降至 6.9 萬口（前一日 6.95 萬），小外資空單由 1.1 萬口收斂至 8,805 口，盤中急殺後略有回補；投信期貨續站多方 5.2 萬口再創波段高，與現貨投信小買、逆勢偏多一致，維持「現貨調節、投信撐多」結構。</div>
+  <div style="margin-top:16px">
+    <div style="font-size:11px;font-weight:700;color:var(--bright);margin-bottom:8px;padding-bottom:4px;border-bottom:1px dashed var(--border)">近 10 個交易日軌跡（口數）</div>
+    <table class="margin-tbl">
+      <thead>
+        <tr><th>日期</th><th>外資及陸資</th><th>投信</th><th>小外資 ★</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>5/25</td><td class="dn">-51,458</td><td class="up">+43,018</td><td class="dn">-9,959</td></tr>
+        <tr><td>5/26</td><td class="dn">-54,391</td><td class="up">+43,336</td><td class="dn">-10,303</td></tr>
+        <tr><td>5/27</td><td class="dn">-56,302</td><td class="up">+45,273</td><td class="dn">-8,257</td></tr>
+        <tr><td>5/28</td><td class="dn">-58,196</td><td class="up">+44,767</td><td class="dn">-7,890</td></tr>
+        <tr><td>5/29</td><td class="dn">-60,650</td><td class="up">+46,926</td><td class="dn">-9,511</td></tr>
+        <tr><td>6/1</td><td class="dn">-64,673</td><td class="up">+48,419</td><td class="dn">-8,437</td></tr>
+        <tr><td>6/2</td><td class="dn">-67,018</td><td class="up">+49,765</td><td class="dn">-9,877</td></tr>
+        <tr><td>6/3</td><td class="dn">-66,772</td><td class="up">+51,304</td><td class="dn">-13,836</td></tr>
+        <tr><td>6/4</td><td class="dn">-69,476</td><td class="up">+51,858</td><td class="dn">-11,104</td></tr>
+        <tr style="background:var(--glow)"><td>6/5</td><td class="dn">-69,146</td><td class="up">+52,160</td><td class="dn">-8,805</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-title">個股法人買賣超金額（億元，估算）</div>
+
+    <div style="margin-bottom:14px">
+  <div style="font-size:11px;font-weight:700;color:var(--bright);margin-bottom:8px;padding-bottom:4px;border-bottom:1px dashed var(--border)">上市</div>
+  <div class="grid3">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--up);margin-bottom:6px">外資買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2303</span><br><span class="name">聯電</span></td><td class="val-up">+105.1億</td></tr>
+        <tr><td><span class="code">2609</span><br><span class="name">陽明</span></td><td class="val-up">+22.1億</td></tr>
+        <tr><td><span class="code">2376</span><br><span class="name">技嘉</span></td><td class="val-up">+19.7億</td></tr>
+        <tr><td><span class="code">2404</span><br><span class="name">漢唐</span></td><td class="val-up">+19.6億</td></tr>
+        <tr><td><span class="code">2454</span><br><span class="name">聯發科</span></td><td class="val-up">+17.8億</td></tr>
+        <tr><td><span class="code">3189</span><br><span class="name">景碩</span></td><td class="val-up">+16.6億</td></tr>
+        <tr><td><span class="code">6531</span><br><span class="name">愛普*</span></td><td class="val-up">+15.1億</td></tr>
+        <tr><td><span class="code">2481</span><br><span class="name">強茂</span></td><td class="val-up">+13.8億</td></tr>
+        <tr><td><span class="code">3533</span><br><span class="name">嘉澤</span></td><td class="val-up">+13.7億</td></tr>
+        <tr><td><span class="code">3036</span><br><span class="name">文曄</span></td><td class="val-up">+13.4億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--dn);margin-bottom:6px">外資賣超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2330</span><br><span class="name">台積電</span></td><td class="val-dn">421.9億</td></tr>
+        <tr><td><span class="code">2382</span><br><span class="name">廣達</span></td><td class="val-dn">83.6億</td></tr>
+        <tr><td><span class="code">0050</span><br><span class="name">元大台灣50</span></td><td class="val-dn">65.5億</td></tr>
+        <tr><td><span class="code">2344</span><br><span class="name">華邦電</span></td><td class="val-dn">54.6億</td></tr>
+        <tr><td><span class="code">2308</span><br><span class="name">台達電</span></td><td class="val-dn">54.3億</td></tr>
+        <tr><td><span class="code">2408</span><br><span class="name">南亞科</span></td><td class="val-dn">40.8億</td></tr>
+        <tr><td><span class="code">2313</span><br><span class="name">華通</span></td><td class="val-dn">30.1億</td></tr>
+        <tr><td><span class="code">2883</span><br><span class="name">凱基金</span></td><td class="val-dn">28.1億</td></tr>
+        <tr><td><span class="code">00981A</span><br><span class="name">主動統一台股增長</span></td><td class="val-dn">23.6億</td></tr>
+        <tr><td><span class="code">2449</span><br><span class="name">京元電子</span></td><td class="val-dn">20.5億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--accent2);margin-bottom:6px">投信買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">2382</span><br><span class="name">廣達</span></td><td style="color:var(--accent2);font-weight:700">+77.4億</td></tr>
+        <tr><td><span class="code">2330</span><br><span class="name">台積電</span></td><td style="color:var(--accent2);font-weight:700">+68.6億</td></tr>
+        <tr><td><span class="code">2883</span><br><span class="name">凱基金</span></td><td style="color:var(--accent2);font-weight:700">+28.2億</td></tr>
+        <tr><td><span class="code">2379</span><br><span class="name">瑞昱</span></td><td style="color:var(--accent2);font-weight:700">+18.1億</td></tr>
+        <tr><td><span class="code">4938</span><br><span class="name">和碩</span></td><td style="color:var(--accent2);font-weight:700">+14.1億</td></tr>
+        <tr><td><span class="code">5871</span><br><span class="name">中租-KY</span></td><td style="color:var(--accent2);font-weight:700">+10.6億</td></tr>
+        <tr><td><span class="code">6890</span><br><span class="name">來億-KY</span></td><td style="color:var(--accent2);font-weight:700">+7.5億</td></tr>
+        <tr><td><span class="code">2347</span><br><span class="name">聯強</span></td><td style="color:var(--accent2);font-weight:700">+7.4億</td></tr>
+        <tr><td><span class="code">1402</span><br><span class="name">遠東新</span></td><td style="color:var(--accent2);font-weight:700">+7.3億</td></tr>
+        <tr><td><span class="code">0050</span><br><span class="name">元大台灣50</span></td><td style="color:var(--accent2);font-weight:700">+6.6億</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+    <div style="margin-bottom:14px">
+  <div style="font-size:11px;font-weight:700;color:var(--bright);margin-bottom:8px;padding-bottom:4px;border-bottom:1px dashed var(--border)">上櫃</div>
+  <div class="grid3">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--up);margin-bottom:6px">外資買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">3363</span><br><span class="name">上詮</span></td><td class="val-up">+12.9億</td></tr>
+        <tr><td><span class="code">5347</span><br><span class="name">世界</span></td><td class="val-up">+11.3億</td></tr>
+        <tr><td><span class="code">5536</span><br><span class="name">聖暉*</span></td><td class="val-up">+8.5億</td></tr>
+        <tr><td><span class="code">4966</span><br><span class="name">譜瑞-KY</span></td><td class="val-up">+7.7億</td></tr>
+        <tr><td><span class="code">8299</span><br><span class="name">群聯</span></td><td class="val-up">+7.2億</td></tr>
+        <tr><td><span class="code">6147</span><br><span class="name">頎邦</span></td><td class="val-up">+6.4億</td></tr>
+        <tr><td><span class="code">8043</span><br><span class="name">蜜望實</span></td><td class="val-up">+4.8億</td></tr>
+        <tr><td><span class="code">3357</span><br><span class="name">臺慶科</span></td><td class="val-up">+4.0億</td></tr>
+        <tr><td><span class="code">6121</span><br><span class="name">新普</span></td><td class="val-up">+3.8億</td></tr>
+        <tr><td><span class="code">4991</span><br><span class="name">環宇-KY</span></td><td class="val-up">+2.6億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--dn);margin-bottom:6px">外資賣超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">3260</span><br><span class="name">威剛</span></td><td class="val-dn">10.9億</td></tr>
+        <tr><td><span class="code">3293</span><br><span class="name">鈊象</span></td><td class="val-dn">10.6億</td></tr>
+        <tr><td><span class="code">5351</span><br><span class="name">鈺創</span></td><td class="val-dn">10.5億</td></tr>
+        <tr><td><span class="code">5289</span><br><span class="name">宜鼎</span></td><td class="val-dn">9.1億</td></tr>
+        <tr><td><span class="code">5274</span><br><span class="name">信驊</span></td><td class="val-dn">7.2億</td></tr>
+        <tr><td><span class="code">5309</span><br><span class="name">系統電</span></td><td class="val-dn">7.0億</td></tr>
+        <tr><td><span class="code">6274</span><br><span class="name">台燿</span></td><td class="val-dn">6.2億</td></tr>
+        <tr><td><span class="code">6223</span><br><span class="name">旺矽</span></td><td class="val-dn">4.6億</td></tr>
+        <tr><td><span class="code">3105</span><br><span class="name">穩懋</span></td><td class="val-dn">3.9億</td></tr>
+        <tr><td><span class="code">6265</span><br><span class="name">方土昶</span></td><td class="val-dn">3.9億</td></tr>
+      </table>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--accent2);margin-bottom:6px">投信買超 Top 10</div>
+      <table class="fin-tbl">
+        <tr><td><span class="code">3293</span><br><span class="name">鈊象</span></td><td style="color:var(--accent2);font-weight:700">+12.0億</td></tr>
+        <tr><td><span class="code">6223</span><br><span class="name">旺矽</span></td><td style="color:var(--accent2);font-weight:700">+6.2億</td></tr>
+        <tr><td><span class="code">6187</span><br><span class="name">萬潤</span></td><td style="color:var(--accent2);font-weight:700">+5.0億</td></tr>
+        <tr><td><span class="code">6274</span><br><span class="name">台燿</span></td><td style="color:var(--accent2);font-weight:700">+4.6億</td></tr>
+        <tr><td><span class="code">3163</span><br><span class="name">波若威</span></td><td style="color:var(--accent2);font-weight:700">+2.2億</td></tr>
+        <tr><td><span class="code">3081</span><br><span class="name">聯亞</span></td><td style="color:var(--accent2);font-weight:700">+1.0億</td></tr>
+        <tr><td><span class="code">8069</span><br><span class="name">元太</span></td><td style="color:var(--accent2);font-weight:700">+0.6億</td></tr>
+        <tr><td><span class="code">5371</span><br><span class="name">中光電</span></td><td style="color:var(--accent2);font-weight:700">+0.3億</td></tr>
+        <tr><td><span class="code">3529</span><br><span class="name">力旺</span></td><td style="color:var(--accent2);font-weight:700">+0.2億</td></tr>
+        <tr><td><span class="code">3324</span><br><span class="name">雙鴻</span></td><td style="color:var(--accent2);font-weight:700">+0.1億</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+  <div style="margin-top:6px;font-size:11px;color:var(--text2)">外資狂賣台積電（422 億）、廣達、0050 與記憶體（華邦電 -54.6 億、南亞科 -40.8 億），同步逆勢買超聯電（105 億，居買超之冠）；投信加碼廣達、台積電、凱基金。上櫃外資賣超台燿、威剛、鈊象，買超上詮、世界先進等光通訊／晶圓代工。賣壓集中記憶體與老 AI，與盤面記憶體重災一致。</div>
+</div>
+
+<div class="section-title">信用交易（散戶融資籌碼）</div>
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">融資融券當日結算</div>
+  <table class="margin-tbl">
+    <thead>
+      <tr>
+        <th>市場</th><th>融資增減（億）</th><th>融資餘額（億）</th>
+        <th>使用率</th><th>融資維持率</th><th>整戶擔保維持率</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>上市（TSE）</td>
+        <td class="val-dn">59.9億</td>
+        <td>5,666.5億</td>
+        <td>4.86%</td>
+        <td>172.6715%</td>
+        <td>173.0304%</td>
+      </tr>
+      <tr>
+        <td>上櫃（OTC）</td>
+        <td class="val-dn">10.1億</td>
+        <td>2,102.9億</td>
+        <td>13.63%</td>
+        <td>166.6789%</td>
+        <td>167.1149%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:8px;font-size:11px;color:var(--muted)">連 2 日重挫後散戶縮手，上市融資減 59.9 億、維持率回升至 172.7%（仍 &amp;gt;160% 安全區），上櫃融資減 10.1 億、維持率 166.7%；融資雙降代表追繳殺出與獲利了結後槓桿降溫，短線去槓桿有助籌碼沉澱。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">上市融資維持率 × 融資餘額 60日趨勢</div>
+  <div style="position:relative">
+    <canvas id="marginChart" width="900" height="120" style="width:100%;height:auto"></canvas>
+    <div id="marginTip" style="display:none;position:absolute;top:0;left:0;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-size:10px;color:var(--text2);white-space:nowrap;pointer-events:none;z-index:10;line-height:1.8"></div>
+  </div>
+  <div style="margin-top:8px;display:flex;gap:16px;font-size:11px">
+    <span><span style="display:inline-block;width:10px;height:2px;background:#c084fc;vertical-align:middle;margin-right:4px"></span>融資維持率（左軸）</span>
+    <span><span style="display:inline-block;width:10px;height:2px;background:#f59e0b;vertical-align:middle;margin-right:4px"></span>融資餘額（右軸，億）</span>
+    <span style="color:var(--muted)">
+      60日：維持率 低 152.5% / 高 185.0% / 今 172.7%
+    </span>
+  </div>
+</div>
+
+<div class="section-title">Notion 智囊雷達</div>
+<div class="grid2" style="margin-bottom:14px;grid-template-columns:1.3fr 1fr">
+  <div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">誰在看什麼</div>
+    <div class="radar-feed">
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">龍哥/郁翔/上翔/JAKO/Jacky</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「龍哥: 繼續看聯電，今天 Citi 有一場；郁翔: 昨天賣奇鋐加碼聯電；上翔: 今天盤中聯電殺特別大會再加碼；JAKO: 以台積電、聯電為主；Jacky: 聯電繼續加」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">雅婷姊</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2308</span>
+            <span class="rf-name">台達電</span>
+            <span class="rf-quote">「2308 台達電：這兩個月營收較差所以會賣」</span>
+            <span class="rf-sentiment rf-s-watch">bearish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2345</span>
+            <span class="rf-name">智邦</span>
+            <span class="rf-quote">「2345 智邦：想回頭買，NV 休息可能挑 AWS 概念股」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6831</span>
+            <span class="rf-name">邁科</span>
+            <span class="rf-quote">「6831 邁科也是 AWS，之後會有兩到三家外資 cover，有低會接」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">小魚</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2327</span>
+            <span class="rf-name">國巨</span>
+            <span class="rf-quote">「小魚: 目前持股含國巨」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2454</span>
+            <span class="rf-name">聯發科</span>
+            <span class="rf-quote">「小魚: 目前持股含聯發科，有減碼，一樣打算慢慢縮持股檔數」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3624</span>
+            <span class="rf-name">光頡</span>
+            <span class="rf-quote">「3624 光頡：也在傳要發漲價含」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6173</span>
+            <span class="rf-name">信昌電</span>
+            <span class="rf-quote">「小魚: 目前持股含信昌電」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6442</span>
+            <span class="rf-name">光聖</span>
+            <span class="rf-quote">「6442 光聖：營收 15E 附近」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6472</span>
+            <span class="rf-name">保瑞</span>
+            <span class="rf-quote">「6472 保瑞：凱基今天出一篇 TP633，2026 EPS 估 21，PE 30X，故事一樣」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「computex 鴻海有展示 XPO 模組，XPO 用來延長光模塊壽命，Arista 推出，利多富世達 (可能就等營收開完)」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">JAKO/小魚</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2330</span>
+            <span class="rf-name">台積電</span>
+            <span class="rf-quote">「JAKO: 美股敏顯資金轉換，以台積電、聯電為主，台積防守目的；小魚: 目前持股含台積電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">郁翔</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2344</span>
+            <span class="rf-name">華邦電</span>
+            <span class="rf-quote">「Rubin DRAM用量減少是NV已決定，影響的不是HBM，影響的是Vera CPU周圍的D5 DRAM，確實有降規，華邦電基本面沒有影響，但是股價會被氣氛影響，暫時先觀察不會砍掉」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Eddie/Sunny</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3211</span>
+            <span class="rf-name">順達</span>
+            <span class="rf-quote">「Eddie: 昨天新買順達；Sunny: 昨天新買一點點順達」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「Eddie: 持股頎邦13%；Sunny: 會想考慮這兩天有回檔的頎邦，在月線附近的聯電」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Eddie/Johnny</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「6274 台燿：公布營收47.9E，MOM+4%，顯示中低階漲價持續發酵，9月開到30萬張，6月營收預計靠高階漲價10%，營收還能持續月增；後面等 3Q26 產能開出，有機會單月營收 70E」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Jacky</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6727</span>
+            <span class="rf-name">亞泰金屬</span>
+            <span class="rf-quote">「6727 亞泰金屬：外資從大陸HF回傳回來，HF問亞泰事情，討論度越來越高，有說有機會開單」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">BOBO</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">7610</span>
+            <span class="rf-name">聯友金屬-創</span>
+            <span class="rf-quote">「7610 聯友金屬：5M26 營收 6EUP，2Q26 EPS 20，2026 EPS 70，獲利成長大，持有」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Eddie</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">8021</span>
+            <span class="rf-name">尖點</span>
+            <span class="rf-quote">「Eddie: 主要持股尖點」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Sunny</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">8150</span>
+            <span class="rf-name">南茂</span>
+            <span class="rf-quote">「Sunny: 會想考慮這兩天有回檔的頎邦、南茂，在月線附近的聯電」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">峰哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「2303 下半年營收single digit，應該在中位數，今年22、28沒漲價，但台積電把客人趕走，覺得明年可以平均對客人漲20%左右，大陸矽光子已經開始投片，3Q26開始，明年產能利用率100%，TFLN 明年放量，大陸接單」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3443</span>
+            <span class="rf-name">創意</span>
+            <span class="rf-quote">「3443 上下半年4:6應該做的到；市場傳第二季single digit成長，但之前說有產能會往20%靠」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6488</span>
+            <span class="rf-name">環球晶</span>
+            <span class="rf-quote">「6488 要關心會不會對聯電wafer有調漲，但他說合約價還沒到期所以不能漲，明年會重談」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Ted</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2327</span>
+            <span class="rf-name">國巨</span>
+            <span class="rf-quote">「2327過來講很保守，否認挑客戶，電子五哥都有被通知要漲價，正面的部份是說NP0已經被台達qualify，外資還不是很buy in國巨的故事」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3037</span>
+            <span class="rf-name">欣興</span>
+            <span class="rf-quote">「3037擴廠還是2028才有機會貢獻，rubin在光復一第三個phase，要把BT轉到ABF會消耗15% BT，被3189景碩接走，約25-35%的景碩，貢獻營收至少有10%。3037說LTA是保護自己為主，現在還是賣方市場，不綁價格」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3189</span>
+            <span class="rf-name">景碩</span>
+            <span class="rf-quote">「3189 2028、2029擴廠都是consigner會support，2029跟現在比要double產能，grace 50%，NV要他做100%，但產能很滿，覺得vera 市佔會比這更高，一顆約70*70，跟grace比有4倍成長，如果可」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">布哥/凱彬哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2330</span>
+            <span class="rf-name">台積電</span>
+            <span class="rf-quote">「intel良率如果到80%，2330真的會不漲；凱彬哥:跟新加坡朋友聊說覺得2330會漲價，如果不漲價手上現金就沒有三星、海力士充裕」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">智民哥/Andrew哥/永哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2454</span>
+            <span class="rf-name">聯發科</span>
+            <span class="rf-quote">「智民哥: 2454 4Q26單季EPS就會到30塊，明年5921基本盤300萬顆；Andrew哥: 2454 N1X一顆600-700塊，但先不用期待，明年500萬台；永哥: 2454 9月對消費型要漲10-15%；0056可能踢掉2454」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Mark哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3167</span>
+            <span class="rf-name">大量</span>
+            <span class="rf-quote">「3167 以前背鑽才需要CCD，越來越多廠商說新世代通孔也需要，市場有4-5倍成長，4月產能從100台/月提高到200台/月，TM4 預計4Q26開始出貨，目前手上訂單有上百台。CPO外觀檢測AOI過認證，確定明年可以貢獻營收，今明年28/」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Surf哥</span>
+          <span class="rf-group">駿羽</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">8039</span>
+            <span class="rf-name">台虹</span>
+            <span class="rf-quote">「8039 今年營收約70E，PTFE驗證再快也是明年才會進來，等更好價錢再來買」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">每日廢想法</span>
+          <span class="rf-group">每日廢想法</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">8150</span>
+            <span class="rf-name">南茂</span>
+            <span class="rf-quote">「8150 他們太子跟我朋友很好，說打進光（光通），然後mtk後面會給他tpu因為產能不夠」</span>
+            <span class="rf-sentiment rf-s-watch">偏多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3443</span>
+            <span class="rf-name">創意</span>
+            <span class="rf-quote">「創意營收好像會月減」</span>
+            <span class="rf-sentiment rf-s-watch">偏空</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2454</span>
+            <span class="rf-name">聯發科</span>
+            <span class="rf-quote">「mtk後面會給8150(南茂)tpu因為產能不夠」</span>
+            <span class="rf-sentiment rf-s-watch">中性</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">小作文</span>
+          <span class="rf-group">小作文</span>
+          <span class="rf-date">06-05</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6139</span>
+            <span class="rf-name">亞翔</span>
+            <span class="rf-quote">「截至4月在手訂單金額1700多億，6~7月會認美光新加坡二期的單約2000~3000億，二期3Q26開始施工，在手訂單金額直接翻倍。1Q26賺9.5塊，今年全年40以上，明年看80~100塊，評價很便宜。」</span>
+            <span class="rf-sentiment rf-s-bull">積極看多</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Michael</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">1303</span>
+            <span class="rf-name">南亞</span>
+            <span class="rf-quote">「今天觀察南亞等」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">1326</span>
+            <span class="rf-name">台化</span>
+            <span class="rf-quote">「台化現在轉型線型變強，昨天也有新聞」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">1717</span>
+            <span class="rf-name">長興</span>
+            <span class="rf-quote">「今天觀察長興、台化、南亞等」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「持股不變，會再加聯電」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">小魚</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「目前持股包含聯電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2327</span>
+            <span class="rf-name">國巨</span>
+            <span class="rf-quote">「目前持股包含國巨」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2454</span>
+            <span class="rf-name">聯發科</span>
+            <span class="rf-quote">「目前持股 180%，持股包含聯發科、大量、信昌電、保瑞、揚博、力積電、富世達、聯電、國巨，打算慢慢縮持股檔數」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2493</span>
+            <span class="rf-name">揚博</span>
+            <span class="rf-quote">「揚博蹲營收可能開完就會先走」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3167</span>
+            <span class="rf-name">大量</span>
+            <span class="rf-quote">「目前持股包含大量，揚博、保瑞等蹲營收可能開完就會先走」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6173</span>
+            <span class="rf-name">信昌電</span>
+            <span class="rf-quote">「目前持股包含信昌電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6472</span>
+            <span class="rf-name">保瑞</span>
+            <span class="rf-quote">「昨天第一金論壇，維持2026 EPS 36.58。評價15X，TP 548。IR強調2Q26會回到原來水準，全年EPS 20+（若含多發性硬化症藥品EPS30+），多發性硬化症6M26 FDA會有結果，8M26上市開賣。2027成長動能看新」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6770</span>
+            <span class="rf-name">力積電</span>
+            <span class="rf-quote">「目前持股包含力積電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「昨天先賣富世達，等營收後再找機會買」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">龍哥</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「繼續看聯電，操作很大膽，跟承銷聊很少人先發庫藏股再籌資，應該是很有把握，有低會繼續接」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Jacky</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「Foundry部位還不重，關注聯電，6-7M本來就高檔不好做」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">JAKO</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「持股聯電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2330</span>
+            <span class="rf-name">台積電</span>
+            <span class="rf-quote">「持股台積電，今天台積股東會再加碼」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">上翔</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「昨天主要加聯電，有低繼續加，昨天買一半」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3105</span>
+            <span class="rf-name">穩懋</span>
+            <span class="rf-quote">「3105穩懋：等6/9事件發酵（私募）」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">雅婷姊</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「聯電開始做漲價動作（PMIC），狀況好」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3680</span>
+            <span class="rf-name">家登</span>
+            <span class="rf-quote">「3680家登：昨天小場，直接說INTEL權利金部分3Q26不用再交，對GM正向，GM增加10%比預期4%好」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6770</span>
+            <span class="rf-name">力積電</span>
+            <span class="rf-quote">「昨天有人訪力積電，力積電狀況也好，55nm滿、28nm下半年也滿，聽完也會想買聯電」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">BOBO</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「進入6M26震盪劇烈，調整前兩大聯電、台積，降低BETA拉權值」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2330</span>
+            <span class="rf-name">台積電</span>
+            <span class="rf-quote">「持股調整前兩大聯電、台積，降低BETA拉權值」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「新買頎邦」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「持股台燿」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8021</span>
+            <span class="rf-name">尖點</span>
+            <span class="rf-quote">「持股尖點」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">郁翔</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2308</span>
+            <span class="rf-name">台達電</span>
+            <span class="rf-quote">「BBU這邊會關注，有聽到Computex遇到Panasonic說BBU pack產能不夠，有些會被順達gain到」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2344</span>
+            <span class="rf-name">華邦電</span>
+            <span class="rf-quote">「持股華邦電，昨天晚上美股記憶體相對強，今天會關注」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2383</span>
+            <span class="rf-name">台光電</span>
+            <span class="rf-quote">「昨天去聽台光電座談，目前預計28年擴充到1150萬張產能，2/3Q會開始反應漲價，需求真的不錯，持續看好」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3017</span>
+            <span class="rf-name">奇鋐</span>
+            <span class="rf-quote">「持股奇鋐，3017 5月營收月增LSD」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3081</span>
+            <span class="rf-name">聯亞</span>
+            <span class="rf-quote">「持股聯亞」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3211</span>
+            <span class="rf-name">順達</span>
+            <span class="rf-quote">「Panasonic BBU pack產能不夠，有些會被順達gain到」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「持股頎邦」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8028</span>
+            <span class="rf-name">昇陽半導體</span>
+            <span class="rf-quote">「8028昇陽半5月小月增；下一次大跳升是7月，再生晶圓新產能出來；明年silicon dummy會翻倍以上，AI Power MOS薄化也是翻倍以上，持續看好」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Eddie</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2313</span>
+            <span class="rf-name">華通</span>
+            <span class="rf-quote">「持股華通，今天先觀望一下」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">4974</span>
+            <span class="rf-name">亞泰</span>
+            <span class="rf-quote">「持股亞泰，統一+群益聽亞泰都相當正面，客戶越來越廣，這周又拿到30台新訂單，今年出貨接近50台，明年70台以上，台光電/台燿也轉積極，高階GM&gt;30%，對下游議價空間大」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「昨天新買頎邦，頎邦14%，PCB57%、晶圓代工17%、設備12%」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「持股台燿，PCB 57%，今天下午台燿營收開」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8046</span>
+            <span class="rf-name">南電</span>
+            <span class="rf-quote">「8046南電，5月營收持平，現在就再7月後會不會跳升」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Johnny</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2330</span>
+            <span class="rf-name">台積電</span>
+            <span class="rf-quote">「有些賣掉去買台積電」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3105</span>
+            <span class="rf-name">穩懋</span>
+            <span class="rf-quote">「昨天加穩懋」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3450</span>
+            <span class="rf-name">聯鈞</span>
+            <span class="rf-quote">「昨天加聯鈞」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「今天下午台燿營收開」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Sunny</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-04</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">5475</span>
+            <span class="rf-name">德宏</span>
+            <span class="rf-quote">「昨天德宏自結開蠻好」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「昨天先賣富世達，等營收後再找機會買」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8021</span>
+            <span class="rf-name">尖點</span>
+            <span class="rf-quote">「加了點尖點，會想觀察BBU相關股」</span>
+            <span class="rf-sentiment rf-s-watch">positive</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">小魚</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「台燿出完換聯電、國巨」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2327</span>
+            <span class="rf-name">國巨</span>
+            <span class="rf-quote">「台燿出完換聯電、國巨」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2454</span>
+            <span class="rf-name">聯發科</span>
+            <span class="rf-quote">「目前持股包含聯發科」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2455</span>
+            <span class="rf-name">全新</span>
+            <span class="rf-quote">「全新有拿到一些基板 6M26 營收會上來；全新 6/10 出關」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2493</span>
+            <span class="rf-name">揚博</span>
+            <span class="rf-quote">「2493 揚博：5M26 營收 3.7E (自用~)」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3163</span>
+            <span class="rf-name">波若威</span>
+            <span class="rf-quote">「波若威第一次在computex展出FAU（緯穎攤位上）；FAU NV通過只有波若威跟天孚，緯穎/威世波都提到波若威很有競爭力」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3167</span>
+            <span class="rf-name">大量</span>
+            <span class="rf-quote">「持股包含大量；今天會想撿一點尖點、大量」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3450</span>
+            <span class="rf-name">聯鈞</span>
+            <span class="rf-quote">「聯鈞股東會講的樂觀，營收 6M26 創歷史新高；聯鈞最快 6/5 可能 20 分」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">4979</span>
+            <span class="rf-name">華星光</span>
+            <span class="rf-quote">「MRVL的話感覺大家會聯想華星光（只是今天又要處置）」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6173</span>
+            <span class="rf-name">信昌電</span>
+            <span class="rf-quote">「目前持股包含信昌電；信昌電、華新科都集團股」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6274</span>
+            <span class="rf-name">台燿</span>
+            <span class="rf-quote">「台燿出完換聯電、國巨；低階CCL漲價幅度較高，1.6T switch將於2H26開始放量，厚銅CCL有更多機會」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6472</span>
+            <span class="rf-name">保瑞</span>
+            <span class="rf-quote">「目前持股包含保瑞」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6770</span>
+            <span class="rf-name">力積電</span>
+            <span class="rf-quote">「目前持股包含力積電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「持股包含富世達；6805 富世達：昨天結出來是月減」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">龍哥</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「2303 聯電：這次美國主要是聊 3/5/7nm 技術合作，聯電出人，INTEL 出產能+設備。趁 919 砍有低會再加碼」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2330</span>
+            <span class="rf-name">台積電</span>
+            <span class="rf-quote">「持股部分集中台積電、聯電」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Eddie</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">2313</span>
+            <span class="rf-name">華通</span>
+            <span class="rf-quote">「核心持股維持在華通；MS上修的1.6T光模組出貨量主要是27/28年，持續看華通」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2344</span>
+            <span class="rf-name">華邦電</span>
+            <span class="rf-quote">「核心持股維持在華邦」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">4974</span>
+            <span class="rf-name">亞泰</span>
+            <span class="rf-quote">「核心持股維持在亞泰、台燿、華通、華邦，PCB 58%」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">8021</span>
+            <span class="rf-name">尖點</span>
+            <span class="rf-quote">「今天會想撿一點尖點、大量」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">雅婷姊</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3037</span>
+            <span class="rf-name">欣興</span>
+            <span class="rf-quote">「ABF會想+欣興，這波載板CPU受惠最大；Q2 GM可以拉高到接近24%；如果拉回靠近900月線附近想加碼買回來」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3189</span>
+            <span class="rf-name">景碩</span>
+            <span class="rf-quote">「持股集中到景碩續抱」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「富士達目前也還是續抱」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">郁翔</span>
+          <span class="rf-group">樂林</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3211</span>
+            <span class="rf-name">順達</span>
+            <span class="rf-quote">「3211順達；昨天Computex台達電正式講出會有BBU rack，今天會再稍微看一下順達」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6223</span>
+            <span class="rf-name">旺矽</span>
+            <span class="rf-quote">「跟MRVL有關的就是旺矽；GS也是推到穎崴跟旺矽」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6515</span>
+            <span class="rf-name">穎崴</span>
+            <span class="rf-quote">「跟MRVL有關的就是穎崴/旺矽；GS也是推到穎崴跟旺矽」</span>
+            <span class="rf-sentiment rf-s-watch">bullish</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6669</span>
+            <span class="rf-name">緯穎</span>
+            <span class="rf-quote">「6669緯穎；昨天展示緯穎跟創意、Ayer lab合作的光通AI server，量產2028以後」</span>
+            <span class="rf-sentiment rf-s-watch">neutral</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">每日廢想法</span>
+          <span class="rf-group">每日廢想法</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6805</span>
+            <span class="rf-name">富世達</span>
+            <span class="rf-quote">「6805 月減」</span>
+            <span class="rf-sentiment rf-s-watch">中性</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">6182</span>
+            <span class="rf-name">合晶</span>
+            <span class="rf-quote">「6182 Dummy wafer過了確定會用，這樣明年應該是9-10塊」</span>
+            <span class="rf-sentiment rf-s-watch">偏多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">2303</span>
+            <span class="rf-name">聯電</span>
+            <span class="rf-quote">「聯電發二筆CB，合計160E台幣，120E詢圈、40E競拍」</span>
+            <span class="rf-sentiment rf-s-watch">中性</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">1605</span>
+            <span class="rf-name">華新</span>
+            <span class="rf-quote">「1605 華新 HVDC題材」</span>
+            <span class="rf-sentiment rf-s-watch">偏多</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">WL</span>
+          <span class="rf-group">每日廢想法</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">6147</span>
+            <span class="rf-name">頎邦</span>
+            <span class="rf-quote">「WL買回6147。原本是金凸塊測試矽格切割隨便找一家封測做，金凸塊貢獻100%，測試再貢獻100%，切割貢獻2-30%，整段做完就是220-230%。7月要發CB。」</span>
+            <span class="rf-sentiment rf-s-bull">積極看多</span>
+          </div>
+        </div>
+      </div>
+      <div class="rf-item">
+        <div class="rf-header">
+          <span class="rf-person">Rex</span>
+          <span class="rf-group">每日廢想法</span>
+          <span class="rf-date">06-03</span>
+        </div>
+        <div class="rf-mentions">
+          <div class="rf-mention">
+            <span class="rf-code">3234</span>
+            <span class="rf-name">光環</span>
+            <span class="rf-quote">「08:57 Rex 3234好像要追一點」</span>
+            <span class="rf-sentiment rf-s-watch">偏多</span>
+          </div>
+          <div class="rf-mention">
+            <span class="rf-code">3081</span>
+            <span class="rf-name">聯亞</span>
+            <span class="rf-quote">「08:57 Rex 3081驗證過」</span>
+            <span class="rf-sentiment rf-s-watch">偏多</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">共識排行榜</div>
+    <table class="consensus-tbl">
+      <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--up);font-weight:700">1</td>
+          <td>
+            <span class="stk-name">聯電
+            </span>
+            <span class="stk-code">2303</span>
+          </td>
+          <td><span class="score-badge">21.36</span></td>
+          <td class="pushers-cell">Ken（駿羽）、Alan哥（駿羽）、阿奇（駿羽）⋯30人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">2</td>
+          <td>
+            <span class="stk-name">台燿
+            </span>
+            <span class="stk-code">6274</span>
+          </td>
+          <td><span class="score-badge">18.71</span></td>
+          <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、強尼（樂林）⋯24人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">3</td>
+          <td>
+            <span class="stk-name">國巨*
+<span class="badge-punish">⚠處置</span>            </span>
+            <span class="stk-code">2327</span>
+          </td>
+          <td><span class="score-badge">16.01</span></td>
+          <td class="pushers-cell">Jason（駿羽）、BOBO（樂林）、小魚（樂林）⋯24人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">4</td>
+          <td>
+            <span class="stk-name">華邦電
+            </span>
+            <span class="stk-code">2344</span>
+          </td>
+          <td><span class="score-badge">14.27</span></td>
+          <td class="pushers-cell">麻神（麻神）、龍（樂林）、andrew（駿羽）⋯15人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">5</td>
+          <td>
+            <span class="stk-name">頎邦
+            </span>
+            <span class="stk-code">6147</span>
+          </td>
+          <td><span class="score-badge">13.22</span></td>
+          <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、光（駿羽）⋯21人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">6</td>
+          <td>
+            <span class="stk-name">景碩
+<span class="badge-punish">⚠處置</span>            </span>
+            <span class="stk-code">3189</span>
+          </td>
+          <td><span class="score-badge">10.78</span></td>
+          <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、永哥（駿羽）⋯17人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">7</td>
+          <td>
+            <span class="stk-name">台光電
+            </span>
+            <span class="stk-code">2383</span>
+          </td>
+          <td><span class="score-badge">9.66</span></td>
+          <td class="pushers-cell">Eddie（樂林）、凱濱哥（駿羽）、永（駿羽）⋯15人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">8</td>
+          <td>
+            <span class="stk-name">緯穎
+            </span>
+            <span class="stk-code">6669</span>
+          </td>
+          <td><span class="score-badge">9.57</span></td>
+          <td class="pushers-cell">愛德恩、郁翔（樂林）、智民哥（駿羽）⋯18人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">9</td>
+          <td>
+            <span class="stk-name">台積電
+            </span>
+            <span class="stk-code">2330</span>
+          </td>
+          <td><span class="score-badge">9.48</span></td>
+          <td class="pushers-cell">小魚（樂林）、sunny（樂林）、凱彬（駿羽）⋯12人</td>
+        </tr>
+        <tr>
+          <td style="color:var(--up);font-weight:700">10</td>
+          <td>
+            <span class="stk-name">尖點
+<span class="badge-punish">⚠處置</span>            </span>
+            <span class="stk-code">8021</span>
+          </td>
+          <td><span class="score-badge">7.7</span></td>
+          <td class="pushers-cell">Eddie（樂林）、光哥（駿羽）、Amy（駿羽）⋯12人</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:14px">
+      <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">熱門族群</div>
+      <div>
+        <div class="sector-badge">
+          半導體 <span class="cnt">41次</span>
+<span class="recent">近3日36次</span>        </div>
+        <div class="sector-badge">
+          被動元件 <span class="cnt">22次</span>
+<span class="recent">近3日11次</span>        </div>
+        <div class="sector-badge">
+          PCB <span class="cnt">16次</span>
+<span class="recent">近3日10次</span>        </div>
+        <div class="sector-badge">
+          CCL <span class="cnt">14次</span>
+<span class="recent">近3日8次</span>        </div>
+        <div class="sector-badge">
+          晶圓代工 <span class="cnt">14次</span>
+<span class="recent">近3日7次</span>        </div>
+        <div class="sector-badge">
+          電子 <span class="cnt">14次</span>
+<span class="recent">近3日14次</span>        </div>
+        <div class="sector-badge">
+          光通訊 <span class="cnt">13次</span>
+<span class="recent">近3日10次</span>        </div>
+        <div class="sector-badge">
+          封測 <span class="cnt">10次</span>
+<span class="recent">近3日4次</span>        </div>
+        <div class="sector-badge">
+          記憶體 <span class="cnt">8次</span>
+<span class="recent">近3日7次</span>        </div>
+        <div class="sector-badge">
+          Vera CPU rack <span class="cnt">8次</span>
+<span class="recent">近3日8次</span>        </div>
+        <div class="sector-badge">
+          IC設計 <span class="cnt">6次</span>
+<span class="recent">近3日4次</span>        </div>
+        <div class="sector-badge">
+          半導體材料 <span class="cnt">6次</span>
+<span class="recent">近3日6次</span>        </div>
+        <div class="sector-badge">
+          散熱 <span class="cnt">5次</span>
+<span class="recent">近3日4次</span>        </div>
+        <div class="sector-badge">
+          IC設計服務 <span class="cnt">5次</span>
+<span class="recent">近3日1次</span>        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">精選個股</div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:12px">共識排行前10名 · 點「查看走勢」連結到搜尋頁</div>
+<div class="stock-grid">
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2303 · 晶圓代工</div>
+        <div class="stock-name">聯電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #1</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">131.5</div>
+        <div class="stock-chg up">
+          ▲ 5.20%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">21.36</span>
+      <span class="ns-pushers">Ken（駿羽）、Alan哥（駿羽）、阿奇（駿羽）⋯30人</span>
+    </div>
+
+    <div class="stock-thesis">台積中科15廠要轉28nm去N4/5，會關100k相當於砍半，只有聯電能承接（GF 28nm是Gate-first但台積/聯電Gate-last，既有台積客戶會</div>
+
+
+    <a href="/search.html?q=2303" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">6274 · CCL</div>
+        <div class="stock-name">台燿 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #2</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--dn)">1,610.0</div>
+        <div class="stock-chg dn">
+          ▼ 5.01%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">18.71</span>
+      <span class="ns-pushers">Eddie（樂林）、小魚（樂林）、強尼（樂林）⋯24人</span>
+    </div>
+
+    <div class="stock-thesis">6274台燿 5月出貨量掉7%左右，因為沒庫存了，但訂單滿，漲價ASP增加12%左右，營收比四月成長；5月營收估48億。</div>
+
+
+    <a href="/search.html?q=6274" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2327 · 被動元件</div>
+        <div class="stock-name">國巨* <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #3</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">769.0</div>
+        <div class="stock-chg up">
+          ▲ 3.50%
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:8px"><span class="badge-punish">⚠️ 處置中（5/26–6/08）</span></div>
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">16.01</span>
+      <span class="ns-pushers">Jason（駿羽）、BOBO（樂林）、小魚（樂林）⋯24人</span>
+    </div>
+
+    <div class="stock-thesis">被動專家：國巨目前下單漲價30%，後面出貨前再漲你30%；另外全品項漲60%，ODM問到電阻漲50%</div>
+
+
+    <a href="/search.html?q=2327" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2344 · DRAM</div>
+        <div class="stock-name">華邦電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #4</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--dn)">162.0</div>
+        <div class="stock-chg dn">
+          ▼ 9.75%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">14.27</span>
+      <span class="ns-pushers">麻神（麻神）、龍（樂林）、andrew（駿羽）⋯15人</span>
+    </div>
+
+    <div class="stock-thesis">華邦300有機會，明年SiCap賺3塊給30倍，記憶體賺50塊給4倍就好，300妥。別人推WL 2344 看300</div>
+
+
+    <a href="/search.html?q=2344" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">6147 · 封測</div>
+        <div class="stock-name">頎邦 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #5</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--dn)">270.0</div>
+        <div class="stock-chg dn">
+          ▼ 0.37%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">13.22</span>
+      <span class="ns-pushers">Eddie（樂林）、小魚（樂林）、光（駿羽）⋯21人</span>
+    </div>
+
+    <div class="stock-thesis">WL買回6147。原本是金凸塊測試矽格切割隨便找一家封測做，金凸塊貢獻100%，測試再貢獻100%，切割貢獻2-30%，整段做完就是220-230%。7月要發C</div>
+
+
+    <a href="/search.html?q=6147" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">3189 · ABF載板</div>
+        <div class="stock-name">景碩 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #6</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">712.0</div>
+        <div class="stock-chg up">
+          ▲ 2.89%
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:8px"><span class="badge-punish">⚠️ 處置中（5/28–6/10）</span></div>
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">10.78</span>
+      <span class="ns-pushers">Eddie（樂林）、小魚（樂林）、永哥（駿羽）⋯17人</span>
+    </div>
+
+    <div class="stock-thesis">Diana：3189五月份有很多新的合作東西好像昨天有簽訂NDA陶瓷基板的，可以關注一下說要低調</div>
+
+
+    <a href="/search.html?q=3189" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2383 · CCL</div>
+        <div class="stock-name">台光電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #7</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">4,885.0</div>
+        <div class="stock-chg up">
+          ▲ 1.14%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">9.66</span>
+      <span class="ns-pushers">Eddie（樂林）、凱濱哥（駿羽）、永（駿羽）⋯15人</span>
+    </div>
+
+    <div class="stock-thesis">台光電 2027年底產能945萬張/月，2028年會增加到1145萬張/月，以因應強勁的M8-M9的出貨需求，對於上游電子布LK2和Q布需求強勁，供不應求趨勢不</div>
+
+
+    <a href="/search.html?q=2383" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">6669 · 伺服器</div>
+        <div class="stock-name">緯穎 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #8</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">5,660.0</div>
+        <div class="stock-chg up">
+          ▲ 1.62%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">9.57</span>
+      <span class="ns-pushers">愛德恩、郁翔（樂林）、智民哥（駿羽）⋯18人</span>
+    </div>
+
+    <div class="stock-thesis">Oracle MI455 award 2.4K（2027:1.2K, 2028:1.2K），Meta下半年大加單，Q4 upside兩倍到明年Q1，Meta加單</div>
+
+
+    <a href="/search.html?q=6669" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">2330 · 半導體</div>
+        <div class="stock-name">台積電 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #9</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--dn)">2,365.0</div>
+        <div class="stock-chg dn">
+          ▼ 0.84%
+        </div>
+      </div>
+    </div>
+
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">9.48</span>
+      <span class="ns-pushers">小魚（樂林）、sunny（樂林）、凱彬（駿羽）⋯12人</span>
+    </div>
+
+    <div class="stock-thesis">黃老師台積股東大會Q&amp;A：工程師降分紅、副總以上漲薪。管理層認為台積電股價被低估，95% AI晶片在台積生產。後續考慮增加股利。</div>
+
+
+    <a href="/search.html?q=2330" class="kline-link">📈 查看走勢 →</a>
+  </div>
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-meta">
+        <div class="stock-code-label">8021 · 電子</div>
+        <div class="stock-name">尖點 <span style="font-size:11px;color:var(--muted);font-weight:400">共識 #10</span></div>
+      </div>
+      <div class="stock-price-wrap">
+        <div class="stock-price" style="color:var(--up)">458.0</div>
+        <div class="stock-chg up">
+          ▲ 3.85%
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:8px"><span class="badge-punish">⚠️ 處置中（5/26–6/08）</span></div>
+
+    <div class="notion-score-bar">
+      <span class="ns-label">共識分</span>
+      <span class="ns-score">7.7</span>
+      <span class="ns-pushers">Eddie（樂林）、光哥（駿羽）、Amy（駿羽）⋯12人</span>
+    </div>
+
+    <div class="stock-thesis">8021私募三個客戶拿走:金像臻鼎盛宏 昨天定價了</div>
+
+
+    <a href="/search.html?q=8021" class="kline-link">📈 查看走勢 →</a>
+  </div>
+</div>
+
+<div class="section-title">警示股看板</div>
+
+<div class="card" style="margin-bottom:14px">
+  <div class="card-title">⚡ 快進處置 · 注意累計次數異常</div>
+  <div style="font-size:11px;color:var(--muted);margin-bottom:10px">連續達標，明日再觸發即進處置</div>
+  <div class="warn-grid">
+    <div class="warn-chip attention" style="opacity:.9">
+      3312 弘憶股<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      3346 麗清<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6890 來億-KY<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      7610 聯友金屬-創<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      3114 好德<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      5426 振發<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6207 雷科<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      6548 長科*<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      8085 福華<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      8277 商丞<span class="days"> 連2次</span>
+    </div>
+    <div class="warn-chip attention" style="opacity:.9">
+      8291 尚茂<span class="days"> 連2次</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔒 處置中 · 78 檔</div>
+  <table class="disposal-tbl">
+    <thead>
+      <tr><th>代號</th><th>名稱</th><th>處置期間</th><th>解禁</th><th>剩餘</th><th>撮合</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-soon">
+        <td class="code">3675</td>
+        <td class="nm">德微</td>
+        <td class="period">5/25–6/05</td>
+        <td class="rel">6/08</td>
+        <td class="left">⏰ 剩 1 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6538</td>
+        <td class="nm">倉和</td>
+        <td class="period">5/25–6/05</td>
+        <td class="rel">6/08</td>
+        <td class="left">⏰ 剩 1 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">8027</td>
+        <td class="nm">鈦昇</td>
+        <td class="period">5/25–6/05</td>
+        <td class="rel">6/08</td>
+        <td class="left">⏰ 剩 1 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">6742</td>
+        <td class="nm">澤米</td>
+        <td class="period">5/25–6/05</td>
+        <td class="rel">6/08</td>
+        <td class="left">⏰ 剩 1 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3491</td>
+        <td class="nm">昇達科</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">2327</td>
+        <td class="nm">國巨*</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">2424</td>
+        <td class="nm">隴華</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px">🟥 人工</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">2478</td>
+        <td class="nm">大毅</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3167</td>
+        <td class="nm">大量</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">4722</td>
+        <td class="nm">國精化</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">4916</td>
+        <td class="nm">事欣科</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">8021</td>
+        <td class="nm">尖點</td>
+        <td class="period">5/26–6/08</td>
+        <td class="rel">6/09</td>
+        <td class="left">⏰ 剩 2 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">4127</td>
+        <td class="nm">天良</td>
+        <td class="period">5/27–6/09</td>
+        <td class="rel">6/10</td>
+        <td class="left">⏰ 剩 3 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">2455</td>
+        <td class="nm">全新</td>
+        <td class="period">5/27–6/09</td>
+        <td class="rel">6/10</td>
+        <td class="left">⏰ 剩 3 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-soon">
+        <td class="code">3090</td>
+        <td class="nm">日電貿</td>
+        <td class="period">5/27–6/09</td>
+        <td class="rel">6/10</td>
+        <td class="left">⏰ 剩 3 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3236</td>
+        <td class="nm">千如</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6173</td>
+        <td class="nm">信昌電</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6570</td>
+        <td class="nm">維田</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8042</td>
+        <td class="nm">金山電</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8291</td>
+        <td class="nm">尚茂</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 25分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2911</td>
+        <td class="nm">麗嬰房</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3189</td>
+        <td class="nm">景碩</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4919</td>
+        <td class="nm">新唐</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4958</td>
+        <td class="nm">臻鼎-KY</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6271</td>
+        <td class="nm">同欣電</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6834</td>
+        <td class="nm">天二科技</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6906</td>
+        <td class="nm">現觀科</td>
+        <td class="period">5/28–6/10</td>
+        <td class="rel">6/11</td>
+        <td class="left">剩 4 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3191</td>
+        <td class="nm">雲嘉南</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6821</td>
+        <td class="nm">聯寶</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3026</td>
+        <td class="nm">禾伸堂</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3532</td>
+        <td class="nm">台勝科</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6239</td>
+        <td class="nm">力成</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6405</td>
+        <td class="nm">悅城</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6806</td>
+        <td class="nm">森崴能源</td>
+        <td class="period">5/29–6/11</td>
+        <td class="rel">6/12</td>
+        <td class="left">剩 5 日        </td>
+        <td class="interval"><span style="background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);padding:1px 6px;border-radius:4px;font-weight:700;font-size:10px">🟥 人工</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6291</td>
+        <td class="nm">沛亨</td>
+        <td class="period">6/01–6/12</td>
+        <td class="rel">6/15</td>
+        <td class="left">剩 6 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6488</td>
+        <td class="nm">環球晶</td>
+        <td class="period">6/01–6/12</td>
+        <td class="rel">6/15</td>
+        <td class="left">剩 6 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7828</td>
+        <td class="nm">創新服務</td>
+        <td class="period">6/01–6/12</td>
+        <td class="rel">6/15</td>
+        <td class="left">剩 6 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2375</td>
+        <td class="nm">凱美</td>
+        <td class="period">6/01–6/12</td>
+        <td class="rel">6/15</td>
+        <td class="left">剩 6 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2472</td>
+        <td class="nm">立隆電</td>
+        <td class="period">6/01–6/12</td>
+        <td class="rel">6/15</td>
+        <td class="left">剩 6 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6449</td>
+        <td class="nm">鈺邦</td>
+        <td class="period">6/01–6/12</td>
+        <td class="rel">6/15</td>
+        <td class="left">剩 6 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2061</td>
+        <td class="nm">風青</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3485</td>
+        <td class="nm">敘豐</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4973</td>
+        <td class="nm">廣穎</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">5321</td>
+        <td class="nm">美而快</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6182</td>
+        <td class="nm">合晶</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6654</td>
+        <td class="nm">天正國際</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2302</td>
+        <td class="nm">麗正</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3528</td>
+        <td class="nm">安馳</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6770</td>
+        <td class="nm">力積電</td>
+        <td class="period">6/02–6/15</td>
+        <td class="rel">6/16</td>
+        <td class="left">剩 7 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">4979</td>
+        <td class="nm">華星光</td>
+        <td class="period">6/03–6/16</td>
+        <td class="rel">6/17</td>
+        <td class="left">剩 8 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1563</td>
+        <td class="nm">巧新</td>
+        <td class="period">6/03–6/16</td>
+        <td class="rel">6/17</td>
+        <td class="left">剩 8 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2337</td>
+        <td class="nm">旺宏</td>
+        <td class="period">6/03–6/16</td>
+        <td class="rel">6/17</td>
+        <td class="left">剩 8 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3556</td>
+        <td class="nm">禾瑞亞</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6548</td>
+        <td class="nm">長科*</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7709</td>
+        <td class="nm">榮田</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">8277</td>
+        <td class="nm">商丞</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 10分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1409</td>
+        <td class="nm">新纖</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">1568</td>
+        <td class="nm">倉佑</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">2492</td>
+        <td class="nm">華新科</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3021</td>
+        <td class="nm">鴻名</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3346</td>
+        <td class="nm">麗清</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">3481</td>
+        <td class="nm">群創</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">6116</td>
+        <td class="nm">彩晶</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="">
+        <td class="code">7610</td>
+        <td class="nm">聯友金屬-創</td>
+        <td class="period">6/04–6/17</td>
+        <td class="rel">6/18</td>
+        <td class="left">剩 9 日        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">3288</td>
+        <td class="nm">點晶</td>
+        <td class="period">6/05–6/18</td>
+        <td class="rel">6/19</td>
+        <td class="left">🆕 今日進        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">3523</td>
+        <td class="nm">迎輝</td>
+        <td class="period">6/05–6/18</td>
+        <td class="rel">6/19</td>
+        <td class="left">🆕 今日進        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">4707</td>
+        <td class="nm">磐亞</td>
+        <td class="period">6/05–6/18</td>
+        <td class="rel">6/19</td>
+        <td class="left">🆕 今日進        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8358</td>
+        <td class="nm">金居</td>
+        <td class="period">6/05–6/18</td>
+        <td class="rel">6/19</td>
+        <td class="left">🆕 今日進        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">3535</td>
+        <td class="nm">晶彩科</td>
+        <td class="period">6/05–6/18</td>
+        <td class="rel">6/19</td>
+        <td class="left">🆕 今日進        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-new">
+        <td class="code">8454</td>
+        <td class="nm">富邦媒</td>
+        <td class="period">6/05–6/18</td>
+        <td class="rel">6/19</td>
+        <td class="left">🆕 今日進        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">3147</td>
+        <td class="nm">大綜</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">3581</td>
+        <td class="nm">博磊</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">5701</td>
+        <td class="nm">劍湖山</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 6px;border-radius:4px;font-weight:600;font-size:10px">🟧 10分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">1718</td>
+        <td class="nm">中纖</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">2491</td>
+        <td class="nm">吉祥全</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">3149</td>
+        <td class="nm">正達</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">4807</td>
+        <td class="nm">日成-KY</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr class="row-upcoming">
+        <td class="code">6442</td>
+        <td class="nm">光聖</td>
+        <td class="period">6/08–6/22</td>
+        <td class="rel">6/23</td>
+        <td class="left">⏳ 6/08 起        </td>
+        <td class="interval"><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:10px;color:var(--muted);margin-top:8px">
+    ⏰ 快出（剩 ≤3 交易日）· 🆕 今日新進 · ⏳ 已公告未開始；剩餘日數僅扣週末為估算值<br>
+    撮合：🟡 5分（一處）· 🟧 20分（二處）· 🟥 60分/人工（三處）— 級數越高表市場越限縮
+  </div>
+</div>
+
+<div class="section-title">處置倒數</div>
+<div class="grid5" style="margin-bottom:14px">
+
+  <div class="card">
+    <div class="card-title">🆕 今日進處置（首日跳空風險）</div>
+      <table class="disposal-tbl">
+    <thead><tr><th>代號</th><th>名稱</th><th>收盤</th><th>漲跌%</th><th>撮合</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">3288</td>
+        <td class="nm">點晶</td>
+        <td>23.45</td>
+        <td class="val-dn">▼ 3.30%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">3523</td>
+        <td class="nm">迎輝</td>
+        <td>20.95</td>
+        <td class="val-dn">▼ 9.89%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">4707</td>
+        <td class="nm">磐亞</td>
+        <td>20.00</td>
+        <td class="val-dn">▼ 5.21%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">8358</td>
+        <td class="nm">金居</td>
+        <td>596.00</td>
+        <td class="val-up">▲ 5.49%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">3535</td>
+        <td class="nm">晶彩科</td>
+        <td>130.50</td>
+        <td class="val-dn">▼ 4.74%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">8454</td>
+        <td class="nm">富邦媒</td>
+        <td>353.00</td>
+        <td class="val-up">▲ 9.97%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+  <div class="card">
+    <div class="card-title">⏰ 明日解禁 D-1（剩 1 交易日）</div>
+      <table class="disposal-tbl">
+    <thead><tr><th>代號</th><th>名稱</th><th>收盤</th><th>漲跌%</th><th>撮合</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">3675</td>
+        <td class="nm">德微</td>
+        <td>384.00</td>
+        <td class="val-up">▲ 6.37%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6538</td>
+        <td class="nm">倉和</td>
+        <td>123.00</td>
+        <td class="val-dn">▼ 9.56%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">8027</td>
+        <td class="nm">鈦昇</td>
+        <td>293.00</td>
+        <td class="val-up">▲ 0.17%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6742</td>
+        <td class="nm">澤米</td>
+        <td>58.00</td>
+        <td class="val-dn">▼ 8.81%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+  <div class="card">
+    <div class="card-title">⏰ 後天解禁 D-2（剩 2 交易日）</div>
+      <table class="disposal-tbl">
+    <thead><tr><th>代號</th><th>名稱</th><th>收盤</th><th>漲跌%</th><th>撮合</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">3491</td>
+        <td class="nm">昇達科</td>
+        <td>1,935.00</td>
+        <td class="val-dn">▼ 0.77%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">2327</td>
+        <td class="nm">國巨*</td>
+        <td>769.00</td>
+        <td class="val-up">▲ 3.50%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">2424</td>
+        <td class="nm">隴華</td>
+        <td>12.75</td>
+        <td class="val-dn">▼ 4.49%</td>
+        <td><span style="background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);padding:1px 5px;border-radius:4px;font-weight:700;font-size:10px">🟥 人工</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">2478</td>
+        <td class="nm">大毅</td>
+        <td>150.00</td>
+        <td class="val-up">▲ 9.09%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">3167</td>
+        <td class="nm">大量</td>
+        <td>950.00</td>
+        <td class="val-up">▲ 5.44%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">4722</td>
+        <td class="nm">國精化</td>
+        <td>277.00</td>
+        <td class="val-dn">▼ 0.36%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">4916</td>
+        <td class="nm">事欣科</td>
+        <td>120.00</td>
+        <td class="val-dn">▼ 2.04%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">8021</td>
+        <td class="nm">尖點</td>
+        <td>458.00</td>
+        <td class="val-up">▲ 3.85%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+  <div class="card">
+    <div class="card-title">⏰ 解禁 D-3（剩 3 交易日）</div>
+      <table class="disposal-tbl">
+    <thead><tr><th>代號</th><th>名稱</th><th>收盤</th><th>漲跌%</th><th>撮合</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">4127</td>
+        <td class="nm">天良</td>
+        <td>68.90</td>
+        <td class="val-dn">▼ 1.85%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">2455</td>
+        <td class="nm">全新</td>
+        <td>399.00</td>
+        <td class="val-dn">▼ 0.75%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">3090</td>
+        <td class="nm">日電貿</td>
+        <td>221.00</td>
+        <td class="val-up">▲ 0.00%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+  <div class="card">
+    <div class="card-title">⏰ 解禁 D-4（剩 4 交易日）</div>
+      <table class="disposal-tbl">
+    <thead><tr><th>代號</th><th>名稱</th><th>收盤</th><th>漲跌%</th><th>撮合</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="code">3236</td>
+        <td class="nm">千如</td>
+        <td>53.90</td>
+        <td class="val-up">▲ 4.66%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6173</td>
+        <td class="nm">信昌電</td>
+        <td>223.50</td>
+        <td class="val-up">▲ 3.71%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6570</td>
+        <td class="nm">維田</td>
+        <td>58.40</td>
+        <td class="val-up">▲ 1.04%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">8042</td>
+        <td class="nm">金山電</td>
+        <td>145.50</td>
+        <td class="val-dn">▼ 2.35%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">8291</td>
+        <td class="nm">尚茂</td>
+        <td>71.00</td>
+        <td class="val-dn">▼ 9.90%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 25分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">2911</td>
+        <td class="nm">麗嬰房</td>
+        <td>8.80</td>
+        <td class="val-up">▲ 7.06%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">3189</td>
+        <td class="nm">景碩</td>
+        <td>712.00</td>
+        <td class="val-up">▲ 2.89%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">4919</td>
+        <td class="nm">新唐</td>
+        <td>178.00</td>
+        <td class="val-dn">▼ 8.25%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">4958</td>
+        <td class="nm">臻鼎-KY</td>
+        <td>504.00</td>
+        <td class="val-up">▲ 2.34%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6271</td>
+        <td class="nm">同欣電</td>
+        <td>236.50</td>
+        <td class="val-dn">▼ 2.87%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6834</td>
+        <td class="nm">天二科技</td>
+        <td>70.00</td>
+        <td class="val-dn">▼ 2.78%</td>
+        <td><span style="background:rgba(245,158,11,.1);color:var(--warn);border:1px solid rgba(245,158,11,.25);padding:1px 5px;border-radius:4px;font-weight:600;font-size:10px">🟧 20分</span>        </td>
+      </tr>
+      <tr>
+        <td class="code">6906</td>
+        <td class="nm">現觀科</td>
+        <td>101.00</td>
+        <td class="val-dn">▼ 2.42%</td>
+        <td><span style="color:var(--muted);font-size:10px">🟡 5分</span>        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+</div>
+
+<div class="section-title">出關走勢</div>
+<div class="grid3" style="margin-bottom:14px">
+  <div class="card">
+    <div class="card-title">🔓 今日出關（2026-06-04 處置最後日）</div>
+    <div style="font-size:11px;color:var(--muted)">今日無</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🟢 出關兩天（2026-06-03 處置最後日）</div>
+    <table class="disposal-tbl">
+      <thead>
+        <tr><th>代號</th><th>名稱</th><th>開盤</th><th>收盤</th><th>漲跌%</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code">1591</td>
+          <td class="nm">駿吉-KY</td>
+          <td>41.95</td>
+          <td>41.00</td>
+          <td class="val-dn">▼ 1.20%</td>
+        </tr>
+        <tr>
+          <td class="code">3624</td>
+          <td class="nm">光頡</td>
+          <td>99.20</td>
+          <td>108.00</td>
+          <td class="val-up">▲ 4.35%</td>
+        </tr>
+        <tr>
+          <td class="code">8455</td>
+          <td class="nm">大拓-KY</td>
+          <td>33.00</td>
+          <td>33.35</td>
+          <td class="val-dn">▼ 9.00%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔵 出關三天（2026-06-02 處置最後日）</div>
+    <table class="disposal-tbl">
+      <thead>
+        <tr><th>代號</th><th>名稱</th><th>開盤</th><th>收盤</th><th>漲跌%</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code">6217</td>
+          <td class="nm">中探針</td>
+          <td>269.50</td>
+          <td>254.00</td>
+          <td class="val-dn">▼ 4.51%</td>
+        </tr>
+        <tr>
+          <td class="code">8091</td>
+          <td class="nm">翔名</td>
+          <td>252.00</td>
+          <td>241.00</td>
+          <td class="val-dn">▼ 5.30%</td>
+        </tr>
+        <tr>
+          <td class="code">3008</td>
+          <td class="nm">大立光</td>
+          <td>3,750.00</td>
+          <td>3,680.00</td>
+          <td class="val-dn">▼ 3.79%</td>
+        </tr>
+        <tr>
+          <td class="code">3665</td>
+          <td class="nm">貿聯-KY</td>
+          <td>2,120.00</td>
+          <td>2,200.00</td>
+          <td class="val-up">▲ 2.09%</td>
+        </tr>
+        <tr>
+          <td class="code">6924</td>
+          <td class="nm">榮惠-KY創</td>
+          <td>162.00</td>
+          <td>157.00</td>
+          <td class="val-dn">▼ 7.37%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section-title">明日前瞻</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">本週 / 近期重大事件</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">6/5</td>
+        <td style="padding:6px 4px;font-weight:600">美光（MU）重挫 7.7%、Raymond James 警告 DRAM/NAND 價格高峰恐提前至 2026 年中——台股記憶體全面殺盤</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">6/5</td>
+        <td style="padding:6px 4px;font-weight:600">博通（AVGO）AI 晶片展望未上修、暴跌逾 12%，費半 -2.15%，拖累台股 AI 供應鏈</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">6/6</td>
+        <td style="padding:6px 4px;font-weight:600">COMPUTEX 台北國際電腦展落幕；留意題材出盡後的高檔震盪</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--border2)">
+        <td style="padding:6px 4px;color:var(--muted);white-space:nowrap">6月</td>
+        <td style="padding:6px 4px;font-weight:600">黃仁勳轉赴韓國（記憶體重鎮），下周記憶體族群留意另一波表現機會；端午（6/19）變盤季</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">技術關卡</div>
+    <div style="font-size:12px;line-height:2">
+      <div><span style="color:var(--dn);font-weight:700">上方壓力：</span>45,677（前一日收盤）／46,000 整數關</div>
+      <div><span style="color:var(--up);font-weight:700">下方支撐：</span>45,000 整數關（今日盤中失而復得）／44,000</div>
+      <div style="color:var(--muted)">盤中崩近 1,468 點後拉回收復 45K、留長下影線，恐慌殺盤後低檔承接力道仍在；但連 2 黑、量能未放大，反彈需突破 45,677 確認</div>
+      <div style="color:var(--muted)">上市櫃同步收黑、下跌家數皆逾 6 成（上市漲 342 vs 跌 671），廣度轉弱；記憶體成重災，資金轉進金融與被動元件</div>
+      <div style="color:var(--muted)">外資現貨賣超 826 億、台指期空單 6.9 萬口；記憶體（華邦電、南亞科、創見）跌停潮為最大壓力，留意 DRAM/NAND 報價見頂疑慮是否擴散至上游矽晶圓</div>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer>
+  <span>MAGI 盤後報告 2026-06-05</span>
+  <span class="src-badge">TWSE RWD</span>
+  <span class="src-badge">TPEX</span>
+  <span class="src-badge">FinMind</span>
+  <span class="src-badge">Fugle</span>
+  <span class="src-badge">TAIFEX</span>
+  <span class="src-badge">cmoney</span>
+  <span class="src-badge">Notion 智囊</span>
+  <span class="src-badge">Exa News</span>
+  <span style="margin-left:auto;color:var(--dimmer)">本報告由 MAGI 系統自動生成，僅供參考</span>
+</footer>
+
+<script>
+(function(){
+  const hist = [{"date": "20260311", "close": 34114.19, "融資金額_千元": 376147937, "融資維持率": 166.1295}, {"date": "20260312", "close": 33581.86, "融資金額_千元": 379366977, "融資維持率": 164.5959}, {"date": "20260313", "close": 33400.32, "融資金額_千元": 385446747, "融資維持率": 165.25}, {"date": "20260316", "close": 33342.51, "融資金額_千元": 392284076, "融資維持率": 166.8655}, {"date": "20260317", "close": 33836.57, "融資金額_千元": 393467032, "融資維持率": 169.4601}, {"date": "20260318", "close": 34348.58, "融資金額_千元": 399772079, "融資維持率": 172.024}, {"date": "20260319", "close": 33689.68, "融資金額_千元": 402095986, "融資維持率": 170.1866}, {"date": "20260320", "close": 33543.88, "融資金額_千元": 398591068, "融資維持率": 167.997}, {"date": "20260323", "close": 32722.5, "融資金額_千元": 393333759, "融資維持率": 161.0689}, {"date": "20260324", "close": 32612.24, "融資金額_千元": 390102627, "融資維持率": 158.4569}, {"date": "20260325", "close": 33439.11, "融資金額_千元": 395499024, "融資維持率": 164.2291}, {"date": "20260326", "close": 33337.62, "融資金額_千元": 391136469, "融資維持率": 162.5914}, {"date": "20260327", "close": 33112.59, "融資金額_千元": 393722769, "融資維持率": 162.5712}, {"date": "20260330", "close": 32518.16, "融資金額_千元": 392708634, "融資維持率": 159.7193}, {"date": "20260331", "close": 31722.99, "融資金額_千元": 381724855, "融資維持率": 152.4658}, {"date": "20260401", "close": 33174.82, "融資金額_千元": 385907934, "融資維持率": 159.5343}, {"date": "20260402", "close": 32572.43, "融資金額_千元": 384200709, "融資維持率": 157.2438}, {"date": "20260407", "close": 33229.82, "融資金額_千元": 387734358, "融資維持率": 160.4439}, {"date": "20260408", "close": 34761.38, "融資金額_千元": 395333852, "融資維持率": 168.6951}, {"date": "20260409", "close": 34861.16, "融資金額_千元": 396518141, "融資維持率": 168.4458}, {"date": "20260410", "close": 35417.83, "融資金額_千元": 401240705, "融資維持率": 170.6905}, {"date": "20260413", "close": 35457.29, "融資金額_千元": 408651307, "融資維持率": 171.7983}, {"date": "20260414", "close": 36296.12, "融資金額_千元": 414988177, "融資維持率": 173.247}, {"date": "20260415", "close": 36722.14, "融資金額_千元": 416253786, "融資維持率": 173.212}, {"date": "20260416", "close": 37132.02, "融資金額_千元": 422408742, "融資維持率": 175.2202}, {"date": "20260417", "close": 36804.34, "融資金額_千元": 427120788, "融資維持率": 175.5221}, {"date": "20260420", "close": 36958.8, "融資金額_千元": 429829952, "融資維持率": 177.0906}, {"date": "20260421", "close": 37605.11, "融資金額_千元": 433163894, "融資維持率": 179.5918}, {"date": "20260422", "close": 37878.47, "融資金額_千元": 438545241, "融資維持率": 180.592}, {"date": "20260423", "close": 37714.15, "融資金額_千元": 430825725, "融資維持率": 174.0611}, {"date": "20260424", "close": 38932.4, "融資金額_千元": 440907083, "融資維持率": 175.4933}, {"date": "20260427", "close": 39616.63, "融資金額_千元": 452044394, "融資維持率": 175.2079}, {"date": "20260428", "close": 39521.73, "融資金額_千元": 457112797, "融資維持率": 176.922}, {"date": "20260429", "close": 39303.5, "融資金額_千元": 460974804, "融資維持率": 176.0345}, {"date": "20260430", "close": 38926.63, "融資金額_千元": 460905599, "融資維持率": 175.8451}, {"date": "20260504", "close": 40705.14, "融資金額_千元": 470389635, "融資維持率": 180.9067}, {"date": "20260505", "close": 40769.29, "融資金額_千元": 475145292, "融資維持率": 182.0207}, {"date": "20260506", "close": 41138.85, "融資金額_千元": 475648471, "融資維持率": 180.6349}, {"date": "20260507", "close": 41933.78, "融資金額_千元": 482664170, "融資維持率": 182.1352}, {"date": "20260508", "close": 41603.94, "融資金額_千元": 477184758, "融資維持率": 177.6839}, {"date": "20260511", "close": 41790.06, "融資金額_千元": 484592746, "融資維持率": 181.8785}, {"date": "20260512", "close": 41898.32, "融資金額_千元": 491194846, "融資維持率": 181.3175}, {"date": "20260513", "close": 41374.5, "融資金額_千元": 494418035, "融資維持率": 177.2795}, {"date": "20260514", "close": 41751.75, "融資金額_千元": 499134883, "融資維持率": 177.1961}, {"date": "20260515", "close": 41172.36, "融資金額_千元": 492797137, "融資維持率": 172.0822}, {"date": "20260518", "close": 40891.82, "融資金額_千元": 501619604, "融資維持率": 171.9616}, {"date": "20260519", "close": 40175.56, "融資金額_千元": 496886917, "融資維持率": 167.346}, {"date": "20260520", "close": 40020.82, "融資金額_千元": 502079489, "融資維持率": 166.9352}, {"date": "20260521", "close": 41368.21, "融資金額_千元": 511154475, "融資維持率": 174.161}, {"date": "20260522", "close": 42267.97, "融資金額_千元": 522289851, "融資維持率": 180.0163}, {"date": "20260525", "close": 43644.4, "融資金額_千元": 530476074, "融資維持率": 185.0303}, {"date": "20260526", "close": 43525.37, "融資金額_千元": 534592732, "融資維持率": 184.0713}, {"date": "20260527", "close": 44256.8, "融資金額_千元": 536269185, "融資維持率": 182.8285}, {"date": "20260528", "close": 43636.44, "融資金額_千元": 535025764, "融資維持率": 177.3868}, {"date": "20260529", "close": 44732.94, "融資金額_千元": 556360306, "融資維持率": 180.9286}, {"date": "20260601", "close": 45337.91, "融資金額_千元": 565779103, "融資維持率": 183.8213}, {"date": "20260602", "close": 45557.31, "融資金額_千元": 566968920, "融資維持率": 181.5519}, {"date": "20260603", "close": 46459.16, "融資金額_千元": 568395179, "融資維持率": 181.8414}, {"date": "20260604", "close": 45677.46, "融資金額_千元": 572635489, "融資維持率": 176.5635}, {"date": "20260605", "close": 45070.94, "融資金額_千元": 566649267, "融資維持率": 172.6715}];
+  const canvas = document.getElementById('marginChart');
+  const tip = document.getElementById('marginTip');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d'), W = canvas.width, H = canvas.height;
+  const padL=8, padR=8, padT=8, padB=8, n = hist.length;
+  const rates = hist.map(d => d['融資維持率']);
+  const amts  = hist.map(d => Math.round(d['融資金額_千元'] / 100000));
+  const rMin = Math.min(...rates) * .995, rMax = Math.max(...rates) * 1.005;
+  const aMin = Math.min(...amts)  * .99,  aMax = Math.max(...amts)  * 1.01;
+  const xOf  = i => padL + i * (W - padL - padR) / (n - 1);
+  const yOfR = v => padT + (1 - (v - rMin) / (rMax - rMin)) * (H - padT - padB);
+  const yOfA = v => padT + (1 - (v - aMin) / (aMax - aMin)) * (H - padT - padB);
+  ctx.clearRect(0, 0, W, H);
+  const draw = (vals, yFn, col) => {
+    ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.beginPath();
+    vals.forEach((v, i) => { const x = xOf(i), y = yFn(v); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); });
+    ctx.stroke();
+  };
+  draw(amts,  yOfA, '#f59e0b');
+  draw(rates, yOfR, '#c084fc');
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (W / rect.width);
+    const i = Math.min(n - 1, Math.max(0, Math.round((x - padL) / (W - padL - padR) * (n - 1))));
+    const d = hist[i], dt = d.date;
+    const ds = dt.length === 8 ? `${dt.slice(0,4)}/${dt.slice(4,6)}/${dt.slice(6,8)}` : dt;
+    tip.innerHTML = `<b>${ds}</b> 加權${Math.round(d.close).toLocaleString()} &nbsp;<span style="color:#c084fc">維持率 ${d['融資維持率'].toFixed(1)}%</span> &nbsp;<span style="color:#f59e0b">融資餘額 ${amts[i].toLocaleString()}億</span>`;
+    tip.style.display = 'block';
+    tip.style.left = Math.min(xOf(i), W - 200) + 'px';
+    tip.style.top = '4px';
+  });
+  canvas.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+})();
+</script>
+
+<script>
+function magiToggleTheme(){
+  var h=document.documentElement;
+  var next=h.getAttribute('data-theme')==='dark'?'light':'dark';
+  h.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  var b=document.getElementById('theme-btn');
+  if(b)b.textContent=next==='dark'?'☀️':'🌙';
+}
+(function(){
+  var b=document.getElementById('theme-btn');
+  if(b)b.textContent=document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';
+})();
+</script>
+</body>
+</html>
