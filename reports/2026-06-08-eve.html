@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI 特別報告 · 週一開盤作戰（週日夜版）</title>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--warn:#f59e0b;--blue:#3b82f6;
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--warn);letter-spacing:.4px;text-transform:uppercase}
+.nav-date{font-size:11px;color:var(--muted)}
+.nav-back{font-size:12px;color:var(--muted);transition:color .15s}
+.nav-back:hover{color:var(--text)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 7px;cursor:pointer;font-size:13px;line-height:1;transition:border-color .15s}
+.theme-btn:hover{border-color:var(--accent2)}
+
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+.hero-wrap{position:relative;overflow:hidden;padding:44px 40px 28px;background:var(--bg)}
+.hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:420px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:7px;background:var(--up-bg);border:1px solid var(--up-bd);border-radius:100px;padding:6px 16px;font-size:11px;color:var(--up);font-weight:700;margin-bottom:20px}
+.tag .live{width:6px;height:6px;border-radius:50%;background:var(--up);box-shadow:0 0 7px var(--up);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{font-size:clamp(26px,4.6vw,38px);font-weight:800;color:var(--bright);letter-spacing:-1px;line-height:1.18;margin-bottom:14px}
+.hero-sub{font-size:14px;color:var(--muted);margin-bottom:4px}
+
+/* 一句話結論卡 */
+.verdict{margin:26px auto 0;max-width:880px;background:linear-gradient(135deg,var(--up-bg),transparent);border:1px solid var(--up-bd);border-left:4px solid var(--up);border-radius:14px;padding:22px 26px}
+.verdict .vl{font-size:11px;font-weight:700;color:var(--up);letter-spacing:.5px;margin-bottom:8px}
+.verdict p{font-size:16px;line-height:1.7;color:var(--text);font-weight:500}
+.verdict strong{color:var(--up);font-weight:800}
+
+.section-wrap{max-width:880px;margin:0 auto;padding:40px 24px 0}
+.sec-label{font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'';width:18px;height:2px;background:var(--accent2);border-radius:2px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px 26px}
+.card+.card{margin-top:16px}
+.card h3{font-size:16px;font-weight:800;color:var(--bright);margin-bottom:12px}
+.card p{color:var(--text2);margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+.card strong{color:var(--text);font-weight:700}
+.hl-up{color:var(--up);font-weight:700}
+.hl-dn{color:var(--dn);font-weight:700}
+
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:12px}
+ul.clean li{padding-left:30px;position:relative;color:var(--text2)}
+ul.clean li .n{position:absolute;left:0;top:0;width:21px;height:21px;border-radius:6px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+ul.clean li strong{color:var(--text)}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+table th,table td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border)}
+table th{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.3px;background:var(--bg3)}
+table tr:last-child td{border-bottom:none}
+table td.r,table th.r{text-align:right;font-variant-numeric:tabular-nums}
+.big{font-weight:800;color:var(--bright)}
+
+/* 時間軸 */
+.tl{display:flex;flex-direction:column;gap:0}
+.tl-row{display:grid;grid-template-columns:74px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--border);position:relative}
+.tl-row:last-child{border-bottom:none}
+.tl-time{font-weight:800;color:var(--accent2);font-size:14px;font-variant-numeric:tabular-nums}
+.tl-mkt{font-weight:700;color:var(--bright);margin-bottom:3px}
+.tl-desc{font-size:13px;color:var(--text2)}
+.tl-row.key{background:var(--up-bg);margin:0 -14px;padding:14px;border-radius:10px;border-bottom:none}
+.tl-row.key .tl-time{color:var(--up)}
+
+.note{background:var(--bg3);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text2);margin-top:14px}
+.note strong{color:var(--text)}
+
+.cta-box{max-width:880px;margin:36px auto 0;padding:0 24px}
+.cta-inner{background:linear-gradient(135deg,rgba(59,130,246,.08),transparent);border:1px solid var(--border);border-radius:14px;padding:22px 26px;display:flex;align-items:center;gap:16px}
+.cta-inner .ic{font-size:28px}
+.cta-inner .t{font-weight:800;color:var(--bright);margin-bottom:4px}
+.cta-inner .d{font-size:13px;color:var(--muted)}
+
+footer{max-width:880px;margin:40px auto 0;padding:24px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;line-height:1.8}
+footer a{color:var(--accent2)}
+footer .src{margin-top:8px;word-break:break-word}
+@media(max-width:600px){nav{padding:12px 18px}.hero-wrap{padding:32px 18px 22px}.section-wrap{padding:30px 18px 0}.card{padding:18px 18px}.tl-row{grid-template-columns:60px 1fr;gap:10px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em>&nbsp;智能分析</a>
+  <div class="nav-right">
+    <span class="nav-badge">⚠ 特別報告</span>
+    <span class="nav-date">2026-06-08 週一盤前準備</span>
+    <button class="theme-btn" onclick="(function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);localStorage.setItem('magi-theme',n)})()">◐</button>
+    <a href="/" class="nav-back">← 首頁</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="tag"><span class="live"></span>週日夜版 · 2026-06-07 22:00 製</div>
+    <div class="hero-title">週一開盤作戰報告<br>美股「黑色星期五」後，台股怎麼接？</div>
+    <div class="hero-sub">週五美股暴殺 → 台指期夜盤 -3,006 點（史上最大）。本報告整理「現在能掌握的事實」與「週一早盤觀盤框架」。</div>
+  </div>
+</div>
+
+<div class="verdict">
+  <div class="vl">⚡ 一句話結論</div>
+  <p>週一台股<strong>跳空大跌幾乎確定</strong>（夜盤已先殺 -3,006 點）。開盤<strong>先別急著接刀</strong>，把第一個小時當「觀察盤」——盯 <strong>08:00 日韓開盤 + 美股期貨</strong>有沒有止穩反彈，再決定進場。真正的反彈訊號是它們，不是台股自己。</p>
+</div>
+
+<!-- 為什麼殺 -->
+<div class="section-wrap">
+  <div class="sec-label">一、為什麼殺？</div>
+  <div class="card">
+    <h3>不是系統性崩盤，是「漲多 + 殺估值」三件事疊加</h3>
+    <ul class="clean">
+      <li><span class="n">1</span><strong>非農太強 → 升息預期暴衝。</strong>5 月新增 <span class="hl-dn">17.2 萬</span>（預期僅 8.5 萬，翻倍）。年底前升息機率一天內從 ~48% 跳到 <span class="hl-up">&gt;60%</span>，降息夢碎，10 年期殖利率衝上 <strong>4.54%</strong>。</li>
+      <li><span class="n">2</span><strong>AI／晶片殺估值。</strong>博通財測不如預期（連兩天 -19%）引爆，<span class="hl-up">費半單日 -8.8%~-10.26%</span>（2020 年 3 月來最大）。輝達 -6.2%、美光 -13%、英特爾／超微 -11%。晶片股兩天蒸發 <strong>逾 1 兆美元</strong>市值。</li>
+      <li><span class="n">3</span><strong>抽銀根 + 地緣。</strong>下週 SpaceX 天價 IPO（$1.7 兆）挪移資金；Iran 戰爭、荷莫茲海峽推升油價 → 通膨黏著。</li>
+    </ul>
+    <div class="note">💬 <strong>法人共識（Wells Fargo / Carson Group）：</strong>「是 positioning 不是基本面，半導體多頭沒結束。」—— 這是把它定義為<strong>回檔而非轉空</strong>的核心論點。</div>
+  </div>
+</div>
+
+<!-- 台股夜盤實況 -->
+<div class="section-wrap">
+  <div class="sec-label">二、台股夜盤實況（已發生的事實）</div>
+  <div class="card" style="padding:6px 6px">
+    <table>
+      <thead><tr><th>項目</th><th class="r">數據</th></tr></thead>
+      <tbody>
+        <tr><td>台指期夜盤</td><td class="r"><span class="big hl-up">-3,006 點 / -6.65%</span><br><span style="color:var(--muted);font-size:12px">收 42,220 · 史上最大單日跌點</span></td></tr>
+        <tr><td>盤中極端值</td><td class="r">一度亮燈<strong>跌停 -4,522 點（-9%）</strong><br><span style="color:var(--muted);font-size:12px">尾盤急拉回近 2,000 點</span></td></tr>
+        <tr><td>台積電 ADR</td><td class="r"><span class="hl-up">-6.69%</span> 收 $415.17<br><span style="color:var(--muted);font-size:12px">換算台股約 2,613.5 元</span></td></tr>
+        <tr><td>台積電期貨夜盤</td><td class="r"><span class="hl-up">-145 元 / -6.1%</span> 收 2,225</td></tr>
+        <tr><td>聯電 ADR / 日月光 ADR</td><td class="r"><span class="hl-up">-5.24% / -11.38%</span></td></tr>
+        <tr><td>費城半導體指數</td><td class="r"><span class="hl-up">-10.26%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">⚠️ <strong>中信投顧解讀：</strong>夜盤一度跌停是「程式多單停損 + 深夜流動性枯竭的超跌」，<strong>不是真正意義的跌停</strong>；尾盤拉回近 2,000 點就是證據——別把 -4,522 那個瞬間當成週一的基準。</div>
+</div>
+
+<!-- 亞股已先反映 -->
+<div class="section-wrap">
+  <div class="sec-label">三、亞股週五已先反映一部分</div>
+  <div class="card" style="padding:6px 6px">
+    <table>
+      <thead><tr><th>市場</th><th class="r">週五收盤</th><th class="r">漲跌</th></tr></thead>
+      <tbody>
+        <tr><td>🇰🇷 KOSPI（韓股）</td><td class="r big">8,160.59</td><td class="r"><span class="hl-up">-5.54%</span></td></tr>
+        <tr><td>🇯🇵 日經 225</td><td class="r big">66,588.12</td><td class="r"><span class="hl-up">-1.31%</span></td></tr>
+        <tr><td>🇭🇰 恒生指數</td><td class="r big">24,961.95</td><td class="r"><span class="hl-up">-1.15%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">💡 <strong>韓股週五自己就先殺了 -5.54%</strong>（跟台股一樣晶片權值股重：三星、海力士），日經／恒生相對溫和。<strong>所以週一 08:00 韓股「現貨開盤」方向特別關鍵：</strong>若韓股殺到 -5.5% 後週一翻紅或止穩，就是「亞洲資金開始抄底晶片」的訊號，台股接刀勝率才比較高。</div>
+</div>
+
+<!-- 觀盤時間軸 -->
+<div class="section-wrap">
+  <div class="sec-label">四、週一早盤「反彈訊號」觀察時間軸</div>
+  <div class="card">
+    <p style="margin-bottom:16px">週日晚上其實<strong>還沒有任何新的盤可看</strong>（美期週一 06:00 才開、日韓 08:00 才開、台指期沒有週日盤）。真正的決策資訊在<strong>週一清晨依序出現</strong>：</p>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-time">06:00</div><div><div class="tl-mkt">🇺🇸 美股期貨 ES／NQ 重開</div><div class="tl-desc">續弱 → 保守；翻紅／收斂跌幅 → 有撐</div></div></div>
+      <div class="tl-row key"><div class="tl-time">08:00</div><div><div class="tl-mkt">🇰🇷 韓股 + 🇯🇵 日經開盤（最關鍵領先指標）</div><div class="tl-desc">韓股（三星／海力士）跟台股最像，它跌深翻紅 = 亞洲在抄底</div></div></div>
+      <div class="tl-row"><div class="tl-time">08:45</div><div><div class="tl-mkt">🇹🇼 台指期日盤開</div><div class="tl-desc">對照夜盤 42,220，比夜盤高 = 有人進場</div></div></div>
+      <div class="tl-row"><div class="tl-time">09:00</div><div><div class="tl-mkt">🇹🇼 台股現貨開</div><div class="tl-desc">第一個 15 分鐘看台積電撐不撐（2,600 關卡）</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 落底4指標 -->
+<div class="section-wrap">
+  <div class="sec-label">五、落底 4 大指標（富邦投顧 陳奕光）</div>
+  <div class="card">
+    <p style="margin-bottom:16px">週一不會一根就落底，盯這四個確認利空解除：</p>
+    <ul class="clean">
+      <li><span class="n">1</span><strong>美 10 年期殖利率</strong>：現 4.55%，<strong>別升破 5/19 高點 4.66%</strong>；能回到 4.2% 附近 = 利空暫解。</li>
+      <li><span class="n">2</span><strong>融資減肥</strong>：餘額飆到 5,666 億（歷史新高），這波至少要消 10~15%（減約 500~800 億）。</li>
+      <li><span class="n">3</span><strong>外資台指期空單</strong>：未平倉近 <strong>7 萬口（創紀錄）</strong>，要降到 5 萬口以下才算空方鬆手。</li>
+      <li><span class="n">4</span><strong>新台幣匯率止穩</strong>。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 操作定調 -->
+<div class="section-wrap">
+  <div class="sec-label">六、操作定調</div>
+  <div class="card">
+    <h3>法人看法</h3>
+    <p><strong>富邦：</strong>週一開盤跌 2,000 點是「低消」，可能跌破月線約 <strong>43,030</strong>，多重賣壓（停損／融資斷頭／程式／ETF 多殺多／外資）齊發，是「恐懼的總和」。</p>
+    <p><strong>中信：</strong>夜盤已先反映，週一跳空後重點看<strong>台積電能否止穩</strong>；別被瞬間跌停嚇到全砍。</p>
+  </div>
+  <div class="card" style="border-color:var(--up-bd);background:var(--up-bg)">
+    <h3>🎯 MAGI 建議</h3>
+    <ul class="clean">
+      <li><span class="n" style="background:var(--up)">A</span>開盤<strong>不追殺、不搶反彈</strong>，等 09:00–09:30 看台積電（撐不撐 2,600）＋ 韓股方向。</li>
+      <li><span class="n" style="background:var(--up)">B</span>有融資／高槓桿部位的 → <strong>先算維持率</strong>，週一是斷頭追繳保衛戰，別讓自己被動。</li>
+      <li><span class="n" style="background:var(--up)">C</span>想布局的 → 等四指標至少兩項轉向，或台積電出現<strong>帶量止跌</strong>再分批。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 盤前快報預告 -->
+<div class="cta-box">
+  <div class="cta-inner">
+    <div class="ic">⏰</div>
+    <div>
+      <div class="t">明早 08:20 盤前快報</div>
+      <div class="d">屆時會用即時數據更新：KOSPI／日經開盤方向、美股期貨、ADR 隔夜，給出台股「預計怎麼開、要不要接刀」的即時預判。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>MAGI 智能分析 · 特別報告 · 資料製作時間 2026-06-07（週日）22:00 台北時間。本報告為盤前準備，非投資建議。</div>
+  <div class="src">資料來源：Reuters / NBC News / Fortune / Economic Times / ETtoday / 自由時報 / 經濟日報（富邦投顧陳奕光）/ 中信投顧策研部 / 工商時報 / Google Finance（KOSPI・日經・恒生即時報價）。</div>
+</footer>
+
+</body>
+</html>
