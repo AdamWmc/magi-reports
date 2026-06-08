@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MAGI 盤前快報 · 2026-06-08 週一 08:20</title>
+<title>MAGI 盤前快報 · 2026-06-08 週一 08:40</title>
 <script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
 <style>
 :root{
@@ -45,8 +45,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4
 .hero-title{font-size:clamp(26px,4.6vw,38px);font-weight:800;color:var(--bright);letter-spacing:-1px;line-height:1.18;margin-bottom:14px}
 .hero-sub{font-size:14px;color:var(--muted)}
 
-.verdict{margin:26px auto 0;max-width:880px;background:linear-gradient(135deg,var(--up-bg),transparent);border:1px solid var(--up-bd);border-left:4px solid var(--up);border-radius:14px;padding:22px 26px}
-.verdict .vl{font-size:11px;font-weight:700;color:var(--up);letter-spacing:.5px;margin-bottom:8px}
+.verdict{margin:26px auto 0;max-width:880px;background:linear-gradient(135deg,var(--dn-bg),transparent);border:1px solid var(--dn-bd);border-left:4px solid var(--dn);border-radius:14px;padding:22px 26px}
+.verdict .vl{font-size:11px;font-weight:700;color:var(--dn);letter-spacing:.5px;margin-bottom:8px}
 .verdict p{font-size:16px;line-height:1.7;color:var(--text);font-weight:500}
 .verdict strong{color:var(--up);font-weight:800}
 .verdict .ok{color:var(--dn);font-weight:800}
@@ -63,7 +63,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4
 .hl-up{color:var(--up);font-weight:700}
 .hl-dn{color:var(--dn);font-weight:700}
 
-/* 即時數據卡 */
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
 .q{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
 .q .qn{font-size:12px;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:5px}
@@ -79,10 +78,19 @@ ul.clean li{padding-left:30px;position:relative;color:var(--text2)}
 ul.clean li .n{position:absolute;left:0;top:0;width:21px;height:21px;border-radius:6px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
 ul.clean li strong{color:var(--text)}
 
+.evo{display:flex;flex-direction:column;gap:0}
+.evo-row{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:13px 0;border-bottom:1px dashed var(--border)}
+.evo-row:last-child{border-bottom:none}
+.evo-t{font-weight:800;color:var(--accent2);font-size:13px;font-variant-numeric:tabular-nums}
+.evo-d{font-size:13.5px;color:var(--text2)}
+.evo-d b{color:var(--text)}
+
 .note{background:var(--bg3);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text2);margin-top:14px}
 .note strong{color:var(--text)}
 .warnbox{background:var(--up-bg);border:1px solid var(--up-bd);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:13.5px;color:var(--text)}
 .warnbox strong{color:var(--up)}
+.okbox{background:var(--dn-bg);border:1px solid var(--dn-bd);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:13.5px;color:var(--text)}
+.okbox strong{color:var(--dn)}
 
 footer{max-width:880px;margin:40px auto 0;padding:24px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;line-height:1.8}
 footer .src{margin-top:8px;word-break:break-word}
@@ -95,7 +103,7 @@ footer .src{margin-top:8px;word-break:break-word}
   <a href="/" class="nav-logo"><em>MAGI</em>&nbsp;智能分析</a>
   <div class="nav-right">
     <span class="nav-badge">⏰ 盤前快報</span>
-    <span class="nav-date">2026-06-08 週一 08:20</span>
+    <span class="nav-date">2026-06-08 週一 08:40 更新</span>
     <button class="theme-btn" onclick="(function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);localStorage.setItem('magi-theme',n)})()">◐</button>
     <a href="/" class="nav-back">← 首頁</a>
   </div>
@@ -103,58 +111,57 @@ footer .src{margin-top:8px;word-break:break-word}
 
 <div class="hero-wrap">
   <div class="hero-inner">
-    <div class="tag"><span class="live"></span>即時數據 · 2026-06-08 08:20 台北時間製</div>
-    <div class="hero-title">盤前快報：日韓已開盤<br>台股 9:00 怎麼接？</div>
-    <div class="hero-sub">台指期 8:45 開、現貨 9:00 開。趁開盤前，用即時的日韓開盤＋美股期貨判斷台股方向。</div>
+    <div class="tag"><span class="live"></span>即時數據 · 2026-06-08 08:40 台北時間更新</div>
+    <div class="hero-title">盤前快報：亞洲急殺後止血<br>台股 9:00 怎麼接？</div>
+    <div class="hero-sub">台指期 8:45 開、現貨 9:00 開。韓股觸發熔斷後已回彈，美期翻紅——關鍵看台股自己的「急殺後止穩」。</div>
   </div>
 </div>
 
 <div class="verdict">
-  <div class="vl">⚡ 盤前結論</div>
-  <p><strong>韓股是台股的鏡子，而它在示警：</strong>KOSPI 今天開盤只 -1.4%，<strong>盤中卻一路崩到 -8.37%</strong>——殺盤是在「開盤後」才來的。台股結構一樣（晶片權值重、週五沒跟到美股殺盤），所以 <strong>9:00 的跳空低點很可能不是當日最低</strong>，別假設開盤就是底、急著接刀。<br>但同時：<span class="ok">美股期貨翻紅（NQ +0.38%）、日經僅 -1.7%</span>，全球恐慌沒有再擴大，這是「一次性重定價」不是連環崩。<strong>策略：開盤不接刀，等台積電／大盤跳空後出現「帶量止穩紅K」或韓股先翻揚，再分批。</strong></p>
+  <div class="vl">⚡ 盤前結論（08:40 更新）</div>
+  <p><strong>劇本從「無底洞」變成「急殺→熔斷→止血」。</strong>韓股早盤崩到 -8.8% 觸發熔斷停 20 分，恢復後<span class="ok">買盤進場、回彈到 -5.45%</span>；日經自低點收斂到 -3.5%；<span class="ok">美股期貨持續翻紅（NQ +0.73%）</span>。這證實是「亞洲補跌週五美股、急殺後有人接」，不是連環崩。<br><strong>對台股：9:00 仍會大幅跳空</strong>（台指期夜盤 -6.65%、ADR -6.69%），但韓股已示範「初段恐慌殺到底→止穩反彈」。<strong>策略：別搶第一根跳空、讓恐慌殺出來，等台積電守 2,600＋帶量止穩，或跟著韓股的回彈節奏分批。</strong></p>
 </div>
 
 <div class="section-wrap">
-  <div class="sec-label">一、即時領先指標（08:20 台北時間）</div>
+  <div class="sec-label">一、即時領先指標（08:40 台北時間）</div>
   <div class="quotes">
     <div class="q dn">
       <div class="qn">🇰🇷 韓股 KOSPI</div>
-      <div class="qv">7,477</div>
-      <div class="qc">▼ -8.37%</div>
-      <div class="qt">開8,048→低7,442 · 盤中崩</div>
+      <div class="qv">7,716</div>
+      <div class="qc">▼ -5.45%</div>
+      <div class="qt">熔斷後回彈 · 09:41 KST</div>
     </div>
     <div class="q dn">
       <div class="qn">🇯🇵 日經 225</div>
-      <div class="qv">65,439</div>
-      <div class="qc">▼ -1.73%</div>
-      <div class="qt">9:03 JST 盤中</div>
+      <div class="qv">64,253</div>
+      <div class="qc">▼ -3.51%</div>
+      <div class="qt">自低點收斂 · 9:25 JST</div>
     </div>
     <div class="q up">
       <div class="qn">🇺🇸 那斯達克期 NQ</div>
-      <div class="qv">29,138</div>
-      <div class="qc">▲ +0.38%</div>
-      <div class="qt">週日夜美期 · 翻紅</div>
+      <div class="qv">29,239</div>
+      <div class="qc">▲ +0.73%</div>
+      <div class="qt">持續走高</div>
     </div>
     <div class="q up">
       <div class="qn">🇺🇸 標普期 ES</div>
-      <div class="qv">7,405</div>
-      <div class="qc">▲ +0.06%</div>
-      <div class="qt">週日夜美期 · 持平</div>
+      <div class="qv">7,417</div>
+      <div class="qc">▲ +0.22%</div>
+      <div class="qt">翻紅</div>
     </div>
   </div>
-  <div class="note">📌 <strong>怎麼讀：</strong>美期（前瞻）小幅翻紅＝美股這邊週日夜沒有續殺、恐慌降溫。但<strong>韓股（同為晶片重市場、與台股最像）正在「補跌」週五美股的崩盤</strong>——這才是台股今天開盤的最佳對照。兩者方向相反，代表「台股會大幅跳空、但不至於失控連環崩」。</div>
 </div>
 
 <div class="section-wrap">
-  <div class="sec-label">二、最關鍵的一個觀察：韓股的「開盤後才殺」</div>
+  <div class="sec-label">二、今早的演變（08:00→08:40）— 這才是重點</div>
   <div class="card">
-    <p>KOSPI 今天的走法值得台股投資人警惕：</p>
-    <ul class="clean">
-      <li><span class="n">1</span><strong>開盤 8,048</strong>，僅 -1.4%——看起來「還好」。</li>
-      <li><span class="n">2</span><strong>盤中一路下殺到 7,442</strong>（-8.8%），賣壓是在開盤之後才傾巢而出。</li>
-      <li><span class="n">3</span>現在 7,477，<span class="hl-up">-8.37%</span>。</li>
-    </ul>
-    <div class="warnbox">⚠️ <strong>對台股的提示：</strong>如果台股 9:00 也是「開盤跳空但沒殺到底」，<strong>千萬別把開盤價當成最低點搶進</strong>——韓股示範了賣壓會在開盤後持續釋放（停損、融資追繳、程式單）。真正可以動手的訊號，是看到<strong>下殺後的「帶量止穩」</strong>，不是開盤那一根。</div>
+    <div class="evo">
+      <div class="evo-row"><div class="evo-t">08:00</div><div class="evo-d">🇰🇷 韓股開盤僅 <b>-1.4%</b>（8,048）、🇯🇵 日經開低 <b>-1.7%</b>——看似「還好」。</div></div>
+      <div class="evo-row"><div class="evo-t">~08:20</div><div class="evo-d">賣壓在開盤後傾巢而出：韓股盤中一路殺到 <b class="hl-up">-8.8%（低 7,442）</b>觸發<b>熔斷 CB1</b>停 20 分；日經跟著擴大到 -3.7%。</div></div>
+      <div class="evo-row"><div class="evo-t">~08:40</div><div class="evo-d">熔斷恢復後<b class="hl-dn">買盤進場</b>：韓股彈回 <b class="hl-dn">-5.45%</b>（+3.7% off 低點）、日經收斂到 -3.5%、美期 NQ 由 +0.38% 一路爬到 <b class="hl-dn">+0.73%</b>。</div></div>
+    </div>
+    <div class="okbox">✅ <strong>解讀：</strong>這是健康的「恐慌洗盤」型態——急殺、觸發熔斷冷卻、然後有人承接回彈。代表市場在 -8~9% 附近<strong>找到了短線買盤</strong>，而非失控往 -15%（CB 第 2 級）探。對台股是相對正面的領先訊號。</div>
+    <div class="warnbox">⚠️ <strong>但別掉以輕心：</strong>韓股示範了「殺盤在開盤後才來」。台股 9:00 的開盤價<strong>不一定是當日最低</strong>——很可能先有一段恐慌殺盤（停損、融資追繳、程式單）才止穩。<strong>耐心等那段殺完。</strong></div>
   </div>
 </div>
 
@@ -171,17 +178,17 @@ footer .src{margin-top:8px;word-break:break-word}
   <div class="sec-label">四、9:00 開盤後盯這 3 件事</div>
   <div class="card">
     <ul class="clean">
-      <li><span class="n">A</span><strong>台積電撐不撐 2,600。</strong>ADR 換算約 2,613.5；守得住 = 權值穩，破了且擴大 = 跟韓股一樣往下探。</li>
-      <li><span class="n">B</span><strong>跳空後 15–30 分鐘是否「帶量止穩」。</strong>有量的紅K止跌才是訊號，無量下殺別接。</li>
-      <li><span class="n">C</span><strong>韓股有沒有先翻揚。</strong>KOSPI 若從 -8% 開始收斂，是亞洲止血的領先訊號，台股才較安全。</li>
+      <li><span class="n">A</span><strong>台積電撐不撐 2,600。</strong>ADR 換算約 2,613.5；守得住 = 權值穩，破了且擴大 = 還在探底。</li>
+      <li><span class="n">B</span><strong>跳空殺一段後是否「帶量止穩」。</strong>學韓股的節奏——有量的紅K止跌才是訊號，無量下殺別接。</li>
+      <li><span class="n">C</span><strong>韓股回彈能否延續。</strong>KOSPI 從 -8.8% 彈到 -5.4%，若續往 -3~4% 收斂，台股下午跟漲機率高；若又翻黑破前低，保守。</li>
     </ul>
-    <div class="note">💡 有融資／高槓桿部位的，<strong>先算維持率</strong>——今天是斷頭追繳保衛戰（外資台指空單近 7 萬口創紀錄、融資餘額 5,666 億歷史新高，去槓桿壓力大）。</div>
+    <div class="note">💡 有融資／高槓桿部位的，<strong>先算維持率</strong>——今天是斷頭追繳保衛戰（外資台指空單近 7 萬口創紀錄、融資餘額 5,666 億歷史新高）。</div>
   </div>
 </div>
 
 <footer>
-  <div>MAGI 智能分析 · 盤前快報 · 即時數據讀取時間 2026-06-08 約 08:20 台北時間。本報告為盤前準備，非投資建議。台股開盤後（約 9:05）將有確認版更新。</div>
-  <div class="src">即時數據來源：CNBC（日經 .N225）、Yahoo Finance（ES=F／NQ=F 美股期貨）、Investing.com（KOSPI 即時，含開高低區間）。背景：ETtoday／自由時報／經濟日報／中信投顧。</div>
+  <div>MAGI 智能分析 · 盤前快報 · 即時數據更新時間 2026-06-08 約 08:40 台北時間（首版 08:20）。本報告為盤前準備，非投資建議。台股開盤後（約 9:05）將有確認版更新。</div>
+  <div class="src">即時數據來源：Naver 金融（KOSPI 即時，含熔斷恢復值）、CNBC（日經 .N225）、Yahoo Finance（ES=F／NQ=F 美股期貨）、Investing.com。背景：ETtoday／自由時報／經濟日報／中信投顧。</div>
 </footer>
 
 </body>
