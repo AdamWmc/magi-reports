@@ -12595,6 +12595,28 @@
     {
       "code": "6515",
       "name": "穎崴",
+      "date": "2026-06-08",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體測試/探針卡",
+      "quote": "6515 我猜是在說evelyn想出報告",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "外資(Evelyn)可能出報告"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-08T14:10:00"
+    },
+    {
+      "code": "6515",
+      "name": "穎崴",
       "code_source": "explicit",
       "speaker": "郁翔",
       "host": "樂林",
@@ -16664,6 +16686,31 @@
     }
   ],
   "2327": [
+    {
+      "code": "2327",
+      "name": "國巨",
+      "date": "2026-06-08",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "JPM被動元件專家",
+      "host": null,
+      "sector": "被動元件/MLCC",
+      "quote": "JPM被動元件專家 2026.6.8：高容漲200%、低容不漲；國巨加值盤有些交期到2027；普通物料執行配額制度（要100可能只給20）；加值盤是正常代理商價格一倍；國巨5/27明確表示後面BB長期執行1.3，客人長期有30%缺口拿不到",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "高容MLCC供應吃緊漲幅200%",
+        "BB值長期1.3，30%訂單缺口",
+        "加值盤策略，變相漲價",
+        "配額制度執行"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-08T14:10:00"
+    },
     {
       "code": "2327",
       "name": "國巨",
@@ -23774,6 +23821,30 @@
     {
       "code": "4542",
       "name": "科嶠",
+      "date": "2026-06-08",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體材料/FOUP",
+      "quote": "4542 台積的foup過了",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "通過台積電FOUP認證"
+      ],
+      "customers": [
+        "2330"
+      ],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-08T14:10:00"
+    },
+    {
+      "code": "4542",
+      "name": "科嶠",
       "date": "2026-05-05",
       "source_type": "meeting",
       "source_page": "20260505_樂林",
@@ -29593,6 +29664,28 @@
     }
   ],
   "8069": [
+    {
+      "code": "8069",
+      "name": "元太",
+      "date": "2026-06-08",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "電子紙",
+      "quote": "8069 Q2財報應該很好",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "Q2財報預期亮眼"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-08T14:10:00"
+    },
     {
       "code": "8069",
       "name": "元太",
