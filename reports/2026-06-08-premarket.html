@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAGI 盤前快報 · 2026-06-08 週一 08:20</title>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--warn:#f59e0b;--blue:#3b82f6;
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-badge{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.4px;text-transform:uppercase}
+.nav-date{font-size:11px;color:var(--muted)}
+.nav-back{font-size:12px;color:var(--muted);transition:color .15s}
+.nav-back:hover{color:var(--text)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 7px;cursor:pointer;font-size:13px;line-height:1;transition:border-color .15s}
+.theme-btn:hover{border-color:var(--accent2)}
+
+.hero-wrap{position:relative;overflow:hidden;padding:44px 40px 28px;background:var(--bg)}
+.hero-wrap::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:420px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:7px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.25);border-radius:100px;padding:6px 16px;font-size:11px;color:var(--blue);font-weight:700;margin-bottom:20px}
+.tag .live{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 7px var(--blue);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{font-size:clamp(26px,4.6vw,38px);font-weight:800;color:var(--bright);letter-spacing:-1px;line-height:1.18;margin-bottom:14px}
+.hero-sub{font-size:14px;color:var(--muted)}
+
+.verdict{margin:26px auto 0;max-width:880px;background:linear-gradient(135deg,var(--up-bg),transparent);border:1px solid var(--up-bd);border-left:4px solid var(--up);border-radius:14px;padding:22px 26px}
+.verdict .vl{font-size:11px;font-weight:700;color:var(--up);letter-spacing:.5px;margin-bottom:8px}
+.verdict p{font-size:16px;line-height:1.7;color:var(--text);font-weight:500}
+.verdict strong{color:var(--up);font-weight:800}
+.verdict .ok{color:var(--dn);font-weight:800}
+
+.section-wrap{max-width:880px;margin:0 auto;padding:36px 24px 0}
+.sec-label{font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-label::before{content:'';width:18px;height:2px;background:var(--accent2);border-radius:2px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px 24px}
+.card+.card{margin-top:16px}
+.card h3{font-size:16px;font-weight:800;color:var(--bright);margin-bottom:12px}
+.card p{color:var(--text2);margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+.card strong{color:var(--text);font-weight:700}
+.hl-up{color:var(--up);font-weight:700}
+.hl-dn{color:var(--dn);font-weight:700}
+
+/* 即時數據卡 */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.q{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.q .qn{font-size:12px;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.q .qv{font-size:22px;font-weight:800;color:var(--bright);font-variant-numeric:tabular-nums;line-height:1}
+.q .qc{font-size:13px;font-weight:700;margin-top:5px}
+.q.dn{border-color:var(--up-bd);background:var(--up-bg)}
+.q.up{border-color:var(--dn-bd);background:var(--dn-bg)}
+.q.dn .qc{color:var(--up)}.q.up .qc{color:var(--dn)}
+.q .qt{font-size:10px;color:var(--dimmer);margin-top:6px}
+
+ul.clean{list-style:none;display:flex;flex-direction:column;gap:12px}
+ul.clean li{padding-left:30px;position:relative;color:var(--text2)}
+ul.clean li .n{position:absolute;left:0;top:0;width:21px;height:21px;border-radius:6px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+ul.clean li strong{color:var(--text)}
+
+.note{background:var(--bg3);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text2);margin-top:14px}
+.note strong{color:var(--text)}
+.warnbox{background:var(--up-bg);border:1px solid var(--up-bd);border-radius:12px;padding:16px 18px;margin-top:14px;font-size:13.5px;color:var(--text)}
+.warnbox strong{color:var(--up)}
+
+footer{max-width:880px;margin:40px auto 0;padding:24px;border-top:1px solid var(--border);color:var(--muted);font-size:12px;line-height:1.8}
+footer .src{margin-top:8px;word-break:break-word}
+@media(max-width:600px){nav{padding:12px 18px}.hero-wrap{padding:32px 18px 22px}.section-wrap{padding:28px 18px 0}.card{padding:18px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em>&nbsp;智能分析</a>
+  <div class="nav-right">
+    <span class="nav-badge">⏰ 盤前快報</span>
+    <span class="nav-date">2026-06-08 週一 08:20</span>
+    <button class="theme-btn" onclick="(function(){var d=document.documentElement,n=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',n);localStorage.setItem('magi-theme',n)})()">◐</button>
+    <a href="/" class="nav-back">← 首頁</a>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-inner">
+    <div class="tag"><span class="live"></span>即時數據 · 2026-06-08 08:20 台北時間製</div>
+    <div class="hero-title">盤前快報：日韓已開盤<br>台股 9:00 怎麼接？</div>
+    <div class="hero-sub">台指期 8:45 開、現貨 9:00 開。趁開盤前，用即時的日韓開盤＋美股期貨判斷台股方向。</div>
+  </div>
+</div>
+
+<div class="verdict">
+  <div class="vl">⚡ 盤前結論</div>
+  <p><strong>韓股是台股的鏡子，而它在示警：</strong>KOSPI 今天開盤只 -1.4%，<strong>盤中卻一路崩到 -8.37%</strong>——殺盤是在「開盤後」才來的。台股結構一樣（晶片權值重、週五沒跟到美股殺盤），所以 <strong>9:00 的跳空低點很可能不是當日最低</strong>，別假設開盤就是底、急著接刀。<br>但同時：<span class="ok">美股期貨翻紅（NQ +0.38%）、日經僅 -1.7%</span>，全球恐慌沒有再擴大，這是「一次性重定價」不是連環崩。<strong>策略：開盤不接刀，等台積電／大盤跳空後出現「帶量止穩紅K」或韓股先翻揚，再分批。</strong></p>
+</div>
+
+<div class="section-wrap">
+  <div class="sec-label">一、即時領先指標（08:20 台北時間）</div>
+  <div class="quotes">
+    <div class="q dn">
+      <div class="qn">🇰🇷 韓股 KOSPI</div>
+      <div class="qv">7,477</div>
+      <div class="qc">▼ -8.37%</div>
+      <div class="qt">開8,048→低7,442 · 盤中崩</div>
+    </div>
+    <div class="q dn">
+      <div class="qn">🇯🇵 日經 225</div>
+      <div class="qv">65,439</div>
+      <div class="qc">▼ -1.73%</div>
+      <div class="qt">9:03 JST 盤中</div>
+    </div>
+    <div class="q up">
+      <div class="qn">🇺🇸 那斯達克期 NQ</div>
+      <div class="qv">29,138</div>
+      <div class="qc">▲ +0.38%</div>
+      <div class="qt">週日夜美期 · 翻紅</div>
+    </div>
+    <div class="q up">
+      <div class="qn">🇺🇸 標普期 ES</div>
+      <div class="qv">7,405</div>
+      <div class="qc">▲ +0.06%</div>
+      <div class="qt">週日夜美期 · 持平</div>
+    </div>
+  </div>
+  <div class="note">📌 <strong>怎麼讀：</strong>美期（前瞻）小幅翻紅＝美股這邊週日夜沒有續殺、恐慌降溫。但<strong>韓股（同為晶片重市場、與台股最像）正在「補跌」週五美股的崩盤</strong>——這才是台股今天開盤的最佳對照。兩者方向相反，代表「台股會大幅跳空、但不至於失控連環崩」。</div>
+</div>
+
+<div class="section-wrap">
+  <div class="sec-label">二、最關鍵的一個觀察：韓股的「開盤後才殺」</div>
+  <div class="card">
+    <p>KOSPI 今天的走法值得台股投資人警惕：</p>
+    <ul class="clean">
+      <li><span class="n">1</span><strong>開盤 8,048</strong>，僅 -1.4%——看起來「還好」。</li>
+      <li><span class="n">2</span><strong>盤中一路下殺到 7,442</strong>（-8.8%），賣壓是在開盤之後才傾巢而出。</li>
+      <li><span class="n">3</span>現在 7,477，<span class="hl-up">-8.37%</span>。</li>
+    </ul>
+    <div class="warnbox">⚠️ <strong>對台股的提示：</strong>如果台股 9:00 也是「開盤跳空但沒殺到底」，<strong>千萬別把開盤價當成最低點搶進</strong>——韓股示範了賣壓會在開盤後持續釋放（停損、融資追繳、程式單）。真正可以動手的訊號，是看到<strong>下殺後的「帶量止穩」</strong>，不是開盤那一根。</div>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="sec-label">三、背景（昨夜既定事實）</div>
+  <div class="card">
+    <p><strong>台指期夜盤</strong>已先崩 <span class="hl-up">-3,006 點 / -6.65%</span>（史上最大），一度跌停 -4,522、尾盤拉回近 2 千點收 42,220。</p>
+    <p><strong>台積電 ADR</strong> 週五 <span class="hl-up">-6.69%</span> 收 $415.17（換算台股約 2,613.5 元）；費半 -10.26%、輝達 -6.2%、美光 -13%。</p>
+    <p><strong>催化劑</strong>：5 月非農 17.2 萬翻倍 → 升息預期暴衝（10Y 殖利率 4.54%）＋ AI/晶片殺估值。法人定調為「漲多回檔、非基本面轉空」。</p>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="sec-label">四、9:00 開盤後盯這 3 件事</div>
+  <div class="card">
+    <ul class="clean">
+      <li><span class="n">A</span><strong>台積電撐不撐 2,600。</strong>ADR 換算約 2,613.5；守得住 = 權值穩，破了且擴大 = 跟韓股一樣往下探。</li>
+      <li><span class="n">B</span><strong>跳空後 15–30 分鐘是否「帶量止穩」。</strong>有量的紅K止跌才是訊號，無量下殺別接。</li>
+      <li><span class="n">C</span><strong>韓股有沒有先翻揚。</strong>KOSPI 若從 -8% 開始收斂，是亞洲止血的領先訊號，台股才較安全。</li>
+    </ul>
+    <div class="note">💡 有融資／高槓桿部位的，<strong>先算維持率</strong>——今天是斷頭追繳保衛戰（外資台指空單近 7 萬口創紀錄、融資餘額 5,666 億歷史新高，去槓桿壓力大）。</div>
+  </div>
+</div>
+
+<footer>
+  <div>MAGI 智能分析 · 盤前快報 · 即時數據讀取時間 2026-06-08 約 08:20 台北時間。本報告為盤前準備，非投資建議。台股開盤後（約 9:05）將有確認版更新。</div>
+  <div class="src">即時數據來源：CNBC（日經 .N225）、Yahoo Finance（ES=F／NQ=F 美股期貨）、Investing.com（KOSPI 即時，含開高低區間）。背景：ETtoday／自由時報／經濟日報／中信投顧。</div>
+</footer>
+
+</body>
+</html>
