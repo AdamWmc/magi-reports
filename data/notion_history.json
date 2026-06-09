@@ -1241,6 +1241,27 @@
     {
       "code": "2313",
       "name": "華通",
+      "speaker": "Eddie",
+      "quote": "5月營收67.6E，MOM+7%，符合預期，第二季目前給持平的看法，通用/LEO往上，消費性比較弱，看到28年EPS會有比較大的upside，到時候光通/LEO佔比接近60%",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "5月營收67.6E MOM+7%",
+        "LEO往上",
+        "到2028光通/LEO佔比60%"
+      ],
+      "date": "2026-06-08",
+      "source_type": "meeting",
+      "source_page": "20260608_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2313",
+      "name": "華通",
       "code_source": "name_exact",
       "speaker": "Eddie",
       "host": "樂林",
@@ -1903,6 +1924,26 @@
     }
   ],
   "3376": [
+    {
+      "code": "3376",
+      "name": "新日興",
+      "speaker": "阿奇",
+      "quote": "摺疊機構滿大機會他拿走，市佔滿大，有拿到space X地面收發站",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "摺疊機構市佔大",
+        "Space X地面收發站"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "3376",
       "name": "新日興",
@@ -3253,6 +3294,46 @@
     {
       "code": "2449",
       "name": "京元電子",
+      "speaker": "郁翔",
+      "quote": "5月沒有市場傳言的40E那麼高是因為Rubin改設計，Rubin他營收要比較有一定量能是大概8-9月那邊，4Q26開始NV Rubin之外還有TPU",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "Rubin 8-9月起量",
+        "4Q26 TPU加持"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2449",
+      "name": "京元電子",
+      "speaker": "翔哥",
+      "quote": "傳5M營收40E開出來37，因為rubin改設計，量起來時間點是8月多，4Q26還有TPU的東西",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "Rubin 8月起量",
+        "4Q26 TPU"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2449",
+      "name": "京元電子",
       "code_source": "explicit",
       "speaker": "郁翔",
       "host": "樂林",
@@ -3919,6 +4000,88 @@
     }
   ],
   "3037": [
+    {
+      "code": "3037",
+      "name": "欣興",
+      "speaker": "Eddie",
+      "quote": "5月營收140E，MOM+1%，符合預期，整體ABF供不應求，後來疊加CPU上修，漲價會延續到明年",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "5月營收140E",
+        "ABF供不應求",
+        "CPU上修",
+        "漲價延續明年"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "speaker": "Danny哥",
+      "quote": "生意非常好，載板、PCB幾乎全滿，之前跟NV做ultra正交背板，測試數據不太好，應該會往後delay",
+      "tp": null,
+      "sentiment": "neutral",
+      "holding": false,
+      "catalysts": [
+        "滿載",
+        "NV背板delay風險"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "speaker": "阿奇",
+      "quote": "提供intel EMIB這塊",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "intel EMIB供應商"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "speaker": "Eddie",
+      "quote": "整體ABF供不應求，後來疊加CPU上修，漲價會延續到明年",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "ABF供不應求",
+        "CPU上修",
+        "漲價延續明年"
+      ],
+      "date": "2026-06-08",
+      "source_type": "meeting",
+      "source_page": "20260608_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "3037",
       "name": "欣興",
@@ -4939,6 +5102,43 @@
     }
   ],
   "6274": [
+    {
+      "code": "6274",
+      "name": "台燿",
+      "speaker": "Jacky",
+      "quote": "台燿/聯電比較多；接下來看被動跟華邦電",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "6274",
+      "name": "台燿",
+      "speaker": "強尼哥",
+      "quote": "5月出貨數量少7%，ASP多12%，第三季價格還會上調，這兩天有加碼",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "ASP Q3繼續上調",
+        "出貨量少但ASP拉高"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "6274",
       "name": "台燿",
@@ -6584,6 +6784,27 @@
     {
       "code": "3017",
       "name": "奇鋐",
+      "speaker": "郁翔",
+      "quote": "5月符合預期，6月也會創高，也是因為GB補單跟TR開始出",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "GB補單",
+        "TR開始出貨",
+        "6月創高"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3017",
+      "name": "奇鋐",
       "code_source": "explicit",
       "speaker": "郁翔",
       "host": "樂林",
@@ -6601,6 +6822,27 @@
       "source_type": "meeting",
       "source_page": "20260604_樂林",
       "parsed_at": "2026-06-04T12:30:00"
+    },
+    {
+      "code": "3017",
+      "name": "奇鋐",
+      "code_source": "explicit",
+      "speaker": "郁翔",
+      "host": "樂林",
+      "sector": "散熱",
+      "quote": "Vera CPU rack族群，水冷模組受惠",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Vera CPU rack水冷受惠"
+      ],
+      "sentiment": "positive",
+      "holding": null,
+      "validated": true,
+      "date": "2026-06-02",
+      "source_type": "meeting",
+      "source_page": "20260602_樂林",
+      "parsed_at": "2026-06-02T12:00:00"
     },
     {
       "code": "3017",
@@ -6624,27 +6866,6 @@
       "source_type": "meeting",
       "source_page": "20260602_駿羽",
       "parsed_at": "2026-06-03T10:00:00"
-    },
-    {
-      "code": "3017",
-      "name": "奇鋐",
-      "code_source": "explicit",
-      "speaker": "郁翔",
-      "host": "樂林",
-      "sector": "散熱",
-      "quote": "Vera CPU rack族群，水冷模組受惠",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "Vera CPU rack水冷受惠"
-      ],
-      "sentiment": "positive",
-      "holding": null,
-      "validated": true,
-      "date": "2026-06-02",
-      "source_type": "meeting",
-      "source_page": "20260602_樂林",
-      "parsed_at": "2026-06-02T12:00:00"
     },
     {
       "code": "3017",
@@ -10015,6 +10236,27 @@
       "code": "2330",
       "name": "台積電",
       "code_source": "explicit",
+      "speaker": "龍哥",
+      "host": "樂林",
+      "sector": "半導體",
+      "quote": "大部分股票減碼轉去台積電，EVENT 6/4 股東會，走到 2600 PE 20X，大型股比較安全",
+      "tp": "2600",
+      "eps_est": null,
+      "catalysts": [
+        "6/4股東會信心喊話"
+      ],
+      "sentiment": "positive",
+      "holding": "buy",
+      "validated": true,
+      "date": "2026-06-02",
+      "source_type": "meeting",
+      "source_page": "20260602_樂林",
+      "parsed_at": "2026-06-02T12:00:00"
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "code_source": "explicit",
       "speaker": "侯哥",
       "host": "駿羽",
       "sector": "半導體",
@@ -10048,27 +10290,6 @@
       "source_type": "meeting",
       "source_page": "20260602_駿羽",
       "parsed_at": "2026-06-03T10:00:00"
-    },
-    {
-      "code": "2330",
-      "name": "台積電",
-      "code_source": "explicit",
-      "speaker": "龍哥",
-      "host": "樂林",
-      "sector": "半導體",
-      "quote": "大部分股票減碼轉去台積電，EVENT 6/4 股東會，走到 2600 PE 20X，大型股比較安全",
-      "tp": "2600",
-      "eps_est": null,
-      "catalysts": [
-        "6/4股東會信心喊話"
-      ],
-      "sentiment": "positive",
-      "holding": "buy",
-      "validated": true,
-      "date": "2026-06-02",
-      "source_type": "meeting",
-      "source_page": "20260602_樂林",
-      "parsed_at": "2026-06-02T12:00:00"
     },
     {
       "code": "2330",
@@ -10619,6 +10840,46 @@
     }
   ],
   "6147": [
+    {
+      "code": "6147",
+      "name": "頎邦",
+      "speaker": "龍",
+      "quote": "大long fund第一天買頎邦",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "大long fund進場"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "6147",
+      "name": "頎邦",
+      "speaker": "龍哥",
+      "quote": "金凸塊有2-3家新客戶來找，新客戶有semtech，營收季季成長，明年給14-15塊，長線看500，下個月做CB",
+      "tp": 500,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "新客戶 semtech",
+        "明年 EPS 14-15",
+        "CB 下個月"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "6147",
       "name": "頎邦",
@@ -13497,6 +13758,47 @@
     {
       "code": "2454",
       "name": "聯發科",
+      "speaker": "Arthur哥",
+      "quote": "對客戶漲手機、TV IC，會掉share但不在乎，只在乎毛利率，有要跟space x、XAI談，從ASIC做到L10，長線vision",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "手機/TV IC漲價",
+        "space X/XAI 合作談判",
+        "L10 ASIC"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "speaker": "Danny哥",
+      "quote": "很意外手機晶片要漲價，下半年補庫存+漲價效應應該不錯",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "手機晶片漲價",
+        "下半年補庫存"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
       "code_source": "alias",
       "speaker": "Edwin",
       "host": "駿羽",
@@ -15056,6 +15358,25 @@
     {
       "code": "2344",
       "name": "華邦電",
+      "speaker": "Jacky",
+      "quote": "接下來看被動跟華邦電",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "觀察中"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
       "date": "2026-06-05",
       "source_type": "meeting",
       "source_page": "20260605 樂林",
@@ -15118,6 +15439,28 @@
       "code": "2344",
       "name": "華邦電",
       "code_source": "explicit",
+      "speaker": "郁翔",
+      "host": "樂林",
+      "sector": "記憶體",
+      "quote": "26年估26元、27年估40元",
+      "tp": null,
+      "eps_est": {
+        "2026": "26",
+        "2027": "40"
+      },
+      "catalysts": [],
+      "sentiment": "positive",
+      "holding": null,
+      "validated": true,
+      "date": "2026-06-02",
+      "source_type": "meeting",
+      "source_page": "20260602_樂林",
+      "parsed_at": "2026-06-02T12:00:00"
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "code_source": "explicit",
       "speaker": "翔哥",
       "host": "駿羽",
       "sector": "記憶體",
@@ -15139,28 +15482,6 @@
       "source_type": "meeting",
       "source_page": "20260602_駿羽",
       "parsed_at": "2026-06-03T10:00:00"
-    },
-    {
-      "code": "2344",
-      "name": "華邦電",
-      "code_source": "explicit",
-      "speaker": "郁翔",
-      "host": "樂林",
-      "sector": "記憶體",
-      "quote": "26年估26元、27年估40元",
-      "tp": null,
-      "eps_est": {
-        "2026": "26",
-        "2027": "40"
-      },
-      "catalysts": [],
-      "sentiment": "positive",
-      "holding": null,
-      "validated": true,
-      "date": "2026-06-02",
-      "source_type": "meeting",
-      "source_page": "20260602_樂林",
-      "parsed_at": "2026-06-02T12:00:00"
     },
     {
       "code": "2344",
@@ -15704,6 +16025,27 @@
     }
   ],
   "3443": [
+    {
+      "code": "3443",
+      "name": "創意",
+      "speaker": "峰哥",
+      "quote": "現在手上有兩家、5個CPO案子，每個案子2000萬美金開發費，總共1E，入帳時間是明年，7M26才tape out",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "5個CPO案子",
+        "1億開發費明年入帳",
+        "7M26 tape out"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "3443",
       "name": "創意",
@@ -16911,6 +17253,25 @@
       "name": "國巨",
       "date": "2026-06-05",
       "source_type": "meeting",
+      "source_page": "20260605 樂林",
+      "speaker": "小魚",
+      "host": "樂林",
+      "sector": "被動元件",
+      "quote": "小魚: 目前持股含國巨",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "sentiment": "bullish",
+      "holding": true,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-05T12:00:00"
+    },
+    {
+      "code": "2327",
+      "name": "國巨",
+      "date": "2026-06-05",
+      "source_type": "meeting",
       "source_page": "20260605 駿羽",
       "speaker": "Ted",
       "host": "駿羽",
@@ -16925,25 +17286,6 @@
       "sentiment": "neutral",
       "holding": null,
       "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-06-05T12:00:00"
-    },
-    {
-      "code": "2327",
-      "name": "國巨",
-      "date": "2026-06-05",
-      "source_type": "meeting",
-      "source_page": "20260605 樂林",
-      "speaker": "小魚",
-      "host": "樂林",
-      "sector": "被動元件",
-      "quote": "小魚: 目前持股含國巨",
-      "tp": null,
-      "eps_est": {},
-      "catalysts": [],
-      "sentiment": "bullish",
-      "holding": true,
-      "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-06-05T12:00:00"
     },
@@ -16988,6 +17330,27 @@
     {
       "code": "2327",
       "name": "國巨*",
+      "code_source": "explicit",
+      "speaker": "雅婷姐",
+      "host": "樂林",
+      "sector": "被動元件",
+      "quote": "報告多，MURATA 6/1 漲價 20%，松下等也會漲價",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MURATA漲價20%"
+      ],
+      "sentiment": "positive",
+      "holding": null,
+      "validated": true,
+      "date": "2026-06-02",
+      "source_type": "meeting",
+      "source_page": "20260602_樂林",
+      "parsed_at": "2026-06-02T12:00:00"
+    },
+    {
+      "code": "2327",
+      "name": "國巨*",
       "code_source": "alias",
       "speaker": "Vic哥",
       "host": "駿羽",
@@ -17027,27 +17390,6 @@
       "source_type": "meeting",
       "source_page": "20260602_駿羽",
       "parsed_at": "2026-06-03T10:00:00"
-    },
-    {
-      "code": "2327",
-      "name": "國巨*",
-      "code_source": "explicit",
-      "speaker": "雅婷姐",
-      "host": "樂林",
-      "sector": "被動元件",
-      "quote": "報告多，MURATA 6/1 漲價 20%，松下等也會漲價",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "MURATA漲價20%"
-      ],
-      "sentiment": "positive",
-      "holding": null,
-      "validated": true,
-      "date": "2026-06-02",
-      "source_type": "meeting",
-      "source_page": "20260602_樂林",
-      "parsed_at": "2026-06-02T12:00:00"
     },
     {
       "code": "2327",
@@ -18122,6 +18464,66 @@
     {
       "code": "2303",
       "name": "聯電",
+      "speaker": "龍",
+      "quote": "大long fund第一天買頎邦；持股集中聯電",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "大long fund進場頎邦"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "speaker": "龍哥",
+      "quote": "ETF賣到禮拜四，明年毛利率40%，EPS 10塊有機會，全世界最便宜晶圓代工廠，後年hyperlight也很大，看200",
+      "tp": 200,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "明年毛利率40%",
+        "EPS 10塊",
+        "hyperlight 後年貢獻"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "speaker": "阿奇",
+      "quote": "季季漲價5-10%，28年HBF sandisk、鎧俠要去投他，量體滿大，這三年趨勢滿明顯",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "季季漲價5-10%",
+        "2028 HBF sandisk鎧俠投片"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
       "date": "2026-06-09",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -18185,6 +18587,29 @@
       "name": "聯電",
       "date": "2026-06-05",
       "source_type": "meeting",
+      "source_page": "20260605 樂林",
+      "speaker": "龍哥/郁翔/上翔/JAKO/Jacky",
+      "host": "樂林",
+      "sector": "晶圓代工",
+      "quote": "龍哥: 繼續看聯電，今天 Citi 有一場；郁翔: 昨天賣奇鋐加碼聯電；上翔: 今天盤中聯電殺特別大會再加碼；JAKO: 以台積電、聯電為主；Jacky: 聯電繼續加",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "Citi法說會",
+        "ETF調整尾聲",
+        "盤中回測加碼機會"
+      ],
+      "sentiment": "bullish",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-05T12:00:00"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "date": "2026-06-05",
+      "source_type": "meeting",
       "source_page": "20260605 駿羽",
       "speaker": "峰哥",
       "host": "駿羽",
@@ -18200,29 +18625,6 @@
       ],
       "sentiment": "bullish",
       "holding": null,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-06-05T12:00:00"
-    },
-    {
-      "code": "2303",
-      "name": "聯電",
-      "date": "2026-06-05",
-      "source_type": "meeting",
-      "source_page": "20260605 樂林",
-      "speaker": "龍哥/郁翔/上翔/JAKO/Jacky",
-      "host": "樂林",
-      "sector": "晶圓代工",
-      "quote": "龍哥: 繼續看聯電，今天 Citi 有一場；郁翔: 昨天賣奇鋐加碼聯電；上翔: 今天盤中聯電殺特別大會再加碼；JAKO: 以台積電、聯電為主；Jacky: 聯電繼續加",
-      "tp": null,
-      "eps_est": {},
-      "catalysts": [
-        "Citi法說會",
-        "ETF調整尾聲",
-        "盤中回測加碼機會"
-      ],
-      "sentiment": "bullish",
-      "holding": true,
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-06-05T12:00:00"
@@ -19539,6 +19941,108 @@
     {
       "code": "3189",
       "name": "景碩",
+      "speaker": "雅婷",
+      "quote": "景碩在整個5月漲價幅度最大，後續給GM展望有上修空間，會拉高比較多景碩",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "5月漲價幅度最大",
+        "GM展望上修"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "speaker": "Danny哥",
+      "quote": "ABF長期比較有爆發力，NV ARM CPU也很好；台積電要做案子會優先找3189",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "NV ARM CPU",
+        "台積電優先指定"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "speaker": "阿奇",
+      "quote": "明年TPU投片EMIB，9倍reticle size，最受惠是3189，關鍵技術在載板+陶瓷",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "TPU EMIB最受惠",
+        "載板+陶瓷技術壁壘"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "speaker": "奕澄",
+      "quote": "台積電k6廠預算有接近翻倍；grace CPU從1Q26出到現在單價多3倍，5月出貨量比預期多，單月EPS跟4月比多25-30%，2Q26 EPS超過4Q25，ABF最缺T布",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "k6廠預算翻倍",
+        "grace CPU ASP+3x",
+        "2Q26 EPS超4Q25",
+        "T布驗證中"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "speaker": "Eddie",
+      "quote": "景碩則是受惠NV CPU出貨量提升跟份額增加的動能",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "NV CPU出貨量提升",
+        "份額增加"
+      ],
+      "date": "2026-06-08",
+      "source_type": "meeting",
+      "source_page": "20260608_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
       "code_source": "name_exact",
       "speaker": "澄",
       "host": "駿羽",
@@ -20263,6 +20767,26 @@
     }
   ],
   "6278": [
+    {
+      "code": "6278",
+      "name": "台表科",
+      "speaker": "Surf哥",
+      "quote": "台表有充分感受到CCL玻纖在缺的狀況，南亞自己的CCL還是缺玻布，台表平均想要漲價30%",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "CCL玻纖缺貨",
+        "計畫漲價30%"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "6278",
       "name": "台表科",
@@ -23168,29 +23692,6 @@
       "code": "2455",
       "name": "全新",
       "code_source": "explicit",
-      "speaker": "Amy",
-      "host": "駿羽",
-      "sector": "半導體",
-      "quote": "補充上週五2455、4991有拿到基板，6月會到貨，今年雷射一路有看到漲價，基板來的話2455 6月營收會創高",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "基板到貨",
-        "6月營收創高",
-        "漲價趨勢"
-      ],
-      "sentiment": "積極看多",
-      "holding": null,
-      "validated": true,
-      "date": "2026-06-02",
-      "source_type": "meeting",
-      "source_page": "20260602_駿羽",
-      "parsed_at": "2026-06-03T10:00:00"
-    },
-    {
-      "code": "2455",
-      "name": "全新",
-      "code_source": "explicit",
       "speaker": "小魚",
       "host": "樂林",
       "sector": "半導體",
@@ -23211,6 +23712,29 @@
       "source_type": "meeting",
       "source_page": "20260602_樂林",
       "parsed_at": "2026-06-02T12:00:00"
+    },
+    {
+      "code": "2455",
+      "name": "全新",
+      "code_source": "explicit",
+      "speaker": "Amy",
+      "host": "駿羽",
+      "sector": "半導體",
+      "quote": "補充上週五2455、4991有拿到基板，6月會到貨，今年雷射一路有看到漲價，基板來的話2455 6月營收會創高",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "基板到貨",
+        "6月營收創高",
+        "漲價趨勢"
+      ],
+      "sentiment": "積極看多",
+      "holding": null,
+      "validated": true,
+      "date": "2026-06-02",
+      "source_type": "meeting",
+      "source_page": "20260602_駿羽",
+      "parsed_at": "2026-06-03T10:00:00"
     },
     {
       "code": "2455",
@@ -24158,6 +24682,25 @@
     {
       "code": "4542",
       "name": "科嶠",
+      "speaker": "Sunny",
+      "quote": "傳過台積foup驗證，不過找人問是說出copos設備",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "台積電foup驗證"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "4542",
+      "name": "科嶠",
       "date": "2026-06-09",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -24228,6 +24771,26 @@
     }
   ],
   "5464": [
+    {
+      "code": "5464",
+      "name": "霖宏",
+      "speaker": "龍哥",
+      "quote": "霖宏現在也在裝機，長線3位數",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "裝機中",
+        "長線3位數"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "5464",
       "name": "霖宏",
@@ -24361,6 +24924,26 @@
     }
   ],
   "6727": [
+    {
+      "code": "6727",
+      "name": "亞泰金屬",
+      "speaker": "強尼哥",
+      "quote": "第二季合約負債增加台光40E，台燿30E，明年增加到6台/月",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "合約負債增加",
+        "明年6台/月"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "6727",
       "name": "亞泰金屬",
@@ -25011,6 +25594,26 @@
     {
       "code": "8210",
       "name": "勤誠",
+      "speaker": "郁翔",
+      "quote": "5月營收起來是因為TR開始出，6月目前看營收持續創高",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "TR開始出貨",
+        "6月營收持續創高"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "8210",
+      "name": "勤誠",
       "code_source": "explicit",
       "speaker": "郁翔",
       "host": "樂林",
@@ -25444,6 +26047,29 @@
     }
   ],
   "2059": [
+    {
+      "code": "2059",
+      "name": "川湖",
+      "speaker": "郁翔",
+      "quote": "5月營收起來有幾個主要原因，第一個是5月GB補單，因為VR delay，有的客戶不想等；一部分是很多小ASIC專案都起來；公司6M26仍舊月增，2Q26 GM也季增，全年就是210-220元、明年拚300元",
+      "tp": 300,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "5月GB補單",
+        "VR delay補單效應",
+        "小ASIC專案起來",
+        "全年EPS 210-220",
+        "明年拚300"
+      ],
+      "date": "2026-06-08",
+      "source_type": "meeting",
+      "source_page": "20260608_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "2059",
       "name": "川湖",
@@ -27474,6 +28100,23 @@
     {
       "code": "8358",
       "name": "金居",
+      "speaker": "Danny哥",
+      "quote": "8358 也很好",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "8358",
+      "name": "金居",
       "code_source": "name_exact",
       "speaker": "修齊",
       "host": "樂林",
@@ -28640,6 +29283,27 @@
     }
   ],
   "2486": [
+    {
+      "code": "2486",
+      "name": "一詮",
+      "speaker": "豪哥",
+      "quote": "今天跟台積電工廠RD談，目前想要讓一詮趕快上線，ultra lid比較偏好removable lid，ASP200美金",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "台積電 RD洽談",
+        "ultra lid removable",
+        "ASP 200美金"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "2486",
       "name": "一詮",
@@ -30445,6 +31109,45 @@
     {
       "code": "3450",
       "name": "聯鈞",
+      "speaker": "小魚",
+      "quote": "5M26 營收創高，6M26 還會創高有機會做到 10E",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "5月營收創高",
+        "6月有機會10E"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3450",
+      "name": "聯鈞",
+      "speaker": "Arthur哥",
+      "quote": "3450、3595 6月營收會創高",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "6月營收創高"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3450",
+      "name": "聯鈞",
       "code_source": "name_exact",
       "speaker": "長恩",
       "host": "駿羽",
@@ -31058,6 +31761,49 @@
     }
   ],
   "2368": [
+    {
+      "code": "2368",
+      "name": "金像電",
+      "speaker": "郁翔",
+      "quote": "5月起來兩個原因，一個是網通switch那邊需求好，一個是因為TR開始出貨，後續6月持續月增，3Q26會繼續季增，4Q26楊梅新產線就會出來繼續銜接",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "網通switch需求好",
+        "TR出貨",
+        "4Q26楊梅新產線"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2368",
+      "name": "金像電",
+      "speaker": "Eddie",
+      "quote": "5月營收87.7E，月增20%，800G交換器持續成長，GM/營收逐季成長，明年增加TPU訂單，以明年65*25X看1600",
+      "tp": 1600,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "5月營收87.7E月增20%",
+        "800G交換器成長",
+        "明年TPU訂單",
+        "TP 1600"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "2368",
       "name": "金像電",
@@ -32187,6 +32933,26 @@
     {
       "code": "4925",
       "name": "智微",
+      "speaker": "龍哥",
+      "quote": "最近壓股價，因為員工認股70塊，全力攻BMC，3Q26會出來，發哥牽線中國客戶",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "3Q26 BMC 出貨",
+        "發哥牽線中國客戶"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "4925",
+      "name": "智微",
       "code_source": "name_exact",
       "speaker": "龍",
       "host": "樂林",
@@ -32545,6 +33311,87 @@
     }
   ],
   "8021": [
+    {
+      "code": "8021",
+      "name": "尖點",
+      "speaker": "Sunny",
+      "quote": "出關，會想再加一點；昨天2059/4931/8021都還是很強",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "出關",
+        "再加碼"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "8021",
+      "name": "尖點",
+      "speaker": "強尼哥",
+      "quote": "下半年擴廠數字會成長，有跌可注意",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "下半年擴廠",
+        "數字成長"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "8021",
+      "name": "尖點",
+      "speaker": "Danny哥",
+      "quote": "營收開很好，今天創新高，做動能的話這邊才剛要起漲，業績到明年一直都很好",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "營收創新高",
+        "動能剛起漲",
+        "業績到明年"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "8021",
+      "name": "尖點",
+      "speaker": "風哥",
+      "quote": "7月全產品會漲50%，7-8月營收會跳比較大",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "7月全產品漲50%",
+        "7-8月營收大跳"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "8021",
       "name": "尖點",
@@ -33730,6 +34577,25 @@
     {
       "code": "3595",
       "name": "山太士",
+      "speaker": "Arthur哥",
+      "quote": "3595 6月營收會創高",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "6月營收創高"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3595",
+      "name": "山太士",
       "code_source": "explicit",
       "speaker": "Surf哥",
       "host": "駿羽",
@@ -34606,6 +35472,27 @@
     }
   ],
   "6472": [
+    {
+      "code": "6472",
+      "name": "保瑞",
+      "speaker": "小魚",
+      "quote": "剛剛開五月營收 21億，比之前發言人說的 18億高。併購的威德大概 2 億多，因為美國零售大促銷比 IR 預期好。USL 比之前多了 1E 主要是 DLS 回穩",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": true,
+      "catalysts": [
+        "5月營收21億 beat 18億指引",
+        "美國零售大促超預期",
+        "DLS回穩"
+      ],
+      "date": "2026-06-08",
+      "source_type": "meeting",
+      "source_page": "20260608_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
     {
       "code": "6472",
       "name": "保瑞",
@@ -35998,6 +36885,27 @@
     {
       "code": "3034",
       "name": "聯詠",
+      "speaker": "峰哥",
+      "quote": "採購說2303已經來談明年漲價20%，22、28奈米明年跟漲；7-8月營收往下，9-10月apple營收進來，第三季跟第四季持平，相比第二季掉5%",
+      "tp": null,
+      "sentiment": "neutral",
+      "holding": false,
+      "catalysts": [
+        "晶圓代工漲價",
+        "apple 9-10月進來",
+        "Q3 vs Q2 -5%"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "3034",
+      "name": "聯詠",
       "code_source": "explicit",
       "speaker": "鋒哥",
       "host": "駿羽",
@@ -36482,6 +37390,27 @@
       "code": "6805",
       "name": "富世達",
       "code_source": "explicit",
+      "speaker": "郁翔",
+      "host": "樂林",
+      "sector": "散熱/連接",
+      "quote": "持續看好穎崴、奇鋐、富世達 in Vera CPU rack族群",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Vera CPU rack受惠族群"
+      ],
+      "sentiment": "positive",
+      "holding": null,
+      "validated": true,
+      "date": "2026-06-02",
+      "source_type": "meeting",
+      "source_page": "20260602_樂林",
+      "parsed_at": "2026-06-02T12:00:00"
+    },
+    {
+      "code": "6805",
+      "name": "富世達",
+      "code_source": "explicit",
       "speaker": "翔哥",
       "host": "駿羽",
       "sector": "散熱/連接",
@@ -36501,27 +37430,6 @@
       "source_type": "meeting",
       "source_page": "20260602_駿羽",
       "parsed_at": "2026-06-03T10:00:00"
-    },
-    {
-      "code": "6805",
-      "name": "富世達",
-      "code_source": "explicit",
-      "speaker": "郁翔",
-      "host": "樂林",
-      "sector": "散熱/連接",
-      "quote": "持續看好穎崴、奇鋐、富世達 in Vera CPU rack族群",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "Vera CPU rack受惠族群"
-      ],
-      "sentiment": "positive",
-      "holding": null,
-      "validated": true,
-      "date": "2026-06-02",
-      "source_type": "meeting",
-      "source_page": "20260602_樂林",
-      "parsed_at": "2026-06-02T12:00:00"
     },
     {
       "code": "6805",
@@ -38498,6 +39406,68 @@
       "parsed_at": "2026-05-14T13:15:00"
     }
   ],
+  "2451": [
+    {
+      "code": "2451",
+      "name": "創見",
+      "speaker": "小魚",
+      "quote": "國巨 Citi TP 1500 出關；關注出關個股",
+      "tp": null,
+      "sentiment": "neutral",
+      "holding": false,
+      "catalysts": [],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_樂林",
+      "host": "樂林",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    },
+    {
+      "code": "2451",
+      "name": "創見",
+      "date": "2026-05-26",
+      "source_type": "daily",
+      "source_page": "2026-05_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-05-26T12:00:00"
+    }
+  ],
+  "3374": [
+    {
+      "code": "3374",
+      "name": "精材",
+      "speaker": "阿奇",
+      "quote": "以前做台積電CIS封裝，這兩個月台機電測試機台會進去，OS產能pass給他，有機會質變",
+      "tp": null,
+      "sentiment": "bullish",
+      "holding": false,
+      "catalysts": [
+        "台積電測試機台進場",
+        "OS產能移轉",
+        "可能質變"
+      ],
+      "date": "2026-06-09",
+      "source_type": "meeting",
+      "source_page": "20260609_駿羽",
+      "host": "駿羽",
+      "parsed_at": "2026-06-09T22:42:46",
+      "validated": true,
+      "code_source": "explicit"
+    }
+  ],
   "8016": [
     {
       "code": "8016",
@@ -39106,28 +40076,6 @@
       "host": null,
       "sector": null,
       "quote": "0056一定會被踢的有1319 1477 2006 6176",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "中性",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-05-26T12:00:00"
-    }
-  ],
-  "2451": [
-    {
-      "code": "2451",
-      "name": "創見",
-      "date": "2026-05-26",
-      "source_type": "daily",
-      "source_page": "2026-05_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": null,
-      "quote": "0056可能納入2542 2451 2344 1303 8464 2408，一定會被踢的有1319 1477 2006 6176",
       "tp": null,
       "eps_est": null,
       "catalysts": [],
