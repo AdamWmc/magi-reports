@@ -25271,6 +25271,29 @@
     {
       "code": "8150",
       "name": "南茂",
+      "date": "2026-06-10",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "封測",
+      "quote": "峰哥說南茂跟mrvl 談一個300億的訂單，也是gold bump，叫我算貢獻多少他下禮拜等盤好去推，他說董事長對股價也有想法",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "與 Marvell 談 300 億訂單（gold bump）",
+        "董事長對股價有想法"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-10T21:09:37"
+    },
+    {
+      "code": "8150",
+      "name": "南茂",
       "date": "2026-06-05",
       "source_type": "meeting",
       "source_page": "20260605 樂林",
@@ -31602,6 +31625,28 @@
     }
   ],
   "2351": [
+    {
+      "code": "2351",
+      "name": "順德",
+      "date": "2026-06-10",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "電子零組件",
+      "quote": "順德營收六月過12億",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "6月營收突破12億"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-10T21:09:37"
+    },
     {
       "code": "2351",
       "name": "順德",
@@ -40268,53 +40313,6 @@
       "parsed_at": "2026-05-29T16:00:00"
     }
   ],
-  "2458": [
-    {
-      "code": "2458",
-      "name": "義隆",
-      "date": "2026-06-09",
-      "source_type": "daily",
-      "source_page": "2026-06_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "IC設計/矽光子",
-      "quote": "義隆電說跟PETA合作做矽光子，義隆電做eic，入股peta 16%股權",
-      "tp": null,
-      "eps_est": {},
-      "catalysts": [
-        "與PETA合作矽光子(EIC)",
-        "入股PETA 16%股權"
-      ],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-06-09T10:47:00"
-    }
-  ],
-  "3234": [
-    {
-      "code": "3234",
-      "name": "光環",
-      "date": "2026-06-03",
-      "source_type": "daily",
-      "source_page": "2026-06_廢想法_monthly",
-      "speaker": "Rex",
-      "host": null,
-      "sector": null,
-      "quote": "08:57 Rex 3234好像要追一點",
-      "tp": null,
-      "eps_est": {},
-      "catalysts": [],
-      "customers": [],
-      "sentiment": "偏多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-06-03T14:30:00"
-    }
-  ],
   "1605": [
     {
       "code": "1605",
@@ -40357,6 +40355,53 @@
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-06-03T12:00:00"
+    }
+  ],
+  "3234": [
+    {
+      "code": "3234",
+      "name": "光環",
+      "date": "2026-06-03",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "Rex",
+      "host": null,
+      "sector": null,
+      "quote": "08:57 Rex 3234好像要追一點",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-03T14:30:00"
+    }
+  ],
+  "2458": [
+    {
+      "code": "2458",
+      "name": "義隆",
+      "date": "2026-06-09",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "IC設計/矽光子",
+      "quote": "義隆電說跟PETA合作做矽光子，義隆電做eic，入股peta 16%股權",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "與PETA合作矽光子(EIC)",
+        "入股PETA 16%股權"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-09T10:47:00"
     }
   ],
   "6456": [
