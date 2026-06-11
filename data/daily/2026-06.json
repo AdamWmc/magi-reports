@@ -835,5 +835,220 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-06-10T21:09:37"
+  },
+  {
+    "code": "3624",
+    "name": "光頡",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "被動元件/電感",
+    "quote": "同事推3624光頡說上一波循環電容漲完換電阻最後電感，3624這個月開始出SpaceX 毛利70%，明年中性抓8塊，漲價會上修",
+    "tp": 8,
+    "eps_est": {
+      "FY2027_neutral": 8
+    },
+    "catalysts": [
+      "開始出貨SpaceX",
+      "漲價上修",
+      "電感為下一波被動元件受惠"
+    ],
+    "customers": [
+      "SpaceX"
+    ],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB/CCL",
+    "quote": "透過欣興已經找到兩家，台燿跟騰輝，來搭台虹的材料 (M10)",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "找台燿騰輝供應M10材料",
+      "PTFE供應鏈整合"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/PTFE材料",
+    "quote": "透過欣興已經找到兩家，台燿跟騰輝，來搭台虹的材料 (M10)",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "欣興M10供應鏈整合",
+      "PTFE材料受惠"
+    ],
+    "customers": [
+      "欣興"
+    ],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "6672",
+    "name": "騰輝電子-KY",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/PTFE材料",
+    "quote": "透過欣興已經找到兩家，台燿跟騰輝，來搭台虹的材料 (M10)",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "欣興M10供應鏈整合"
+    ],
+    "customers": [
+      "欣興"
+    ],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL材料",
+    "quote": "透過欣興已經找到兩家，台燿跟騰輝，來搭台虹的材料 (M10)；如果PTFE solution走起來確實可以幹掉台光",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "PTFE solution為M10材料",
+      "搭配欣興PCB供應鏈"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "6213",
+    "name": "聯茂",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/高速基板",
+    "quote": "透過金像電找聯茂，如果之後可以加速NV進程 貼牌也可以；聯茂做Casting比較有經驗，已經有跟台燿合做了 搭配Q",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "金像電引介NV進程",
+      "Casting有經驗與台燿合作",
+      "可加速切入AI PCB供應鏈"
+    ],
+    "customers": [
+      "NV",
+      "金像電"
+    ],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/高速材料",
+    "quote": "沒台光電，如果PTFE solution走起來確實可以幹掉台光",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "2327",
+    "name": "國巨",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "被動元件/MLCC",
+    "quote": "aletheia 周末出國巨報告",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "aletheia研究報告即將出"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
+  },
+  {
+    "code": "5347",
+    "name": "世界",
+    "date": "2026-06-11",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "世界先進因為聯電漲很多所以4Q會繼續漲，現在產能利用率90%明年會拉升到90%以上",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "聯電漲帶動4Q繼續漲",
+      "產能利用率90%明年>90%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-06-11T10:30:00"
   }
 ]
