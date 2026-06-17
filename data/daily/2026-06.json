@@ -1904,5 +1904,192 @@
     "host": null,
     "customers": [],
     "parsed_at": "2026-06-16T21:42:12"
+  },
+  {
+    "code": "2305",
+    "name": "全友",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光通訊測試設備",
+    "quote": "全友筆記：最大成長動能在轉投資上海嘉慧光電的多模光纖測試儀；光收發模組所有光器件都有切入；主要客戶新易盛(20%)、中際旭創(10%)；3月完成2000坪兩條產線擴充，四月營收明顯往上，未來還要再擴；財務預估今年EPS>1.5元，2026年EPS 12倍PE；光罩籌碼陸續出清中",
+    "tp": null,
+    "eps_est": {
+      "2026": 1.5
+    },
+    "catalysts": [
+      "光模塊測試設備需求大增",
+      "擴廠完成4月後營收跳增",
+      "新易盛/中際旭創客戶資本支出持續上升",
+      "國產替代+在地服務優勢"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "黃老師：蘋果計劃2028高端iPhone從2nm推進到1.4nm，搭A22 Pro芯片，主要供應商仍是TSMC，但蘋果也在考慮讓英特爾參與部分代工分散供應風險；台積電董事會下修員工分紅，因為2028先進製程market share可能掉。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "Apple 2028 A22 Pro 1.4nm",
+      "英特爾潛在分食風險導致市占疑慮"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/高速材料",
+    "quote": "M8台光還沒漲價要等他；m7台光會再漲；M10我明年會跟EMC一起送；台光電柏翰說營收會跳增20%（論壇講的）",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "M8/M7漲價預期",
+      "營收跳增20%",
+      "M10 EMC合作"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "2492",
+    "name": "華新科",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "被動元件",
+    "quote": "傳 華新科再度對通路商漲價 130個品相漲價20-30%不等",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "再度漲價，130個品相漲20-30%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "3081",
+    "name": "聯亞",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光通訊",
+    "quote": "3081 8月初要增資，在那之前會壓營收",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "8月初增資，壓制營收表現"
+    ],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "3624",
+    "name": "光頡",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "被動元件",
+    "quote": "Frank lin 傳 光頡BB1.8-2薄膜電阻 厚薄UtR全滿，交期16-20周",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "薄膜電阻全滿，交期16-20周，被動元件缺貨"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/高速材料",
+    "quote": "CCL台燿：擴產要兩年 上游擴的比我們快；AMD CLS都是新客人；Google不能說但一定要有multi source不會只有台光；五月量多於四月；Ccl六月漲一次七月還會漲下半年也還會漲；M10明年跟EMC一起送；800G/1.6T both use m8",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "AMD/Google新客戶",
+      "CCL持續漲價六七月下半年",
+      "M8/M10 800G/1.6T光模塊需求",
+      "光模塊訂單外溢"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "顯示器",
+    "quote": "8069這幾天要來出3042了",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "法人出清3042張觀察"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-17T14:30:00"
   }
 ]
