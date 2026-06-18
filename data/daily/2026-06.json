@@ -2091,5 +2091,119 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-06-18",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": "WL",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "WL說HyperLight跟Terahop單超多，所以洪董才這麼有信心，terahop是中繼續創孫公司也要做TFLN；另HSBC下周要出2303上修大報告，WL說他叫他寫的，應該還有兩家，下周某天。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "HSBC上修報告下周發布",
+      "HyperLight/Terahop矽光子訂單大"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-18T14:00:00"
+  },
+  {
+    "code": "3008",
+    "name": "大立光",
+    "date": "2026-06-18",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": "double",
+    "host": null,
+    "sector": "光學鏡頭",
+    "quote": "double在推3008（說林恩平沒上到車還會下來）",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "林恩平未上車，預期持續下單"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-18T14:00:00"
+  },
+  {
+    "code": "3131",
+    "name": "弘塑",
+    "date": "2026-06-18",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "我老闆說3131財務長離職了，公司想要把營收一次開出來，一波炒上去。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "財務長離職",
+      "傳公司有意炒作拉營收"
+    ],
+    "customers": [],
+    "sentiment": "投機",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-18T14:00:00"
+  },
+  {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-06-18",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB鑽針",
+    "quote": "From the NMR China PCB tour, 8021 is a buy (2027E EPS 25-30）因鑽針目前聽起來比其他材料如銅薄、玻纖布等更緊缺，下半年持續醞釀漲價（漲幅可達倍數；鼎泰的講法是漲價可達5-10x vs 8021小作文寫漲價幅度為60-150%）；明年供給缺口可達30%以上。",
+    "tp": null,
+    "eps_est": {
+      "2027E": 27.5
+    },
+    "catalysts": [
+      "鑽針最緊缺材料",
+      "下半年漲價5-10x",
+      "明年供給缺口30%+"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-18T14:00:00"
+  },
+  {
+    "code": "8438",
+    "name": "昶昕",
+    "date": "2026-06-18",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": "double",
+    "host": null,
+    "sector": null,
+    "quote": "double在推8438",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-06-18T14:00:00"
   }
 ]
