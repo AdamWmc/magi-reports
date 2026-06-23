@@ -199,6 +199,17 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 4
 .consensus-tbl th{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.3px;padding:5px 8px;text-align:left;border-bottom:1px solid var(--border)}
 .consensus-tbl td{padding:8px 8px;border-bottom:1px solid var(--border2);vertical-align:middle;font-size:12px}
 .consensus-tbl tr:last-child td{border-bottom:none}
+.ctab-bar{display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap}
+.ctab-btn{font-size:11px;padding:4px 12px;border-radius:100px;border:1px solid var(--border);background:var(--bg);color:var(--muted);cursor:pointer;font-weight:600;transition:all .12s}
+.ctab-btn:hover{color:var(--text);border-color:var(--accent2)}
+.ctab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ctab-date{font-size:10px;color:var(--dimmer);margin-bottom:6px}
+.ctab-delta{white-space:nowrap;font-size:11px;font-weight:700}
+.dl-up{color:var(--up)}.dl-dn{color:var(--dn)}.dl-eq{color:var(--dimmer)}.dl-new{color:var(--accent2)}
+.ctab-traj{font-size:10px;color:var(--muted);letter-spacing:.4px;white-space:nowrap}
+.ctab-tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle;white-space:nowrap}
+.tag-up{background:var(--up-bg);color:var(--up)}.tag-dn{background:var(--dn-bg);color:var(--dn)}.tag-new{background:rgba(124,58,237,.12);color:var(--accent2)}
+.ctab-hint{font-size:10px;color:var(--dimmer);margin-top:6px}
 .stk-name{font-weight:700;color:var(--text);display:block}
 .stk-code{font-size:10px;color:var(--muted)}
 .score-badge{font-size:12px;font-weight:800;color:var(--accent2)}
@@ -4830,111 +4841,589 @@ Winbond DDR4: 正在問
 
   <div>
     <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:10px">共識排行榜</div>
-    <table class="consensus-tbl">
-      <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
-      <tbody>
-        <tr>
-          <td style="color:var(--up);font-weight:700">1</td>
-          <td>
-            <span class="stk-name">聯電
-<span class="badge-limitup">漲停</span>            </span>
-            <span class="stk-code">2303</span>
-          </td>
-          <td><span class="score-badge">20.54</span></td>
-          <td class="pushers-cell">Eddie（樂林）、Arthur哥（駿羽）、阿奇（駿羽）⋯39人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">2</td>
-          <td>
-            <span class="stk-name">國巨*
-            </span>
-            <span class="stk-code">2327</span>
-          </td>
-          <td><span class="score-badge">11.14</span></td>
-          <td class="pushers-cell">謝董（駿羽）、龍（樂林）、Bobo（樂林）⋯24人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">3</td>
-          <td>
-            <span class="stk-name">台積電
-            </span>
-            <span class="stk-code">2330</span>
-          </td>
-          <td><span class="score-badge">9.47</span></td>
-          <td class="pushers-cell">永哥（駿羽）、龍哥（駿羽）、侯哥（駿羽）⋯22人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">4</td>
-          <td>
-            <span class="stk-name">台燿
-            </span>
-            <span class="stk-code">6274</span>
-          </td>
-          <td><span class="score-badge">9.43</span></td>
-          <td class="pushers-cell">Bobo（樂林）、Eddie（樂林）、上翔（樂林）⋯22人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">5</td>
-          <td>
-            <span class="stk-name">尖點
-<span class="badge-punish">⚠處置</span>            </span>
-            <span class="stk-code">8021</span>
-          </td>
-          <td><span class="score-badge">8.92</span></td>
-          <td class="pushers-cell">Bobo（樂林）、Eddie（樂林）、Amy（駿宇）⋯15人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">6</td>
-          <td>
-            <span class="stk-name">頎邦
-<span class="badge-limitup">漲停</span>            </span>
-            <span class="stk-code">6147</span>
-          </td>
-          <td><span class="score-badge">8.36</span></td>
-          <td class="pushers-cell">上翔（樂林）、修齊（樂林）、小魚（樂林）⋯20人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">7</td>
-          <td>
-            <span class="stk-name">華邦電
-            </span>
-            <span class="stk-code">2344</span>
-          </td>
-          <td><span class="score-badge">7.53</span></td>
-          <td class="pushers-cell">強尼哥（駿羽）、龍哥（駿羽）、Jako（樂林）⋯17人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">8</td>
-          <td>
-            <span class="stk-name">聯發科
-            </span>
-            <span class="stk-code">2454</span>
-          </td>
-          <td><span class="score-badge">7.42</span></td>
-          <td class="pushers-cell">麻神、小魚（樂林）、Eddie（樂林）⋯20人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">9</td>
-          <td>
-            <span class="stk-name">台光電
-<span class="badge-punish">⚠處置</span>            </span>
-            <span class="stk-code">2383</span>
-          </td>
-          <td><span class="score-badge">7.14</span></td>
-          <td class="pushers-cell">郁翔（樂林）、布哥（駿羽）、Eddie（樂林）⋯14人</td>
-        </tr>
-        <tr>
-          <td style="color:var(--up);font-weight:700">10</td>
-          <td>
-            <span class="stk-name">景碩
-<span class="badge-limitup">漲停</span>            </span>
-            <span class="stk-code">3189</span>
-          </td>
-          <td><span class="score-badge">6.13</span></td>
-          <td class="pushers-cell">小魚（樂林）、強尼（樂林）、永哥（駿羽）⋯17人</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="ctab-bar">
+      <button class="ctab-btn active" data-ctab="today" onclick="magiCtab('today')">今日</button>
+      <button class="ctab-btn" data-ctab="d1" onclick="magiCtab('d1')">前1日</button>
+      <button class="ctab-btn" data-ctab="d3" onclick="magiCtab('d3')">前3日</button>
+      <button class="ctab-btn" data-ctab="d5" onclick="magiCtab('d5')">前5日</button>
+      <button class="ctab-btn" data-ctab="d10" onclick="magiCtab('d10')">前10日</button>
+    </div>
+    <div class="ctab-panel" id="ctab-today">
+      <div class="ctab-date">2026-06-22 · ▲▼＝較前 1 交易日名次</div>
+      <table class="consensus-tbl">
+        <thead><tr><th>#</th><th>變化</th><th>股票</th><th>分數</th><th>名次軌跡</th><th>推薦人</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--up);font-weight:700">1</td>
+            <td class="ctab-delta">
+<span class="dl-eq">＝</span>            </td>
+            <td>
+              <span class="stk-name">聯電
+<span class="badge-limitup">漲停</span>              </span>
+              <span class="stk-code">2303</span>
+            </td>
+            <td><span class="score-badge">20.54</span></td>
+            <td class="ctab-traj">1·1·1·1·1</td>
+            <td class="pushers-cell">Eddie（樂林）、Arthur哥（駿羽）、阿奇（駿羽）⋯39人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">2</td>
+            <td class="ctab-delta">
+<span class="dl-eq">＝</span>            </td>
+            <td>
+              <span class="stk-name">國巨*
+              </span>
+              <span class="stk-code">2327</span>
+            </td>
+            <td><span class="score-badge">11.14</span></td>
+            <td class="ctab-traj">2·2·2·2·2</td>
+            <td class="pushers-cell">謝董（駿羽）、龍（樂林）、Bobo（樂林）⋯24人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">3</td>
+            <td class="ctab-delta">
+<span class="dl-up">▲1</span>
+            </td>
+            <td>
+              <span class="stk-name">台積電
+              </span>
+              <span class="stk-code">2330</span>
+            </td>
+            <td><span class="score-badge">9.47</span></td>
+            <td class="ctab-traj">5·4·4·4·3</td>
+            <td class="pushers-cell">永哥（駿羽）、龍哥（駿羽）、侯哥（駿羽）⋯22人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">4</td>
+            <td class="ctab-delta">
+<span class="dl-dn">▼1</span>
+            </td>
+            <td>
+              <span class="stk-name">台燿
+              </span>
+              <span class="stk-code">6274</span>
+            </td>
+            <td><span class="score-badge">9.43</span></td>
+            <td class="ctab-traj">3·3·3·3·4</td>
+            <td class="pushers-cell">Bobo（樂林）、Eddie（樂林）、上翔（樂林）⋯22人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">5</td>
+            <td class="ctab-delta">
+<span class="dl-eq">＝</span>            </td>
+            <td>
+              <span class="stk-name">尖點
+<span class="badge-punish">⚠處置</span>              </span>
+              <span class="stk-code">8021</span>
+            </td>
+            <td><span class="score-badge">8.92</span></td>
+            <td class="ctab-traj">8·5·5·5·5</td>
+            <td class="pushers-cell">Bobo（樂林）、Eddie（樂林）、Amy（駿宇）⋯15人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">6</td>
+            <td class="ctab-delta">
+<span class="dl-up">▲1</span>
+            </td>
+            <td>
+              <span class="stk-name">頎邦
+<span class="badge-limitup">漲停</span>              </span>
+              <span class="stk-code">6147</span>
+            </td>
+            <td><span class="score-badge">8.36</span></td>
+            <td class="ctab-traj">4·6·6·7·6</td>
+            <td class="pushers-cell">上翔（樂林）、修齊（樂林）、小魚（樂林）⋯20人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">7</td>
+            <td class="ctab-delta">
+<span class="dl-up">▲3</span>
+            </td>
+            <td>
+              <span class="stk-name">華邦電
+<span class="ctab-tag tag-up">🔥竄升</span>              </span>
+              <span class="stk-code">2344</span>
+            </td>
+            <td><span class="score-badge">7.53</span></td>
+            <td class="ctab-traj">6·10·10·10·7</td>
+            <td class="pushers-cell">強尼哥（駿羽）、龍哥（駿羽）、Jako（樂林）⋯17人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">8</td>
+            <td class="ctab-delta">
+<span class="dl-eq">＝</span>            </td>
+            <td>
+              <span class="stk-name">聯發科
+              </span>
+              <span class="stk-code">2454</span>
+            </td>
+            <td><span class="score-badge">7.42</span></td>
+            <td class="ctab-traj">10·9·9·8·8</td>
+            <td class="pushers-cell">麻神、小魚（樂林）、Eddie（樂林）⋯20人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">9</td>
+            <td class="ctab-delta">
+<span class="dl-dn">▼3</span>
+            </td>
+            <td>
+              <span class="stk-name">台光電
+<span class="badge-punish">⚠處置</span>              </span>
+              <span class="stk-code">2383</span>
+            </td>
+            <td><span class="score-badge">7.14</span></td>
+            <td class="ctab-traj">9·8·7·6·9</td>
+            <td class="pushers-cell">郁翔（樂林）、布哥（駿羽）、Eddie（樂林）⋯14人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">10</td>
+            <td class="ctab-delta">
+<span class="dl-dn">▼1</span>
+            </td>
+            <td>
+              <span class="stk-name">景碩
+<span class="badge-limitup">漲停</span><span class="ctab-tag tag-dn">❄退燒</span>              </span>
+              <span class="stk-code">3189</span>
+            </td>
+            <td><span class="score-badge">6.13</span></td>
+            <td class="ctab-traj">7·7·8·9·10</td>
+            <td class="pushers-cell">小魚（樂林）、強尼（樂林）、永哥（駿羽）⋯17人</td>
+          </tr>
+        </tbody>
+      </table>
+<div class="ctab-hint">名次軌跡＝前10·前5·前3·前1·今 各時點排名（— 表示當時未進前 40）</div>    </div>
+    <div class="ctab-panel" id="ctab-d1" style="display:none">
+      <div class="ctab-date">2026-06-18 排名快照</div>
+      <table class="consensus-tbl">
+        <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--up);font-weight:700">1</td>
+            <td>
+              <span class="stk-name">聯電
+              </span>
+              <span class="stk-code">2303</span>
+            </td>
+            <td><span class="score-badge">25.39</span></td>
+            <td class="pushers-cell">BO（樂林）、Aaron（駿羽）、麥克（樂林）⋯41人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">2</td>
+            <td>
+              <span class="stk-name">國巨*
+              </span>
+              <span class="stk-code">2327</span>
+            </td>
+            <td><span class="score-badge">14.42</span></td>
+            <td class="pushers-cell">永哥（駿羽）、Joson（駿羽）、TED（駿羽）⋯27人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">3</td>
+            <td>
+              <span class="stk-name">台燿
+              </span>
+              <span class="stk-code">6274</span>
+            </td>
+            <td><span class="score-badge">13.0</span></td>
+            <td class="pushers-cell">Eddie（樂林）、奕澄（駿羽）、修齊（樂林）⋯28人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">4</td>
+            <td>
+              <span class="stk-name">台積電
+              </span>
+              <span class="stk-code">2330</span>
+            </td>
+            <td><span class="score-badge">12.26</span></td>
+            <td class="pushers-cell">凱彬（駿羽）、永哥（駿羽）、龍哥（駿羽）⋯23人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">5</td>
+            <td>
+              <span class="stk-name">尖點
+              </span>
+              <span class="stk-code">8021</span>
+            </td>
+            <td><span class="score-badge">11.99</span></td>
+            <td class="pushers-cell">愛德恩（愛德恩）、Amy（駿宇）、Ken（駿羽）⋯19人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">6</td>
+            <td>
+              <span class="stk-name">台光電
+              </span>
+              <span class="stk-code">2383</span>
+            </td>
+            <td><span class="score-badge">10.7</span></td>
+            <td class="pushers-cell">Andy哥（駿羽）、修齊（樂林）、TED（駿羽）⋯19人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">7</td>
+            <td>
+              <span class="stk-name">頎邦
+              </span>
+              <span class="stk-code">6147</span>
+            </td>
+            <td><span class="score-badge">10.3</span></td>
+            <td class="pushers-cell">BO（樂林）、Bo（樂林）、Eddie（樂林）⋯22人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">8</td>
+            <td>
+              <span class="stk-name">聯發科
+              </span>
+              <span class="stk-code">2454</span>
+            </td>
+            <td><span class="score-badge">9.21</span></td>
+            <td class="pushers-cell">Sunny（樂林）、Joson（駿羽）、麻神⋯22人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">9</td>
+            <td>
+              <span class="stk-name">景碩
+              </span>
+              <span class="stk-code">3189</span>
+            </td>
+            <td><span class="score-badge">8.64</span></td>
+            <td class="pushers-cell">佑哥（駿羽）、小魚（樂林）、Eddie（樂林）⋯20人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">10</td>
+            <td>
+              <span class="stk-name">華邦電
+              </span>
+              <span class="stk-code">2344</span>
+            </td>
+            <td><span class="score-badge">8.44</span></td>
+            <td class="pushers-cell">龍（樂林）、andrew（駿羽）、強尼哥（駿羽）⋯18人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ctab-panel" id="ctab-d3" style="display:none">
+      <div class="ctab-date">2026-06-16 排名快照</div>
+      <table class="consensus-tbl">
+        <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--up);font-weight:700">1</td>
+            <td>
+              <span class="stk-name">聯電
+              </span>
+              <span class="stk-code">2303</span>
+            </td>
+            <td><span class="score-badge">27.33</span></td>
+            <td class="pushers-cell">郁翔（樂林）、Aaron（駿羽）、BO（樂林）⋯41人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">2</td>
+            <td>
+              <span class="stk-name">國巨*
+              </span>
+              <span class="stk-code">2327</span>
+            </td>
+            <td><span class="score-badge">16.31</span></td>
+            <td class="pushers-cell">Jason（駿羽）、布哥（駿羽）、永哥（駿羽）⋯28人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">3</td>
+            <td>
+              <span class="stk-name">台燿
+              </span>
+              <span class="stk-code">6274</span>
+            </td>
+            <td><span class="score-badge">13.71</span></td>
+            <td class="pushers-cell">小魚（樂林）、Eddie（樂林）、奕澄（駿羽）⋯28人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">4</td>
+            <td>
+              <span class="stk-name">台積電
+              </span>
+              <span class="stk-code">2330</span>
+            </td>
+            <td><span class="score-badge">13.39</span></td>
+            <td class="pushers-cell">sunny（樂林）、凱彬（駿羽）、永哥（駿羽）⋯24人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">5</td>
+            <td>
+              <span class="stk-name">尖點
+              </span>
+              <span class="stk-code">8021</span>
+            </td>
+            <td><span class="score-badge">13.12</span></td>
+            <td class="pushers-cell">小魚（樂林）、Amy（駿羽）、愛德恩（愛德恩）⋯19人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">6</td>
+            <td>
+              <span class="stk-name">頎邦
+              </span>
+              <span class="stk-code">6147</span>
+            </td>
+            <td><span class="score-badge">11.58</span></td>
+            <td class="pushers-cell">郁翔（樂林）、Amy（駿羽）、BO（樂林）⋯23人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">7</td>
+            <td>
+              <span class="stk-name">台光電
+              </span>
+              <span class="stk-code">2383</span>
+            </td>
+            <td><span class="score-badge">10.76</span></td>
+            <td class="pushers-cell">Andy哥（駿羽）、修齊（樂林）、TED（駿羽）⋯19人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">8</td>
+            <td>
+              <span class="stk-name">景碩
+              </span>
+              <span class="stk-code">3189</span>
+            </td>
+            <td><span class="score-badge">10.7</span></td>
+            <td class="pushers-cell">小魚（樂林）、常恩哥（駿羽）、麻神（麻神）⋯21人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">9</td>
+            <td>
+              <span class="stk-name">聯發科
+              </span>
+              <span class="stk-code">2454</span>
+            </td>
+            <td><span class="score-badge">9.78</span></td>
+            <td class="pushers-cell">Eric（駿羽）、Sunny（樂林）、Joson（駿羽）⋯23人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">10</td>
+            <td>
+              <span class="stk-name">華邦電
+              </span>
+              <span class="stk-code">2344</span>
+            </td>
+            <td><span class="score-badge">9.45</span></td>
+            <td class="pushers-cell">龍（樂林）、andrew（駿羽）、強尼哥（駿羽）⋯18人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ctab-panel" id="ctab-d5" style="display:none">
+      <div class="ctab-date">2026-06-12 排名快照</div>
+      <table class="consensus-tbl">
+        <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--up);font-weight:700">1</td>
+            <td>
+              <span class="stk-name">聯電
+              </span>
+              <span class="stk-code">2303</span>
+            </td>
+            <td><span class="score-badge">30.45</span></td>
+            <td class="pushers-cell">BOBO（樂林）、龍哥（駿羽）、JAKO（樂林）⋯42人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">2</td>
+            <td>
+              <span class="stk-name">國巨
+              </span>
+              <span class="stk-code">2327</span>
+            </td>
+            <td><span class="score-badge">19.73</span></td>
+            <td class="pushers-cell">BOBO（樂林）、小魚（樂林）、龍哥（駿羽）⋯32人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">3</td>
+            <td>
+              <span class="stk-name">台燿
+              </span>
+              <span class="stk-code">6274</span>
+            </td>
+            <td><span class="score-badge">17.31</span></td>
+            <td class="pushers-cell">Eddie（樂林）、Johnny（樂林）、小魚（樂林）⋯29人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">4</td>
+            <td>
+              <span class="stk-name">台積電
+              </span>
+              <span class="stk-code">2330</span>
+            </td>
+            <td><span class="score-badge">14.39</span></td>
+            <td class="pushers-cell">sunny（樂林）、凱彬（駿羽）、永哥（駿羽）⋯24人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">5</td>
+            <td>
+              <span class="stk-name">尖點
+              </span>
+              <span class="stk-code">8021</span>
+            </td>
+            <td><span class="score-badge">14.14</span></td>
+            <td class="pushers-cell">Amy（駿羽）、小魚（樂林）、愛德恩（愛德恩）⋯19人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">6</td>
+            <td>
+              <span class="stk-name">頎邦
+              </span>
+              <span class="stk-code">6147</span>
+            </td>
+            <td><span class="score-badge">13.81</span></td>
+            <td class="pushers-cell">小魚（樂林）、Andrew哥（駿羽）、永哥（駿羽）⋯26人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">7</td>
+            <td>
+              <span class="stk-name">景碩
+              </span>
+              <span class="stk-code">3189</span>
+            </td>
+            <td><span class="score-badge">12.66</span></td>
+            <td class="pushers-cell">小魚（樂林）、Andrew哥（駿羽）、常恩哥（駿羽）⋯23人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">8</td>
+            <td>
+              <span class="stk-name">台光電
+              </span>
+              <span class="stk-code">2383</span>
+            </td>
+            <td><span class="score-badge">12.15</span></td>
+            <td class="pushers-cell">Johnny（樂林）、Andy哥（駿羽）、修齊（樂林）⋯20人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">9</td>
+            <td>
+              <span class="stk-name">聯發科
+              </span>
+              <span class="stk-code">2454</span>
+            </td>
+            <td><span class="score-badge">12.04</span></td>
+            <td class="pushers-cell">Eric（駿羽）、Sunny（樂林）、Joson（駿羽）⋯23人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">10</td>
+            <td>
+              <span class="stk-name">華邦電
+              </span>
+              <span class="stk-code">2344</span>
+            </td>
+            <td><span class="score-badge">10.74</span></td>
+            <td class="pushers-cell">龍（樂林）、andrew（駿羽）、強尼哥（駿羽）⋯18人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ctab-panel" id="ctab-d10" style="display:none">
+      <div class="ctab-date">2026-06-05 排名快照</div>
+      <table class="consensus-tbl">
+        <thead><tr><th>#</th><th>股票</th><th>分數</th><th>推薦人</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--up);font-weight:700">1</td>
+            <td>
+              <span class="stk-name">聯電
+              </span>
+              <span class="stk-code">2303</span>
+            </td>
+            <td><span class="score-badge">37.51</span></td>
+            <td class="pushers-cell">Ken（駿羽）、Alan哥（駿羽）、阿奇（駿羽）⋯43人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">2</td>
+            <td>
+              <span class="stk-name">國巨*
+              </span>
+              <span class="stk-code">2327</span>
+            </td>
+            <td><span class="score-badge">25.24</span></td>
+            <td class="pushers-cell">Jason（駿羽）、BOBO（樂林）、小魚（樂林）⋯32人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">3</td>
+            <td>
+              <span class="stk-name">台燿
+              </span>
+              <span class="stk-code">6274</span>
+            </td>
+            <td><span class="score-badge">24.5</span></td>
+            <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、強尼（樂林）⋯30人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">4</td>
+            <td>
+              <span class="stk-name">頎邦
+              </span>
+              <span class="stk-code">6147</span>
+            </td>
+            <td><span class="score-badge">18.61</span></td>
+            <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、光（駿羽）⋯27人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">5</td>
+            <td>
+              <span class="stk-name">台積電
+              </span>
+              <span class="stk-code">2330</span>
+            </td>
+            <td><span class="score-badge">18.46</span></td>
+            <td class="pushers-cell">小魚（樂林）、sunny（樂林）、凱彬（駿羽）⋯24人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">6</td>
+            <td>
+              <span class="stk-name">華邦電
+              </span>
+              <span class="stk-code">2344</span>
+            </td>
+            <td><span class="score-badge">17.57</span></td>
+            <td class="pushers-cell">麻神（麻神）、龍（樂林）、andrew（駿羽）⋯19人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">7</td>
+            <td>
+              <span class="stk-name">景碩
+              </span>
+              <span class="stk-code">3189</span>
+            </td>
+            <td><span class="score-badge">17.06</span></td>
+            <td class="pushers-cell">Eddie（樂林）、小魚（樂林）、永哥（駿羽）⋯23人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">8</td>
+            <td>
+              <span class="stk-name">尖點
+              </span>
+              <span class="stk-code">8021</span>
+            </td>
+            <td><span class="score-badge">17.03</span></td>
+            <td class="pushers-cell">Eddie（樂林）、光哥（駿羽）、Amy（駿羽）⋯20人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">9</td>
+            <td>
+              <span class="stk-name">台光電
+              </span>
+              <span class="stk-code">2383</span>
+            </td>
+            <td><span class="score-badge">16.79</span></td>
+            <td class="pushers-cell">Eddie（樂林）、凱濱哥（駿羽）、永（駿羽）⋯22人</td>
+          </tr>
+          <tr>
+            <td style="color:var(--up);font-weight:700">10</td>
+            <td>
+              <span class="stk-name">聯發科
+              </span>
+              <span class="stk-code">2454</span>
+            </td>
+            <td><span class="score-badge">15.26</span></td>
+            <td class="pushers-cell">湯姆（駿羽）、阿奇（駿羽）、Eric（駿羽）⋯25人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div style="margin-top:14px">
       <div style="font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px">熱門族群</div>
@@ -6328,6 +6817,13 @@ function magiMarginChart(hist, canvasId, tipId, amtKey){
 magiMarginChart([{"date": "20260325", "close": 33439.11, "融資金額_千元": 395499024, "融資維持率": 164.2291}, {"date": "20260326", "close": 33337.62, "融資金額_千元": 391136469, "融資維持率": 162.5914}, {"date": "20260327", "close": 33112.59, "融資金額_千元": 393722769, "融資維持率": 162.5712}, {"date": "20260330", "close": 32518.16, "融資金額_千元": 392708634, "融資維持率": 159.7193}, {"date": "20260331", "close": 31722.99, "融資金額_千元": 381724855, "融資維持率": 152.4658}, {"date": "20260401", "close": 33174.82, "融資金額_千元": 385907934, "融資維持率": 159.5343}, {"date": "20260402", "close": 32572.43, "融資金額_千元": 384200709, "融資維持率": 157.2438}, {"date": "20260407", "close": 33229.82, "融資金額_千元": 387734358, "融資維持率": 160.4439}, {"date": "20260408", "close": 34761.38, "融資金額_千元": 395333852, "融資維持率": 168.6951}, {"date": "20260409", "close": 34861.16, "融資金額_千元": 396518141, "融資維持率": 168.4458}, {"date": "20260410", "close": 35417.83, "融資金額_千元": 401240705, "融資維持率": 170.6905}, {"date": "20260413", "close": 35457.29, "融資金額_千元": 408651307, "融資維持率": 171.7983}, {"date": "20260414", "close": 36296.12, "融資金額_千元": 414988177, "融資維持率": 173.247}, {"date": "20260415", "close": 36722.14, "融資金額_千元": 416253786, "融資維持率": 173.212}, {"date": "20260416", "close": 37132.02, "融資金額_千元": 422408742, "融資維持率": 175.2202}, {"date": "20260417", "close": 36804.34, "融資金額_千元": 427120788, "融資維持率": 175.5221}, {"date": "20260420", "close": 36958.8, "融資金額_千元": 429829952, "融資維持率": 177.0906}, {"date": "20260421", "close": 37605.11, "融資金額_千元": 433163894, "融資維持率": 179.5918}, {"date": "20260422", "close": 37878.47, "融資金額_千元": 438545241, "融資維持率": 180.592}, {"date": "20260423", "close": 37714.15, "融資金額_千元": 430825725, "融資維持率": 174.0611}, {"date": "20260424", "close": 38932.4, "融資金額_千元": 440907083, "融資維持率": 175.4933}, {"date": "20260427", "close": 39616.63, "融資金額_千元": 452044394, "融資維持率": 175.2079}, {"date": "20260428", "close": 39521.73, "融資金額_千元": 457112797, "融資維持率": 176.922}, {"date": "20260429", "close": 39303.5, "融資金額_千元": 460974804, "融資維持率": 176.0345}, {"date": "20260430", "close": 38926.63, "融資金額_千元": 460905599, "融資維持率": 175.8451}, {"date": "20260504", "close": 40705.14, "融資金額_千元": 470389635, "融資維持率": 180.9067}, {"date": "20260505", "close": 40769.29, "融資金額_千元": 475145292, "融資維持率": 182.0207}, {"date": "20260506", "close": 41138.85, "融資金額_千元": 475648471, "融資維持率": 180.6349}, {"date": "20260507", "close": 41933.78, "融資金額_千元": 482664170, "融資維持率": 182.1352}, {"date": "20260508", "close": 41603.94, "融資金額_千元": 477184758, "融資維持率": 177.6839}, {"date": "20260511", "close": 41790.06, "融資金額_千元": 484592746, "融資維持率": 181.8785}, {"date": "20260512", "close": 41898.32, "融資金額_千元": 491194846, "融資維持率": 181.3175}, {"date": "20260513", "close": 41374.5, "融資金額_千元": 494418035, "融資維持率": 177.2795}, {"date": "20260514", "close": 41751.75, "融資金額_千元": 499134883, "融資維持率": 177.1961}, {"date": "20260515", "close": 41172.36, "融資金額_千元": 492797137, "融資維持率": 172.0822}, {"date": "20260518", "close": 40891.82, "融資金額_千元": 501619604, "融資維持率": 171.9616}, {"date": "20260519", "close": 40175.56, "融資金額_千元": 496886917, "融資維持率": 167.346}, {"date": "20260520", "close": 40020.82, "融資金額_千元": 502079489, "融資維持率": 166.9352}, {"date": "20260521", "close": 41368.21, "融資金額_千元": 511154475, "融資維持率": 174.161}, {"date": "20260522", "close": 42267.97, "融資金額_千元": 522289851, "融資維持率": 180.0163}, {"date": "20260525", "close": 43644.4, "融資金額_千元": 530476074, "融資維持率": 185.0303}, {"date": "20260526", "close": 43525.37, "融資金額_千元": 534592732, "融資維持率": 184.0713}, {"date": "20260527", "close": 44256.8, "融資金額_千元": 536269185, "融資維持率": 182.8285}, {"date": "20260528", "close": 43636.44, "融資金額_千元": 535025764, "融資維持率": 177.3868}, {"date": "20260529", "close": 44732.94, "融資金額_千元": 556360306, "融資維持率": 180.9286}, {"date": "20260601", "close": 45337.91, "融資金額_千元": 565779103, "融資維持率": 183.8213}, {"date": "20260602", "close": 45557.31, "融資金額_千元": 566968920, "融資維持率": 181.5519}, {"date": "20260603", "close": 46459.16, "融資金額_千元": 568395179, "融資維持率": 181.8414}, {"date": "20260604", "close": 45677.46, "融資金額_千元": 572635489, "融資維持率": 176.5635}, {"date": "20260605", "close": 45070.94, "融資金額_千元": 566648874, "融資維持率": 172.6712}, {"date": "20260608", "close": 43502.78, "融資金額_千元": 551012201, "融資維持率": 164.9097}, {"date": "20260609", "close": 44704.44, "融資金額_千元": 563876896, "融資維持率": 171.4606}, {"date": "20260610", "close": 43225.54, "融資金額_千元": 546812469, "融資維持率": 162.7433}, {"date": "20260611", "close": 43149.46, "融資金額_千元": 549176982, "融資維持率": 163.0903}, {"date": "20260612", "close": 44169.04, "融資金額_千元": 557027949, "融資維持率": 167.3228}, {"date": "20260615", "close": 45396.99, "融資金額_千元": 571904853, "融資維持率": 173.2574}, {"date": "20260616", "close": 45809.19, "融資金額_千元": 571307649, "融資維持率": 173.2725}, {"date": "20260617", "close": 45877.39, "融資金額_千元": 584760128, "融資維持率": 175.3251}, {"date": "20260618", "close": 46465.2, "融資金額_千元": 593046092, "融資維持率": 178.5695}, {"date": "20260622", "close": 47741.51, "融資金額_千元": 605041591, "融資維持率": 181.4024}], 'marginChart', 'marginTip', '融資金額_千元');magiMarginChart([{"date": "20260506", "融資維持率": 181.3316, "融資餘額_千元": 198522359, "融資餘額_億": 1985.2}, {"date": "20260507", "融資維持率": 181.3316, "融資餘額_千元": 198522359, "融資餘額_億": 1985.2}, {"date": "20260508", "融資維持率": 176.8328, "融資餘額_千元": 195480756, "融資餘額_億": 1954.8}, {"date": "20260511", "融資維持率": 181.8272, "融資餘額_千元": 198570816, "融資餘額_億": 1985.7}, {"date": "20260512", "融資維持率": 181.8127, "融資餘額_千元": 198503113, "融資餘額_億": 1985.0}, {"date": "20260513", "融資維持率": 176.9637, "融資餘額_千元": 197554532, "融資餘額_億": 1975.5}, {"date": "20260514", "融資維持率": 177.7831, "融資餘額_千元": 199250148, "融資餘額_億": 1992.5}, {"date": "20260515", "融資維持率": 169.472, "融資餘額_千元": 195027576, "融資餘額_億": 1950.3}, {"date": "20260518", "融資維持率": 169.7923, "融資餘額_千元": 196501912, "融資餘額_億": 1965.0}, {"date": "20260519", "融資維持率": 163.7505, "融資餘額_千元": 194774284, "融資餘額_億": 1947.7}, {"date": "20260520", "融資維持率": 162.7295, "融資餘額_千元": 193658931, "融資餘額_億": 1936.6}, {"date": "20260521", "融資維持率": 169.0044, "融資餘額_千元": 197027904, "融資餘額_億": 1970.3}, {"date": "20260522", "融資維持率": 174.9833, "融資餘額_千元": 198941433, "融資餘額_億": 1989.4}, {"date": "20260525", "融資維持率": 179.6606, "融資餘額_千元": 201668266, "融資餘額_億": 2016.7}, {"date": "20260526", "融資維持率": 180.8438, "融資餘額_千元": 204036246, "融資餘額_億": 2040.4}, {"date": "20260527", "融資維持率": 177.4342, "融資餘額_千元": 202727824, "融資餘額_億": 2027.3}, {"date": "20260528", "融資維持率": 172.9087, "融資餘額_千元": 200766617, "融資餘額_億": 2007.7}, {"date": "20260529", "融資維持率": 176.941, "融資餘額_千元": 206853461, "融資餘額_億": 2068.5}, {"date": "20260601", "融資維持率": 178.4408, "融資餘額_千元": 208828972, "融資餘額_億": 2088.3}, {"date": "20260602", "融資維持率": 174.7092, "融資餘額_千元": 208600800, "融資餘額_億": 2086.0}, {"date": "20260603", "融資維持率": 175.4163, "融資餘額_千元": 212752617, "融資餘額_億": 2127.5}, {"date": "20260604", "融資維持率": 170.1527, "融資餘額_千元": 211299597, "融資餘額_億": 2113.0}, {"date": "20260605", "融資維持率": 166.6789, "融資餘額_千元": 210285670, "融資餘額_億": 2102.9}, {"date": "20260608", "融資維持率": 158.0118, "融資餘額_千元": 201088817, "融資餘額_億": 2010.9}, {"date": "20260609", "融資維持率": 163.3682, "融資餘額_千元": 202788395, "融資餘額_億": 2027.9}, {"date": "20260610", "融資維持率": 154.167, "融資餘額_千元": 194883307, "融資餘額_億": 1948.8}, {"date": "20260611", "融資維持率": 153.9044, "融資餘額_千元": 192771263, "融資餘額_億": 1927.7}, {"date": "20260612", "融資維持率": 158.9304, "融資餘額_千元": 195360266, "融資餘額_億": 1953.6}, {"date": "20260615", "融資維持率": 163.4176, "融資餘額_千元": 199190867, "融資餘額_億": 1991.9}, {"date": "20260616", "融資維持率": 163.1068, "融資餘額_千元": 200299847, "融資餘額_億": 2003.0}, {"date": "20260617", "融資維持率": 164.1115, "融資餘額_千元": 203628219, "融資餘額_億": 2036.3}, {"date": "20260618", "融資維持率": 170.0194, "融資餘額_千元": 205469300, "融資餘額_億": 2054.7}, {"date": "20260622", "融資維持率": 172.103, "融資餘額_千元": 208449655, "融資餘額_億": 2084.5}], 'marginChartOtc', 'marginTipOtc', '融資餘額_千元');</script>
 
 <script>
+function magiCtab(k){
+  document.querySelectorAll('.ctab-panel').forEach(function(p){ p.style.display='none'; });
+  var el=document.getElementById('ctab-'+k); if(el) el.style.display='';
+  document.querySelectorAll('.ctab-btn').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-ctab')===k);
+  });
+}
 function magiToggleTheme(){
   var h=document.documentElement;
   var next=h.getAttribute('data-theme')==='dark'?'light':'dark';
