@@ -2969,5 +2969,28 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-06-23T14:48:22"
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-06-24",
+    "source_type": "daily",
+    "source_page": "2026-06_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱",
+    "quote": "奇鋐 2Q26毛利率季增幅大於1Q26的季增幅(大於3.4個百分點)，下半年ASIC出越多毛利率繼續增，最近投信1on1應該都講這樣",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "2Q26 GM季增>3.4pp",
+      "ASIC放量推升毛利"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-06-24T23:43:12"
   }
 ]
