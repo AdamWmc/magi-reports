@@ -4030,6 +4030,31 @@
     {
       "code": "2449",
       "name": "京元電子",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "永哥",
+      "host": "駿宇",
+      "sector": "測試",
+      "quote": "vera也要burn in是市場比較不知道，銅鑼廠已經滿的，中華映管那個廠要做rubin測試，還有美國廠，28年增長看美國廠",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Vera Burn-in需求市場尚未充分認知",
+        "銅鑼廠滿載",
+        "中華映管廠改做Rubin測試",
+        "美國廠2028成長動能"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2449",
+      "name": "京元電子",
       "date": "2026-06-24",
       "source_type": "meeting",
       "source_page": "20260624_駿宇",
@@ -4788,6 +4813,49 @@
     }
   ],
   "3037": [
+    {
+      "code": "3037",
+      "name": "欣興",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "andrew哥",
+      "host": "駿宇",
+      "sector": "ABF載板",
+      "quote": "3037有外溢BT給他（景碩）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "Frank lin",
+      "host": null,
+      "sector": "PCB/BT基板",
+      "quote": "三星電機減產BT，欣興(3037)退出BT，推景碩(3189)和南電(8046)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "三星電機減產BT",
+        "欣興宣布退出BT業務"
+      ],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "3037",
       "name": "欣興",
@@ -8829,6 +8897,26 @@
     {
       "code": "3661",
       "name": "世芯-KY",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "百億大戶",
+      "host": null,
+      "sector": null,
+      "quote": "百億大戶說他現在主要持有 2327 2303 2454 3443 3661",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "3661",
+      "name": "世芯-KY",
       "date": "2026-06-24",
       "source_type": "meeting",
       "source_page": "20260624_駿宇",
@@ -12217,6 +12305,46 @@
     {
       "code": "2330",
       "name": "台積電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "民哥",
+      "host": "駿宇",
+      "sector": "晶圓代工",
+      "quote": "死抱台積電、發哥",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": true,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "湯姆哥",
+      "host": "駿宇",
+      "sector": "晶圓代工",
+      "quote": "明年1月foundry要漲價還不投片，會被市場傳說被台積電砍單",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
       "date": "2026-06-23",
       "source_type": "meeting",
       "source_page": "20260623_樂林",
@@ -13529,6 +13657,48 @@
     }
   ],
   "6147": [
+    {
+      "code": "6147",
+      "name": "頎邦",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "峰哥",
+      "host": "駿宇",
+      "sector": "封測/驅動IC封裝",
+      "quote": "6147沒有93k測試機台",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "6147",
+      "name": "頎邦",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "峰哥",
+      "host": null,
+      "sector": "封測",
+      "quote": "6147(頎邦)只有測driver，然後把聯詠趕走空50台出來，不夠新買10台",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "僅能測driver（非SoC），逐出聯詠釋出50台機台，產能仍不足須再添購10台"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "6147",
       "name": "頎邦",
@@ -16873,6 +17043,112 @@
     {
       "code": "2454",
       "name": "聯發科",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "民哥",
+      "host": "駿宇",
+      "sector": "IC設計",
+      "quote": "死抱台積電、發哥",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": true,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "湯姆哥",
+      "host": "駿宇",
+      "sector": "IC設計",
+      "quote": "對發哥應該不是利空，手上只要有產能就可以拿到不少案子",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "手持產能充足可接多元案子"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "永哥",
+      "host": "駿宇",
+      "sector": "IC設計",
+      "quote": "明年發哥5921也需要Burn in",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "明年聯發科晶片需要Burn-in帶動設備需求"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "百億大戶",
+      "host": null,
+      "sector": null,
+      "quote": "百億大戶說他現在主要持有 2327 2303 2454 3443 3661",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "黃老師",
+      "host": null,
+      "sector": "IC設計",
+      "quote": "聯發科(2454)這個禮拜又下修了，手機晶片再次下修 wafer 4/5nm 8K",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "手機晶片 4/5nm 8K wafer 再次下修"
+      ],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
       "date": "2026-06-25",
       "source_type": "meeting",
       "source_page": "20260625_駿羽",
@@ -18818,6 +19094,77 @@
     {
       "code": "2344",
       "name": "華邦電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "布哥",
+      "host": "駿宇",
+      "sector": "記憶體",
+      "quote": "美光休息後會再上，開出來產能特別快，華邦電會跟著帶動",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "美光產能開出帶動記憶體族群連動上漲"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "andrew哥",
+      "host": "駿宇",
+      "sector": "記憶體",
+      "quote": "Murata後來找華邦，明年一個月2萬片，可以貢獻5塊以上EPS，明年50幾塊有機會",
+      "tp": "50",
+      "eps_est": {
+        "2027": "5+"
+      },
+      "catalysts": [
+        "SLC多家廠商phase out供給縮減需求反轉",
+        "Murata/SEMCO轉單Si-Cap月產2萬片",
+        "Si-Cap wafer報價2800-3000元"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "凱彬哥",
+      "host": "駿宇",
+      "sector": "記憶體",
+      "quote": "記憶體有低還是可以接，華邦、南亞科都有提早擴廠",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "提早擴廠積極因應需求",
+        "逢低可接"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2344",
+      "name": "華邦電",
       "date": "2026-06-23",
       "source_type": "meeting",
       "source_page": "20260623_樂林",
@@ -19597,6 +19944,29 @@
     {
       "code": "2408",
       "name": "南亞科",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "凱彬哥",
+      "host": "駿宇",
+      "sector": "記憶體/DRAM",
+      "quote": "記憶體有低還是可以接，華邦、南亞科都有提早擴廠",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "提早擴廠積極因應需求",
+        "逢低可接"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2408",
+      "name": "南亞科",
       "date": "2026-06-22",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -19812,6 +20182,75 @@
     }
   ],
   "3443": [
+    {
+      "code": "3443",
+      "name": "創意",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Mark哥",
+      "host": "駿宇",
+      "sector": "IC設計/ASIC",
+      "quote": "AI5 2028最大營收貢獻，HBF base die看2028爆發，28年看是增長最大的一年",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "AI5 2028最大營收貢獻",
+        "HBF base die 2028爆發",
+        "地平線明年出量且給價好",
+        "TPU V10參與",
+        "CPO貢獻落在2029年"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "IC設計服務",
+      "quote": "Meta 投資韓國公司 Rivos 做AI，一直是創意(3443)的5nm客戶但都沒量產，因為Meta的SW team不想用他們的ASIC，習慣用NV的。市場上炒創意拿到Meta其實就是原來的Rivos，冷飯熱炒。Meta內部自己的ASIC team完全沒有量，不可能花時間換別的design service做cost down",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Meta/Rivos為舊有5nm客戶，從未量產，市場炒作屬冷飯熱炒",
+        "Meta SW team習慣用NV ASIC，內部ASIC team完全無量"
+      ],
+      "customers": [],
+      "sentiment": "看空",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "百億大戶",
+      "host": null,
+      "sector": null,
+      "quote": "百億大戶說他現在主要持有 2327 2303 2454 3443 3661",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "3443",
       "name": "創意",
@@ -21426,6 +21865,49 @@
     }
   ],
   "2327": [
+    {
+      "code": "2327",
+      "name": "國巨*",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Steven哥",
+      "host": "駿宇",
+      "sector": "MLCC/被動元件",
+      "quote": "MLCC未來漲價會一路漲但不會暴漲，這次會更長久，陳泰銘持有日本龍頭已經20%",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MLCC長期溫和漲價趨勢持續",
+        "陳泰銘持有日本龍頭20%戰略布局"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2327",
+      "name": "國巨*",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "百億大戶",
+      "host": null,
+      "sector": null,
+      "quote": "百億大戶說他現在主要持有 2327 2303 2454 3443 3661",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "2327",
       "name": "國巨*",
@@ -23660,6 +24142,94 @@
     }
   ],
   "2303": [
+    {
+      "code": "2303",
+      "name": "聯電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "峰哥",
+      "host": "駿宇",
+      "sector": "晶圓代工",
+      "quote": "漲價幅度可以貢獻3Q26 15%營收，12吋單全部進來的話會再往上調，第三季全部加起來要有780E",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "3Q26漲價貢獻15%營收",
+        "12吋單全面進入可再上調",
+        "Q3目標780億"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "民哥",
+      "host": "駿宇",
+      "sector": "晶圓代工",
+      "quote": "2303聯電28年獲利會很可觀，會有15塊以上",
+      "tp": null,
+      "eps_est": {
+        "2028": "15"
+      },
+      "catalysts": [
+        "2028年獲利爆發EPS 15塊以上"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "2303（提及，無細節，僅出現代號＋圖）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "百億大戶",
+      "host": null,
+      "sector": null,
+      "quote": "百億大戶說他現在主要持有 2327 2303 2454 3443 3661",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "2303",
       "name": "聯電",
@@ -26308,6 +26878,51 @@
     }
   ],
   "3189": [
+    {
+      "code": "3189",
+      "name": "景碩",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "andrew哥",
+      "host": "駿宇",
+      "sector": "ABF/BT載板",
+      "quote": "ABF、BT都很好，3037有外溢BT給他，陶瓷那塊要做大面積cowos，明年底有機會進量產",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "欣興BT外溢訂單",
+        "陶瓷大面積CoWoS明年底量產"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "Frank lin",
+      "host": null,
+      "sector": "PCB/BT基板",
+      "quote": "三星電機減產BT，欣興(3037)退出BT，推景碩(3189)和南電(8046)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "三星電機減產BT + 欣興退出，景碩受益填補市場缺口"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "3189",
       "name": "景碩",
@@ -29868,6 +30483,29 @@
     {
       "code": "2317",
       "name": "鴻海",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Vic哥",
+      "host": "駿宇",
+      "sector": "伺服器/ODM",
+      "quote": "rubin 7月ODM如期出量，富士康google 5千櫃",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Rubin 7月ODM如期出量",
+        "Google訂單5千櫃"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "2317",
+      "name": "鴻海",
       "code_source": "explicit",
       "speaker": "郁翔",
       "host": "樂林",
@@ -30868,6 +31506,30 @@
     }
   ],
   "2455": [
+    {
+      "code": "2455",
+      "name": "全新",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Ann",
+      "host": "駿宇",
+      "sector": "化合物半導體/VCSEL",
+      "quote": "HDD讀寫頭4Q26目標會改vcsel，一個m shipment會多1000萬營收，主要客戶是WD，目標明年出貨4m",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "HDD讀寫頭4Q26改用VCSEL",
+        "WD客戶取代InP導入",
+        "明年出貨目標4m每m多1000萬營收"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "2455",
       "name": "全新",
@@ -33011,6 +33673,51 @@
     }
   ],
   "8150": [
+    {
+      "code": "8150",
+      "name": "南茂",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "峰哥",
+      "host": "駿宇",
+      "sector": "封測",
+      "quote": "有想要接SOC測試，發現毛利率比記憶體高，7/1所有產品封測漲價15%，對蘋果只有漲10%",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "SOC測試毛利率優於記憶體",
+        "7/1封測全面漲價15%"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "8150",
+      "name": "南茂",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "峰哥",
+      "host": null,
+      "sector": "封測",
+      "quote": "峰哥說南茂有200台93000，因為南茂有測SoC既有廠房200台，6147(頎邦)只有測driver，然後把聯詠趕走空50台出來，不夠新買10台",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "既有200台93000機台可測SoC，設備規模遠優於競爭對手"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "8150",
       "name": "南茂",
@@ -36330,6 +37037,75 @@
     {
       "code": "8046",
       "name": "南電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "andrew哥",
+      "host": "駿宇",
+      "sector": "ABF載板",
+      "quote": "明年毛利率要創歷史新高，明年可以抓到50幾塊，PE還沒很貴，一直都是這三家裡面最敢漲的",
+      "tp": "50",
+      "eps_est": null,
+      "catalysts": [
+        "明年毛利率創歷史新高",
+        "估值偏低PE不貴",
+        "漲價意願最強"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "民哥",
+      "host": "駿宇",
+      "sector": "ABF載板",
+      "quote": "漲價三本柱，記憶體、ABF、CCL，還有MLCC，南亞賣南電到6月底",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "ABF漲價三本柱之一",
+        "南亞供料至6月底"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": "Frank lin",
+      "host": null,
+      "sector": "PCB/BT基板",
+      "quote": "三星電機減產BT，欣興(3037)退出BT，推景碩(3189)和南電(8046)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "三星電機減產BT + 欣興退出，南電受益填補市場缺口"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "8046",
+      "name": "南電",
       "date": "2026-06-25",
       "source_type": "meeting",
       "source_page": "20260625_駿羽",
@@ -37885,6 +38661,31 @@
     }
   ],
   "8996": [
+    {
+      "code": "8996",
+      "name": "高力",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Steven哥",
+      "host": "駿宇",
+      "sector": "載板",
+      "quote": "上週高雄廠動工，預計1H27第一期廠房先完工，BE訂單很急，板式那邊也做不完，載板很看好",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "高雄廠動工1H27第一期完工",
+        "BE訂單急滿載",
+        "泰國/北部廠各自擴張",
+        "完工後樓地板面積翻倍"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "8996",
       "name": "高力",
@@ -42576,6 +43377,28 @@
     }
   ],
   "2489": [
+    {
+      "code": "2489",
+      "name": "瑞軒",
+      "date": "2026-06-26",
+      "source_type": "daily",
+      "source_page": "2026-06_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "2489：月底驗廠說會順利",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "月底驗廠預期順利通過"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "2489",
       "name": "瑞軒",
@@ -48039,6 +48862,28 @@
     {
       "code": "3034",
       "name": "聯詠",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "峰哥",
+      "host": "駿宇",
+      "sector": "IC設計/驅動IC",
+      "quote": "apple i18 驅動IC 7月產出，3034 7-10月營收都不錯",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Apple i18驅動IC 7月產出，7-10月營收能見度佳"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "3034",
+      "name": "聯詠",
       "date": "2026-06-25",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -48596,6 +49441,29 @@
     }
   ],
   "3231": [
+    {
+      "code": "3231",
+      "name": "緯創",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Vic哥",
+      "host": "駿宇",
+      "sector": "伺服器/ODM",
+      "quote": "rubin 7月ODM如期出量，緯創oracle那邊3千櫃",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Rubin 7月ODM如期出量",
+        "Oracle訂單3千櫃"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
     {
       "code": "3231",
       "name": "緯創",
@@ -50608,6 +51476,28 @@
     {
       "code": "6770",
       "name": "力積電",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "峰哥",
+      "host": "駿宇",
+      "sector": "晶圓代工",
+      "quote": "對晶豪科漲價，6月一片wafer 2萬美金，力積電每增加5000塊美金就多0.15塊EPS",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "晶圓報價飆漲（上月1萬→1.5萬→2萬美金），每+5000美金多0.15 EPS"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "6770",
+      "name": "力積電",
       "date": "2026-06-25",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -52597,6 +53487,31 @@
     {
       "code": "7856",
       "name": "漢測",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Mark哥",
+      "host": "駿宇",
+      "sector": "探針/散熱/設備",
+      "quote": "下半年最大競拍案子，明年CP端2600台都會搭，下半年第二代一套250萬台幣，毛利率很高，明年抓165塊",
+      "tp": "165",
+      "eps_est": null,
+      "catalysts": [
+        "台積電CP端改機最大競拍案（5000台中搶2600台）",
+        "第二代散熱模組每套250萬台幣高毛利",
+        "與fic合作機台350-500台賣給NV 4-5千萬台幣",
+        "探針產品明年成長"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
+    },
+    {
+      "code": "7856",
+      "name": "漢測",
       "date": "2026-06-25",
       "source_type": "meeting",
       "source_page": "20260625_駿羽",
@@ -53030,6 +53945,35 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-06-25T22:59:49"
+    }
+  ],
+  "4938": [
+    {
+      "code": "4938",
+      "name": "和碩",
+      "date": "2026-06-26",
+      "source_type": "meeting",
+      "source_page": "20260626_駿宇",
+      "speaker": "Jason",
+      "host": "駿宇",
+      "sector": "伺服器/ODM",
+      "quote": "幫高通AI 200/350做L6到L10，明年150m，4Q26單月營收多20%以上，明年9-10塊，這位階便宜",
+      "tp": null,
+      "eps_est": {
+        "2027": "9-10"
+      },
+      "catalysts": [
+        "高通AI 200/350 L6-L10訂單今年200多k明年150m",
+        "GB特斯拉單9月出貨今年800台",
+        "CoreWeave等多家GB客戶",
+        "4Q26單月營收+20%以上"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-06-26T23:11:38"
     }
   ],
   "8016": [
