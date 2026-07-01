@@ -1906,6 +1906,30 @@
     "parsed_at": "2026-06-16T21:42:12"
   },
   {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "2303聯電CB（詢圈120E、競拍40E），詢圈時程6/30申報、7/16生效、7/24開始詢圈、7/30轉換價訂價日、8/7 CB上櫃；競拍時程8/14訂轉換價、8/25開標、9/3上櫃",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "CB發行162億（詢圈120E+競拍40E）",
+      "7/16生效",
+      "8/7 CB上櫃"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-01T23:26:07"
+  },
+  {
     "code": "2305",
     "name": "全友",
     "date": "2026-06-17",
@@ -2069,6 +2093,30 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-06-17T14:30:00"
+  },
+  {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-06-17",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器",
+    "quote": "6669緯穎吹到明年900元EPS",
+    "tp": null,
+    "eps_est": {
+      "2027": "900(TP)"
+    },
+    "catalysts": [
+      "市場吹風明年目標價達900元"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-01T23:26:07"
   },
   {
     "code": "8069",
@@ -4045,6 +4093,57 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-06-30T22:30:47"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-06-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "2303聯電公說書：大洩題給財測預測多貢獻2.7元。CB的162億用在12吋設備與廠務（矽光子、DTC、BCD），共擴充12吋產能11,160片/月使12吋總產能增加4.2%，新應用每片ASP約2700~2900 USD高於平均1700~1900，毛利率37~40%高於目前28~30%，新產能2028年起平均每年貢獻營收106億EPS 0.23元。CB全數轉換股本最大膨脹0.64%。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "公說書洩題財測EPS多貢獻2.7元",
+      "CB162億擴充12吋產能11,160片/月（+4.2%）",
+      "新應用ASP 2700-2900 USD（vs平均1700-1900）",
+      "新應用毛利率37-40%（vs現有28-30%）",
+      "2028年起每年貢獻營收106億/EPS 0.23元",
+      "股本膨脹最大0.64%（稀釋有限）"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-01T23:26:07"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-06-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "台積電2330毛利率69%，3Q QoQ 35%，Raise CAPEX to 56-60b",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "3Q毛利率69%",
+      "3Q QoQ+35%",
+      "CAPEX上修至56-60b"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-01T23:26:07"
   },
   {
     "code": "2344",
