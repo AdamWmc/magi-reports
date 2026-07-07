@@ -2029,5 +2029,49 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-06T22:14:12"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-07-07",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "信驊",
+    "host": null,
+    "sector": "BMC/伺服器管理晶片",
+    "quote": "信驊：今天NV開會說VeraRubin加7000 racks，集中在2027 1H",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "NV VeraRubin機櫃數上修至7000（集中2027 1H）"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-07T22:30:00"
+  },
+  {
+    "code": "6182",
+    "name": "合晶",
+    "date": "2026-07-07",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "6182明天公佈的盤後會很好",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "盤後公告預期正向"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-07T22:30:00"
   }
 ]
