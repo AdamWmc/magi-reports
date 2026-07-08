@@ -4186,6 +4186,28 @@
     {
       "code": "2455",
       "name": "全新",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "化合物半導體",
+      "quote": "ANN推南電、全新",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "大戶ANN推薦"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "2455",
+      "name": "全新",
       "date": "2026-06-29",
       "source_type": "meeting",
       "source_page": "20260629_樂林",
@@ -12415,6 +12437,28 @@
     }
   ],
   "5347": [
+    {
+      "code": "5347",
+      "name": "世界",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "百億大戶HF推新唐、世界(先進)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "百億大戶進場加碼"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
     {
       "code": "5347",
       "name": "世界",
@@ -21402,6 +21446,37 @@
     {
       "code": "8150",
       "name": "南茂",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "封測",
+      "quote": "峰哥跟鄭董碰面，南茂今年7塊(超大beat)，買30台93000機台一小時收300塊鎂貢獻EPS 2塊，幫MTK或AMD測AP，跟Mrvl談測EIC/PIC，TPU測5922要買模組改，光通就100億跟之前講的一樣，明年上看11-12塊",
+      "tp": null,
+      "eps_est": {
+        "2026": "7",
+        "2027": "11-12"
+      },
+      "catalysts": [
+        "今年EPS上看7元大幅超預期",
+        "新增93000測試機台放量貢獻EPS",
+        "MTK/AMD測試訂單",
+        "與Mrvl談EIC/PIC測試合作",
+        "TPU 5922模組測試",
+        "光通訂單100億",
+        "明年EPS上看11-12元"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "8150",
+      "name": "南茂",
       "date": "2026-07-07",
       "source_type": "meeting",
       "source_page": "20260707_樂林",
@@ -25862,6 +25937,28 @@
     {
       "code": "6173",
       "name": "信昌電",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Frank Lin",
+      "host": null,
+      "sector": "被動元件",
+      "quote": "MLCC高壓族群：信昌電、禾伸堂、風華",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MLCC高壓需求增溫"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "6173",
+      "name": "信昌電",
       "date": "2026-07-06",
       "source_type": "meeting",
       "source_page": "20260706_樂林",
@@ -27222,6 +27319,28 @@
     }
   ],
   "8046": [
+    {
+      "code": "8046",
+      "name": "南電",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "ABF載板",
+      "quote": "ANN推南電、全新",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "大戶ANN推薦"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
     {
       "code": "8046",
       "name": "南電",
@@ -30970,6 +31089,28 @@
     {
       "code": "3026",
       "name": "禾伸堂",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Frank Lin",
+      "host": null,
+      "sector": "被動元件",
+      "quote": "MLCC高壓族群：信昌電、禾伸堂、風華",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MLCC高壓需求增溫"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "3026",
+      "name": "禾伸堂",
       "date": "2026-07-06",
       "source_type": "meeting",
       "source_page": "20260706_樂林",
@@ -31677,6 +31818,29 @@
     {
       "code": "4749",
       "name": "新應材",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "半導體材料",
+      "quote": "新應材要被換掉，估計半年內發生，N2/N3/N5製程合計約10道會被換成美商DuPont",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "N2/N3/N5製程約10道恐被美商DuPont取代",
+        "預估半年內發生"
+      ],
+      "customers": [],
+      "sentiment": "看空",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "4749",
+      "name": "新應材",
       "code_source": "explicit",
       "speaker": "阿奇",
       "host": "駿羽",
@@ -31781,6 +31945,28 @@
     }
   ],
   "4919": [
+    {
+      "code": "4919",
+      "name": "新唐",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "IC設計",
+      "quote": "百億大戶HF推新唐、世界(先進)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "百億大戶進場加碼"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
     {
       "code": "4919",
       "name": "新唐",
@@ -38928,6 +39114,28 @@
     {
       "code": "4908",
       "name": "前鼎",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CoPoS",
+      "quote": "CoPoS架構中PD由前鼎負責",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "CoPoS供應鏈PD角色"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "4908",
+      "name": "前鼎",
       "code_source": "explicit",
       "speaker": "小魚",
       "host": "樂林",
@@ -40687,6 +40895,28 @@
     }
   ],
   "2327": [
+    {
+      "code": "2327",
+      "name": "國巨*",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Frank Lin",
+      "host": null,
+      "sector": "被動元件",
+      "quote": "國巨、華新科漲價更多；鉭電國巨最大但缺貨且已漲價多次",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MLCC/鉭電缺料持續漲價"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
     {
       "code": "2327",
       "name": "國巨*",
@@ -43793,6 +44023,31 @@
     {
       "code": "6291",
       "name": "沛亨",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CPO/光通訊",
+      "quote": "台灣獨家代理商沛亨(6291)因承接康寧在Meta與NVIDIA長單外溢紅利，2026光纖出貨暴增，協同做800G/1.6T CPO研發",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "康寧台灣獨家代理商身分",
+        "Meta/NVIDIA長單外溢效應",
+        "2026光纖出貨暴增",
+        "800G/1.6T CPO研發"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "6291",
+      "name": "沛亨",
       "date": "2026-06-24",
       "source_type": "meeting",
       "source_page": "20260624_駿宇",
@@ -44481,6 +44736,28 @@
     }
   ],
   "3008": [
+    {
+      "code": "3008",
+      "name": "大立光",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CoPoS/光學",
+      "quote": "康寧+大立光＝FAU合作",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "康寧FAU合作"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
     {
       "code": "3008",
       "name": "大立光",
@@ -46631,6 +46908,30 @@
     {
       "code": "3090",
       "name": "日電貿",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Frank Lin",
+      "host": null,
+      "sector": "被動元件通路",
+      "quote": "2026年AI server年增18-20%，MLCC缺料狀況延續到2027年，日電貿為通路商可望受惠，下半年獲利明顯增長，可能trade at低個位數PE",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "AI server 2026年成長18-20%",
+        "MLCC/電容全面缺料到2027年",
+        "下半年獲利明顯增長"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "3090",
+      "name": "日電貿",
       "code_source": "explicit",
       "speaker": "小魚",
       "host": "樂林",
@@ -47466,6 +47767,28 @@
     }
   ],
   "2492": [
+    {
+      "code": "2492",
+      "name": "華新科",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Frank Lin",
+      "host": null,
+      "sector": "被動元件",
+      "quote": "國巨、華新科漲價更多",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "MLCC缺料持續漲價"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
     {
       "code": "2492",
       "name": "華新科",
@@ -53382,6 +53705,29 @@
     {
       "code": "8096",
       "name": "擎亞",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "WL",
+      "host": null,
+      "sector": "HBM通路",
+      "quote": "擎亞接下來營收都會創高，美超微HBM要跟三星拿配額只能透過擎亞",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "美超微HBM訂單須透過擎亞取得三星配額",
+        "營收創高"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "8096",
+      "name": "擎亞",
       "date": "2026-07-02",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -54905,6 +55251,30 @@
     {
       "code": "2409",
       "name": "友達",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "玻璃基板/CoPoS",
+      "quote": "友達已聯繫台積RD做玻璃基板，小產線與台積合作驗證中；友達2022年就在開發micro led，傳幫OpenAI生產micro led手持裝置，量產可觀；CoPoS架構中友達負責TGV",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "玻璃基板與台積合作",
+        "OpenAI micro led手持裝置代工傳聞",
+        "CoPoS供應鏈TGV角色"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
+    },
+    {
+      "code": "2409",
+      "name": "友達",
       "date": "2026-07-07",
       "source_type": "meeting",
       "source_page": "20260707_樂林",
@@ -56292,6 +56662,55 @@
       "parsed_at": "2026-07-03T22:52:14"
     }
   ],
+  "1709": [
+    {
+      "code": "1709",
+      "name": "和益",
+      "date": "2026-07-06",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Lawrence",
+      "host": null,
+      "sector": "特化",
+      "quote": "Lawrence周報：1709和益波段也把資金卡進去",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "波段資金卡位"
+      ],
+      "customers": [],
+      "sentiment": "多",
+      "holding": "",
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-06T22:14:12"
+    }
+  ],
+  "3015": [
+    {
+      "code": "3015",
+      "name": "全漢",
+      "date": "2026-07-06",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Lawrence",
+      "host": null,
+      "sector": "電源",
+      "quote": "Lawrence周報：3015全漢也準備過高，最近PSU有在傳漲價",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "準備過高",
+        "PSU傳漲價"
+      ],
+      "customers": [],
+      "sentiment": "多",
+      "holding": "",
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-06T22:14:12"
+    }
+  ],
   "4540": [
     {
       "code": "4540",
@@ -56307,30 +56726,6 @@
       "eps_est": null,
       "catalysts": [
         "AMZN機器人獨供"
-      ],
-      "customers": [],
-      "sentiment": "多",
-      "holding": "",
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-07-06T22:14:12"
-    }
-  ],
-  "7853": [
-    {
-      "code": "7853",
-      "name": "政美應用",
-      "date": "2026-07-06",
-      "source_type": "daily",
-      "source_page": "2026-07_廢想法_monthly",
-      "speaker": "Lawrence",
-      "host": null,
-      "sector": "半導體設備",
-      "quote": "Lawrence周報：後段設備共識逐漸回來，禮拜五政美的法說對後續後段規模增加也很樂觀",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "法說對後段規模樂觀"
       ],
       "customers": [],
       "sentiment": "多",
@@ -56365,6 +56760,30 @@
       "parsed_at": "2026-07-06T22:14:12"
     }
   ],
+  "6409": [
+    {
+      "code": "6409",
+      "name": "旭隼",
+      "date": "2026-07-06",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Lawrence",
+      "host": null,
+      "sector": "UPS/逆變器",
+      "quote": "Lawrence周報：旭準6409最近炒UPS還有逆變器美國禁令",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "UPS/逆變器美國禁令題材"
+      ],
+      "customers": [],
+      "sentiment": "多",
+      "holding": "",
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-06T22:14:12"
+    }
+  ],
   "7751": [
     {
       "code": "7751",
@@ -56389,21 +56808,21 @@
       "parsed_at": "2026-07-06T22:14:12"
     }
   ],
-  "1709": [
+  "7853": [
     {
-      "code": "1709",
-      "name": "和益",
+      "code": "7853",
+      "name": "政美應用",
       "date": "2026-07-06",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
       "speaker": "Lawrence",
       "host": null,
-      "sector": "特化",
-      "quote": "Lawrence周報：1709和益波段也把資金卡進去",
+      "sector": "半導體設備",
+      "quote": "Lawrence周報：後段設備共識逐漸回來，禮拜五政美的法說對後續後段規模增加也很樂觀",
       "tp": null,
       "eps_est": null,
       "catalysts": [
-        "波段資金卡位"
+        "法說對後段規模樂觀"
       ],
       "customers": [],
       "sentiment": "多",
@@ -56438,53 +56857,77 @@
       "parsed_at": "2026-07-06T22:14:12"
     }
   ],
-  "6409": [
+  "3135": [
     {
-      "code": "6409",
-      "name": "旭隼",
-      "date": "2026-07-06",
+      "code": "3135",
+      "name": "凌航",
+      "date": "2026-07-08",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
-      "speaker": "Lawrence",
+      "speaker": "WL",
       "host": null,
-      "sector": "UPS/逆變器",
-      "quote": "Lawrence周報：旭準6409最近炒UPS還有逆變器美國禁令",
+      "sector": "半導體通路",
+      "quote": "凌航跟至上都爆了拿不到貨",
       "tp": null,
       "eps_est": null,
       "catalysts": [
-        "UPS/逆變器美國禁令題材"
+        "訂單滿載缺貨"
       ],
       "customers": [],
-      "sentiment": "多",
-      "holding": "",
-      "code_source": "explicit",
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
       "validated": true,
-      "parsed_at": "2026-07-06T22:14:12"
+      "parsed_at": "2026-07-08T23:46:38"
     }
   ],
-  "3015": [
+  "3714": [
     {
-      "code": "3015",
-      "name": "全漢",
-      "date": "2026-07-06",
+      "code": "3714",
+      "name": "富采",
+      "date": "2026-07-08",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
-      "speaker": "Lawrence",
+      "speaker": null,
       "host": null,
-      "sector": "電源",
-      "quote": "Lawrence周報：3015全漢也準備過高，最近PSU有在傳漲價",
+      "sector": "CoPoS/Micro LED",
+      "quote": "CoPoS架構中micro led是富采負責",
       "tp": null,
       "eps_est": null,
       "catalysts": [
-        "準備過高",
-        "PSU傳漲價"
+        "CoPoS supply chain micro led角色"
       ],
       "customers": [],
-      "sentiment": "多",
-      "holding": "",
-      "code_source": "explicit",
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
       "validated": true,
-      "parsed_at": "2026-07-06T22:14:12"
+      "parsed_at": "2026-07-08T23:46:38"
+    }
+  ],
+  "8112": [
+    {
+      "code": "8112",
+      "name": "至上",
+      "date": "2026-07-08",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "WL",
+      "host": null,
+      "sector": "半導體通路",
+      "quote": "美超微要從至上轉單，凌航跟至上都爆了拿不到貨",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "美超微轉單挹注",
+        "訂單滿載拿不到貨"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-08T23:46:38"
     }
   ],
   "6456": [
