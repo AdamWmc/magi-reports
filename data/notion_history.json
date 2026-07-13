@@ -4351,6 +4351,26 @@
     {
       "code": "2455",
       "name": "全新",
+      "date": "2026-07-09",
+      "code_source": "name_exact",
+      "speaker": "ANN",
+      "sector": "化合物半導體",
+      "quote": "ANN推南電 全新",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
+    {
+      "code": "2455",
+      "name": "全新",
       "date": "2026-07-08",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -34002,6 +34022,28 @@
     {
       "code": "2426",
       "name": "鼎元",
+      "date": "2026-07-09",
+      "code_source": "name_exact",
+      "speaker": "Derrick",
+      "sector": "光電二極體",
+      "quote": "友達的切入點是 他有富采提供micro LED 鼎元提供PD 然後他做玻璃基板封裝",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "提供 PD（光電二極體）給友達 Micro LED optical module"
+      ],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
+    {
+      "code": "2426",
+      "name": "鼎元",
       "date": "2026-06-23",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -48197,6 +48239,31 @@
     {
       "code": "3090",
       "name": "日電貿",
+      "date": "2026-07-09",
+      "code_source": "name_exact",
+      "speaker": "Frank Lin",
+      "sector": "被動元件通路",
+      "quote": "日電貿 2026 18-20% AI server up from 1600-3000。MLCC 數量增加11% 溶質多30%，2027 單位用量增加兩倍容值多5倍。目前TPU NVDA都還沒量產 但是現在就很缺了。MLCC 擴產不會多 爆炸成長缺料最難解。下半年獲利會很明顯增長 也許下半年看起來我們有可能是trade at 低個位數PE。2018 只缺MLCC now 只要電容都是缺",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "AI server 2026 出貨 1600→3000台，佔比18-20%",
+        "MLCC/電容全面缺料，擴產有限",
+        "下半年獲利明顯增長，可能trade at 低個位數PE",
+        "2027 單位用量增兩倍、容值多5倍"
+      ],
+      "sentiment": "積極看多",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
+    {
+      "code": "3090",
+      "name": "日電貿",
       "date": "2026-07-08",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -53758,6 +53825,30 @@
     {
       "code": "8039",
       "name": "台虹",
+      "date": "2026-07-13",
+      "code_source": "name_exact",
+      "speaker": null,
+      "sector": "PTFE/軟板材料",
+      "quote": "問元太台虹: 生益那邊第一關有驗證通過，用生益的PTFE搭配台虹PP，下一層驗證是測試28~32層板，但PP不是台虹的主力，台虹的PTFE還在欣興驗。台虹二供 一供是生益。要搞PTFE但應該是下一代的M10。／Rex：PTFE根本就不可能 加工不容易 比Q布還難 Ptfe要全部綁死在台虹？Nv也沒這麼傻吧",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "生益PTFE搭台虹PP第一關驗證通過，下一關測28~32層板",
+        "台虹PTFE仍在欣興驗證中，非主力產品",
+        "Rex反駁：PTFE加工難度高於Q布，NV不可能全綁台虹"
+      ],
+      "sentiment": "中性",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
       "date": "2026-06-30",
       "source_type": "daily",
       "source_page": "2026-06_廢想法_monthly",
@@ -55273,6 +55364,34 @@
     }
   ],
   "8096": [
+    {
+      "code": "8096",
+      "name": "擎亞",
+      "date": "2026-07-13",
+      "code_source": "explicit",
+      "speaker": "WL",
+      "sector": "IC通路/記憶體代理",
+      "quote": "擎亞 好像至上代理權被拔了 變成擎亞是唯一 凌航也拿不到貨 台積要跟三星拿 只能透過擎亞 長約下四年。整個CBAS轉換成本落在164塊，加上30%以上的獲利 至少股價也要到213塊。搭配未來半年月營收＋同業轉單＋台積電訂單翻倍 明年EPS 25-30，今年也會有15塊 而且上半年才賺2塊 後面財報會驚艷。這個股價至少250以上才合理 350也不算太貴",
+      "tp": "250",
+      "eps_est": {
+        "2026": "15",
+        "2027": "25"
+      },
+      "catalysts": [
+        "傳至上HBM代理權被拔、擎亞成唯一代理（至上財務長否認）",
+        "台積電為資料中心向三星拿記憶體，簽四年長約",
+        "美超微轉單、至上/凌航拿不到貨",
+        "CBAS轉換成本164元"
+      ],
+      "sentiment": "積極看多",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
     {
       "code": "8096",
       "name": "擎亞",
@@ -56881,6 +57000,26 @@
     }
   ],
   "2409": [
+    {
+      "code": "2409",
+      "name": "友達",
+      "date": "2026-07-13",
+      "code_source": "name_exact",
+      "speaker": "黃老師",
+      "sector": "面板/玻璃基板",
+      "quote": "黃老師:友達（附圖）",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
     {
       "code": "2409",
       "name": "友達",
@@ -58699,6 +58838,28 @@
     {
       "code": "3714",
       "name": "富采",
+      "date": "2026-07-09",
+      "code_source": "name_exact",
+      "speaker": "Derrick",
+      "sector": "LED/Micro LED",
+      "quote": "CoPoS 只知道 友達負責 TGV, PD是前鼎, micro led 是富采跟奈創／友達的切入點是 他有富采提供micro LED 鼎元提供PD 然後他做玻璃基板封裝",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "提供 Micro LED 給友達 CoPoS / optical module 封裝"
+      ],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
+    {
+      "code": "3714",
+      "name": "富采",
       "date": "2026-07-08",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -58720,6 +58881,29 @@
     }
   ],
   "8112": [
+    {
+      "code": "8112",
+      "name": "至上",
+      "date": "2026-07-13",
+      "code_source": "name_exact",
+      "speaker": null,
+      "sector": "IC通路",
+      "quote": "好像至上代理權被拔了 變成擎亞是唯一／百億大戶:朋友剛問至上財務長，他們根本沒有被拔HBM代理權／凌航跟至上都爆了 拿不到貨",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "傳HBM代理權被拔（公司財務長否認）",
+        "傳美超微自至上轉單"
+      ],
+      "sentiment": "看空",
+      "holding": false,
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "host": null,
+      "customers": [],
+      "validated": true,
+      "parsed_at": "2026-07-13T21:50:45"
+    },
     {
       "code": "8112",
       "name": "至上",
