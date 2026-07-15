@@ -7795,6 +7795,31 @@
     "parsed_at": "2026-07-14T21:15:49"
   },
   {
+    "code": "1303",
+    "name": "南亞",
+    "date": "2026-07-14",
+    "source_type": "meeting",
+    "source_page": "20260714_愛德恩",
+    "speaker": null,
+    "host": "愛德恩",
+    "sector": "玻纖/化工",
+    "quote": "E glass今年漲幅ytd50%現在交期兩個月只剩下南亞。下半年毛利率有機會跳到20多%。下半年一季賺5塊不是不可能。明年賺20塊是很保守的預估。",
+    "tp": null,
+    "eps_est": {
+      "2027": "20"
+    },
+    "catalysts": [
+      "E glass供給吃緊，交期兩個月僅南亞能供貨",
+      "下半年毛利率跳升至20%以上"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-15T22:02:00"
+  },
+  {
     "code": "2303",
     "name": "聯電",
     "date": "2026-07-14",
@@ -7863,6 +7888,30 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-07-14T21:15:49"
+  },
+  {
+    "code": "2313",
+    "name": "華通",
+    "date": "2026-07-14",
+    "source_type": "meeting",
+    "source_page": "20260714_愛德恩",
+    "speaker": null,
+    "host": "愛德恩",
+    "sector": "PCB/光模塊",
+    "quote": "昨天有小場。上修資本支出到300e。光模塊有三個方向，可插拔、fau、npo/xpu。一個月10e光模塊營收。明年每個月30e營收。800g以上的交換機都要用到msap，跟蘋果談漲價，但蘋果不給他漲價，年底會再談一次，如果不會給他漲的話就會轉去做光模塊。Fau asp>可插拔>蘋果msap",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "資本支出上修至300億",
+      "光模塊月營收明年看30億（現月10億）",
+      "與蘋果MSAP漲價談判，年底再議"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-15T22:02:00"
   },
   {
     "code": "2330",
@@ -7989,6 +8038,50 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-14T21:15:49"
+  },
+  {
+    "code": "3167",
+    "name": "大量",
+    "date": "2026-07-14",
+    "source_type": "meeting",
+    "source_page": "20260714_愛德恩",
+    "speaker": null,
+    "host": "愛德恩",
+    "sector": "光模塊",
+    "quote": "上週小廠。去年光模塊占比10%今年50%，明年100",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "光模塊營收占比快速攀升，明年上看全占"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-15T22:02:00"
+  },
+  {
+    "code": "3211",
+    "name": "順達",
+    "date": "2026-07-14",
+    "source_type": "meeting",
+    "source_page": "20260714_愛德恩",
+    "speaker": null,
+    "host": "愛德恩",
+    "sector": "電池模組",
+    "quote": "接下來aws、meta開始出。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS、Meta訂單即將出貨"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-15T22:02:00"
   },
   {
     "code": "3374",
@@ -8339,6 +8432,32 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-14T21:15:49"
+  },
+  {
+    "code": "8046",
+    "name": "南電",
+    "date": "2026-07-14",
+    "source_type": "meeting",
+    "source_page": "20260714_愛德恩",
+    "speaker": null,
+    "host": "愛德恩",
+    "sector": "ABF載板",
+    "quote": "Q2 gm本來展望5%qoq，但現在說可以大於這個幅度。現在產能滿了營收不太會有太大成長，但asp成長。GM BT本來比較低，只有個位數、ABF比較高有到30%+，但明年可以往50%去走。明年65~70",
+    "tp": "2000",
+    "eps_est": {
+      "2027": "65~70"
+    },
+    "catalysts": [
+      "Q2毛利率優於原展望",
+      "ASP持續成長",
+      "ABF毛利率明年上看50%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-15T22:02:00"
   },
   {
     "code": "8064",
