@@ -337,6 +337,26 @@
     {
       "code": "2303",
       "name": "聯電",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "環球晶 聯電 雙鍵 大量 創意 少年股神現在有這些",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
       "date": "2026-07-13",
       "source_type": "meeting",
       "source_page": "20260713_駿羽",
@@ -12265,6 +12285,26 @@
     {
       "code": "3443",
       "name": "創意",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "IC設計服務",
+      "quote": "環球晶 聯電 雙鍵 大量 創意 少年股神現在有這些",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
       "date": "2026-07-13",
       "source_type": "meeting",
       "source_page": "20260713_駿羽",
@@ -16901,6 +16941,26 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-07-14T21:15:49"
+    },
+    {
+      "code": "3167",
+      "name": "大量",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "環球晶 聯電 雙鍵 大量 創意 少年股神現在有這些",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
     },
     {
       "code": "3167",
@@ -23992,6 +24052,31 @@
     {
       "code": "8150",
       "name": "南茂",
+      "date": "2026-07-16",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "阿威(趙君威)",
+      "host": null,
+      "sector": "封測",
+      "quote": "8150法說 第二季財報數字不錯 8/11公告 之後還會漲價 明年6.8 目標價150元 簡短的小作文",
+      "tp": "150",
+      "eps_est": {
+        "2027": "6.8"
+      },
+      "catalysts": [
+        "法說財報不錯",
+        "後續漲價"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "8150",
+      "name": "南茂",
       "date": "2026-07-14",
       "source_type": "meeting",
       "source_page": "20260714_駿羽",
@@ -27633,6 +27718,33 @@
       "customers": [],
       "validated": true,
       "parsed_at": "2026-07-13T21:48:45"
+    },
+    {
+      "code": "4958",
+      "name": "臻鼎-KY",
+      "date": "2026-07-13",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "PCB/載板",
+      "quote": "臻鼎近期在 NV Google AI Server PCB 的份額擴大，ABF/BT載板稼動率持續提升...2025-2027年的EPS CAGR 超過 100%...預估 2026F、2027F 營收 2,064 億元、3,008 億元，EPS 15.54、30.28 元。以 2027F EPS 給 30 P/E，TP 908",
+      "tp": "908",
+      "eps_est": {
+        "2026": "15.54",
+        "2027": "30.28"
+      },
+      "catalysts": [
+        "AI Server份額擴大",
+        "ABF/BT載板稼動率提升",
+        "切入AWS PCB板材"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
     },
     {
       "code": "4958",
@@ -32520,6 +32632,46 @@
     {
       "code": "4764",
       "name": "雙鍵",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "環球晶 聯電 雙鍵 大量 創意 少年股神現在有這些",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "4764",
+      "name": "雙鍵",
+      "date": "2026-07-13",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "雙鍵",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "4764",
+      "name": "雙鍵",
       "date": "2026-07-06",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -35950,6 +36102,26 @@
     {
       "code": "6488",
       "name": "環球晶",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "矽晶圓",
+      "quote": "環球晶 聯電 雙鍵 大量 創意 少年股神現在有這些",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "6488",
+      "name": "環球晶",
       "date": "2026-07-13",
       "source_type": "meeting",
       "source_page": "20260713_駿羽",
@@ -36497,6 +36669,28 @@
     }
   ],
   "8069": [
+    {
+      "code": "8069",
+      "name": "元太",
+      "date": "2026-07-20",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "電子紙",
+      "quote": "8069全年13億美 GM 54%~55% EPS 10.3-10.6",
+      "tp": null,
+      "eps_est": {
+        "2026": "10.3-10.6"
+      },
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
     {
       "code": "8069",
       "name": "元太",
@@ -42006,6 +42200,28 @@
     }
   ],
   "6223": [
+    {
+      "code": "6223",
+      "name": "旺矽",
+      "date": "2026-07-20",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "探針卡",
+      "quote": "旺矽要漲價 CPC-全面20-50, VPC局部",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "漲價"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
     {
       "code": "6223",
       "name": "旺矽",
@@ -56223,6 +56439,26 @@
     {
       "code": "6770",
       "name": "力積電",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "力積電法說會講成熟製程講很好",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "6770",
+      "name": "力積電",
       "date": "2026-07-08",
       "source_type": "meeting",
       "source_page": "20260708_駿羽",
@@ -57021,6 +57257,29 @@
     {
       "code": "1303",
       "name": "南亞",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL",
+      "quote": "南亞剛剛在 JPM 論壇聲稱M9.M10已順利出貨，目前測試進度一切穩定，今明年又靠一條龍CCL壟斷中低階市場。",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "M9/M10順利出貨",
+        "CCL中低階市場壟斷"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "1303",
+      "name": "南亞",
       "date": "2026-07-13",
       "source_type": "meeting",
       "source_page": "20260713_駿羽",
@@ -57596,6 +57855,28 @@
     {
       "code": "8039",
       "name": "台虹",
+      "date": "2026-07-20",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/覆銅箔",
+      "quote": "8039 8/7 收盤後8069會重訊過30e 投資",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "8069元太重訊過3億元投資"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
       "date": "2026-07-16",
       "source_type": "meeting",
       "source_page": "20260716_駿羽",
@@ -57701,6 +57982,28 @@
       "customers": [],
       "validated": true,
       "parsed_at": "2026-07-13T21:50:45"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "date": "2026-07-13",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Rex/Sunny",
+      "host": null,
+      "sector": "CCL",
+      "quote": "10:59 Rex PTFE根本就不可能 11:00 Sunny PTFE加工不容易吧 11:01 Rex Ptfe要全部綁死在台虹？Nv也沒這麼傻吧",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "PTFE獨供疑慮遭質疑"
+      ],
+      "customers": [],
+      "sentiment": "看空",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
     },
     {
       "code": "8039",
@@ -58225,6 +58528,26 @@
     {
       "code": "3374",
       "name": "精材",
+      "date": "2026-07-14",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "忠哥",
+      "host": null,
+      "sector": "封測",
+      "quote": "3374精材 忠哥叫黛安娜信他一次,說會到1000",
+      "tp": "1000",
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "3374",
+      "name": "精材",
       "date": "2026-07-13",
       "code_source": "explicit",
       "speaker": null,
@@ -58293,6 +58616,30 @@
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-07-14T21:15:49"
+    },
+    {
+      "code": "3374",
+      "name": "精材",
+      "date": "2026-07-13",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "封測",
+      "quote": "3374 精材與tsmc 的潛在討論案，如果八月份在雙方的董事會通過...精材變成是一個一年EPS 25元的公司，股價如果30倍，就是750元。當然這個WOS 貢獻要2027 下半年才開始，2028 開始大量貢獻",
+      "tp": "750",
+      "eps_est": {
+        "2027": "25"
+      },
+      "catalysts": [
+        "台積電OSAT WOS潛在技轉合作"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
     },
     {
       "code": "3374",
@@ -63305,6 +63652,26 @@
     {
       "code": "6141",
       "name": "柏承",
+      "date": "2026-07-16",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "patrick",
+      "host": null,
+      "sector": "光通",
+      "quote": "6141(光通概念)、6957、6467三檔，現在當下閉著眼睛買 半年後三倍應該有",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "6141",
+      "name": "柏承",
       "date": "2026-07-15",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -63345,6 +63712,26 @@
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-07-16T22:19:25"
+    },
+    {
+      "code": "6467",
+      "name": "泰合",
+      "date": "2026-07-16",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "patrick",
+      "host": null,
+      "sector": null,
+      "quote": "6141(光通概念)、6957、6467三檔，現在當下閉著眼睛買 半年後三倍應該有",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
     },
     {
       "code": "6467",
@@ -63393,6 +63780,26 @@
     {
       "code": "6957",
       "name": "裕慶-KY",
+      "date": "2026-07-16",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "patrick",
+      "host": null,
+      "sector": null,
+      "quote": "6141(光通概念)、6957、6467三檔，現在當下閉著眼睛買 半年後三倍應該有",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
+    },
+    {
+      "code": "6957",
+      "name": "裕慶-KY",
       "date": "2026-07-15",
       "source_type": "daily",
       "source_page": "2026-07_廢想法_monthly",
@@ -63436,6 +63843,28 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-07-16T22:19:25"
+    },
+    {
+      "code": "1708",
+      "name": "東鹼",
+      "date": "2026-07-16",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "Johnny(金儀)",
+      "host": null,
+      "sector": null,
+      "quote": "東鹼 12:23 巴斯夫推我 連虧五季現在開始賺錢連續 他一年推我一次，說會漲兩倍 參考",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "連續虧損後轉盈"
+      ],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-20T21:48:37"
     }
   ],
   "6456": [
