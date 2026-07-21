@@ -4590,5 +4590,140 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-20T21:48:37"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "code_source": "explicit",
+    "speaker": "猴相印",
+    "host": null,
+    "sector": null,
+    "quote": "猴相印 買2327 300張",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "sentiment": "買進",
+    "holding": true,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "customers": [],
+    "validated": true,
+    "parsed_at": "2026-07-21T22:09:05"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "code_source": "explicit",
+    "speaker": null,
+    "host": null,
+    "sector": "ASIC/IC設計",
+    "quote": "2454 update; over positive upside from ASIC 2Q26 GM 46.2%(vs BBG 46.3%) OPM 15.3% EPS 15(vs BBG 13.6); 3Q26 Revenue qoq flattish GM 46.2%; 4Q26 Revenue +40-45% qoq GM 44-46% OPM 18-19%; ASIC 4Q26 2bn，Google要求出3bn但因缺載版只能出2bn，2027看18-20bn",
+    "tp": "",
+    "eps_est": {
+      "2Q26": "15"
+    },
+    "catalysts": [
+      "ASIC營收優於預期上調",
+      "2027 ASIC出貨看18-20bn",
+      "毛利率/營益率優於BBG共識"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "customers": [],
+    "validated": true,
+    "parsed_at": "2026-07-21T22:09:05"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "code_source": "explicit",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "ASIC",
+    "quote": "08:40 Rex 第四季本來Google 要求發哥做3億 後來缺載版 只能做2億",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "Google第四季訂單因缺載板從3億下修至2億"
+    ],
+    "sentiment": "中性偏空",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "customers": [],
+    "validated": true,
+    "parsed_at": "2026-07-21T22:09:05"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "code_source": "explicit",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "載板",
+    "quote": "08:40 Rex 載版3037缺口單Google 就缺50%",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "載板供給缺口，Google訂單缺口達50%"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "customers": [],
+    "validated": true,
+    "parsed_at": "2026-07-21T22:09:05"
+  },
+  {
+    "code": "6805",
+    "name": "富世達",
+    "code_source": "explicit",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": null,
+    "quote": "6805應該很便宜了 等公司出來做多",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "股價評價已偏低"
+    ],
+    "sentiment": "等待做多",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "customers": [],
+    "validated": true,
+    "parsed_at": "2026-07-21T22:09:05"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "code_source": "explicit",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "材料/PTFE",
+    "quote": "聽說PTFE是老黃指定 所以一直很積極在測 好像最近有克服太軟的瓶頸 C哥(cliff)也說要看8039",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "PTFE材料傳為老黃(Nvidia)指定測試",
+      "傳已克服材料太軟的技術瓶頸"
+    ],
+    "sentiment": "觀察/正面關注",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "customers": [],
+    "validated": true,
+    "parsed_at": "2026-07-21T22:09:05"
   }
 ]
