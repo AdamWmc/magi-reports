@@ -4612,6 +4612,27 @@
     "parsed_at": "2026-07-21T22:09:05"
   },
   {
+    "code": "2327",
+    "name": "國巨*",
+    "code_source": "alias",
+    "speaker": "Frank lin",
+    "host": null,
+    "sector": "被動元件",
+    "quote": "2327上修說第三季被動坦電漲價15-25%",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "第三季鉭質電容漲價15-25%"
+    ],
+    "sentiment": "看多",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
     "code": "2454",
     "name": "聯發科",
     "code_source": "explicit",
@@ -4660,6 +4681,50 @@
     "parsed_at": "2026-07-21T22:09:05"
   },
   {
+    "code": "2454",
+    "name": "聯發科",
+    "code_source": "alias",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "ASIC",
+    "quote": "第四季本來Google要求發哥做3億 後來缺載版 只能做2億",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "Q4 Google原要求出貨3億顆ASIC，因載板缺料只能出2億顆"
+    ],
+    "sentiment": "中性偏空(供給瓶頸限制出貨)",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "2492",
+    "name": "華新科",
+    "code_source": "name_exact",
+    "speaker": null,
+    "host": null,
+    "sector": "被動元件/MLCC",
+    "quote": "2492：漲價信幅度大概10-15% 第三季生效，預計第四季還會再漲。針對高容MLCC停止報價。明年25",
+    "tp": null,
+    "eps_est": {
+      "2027": "25"
+    },
+    "catalysts": [
+      "Q3 MLCC漲價10-15%，Q4持續調漲，高容MLCC停止報價"
+    ],
+    "sentiment": "看多",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
     "code": "3037",
     "name": "欣興",
     "code_source": "explicit",
@@ -4680,6 +4745,27 @@
     "customers": [],
     "validated": true,
     "parsed_at": "2026-07-21T22:09:05"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "code_source": "alias",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "ABF載板",
+    "quote": "載板3037缺口單Google就缺50%",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "載板產能吃緊，光是Google一家需求缺口就達50%"
+    ],
+    "sentiment": "看多(產能供不應求)",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
     "code": "6805",
@@ -4727,6 +4813,27 @@
     "parsed_at": "2026-07-21T22:09:05"
   },
   {
+    "code": "8054",
+    "name": "安國",
+    "code_source": "name_exact",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "安國的CB發出去了",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "可轉債(CB)已發行"
+    ],
+    "sentiment": "中性",
+    "holding": false,
+    "date": "2026-07-21",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
     "code": "2330",
     "name": "台積電",
     "date": "2026-07-22",
@@ -4750,6 +4857,48 @@
     "parsed_at": "2026-07-22T21:08:51.827042"
   },
   {
+    "code": "2330",
+    "name": "台積電",
+    "code_source": "alias",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "一個八卦 上禮拜特斯拉30多個人到台積開會要wafer但台積一片都不給 Elon很不爽，這個意思就是三星又又又又要delay了",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "特斯拉團隊到台積電要求晶圓遭拒，顯示產能吃緊、議價力強"
+    ],
+    "sentiment": "看多",
+    "holding": false,
+    "date": "2026-07-22",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "code_source": "alias",
+    "speaker": "峰哥",
+    "host": null,
+    "sector": "IC設計",
+    "quote": "峰哥說MTK跟GUC的法說都不會吹，聯發科要等下一季才會講好",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "本季法說不會強調亮點，需等下一季才會釋出好消息"
+    ],
+    "sentiment": "中性偏保守",
+    "holding": false,
+    "date": "2026-07-22",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
     "code": "3374",
     "name": "精材",
     "date": "2026-07-22",
@@ -4770,6 +4919,48 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-22T21:08:51.827042"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "code_source": "explicit",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "半導體封裝",
+    "quote": "我等8月第二個禮拜，3374加開臨時董事會的大戲",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "8月第二週將召開臨時董事會"
+    ],
+    "sentiment": "中性(觀望)",
+    "holding": false,
+    "date": "2026-07-22",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "code_source": "alias",
+    "speaker": "峰哥",
+    "host": null,
+    "sector": "ASIC/IC設計",
+    "quote": "創意想要殺下來讓張麗絲董事長買，創意明年2000億營收，15萬片的3nm投片，每一萬片貢獻120億",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "明年目標營收2000億，15萬片3nm投片，每萬片貢獻120億營收"
+    ],
+    "sentiment": "積極看多(長線)",
+    "holding": false,
+    "date": "2026-07-22",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
     "code": "8039",
@@ -4854,5 +5045,528 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-22T21:08:51.827042"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "code_source": "alias",
+    "speaker": "YC",
+    "host": null,
+    "sector": "CCL材料",
+    "quote": "不覺得台光電會驗榮科，但如果榮科HVLP4未來如果過了還是會漲",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "榮科HVLP4材料若通過驗證可能帶動相關股價"
+    ],
+    "sentiment": "中性",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "2455",
+    "name": "全新",
+    "code_source": "explicit",
+    "speaker": "小羊(轉述研究員)",
+    "host": null,
+    "sector": "化合物半導體代工",
+    "quote": "公司短期受惠AXTI InP基板放行，總共10000片會陸續放行...預期2H26毛利率有望明顯提升至接近50%以上...預估26/27/28年EPS分別為7.2/15/21.2元...給予40X2027EPS，TP600，7/30財報，7月光電子營收翻倍",
+    "tp": "600",
+    "eps_est": {
+      "2026": "7.2",
+      "2027": "15",
+      "2028": "21.2"
+    },
+    "catalysts": [
+      "受惠AXTI InP基板放行，2H26毛利率上看50%以上",
+      "InP基板供給偏緊，議價力提升",
+      "7/30財報，7月光電子營收估翻倍"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3081",
+    "name": "聯亞",
+    "code_source": "explicit",
+    "speaker": "小羊(轉述研究員)",
+    "host": null,
+    "sector": "光通訊/磊晶",
+    "quote": "光通龍頭，磊晶製造商，cw laser製程是做mocvd/ebeam和二次磊晶，70mw已開始出貨/3Q26開始出貨100mw給cloudlight，基板供應無虞(6月透過敏芯等從AXTI拿到15000片+Sumitomo長約用到2027年)...預估26/27/28 EPS 20/50/105，給予2027EPS*45，TP2250",
+    "tp": "2250",
+    "eps_est": {
+      "2026": "20",
+      "2027": "50",
+      "2028": "105"
+    },
+    "catalysts": [
+      "70mw雷射已出貨，100mw 3Q26起供貨Cloudlight",
+      "基板供應無虞(AXTI 15000片+Sumitomo長約至2027)",
+      "法說上修資本支出，MOCVD產能年增目標由20%上修至100%"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3231",
+    "name": "緯創",
+    "code_source": "explicit",
+    "speaker": "百億大戶朋友",
+    "host": null,
+    "sector": "AI伺服器",
+    "quote": "百億大戶朋友推3231 今年16 明年26",
+    "tp": null,
+    "eps_est": {
+      "2026": "16",
+      "2027": "26"
+    },
+    "catalysts": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "code_source": "explicit",
+    "speaker": "忠哥",
+    "host": null,
+    "sector": "半導體封裝",
+    "quote": "忠哥今天賣一半精材",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "sentiment": "減碼",
+    "holding": true,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "code_source": "explicit",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "半導體封裝",
+    "quote": "不知道是不是有人沒有上車？或者是空3374被嘎到，想把估股價打下來，今天也有人放3374的利空，我只能說不要理會",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "疑似空單回補嘎空，市場放出利空但建議不理會"
+    ],
+    "sentiment": "偏多(反駁利空)",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "code_source": "alias",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "ASIC",
+    "quote": "3661有世紀無敵潛在大利空",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "潛在重大利空(世紀無敵)"
+    ],
+    "sentiment": "看空",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "3715",
+    "name": "定穎投控",
+    "code_source": "explicit",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "PCB",
+    "quote": "跟3715一起做壞的",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "與4958同批爆板事件，但屬小問題"
+    ],
+    "sentiment": "中性",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4938",
+    "name": "和碩",
+    "code_source": "alias",
+    "speaker": "百億大戶",
+    "host": null,
+    "sector": "電子代工",
+    "quote": "和碩 百億大戶說有大的 可以考慮",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "傳有大單/大行情"
+    ],
+    "sentiment": "看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "code_source": "explicit",
+    "speaker": "YC",
+    "host": null,
+    "sector": "PCB",
+    "quote": "4958今天傳出爆版，不能說太多但真的有藥水問題，改要一季，但很正常因為測不到訊號，IC打上去才知道，勝宏也有這問題",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "傳出爆板/藥水問題，估計需一季修正"
+    ],
+    "sentiment": "偏空",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "code_source": "explicit",
+    "speaker": "強尼哥",
+    "host": null,
+    "sector": "PCB",
+    "quote": "4958傳板子出問題，楊博一起跌 (強尼哥:聽說要call回百萬片，還在確認)",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "傳聞要call回百萬片，仍在確認中"
+    ],
+    "sentiment": "偏空",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "code_source": "explicit",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "PCB",
+    "quote": "我問了Vivi跟GS PCB王子，王子說 小問題 很常見，而且跟3715一起做壞的，Vivi沒有影響",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "查證後為常見小問題，非重大影響"
+    ],
+    "sentiment": "中性偏正向(利空淡化)",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "code_source": "explicit",
+    "speaker": "Rex/Rubin",
+    "host": null,
+    "sector": "PCB",
+    "quote": "抓5萬櫃 一層1片 也才350萬 4958原先10%市占率 提高到20%，也沒有百萬片等級？",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "市占率估算由10%提高到20%，質疑百萬片說法誇大"
+    ],
+    "sentiment": "中性",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4991",
+    "name": "環宇-KY",
+    "code_source": "explicit",
+    "speaker": "小羊(轉述研究員)",
+    "host": null,
+    "sector": "光通訊/化合物半導體",
+    "quote": "環宇-KY為三五族化合物晶圓代工廠...6月透過全新拿到的一萬片基板已經拿到4500片，剩餘5500片基板已全數拿到出貨許可...100G PD訂單已經對客戶漲價15-30%...200G PD已開始量產,也將開始出貨中際旭創...預估26/27/28年EPS為9.2/28/70元...8/5會有法說會，建議可以陸續佈局，TP1100",
+    "tp": "1100",
+    "eps_est": {
+      "2026": "9.2",
+      "2027": "28",
+      "2028": "70"
+    },
+    "catalysts": [
+      "InP基板供給解禁，7月起每週可產200-300片100G PD",
+      "100G PD訂單對客戶漲價15-30%",
+      "200G PD開始量產並出貨中際旭創",
+      "8/5法說會"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "5475",
+    "name": "德宏",
+    "code_source": "explicit",
+    "speaker": "YC",
+    "host": null,
+    "sector": "PCB材料/Q布",
+    "quote": "Q布的故事沒有不見，5475的現增公說書一直沒出來，LPU也還沒拉貨才是問題，就算用PTFE目前路線看Q布還是會用",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "現增公說書遲遲未公布",
+      "LPU拉貨進度落後"
+    ],
+    "sentiment": "中性偏保留",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6182",
+    "name": "合晶",
+    "code_source": "explicit",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "那我覺得合晶可能還會受惠 增加6182下半年談價的bargaining power",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "受惠環球晶8吋產能受損，下半年議價力提升"
+    ],
+    "sentiment": "看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6187",
+    "name": "萬潤",
+    "code_source": "name_exact",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "萬潤有個前台積高層KEYman負責幫忙找台積裡面的人陪跑，跑去大量了",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "延攬前台積高層人脈協助對接台積電業務"
+    ],
+    "sentiment": "正向",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "code_source": "explicit",
+    "speaker": "YC",
+    "host": null,
+    "sector": "CCL材料",
+    "quote": "台光M6以下給南亞，M8有些做不完給6274，等產能開出來就會收回來自己做",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "承接台光電產能不足外溢訂單(M8等級)，但屬過渡性，台光產能開出後將收回"
+    ],
+    "sentiment": "中性偏空(長期訂單不穩)",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6488",
+    "name": "環球晶",
+    "code_source": "name_exact",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "環球經失火對環球晶來說12吋根本不影響。但情緒上應該會 義大利燒掉的是8吋 8吋月產能超過40萬片 佔集團8吋產能約25% 主要重摻片for車用",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "義大利廠火災僅影響8吋重摻車用晶圓(約占集團8吋產能25%)，12吋不受影響"
+    ],
+    "sentiment": "中性(情緒面偏空但基本面無虞)",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6831",
+    "name": "邁科",
+    "code_source": "explicit",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "散熱模組",
+    "quote": "7/28處置最後一天在大和有一場座談 / 6831",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "處置期最後一天(7/28)，大和證券同日辦座談"
+    ],
+    "sentiment": "中性",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "8021",
+    "name": "尖點",
+    "code_source": "explicit",
+    "speaker": "YC",
+    "host": null,
+    "sector": "PCB材料",
+    "quote": "尖點毛利率目前大約爬到4X%，狀況就很好沒變",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "毛利率維持4X%高檔"
+    ],
+    "sentiment": "正向",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "code_source": "explicit",
+    "speaker": "YC",
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "台虹找到台光幫忙，用台虹的PTFE上下壓台光的PP，PP材質會是用Q布...而且會從Switch開始，未來如果要上太空資料中心的話必須用PTFE，如果台光法說有講的話台虹還會漲，外面吹到28年30塊，其中25塊是PTFE用產能去抓滿亂推的，PTFE現在用156層板去送，26層*6去疊",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "與台光電合作PTFE+PP疊層製程，先從Switch應用起量",
+      "市場預期若台光法說提及PTFE，台虹股價將再受激勵"
+    ],
+    "sentiment": "積極看多",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "code_source": "explicit",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB材料",
+    "quote": "8039 8/7維持",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "sentiment": "中性",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "8358",
+    "name": "金居",
+    "code_source": "name_exact",
+    "speaker": "YC",
+    "host": null,
+    "sector": "銅箔基板材料",
+    "quote": "覺得金居是因為產能擴得太慢，客戶不想等直接驗其他間，殺PE，以前台灣人只覺得三井第一金居第二，但現在還有盧森堡跟德福驗過，台灣長春可能會驗",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "產能擴充太慢導致客戶轉單其他銅箔廠",
+      "盧森堡/德福已驗過，長春可能跟進驗證"
+    ],
+    "sentiment": "偏空",
+    "holding": false,
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "validated": true,
+    "parsed_at": "2026-07-23T22:38:15.731852"
   }
 ]
