@@ -10044,6 +10044,28 @@
     {
       "code": "2383",
       "name": "台光電",
+      "date": "2026-07-24",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/銅箔基板",
+      "quote": "是台光低下頭找台虹 很好笑的故事 我們老闆一直問 跟台光合作我們有什麼好處 後來台光只找到台虹的董事長",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "台光主動找台虹合作，董事長層級對談"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
+    },
+    {
+      "code": "2383",
+      "name": "台光電",
       "code_source": "alias",
       "speaker": "surf",
       "host": "駿宇",
@@ -40208,6 +40230,28 @@
     {
       "code": "3189",
       "name": "景碩",
+      "date": "2026-07-23",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "ABF載板",
+      "quote": "過去客人自己買設備放在我們家歷史上只發生兩次 2021年初第一次 現在第二次 唯有客人看到長期確定需求 他才會做這件事 我們不傾向LTA 更傾向客人自己買設備 承擔折舊（15% COGS)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "客戶自購設備而非LTA模式，反映長期需求確定"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
       "code_source": "name_exact",
       "speaker": "郁翔",
       "host": "樂林",
@@ -61117,6 +61161,28 @@
     {
       "code": "1303",
       "name": "南亞",
+      "date": "2026-07-23",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": "YC",
+      "host": null,
+      "sector": "CCL原料",
+      "quote": "南亞M9/M10都只是驗證還沒過，現在都拿台光的哪有產品給南亞出",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "M9/M10高階規格仍在驗證未過"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
+    },
+    {
+      "code": "1303",
+      "name": "南亞",
       "code_source": "explicit",
       "speaker": "Surf哥",
       "host": "駿宇",
@@ -62040,6 +62106,28 @@
     {
       "code": "8039",
       "name": "台虹",
+      "date": "2026-07-24",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/銅箔基板",
+      "quote": "看來台虹穩穩長期投資 1000應該是時間早晚",
+      "tp": "1000",
+      "eps_est": null,
+      "catalysts": [
+        "台光電與台虹長期合作關係確立"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
       "code_source": "name_exact",
       "speaker": "surf",
       "host": "駿宇",
@@ -62119,6 +62207,72 @@
       "source_page": "2026-07_廢想法_monthly",
       "validated": true,
       "parsed_at": "2026-07-23T22:38:15.731852"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "date": "2026-07-23",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/銅箔基板",
+      "quote": "生益已經過了，第一版沒過是因為他用自己的PP膠，後面過了是因為用了台虹的PP膠，有確認到亞電有送景旺，覺得以後台虹一年可以賺50塊以上，哪一年不知道",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "生益改用台虹PP膠通過驗證"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "date": "2026-07-23",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/銅箔基板",
+      "quote": "小台光電 50大概就2000元了 十倍股",
+      "tp": "2000",
+      "eps_est": null,
+      "catalysts": [
+        "EPS估50元支撐十倍股想像空間"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "date": "2026-07-23",
+      "source_type": "daily",
+      "source_page": "2026-07_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/銅箔基板",
+      "quote": "8039他們吵story 我們收完籌碼 也差不多驗證完開始貢獻 就可以坐火箭了",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "籌碼收集完成，驗證進度接近貢獻期"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-07-24T22:35:00"
     },
     {
       "code": "8039",
