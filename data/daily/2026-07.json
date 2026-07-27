@@ -5005,6 +5005,26 @@
     "parsed_at": "2026-07-22T21:08:51.827042"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-22",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "8039 8069 在講8/7要不要公布從市場買，老闆不想從市場買",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "8069",
     "name": "元太",
     "date": "2026-07-22",
@@ -5117,6 +5137,35 @@
     "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
+    "code": "2455",
+    "name": "全新",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "小羊",
+    "host": null,
+    "sector": "光通訊/磊晶代工",
+    "quote": "短期受惠AXTI InP基板放行，2H26毛利率有望提升至接近50%以上，前段MOCVD產能也可能逐步緊缺，7月光電子營收翻倍",
+    "tp": "600",
+    "eps_est": {
+      "2026": "7.2",
+      "2027": "15",
+      "2028": "21.2"
+    },
+    "catalysts": [
+      "AXTI InP基板放行毛利率提升",
+      "InP基板供給偏緊議價力提升",
+      "轉型CW laser/EML代工，7月光電子營收翻倍",
+      "7/30財報"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "3081",
     "name": "聯亞",
     "code_source": "explicit",
@@ -5144,6 +5193,34 @@
     "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
+    "code": "3081",
+    "name": "聯亞",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "小羊",
+    "host": null,
+    "sector": "光通訊",
+    "quote": "光通龍頭，磊晶製造商，70mw已開始出貨/3Q26開始出貨100mw給cloudlight，為台廠目前唯一穩定出貨雷射的上游公司",
+    "tp": "2250",
+    "eps_est": {
+      "2026": "20",
+      "2027": "50",
+      "2028": "105"
+    },
+    "catalysts": [
+      "MOCVD產能資本支出上修至年增100%",
+      "基板供應無虞(AXTI+Sumitomo長約至2027)",
+      "新曝光方式2027年底可量產"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "3189",
     "name": "景碩",
     "date": "2026-07-23",
@@ -5164,6 +5241,28 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-07-24T22:35:00"
+  },
+  {
+    "code": "3189",
+    "name": "景碩",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "IC載板",
+    "quote": "客人自己買設備放在我們家歷史上只發生兩次，唯有客人看到長期確定需求才會做，更傾向客人自己買設備承擔折舊(15% COGS)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "客戶自行購置設備顯示長期需求確定"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
   },
   {
     "code": "3231",
@@ -5375,6 +5474,48 @@
     "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "YC",
+    "host": null,
+    "sector": "PCB",
+    "quote": "4958今天傳出爆版，真的有藥水問題，改要一季，但很正常因為測不到訊號IC打上去才知道，勝宏也有這問題",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "傳出電路板爆版良率問題"
+    ],
+    "customers": [],
+    "sentiment": "謹慎",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "PCB",
+    "quote": "我問了Vivi跟GS PCB王子，王子說小問題很常見，Vivi沒有影響；抓5萬櫃一層1片也才350萬，4958原先10%市占率提高到20%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "4991",
     "name": "環宇-KY",
     "code_source": "explicit",
@@ -5401,6 +5542,34 @@
     "source_page": "2026-07_廢想法_monthly",
     "validated": true,
     "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "4991",
+    "name": "環宇-KY",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "小羊",
+    "host": null,
+    "sector": "光通訊",
+    "quote": "三五族化合物晶圓代工廠，6月透過全新拿到一萬片基板已拿4500片，剩5500片已全數拿到出貨許可，200G PD已量產出貨中際旭創，價格優於預期",
+    "tp": "1100",
+    "eps_est": {
+      "2026": "9.2",
+      "2027": "28",
+      "2028": "70"
+    },
+    "catalysts": [
+      "基板供給限制解除，7月起量產100G PD",
+      "200G PD出貨中際旭創單價優於預期",
+      "8/5法說會"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
   },
   {
     "code": "5475",
@@ -5444,6 +5613,28 @@
     "source_page": "2026-07_廢想法_monthly",
     "validated": true,
     "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6182",
+    "name": "合晶",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "合晶可能還會受惠，增加6182下半年談價的bargaining power",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "環球晶8吋廠燒毀，議價力提升"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
   },
   {
     "code": "6187",
@@ -5509,6 +5700,28 @@
     "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
+    "code": "6488",
+    "name": "環球晶",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "環球晶失火對12吋根本不影響，情緒上應該會，義大利燒掉的是8吋，8吋月產能超過40萬片佔集團8吋約25%，主要重摻片for車用",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "義大利8吋廠火警"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "6831",
     "name": "邁科",
     "code_source": "explicit",
@@ -5528,6 +5741,26 @@
     "source_page": "2026-07_廢想法_monthly",
     "validated": true,
     "parsed_at": "2026-07-23T22:38:15.731852"
+  },
+  {
+    "code": "6831",
+    "name": "邁科",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Frank Lin polymer",
+    "host": null,
+    "sector": null,
+    "quote": "7/28處置最後一天在大和有一場座談 6831",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
   },
   {
     "code": "8021",
@@ -5680,6 +5913,28 @@
     "parsed_at": "2026-07-23T22:38:15.731852"
   },
   {
+    "code": "8358",
+    "name": "金居",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "YC",
+    "host": null,
+    "sector": "銅箔",
+    "quote": "覺得金居是因為產能擴得太慢，客戶不想等直接驗其他間，殺PE",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "產能擴充緩慢，客戶轉單風險"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "2383",
     "name": "台光電",
     "date": "2026-07-24",
@@ -5702,6 +5957,26 @@
     "parsed_at": "2026-07-24T22:35:00"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-07-24",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB材料/CCL",
+    "quote": "是台光低下頭找台虹，老闆一直問跟台光合作我們有什麼好處",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
     "code": "8039",
     "name": "台虹",
     "date": "2026-07-24",
@@ -5722,5 +5997,151 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-24T22:35:00"
+  },
+  {
+    "code": "2308",
+    "name": "台達電",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "泰達電財報GM miss 3%，台達開出來可能也miss但IR已經出來消毒過",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "謹慎",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "創意聯發科大家覺得會上修，但大概率不會",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "3231",
+    "name": "緯創",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "緯創市場傳2Q5塊，但做不到",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "謹慎",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "3374 已簽約",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "已簽約"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "創意聯發科大家覺得會上修，但大概率不會",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "6669 2Q 8%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Q2獲利優於市場傳言"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
+  },
+  {
+    "code": "6831",
+    "name": "邁科",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Frank lin",
+    "host": null,
+    "sector": null,
+    "quote": "公司也承認了耶TPU got 明年這樣可以算到600",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "公司證實TPU代工題材"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-27T22:11:37"
   }
 ]
