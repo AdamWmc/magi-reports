@@ -6890,5 +6890,159 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "日本熊本M6.3地震(TSMC fab附近)，等fab實際影響回報；某廠全線報廢大概影響1.5B美金revenue。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "熊本地震衝擊fab,某廠全線報廢影響約1.5B美金營收"
+    ],
+    "customers": [],
+    "sentiment": "中性偏空",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱",
+    "quote": "奇鋐切進來取代富士康share 30%，VR明年AWS大概18K，單價約300鎂，對奇鋐貢獻約10億多，沒特別多。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS VR機殼新切入30% share,貢獻約10億+但幅度不算大"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "3665",
+    "name": "貿聯-KY",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "連接器/機殼",
+    "quote": "剩30%是貿聯併的安克。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "透過併購安克取得AWS VR機殼30% share"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "IC設計/影像處理",
+    "quote": "和Amazon採購大老闆開會問展望，6個月內還是看到很多缺料，公司展望沒問題，大家都在盡可能鎖住未來供應。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "缺料狀況持續6個月,客戶盡可能鎖住未來供應"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB材料",
+    "quote": "好像說8039營收七月掉很多所以先被賣，本業一般般甚至今年微幅衰退，但不影響鰻魚飯炒股決心。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "七月營收下滑先被賣,本業今年微幅衰退,可能有重訊記者會"
+    ],
+    "customers": [],
+    "sentiment": "中性偏空",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "電子紙",
+    "quote": "我們(8069 8039)可能會有重訊記者會。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "可能召開重訊記者會"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "8210",
+    "name": "勤誠",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器機殼",
+    "quote": "廣達在AWS明年VR機殼中，本來勤誠有60% share掉到40%。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS VR機殼share被奇鋐/貿聯瓜分,60%掉到40%"
+    ],
+    "customers": [],
+    "sentiment": "中性偏空",
+    "holding": false,
+    "code_source": "inferred",
+    "validated": true,
+    "parsed_at": "2026-07-29T22:11:26"
   }
 ]
