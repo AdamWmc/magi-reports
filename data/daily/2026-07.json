@@ -5089,6 +5089,26 @@
     "parsed_at": "2026-07-24T22:35:00"
   },
   {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "萬潤有個前台積高層KEYman負責幫忙找台積裡面的人陪跑，跑去大量了",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "2383",
     "name": "台光電",
     "code_source": "alias",
@@ -5177,6 +5197,28 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "YC",
+    "host": null,
+    "sector": "CCL/PTFE材料",
+    "quote": "PTFE大概NV從五六月開始想推，生益走的最前面，台虹找到台光幫忙，用台虹的PTFE上下壓台光的PP，如果台光法說有講的話台虹還會漲，外面吹到28年30塊",
+    "tp": 30,
+    "eps_est": null,
+    "catalysts": [
+      "PTFE材料題材，台虹與台光合作，2028年目標價傳言30元"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "2455",
     "name": "全新",
     "code_source": "explicit",
@@ -5260,6 +5302,50 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "2455",
+    "name": "全新",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "小羊",
+    "host": null,
+    "sector": "磊晶代工",
+    "quote": "公司短期受惠AXTI InP基板放行，總共10000片會陸續放行，這批基板幾乎都給環宇的，預期2H26毛利率有望明顯提升至接近50%以上。預估26/27/28年EPS分別為7.2/15/21.2元，給予40X2027EPS，TP600，7/30財報，7月光電子營收翻倍",
+    "tp": 600,
+    "eps_est": 15,
+    "catalysts": [
+      "InP基板放行帶動毛利率提升至50%以上",
+      "CW laser+EML新客戶需求增加",
+      "7月光電子營收估翻倍"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "2493",
+    "name": "揚博",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "連接器",
+    "quote": "4958傳板子出問題，楊博一起跌",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "負向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "3081",
@@ -5459,6 +5545,28 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "3231",
+    "name": "緯創",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "伺服器組裝",
+    "quote": "百億大戶朋友推3231 今年16 明年26",
+    "tp": null,
+    "eps_est": 16,
+    "catalysts": [
+      "百億大戶朋友推薦，估今年EPS16、明年26"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "3374",
     "name": "精材",
     "code_source": "explicit",
@@ -5606,6 +5714,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "3715",
+    "name": "定穎投控",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "PCB",
+    "quote": "而且跟3715一起做壞的",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "4938",
@@ -5823,6 +5951,28 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Rex/強尼哥",
+    "host": null,
+    "sector": "PCB",
+    "quote": "4958傳板子出問題，楊博一起跌(強尼哥:聽說要call回百萬片，還在確認)。王子說小問題，很常見，而且跟3715一起做壞的，Vivi沒有影響。4958原先10%市占率提高到20%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "市占率傳由10%提高到20%"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "4991",
     "name": "環宇-KY",
     "code_source": "explicit",
@@ -5907,6 +6057,29 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "4991",
+    "name": "環宇-KY",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "小羊",
+    "host": null,
+    "sector": "光通訊/PD",
+    "quote": "三五族化合物晶圓代工廠，7月開始每周可生產200、300片100G PD，回推單季營收有望達10億以上，100G PD訂單已對客戶漲價15-30%，公司在PD市佔率70%。200G PD已開始量產(for cloudlight)，也將開始出貨中際旭創，單價達2美元以上。預估26/27/28年EPS為9.2/28/70元，8/5會有法說會，TP1100",
+    "tp": 1100,
+    "eps_est": 28,
+    "catalysts": [
+      "基板供給限制解除，100G PD訂單漲價15-30%",
+      "200G PD開始出貨中際旭創，單價優於預期"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "5475",
     "name": "德宏",
     "code_source": "explicit",
@@ -5950,6 +6123,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "5475",
+    "name": "德宏",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "YC",
+    "host": null,
+    "sector": "CCL/軟板材料",
+    "quote": "5475的現增公說書一直沒出來，LPU也還沒拉貨才是問題，就算用PTFE目前路線看Q布還是會用",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "6182",
@@ -6016,6 +6209,28 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "6182",
+    "name": "合晶",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "環球晶失火對環球晶來說12吋根本不影響。義大利燒掉的是8吋，8吋月產能超過40萬片，佔集團8吋產能約25%，主要重摻片for車用。那我覺得合晶可能還會受惠，增加6182下半年談價的bargaining power",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "環球晶義大利8吋廠火災，合晶下半年議價力提升"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "6187",
@@ -6103,6 +6318,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "YC",
+    "host": null,
+    "sector": "CCL/PCB材料",
+    "quote": "南亞M9/M10都只是驗證還沒過，現在都拿台光的哪有產品給南亞出，台光M6以下給南亞，M8有些做不完給6274，等產能開出來就會收回來自己做",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "6488",
@@ -6210,6 +6445,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "6831",
+    "name": "邁科",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Frank Lin polymer",
+    "host": null,
+    "sector": "",
+    "quote": "7/28處置最後一天在大和有一場座談，6831",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "8021",
@@ -6412,6 +6667,50 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "最近研究feyman的規格，PTFE最近是比較surprise的，NV的人說M10規格高機率就是PTFE為主，生益已經過了，後面過了是因為用了台虹的PP膠，覺得以後台虹一年可以賺50塊以上。8039他們吵story，我們收完籌碼，也差不多驗證完開始貢獻，就可以坐火箭了",
+    "tp": null,
+    "eps_est": 50,
+    "catalysts": [
+      "NV M10規格傳PTFE為主，台虹PP膠通過驗證，EPS展望上看50元以上"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-23",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "YC",
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "如果台光法說有講的話台虹還會漲，外面吹到28年30塊",
+    "tp": 30,
+    "eps_est": null,
+    "catalysts": [
+      "市場傳言2028年目標價30元"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "8358",
     "name": "金居",
     "code_source": "name_exact",
@@ -6543,6 +6842,28 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-07-24",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "軟板材料/CCL",
+    "quote": "是台光低下頭找台虹，很好笑的故事，後來台光只找到台虹的董事長，看來台虹穩穩長期投資，1000應該是時間早晚",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "台光電主動尋求台虹合作"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "8039",
     "name": "台虹",
     "date": "2026-07-24",
@@ -6629,6 +6950,28 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "中國生產DUV事件，DUV確實有機會~但關鍵零件還是要進口，下個月朋友會去華為上班再來問問真相是啥。而且沒有EUV 5nm以下還是不能做，台積還是穩",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "中國DUV自製傳聞，但EUV以下製程仍需進口關鍵零件，台積電護城河未受威脅"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "2454",
@@ -6802,6 +7145,28 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-07-27",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Frank lin",
+    "host": null,
+    "sector": "伺服器/ASIC",
+    "quote": "6669公司也承認了耶TPU got 明年這樣可以算到600",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "公司證實TPU相關訂單，明年展望可觀"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "6831",
     "name": "邁科",
     "date": "2026-07-27",
@@ -6847,6 +7212,28 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-07-28",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "Earthquake where TSMC's fabs are. News M6.3 QUAKE HITS JAPAN'S KUMAMOTO，全線報廢 大概影響1.5B revenue美金",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "熊本地震衝擊台積電熊本廠，全線報廢約影響15億美元營收"
+    ],
+    "customers": [],
+    "sentiment": "負向",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "8039",
     "name": "台虹",
     "date": "2026-07-28",
@@ -6868,6 +7255,28 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-07-28T23:05:46"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-28",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "我們(8069 8039)可能會有重訊記者會(重訊那天)，我往那個方向去推進",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "8039可能有重訊記者會"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "8069",
@@ -6892,6 +7301,50 @@
     "parsed_at": "2026-07-28T23:05:46"
   },
   {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-07-28",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "",
+    "quote": "好像說8039營收七月掉很多，所以先被賣。喔對他本業一般般，甚至今年微幅衰退，但不影響鰻魚飯炒股的決心。我們(8069 8039)可能會有重訊記者會",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "與8039同步可能有重訊記者會"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "2317",
+    "name": "鴻海",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "機殼/組裝",
+    "quote": "奇鋐切進來取代富士康share 30%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS VR機殼份額被奇鋐取代"
+    ],
+    "customers": [],
+    "sentiment": "負向",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "2330",
     "name": "台積電",
     "date": "2026-07-29",
@@ -6912,6 +7365,50 @@
     "code_source": "inferred",
     "validated": true,
     "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "2382",
+    "name": "廣達",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "伺服器機殼",
+    "quote": "廣達在AWS明年的VR機殼中，本來勤誠有60%share掉到40%，奇鋐切進來取代富士康share 30%，剩下30%是貿聯併的那間安克",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS VR機殼供應鏈份額變化"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "2493",
+    "name": "揚博",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "被動元件/連接器",
+    "quote": "22:42 Ed 今天到新竹跟2493揚博的人吃飯。業務處長說明年有20，負債合約有20億台幣。8/11揚博2026 2Q財報，合約負債比上一季再成長50%，大概會來到19億，2026Q1已達12.65億(季增約53%、年增約193%)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "合約負債季增53%、年增193%，展望持續成長"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   },
   {
     "code": "3017",
@@ -6980,6 +7477,28 @@
     "parsed_at": "2026-07-29T22:11:26"
   },
   {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "BMC/伺服器晶片",
+    "quote": "信驊：剛好我剛剛和Amazon採購大老闆開會，我有問他展望，他說目前6個月內還是看到很多缺料，公司的展望沒問題，大家都還在盡可能的鎖住未來的供應，越多越好",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Amazon採購端反饋6個月內仍缺料，供應鏈鎖料意願強"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
     "code": "8039",
     "name": "台虹",
     "date": "2026-07-29",
@@ -7044,5 +7563,155 @@
     "code_source": "inferred",
     "validated": true,
     "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "晶圓代工/矽電容",
+    "quote": "聯電補充一下（Ed) 華邦 si cap 3uF/mm2，愛普 si cap Gen4 3.8μF/mm² Gen3 2.5μF/mm²，innolight在三星開案應該是65 PIC，三星8吋有三座廠，目前關一座，預計改作HBM封裝廠。方向還是要關掉8吋廠，只能繼續觀察。記得台積DTC才1.5uF/mm2 or 2uF/mm2",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "矽電容技術規格比較"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "記得台積DTC才1.5uF/mm2 or 2uF/mm2",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "2344",
+    "name": "華邦電",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "矽電容",
+    "quote": "華邦 si cap 3uF/mm2",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "3189",
+    "name": "景碩",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "",
+    "quote": "侯相印買300張3189",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "半導體/CIS感光元件",
+    "quote": "精材的基本面就是一個台積電持股41%的公司，基本不會有財務的任何風險，一個今年2026 EPS賺7-8，明年2027賺12-14，後年2028 EPS賺20-25。目前因為去槓桿已經跌到明年forward PE 18-20，後年forward PE 10-12。",
+    "tp": null,
+    "eps_est": 8,
+    "catalysts": [
+      "台積電持股41%財務穩健",
+      "去槓桿後評價回落"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "WL",
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "台虹跟台光的合作意向簽了",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "台虹與台光合作意向書簽署"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-30",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "8069朋友",
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "台虹我授權是250內30億，市佔率我用8/12/20%分三年，但公司想要50%，股價會比我算得高出很多。我用20%大概800-1000，8%大概350，他可能是十倍股，機台目前進來了，應該明年開始小量",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "授權金250億內範圍，市占率8-20%情境推算股價",
+      "設備採購已進場，明年小量投產"
+    ],
+    "customers": [],
+    "sentiment": "正向",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-07-30T23:45:19"
   }
 ]
