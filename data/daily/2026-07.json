@@ -7389,6 +7389,28 @@
     "parsed_at": "2026-07-30T23:45:19"
   },
   {
+    "code": "2382",
+    "name": "廣達",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器機殼組裝",
+    "quote": "廣達在AWS明年的VR機殼中，本來勤誠有60% share掉到40%，奇鋐切進來取代富士康share 30%，剩下30%是貿聯併的那間安克",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "切入AWS明年機殼供應鏈"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
     "code": "2493",
     "name": "揚博",
     "date": "2026-07-29",
@@ -7433,6 +7455,28 @@
     "parsed_at": "2026-07-29T22:11:26"
   },
   {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器機殼/散熱",
+    "quote": "奇鋐切進來取代富士康share 30%",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "新切入AWS機殼供應鏈取得30%share"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
     "code": "3665",
     "name": "貿聯-KY",
     "date": "2026-07-29",
@@ -7453,6 +7497,28 @@
     "code_source": "inferred",
     "validated": true,
     "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "3665",
+    "name": "貿聯-KY",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器機殼/連接器",
+    "quote": "剩下30%是貿聯併的那間安克",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "透過併購的安克子公司取得AWS機殼30%share"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
   },
   {
     "code": "5274",
@@ -7497,6 +7563,29 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "信驊",
+    "host": null,
+    "sector": "BMC/AI伺服器IC",
+    "quote": "剛好我剛剛和Amazon採購大老闆開會，我有問他展望，他說目前6個月內還是看到很多缺料，公司的展望沒問題，大家都還在盡可能的鎖住未來的供應，越多越好",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "與Amazon採購高層會面確認未來6個月缺料狀況延續",
+      "供應鏈積極鎖料保供應"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
   },
   {
     "code": "8039",
@@ -7563,6 +7652,28 @@
     "code_source": "inferred",
     "validated": true,
     "parsed_at": "2026-07-29T22:11:26"
+  },
+  {
+    "code": "8210",
+    "name": "勤誠",
+    "date": "2026-07-29",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器機殼",
+    "quote": "本來勤誠有60% share掉到40%",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "AWS機殼訂單市佔率由60%被稀釋至40%"
+    ],
+    "customers": [],
+    "sentiment": "中性偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
   },
   {
     "code": "2303",
@@ -7713,5 +7824,137 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-07-30T23:45:19"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-07-31",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "聯電補充一下（Ed）三星８吋有三座廠，目前關一座，預計改作HBM封裝廠。高層意思是想把整個８吋關掉，但in-house還是要用，猜還是要關一座，然後對外少少接單這樣。但中階主管一直在說服老闆不要關。方向還是要關掉８吋廠，只能繼續觀察。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "三星8吋晶圓廠持續關廠動向，觀察對代工版圖影響"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-07-31",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "記得台積DTC 才1.5uF/mm2 or 2uF/mm2",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "DTC矽電容密度作為技術對照基準"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
+    "code": "2344",
+    "name": "華邦電",
+    "date": "2026-07-31",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "記憶體/矽電容",
+    "quote": "華邦 si cap 3uF/mm2，愛普 si cap Gen4 3.8 μF/mm²，Gen3 2.5 μF/mm²",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "矽電容技術密度比較"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-07-31",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "WL",
+    "host": null,
+    "sector": "銅箔基板/PCB材料",
+    "quote": "台虹跟台光的合作意向簽了",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "與台虹簽署合作意向書"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
+    "code": "3189",
+    "name": "景碩",
+    "date": "2026-07-31",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": "侯相印",
+    "host": null,
+    "sector": "IC載板",
+    "quote": "侯相印買300張3189",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "侯相印買進300張"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-07-31",
+    "source_type": "daily",
+    "source_page": "2026-07_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "銅箔基板/軟板材料",
+    "quote": "巨人傑分點 台新西松 8039",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "台新西松分點買超訊號"
+    ],
+    "customers": [],
+    "sentiment": "分點偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-07-31T22:14:50"
   }
 ]
