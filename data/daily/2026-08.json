@@ -1,0 +1,111 @@
+[
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-08-03",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "忠哥",
+    "host": null,
+    "sector": null,
+    "quote": "忠哥 又出了 3374 30%的持股",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "出脫部分持股",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-03T22:07:14"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-03",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "ASIC/TPU",
+    "quote": "TPU v10 (下下一代)ice fish正在考慮把後段外包，前段google自己做，後段有找創意跟世芯去，明年上半年才會有結果",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "Google TPU v10後段封裝外包潛在標的"
+    ],
+    "customers": [],
+    "sentiment": "潛在受惠",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-03T22:07:14"
+  },
+  {
+    "code": "3498",
+    "name": "陽程",
+    "date": "2026-08-03",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": null,
+    "quote": "09:19 阿威 趙君威 我跑去買3498 因為供應商說78月很好 倍數營收 09:30 阿威 趙君威 應該是臻鼎擴廠跟他買設備",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "供應商說78月營收很好，倍數成長",
+      "臻鼎擴廠向其買設備"
+    ],
+    "customers": [],
+    "sentiment": "買進看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-03T22:07:14"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-08-03",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "ASIC/TPU",
+    "quote": "TPU v10 (下下一代)ice fish正在考慮把後段外包，前段google自己做，後段有找創意跟世芯去，明年上半年才會有結果",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "Google TPU v10後段封裝外包潛在標的"
+    ],
+    "customers": [],
+    "sentiment": "潛在受惠",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-03T22:07:14"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-08-03",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": null,
+    "quote": "09:30 阿威 趙君威 應該是臻鼎擴廠跟他買設備",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "擴廠向陽程(3498)買設備"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-03T22:07:14"
+  }
+]
