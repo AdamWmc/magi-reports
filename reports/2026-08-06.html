@@ -7580,8 +7580,20 @@ function magiMarginChart(hist, canvasId, tipId, cfg){
     const rv = rlo + (rhi-rlo)*f, av = aMin + (aMax-aMin)*f;
     ctx.fillStyle = RATE; ctx.textAlign = 'right';
     ctx.fillText(rv.toFixed(0)+'%', padL-6, y);
-    ctx.fillStyle = RCOL; ctx.textAlign = 'left';
-    ctx.fillText(fmtR(av), W-padR+6, y);
+    if(!cfg.isIndex){ ctx.fillStyle = RCOL; ctx.textAlign = 'left'; ctx.fillText(fmtR(av), W-padR+6, y); }
+  }
+  // ── 指數整數關卡（僅指數圖）：自動挑 round step，淡藍虛線 + 右標 ──
+  if(cfg.isIndex){
+    const cand = [50000,25000,10000,5000,2500,2000,1000,500,250,100,50,25,10,5];
+    const cnt = s => Math.floor(aMax/s) - Math.ceil(aMin/s) + 1;
+    const step = cand.find(s => cnt(s) >= 2 && cnt(s) <= 5) || cand.find(s => cnt(s) >= 2) || 5;
+    ctx.font = '9px ui-monospace,Menlo,monospace'; ctx.textBaseline = 'middle';
+    for(let v = Math.ceil(aMin/step)*step; v <= aMax; v += step){
+      const y = yOfA(v);
+      ctx.strokeStyle = hexA(RCOL, 0.30); ctx.lineWidth = 1; ctx.setLineDash([2,3]);
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W-padR, y); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = hexA(RCOL, 0.95); ctx.textAlign = 'left'; ctx.fillText(fmtR(v), W-padR+6, y);
+    }
   }
   // ── 警戒/追繳門檻線（虛線 + 標籤）──
   [[WARN,'警戒 140'],[CALL,'追繳 130']].forEach(([v,lb]) => {
@@ -7630,6 +7642,21 @@ function magiMarginChart(hist, canvasId, tipId, cfg){
   markPt(iHi, '高 ' + rates[iHi].toFixed(1), true);
   markPt(iLo, '低 ' + rates[iLo].toFixed(1), false);
   if (n - 1 !== iHi && n - 1 !== iLo) markPt(n - 1, rates[n-1].toFixed(1) + '%', true);
+  // ── 指數波段高/低標記（僅指數圖，藍點+標值）──
+  if(cfg.isIndex){
+    let hiI = -1, loI = -1, hv = -Infinity, lv = Infinity;
+    rrs.forEach((v, i) => { if(v == null) return; if(v > hv){ hv = v; hiI = i; } if(v < lv){ lv = v; loI = i; } });
+    const markI = (i, val, txt, above) => {
+      const x = xOf(i), y = yOfA(val);
+      ctx.fillStyle = RCOL; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, 6.2832); ctx.fill();
+      let tx = x, ta = 'center';
+      if (x < padL + 26){ ta = 'left'; tx = x - 3; } else if (x > W - padR - 26){ ta = 'right'; tx = x + 3; }
+      ctx.textAlign = ta; ctx.textBaseline = above ? 'bottom' : 'top';
+      ctx.fillText(txt, tx, y + (above ? -5 : 6));
+    };
+    if(hiI >= 0) markI(hiI, hv, '指高 ' + fmtR(hv), true);
+    if(loI >= 0) markI(loI, lv, '指低 ' + fmtR(lv), false);
+  }
   // ── 十字準星（overlay div，不重畫 canvas）：垂直對齊資料點、水平隨游標並讀出維持率% ──
   const wrap = canvas.parentElement;
   const mk = st => { const el = document.createElement('div'); el.style.cssText = 'position:absolute;display:none;pointer-events:none;z-index:9;' + st; wrap.appendChild(el); return el; };
