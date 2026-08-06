@@ -2201,7 +2201,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
     <span><span style="display:inline-block;width:10px;height:2px;background:#f59e0b;vertical-align:middle;margin-right:4px"></span>融資餘額（右軸，億）</span>
     <span style="color:var(--muted)"><span style="display:inline-block;width:10px;height:2px;background:var(--muted);opacity:.5;vertical-align:middle;margin-right:4px"></span>加權指數（走勢參考·hover 看值）</span>
     <span style="color:var(--muted)">
-      60日：維持率 低 133.3% / 高 183.1% / 今 161.4%（CMoney 口徑）
+      60日：維持率 低 133.3% / 高 183.1% / 今 161.4%（CMoney 口徑）· <span style="color:var(--up)">淺紅=低檔警戒帶</span>（140 警戒／130 追繳參考，以大盤融資維持率計；個股斷頭以整戶維持率為準）
     </span>
   </div>
 </div>
@@ -2217,7 +2217,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
     <span><span style="display:inline-block;width:10px;height:2px;background:#f59e0b;vertical-align:middle;margin-right:4px"></span>融資餘額（右軸，億）</span>
     <span style="color:var(--muted)"><span style="display:inline-block;width:10px;height:2px;background:var(--muted);opacity:.5;vertical-align:middle;margin-right:4px"></span>櫃買指數（走勢參考·hover 看值）</span>
     <span style="color:var(--muted)">
-      累積 65 日：維持率 低 117.6% / 高 164.3% / 今 164.3%（CMoney 口徑）
+      累積 65 日：維持率 低 117.6% / 高 164.3% / 今 164.3%（CMoney 口徑）· <span style="color:var(--up)">淺紅=低檔警戒帶</span>（140 警戒／130 追繳參考）
       （上櫃無歷史端點，每日累積中，滿 60 日畫滿）
     </span>
   </div>
@@ -7523,17 +7523,26 @@ function magiMarginChart(hist, canvasId, tipId, amtKey, idxKey, idxLabel){
   const cGrid = cs.getPropertyValue('--border2').trim() || 'rgba(148,163,214,.15)';
   const cAxis = cs.getPropertyValue('--muted').trim() || '#888';
   const RATE = '#c084fc', AMT = '#f59e0b', IDX = cAxis;
+  const cUp = cs.getPropertyValue('--up').trim() || '#dc2626';
+  const hexA = (h, a) => { h = h.replace('#',''); if(h.length===3) h = h.split('').map(c=>c+c).join('');
+    const n = parseInt(h,16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; };
+  const WARN = 140, CALL = 130;   // 維持率低檔警戒帶：≤140 警戒、≤130 追繳/斷頭參考
   const padL=40, padR=46, padT=14, padB=20, n = hist.length;
   const rates = hist.map(d => d['融資維持率']);
   const amts  = hist.map(d => Math.round(d[amtKey] / 100000));
-  // nice 軸範圍：維持率取整 5、餘額留 buffer
+  // nice 軸範圍：維持率取整 5、餘額留 buffer；並確保露出斷頭警戒帶（≤140/130）
   let rlo = Math.min(...rates), rhi = Math.max(...rates);
   const rpad = Math.max(2, (rhi - rlo) * 0.15); rlo = Math.floor((rlo - rpad)/5)*5; rhi = Math.ceil((rhi + rpad)/5)*5;
+  rlo = Math.min(rlo, 125);
   const aMin = Math.min(...amts) * .985, aMax = Math.max(...amts) * 1.015;
   const xOf  = i => padL + i * (W - padL - padR) / (n - 1);
   const yOfR = v => padT + (1 - (v - rlo) / (rhi - rlo)) * (H - padT - padB);
   const yOfA = v => padT + (1 - (v - aMin) / (aMax - aMin)) * (H - padT - padB);
   ctx.clearRect(0, 0, W, H);
+  // ── 維持率低檔警戒帶（淺紅覆蓋；≤130 再疊一層更深）──
+  const yBot = yOfR(rlo);
+  ctx.fillStyle = hexA(cUp, 0.05); ctx.fillRect(padL, yOfR(Math.min(WARN, rhi)), W-padR-padL, yBot - yOfR(Math.min(WARN, rhi)));
+  ctx.fillStyle = hexA(cUp, 0.06); ctx.fillRect(padL, yOfR(Math.min(CALL, rhi)), W-padR-padL, yBot - yOfR(Math.min(CALL, rhi)));
   // ── gridlines + 雙 Y 軸刻度（4 段）──
   ctx.font = '10px ui-monospace,Menlo,monospace'; ctx.textBaseline = 'middle';
   const TICKS = 4;
@@ -7547,6 +7556,16 @@ function magiMarginChart(hist, canvasId, tipId, amtKey, idxKey, idxLabel){
     ctx.fillStyle = AMT; ctx.textAlign = 'left';
     ctx.fillText(Math.round(av).toLocaleString(), W-padR+6, y);
   }
+  // ── 警戒/追繳門檻線（虛線 + 標籤）──
+  [[WARN,'警戒 140'],[CALL,'追繳 130']].forEach(([v,lb]) => {
+    if(v <= rlo || v >= rhi) return;
+    const y = yOfR(v);
+    ctx.strokeStyle = hexA(cUp, 0.45); ctx.lineWidth = 1; ctx.setLineDash([4,3]);
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(W-padR, y); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = hexA(cUp, 0.85); ctx.font = '9px ui-monospace,Menlo,monospace';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'bottom';
+    ctx.fillText(lb, padL+4, y-1.5);
+  });
   // ── X 軸日期（頭/中/尾）──
   ctx.fillStyle = cAxis; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
   [0, Math.floor((n-1)/2), n-1].forEach(i => {
