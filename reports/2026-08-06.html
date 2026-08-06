@@ -2162,7 +2162,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
     <thead>
       <tr>
         <th>市場</th><th>融資增減（億）</th><th>融資餘額（億）</th>
-        <th>使用率</th><th>融資維持率</th><th>整戶擔保維持率</th>
+        <th>使用率</th><th>融資維持率<br><span style="font-weight:400;color:var(--dimmer)">自算·不含ETF</span></th><th>CMoney 口徑<br><span style="font-weight:400;color:var(--dimmer)">×0.9014</span></th><th>整戶擔保維持率</th>
       </tr>
     </thead>
     <tbody>
@@ -2172,6 +2172,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
         <td>5,328.0億</td>
         <td>4.67%</td>
         <td>179.07%</td>
+        <td><span style="color:var(--muted)" title="校正回停更前 CMoney 舊口徑（自算 × 0.9014）">161.41%</span></td>
         <td><span style="color:var(--dimmer)" title="證交所整戶維持率 2026/7 起停更">—</span></td>
       </tr>
       <tr>
@@ -2180,12 +2181,13 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
         <td>1,743.2億</td>
         <td>12.02%</td>
         <td>182.23%</td>
+        <td><span style="color:var(--muted)" title="校正回停更前 CMoney 舊口徑（自算 × 0.9014）">164.26%</span></td>
         <td><span style="color:var(--dimmer)" title="證交所整戶維持率 2026/7 起停更">—</span></td>
       </tr>
     </tbody>
   </table>
   <div style="margin-top:8px;font-size:11px;color:var(--muted)">
-    融資維持率為自算值（不含 ETF，＝融資股票市值 ÷ 大盤融資餘額）；整戶擔保維持率因證交所 2026/7 起停更、非公開資料無法自算，以「—」表示。 上市融資單日增 +93.1 億至 5,328 億元，反映昨日大漲後散戶回補；融資維持率 179.07% 仍處籌碼清洗後的相對低位（前波急跌自 6,313 億降至約 5,074 億）。上櫃融資增 +53.4 億、維持率 182.23%。整戶擔保維持率官方自 2026/7 停更，以「—」表示。  </div>
+    融資維持率為自算值（不含 ETF，＝融資股票市值 ÷ 大盤融資餘額）。證交所 2026/7/29 停更後，「CMoney 口徑」欄以校正因子 ×0.9014 對齊停更前 CMoney 舊值（6/1–7/28 共 40 交易日回測，還原誤差 ±1.3pp；差距源於分母定義非 ETF）。整戶擔保維持率屬證交所整戶法、非公開資料無法自算，以「—」表示。 上市融資單日增 +93.1 億至 5,328 億元，反映昨日大漲後散戶回補；融資維持率 179.07% 仍處籌碼清洗後的相對低位（前波急跌自 6,313 億降至約 5,074 億）。上櫃融資增 +53.4 億、維持率 182.23%。整戶擔保維持率官方自 2026/7 停更，以「—」表示。  </div>
 </div>
 
 <div class="card">
