@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AI 伺服器解剖圖 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ---- site nav ---- */
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;
+    position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;
+    cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  .site-nav .tbtn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · AI 產業地圖</div>
+    <h1>一台 <em>AI 伺服器</em>，拆給你看</h1>
+    <p class="lede">GPU 算力與訊號速度暴增，逼得伺服器<strong>每一層</strong>——晶片、封裝、板材、散熱、互連——全面升級，台廠正好卡在這些環節。下面把一台 AI 伺服器由內而外分成 7 層，把你 Notion 最近的熱門／共識股放到它負責的位置上。</p>
+    <div class="meta">
+      <span>資料：2026-08-07 共識榜 + 各家開會</span>
+      <span>🎯 = 近期共識前段</span>
+      <span>由晶片 → 機櫃</span>
+    </div>
+  </header>
+
+  <div class="legend" aria-label="各層顏色">
+    <div class="lg"><i style="background:var(--z1)"></i>運算核心</div>
+    <div class="lg"><i style="background:var(--z2)"></i>先進封裝</div>
+    <div class="lg"><i style="background:var(--z3)"></i>ABF 載板</div>
+    <div class="lg"><i style="background:var(--z4)"></i>PCB／CCL 材料</div>
+    <div class="lg"><i style="background:var(--z5)"></i>散熱</div>
+    <div class="lg"><i style="background:var(--z6)"></i>機構件</div>
+    <div class="lg"><i style="background:var(--z7)"></i>網路互連</div>
+  </div>
+  <h2 class="h2"><span class="n">1</span>一台 AI 伺服器長什麼樣？</h2>
+  <p class="h2sub">先講一個關鍵觀念：<strong>AI 伺服器不是「一台電腦」，是「一整櫃」。</strong>幾十個運算節點 + 交換器 + 電源 + 液冷，用超高速互連綁成一台巨大的機器（NVIDIA 把它叫 GB200 NVL72）。先看它的骨架，再放大看一個節點裡的晶片怎麼疊。</p>
+
+  <div class="rack" aria-label="AI 機櫃架構圖">
+    <div class="rack-label"><span>GB200</span><span>NVL72</span><span>機櫃</span></div>
+    <div class="rack-body">
+      <div class="u-slot" style="--sc:var(--z7);--scb:var(--z7b)">
+        <span class="us-t">網路交換層</span><span class="us-d">Spine / Leaf Switch · 對外連別的機櫃</span><span class="us-tag">智邦 · 光模塊</span></div>
+      <div class="u-slot" style="--sc:var(--z1);--scb:var(--z1b)">
+        <span class="us-t">運算節點 ×18</span><span class="us-d">每節點 = GPU + CPU + 主機板 + 散熱</span><span class="us-zoom">放大看 ↓</span></div>
+      <div class="u-slot" style="--sc:var(--z7);--scb:var(--z7b)">
+        <span class="us-t">NVLink 交換盤</span><span class="us-d">把 72 顆 GPU 綁成「一顆超大 GPU」</span></div>
+      <div class="u-slot" style="--sc:var(--z1);--scb:var(--z1b)">
+        <span class="us-t">運算節點 ×18</span><span class="us-d">上下對稱再疊一批</span></div>
+      <div class="u-slot" style="--sc:var(--copper)">
+        <span class="us-t">電源匯流排</span><span class="us-d">Power Shelf / Busbar · 全櫃 ~120kW</span></div>
+    </div>
+    <div class="cool-rail" title="側邊液冷循環"><span>液冷 CDU</span></div>
+  </div>
+  <p class="frame-note">▎撐住整櫃的<b>外框＝機殼＋滑軌</b>（川湖 2059 · 勤誠 8210），側邊<b>液冷</b>把幾十千瓦的熱帶走（散熱層）。功耗太大，AI 機櫃幾乎都改用<b>水冷</b>而非風扇。</p>
+
+  <div class="xsec">
+    <div class="xsec-h">🔬 把一個「運算節點」放大 —— 晶片是怎麼疊的</div>
+    <p class="xsec-sub">下面由下往上，就是一顆 AI 晶片實際的堆疊順序。看懂這個疊法，就懂下面 7 層供應鏈為什麼是這個排序。</p>
+    <div class="xstack">
+      <div class="xlayer" style="--sc:var(--z5);--scb:var(--z5b)"><b>⑤ 均熱片 / Lid ＋ 散熱器</b><span class="r">蓋在最上面把熱導走</span><span class="mk">健策 · 奇鋐</span></div>
+      <div class="xlayer" style="--sc:var(--z2);--scb:var(--z2b)"><b>② CoWoS 先進封裝</b><span class="r">把 GPU 裸晶 + HBM 記憶體封在一起</span><span class="mk">志聖(設備)</span>
+        <div class="xnest"><b>① GPU 裸晶</b> —— 台積電製造 · 創意 / 世芯設計（最核心的運算引擎）</div>
+      </div>
+      <div class="xlayer" style="--sc:var(--z3);--scb:var(--z3b)"><b>③ ABF 載板</b><span class="r">封裝下方的地基，接出幾千支腳位</span><span class="mk">南電 · 景碩 · 欣興</span></div>
+      <div class="xlayer" style="--sc:var(--z4);--scb:var(--z4b)"><b>④ 主機板 PCB ＋ CCL 材料</b><span class="r">承載一切、跑高速訊號的板子</span><span class="mk">台光電 · 台燿 · 華通</span></div>
+      <div class="xlayer" style="--sc:var(--z7);--scb:var(--z7b)"><b>⑦ 光模塊 / 連接器 →</b><span class="r">從板子邊緣把訊號高速接到別的節點</span><span class="mk">聯鈞 · 源傑</span></div>
+    </div>
+    <p class="xcap">由下往上：<b>板子(④)</b> → <b>載板(③)</b> → <b>把晶片封上去(②，裡面包著①)</b> → <b>蓋散熱(⑤)</b>；訊號再從板邊經<b>光模塊(⑦)</b>連出去。把幾十個這種節點裝進機櫃，就成了上面那張機櫃圖。</p>
+  </div>
+
+  <h2 class="h2"><span class="n">2</span>誰做哪一塊？7 層供應鏈</h2>
+  <p class="h2sub">把上面的架構攤平成 7 層，每一層填進你 Notion 最近的熱門／共識股——這就是「哪支股票靠 AI 伺服器的哪個環節賺錢」。</p>
+  <div class="flow-note">▎<b>閱讀方向：</b>由上到下＝從「晶片最核心」一路組裝到「整台機櫃」，越上面越靠近運算，越下面越靠近整機。</div>
+
+  <div class="flow">
+
+    <!-- 1 -->
+    <div class="layer" style="--zc:var(--z1)">
+      <div class="rail"><div class="num">1</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">🧠</span><span class="zone-name">運算核心</span><span class="zone-en">Compute · GPU / ASIC</span></div>
+          <p class="zone-do">AI 的運算引擎——GPU 或客製 ASIC 的裸晶，決定算力。台廠負責兩件事：<strong>設計</strong>晶片、以及用先進製程<strong>製造</strong>。</p>
+          <div class="chips">
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">2330</span><span class="chip-name">台積電</span><span class="chip-hot">護國神山</span></div><div class="chip-role">晶圓代工＋先進封裝製造，AI 晶片的源頭</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">3443</span><span class="chip-name">創意</span><span class="chip-hot">🎯</span></div><div class="chip-role">ASIC 設計服務（GUC），幫客戶做客製 AI 晶片</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">3661</span><span class="chip-name">世芯-KY</span></div><div class="chip-role">ASIC 設計（Alchip），與創意競逐大單</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">2454</span><span class="chip-name">聯發科</span><span class="chip-hot">🎯</span></div><div class="chip-role">IC 設計，跨足 ASIC／自研晶片</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">2303</span><span class="chip-name">聯電</span><span class="chip-hot">🎯</span></div><div class="chip-role">成熟製程晶圓代工，做電源／週邊 IC</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="layer" style="--zc:var(--z2)">
+      <div class="rail"><div class="num">2</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">📦</span><span class="zone-name">先進封裝</span><span class="zone-en">Advanced Packaging · CoWoS</span></div>
+          <p class="zone-do">把 GPU 裸晶和 HBM 記憶體「封」在一起（CoWoS）。這是 AI 晶片<strong>最大的產能瓶頸</strong>，台廠主要是<strong>賣設備</strong>給台積電擴產。</p>
+          <div class="chips">
+            <div class="chip"><div class="chip-top"><span class="chip-code">2467</span><span class="chip-name">志聖</span></div><div class="chip-role">先進封裝設備（壓合／Thermal 站點擴增）</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">7734</span><span class="chip-name">印能</span></div><div class="chip-role">半導體設備（RS 系統），傳 9 月供 intel</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">2464</span><span class="chip-name">盟立</span></div><div class="chip-role">載板／封裝自動化設備</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">5443</span><span class="chip-name">均豪</span></div><div class="chip-role">半導體設備，與志聖協作產能</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="layer" style="--zc:var(--z3)">
+      <div class="rail"><div class="num">3</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">🟫</span><span class="zone-name">ABF 載板</span><span class="zone-en">IC Substrate</span></div>
+          <p class="zone-do">晶片下方的<strong>第一層地基</strong>，撐住晶片、把幾千支腳位接出來。AI 晶片面積越大、載板越大越難做、單價越高。</p>
+          <div class="chips">
+            <div class="chip"><div class="chip-top"><span class="chip-code">8046</span><span class="chip-name">南電</span></div><div class="chip-role">ABF 載板，宣布 468 億擴廠、3Q 展望佳</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">3189</span><span class="chip-name">景碩</span><span class="chip-hot">🎯</span></div><div class="chip-role">ABF 載板三雄之一</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">3037</span><span class="chip-name">欣興</span></div><div class="chip-role">ABF 載板＋PCB，載板龍頭</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="layer" style="--zc:var(--z4)">
+      <div class="rail"><div class="num">4</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">🔲</span><span class="zone-name">主機板 PCB ＋ CCL 材料</span><span class="zone-en">PCB &amp; Laminate</span></div>
+          <p class="zone-do">GPU 板卡的電路板，訊號跑超快，得用<strong>超低損耗材料</strong>才不會失真。這是台廠<strong>最集中、最受惠</strong>的一塊。</p>
+          <div class="sub">▸ 材料 · CCL／銅箔（訊號高速公路的柏油）</div>
+          <div class="chips">
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">2383</span><span class="chip-name">台光電</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">CCL 銅箔基板龍頭，AI 板材主力（已在賺）</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">6274</span><span class="chip-name">台燿</span><span class="chip-hot">🎯</span></div><div class="chip-role">CCL 銅箔基板，7–8 月連續漲價</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">8039</span><span class="chip-name">台虹</span></div><div class="chip-role">PTFE 軟板材料（下一代高速），送樣驗證中</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">6269</span><span class="chip-name">台郡</span></div><div class="chip-role">PTFE 壓合代工，毛利較薄</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">8358</span><span class="chip-name">金居</span></div><div class="chip-role">銅箔（HVLP4 供不應求）</div></div>
+          </div>
+          <div class="sub">▸ 板廠 · 把材料做成板子</div>
+          <div class="chips">
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">2313</span><span class="chip-name">華通</span><span class="chip-hot">🎯</span></div><div class="chip-role">PCB，AI 應用漲價可反映客戶</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">4958</span><span class="chip-name">臻鼎-KY</span></div><div class="chip-role">PCB 龍頭</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">6294</span><span class="chip-name">亞泰</span></div><div class="chip-role">PCB</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="layer" style="--zc:var(--z5)">
+      <div class="rail"><div class="num">5</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">❄️</span><span class="zone-name">散熱</span><span class="zone-en">Thermal</span></div>
+          <p class="zone-do">單顆 GPU 功耗上看<strong>數千瓦</strong>，熱導不掉就當機。均熱片、VC、水冷是 AI 伺服器的剛需。</p>
+          <div class="chips">
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">3017</span><span class="chip-name">奇鋐</span><span class="chip-hot">🎯</span></div><div class="chip-role">散熱模組（VC／均熱），2027 功耗上看 4000W</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">3653</span><span class="chip-name">健策</span><span class="chip-hot">🎯</span></div><div class="chip-role">均熱片／Lid（GPU 蓋板），出貨 Rubin Lid</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="layer" style="--zc:var(--z6)">
+      <div class="rail"><div class="num">6</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">🔩</span><span class="zone-name">機構件</span><span class="zone-en">Mechanical · Chassis &amp; Rail</span></div>
+          <p class="zone-do">伺服器的<strong>骨架與外殼</strong>——機殼、滑軌，讓整台能整齊塞進機櫃、抽拉維修。</p>
+          <div class="chips">
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">2059</span><span class="chip-name">川湖</span><span class="chip-hot">🎯 漲停</span></div><div class="chip-role">伺服器滑軌，Q2 毛利 87% 遠優預期</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">8210</span><span class="chip-name">勤誠</span></div><div class="chip-role">伺服器機殼</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="layer" style="--zc:var(--z7)">
+      <div class="rail"><div class="num">7</div></div>
+      <div>
+        <div class="zone">
+          <div class="zone-head"><span class="zone-glyph">🌐</span><span class="zone-name">網路互連</span><span class="zone-en">Networking · Switch &amp; Optical</span></div>
+          <p class="zone-do">AI 訓練要<strong>幾萬張 GPU 一起算</strong>，靠交換器與光通訊把它們高速連成一台超級電腦。這層決定「規模能不能長大」。</p>
+          <div class="chips">
+            <div class="chip"><div class="chip-top"><span class="chip-code">2345</span><span class="chip-name">智邦</span></div><div class="chip-role">網通交換器（Switch），資料中心骨幹</div></div>
+            <div class="chip hot"><div class="chip-top"><span class="chip-code">3450</span><span class="chip-name">聯鈞</span><span class="chip-hot">🎯</span></div><div class="chip-role">光通元件／整組光模塊</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">3081</span><span class="chip-name">聯亞</span></div><div class="chip-role">光通訊晶片</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">3363</span><span class="chip-name">源傑</span></div><div class="chip-role">光模塊雷射（CW laser）</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="terminus">
+    <b>⬇ 全部組起來 = 一座 AI 機櫃 / 資料中心</b>
+    <p>上面 7 層疊成一台伺服器；數十台伺服器裝進一個機櫃（如 NVIDIA GB200 NVL72），再由網路把數百櫃連成一座 AI 資料中心。台廠幾乎每一層都有卡位。</p>
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>熱門，但不在「伺服器主體」上</h3>
+    <p>這幾支近期也很熱、常出現在共識榜，但屬於不同題材，別跟伺服器混在一起：</p>
+    <div class="chips">
+      <div class="chip hot"><div class="chip-top"><span class="chip-code">3491</span><span class="chip-name">昇達科</span><span class="chip-hot">🎯</span></div><div class="chip-role">低軌衛星（SpaceX V3），是「衛星」不是伺服器</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">2327</span><span class="chip-name">國巨</span></div><div class="chip-role">被動元件，用途極廣（AI 板電源也會用一點）</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">3026</span><span class="chip-name">禾伸堂</span></div><div class="chip-role">被動元件（MLCC），非伺服器專屬</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到某支熱門股，先問「它在哪一層？」就能秒懂它靠什麼受惠、跟誰是同族群、跟誰是上下游。<br>
+    <b>資料來源：</b>2026-08-07 MAGI 共識榜與各家開會／廢想法整理。🎯 標記＝近期共識榜前段。<br>
+    <b>但書：</b>PTFE、ASIC 送樣等屬研究討論階段，未必已放量；本圖用於理解 AI 產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+<script>
+function magiToggleTheme(){
+  var h=document.documentElement;
+  var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  var next=cur==='dark'?'light':'dark';
+  h.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  var b=document.querySelector('.site-nav .tbtn'); if(b) b.textContent=next==='dark'?'☀️':'🌙';
+}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
