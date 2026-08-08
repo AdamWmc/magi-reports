@@ -165,6 +165,11 @@
   .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
   .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
   .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
 
   /* ---- terminus ---- */
   .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
@@ -405,6 +410,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">🧠</span><span class="zone-name">運算核心</span><span class="zone-en">Compute · GPU / ASIC</span></div>
           <p class="zone-do">AI 的運算引擎——GPU 或客製 ASIC 的裸晶，決定算力。台廠負責兩件事：<strong>設計</strong>晶片、以及用先進製程<strong>製造</strong>。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>GPU</b>：負責大量平行運算、AI 的主引擎。<b>ASIC</b>：為單一任務客製的晶片（如 Google TPU），比通用 GPU 更省電便宜，創意／世芯幫客戶設計。<b>晶圓代工</b>：只負責「製造」、不做設計（台積電、聯電）。</div>
           <div class="chips">
             <div class="chip hot"><div class="chip-top"><span class="chip-code">2330</span><span class="chip-name">台積電</span><span class="chip-hot">護國神山</span></div><div class="chip-role">晶圓代工＋先進封裝製造，AI 晶片的源頭</div></div>
             <div class="chip hot"><div class="chip-top"><span class="chip-code">3443</span><span class="chip-name">創意</span><span class="chip-hot">🎯</span></div><div class="chip-role">ASIC 設計服務（GUC），幫客戶做客製 AI 晶片</div></div>
@@ -423,6 +429,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">📦</span><span class="zone-name">先進封裝</span><span class="zone-en">Advanced Packaging · CoWoS</span></div>
           <p class="zone-do">把 GPU 裸晶和 HBM 記憶體「封」在一起（CoWoS）。這是 AI 晶片<strong>最大的產能瓶頸</strong>，台廠主要是<strong>賣設備</strong>給台積電擴產。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>封裝</b>：把裸晶包成能用的晶片、接出腳位。<b>CoWoS</b>：台積電的先進封裝，把 GPU 裸晶和 HBM 記憶體並排封在同一片載板上，縮短距離、拉高頻寬——這是 AI 晶片最卡的產能。<b>HBM</b>：疊很高的高頻寬記憶體，緊貼 GPU 餵資料。</div>
           <div class="chips">
             <div class="chip"><div class="chip-top"><span class="chip-code">2467</span><span class="chip-name">志聖</span></div><div class="chip-role">先進封裝設備（壓合／Thermal 站點擴增）</div></div>
             <div class="chip"><div class="chip-top"><span class="chip-code">7734</span><span class="chip-name">印能</span></div><div class="chip-role">半導體設備（RS 系統），傳 9 月供 intel</div></div>
@@ -440,6 +447,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">🟫</span><span class="zone-name">ABF 載板</span><span class="zone-en">IC Substrate</span></div>
           <p class="zone-do">晶片下方的<strong>第一層地基</strong>，撐住晶片、把幾千支腳位接出來。AI 晶片面積越大、載板越大越難做、單價越高。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>載板</b>：晶片與主機板之間的「轉接地基」，把晶片幾千支微小腳位放大、接到板子上。<b>ABF</b> 是高階載板用的材料；AI 晶片腳位多、面積大，載板就又大又難做又貴。</div>
           <div class="chips">
             <div class="chip"><div class="chip-top"><span class="chip-code">8046</span><span class="chip-name">南電</span></div><div class="chip-role">ABF 載板，宣布 468 億擴廠、3Q 展望佳</div></div>
             <div class="chip hot"><div class="chip-top"><span class="chip-code">3189</span><span class="chip-name">景碩</span><span class="chip-hot">🎯</span></div><div class="chip-role">ABF 載板三雄之一</div></div>
@@ -456,6 +464,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">🔲</span><span class="zone-name">主機板 PCB ＋ CCL 材料</span><span class="zone-en">PCB &amp; Laminate</span></div>
           <p class="zone-do">GPU 板卡的電路板，訊號跑超快，得用<strong>超低損耗材料</strong>才不會失真。這是台廠<strong>最集中、最受惠</strong>的一塊。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>PCB</b>（印刷電路板）＝有線路的<b>成品板子</b>，元件坐上面、訊號在裡面跑。<b>CCL</b>（銅箔基板）＝做 PCB 的<b>原料板材</b>：銅箔＋樹脂玻纖壓成的三明治。記住<b>「CCL 是原料、PCB 是成品」</b>，PCB 廠跟 CCL 廠買料再鑽孔蝕刻做成板子。AI 訊號跑超快，中間介質要「低損耗」，越高階（M7／M8／PTFE）越貴越缺——<b>台光電做 CCL 板材</b>（已在賺）、<b>台虹做更上游的 PTFE 膜</b>（供 CCL 廠壓合、還在驗證），都因此受惠。</div>
           <div class="sub">▸ 材料 · CCL／銅箔（訊號高速公路的柏油）</div>
           <div class="chips">
             <div class="chip hot"><div class="chip-top"><span class="chip-code">2383</span><span class="chip-name">台光電</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">CCL 銅箔基板龍頭，AI 板材主力（已在賺）</div></div>
@@ -481,6 +490,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">❄️</span><span class="zone-name">散熱</span><span class="zone-en">Thermal</span></div>
           <p class="zone-do">單顆 GPU 功耗上看<strong>數千瓦</strong>，熱導不掉就當機。均熱片、VC、水冷是 AI 伺服器的剛需。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>均熱片／Lid</b>：蓋在 GPU 上、把熱攤開導走的金屬蓋。<b>VC 均熱板／水冷</b>：把單顆數千瓦的熱帶走的方案；功耗太大，AI 機櫃幾乎都改用水冷而非風扇。</div>
           <div class="chips">
             <div class="chip hot"><div class="chip-top"><span class="chip-code">3017</span><span class="chip-name">奇鋐</span><span class="chip-hot">🎯</span></div><div class="chip-role">散熱模組（VC／均熱），2027 功耗上看 4000W</div></div>
             <div class="chip hot"><div class="chip-top"><span class="chip-code">3653</span><span class="chip-name">健策</span><span class="chip-hot">🎯</span></div><div class="chip-role">均熱片／Lid（GPU 蓋板），出貨 Rubin Lid</div></div>
@@ -496,6 +506,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">🔩</span><span class="zone-name">機構件</span><span class="zone-en">Mechanical · Chassis &amp; Rail</span></div>
           <p class="zone-do">伺服器的<strong>骨架與外殼</strong>——機殼、滑軌，讓整台能整齊塞進機櫃、抽拉維修。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>滑軌</b>：讓伺服器像抽屜一樣拉出來維修；<b>機殼</b>＝外框骨架。看似不起眼，但一整櫃幾十台每台都要。</div>
           <div class="chips">
             <div class="chip hot"><div class="chip-top"><span class="chip-code">2059</span><span class="chip-name">川湖</span><span class="chip-hot">🎯 漲停</span></div><div class="chip-role">伺服器滑軌，Q2 毛利 87% 遠優預期</div></div>
             <div class="chip"><div class="chip-top"><span class="chip-code">8210</span><span class="chip-name">勤誠</span></div><div class="chip-role">伺服器機殼</div></div>
@@ -511,6 +522,7 @@
         <div class="zone">
           <div class="zone-head"><span class="zone-glyph">🌐</span><span class="zone-name">網路互連</span><span class="zone-en">Networking · Switch &amp; Optical</span></div>
           <p class="zone-do">AI 訓練要<strong>幾萬張 GPU 一起算</strong>，靠交換器與光通訊把它們高速連成一台超級電腦。這層決定「規模能不能長大」。</p>
+          <div class="plain"><span class="pk">💡 名詞白話</span><b>交換器（Switch）</b>：資料中心的「交通樞紐」，決定資料往哪走。<b>光模塊／光通訊</b>：用光而非銅線傳資料，快又遠，幾萬張 GPU 靠它串起來。<b>NVLink</b>：NVIDIA 把多顆 GPU 高速綁成「一顆」的專用互連。</div>
           <div class="chips">
             <div class="chip"><div class="chip-top"><span class="chip-code">2345</span><span class="chip-name">智邦</span></div><div class="chip-role">網通交換器（Switch），資料中心骨幹</div></div>
             <div class="chip hot"><div class="chip-top"><span class="chip-code">3450</span><span class="chip-name">聯鈞</span><span class="chip-hot">🎯</span></div><div class="chip-role">光通元件／整組光模塊</div></div>
