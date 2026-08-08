@@ -202,6 +202,26 @@
     background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
   .opt-cpo b{color:var(--ink);font-weight:700}
   .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+  /* robot: 執行器放大鏡用 z2 主色 */
+  .act-seg{border-left-color:var(--z2)!important}
+  .act-seg .opt-n{background:var(--z2)}
+  .act-seg .oc-heat{color:var(--z2)}
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+  .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:2px 0 4px}
+  .sw-card{border-radius:12px;padding:14px 16px;border:1px solid var(--line)}
+  .sw-card.strong{background:color-mix(in srgb,var(--z4) 8%,transparent);border-color:color-mix(in srgb,var(--z4) 32%,transparent)}
+  .sw-card.weak{background:color-mix(in srgb,var(--z2) 8%,transparent);border-color:color-mix(in srgb,var(--z2) 32%,transparent)}
+  .sw-card h4{margin:0 0 8px;font-size:14px}
+  .sw-card.strong h4{color:var(--z4)} .sw-card.weak h4{color:var(--z2)}
+  .sw-card ul{margin:0;padding-left:18px;font-size:12.5px;color:var(--ink2);line-height:1.85}
+  .sw-card b{color:var(--ink)}
+  @media(max-width:600px){.sw-grid{grid-template-columns:1fr}}
 
   /* ---- terminus ---- */
   .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
@@ -463,6 +483,72 @@
   <div class="terminus">
     <b>⬇ 全部組起來 = 一台會走路、會抓握的人形機器人</b>
     <p>台廠在「精密機械零件」這塊卡位最深（減速機、螺桿、滑軌、齒輪）；大腦晶片主供仍是國外（NVIDIA），台廠切設計與週邊。整機則有協作機器人與特斯拉 Optimus 代工/零件。</p>
+  </div>
+
+  <h2 class="h2">🔬 關節·執行器放大鏡：機器人最貴的地方</h2>
+  <p class="h2sub">一個關節就佔整台機器人成本的一大塊，關節裡最貴的又是<strong>減速機</strong>。把一個執行器拆開，看每個零件是誰做的——也看清<strong>台廠強在哪、哪裡還得靠國外</strong>。</p>
+
+  <div class="opt-seg act-seg">
+    <div class="opt-h"><span class="opt-n">A</span><span class="opt-t">減速機</span><span class="opt-d">把馬達高轉速換成低速大扭力，關節裡最貴、最難的零件</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">2049</span><span class="oc-name">上銀</span><span class="oc-heat">諧波</span></div><div class="oc-role">台廠唯一量產諧波減速機，用在手臂／手腕小關節</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">2233</span><span class="oc-name">宇隆</span><span class="oc-heat">🎯</span></div><div class="oc-role">精密減速器／齒輪，切北美四大機器人客戶</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">4571</span><span class="oc-name">鈞興-KY</span><span class="oc-heat">🎯</span></div><div class="oc-role">精密齒輪，Optimus 訂單</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">1536</span><span class="oc-name">和大</span></div><div class="oc-role">齒輪（減速機核心零件）</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">興櫃</span><span class="oc-name">盟英</span></div><div class="oc-role">諧波減速機（與盟立合資，未上市）</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">國外</span><span class="oc-name">RV／擺線</span><span class="oc-heat">日商主導</span></div><div class="oc-role">重載大關節用，日本 Nabtesco 壟斷，台廠切入有限</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg act-seg">
+    <div class="opt-h"><span class="opt-n">B</span><span class="opt-t">馬達</span><span class="opt-d">關節的出力來源，趨勢用「無框力矩馬達」扭力密度高</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">2308</span><span class="oc-name">台達電</span></div><div class="oc-role">伺服馬達＋驅動一體，運動控制整合</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">1504</span><span class="oc-name">東元</span></div><div class="oc-role">伺服馬達</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">1503</span><span class="oc-name">士電</span></div><div class="oc-role">馬達</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">未上市</span><span class="oc-name">富田</span></div><div class="oc-role">特斯拉電動車／機器人馬達供應（未上市）</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg act-seg">
+    <div class="opt-h"><span class="opt-n">C</span><span class="opt-t">編碼器·回授</span><span class="opt-d">回報關節轉到哪，動作才精準</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">國外</span><span class="oc-name">高階編碼器</span><span class="oc-heat">日系主導</span></div><div class="oc-role">絕對式／高精度編碼器多為日系（多摩川等），<b>台廠相對弱項</b></div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg act-seg">
+    <div class="opt-h"><span class="opt-n">D</span><span class="opt-t">驅動器·控制器</span><span class="opt-d">下指令、控制馬達怎麼轉</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">2308</span><span class="oc-name">台達電</span></div><div class="oc-role">伺服驅動器／運動控制</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">興櫃</span><span class="oc-name">新代</span></div><div class="oc-role">CNC／運動控制器（未上市）</div></div>
+    </div>
+  </div>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:18px 0 8px">減速機「三兄弟」——同一台機器人常三種都用</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>類型</th><th>特點</th><th>用在哪</th><th>誰做</th></tr>
+      <tr><td><b>諧波 Harmonic</b></td><td>體積小、精度高、輕</td><td>手臂／手腕／靈巧手小關節</td><td>上銀、盟英；日 Harmonic Drive</td></tr>
+      <tr><td><b>RV／擺線</b></td><td>扭力大、耐重載</td><td>髖／腿大關節、工業手臂</td><td>日 Nabtesco 主導，台廠少</td></tr>
+      <tr><td><b>行星 Planetary</b></td><td>便宜、通用</td><td>一般傳動</td><td>台廠多家</td></tr>
+    </table>
+  </div>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:20px 0 8px">台廠強弱地圖——為什麼「做零件」比「做整機」實在</div>
+  <div class="sw-grid">
+    <div class="sw-card strong"><h4>✅ 台廠強項（卡得深）</h4><ul>
+      <li><b>減速機齒輪</b>：上銀（諧波）、宇隆、鈞興、和大</li>
+      <li><b>線性傳動</b>：滾珠螺桿／滑軌——上銀、全球傳動、直得</li>
+      <li><b>連接·線束</b>：信邦、貿聯</li>
+      <li><b>整機·組裝</b>：鴻海、盟立、廣明（達明）</li>
+    </ul></div>
+    <div class="sw-card weak"><h4>⚠️ 仍靠國外（台廠弱）</h4><ul>
+      <li><b>大腦晶片</b>：NVIDIA Jetson Thor 主供</li>
+      <li><b>RV／擺線減速機</b>：日本 Nabtesco</li>
+      <li><b>高階編碼器</b>：日系（多摩川等）</li>
+      <li><b>力覺／觸覺感測、靈巧手總成</b>：國外領先</li>
+    </ul></div>
   </div>
 
   <h2 class="h2"><span class="n">3</span>🔮 智囊看點：機器人在賭什麼</h2>
