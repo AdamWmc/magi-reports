@@ -118,6 +118,20 @@
   .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
   .xcap b{color:var(--ink2)}
 
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
   /* ---- flow spine ---- */
   .flow{display:flex;flex-direction:column;gap:0}
   .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
@@ -238,6 +252,55 @@
   <h2 class="h2"><span class="n">1</span>一台 AI 伺服器長什麼樣？</h2>
   <p class="h2sub">先講一個關鍵觀念：<strong>AI 伺服器不是「一台電腦」，是「一整櫃」。</strong>幾十個運算節點 + 交換器 + 電源 + 液冷，用超高速互連綁成一台巨大的機器（NVIDIA 把它叫 GB200 NVL72）。先看它的骨架，再放大看一個節點裡的晶片怎麼疊。</p>
 
+  <figure class="fig">
+    <svg viewBox="0 0 470 372" role="img" aria-label="AI 機櫃正視示意圖：由上到下為網路交換層、運算節點、NVLink 交換盤、更多運算節點、電源匯流排，兩側為液冷管路，外框為機殼與滑軌">
+      <!-- 液冷管路 -->
+      <rect x="22" y="46" width="9" height="300" rx="4" fill="var(--z5b)" stroke="var(--z5)"/>
+      <rect x="213" y="46" width="9" height="300" rx="4" fill="var(--z5b)" stroke="var(--z5)"/>
+      <!-- 機殼 -->
+      <rect x="34" y="28" width="176" height="332" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+      <!-- 網路交換 -->
+      <rect x="46" y="40" width="152" height="26" rx="3" fill="var(--z7b)" stroke="var(--z7)"/>
+      <rect x="58" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/><rect x="74" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/><rect x="90" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/><rect x="106" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/><rect x="122" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/><rect x="138" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/><rect x="154" y="50" width="10" height="6" fill="var(--z7)" opacity=".5"/>
+      <!-- 運算節點 ×3 -->
+      <g>
+        <rect x="46" y="74" width="152" height="24" rx="3" fill="var(--surface)" stroke="var(--line)"/><rect x="58" y="80" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="92" y="80" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="126" y="80" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="160" y="80" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/>
+        <rect x="46" y="102" width="152" height="24" rx="3" fill="var(--surface)" stroke="var(--line)"/><rect x="58" y="108" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="92" y="108" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="126" y="108" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="160" y="108" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/>
+        <rect x="46" y="130" width="152" height="24" rx="3" fill="var(--surface)" stroke="var(--line)"/><rect x="58" y="136" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="92" y="136" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="126" y="136" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="160" y="136" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/>
+      </g>
+      <!-- NVLink 交換盤 -->
+      <rect x="46" y="162" width="152" height="24" rx="3" fill="var(--z7b)" stroke="var(--z7)"/>
+      <line x1="60" y1="174" x2="184" y2="174" stroke="var(--z7)" stroke-width="1.4" opacity=".6"/>
+      <!-- 運算節點 ×3 -->
+      <g>
+        <rect x="46" y="196" width="152" height="24" rx="3" fill="var(--surface)" stroke="var(--line)"/><rect x="58" y="202" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="92" y="202" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="126" y="202" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="160" y="202" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/>
+        <rect x="46" y="224" width="152" height="24" rx="3" fill="var(--surface)" stroke="var(--line)"/><rect x="58" y="230" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="92" y="230" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="126" y="230" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="160" y="230" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/>
+        <rect x="46" y="252" width="152" height="24" rx="3" fill="var(--surface)" stroke="var(--line)"/><rect x="58" y="258" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="92" y="258" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="126" y="258" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/><rect x="160" y="258" width="20" height="12" rx="1.5" fill="var(--z1b)" stroke="var(--z1)"/>
+      </g>
+      <!-- 電源 -->
+      <rect x="46" y="288" width="152" height="30" rx="3" fill="var(--surface)" stroke="var(--copper)"/>
+      <rect x="60" y="296" width="30" height="14" rx="2" fill="var(--copper)" opacity=".22"/><rect x="110" y="296" width="30" height="14" rx="2" fill="var(--copper)" opacity=".22"/><rect x="152" y="296" width="34" height="14" rx="2" fill="var(--copper)" opacity=".22"/>
+      <!-- 引線 + 標籤 -->
+      <g stroke="currentColor" stroke-width="1" opacity=".35">
+        <line x1="222" y1="58" x2="236" y2="46"/><line x1="198" y1="53" x2="236" y2="70"/><line x1="198" y1="112" x2="236" y2="118"/><line x1="198" y1="174" x2="236" y2="176"/><line x1="198" y1="303" x2="236" y2="300"/>
+      </g>
+      <g class="svg-t" font-size="12.5" fill="currentColor">
+        <text x="240" y="44">液冷 CDU（兩側）</text>
+        <text x="240" y="70">網路交換層</text>
+        <text x="240" y="122">運算節點 ×18</text>
+        <text x="240" y="180">NVLink 交換盤</text>
+        <text x="240" y="304">電源匯流排</text>
+      </g>
+      <g class="svg-l" font-size="10.5" fill="var(--muted)">
+        <text x="240" y="84">水冷帶走幾十 kW 熱</text>
+        <text x="240" y="135">每盤 GPU×4 + CPU + 板 + 散熱</text>
+        <text x="240" y="193">把 72 顆 GPU 綁成「一顆」</text>
+        <text x="240" y="317">全櫃 ~120kW</text>
+      </g>
+    </svg>
+    <figcaption><b>圖 1 · AI 機櫃正視示意</b>——一整櫃疊滿運算節點（每盤幾顆 GPU），中間夾 NVLink 交換把它們綁成一台超電，兩側液冷。外框機殼＋滑軌＝<b>川湖 2059 · 勤誠 8210</b>。</figcaption>
+  </figure>
+
   <div class="rack" aria-label="AI 機櫃架構圖">
     <div class="rack-label"><span>GB200</span><span>NVL72</span><span>機櫃</span></div>
     <div class="rack-body">
@@ -259,6 +322,64 @@
   <div class="xsec">
     <div class="xsec-h">🔬 把一個「運算節點」放大 —— 晶片是怎麼疊的</div>
     <p class="xsec-sub">下面由下往上，就是一顆 AI 晶片實際的堆疊順序。看懂這個疊法，就懂下面 7 層供應鏈為什麼是這個排序。</p>
+
+    <div class="fig-row">
+      <figure class="fig">
+        <svg viewBox="0 0 300 258" role="img" aria-label="晶片封裝側視剖面：由下往上為主機板 PCB、錫球、ABF 載板、矽中介層、GPU 裸晶與兩側 HBM 記憶體、均熱蓋">
+          <!-- PCB -->
+          <rect x="40" y="218" width="220" height="24" rx="3" fill="var(--z4b)" stroke="var(--z4)"/>
+          <!-- BGA -->
+          <g fill="currentColor" opacity=".32"><circle cx="72" cy="216" r="3"/><circle cx="94" cy="216" r="3"/><circle cx="116" cy="216" r="3"/><circle cx="138" cy="216" r="3"/><circle cx="160" cy="216" r="3"/><circle cx="182" cy="216" r="3"/><circle cx="204" cy="216" r="3"/><circle cx="226" cy="216" r="3"/></g>
+          <!-- 載板 -->
+          <rect x="64" y="186" width="172" height="26" rx="3" fill="var(--z3b)" stroke="var(--z3)"/>
+          <!-- interposer -->
+          <rect x="92" y="170" width="116" height="12" rx="2" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-opacity=".3"/>
+          <!-- HBM L/R -->
+          <rect x="92" y="136" width="26" height="32" rx="2" fill="var(--surface)" stroke="var(--z1)"/><line x1="92" y1="145" x2="118" y2="145" stroke="var(--z1)" opacity=".5"/><line x1="92" y1="153" x2="118" y2="153" stroke="var(--z1)" opacity=".5"/><line x1="92" y1="161" x2="118" y2="161" stroke="var(--z1)" opacity=".5"/>
+          <rect x="182" y="136" width="26" height="32" rx="2" fill="var(--surface)" stroke="var(--z1)"/><line x1="182" y1="145" x2="208" y2="145" stroke="var(--z1)" opacity=".5"/><line x1="182" y1="153" x2="208" y2="153" stroke="var(--z1)" opacity=".5"/><line x1="182" y1="161" x2="208" y2="161" stroke="var(--z1)" opacity=".5"/>
+          <!-- GPU die -->
+          <rect x="124" y="130" width="52" height="38" rx="2" fill="var(--z1b)" stroke="var(--z1)" stroke-width="1.5"/>
+          <!-- Lid -->
+          <rect x="92" y="112" width="116" height="16" rx="3" fill="var(--z5b)" stroke="var(--z5)"/>
+          <!-- 文字 -->
+          <text x="150" y="153" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">GPU</text>
+          <text x="150" y="124" text-anchor="middle" class="svg-l" font-size="10" fill="var(--ink)">均熱蓋 Lid</text>
+          <text x="105" y="133" text-anchor="middle" class="svg-m" font-size="9" fill="var(--muted)">HBM</text>
+          <text x="195" y="133" text-anchor="middle" class="svg-m" font-size="9" fill="var(--muted)">HBM</text>
+          <text x="150" y="234" text-anchor="middle" class="svg-l" font-size="10" fill="var(--ink)">主機板 PCB</text>
+          <text x="150" y="202" text-anchor="middle" class="svg-l" font-size="10" fill="var(--ink)">ABF 載板</text>
+          <!-- 編號 -->
+          <g font-size="15" text-anchor="middle" class="svg-t">
+            <text x="20" y="124" fill="var(--z5)">⑤</text><text x="20" y="153" fill="var(--z1)">①</text><text x="20" y="178" fill="var(--z2)">②</text><text x="20" y="203" fill="var(--z3)">③</text><text x="20" y="234" fill="var(--z4)">④</text>
+          </g>
+          <!-- ⑦ 接出 -->
+          <line x1="260" y1="230" x2="286" y2="230" stroke="var(--z7)" stroke-width="1.6"/>
+          <polygon points="286,226 294,230 286,234" fill="var(--z7)"/>
+          <text x="278" y="222" text-anchor="middle" font-size="13" fill="var(--z7)" class="svg-t">⑦</text>
+        </svg>
+        <figcaption><b>圖 2 · 晶片剖面（側視）</b>——由下往上疊：④ PCB → ③ 載板 → ② 封裝（內含 ① GPU＋HBM）→ ⑤ 均熱蓋；訊號從板邊經 ⑦ 光模塊接出。</figcaption>
+      </figure>
+
+      <figure class="fig">
+        <svg viewBox="0 0 240 232" role="img" aria-label="封裝俯視：一顆 GPU 裸晶被多顆 HBM 記憶體包圍，坐在 ABF 載板上">
+          <rect x="28" y="36" width="184" height="160" rx="5" fill="var(--z3b)" stroke="var(--z3)"/>
+          <rect x="58" y="60" width="124" height="112" rx="3" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".25"/>
+          <!-- HBM ×4 -->
+          <g fill="var(--surface)" stroke="var(--z1)">
+            <rect x="64" y="86" width="22" height="26" rx="2"/><rect x="64" y="120" width="22" height="26" rx="2"/><rect x="154" y="86" width="22" height="26" rx="2"/><rect x="154" y="120" width="22" height="26" rx="2"/>
+          </g>
+          <g stroke="var(--z1)" opacity=".45"><line x1="64" y1="99" x2="86" y2="99"/><line x1="64" y1="133" x2="86" y2="133"/><line x1="154" y1="99" x2="176" y2="99"/><line x1="154" y1="133" x2="176" y2="133"/></g>
+          <!-- GPU die -->
+          <rect x="92" y="84" width="56" height="64" rx="3" fill="var(--z1b)" stroke="var(--z1)" stroke-width="1.5"/>
+          <text x="120" y="121" text-anchor="middle" class="svg-t" font-size="13" fill="var(--ink)">GPU</text>
+          <text x="75" y="82" text-anchor="middle" class="svg-m" font-size="9" fill="var(--muted)">HBM</text>
+          <text x="165" y="82" text-anchor="middle" class="svg-m" font-size="9" fill="var(--muted)">HBM</text>
+          <text x="120" y="212" text-anchor="middle" class="svg-t" font-size="12" fill="var(--z3)">③ ABF 載板</text>
+        </svg>
+        <figcaption><b>圖 3 · 封裝俯視（CoWoS）</b>——一顆大 GPU 裸晶被多顆 HBM 記憶體圍在旁邊，一起坐在 ③ 載板上，這就是 ② 先進封裝在做的事。</figcaption>
+      </figure>
+    </div>
+
     <div class="xstack">
       <div class="xlayer" style="--sc:var(--z5);--scb:var(--z5b)"><b>⑤ 均熱片 / Lid ＋ 散熱器</b><span class="r">蓋在最上面把熱導走</span><span class="mk">健策 · 奇鋐</span></div>
       <div class="xlayer" style="--sc:var(--z2);--scb:var(--z2b)"><b>② CoWoS 先進封裝</b><span class="r">把 GPU 裸晶 + HBM 記憶體封在一起</span><span class="mk">志聖(設備)</span>
