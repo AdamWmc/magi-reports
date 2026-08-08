@@ -171,6 +171,19 @@
   .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
 
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+
   /* ---- terminus ---- */
   .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
     background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
@@ -205,7 +218,6 @@
   @media(max-width:400px){.chips{grid-template-columns:1fr}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
-  /* ---- site nav ---- */
   .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;
     position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
   .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
@@ -217,7 +229,6 @@
   .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;
     cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
   .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
-  .site-nav .tbtn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
   @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
 </style>
 <script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
@@ -540,6 +551,102 @@
     <p>上面 7 層疊成一台伺服器；數十台伺服器裝進一個機櫃（如 NVIDIA GB200 NVL72），再由網路把數百櫃連成一座 AI 資料中心。台廠幾乎每一層都有卡位。</p>
   </div>
 
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：這些股票的未來在賭什麼</h2>
+  <p class="h2sub">以下是各家開會／廢想法裡對這些股票<strong>未來</strong>的多頭論點（含目標價、催化劑），依 7 層分色。<strong>這是智囊的觀點與推測、不是事實或投資建議</strong>，多頭方本就偏樂觀，數字要看實際兌現。</p>
+  <div class="thesis-grid">
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">8039</span><span class="th-name">台虹</span><span class="th-zone">④ PCB/CCL</span></div>
+      <div class="th-body">卡在 PTFE 最上游——三大 PTFE 方案（台虹+台郡／+台光／+生益）<b>全都要用台虹的膜</b>；已送樣深藍電路，<b>8 月底前有 30 多層堆疊的驗證結果</b>。若過關＝AI 高速板下一代材料的獨家源頭。</div>
+      <div class="th-src">— Sunny · 08/06</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">2383</span><span class="th-name">台光電</span><span class="th-zone">④ PCB/CCL</span></div>
+      <div class="th-body">CCL 用<b>特殊料號、表定 M7 還可能再升</b>；4Q26 衛星族群營收跳一階、<b>1Q27 新產能開出</b>再上一階，並拿台虹 PTFE 壓成成品供 NV 體系。</div>
+      <div class="th-src">— 郁翔 · 08/06</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">6274</span><span class="th-name">台燿</span><span class="th-zone">④ PCB/CCL</span></div>
+      <div class="th-body">7 月營收 BEAT、月月高；泰國新產線提早小量產爬坡，<b>7–8 月兩位數漲價</b>，8/9 月營收逐月往上。</div>
+      <div class="th-src">— Eddie · Johnny · 08/07</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">2313</span><span class="th-name">華通</span><span class="th-zone">④ PCB/CCL</span></div>
+      <div class="th-body">3Q 調漲非蘋果、4Q 年度議價看漲；<b>V3 衛星單位 content 較 V2.5 翻倍</b>，4Q26 量產，天上板 27 年營收看翻倍。</div>
+      <div class="th-src">— 郁翔 · 08/06</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">8358</span><span class="th-name">金居</span><span class="th-zone">④ PCB/CCL</span></div>
+      <div class="th-body"><b>HVLP4 銅箔嚴重缺貨</b>，客戶給的 FCST 是現在的 <b>10 倍</b>，卡點只在產能何時開出（短期毛利受夏季電費壓抑）。</div>
+      <div class="th-src">— 08/05</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z3)">
+      <div class="th-h"><span class="th-code">8046</span><span class="th-name">南電</span><span class="th-zone">③ 載板</span></div>
+      <div class="th-body"><b>ABF 最缺、掌握訂價權</b>；宣布 <b>468 億建廠</b>，3Q 展望 +14~19%、ASP 續漲。載板族群首選。</div>
+      <div class="th-src">— Eddie · 布哥 · 08/07</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z3)">
+      <div class="th-h"><span class="th-code">3189</span><span class="th-name">景碩</span><span class="th-zone">③ 載板</span></div>
+      <div class="th-body">下半年每季 +10%、<b>27/28 不含漲價成長 30%</b>、切入光模塊 MSAP 新動能；估值有望修復到 30X，<b>長線 TP 1300</b>（EPS 27/28 估 30/45）。</div>
+      <div class="th-src">— Eddie · 08/06</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z1)">
+      <div class="th-h"><span class="th-code">3443</span><span class="th-name">創意</span><span class="th-zone">① 運算</span></div>
+      <div class="th-body">CoWoS 產能大增（<b>今年 2k→明年 60k/月</b>）；ice fish 案 GUC 勝出機率大；<b>Google TPU v10 後段封裝</b>潛在外包標的。</div>
+      <div class="th-src">— 高哥 · 08/05</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z1)">
+      <div class="th-h"><span class="th-code">2454</span><span class="th-name">聯發科</span><span class="th-zone">① 運算</span></div>
+      <div class="th-body">Google TPU 明年出貨上修 <b>11→12 萬片</b>，發哥明年 ASIC 產出<b>至少 1200 萬顆、比重高於博通</b>；旗艦 9600 量優於預期。</div>
+      <div class="th-src">— 峰哥 · Jason · 08/06</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z2)">
+      <div class="th-h"><span class="th-code">7734</span><span class="th-name">印能</span><span class="th-zone">② 封裝</span></div>
+      <div class="th-body"><b>9 月起出貨 intel</b>、每週開會 2–3 次；3Q26 單月營收 13E+、QOQ +40%；<b>明年 EPS 150–200、TP 5000</b>，老闆喊明年 200。</div>
+      <div class="th-src">— ED · 雅婷姊 · 08/07</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z2)">
+      <div class="th-h"><span class="th-code">2467</span><span class="th-name">志聖</span><span class="th-zone">② 封裝</span></div>
+      <div class="th-body">CoWoS 站點從 <b>4→8 個</b>持續擴增，OSAT 資本支出跟台積電 <b>幾乎 1:1</b>，2026 GM 目標年增 3–5%（1Q26 已 49.5%）。</div>
+      <div class="th-src">— 吳晏城協理法說 · 08/07</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z5)">
+      <div class="th-h"><span class="th-code">3017</span><span class="th-name">奇鋐</span><span class="th-zone">⑤ 散熱</span></div>
+      <div class="th-body">營收創高、<b>實際 QOQ 上看 15–20%</b>（優於 KGI 保守的 8%）；逆勢仍能漲價、優於同業；2027 server 功耗上看 <b>4000W</b>。</div>
+      <div class="th-src">— Jacky · 威廉哥 · 08/06</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z5)">
+      <div class="th-h"><span class="th-code">3653</span><span class="th-name">健策</span><span class="th-zone">⑤ 散熱</span></div>
+      <div class="th-body">6 月起出 <b>Rubin Lid</b>、GM 45–50%；NV 補貼 50 元/片 7–9 月反應；<b>明年 TPU v9 用可換式均熱片、ASP 大升</b>（EPS 26/27 估 70–75／130–140）。</div>
+      <div class="th-src">— 郁翔 · Emily · 08/07</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z6)">
+      <div class="th-h"><span class="th-code">2059</span><span class="th-name">川湖</span><span class="th-zone">⑥ 機構</span></div>
+      <div class="th-body">2Q GM/OPM <b>87%/82%</b> 遠優預期，<b>3Q 營收上修到 QoQ +70–80%</b>，2026 EPS 挑戰 <b>400</b>；AMD Helios 概念，郁翔看 26/27 EPS 300/450、TP 13000–15000。</div>
+      <div class="th-src">— 08/07</div>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z7)">
+      <div class="th-h"><span class="th-code">3450</span><span class="th-name">聯鈞</span><span class="th-zone">⑦ 互連</span></div>
+      <div class="th-body"><b>台廠唯一能做整組光模塊</b>；禁中國光模塊題材想像空間大（代工出給源傑再轉客戶）；明年 <b>TP 抓 20，有人看 30</b>。</div>
+      <div class="th-src">— Emily Hsu · Diana Ni · 08/06</div>
+    </div>
+
+  </div>
+
   <div class="aside">
     <h3><span class="dot"></span>熱門，但不在「伺服器主體」上</h3>
     <p>這幾支近期也很熱、常出現在共識榜，但屬於不同題材，別跟伺服器混在一起：</p>
@@ -557,14 +664,7 @@
   </footer>
 </div>
 <script>
-function magiToggleTheme(){
-  var h=document.documentElement;
-  var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  var next=cur==='dark'?'light':'dark';
-  h.setAttribute('data-theme',next);
-  localStorage.setItem('magi-theme',next);
-  var b=document.querySelector('.site-nav .tbtn'); if(b) b.textContent=next==='dark'?'☀️':'🌙';
-}
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
 (function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
 </script>
 </body>
