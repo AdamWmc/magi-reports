@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>人形機器人解剖圖 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;
+    position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · AI 產業地圖</div>
+    <h1>一台 <em>人形機器人</em>，拆給你看</h1>
+    <p class="lede">人形機器人被視為 AI 的「實體化」、下一個兆元市場（特斯拉 Optimus、Figure、波士頓動力…）。一台人形機器人＝<strong>幾十個關節</strong>，每個關節＝馬達＋減速機＋編碼器＋驅動器。台廠最強的正是這些<strong>精密機械零件</strong>。下面把它分成 7 個子系統，把你 Notion 最近討論的機器人股放到各自的位置上。</p>
+    <div class="meta"><span>資料：近 3 個月各家開會／廢想法</span><span>🤖 人形機器人</span><span>由大腦 → 整機</span></div>
+  </header>
+
+  <div class="legend" aria-label="各子系統顏色">
+    <div class="lg"><i style="background:var(--z1)"></i>大腦·運算</div>
+    <div class="lg"><i style="background:var(--z2)"></i>關節·執行器</div>
+    <div class="lg"><i style="background:var(--z3)"></i>線性傳動</div>
+    <div class="lg"><i style="background:var(--z4)"></i>感知·視覺</div>
+    <div class="lg"><i style="background:var(--z5)"></i>靈巧手</div>
+    <div class="lg"><i style="background:var(--z6)"></i>連接·被動</div>
+    <div class="lg"><i style="background:var(--z7)"></i>整機·結構</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>一台人形機器人長什麼樣？</h2>
+  <p class="h2sub">關鍵觀念：機器人最貴、最難的不是「腦」，是<strong>「關節」</strong>。全身數十個關節，每個都要馬達出力、減速機放大扭力、編碼器回授位置——這是台灣精密機械的主場。先看全身分區，再放大看一個關節裡怎麼組。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 384" role="img" aria-label="人形機器人正面示意圖，標出大腦、感知、關節執行器、線性傳動、靈巧手、連接被動等子系統位置">
+      <!-- head/brain -->
+      <rect x="118" y="28" width="64" height="50" rx="12" fill="var(--z1b)" stroke="var(--z1)" stroke-width="1.5"/>
+      <circle cx="138" cy="54" r="5" fill="var(--z4b)" stroke="var(--z4)"/><circle cx="162" cy="54" r="5" fill="var(--z4b)" stroke="var(--z4)"/>
+      <rect x="143" y="78" width="14" height="10" fill="var(--surface)" stroke="var(--line)"/>
+      <!-- torso -->
+      <rect x="110" y="90" width="80" height="98" rx="9" fill="var(--surface)" stroke="var(--line)"/>
+      <rect x="124" y="104" width="52" height="40" rx="4" fill="var(--z6b)" stroke="var(--z6)"/>
+      <!-- arms -->
+      <line x1="112" y1="104" x2="94" y2="150" stroke="var(--muted)" stroke-width="11" stroke-linecap="round"/>
+      <line x1="94" y1="152" x2="88" y2="196" stroke="var(--muted)" stroke-width="10" stroke-linecap="round"/>
+      <line x1="188" y1="104" x2="206" y2="150" stroke="var(--muted)" stroke-width="11" stroke-linecap="round"/>
+      <line x1="206" y1="152" x2="212" y2="196" stroke="var(--muted)" stroke-width="10" stroke-linecap="round"/>
+      <!-- legs -->
+      <line x1="132" y1="190" x2="124" y2="250" stroke="var(--muted)" stroke-width="13" stroke-linecap="round"/>
+      <line x1="124" y1="252" x2="120" y2="322" stroke="var(--muted)" stroke-width="12" stroke-linecap="round"/>
+      <line x1="168" y1="190" x2="176" y2="250" stroke="var(--muted)" stroke-width="13" stroke-linecap="round"/>
+      <line x1="176" y1="252" x2="180" y2="322" stroke="var(--muted)" stroke-width="12" stroke-linecap="round"/>
+      <rect x="104" y="322" width="26" height="12" rx="3" fill="var(--muted)"/><rect x="170" y="322" width="26" height="12" rx="3" fill="var(--muted)"/>
+      <!-- hands -->
+      <rect x="78" y="196" width="20" height="24" rx="5" fill="var(--z5b)" stroke="var(--z5)" stroke-width="1.4"/>
+      <rect x="202" y="196" width="20" height="24" rx="5" fill="var(--z5b)" stroke="var(--z5)" stroke-width="1.4"/>
+      <!-- joints (z2) -->
+      <g fill="var(--z2b)" stroke="var(--z2)" stroke-width="1.5">
+        <circle cx="112" cy="102" r="9"/><circle cx="188" cy="102" r="9"/>
+        <circle cx="94" cy="151" r="7"/><circle cx="206" cy="151" r="7"/>
+        <circle cx="130" cy="189" r="9"/><circle cx="170" cy="189" r="9"/>
+        <circle cx="124" cy="251" r="8"/><circle cx="176" cy="251" r="8"/>
+      </g>
+      <!-- leaders + labels -->
+      <g stroke="currentColor" stroke-width="1" opacity=".35">
+        <line x1="182" y1="44" x2="250" y2="40"/><line x1="166" y1="54" x2="250" y2="74"/>
+        <line x1="188" y1="102" x2="250" y2="120"/><line x1="206" y1="151" x2="250" y2="176"/>
+        <line x1="222" y1="208" x2="250" y2="218"/><line x1="176" y1="120" x2="250" y2="264"/>
+      </g>
+      <g class="svg-t" font-size="12.5" fill="currentColor">
+        <text x="254" y="44">大腦·AI 運算</text>
+        <text x="254" y="74">感知·視覺</text>
+        <text x="254" y="120">關節·執行器</text>
+        <text x="254" y="176">線性傳動</text>
+        <text x="254" y="212">靈巧手</text>
+        <text x="254" y="264">連接·被動·電池</text>
+      </g>
+      <g class="svg-l" font-size="10.5" fill="var(--muted)">
+        <text x="254" y="88">看得到、抓得穩</text>
+        <text x="254" y="134">全身數十個（成本大頭）</text>
+        <text x="254" y="190">滑軌／螺桿，直線出力</text>
+        <text x="254" y="226">最難的部位之一</text>
+        <text x="254" y="278">線束、MLCC、供電</text>
+      </g>
+    </svg>
+    <figcaption><b>圖 1 · 人形機器人分區</b>——頭是腦、眼是感知，真正的價值散布在<b>全身數十個關節（黃點）</b>：每個關節都是一組「執行器」。</figcaption>
+  </figure>
+
+  <figure class="fig">
+    <svg viewBox="0 0 470 210" role="img" aria-label="機器人關節執行器結構：編碼器、馬達、諧波減速機、輸出法蘭，下方為驅動器控制板">
+      <line x1="46" y1="96" x2="424" y2="96" stroke="var(--line)" stroke-width="2"/>
+      <!-- 編碼器 -->
+      <circle cx="66" cy="96" r="24" fill="var(--z2b)" stroke="var(--z2)"/><circle cx="66" cy="96" r="9" fill="var(--surface)" stroke="var(--z2)"/>
+      <!-- 馬達 -->
+      <rect x="96" y="62" width="118" height="68" rx="7" fill="var(--surface)" stroke="var(--z2)"/>
+      <g stroke="var(--z2)" opacity=".45"><line x1="112" y1="62" x2="112" y2="130"/><line x1="128" y1="62" x2="128" y2="130"/><line x1="144" y1="62" x2="144" y2="130"/><line x1="160" y1="62" x2="160" y2="130"/><line x1="176" y1="62" x2="176" y2="130"/><line x1="192" y1="62" x2="192" y2="130"/></g>
+      <!-- 諧波減速機 (concentric) -->
+      <circle cx="288" cy="96" r="42" fill="var(--z2b)" stroke="var(--z2)" stroke-width="1.6"/>
+      <ellipse cx="288" cy="96" rx="30" ry="34" fill="var(--surface)" stroke="var(--z2)"/>
+      <ellipse cx="288" cy="96" rx="15" ry="9" fill="var(--z2b)" stroke="var(--z2)"/>
+      <!-- 輸出法蘭 -->
+      <rect x="336" y="72" width="34" height="48" rx="4" fill="var(--surface)" stroke="var(--z2)"/>
+      <line x1="370" y1="96" x2="424" y2="96" stroke="var(--z2)" stroke-width="4"/>
+      <polygon points="424,90 434,96 424,102" fill="var(--z2)"/>
+      <!-- 驅動板 -->
+      <rect x="96" y="150" width="220" height="30" rx="4" fill="var(--z1b)" stroke="var(--z1)"/>
+      <!-- labels -->
+      <g class="svg-t" font-size="11.5" fill="var(--ink)" text-anchor="middle">
+        <text x="66" y="40">編碼器</text><text x="155" y="40">馬達</text><text x="288" y="34">諧波減速機</text><text x="353" y="40">輸出</text><text x="206" y="170">驅動器／控制板</text>
+      </g>
+      <g class="svg-l" font-size="9.5" fill="var(--muted)" text-anchor="middle">
+        <text x="66" y="140">回授位置</text><text x="155" y="146">東元·士電·台達電</text><text x="288" y="150">上銀·宇隆·鈞興·和大</text>
+      </g>
+    </svg>
+    <figcaption><b>圖 2 · 關節「執行器」放大</b>——馬達出高轉速 → <b>諧波減速機</b>換成低速高扭力 → 輸出；編碼器回授、驅動板控制。<b>減速機是最貴、最難、良率最低的零件</b>，也是台廠（上銀、宇隆、鈞興）卡位的核心。</figcaption>
+  </figure>
+
+  <h2 class="h2"><span class="n">2</span>供應鏈：誰做哪個零件</h2>
+  <p class="h2sub">把 7 個子系統填進 Notion 最近討論的機器人股（🎯＝討論熱度較高）。每層附「名詞白話」。</p>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z1)"><div class="rail"><div class="num">1</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🧠</span><span class="zone-name">大腦·AI 運算</span><span class="zone-en">Brain / Edge AI</span></div>
+      <p class="zone-do">機器人的「腦」＝邊緣 AI 晶片（如 NVIDIA Jetson Thor），負責即時視覺、決策、運動控制。台廠切<strong>設計（ASIC）與週邊 IC</strong>。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3443</span><span class="chip-name">創意</span><span class="chip-hot">🎯</span></div><div class="chip-role">ASIC 設計，明年特斯拉約 15K die</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2454</span><span class="chip-name">聯發科</span></div><div class="chip-role">特斯拉／SpaceX 案（進行中、時有卡關）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2379</span><span class="chip-name">瑞昱</span></div><div class="chip-role">Tesla 機器人 Switch IC、車用乙太網</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>邊緣 AI 晶片</b>：直接裝在機器人身上、即時運算的晶片（不連雲端）。<b>ASIC</b>：為特定任務客製的晶片，特斯拉自研、找台廠代設計。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">2</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">⚙️</span><span class="zone-name">關節·執行器</span><span class="zone-en">Actuator（核心價值）</span></div>
+      <p class="zone-do">關節的「肌肉」＝馬達＋<strong>減速機</strong>＋編碼器＋驅動器。一台人形機器人幾十個，<strong>減速機是成本大頭與量產瓶頸</strong>——台廠最強的一塊。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2049</span><span class="chip-name">上銀</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">諧波減速機＋滑軌＋螺桿，機械傳動龍頭</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2233</span><span class="chip-name">宇隆</span><span class="chip-hot">🎯</span></div><div class="chip-role">機器人減速器，切入北美四大客戶</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">4571</span><span class="chip-name">鈞興-KY</span><span class="chip-hot">🎯</span></div><div class="chip-role">機器人齒輪，接特斯拉 Optimus 訂單</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1536</span><span class="chip-name">和大</span></div><div class="chip-role">齒輪／減速機</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1504</span><span class="chip-name">東元</span></div><div class="chip-role">伺服馬達</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2308</span><span class="chip-name">台達電</span></div><div class="chip-role">伺服馬達＋驅動器＋運動控制</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1503</span><span class="chip-name">士電</span></div><div class="chip-role">馬達</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">興櫃</span><span class="chip-name">盟英</span></div><div class="chip-role">諧波減速機（與盟立合資，未上市）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>執行器（actuator）</b>：讓關節動起來的一整組零件。<b>減速機</b>：把馬達的高轉速換成「低速、大扭力」，關節才有力——<b>諧波減速機</b>體積小精度高，最難做、良率最低、最貴，是機器人成本的關鍵。<b>編碼器</b>：回報關節轉到哪，讓動作精準。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z3)"><div class="rail"><div class="num">3</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">📏</span><span class="zone-name">線性傳動</span><span class="zone-en">Linear Motion</span></div>
+      <p class="zone-do">把「旋轉」變成「直線來回」（手臂伸縮、腿部）——滾珠螺桿、線性滑軌。精度與壽命是關鍵。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2049</span><span class="chip-name">上銀</span><span class="chip-hot">🎯</span></div><div class="chip-role">滾珠螺桿／線性滑軌（同時是減速機龍頭）</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">4540</span><span class="chip-name">全球傳動</span><span class="chip-hot">🎯</span></div><div class="chip-role">線性傳動，傳與宇隆獨供 AMZN 機器人</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">1597</span><span class="chip-name">直得</span><span class="chip-hot">🎯</span></div><div class="chip-role">線性滑軌／關節模組，台積巡場機器狗</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1590</span><span class="chip-name">亞德客-KY</span></div><div class="chip-role">氣動元件</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>滾珠螺桿</b>：把馬達旋轉轉成前後直線移動的零件（像螺絲＋螺帽但超精密）。<b>線性滑軌</b>：讓部件沿直線滑動又穩又順的軌道。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">4</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">👁️</span><span class="zone-name">感知·視覺</span><span class="zone-en">Perception</span></div>
+      <p class="zone-do">機器人的「眼睛與皮膚」——視覺鏡頭、3D 感測、力覺／觸覺、慣性感測（IMU），讓它看得到、抓得穩。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2359</span><span class="chip-name">所羅門</span></div><div class="chip-role">3D 機器視覺／AI 視覺辨識</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3455</span><span class="chip-name">由田</span></div><div class="chip-role">光學檢測（AOI）／視覺</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>3D 視覺</b>：不只看到平面、還判斷距離與形狀，機器人才能抓取。<b>IMU</b>：慣性感測，讓機器人知道自己有沒有站穩、往哪傾。（力覺／觸覺感測目前多為國外廠。）</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z5)"><div class="rail"><div class="num">5</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">✋</span><span class="zone-name">靈巧手</span><span class="zone-en">Dexterous Hand</span></div>
+      <p class="zone-do">人形機器人<strong>最難的部位之一</strong>——十幾個微型關節塞進一隻手，要力量又要細膩。用到微型馬達／減速機／腱傳動。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2233</span><span class="chip-name">宇隆</span></div><div class="chip-role">微型減速器切入（同關節供應鏈）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">4571</span><span class="chip-name">鈞興-KY</span></div><div class="chip-role">微型齒輪</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>靈巧手</b>：模仿人手、能做精細抓握的機械手。難在把十幾個關節、馬達、感測全塞進手掌大小，是價值與難度都高、目前台廠仍在早期卡位的環節。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z6)"><div class="rail"><div class="num">6</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔌</span><span class="zone-name">連接·被動·線束</span><span class="zone-en">Interconnect / Passive</span></div>
+      <p class="zone-do">幾十個關節與感測器要靠<strong>線束、連接器</strong>串起來、供電與傳訊；被動元件（MLCC 等）用量大。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3023</span><span class="chip-name">信邦</span><span class="chip-hot">🎯</span></div><div class="chip-role">連接器／線束，機器人展望「像光模塊要冒出頭」</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3665</span><span class="chip-name">貿聯-KY</span></div><div class="chip-role">線束／連接器（特斯拉供應鏈）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2327</span><span class="chip-name">國巨</span></div><div class="chip-role">被動元件，TSLA 機器人加速缺料</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6548</span><span class="chip-name">長科</span></div><div class="chip-role">導線架，Optimus PMIC 導線架受惠</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>線束</b>：把電力與訊號送到各關節的「神經與血管」。<b>導線架</b>：晶片封裝裡承載腳位的金屬架，機器人用的 PMIC（電源管理晶片）多，導線架跟著受惠。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">7</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🏗️</span><span class="zone-name">整機·結構·組裝</span><span class="zone-en">System / Assembly</span></div>
+      <p class="zone-do">把上面全部組成一台會動的機器人——系統整合、結構件、組裝代工。台灣有協作機器人整機，也卡進特斯拉 Optimus。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">6188</span><span class="chip-name">廣明</span></div><div class="chip-role">達明機器人（協作機器人整機）</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2464</span><span class="chip-name">盟立</span><span class="chip-hot">🎯</span></div><div class="chip-role">特斯拉 Optimus 泰國廠（柯盟合資）關鍵零件</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2317</span><span class="chip-name">鴻海</span></div><div class="chip-role">MIH／整機代工能力</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>協作機器人</b>：能和人一起在產線工作、不需圍籬的機械手臂（如達明）。<b>系統整合</b>：把馬達、減速機、感測、軟體兜成一台能動的整機，是最後一哩。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="terminus">
+    <b>⬇ 全部組起來 = 一台會走路、會抓握的人形機器人</b>
+    <p>台廠在「精密機械零件」這塊卡位最深（減速機、螺桿、滑軌、齒輪）；大腦晶片主供仍是國外（NVIDIA），台廠切設計與週邊。整機則有協作機器人與特斯拉 Optimus 代工/零件。</p>
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：機器人在賭什麼</h2>
+  <p class="h2sub">各家開會／廢想法裡對機器人股<strong>未來</strong>的多頭論點（含目標價、催化劑）。<strong>這是智囊觀點與推測、非投資建議</strong>；機器人多數台廠營收占比仍個位數%，屬早期題材，數字看兌現。</p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">2233</span><span class="th-name">宇隆</span><span class="th-zone">⚙️ 執行器</span></div>
+      <div class="th-body">切入北美<b>四大機器人客戶</b>（AWS、Figure、Apptronik、波士頓動力）減速器；四大客戶 <b>2027 貢獻約 18.9E</b>；Apptronik 擬出資協助宇隆蓋美國廠。<b>TP 385</b>。</div><div class="th-src">— 小魚 · 07/20</div></div>
+
+    <div class="th-card" style="--tc:var(--z6)"><div class="th-h"><span class="th-code">3023</span><span class="th-name">信邦</span><span class="th-zone">🔌 連接</span></div>
+      <div class="th-body">機器人展望「非常好」，營收比重<b>今年 1%→明年翻倍→後年 90~95E</b>；「跳升幅度跟當初<b>光模塊一樣</b>，下半年有機會冒出頭」。</div><div class="th-src">— 張寬諺 · 06/29</div></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">1597</span><span class="th-name">直得</span><span class="th-zone">📏 線性傳動</span></div>
+      <div class="th-body"><b>台積電巡場機器狗</b>出關節模組／手臂，最快 <b>9M26 交第一隻</b>，量產上百台、單台 content ≥150 萬；Ficontec 在手訂單 1400→1800 台。</div><div class="th-src">— 小魚 · 05/18</div></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">4571</span><span class="th-name">鈞興-KY</span><span class="th-zone">⚙️ 執行器</span></div>
+      <div class="th-body">機器人齒輪訂單「<b>沒有盡頭</b>」，與宇隆接<b>特斯拉 Optimus 訂單</b>；老股閉鎖到明年 7 月，想拉到 <b>TP 500~600</b>。</div><div class="th-src">— 麻神 · 05/18</div></div>
+
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">2464</span><span class="th-name">盟立</span><span class="th-zone">🏗️ 整機</span></div>
+      <div class="th-body">泰國設新廠 for <b>特斯拉 Optimus</b>，與科達利、盟英合資「<b>柯盟</b>」做關鍵零組件（特斯拉要求<b>非中體系</b>），持股 39-40%。</div><div class="th-src">— Kevin · 06/22</div></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">4540</span><span class="th-name">全球傳動</span><span class="th-zone">📏 線性傳動</span></div>
+      <div class="th-body">傳與宇隆<b>獨供 AMZN 機器人</b>線性傳動；線性模組直接受惠倉儲／人形機器人放量。</div><div class="th-src">— 07/06</div></div>
+
+    <div class="th-card" style="--tc:var(--z6)"><div class="th-h"><span class="th-code">6548</span><span class="th-name">長科*</span><span class="th-zone">🔌 連接</span></div>
+      <div class="th-body">今年傳 <b>10 萬台 Optimus</b>，多用 TI 的 PMIC，<b>導線架</b>跟著受惠；「AI 之外機器人也在動了」。</div><div class="th-src">— Ann · 05/29</div></div>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 為什麼機器人「題材長、兌現慢」</span>
+    人形機器人被視為 AI 的實體化、<b>下一個兆元市場</b>（特斯拉喊 2026 造 10 萬台 Optimus）。台廠最強的是<b>精密機械零件</b>——減速機、螺桿、滑軌、齒輪，正是機器人成本大頭與量產瓶頸。兩大關鍵變數：① <b>減速機／靈巧手的成本與良率</b>能不能降下來（決定量產）；② 特斯拉要求<b>「非中體系」供應鏈</b>——這是台廠最大的機會。但目前多數台廠機器人營收占比仍<b>個位數 %</b>，是「訂單能見度剛開始、真正放量在 2027 後」的早期題材：<b>短線靠消息、長線看兌現</b>。
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>相關但「不是機器人本體」</h3>
+    <p>這幾家常和特斯拉／機器人一起被提到，但屬不同業務，別混在一起：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">2330</span><span class="chip-name">台積電</span></div><div class="chip-role">特斯拉赴台積搶 wafer 被拒（產能吃緊八卦）</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">4938</span><span class="chip-name">和碩</span></div><div class="chip-role">出貨特斯拉 GB300 AI 伺服器（非機器人）</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">6538</span><span class="chip-name">倉和</span></div><div class="chip-role">特斯拉太陽能電池網版（非機器人）</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到某支機器人概念股，先問「它做哪個零件？」——關節（減速機）最貴、線性傳動與連接次之，大腦以國外晶片為主。<br>
+    <b>資料來源：</b>近 3 個月 MAGI 各家開會／廢想法整理。🎯＝近期討論熱度較高。<br>
+    <b>但書：</b>機器人多為早期題材、多數台廠營收占比仍低；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
