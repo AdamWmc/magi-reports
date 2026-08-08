@@ -184,6 +184,25 @@
   .th-body b{color:var(--ink);font-weight:700}
   .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
 
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
   /* ---- terminus ---- */
   .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
     background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
@@ -226,8 +245,7 @@
   .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
   .site-nav .nl a:hover{color:var(--ink)}
   .site-nav .nl a.back{color:var(--signal);font-weight:600}
-  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;
-    cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
   .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
   @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
 </style>
@@ -538,7 +556,7 @@
             <div class="chip"><div class="chip-top"><span class="chip-code">2345</span><span class="chip-name">智邦</span></div><div class="chip-role">網通交換器（Switch），資料中心骨幹</div></div>
             <div class="chip hot"><div class="chip-top"><span class="chip-code">3450</span><span class="chip-name">聯鈞</span><span class="chip-hot">🎯</span></div><div class="chip-role">光通元件／整組光模塊</div></div>
             <div class="chip"><div class="chip-top"><span class="chip-code">3081</span><span class="chip-name">聯亞</span></div><div class="chip-role">光通訊晶片</div></div>
-            <div class="chip"><div class="chip-top"><span class="chip-code">3363</span><span class="chip-name">源傑</span></div><div class="chip-role">光模塊雷射（CW laser）</div></div>
+            <div class="chip"><div class="chip-top"><span class="chip-code">3363</span><span class="chip-name">上詮</span></div><div class="chip-role">光模塊組裝／被動（接聯鈞代工）</div></div>
           </div>
         </div>
       </div>
@@ -549,6 +567,76 @@
   <div class="terminus">
     <b>⬇ 全部組起來 = 一座 AI 機櫃 / 資料中心</b>
     <p>上面 7 層疊成一台伺服器；數十台伺服器裝進一個機櫃（如 NVIDIA GB200 NVL72），再由網路把數百櫃連成一座 AI 資料中心。台廠幾乎每一層都有卡位。</p>
+  </div>
+
+  <h2 class="h2">🔬 光通訊放大鏡：從光源到 CPO</h2>
+  <p class="h2sub">第 ⑦ 層（網路互連）裡最熱、Notion 討論最多的就是<strong>光通訊</strong>——電訊號在板子上跑不遠又耗電，要把幾萬張 GPU 串起來只能<strong>改用「光」</strong>。速度一路 800G → 1.6T，終局走向 <strong>CPO（把光引擎直接和交換晶片共封裝）</strong>。台廠從最上游的磊晶、雷射，到光模塊、CPO、測試都有卡位。這裡把整條光鏈拆給你看（右上數字＝近 3 個月 Notion 提及次數）。</p>
+
+  <div class="opt-seg">
+    <div class="opt-h"><span class="opt-n">A</span><span class="opt-t">磊晶／化合物半導體</span><span class="opt-d">做雷射與感光元件的「基材」，光鏈最上游</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">2455</span><span class="oc-name">全新</span><span class="oc-heat">提及12</span></div><div class="oc-role">光通訊磊晶，7 月營收 &gt;4E、光電子月增 100%</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3081</span><span class="oc-name">聯亞</span><span class="oc-heat">提及35</span></div><div class="oc-role">磊晶＋自製雷射，客戶美系為主、禁令影響小</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">4991</span><span class="oc-name">環宇-KY</span><span class="oc-heat">提及10</span></div><div class="oc-role">磊晶／PD，光電子起量、穩懋 PD 明年翻倍</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3105</span><span class="oc-name">穩懋</span><span class="oc-heat">提及13</span></div><div class="oc-role">砷化鎵最大代工廠，代工 NV 的 ELS／UHP 雷射</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg">
+    <div class="opt-h"><span class="opt-n">B</span><span class="opt-t">雷射光源</span><span class="opt-d">產生光的核心晶片（CW / DFB / EML / ELS）</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">興櫃</span><span class="oc-name">源傑</span><span class="oc-heat">未上市</span></div><div class="oc-role">CW laser 光源，聯鈞 800G 以下模塊代工對象（尚未上市）</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3081</span><span class="oc-name">聯亞</span><span class="oc-heat">提及35</span></div><div class="oc-role">高頻雷射，衛星＋光通雙題材</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3105</span><span class="oc-name">穩懋</span><span class="oc-heat">提及13</span></div><div class="oc-role">代工 ELS／UHP，NV CPO delay 拖累但方向不變</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg">
+    <div class="opt-h"><span class="opt-n">C</span><span class="opt-t">光收發模組／光模塊</span><span class="opt-d">把光電互轉、打包成可插拔模組（AI 交換器的耗材）</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">3450</span><span class="oc-name">聯鈞</span><span class="oc-heat">提及36</span></div><div class="oc-role">台廠唯一整組光模塊，禁中國題材，明年 TP 20（有人看 30）</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">4979</span><span class="oc-name">華星光</span><span class="oc-heat">提及13</span></div><div class="oc-role">光收發模組，近期資金回補光通首選之一</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">4977</span><span class="oc-name">眾達-KY</span><span class="oc-heat">提及3</span></div><div class="oc-role">光收發模組</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3363</span><span class="oc-name">上詮</span><span class="oc-heat">提及3</span></div><div class="oc-role">光模塊組裝／被動元件，接聯鈞代工訂單</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3163</span><span class="oc-name">波若威</span><span class="oc-heat">提及3</span></div><div class="oc-role">光收發／光被動</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">6442</span><span class="oc-name">光聖</span><span class="oc-heat">提及8</span></div><div class="oc-role">光纖／連接器，上游原料緊缺、續看好</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">6278</span><span class="oc-name">台表科</span><span class="oc-heat">提及3</span></div><div class="oc-role">光模塊 SMT 打件</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg">
+    <div class="opt-h"><span class="opt-n">D</span><span class="opt-t">CPO／矽光子（下一代）</span><span class="opt-d">把光引擎直接和交換晶片「共封裝」，更省電、更高頻寬</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">2303</span><span class="oc-name">聯電</span><span class="oc-heat">提及18</span></div><div class="oc-role">矽光子晶圓代工（7/29 法說提 12／18 吋矽光子產能）</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3008</span><span class="oc-name">大立光</span><span class="oc-heat">提及9</span></div><div class="oc-role">FAU 光纖陣列，傳 9 月送樣 NV、與康寧合作</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">6291</span><span class="oc-name">沛亨</span><span class="oc-heat">提及3</span></div><div class="oc-role">康寧台灣獨家代理，FAU／光纖，Meta/NV 長單外溢</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">6515</span><span class="oc-name">穎崴</span><span class="oc-heat">提及3</span></div><div class="oc-role">CPO 測試探針，FormFactor CPO 上修、明年 EPS +80</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">6451</span><span class="oc-name">訊芯-KY</span><span class="oc-heat">提及5</span></div><div class="oc-role">CPO 封裝</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">2409</span><span class="oc-name">友達</span><span class="oc-heat">提及4</span></div><div class="oc-role">玻璃基板／CPO（中科廠傳售台積電）</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">8064</span><span class="oc-name">東捷</span><span class="oc-heat">提及3</span></div><div class="oc-role">玻璃基板雷射改質</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg">
+    <div class="opt-h"><span class="opt-n">E</span><span class="opt-t">高階 PCB／載板</span><span class="opt-d">光模塊要用的 mSAP 細線路板</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">2313</span><span class="oc-name">華通</span><span class="oc-heat">提及14</span></div><div class="oc-role">1.6T 光模組需 mSAP，有意圖切入</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">3189</span><span class="oc-name">景碩</span><span class="oc-heat">—</span></div><div class="oc-role">切入光模塊 MSAP，今年 1%、明年 5%</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">4958</span><span class="oc-name">臻鼎-KY</span><span class="oc-heat">提及6</span></div><div class="oc-role">mSAP 光模組板</div></div>
+    </div>
+  </div>
+
+  <div class="opt-seg">
+    <div class="opt-h"><span class="opt-n">F</span><span class="opt-t">測試／封測</span><span class="opt-d">光電晶片（EIC／PIC）的測試與封裝</span></div>
+    <div class="opt-chips">
+      <div class="oc"><div class="oc-top"><span class="oc-code">8150</span><span class="oc-name">南茂</span><span class="oc-heat">提及14</span></div><div class="oc-role">光通測試，接 MTK／AMD AP、Marvell EIC/PIC，TP 150</div></div>
+      <div class="oc"><div class="oc-top"><span class="oc-code">6147</span><span class="oc-name">頎邦</span><span class="oc-heat">提及24</span></div><div class="oc-role">LPO 出貨明年 6m→100m，量能跳升</div></div>
+    </div>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 為什麼盯 CPO？這是光通的終局</span>
+    現在光模塊是<b>插在交換器旁的可插拔模組</b>；下一代 <b>CPO（Co-Packaged Optics）</b>把光引擎<b>直接搬到交換晶片旁邊共封裝</b>，大幅省電、拉高頻寬——這是 1.6T 之後的方向。受惠會從「模組廠」往<b>矽光子（聯電）、FAU 光纖陣列（大立光／沛亨）、CPO 測試（穎崴）、玻璃基板（友達／東捷）</b>擴散。NV CPO 一度 delay 讓整族群回檔，但智囊多認為<b>方向沒變、只是遞延</b>，逢回是佈局點——這也是光通這條線「短線波動大、長線題材長」的原因。
   </div>
 
   <h2 class="h2"><span class="n">3</span>🔮 智囊看點：這些股票的未來在賭什麼</h2>
