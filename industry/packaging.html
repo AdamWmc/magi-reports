@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>半導體先進封裝 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1>半導體 <em>先進封裝</em></h1>
+    <p class="lede">摩爾定律變慢，晶片效能改靠「<strong>先進封裝</strong>」——把多顆晶片堆疊/並排封在一起（CoWoS、SoIC）。這是 <strong>AI 晶片出貨的真正瓶頸</strong>（台積電 CoWoS 一位難求）。台廠切三條：<strong>封裝設備（賣鏟子）、OSAT 委外封測、玻璃基板等新技術</strong>。CoWoS 基礎見 <a href="/industry/ai-server.html" style="color:var(--signal)">AI 伺服器</a>、HBM 封測見 <a href="/industry/memory.html" style="color:var(--signal)">記憶體</a>、CPO 封裝見 <a href="/industry/optical.html" style="color:var(--signal)">光通訊</a>；這篇把封裝<strong>全景＋設備/OSAT/新技術</strong>補齊。</p>
+    <div class="meta"><span>資料：近 3 個月各家開會／廢想法</span><span>📦 先進封裝</span><span>🎯＝Notion 熱議</span></div>
+  </header>
+
+  <div class="legend" aria-label="子環節顏色">
+    <div class="lg"><i style="background:var(--z1)"></i>晶圓級技術</div>
+    <div class="lg"><i style="background:var(--z4)"></i>OSAT 封測</div>
+    <div class="lg"><i style="background:var(--z2)"></i>封裝設備</div>
+    <div class="lg"><i style="background:var(--z7)"></i>探針卡·測試介面</div>
+    <div class="lg"><i style="background:var(--z5)"></i>玻璃基板·面板級</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>封裝為什麼越走越貴：技術演進</h2>
+  <p class="h2sub">晶片做不小了，就「換個方式封」——從單顆打線，一路走到把 GPU、HBM、邏輯晶片<strong>堆疊/並排在同一個封裝</strong>。<strong>越後面越難、單價越高、台積電越主導</strong>。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 520 210" role="img" aria-label="先進封裝技術演進階梯：打線→覆晶→CoWoS(2.5D)→SoIC(3D)→面板級FOPLP→玻璃基板CoPoS，難度與單價遞增">
+      <line x1="30" y1="185" x2="500" y2="185" stroke="var(--muted)" stroke-width="1.2"/>
+      <polygon points="500,181 508,185 500,189" fill="var(--muted)"/>
+      <text x="264" y="203" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)">難度 · 單價 · 台積電主導度 遞增 →</text>
+      <g class="svg-t" font-size="10.5">
+        <rect x="30" y="150" width="86" height="26" rx="4" fill="var(--z4b)" stroke="var(--z4)"/><text x="73" y="167" text-anchor="middle" fill="var(--ink)">打線/覆晶</text>
+        <rect x="126" y="122" width="86" height="26" rx="4" fill="var(--z2b)" stroke="var(--z2)"/><text x="169" y="139" text-anchor="middle" fill="var(--ink)">CoWoS 2.5D</text>
+        <rect x="222" y="94" width="86" height="26" rx="4" fill="var(--z1b)" stroke="var(--z1)"/><text x="265" y="111" text-anchor="middle" fill="var(--ink)">SoIC 3D</text>
+        <rect x="318" y="66" width="90" height="26" rx="4" fill="var(--z5b)" stroke="var(--z5)"/><text x="363" y="83" text-anchor="middle" fill="var(--ink)">面板級 FOPLP</text>
+        <rect x="416" y="38" width="92" height="26" rx="4" fill="var(--z7b)" stroke="var(--z7)"/><text x="462" y="55" text-anchor="middle" fill="var(--ink)">玻璃基板 CoPoS</text>
+      </g>
+      <g stroke="var(--muted)" stroke-width="1" opacity=".5"><line x1="116" y1="160" x2="126" y2="140"/><line x1="212" y1="132" x2="222" y2="112"/><line x1="308" y1="104" x2="318" y2="84"/><line x1="408" y1="76" x2="416" y2="56"/></g>
+      <g class="svg-l" font-size="8.5" fill="var(--muted)">
+        <text x="73" y="144" text-anchor="middle">日月光/力成</text>
+        <text x="169" y="116" text-anchor="middle">設備 志聖/印能</text>
+        <text x="265" y="88" text-anchor="middle">探針 雍智/旺矽</text>
+        <text x="363" y="60" text-anchor="middle">群創/志聖</text>
+        <text x="462" y="32" text-anchor="middle">友達/東捷</text>
+      </g>
+    </svg>
+    <figcaption><b>圖 · 封裝演進階梯</b>——現役主力是 <b>CoWoS（2.5D，GPU+HBM 並排）</b>；往上是 <b>SoIC（3D 堆疊）→ 面板級 → 玻璃基板 CoPoS</b>。每爬一階，難度與單價跳升，台積電主導度也越高，台廠切設備/OSAT/探針/基板。</figcaption>
+  </figure>
+
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>世代</th><th>技術</th><th>特點</th><th>相關台廠</th></tr>
+      <tr><td>傳統</td><td>打線／覆晶</td><td>便宜、成熟</td><td>日月光、力成、京元電</td></tr>
+      <tr><td><b>現役</b></td><td><b>CoWoS（2.5D）</b></td><td>GPU＋HBM 並排、AI 剛需</td><td>台積電主導；設備 志聖/印能</td></tr>
+      <tr><td>進階</td><td>SoIC（3D）</td><td>晶片直接堆疊、hybrid bonding</td><td>台積電；探針 雍智/旺矽</td></tr>
+      <tr><td>前沿</td><td>面板級 FOPLP</td><td>大尺寸方板、降成本</td><td>群創、志聖、精材（WoS）</td></tr>
+      <tr><td>未來</td><td>玻璃基板 CoPoS</td><td>更大更平整、需 TGV（2H27+）</td><td>友達、東捷、群創</td></tr>
+    </table>
+  </div>
+
+  <h2 class="h2"><span class="n">2</span>供應鏈：台廠的五段</h2>
+  <p class="h2sub">CoWoS/SoIC 核心製程是台積電自己做（不外包），台廠切的是<strong>設備、OSAT 委外、探針測試、玻璃基板</strong>。（🎯＝Notion 熱議）</p>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z1)"><div class="rail"><div class="num">A</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🏭</span><span class="zone-name">晶圓級／先進封裝技術</span><span class="zone-en">Wafer-level</span></div>
+      <p class="zone-do">封裝的核心製程（CoWoS/SoIC）由<strong>台積電主導</strong>；台廠有 WoS 晶圓級封裝的獨立玩家。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2330</span><span class="chip-name">台積電</span></div><div class="chip-role">CoWoS/SoIC/InFO/WMCM 全包，先進封裝龍頭</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3374</span><span class="chip-name">精材</span><span class="chip-hot">🎯</span></div><div class="chip-role">WoS 晶圓級封裝，台積集團、黃老師推、capex 逐季擴</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>CoWoS</b>：把 GPU 和 HBM 並排放在矽中介層上（2.5D）。<b>SoIC</b>：晶片直接上下堆疊（3D），用 <b>hybrid bonding（混合鍵合）</b>把兩片晶圓面對面接合。<b>WoS</b>：晶圓級封裝，在整片晶圓上做封裝再切開，省成本。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">B</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">📦</span><span class="zone-name">OSAT 委外封測</span><span class="zone-en">OSAT</span></div>
+      <p class="zone-do">台積電做不完的、以及一般封測，委外給 OSAT。<strong>OSAT capex 跟台積電幾乎 1:1</strong>成長。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3711</span><span class="chip-name">日月光投控</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">全球 OSAT 龍頭，CoPoS 參與、capex 上修</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6239</span><span class="chip-name">力成</span></div><div class="chip-role">封測，記憶體/邏輯，美光客戶</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2449</span><span class="chip-name">京元電</span></div><div class="chip-role">測試龍頭，泰瑞達財報帶動</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8150</span><span class="chip-name">南茂</span></div><div class="chip-role">記憶體/ASIC/光通測試（跨三題材）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6147</span><span class="chip-name">頎邦</span></div><div class="chip-role">驅動 IC 封測，CoWoS 擴充受惠</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6271</span><span class="chip-name">同欣電</span></div><div class="chip-role">功率／矽電容封裝（國巨集團）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8261</span><span class="chip-name">富鼎</span></div><div class="chip-role">功率 MOSFET 封測，4Q26 放量</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>OSAT</b>（委外封測代工）：幫 IC 設計/原廠做封裝與測試的專業廠（日月光、力成）。AI 晶片量大，台積電封裝產能不夠時委外給 OSAT，capex 跟著台積電同步擴。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">C</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">⚙️</span><span class="zone-name">封裝設備（賣鏟子）</span><span class="zone-en">Equipment</span></div>
+      <p class="zone-do"><strong>不管誰做封裝都要買設備</strong>——壓合、雷射、濕製程、回收系統。台積電＋OSAT 一起擴產，設備廠通吃。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2467</span><span class="chip-name">志聖</span></div><div class="chip-role">壓合設備，CoWoS 站點 4→8 擴增</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">7734</span><span class="chip-name">印能</span><span class="chip-hot">🎯</span></div><div class="chip-role">RS 回收系統，9 月起出貨 intel</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6187</span><span class="chip-name">萬潤</span></div><div class="chip-role">封裝設備，日月光訂單上修</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8064</span><span class="chip-name">東捷</span></div><div class="chip-role">玻璃基板雷射改質（TGV）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3131</span><span class="chip-name">弘塑</span></div><div class="chip-role">濕製程設備</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3583</span><span class="chip-name">辛耘</span></div><div class="chip-role">濕製程／設備代理</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>賣鏟子</b>：淘金熱時賣鏟子的最穩——封裝設備廠不賭「哪個晶片贏」，只要有人擴封裝產能就有單。<b>壓合/雷射/濕製程/回收</b>是先進封裝各站點要用的機台。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">D</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🎯</span><span class="zone-name">探針卡·測試介面</span><span class="zone-en">Probe Card</span></div>
+      <p class="zone-do">先進封裝腳距越來越細（micro bump），<strong>測試用的探針卡越難越貴</strong>；台廠是 TPU/ASIC micro bump 探針的 main source。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6223</span><span class="chip-name">旺矽</span><span class="chip-hot">🎯</span></div><div class="chip-role">探針卡，驅動 IC probe card 漲 50-100%</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6683</span><span class="chip-name">雍智</span><span class="chip-hot">🎯</span></div><div class="chip-role">micro bump 探針，TPU A5922 main source（精測出局）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>探針卡</b>：測試晶片時，用很多細針一次接觸晶片上千個接點量測好壞。先進封裝的接點（micro bump）又小又密，探針卡技術門檻高、單價貴，是隱形的「賣鏟子」。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z5)"><div class="rail"><div class="num">E</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🧊</span><span class="zone-name">玻璃基板·面板級（前沿）</span><span class="zone-en">Glass / Panel-level</span></div>
+      <p class="zone-do">下一代載體——用<strong>玻璃基板</strong>取代有機載板，更大更平整、適合超大 AI 封裝；面板廠靠既有玻璃產線切入。<strong>時程未定（2H27+）、題材先行。</strong></p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3481</span><span class="chip-name">群創</span><span class="chip-hot">🎯</span></div><div class="chip-role">面板轉 FOPLP/玻璃基板，PLP 700*700、TGV 提前</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2409</span><span class="chip-name">友達</span></div><div class="chip-role">玻璃基板，傳 TSMC 找它做 TGV（未證實）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3714</span><span class="chip-name">富采</span></div><div class="chip-role">CoPoS／Micro LED 玻璃基板</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8064</span><span class="chip-name">東捷</span></div><div class="chip-role">玻璃基板 TGV 雷射設備</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>玻璃基板</b>：用玻璃當封裝的底座，比傳統有機載板平整、耐熱、能做更大——AI 封裝越做越大時需要。<b>TGV（玻璃穿孔）</b>：在玻璃上打通孔導電，是關鍵難點。<b>FOPLP</b>：面板級扇出封裝，用大方板一次做很多顆、降成本。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 封裝＝AI 的真正瓶頸</span>
+    摩爾定律變慢，效能改靠封裝——<b>CoWoS 一位難求</b>就是 AI 晶片出貨的卡點。台積電先進封裝 capex 逐年跳、<b>OSAT capex 跟台積幾乎 1:1</b>。三條受惠：① <b>設備（賣鏟子）</b>志聖/印能/萬潤/旺矽——最確定；② <b>OSAT</b>日月光/力成/京元；③ <b>新技術</b>WoS（精材）、面板級（群創）、玻璃基板（友達/東捷）。<b>但</b>前沿的玻璃基板/CoPoS <b>時程未定（2H27+）、題材先行</b>；賣鏟子最確定，但旺矽/萬潤已高價，較低位階的是精材、力成/京元、富鼎。
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：先進封裝在賭什麼</h2>
+  <p class="h2sub">各家開會／廢想法對先進封裝股<strong>未來</strong>的多頭論點。<strong>智囊觀點與推測、非投資建議</strong>。<span class="who">（TP/EPS 已用收盤價 sanity check：萬潤「60-70」是 EPS；日月光 1000、群創 100-120 是激進/題材目標）</span></p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">3374</span><span class="th-name">精材</span><span class="th-zone">🏭 WoS</span></div>
+      <div class="th-body"><b>WoS 晶圓級封裝</b>，台積電集團、黃老師力推；capex 長達 2 年、<b>每季公告且金額越來越大</b>；<b>8/14 法說緊接台積電董事會後</b>（時點特殊）。</div><div class="th-src">— Sunny · 08/07</div><a class="th-link" href="/search.html?q=3374">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">6683</span><span class="th-name">雍智</span><span class="th-zone">🎯 探針</span></div>
+      <div class="th-body"><b>TPU A5922 探針 main source</b>（精測出局）、micro bump 製程 FF 最佳；4Q26 產能擴 50%；EPS 26/27 估 27/65，TP 2000。</div><div class="th-src">— 郁翔 · 07/17</div><a class="th-link" href="/search.html?q=6683">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">6223</span><span class="th-name">旺矽</span><span class="th-zone">🎯 探針</span></div>
+      <div class="th-body"><b>驅動 IC probe card 漲 50-100%</b>；日月光 capex 上修帶動測試需求；TPU micro bump 主供之一。（惟股價已高、漲多）</div><div class="th-src">— 峰哥·郁翔 · 07-08</div><a class="th-link" href="/search.html?q=6223">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">7734</span><span class="th-name">印能</span><span class="th-zone">⚙️ 設備</span></div>
+      <div class="th-body">RS 回收系統，<b>9 月起出貨 intel</b>、每週開會 2-3 次；3Q26 單月營收 13E+、QOQ +40%；明年 EPS 150-200、TP 5000。</div><div class="th-src">— ED · 08/07</div><a class="th-link" href="/search.html?q=7734">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">6187</span><span class="th-name">萬潤</span><span class="th-zone">⚙️ 設備</span></div>
+      <div class="th-body">封裝設備，<b>日月光訂單上修</b>；明年訂單原估 130 億再上修，<b>明年 EPS 原估 50 可多加 10-20</b>（即 60-70）。（股價已高，等位子）</div><div class="th-src">— jerry · 07/27</div><a class="th-link" href="/search.html?q=6187">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">3711</span><span class="th-name">日月光投控</span><span class="th-zone">📦 OSAT</span></div>
+      <div class="th-body">OSAT 龍頭，<b>CoPoS 矽品/日月光都參與</b>、光與 OS 訂單都給它；EPS 26/27 估 19/25，<b>內部上修目標價看 1000（激進）</b>。</div><div class="th-src">— Andy哥 · 08/06</div><a class="th-link" href="/search.html?q=3711">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">6271</span><span class="th-name">同欣電</span><span class="th-zone">📦 封裝</span></div>
+      <div class="th-body">國巨集團，接<b>矽電容封裝</b>＋MRVL 光通訊號放大器封測；功率 MOSFET 封裝補富鼎產能；EPS 26/27 8.5/12.6，TP 380。</div><div class="th-src">— 郁翔 · 06/29</div><a class="th-link" href="/search.html?q=6271">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z5)"><div class="th-h"><span class="th-code">3481</span><span class="th-name">群創</span><span class="th-zone">🧊 玻璃基板</span></div>
+      <div class="th-body">面板轉 <b>FOPLP/玻璃基板</b>，PLP 700*700、TGV 進度提前、FOPLP 半成品將出；<b>TP 100-120（靠玻璃基板題材重評價、投機）</b>。</div><div class="th-src">— Cherry · 07/22</div><a class="th-link" href="/search.html?q=3481">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">8261</span><span class="th-name">富鼎</span><span class="th-zone">📦 功率</span></div>
+      <div class="th-body">台灣<b>功率元件（MOSFET）</b>最佳之一；封裝產能不夠外溢給同欣電；<b>4Q26 放量</b>（先做低功率 MOSFET）。</div><div class="th-src">— Danny·Andy · 06/23</div><a class="th-link" href="/search.html?q=8261">查智囊原話 →</a></div>
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音</span>
+    <br>· <b>日月光 3711</b>：Q3 毛利率季增僅 1%、<b>不如預期</b>；EMIB 是「small pitch bumping、很久之後的遠期合約、會 delay，貢獻有限」。<span class="who">（Ken 08/06）</span>
+    <br>· <b>全族群 8/7 回檔</b>：富鼎 −7.8%、雍智 −5.5%、群創 −4.9%、旺矽 −3.2%、精材 −3%。<span class="who">（8/7 盤後）</span>
+    <br>· <b>玻璃基板/CoPoS 未證實</b>：東捷「大家認為 CoPoS 用到 TGV <b>還沒那麼快</b>」；友達「TSMC 找他做 TGV，但問下來<b>還沒發生</b>」——前沿題材、時程未定。<span class="who">（阿奇/麻神 07）</span>
+    <br>· <b>群創 TP 100-120</b>：面板本業 EPS 撐不起、靠玻璃基板題材重評價，<b>最投機</b>；旺矽/萬潤已高價。<span class="who">（收盤 sanity check）</span>
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>核心製程台積電自己做（不外包）</h3>
+    <p>先進封裝最核心的一段其實在台積電手裡，台廠切的是周邊：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">2330</span><span class="chip-name">台積電</span></div><div class="chip-role">CoWoS/SoIC 核心製程 in-house、不外包</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">高階封裝設備</span></div><div class="chip-role">部分國外（ASMPT、BESI hybrid bonding）</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">台廠定位</span></div><div class="chip-role">OSAT 委外＋設備＋探針＋玻璃基板</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到封裝股先問「它在哪一段？」——設備/探針（志聖/印能/旺矽/雍智）是賣鏟子最確定、OSAT（日月光/力成/京元）吃委外、玻璃基板（群創/友達）是前沿題材（時程未定）。<br>
+    <b>資料來源：</b>近 3 個月 MAGI 各家開會／廢想法整理。🎯＝Notion 熱議。TP/EPS 已用收盤價 sanity check。<br>
+    <b>但書：</b>先進封裝結構性強但個股評價偏高、前沿技術時程未定；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
