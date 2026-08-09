@@ -341,6 +341,79 @@
     <figcaption><b>圖 1 · 低軌衛星系統</b>——衛星本體與火箭是 SpaceX／國外的事；台廠卡在<b>高頻元件、天上板、天線與地面設備</b>這些零件與板子上。</figcaption>
   </figure>
 
+  <h2 class="h2">🔬 科普：為什麼要幾千顆？一顆衛星長怎樣</h2>
+  <p class="h2sub">低軌衛星（LEO）飛得低，好處是<strong>訊號延遲低</strong>，但每顆能覆蓋的地面小——<strong>所以要幾千、上萬顆才能覆蓋全球</strong>。這正是台廠出貨量暴增的根本原因。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 480 220" role="img" aria-label="軌道高度對照：GEO高軌3顆覆蓋全球、MEO中軌、LEO低軌需幾千顆">
+      <circle cx="240" cy="430" r="262" fill="var(--z4b)" stroke="var(--z4)"/>
+      <text x="240" y="204" text-anchor="middle" class="svg-l" font-size="10" fill="var(--z4)">地球</text>
+      <!-- 高度箭頭 -->
+      <line x1="16" y1="150" x2="16" y2="40" stroke="var(--muted)" stroke-width="1.2"/><polygon points="13,46 16,38 19,46" fill="var(--muted)"/>
+      <text x="10" y="100" text-anchor="middle" class="svg-l" font-size="9" fill="var(--muted)" transform="rotate(-90 10 100)">軌道高度 ↑</text>
+      <!-- GEO -->
+      <line x1="30" y1="42" x2="330" y2="42" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4"/>
+      <g fill="var(--muted)"><circle cx="90" cy="42" r="3.5"/><circle cx="180" cy="42" r="3.5"/><circle cx="270" cy="42" r="3.5"/></g>
+      <text x="340" y="40" class="svg-t" font-size="10" fill="var(--ink)">GEO 高軌</text>
+      <text x="340" y="52" class="svg-l" font-size="8" fill="var(--muted)">3.6萬km·延遲高·3顆覆蓋全球</text>
+      <!-- MEO -->
+      <line x1="30" y1="94" x2="330" y2="94" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4"/>
+      <g fill="var(--muted)"><circle cx="70" cy="94" r="3"/><circle cx="150" cy="94" r="3"/><circle cx="230" cy="94" r="3"/><circle cx="300" cy="94" r="3"/></g>
+      <text x="340" y="92" class="svg-t" font-size="10" fill="var(--ink)">MEO 中軌</text>
+      <text x="340" y="104" class="svg-l" font-size="8" fill="var(--muted)">~2萬km·GPS 導航用</text>
+      <!-- LEO -->
+      <line x1="30" y1="148" x2="330" y2="148" stroke="var(--z7)" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <g fill="var(--z7)"><circle cx="45" cy="148" r="3"/><circle cx="75" cy="148" r="3"/><circle cx="105" cy="148" r="3"/><circle cx="135" cy="148" r="3"/><circle cx="165" cy="148" r="3"/><circle cx="195" cy="148" r="3"/><circle cx="225" cy="148" r="3"/><circle cx="255" cy="148" r="3"/><circle cx="285" cy="148" r="3"/><circle cx="315" cy="148" r="3"/></g>
+      <text x="340" y="146" class="svg-t" font-size="10.5" fill="var(--z7)">LEO 低軌（Starlink）</text>
+      <text x="340" y="158" class="svg-l" font-size="8" fill="var(--muted)">500-2000km·延遲低·需幾千顆</text>
+    </svg>
+    <figcaption><b>圖 · 軌道高度對照</b>——<b>越低延遲越低，但每顆覆蓋越小</b>。GEO 高軌 3 顆就能覆蓋全球（但延遲高、上網卡）；<b>LEO 低軌延遲低（能打電動/視訊），代價是要幾千顆</b>——這就是 Starlink 佈幾萬顆、台廠出貨量暴增的原因。</figcaption>
+  </figure>
+
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>軌道</th><th>高度</th><th>延遲</th><th>需要幾顆</th><th>用途</th></tr>
+      <tr><td><b>GEO 高軌</b></td><td>3.6 萬 km</td><td>高（~600ms）</td><td>3 顆覆蓋全球</td><td>傳統通訊/氣象</td></tr>
+      <tr><td><b>MEO 中軌</b></td><td>~2 萬 km</td><td>中</td><td>數十顆</td><td>GPS 導航</td></tr>
+      <tr><td><b>LEO 低軌</b></td><td>500-2000 km</td><td><b>低（~30ms）</b></td><td><b>幾千~上萬顆</b></td><td>Starlink 寬頻上網</td></tr>
+    </table>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 480 200" role="img" aria-label="一顆低軌衛星解剖：太陽能板、通訊酬載、相位陣列天線、星間雷射，標出台廠">
+      <!-- 太陽能板 wings -->
+      <g fill="var(--z5b)" stroke="var(--z5)"><rect x="40" y="82" width="118" height="30" rx="2"/><rect x="322" y="82" width="118" height="30" rx="2"/></g>
+      <g stroke="var(--z5)" opacity=".4"><line x1="70" y1="82" x2="70" y2="112"/><line x1="100" y1="82" x2="100" y2="112"/><line x1="130" y1="82" x2="130" y2="112"/><line x1="352" y1="82" x2="352" y2="112"/><line x1="382" y1="82" x2="382" y2="112"/><line x1="412" y1="82" x2="412" y2="112"/></g>
+      <line x1="158" y1="97" x2="182" y2="97" stroke="var(--muted)" stroke-width="2"/><line x1="298" y1="97" x2="322" y2="97" stroke="var(--muted)" stroke-width="2"/>
+      <!-- 通訊酬載 body -->
+      <rect x="182" y="66" width="116" height="62" rx="5" fill="var(--z2b)" stroke="var(--z2)" stroke-width="1.5"/>
+      <text x="240" y="94" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">通訊酬載</text>
+      <text x="240" y="108" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">天上板+高頻元件</text>
+      <!-- 相位陣列天線 (面向地球) -->
+      <rect x="196" y="128" width="88" height="12" rx="2" fill="var(--z7b)" stroke="var(--z7)"/>
+      <g fill="var(--z7)" opacity=".5"><rect x="202" y="131" width="6" height="6"/><rect x="214" y="131" width="6" height="6"/><rect x="226" y="131" width="6" height="6"/><rect x="238" y="131" width="6" height="6"/><rect x="250" y="131" width="6" height="6"/><rect x="262" y="131" width="6" height="6"/><rect x="272" y="131" width="6" height="6"/></g>
+      <!-- 星間雷射 terminals -->
+      <rect x="186" y="52" width="16" height="12" rx="2" fill="var(--z1b)" stroke="var(--z1)"/><rect x="278" y="52" width="16" height="12" rx="2" fill="var(--z1b)" stroke="var(--z1)"/>
+      <!-- labels -->
+      <g stroke="currentColor" stroke-width="1" opacity=".33"><line x1="99" y1="97" x2="99" y2="130"/><line x1="240" y1="140" x2="240" y2="164"/><line x1="194" y1="52" x2="150" y2="34"/></g>
+      <g class="svg-t" font-size="10" fill="currentColor">
+        <text x="99" y="144" text-anchor="middle">太陽能板</text>
+        <text x="240" y="176" text-anchor="middle">相位陣列天線</text>
+        <text x="150" y="30" text-anchor="middle">星間雷射</text>
+        <text x="381" y="130" text-anchor="middle">太陽能板</text>
+      </g>
+      <g class="svg-l" font-size="8" fill="var(--muted)">
+        <text x="99" y="156" text-anchor="middle">供電</text>
+        <text x="240" y="188" text-anchor="middle">電子式對準地面·天線板</text>
+        <text x="150" y="42" text-anchor="middle">聯亞·光通</text>
+      </g>
+      <text x="356" y="60" class="svg-l" font-size="8" fill="var(--z2)">高頻：昇達科·穩懋</text>
+    </svg>
+    <figcaption><b>圖 · 一顆低軌衛星解剖</b>——<b>兩片太陽能板</b>供電；中間<b>通訊酬載</b>（天上板＋高頻元件）；朝地球的<b>相位陣列天線</b>電子式對準用戶；兩側<b>星間雷射</b>把衛星彼此連起來。台廠：天上板華通/台燿、高頻昇達科/穩懋、雷射聯亞。</figcaption>
+  </figure>
+
+  <div class="plain" style="margin-top:10px"><span class="pk">💡 名詞白話</span><b>相位陣列天線</b>：一整片電子元件「用電子的方式」轉向對準衛星，<b>不用機械轉動</b>——這就是 Starlink 那片平板小天線的核心。<b>星間雷射鏈路</b>：衛星彼此用光互連，訊號不用一路落地再上天，覆蓋更廣、延遲更低。<b>Direct-to-Cell（直連手機）</b>：V3 新增，衛星直接連一般手機（不用地面基地台）——高頻需求跳升，昇達科最受惠。</div>
+
   <h2 class="h2"><span class="n">2</span>供應鏈：台廠做哪些零件</h2>
   <p class="h2sub">依功能分 4 塊（🎯＝Notion 熱議；每塊附名詞白話）。</p>
 
