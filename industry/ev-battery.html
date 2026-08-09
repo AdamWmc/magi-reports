@@ -330,6 +330,51 @@
     <figcaption><b>圖 · EV 供應鏈</b>——材料 → 電池芯 → 三電（電機/電控）→ 充電 → 整車。<b>全鏈虛線＝智囊未追</b>；這張圖本身就是「觀察名單」——等 EV 回溫、智囊開始追就是 alpha 訊號。</figcaption>
   </figure>
 
+  <h2 class="h2">🔬 科普：電動車電池長怎樣</h2>
+  <p class="h2sub">電動車電池不是「一顆大電池」，是<strong>幾千顆小電芯</strong>層層組起來的。三層結構：<strong>電芯（Cell）→ 模組（Module）→ 電池包（Pack）</strong>，電池包平鋪在車底盤，是全車最重、最貴的零件。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 500 210" role="img" aria-label="電動車電池三層結構：電芯→模組→電池包，電池包鋪在車底盤">
+      <!-- 電芯 Cell -->
+      <ellipse cx="47" cy="72" rx="12" ry="4" fill="var(--z2b)" stroke="var(--z2)"/>
+      <rect x="35" y="72" width="24" height="52" fill="var(--z2b)" stroke="var(--z2)"/>
+      <line x1="35" y1="72" x2="35" y2="124" stroke="var(--z2)"/><line x1="59" y1="72" x2="59" y2="124" stroke="var(--z2)"/>
+      <ellipse cx="47" cy="124" rx="12" ry="4" fill="var(--z2b)" stroke="var(--z2)"/>
+      <rect x="43" y="65" width="8" height="5" rx="1" fill="var(--z2)"/>
+      <text x="47" y="146" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">電芯 Cell</text>
+      <text x="47" y="160" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">最小單元</text>
+      <line x1="66" y1="98" x2="96" y2="98" stroke="var(--muted)" stroke-width="1.4"/><polygon points="96,94 103,98 96,102" fill="var(--muted)"/>
+      <!-- 模組 Module -->
+      <rect x="112" y="70" width="86" height="58" rx="5" fill="var(--surface)" stroke="var(--z4)" stroke-width="1.5"/>
+      <g fill="var(--z4b)" stroke="var(--z4)"><rect x="120" y="78" width="10" height="42" rx="3"/><rect x="134" y="78" width="10" height="42" rx="3"/><rect x="148" y="78" width="10" height="42" rx="3"/><rect x="162" y="78" width="10" height="42" rx="3"/><rect x="176" y="78" width="10" height="42" rx="3"/></g>
+      <text x="155" y="146" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">模組 Module</text>
+      <text x="155" y="160" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">數十顆電芯串並聯</text>
+      <line x1="200" y1="98" x2="230" y2="98" stroke="var(--muted)" stroke-width="1.4"/><polygon points="230,94 237,98 230,102" fill="var(--muted)"/>
+      <!-- 車 + 電池包 -->
+      <path d="M255 60 Q258 44 300 42 L360 42 Q380 42 396 60 L462 60 Q470 60 470 70 L470 76 L255 76 Z" fill="var(--surface)" stroke="var(--muted)"/>
+      <rect x="306" y="46" width="70" height="14" rx="3" fill="var(--z1b)" stroke="var(--muted)" opacity=".6"/>
+      <circle cx="292" cy="80" r="10" fill="none" stroke="var(--muted)" stroke-width="2.5"/><circle cx="440" cy="80" r="10" fill="none" stroke="var(--muted)" stroke-width="2.5"/>
+      <rect x="256" y="92" width="212" height="26" rx="4" fill="var(--z1b)" stroke="var(--z1)" stroke-width="1.5"/>
+      <g fill="none" stroke="var(--z1)" opacity=".5"><rect x="264" y="97" width="46" height="16" rx="2"/><rect x="314" y="97" width="46" height="16" rx="2"/><rect x="364" y="97" width="46" height="16" rx="2"/><rect x="414" y="97" width="46" height="16" rx="2"/></g>
+      <text x="362" y="146" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">電池包 Pack</text>
+      <text x="362" y="160" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">鋪滿車底盤·最重最貴</text>
+      <text x="479" y="107" text-anchor="end" class="svg-l" font-size="8" fill="var(--z1)">＋BMS</text>
+    </svg>
+    <figcaption><b>圖 · 電池三層結構</b>——<b>電芯（Cell）</b>是最小單元 → 幾十顆組成 <b>模組（Module）</b> → 再組成 <b>電池包（Pack）</b>平鋪在車底盤。全車最重最貴的就是這塊。趨勢是 <b>CTP（電芯直接到包）</b>，省掉模組、塞更多電。</figcaption>
+  </figure>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:18px 0 8px">電芯的三種形狀——長得不一樣</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>形狀</th><th>長怎樣</th><th>特點</th><th>代表</th></tr>
+      <tr><td><b>圓柱形</b></td><td>像三號電池/鋼瓶</td><td>標準化、成本低、單顆小、要幾千顆</td><td>Tesla 4680/18650、松下</td></tr>
+      <tr><td><b>方形（刀片）</b></td><td>扁平長方盒</td><td>空間利用率高、較安全、散熱好</td><td>BYD 刀片、CATL</td></tr>
+      <tr><td><b>軟包 Pouch</b></td><td>鋁塑膜軟包</td><td>輕、能量密度高，但易膨脹</td><td>LG、部分手機/3C</td></tr>
+    </table>
+  </div>
+
+  <div class="plain" style="margin-top:10px"><span class="pk">💡 名詞白話</span><b>電芯 Cell</b>：最小的電池單元。<b>模組 Module</b>：一串電芯＋固定框架。<b>電池包 Pack</b>：整台車的電池總成（含冷卻、機構、BMS）。<b>BMS（電池管理系統）</b>：監控每顆電芯的電壓/溫度、防止過充過熱，是電池的大腦。<b>CTP（Cell-to-Pack）</b>：新趨勢——跳過模組、電芯直接排進電池包，空間利用率更高（BYD 刀片、特斯拉結構電池都是）。</div>
+
   <h2 class="h2"><span class="n">2</span>六段供應鏈（結構介紹）</h2>
   <p class="h2sub">（🔭＝智囊未追、純結構補充；🎯＝有 Notion 熱度，但多為 AI/機器人帶動）</p>
 
