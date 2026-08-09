@@ -481,6 +481,66 @@
     這波記憶體大循環有兩個引擎：① <b>傳統週期回升</b>（減產後供不應求、手機/PC 回溫、現貨漲逾倍）；② <b>AI 的 HBM 剛需</b>——每顆 GPU 都要一堆 HBM。<b>顆粒</b>是海力士/三星/美光的天下，台廠切的是<b>封測（南茂/京元）、base die 後段（力積電 × 美光）、載板（景碩）、通路</b>。這也是為什麼「記憶體＋AI」能同時發酵。<b>風險</b>：記憶體是<b>景氣循環股</b>——漲價循環一旦反轉，跌起來又急又猛（8/7 族群單日就熄火：旺宏 −5.8%、宜鼎 −6.8%）。
   </div>
 
+  <h2 class="h2">🌏 三雄 vs 台廠：記憶體世界地圖</h2>
+  <p class="h2sub">顆粒原廠是<strong>國外三雄</strong>——三星、SK 海力士、美光，DRAM/HBM 寡佔 &gt;95%。台廠<strong>不搶主流顆粒</strong>（那是千億資本戰），走三條路：<strong>錯位做利基、賣鏟子（封測/模組/載板）、沾 HBM 的光</strong>。三雄各自對接的台廠不同——<strong>美光跟台廠合作最深</strong>。</p>
+  <figure class="fig">
+    <svg viewBox="0 0 480 316" role="img" aria-label="三星SK海力士美光三雄與各自對接的台廠關係圖">
+      <!-- 三雄 top tier -->
+      <rect x="8" y="26" width="148" height="56" rx="8" fill="var(--z6b)" stroke="var(--z6)" stroke-width="1.5"/>
+      <text x="82" y="45" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">三星 Samsung 🇰🇷</text>
+      <text x="82" y="60" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">DRAM+NAND+HBM 全包</text>
+      <text x="82" y="73" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">資本最雄·對台競爭</text>
+      <rect x="166" y="26" width="148" height="56" rx="8" fill="var(--z5b)" stroke="var(--z5)" stroke-width="1.5"/>
+      <text x="240" y="45" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">SK 海力士 🇰🇷</text>
+      <text x="240" y="60" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">HBM 龍頭</text>
+      <text x="240" y="73" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">NVIDIA 主力供應商</text>
+      <rect x="324" y="26" width="148" height="56" rx="8" fill="var(--z2b)" stroke="var(--copper)" stroke-width="2"/>
+      <text x="398" y="45" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">美光 Micron 🇺🇸</text>
+      <text x="398" y="60" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">DRAM / HBM</text>
+      <text x="398" y="73" text-anchor="middle" class="svg-t" font-size="8.5" fill="var(--copper)">🤝 跟台廠合作最深</text>
+      <!-- 連接線 -->
+      <g stroke-width="1.5" fill="none"><path d="M82 82 L82 116" stroke="var(--z6)"/><path d="M240 82 L240 116" stroke="var(--z5)"/><path d="M398 82 L398 116" stroke="var(--copper)" stroke-width="2.5"/></g>
+      <g fill="none"><polygon points="82,124 77,114 87,114" fill="var(--z6)"/><polygon points="240,124 235,114 245,114" fill="var(--z5)"/><polygon points="398,124 393,114 403,114" fill="var(--copper)"/></g>
+      <text x="90" y="104" text-anchor="middle" class="svg-l" font-size="7.5" fill="var(--muted)">競爭→錯位</text>
+      <text x="248" y="104" text-anchor="middle" class="svg-l" font-size="7.5" fill="var(--muted)">HBM 靠台積疊</text>
+      <text x="398" y="104" text-anchor="middle" class="svg-t" font-size="8" fill="var(--copper)">簽約·委外·建廠</text>
+      <!-- 台廠 bottom tier -->
+      <rect x="8" y="126" width="148" height="176" rx="8" fill="var(--z2b)" stroke="var(--z2)" stroke-width="1.2"/>
+      <text x="82" y="146" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">① 錯位·利基 DRAM</text>
+      <text x="82" y="170" text-anchor="middle" class="svg-t" font-size="11" fill="var(--z2)">南亞科 2408</text>
+      <text x="82" y="188" text-anchor="middle" class="svg-t" font-size="11" fill="var(--z2)">華邦 2344</text>
+      <text x="82" y="212" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">不搶主流顆粒</text>
+      <text x="82" y="226" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">做利基/特殊規格</text>
+      <text x="82" y="248" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">🎯 華邦新故事</text>
+      <text x="82" y="261" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">＝矽電容 DTC</text>
+      <rect x="166" y="126" width="148" height="176" rx="8" fill="var(--z5b)" stroke="var(--z5)" stroke-width="1.2"/>
+      <text x="240" y="146" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">② 沾 HBM 的光</text>
+      <text x="240" y="170" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--z5)">台積電 · CoWoS</text>
+      <text x="240" y="184" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">把 HBM 疊到 GPU 上</text>
+      <text x="240" y="206" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--z5)">南茂 8150 測試</text>
+      <text x="240" y="228" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--z5)">群聯 8299</text>
+      <text x="240" y="242" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">NAND 控制IC·同陣營</text>
+      <rect x="324" y="126" width="148" height="176" rx="8" fill="var(--z2b)" stroke="var(--copper)" stroke-width="1.6"/>
+      <text x="398" y="146" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">③ 美光台廠隊 🤝</text>
+      <text x="398" y="169" text-anchor="middle" class="svg-t" font-size="10" fill="var(--copper)">力積電 6770 HBM後段</text>
+      <text x="398" y="187" text-anchor="middle" class="svg-t" font-size="10" fill="var(--copper)">力成 6239 封測</text>
+      <text x="398" y="205" text-anchor="middle" class="svg-t" font-size="10" fill="var(--copper)">亞翔 6139 建廠 EPC</text>
+      <text x="398" y="223" text-anchor="middle" class="svg-t" font-size="10" fill="var(--copper)">環球晶 6488 矽晶圓</text>
+      <text x="398" y="241" text-anchor="middle" class="svg-t" font-size="10" fill="var(--copper)">景碩 3189 BT載板</text>
+      <text x="398" y="263" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">美光擴產→整條台鏈受惠</text>
+    </svg>
+    <figcaption><b>圖 · 三雄 vs 台廠</b>——三家外商站上面（顆粒原廠），對接的台廠站下面。<b>三星</b>對台以競爭為主→台廠靠<b>錯位</b>（利基 DRAM）；<b>SK 海力士</b>的 HBM 要靠<b>台積電 CoWoS</b> 疊；<b>美光</b>跟台廠綁最深——把 <b>HBM 後段、封測、建廠、矽晶圓、載板</b>大量交給台廠，是台廠切進 HBM 供應鏈最實在的一條路。</figcaption>
+  </figure>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>　</th><th>三星 🇰🇷</th><th>SK 海力士 🇰🇷</th><th>美光 🇺🇸</th></tr>
+      <tr><td><b>地位</b></td><td>全包·資本王</td><td>HBM 龍頭·NV 主供</td><td>DRAM/HBM 第三</td></tr>
+      <tr><td><b>對台廠</b></td><td>競爭為主</td><td>HBM 靠台積 CoWoS</td><td><b>🤝 合作最深</b></td></tr>
+      <tr><td><b>台廠對接</b></td><td>南亞科/華邦<b>錯位</b></td><td>台積電·南茂·群聯</td><td>力積電·力成·亞翔·環球晶·景碩</td></tr>
+    </table>
+  </div>
+  <div class="plain" style="margin-top:10px"><span class="pk">💡 一句話抓重點</span>台廠<b>碰不到主流 DRAM/HBM 顆粒</b>（三雄的千億資本戰），但有三條活路：<b>①錯位</b>——南亞科/華邦做利基 DRAM、不硬碰；<b>②賣鏟子</b>——群聯(控制IC)、南茂(測試)、景碩(載板)、亞翔(建廠)，三雄擴產就吃得到；<b>③沾 HBM 光</b>——HBM 要靠台積電 CoWoS 疊才進得了 GPU。<b>選股先問「它對接哪家三雄、做哪一段」</b>——尤其「美光概念台廠隊」是這輪最實在的受惠群。下面 🔮 智囊看點有每一檔的原話。</div>
+
   <h2 class="h2"><span class="n">3</span>🔮 智囊看點：記憶體在賭什麼</h2>
   <p class="h2sub">各家開會／廢想法對記憶體股<strong>未來</strong>的多頭論點。<strong>智囊觀點與推測、非投資建議</strong>；記憶體是循環股、波動大。<span class="who">（TP/EPS 已用收盤價 sanity check：旺宏「20」、亞翔「65」是 EPS 不是股價）</span></p>
   <div class="thesis-grid">
