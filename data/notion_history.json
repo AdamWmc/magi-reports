@@ -51122,28 +51122,6 @@
     {
       "code": "3363",
       "name": "上詮",
-      "date": "2026-08-06",
-      "source_type": "daily",
-      "source_page": "2026-08_廢想法_monthly",
-      "speaker": "Emily Hsu",
-      "host": null,
-      "sector": "光模塊",
-      "quote": "聯鈞唯一台廠可以做整組光模塊 源傑有幫AYARLAB合作一些光模塊的訂單，800g以下給源傑做；做代工出給源傑再給客戶",
-      "tp": null,
-      "eps_est": {},
-      "catalysts": [
-        "接收聯鈞代工訂單"
-      ],
-      "customers": [],
-      "sentiment": "中性偏多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-08-07T22:19:17"
-    },
-    {
-      "code": "3363",
-      "name": "上詮",
       "code_source": "explicit",
       "speaker": "愛德恩",
       "host": "愛德恩",
