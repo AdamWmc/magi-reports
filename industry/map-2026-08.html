@@ -285,42 +285,36 @@
   <p class="h2sub">橫軸＝<strong>兌現程度</strong>（左：純題材　→　右：已在賺）；縱軸＝<strong>上漲空間</strong>（上：低位階/彈性大　→　下：已漲多）。<strong>左上＝再次大漲候選；右上＝甜蜜點；紫框＝「多元×低位階」魚肉區（🐟）。</strong></p>
 
   <figure class="fig">
-    <svg viewBox="0 0 470 440" role="img" aria-label="機會象限圖，橫軸兌現度縱軸上漲空間，標出魚肉區的跨題材低位階賣鏟子股">
-      <rect x="62" y="44" width="176" height="158" fill="var(--z4b)" opacity=".45"/>
-      <rect x="238" y="44" width="180" height="158" fill="var(--z2b)" opacity=".4"/>
-      <!-- 魚肉區 highlight -->
-      <rect x="212" y="86" width="150" height="118" rx="12" fill="none" stroke="var(--accent2)" stroke-width="1.6" stroke-dasharray="6 4"/>
-      <text x="287" y="80" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--accent2)">🐟 魚肉區（多元×低位階）</text>
-      <!-- axes -->
-      <line x1="62" y1="360" x2="430" y2="360" stroke="var(--ink)" stroke-width="1.4"/>
-      <line x1="62" y1="44" x2="62" y2="360" stroke="var(--ink)" stroke-width="1.4"/>
-      <line x1="238" y1="44" x2="238" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
-      <line x1="62" y1="202" x2="430" y2="202" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
-      <text x="150" y="60" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--z4)">題材彈性區（未兌現·空間大）</text>
-      <text x="430" y="376" text-anchor="end" class="svg-l" font-size="10" fill="var(--muted)">已在賺 →</text>
-      <text x="70" y="376" class="svg-l" font-size="10" fill="var(--muted)">← 純題材</text>
-      <text x="48" y="120" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 48 120)">空間大 ↑</text>
-      <text x="48" y="300" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 48 300)">漲多 ↓</text>
-      <g font-size="10" class="svg-t">
-        <!-- 左上 題材彈性 -->
-        <circle cx="108" cy="112" r="6" fill="var(--z2)"/><text x="118" y="115" fill="var(--ink)">機器人（宇隆）</text>
-        <circle cx="150" cy="152" r="6" fill="var(--z4)"/><text x="160" y="155" fill="var(--ink)">CPO（聯電·大立光）</text>
-        <circle cx="200" cy="122" r="6" fill="var(--z7)"/><text x="150" y="138" fill="var(--muted)" font-size="9.5">衛星V3（昇達科）</text>
-        <!-- 魚肉區：賣鏟子低位階，用 ring 標記 -->
-        <circle cx="288" cy="120" r="7" fill="var(--z1)" stroke="var(--accent2)" stroke-width="2.5"/><text x="298" y="123" fill="var(--ink)">🐟南茂</text>
-        <circle cx="250" cy="150" r="6" fill="var(--z7)" stroke="var(--accent2)" stroke-width="2.5"/><text x="196" y="166" fill="var(--ink)" font-size="9.5">🐟穩懋</text>
-        <circle cx="300" cy="160" r="6" fill="var(--z4)" stroke="var(--accent2)" stroke-width="2.5"/><text x="310" y="163" fill="var(--ink)">🐟頎邦</text>
-        <circle cx="330" cy="186" r="6" fill="var(--z5)" stroke="var(--accent2)" stroke-width="2.5"/><text x="340" y="189" fill="var(--ink)">🐟景碩</text>
-        <!-- 右上 甜蜜點 -->
-        <circle cx="348" cy="132" r="6" fill="var(--copper)"/><text x="300" y="126" fill="var(--muted)" font-size="9.5">台燿·華通</text>
-        <circle cx="272" cy="132" r="5" fill="var(--z1)"/><text x="228" y="128" fill="var(--muted)" font-size="9.5">印能</text>
-        <!-- 右下 漲多 -->
-        <circle cx="316" cy="236" r="6" fill="var(--z3)"/><text x="326" y="239" fill="var(--muted)" font-size="9.5">國巨</text>
-        <circle cx="360" cy="262" r="5" fill="var(--z4)"/><text x="300" y="278" fill="var(--muted)" font-size="9">CCL龍頭·台光電</text>
-        <circle cx="398" cy="312" r="6" fill="var(--z1)"/><text x="338" y="326" fill="var(--muted)" font-size="9">川湖（已漲停）</text>
+    <svg viewBox="0 0 530 400" role="img" aria-label="機會象限圖：左上題材彈性區、右上魚肉區(多元低位階賣鏟子)、右下已漲多">
+      <rect x="64" y="50" width="158" height="150" fill="var(--z4b)" opacity=".4"/>
+      <rect x="222" y="50" width="218" height="150" fill="var(--z2b)" opacity=".38"/>
+      <rect x="250" y="82" width="190" height="122" rx="12" fill="none" stroke="var(--accent2)" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="345" y="74" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--accent2)">🐟 魚肉區（多元 × 低位階）</text>
+      <line x1="64" y1="350" x2="440" y2="350" stroke="var(--ink)" stroke-width="1.4"/>
+      <line x1="64" y1="50" x2="64" y2="350" stroke="var(--ink)" stroke-width="1.4"/>
+      <line x1="222" y1="50" x2="222" y2="350" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
+      <line x1="64" y1="200" x2="440" y2="200" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
+      <text x="143" y="66" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--z4)">題材彈性區</text>
+      <text x="143" y="78" text-anchor="middle" class="svg-l" font-size="8.5" fill="var(--muted)">未兌現·空間大</text>
+      <text x="370" y="218" text-anchor="middle" class="svg-l" font-size="9.5" fill="var(--muted)">主流·已漲多</text>
+      <text x="436" y="368" text-anchor="end" class="svg-l" font-size="10" fill="var(--muted)">已在賺 →</text>
+      <text x="72" y="368" class="svg-l" font-size="10" fill="var(--muted)">← 純題材</text>
+      <text x="50" y="115" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 50 115)">空間大 ↑</text>
+      <text x="50" y="290" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 50 290)">漲多 ↓</text>
+      <g font-size="10" class="svg-t" fill="var(--ink)">
+        <circle cx="90" cy="90" r="6" fill="var(--z2)"/><text x="101" y="93">機器人（宇隆）</text>
+        <circle cx="118" cy="124" r="6" fill="var(--z7)"/><text x="129" y="127">衛星V3·昇達科</text>
+        <circle cx="90" cy="160" r="6" fill="var(--z4)"/><text x="101" y="163">CPO·聯電·大立光</text>
+        <circle cx="272" cy="112" r="7" fill="var(--z1)" stroke="var(--accent2)" stroke-width="2.5"/><text x="285" y="115">🐟南茂</text>
+        <circle cx="272" cy="170" r="6" fill="var(--z4)" stroke="var(--accent2)" stroke-width="2.5"/><text x="285" y="173">🐟頎邦</text>
+        <circle cx="368" cy="112" r="6" fill="var(--z7)" stroke="var(--accent2)" stroke-width="2.5"/><text x="381" y="115">🐟穩懋</text>
+        <circle cx="368" cy="170" r="6" fill="var(--z5)" stroke="var(--accent2)" stroke-width="2.5"/><text x="381" y="173">🐟景碩</text>
+        <circle cx="300" cy="246" r="6" fill="var(--z3)"/><text x="311" y="249">國巨</text>
+        <circle cx="348" cy="280" r="6" fill="var(--z4)"/><text x="337" y="283" text-anchor="end">CCL龍頭·台光電</text>
+        <circle cx="406" cy="312" r="6" fill="var(--z1)"/><text x="395" y="315" text-anchor="end">川湖（已漲停）</text>
       </g>
     </svg>
-    <figcaption><b>圖 · 機會象限</b>——<b>🐟 魚肉區</b>＝跨 ≥2 題材（抗輪動）＋位階低（空間大）＋「賣鏟子」（測試/代工/載板，通吃）。<b>左上</b>是未兌現的彈性賭注、<b>右下</b>（川湖/CCL 龍頭）已反映不少。</figcaption>
+    <figcaption><b>圖 · 機會象限</b>——<b>左上</b>＝未兌現的彈性賭注；<b>右上 🐟 魚肉區</b>＝跨題材（抗輪動）× 位階低（空間大）× 賣鏟子（測試/代工/載板，通吃）；<b>右下</b>（川湖/CCL 龍頭）已反映不少。</figcaption>
   </figure>
 
   <h2 class="h2"><span class="n">2</span>🐟 還有魚肉：多元 × 賣鏟子 × 低位階</h2>
