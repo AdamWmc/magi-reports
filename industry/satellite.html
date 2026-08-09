@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>低軌衛星 / SpaceX 供應鏈 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1>低軌衛星 · <em>SpaceX</em> 供應鏈</h1>
+    <p class="lede">低軌衛星（LEO）＝幾千顆衛星在低空繞地球、用戶靠一片小天線就能連上網（Starlink）。台灣做不了衛星本體與火箭，但在<strong>高頻通訊元件、太空級 PCB、天線機構、地面設備</strong>卡得很深。下面把一套低軌衛星系統拆開，把 Notion 最近熱議的衛星股放到各環節。</p>
+    <div class="meta"><span>資料：近 3 個月各家開會／廢想法</span><span>🛰️ 低軌衛星</span><span>核心催化：SpaceX V3</span></div>
+  </header>
+
+  <div class="legend" aria-label="子系統顏色">
+    <div class="lg"><i style="background:var(--z2)"></i>射頻·高頻元件</div>
+    <div class="lg"><i style="background:var(--z4)"></i>天上板·太空PCB</div>
+    <div class="lg"><i style="background:var(--z3)"></i>天線·地面設備</div>
+    <div class="lg"><i style="background:var(--z7)"></i>衛星間光鏈路</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>一套低軌衛星系統長什麼樣？</h2>
+  <p class="h2sub">關鍵觀念：這是<strong>「太空段 + 地面段」</strong>兩半——幾千顆衛星在天上、用戶天線在地上，中間靠高頻電波與衛星間雷射串起來。台廠做的是<strong>零件與板子</strong>，不是衛星本體。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 470 330" role="img" aria-label="低軌衛星系統示意：軌道上多顆衛星、衛星間雷射鏈路、下行電波到地面用戶天線與地面站，標出台廠供應的環節">
+      <!-- 地球 -->
+      <circle cx="235" cy="600" r="330" fill="var(--z4b)" stroke="var(--z4)"/>
+      <text x="235" y="300" text-anchor="middle" class="svg-l" font-size="11" fill="var(--muted)">地球</text>
+      <!-- 軌道 -->
+      <path d="M 34 168 Q 235 74 436 168" fill="none" stroke="var(--muted)" stroke-width="1.3" stroke-dasharray="5 5" opacity=".6"/>
+      <text x="46" y="150" class="svg-l" font-size="10" fill="var(--muted)">低軌 LEO</text>
+      <!-- 衛星 x3 -->
+      <g>
+        <rect x="106" y="120" width="16" height="11" rx="2" fill="var(--z2b)" stroke="var(--z2)"/><rect x="94" y="122" width="10" height="7" fill="var(--z3b)" stroke="var(--z3)"/><rect x="124" y="122" width="10" height="7" fill="var(--z3b)" stroke="var(--z3)"/>
+        <rect x="227" y="88" width="18" height="12" rx="2" fill="var(--z2b)" stroke="var(--z2)" stroke-width="1.4"/><rect x="213" y="90" width="12" height="8" fill="var(--z3b)" stroke="var(--z3)"/><rect x="247" y="90" width="12" height="8" fill="var(--z3b)" stroke="var(--z3)"/>
+        <rect x="348" y="120" width="16" height="11" rx="2" fill="var(--z2b)" stroke="var(--z2)"/><rect x="336" y="122" width="10" height="7" fill="var(--z3b)" stroke="var(--z3)"/><rect x="366" y="122" width="10" height="7" fill="var(--z3b)" stroke="var(--z3)"/>
+      </g>
+      <!-- 衛星間雷射鏈路 -->
+      <line x1="122" y1="126" x2="227" y2="94" stroke="var(--z7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <line x1="245" y1="94" x2="348" y2="126" stroke="var(--z7)" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <!-- 下行電波 -->
+      <line x1="234" y1="100" x2="196" y2="256" stroke="var(--z2)" stroke-width="1.3" opacity=".7"/>
+      <line x1="240" y1="100" x2="214" y2="256" stroke="var(--z2)" stroke-width="1.3" opacity=".7"/>
+      <!-- 用戶天線 -->
+      <line x1="205" y1="284" x2="205" y2="262" stroke="var(--muted)" stroke-width="2"/>
+      <ellipse cx="205" cy="258" rx="16" ry="6" fill="var(--z3b)" stroke="var(--z3)" transform="rotate(-18 205 258)"/>
+      <!-- 地面站 -->
+      <line x1="340" y1="286" x2="340" y2="266" stroke="var(--muted)" stroke-width="2"/>
+      <ellipse cx="340" cy="262" rx="18" ry="7" fill="var(--z3b)" stroke="var(--z3)" transform="rotate(-24 340 262)"/>
+      <!-- labels -->
+      <g stroke="currentColor" stroke-width="1" opacity=".33">
+        <line x1="245" y1="92" x2="300" y2="60"/><line x1="122" y1="124" x2="60" y2="96"/>
+        <line x1="245" y1="98" x2="360" y2="200"/><line x1="286" y1="110" x2="360" y2="238"/>
+        <line x1="205" y1="250" x2="150" y2="292"/>
+      </g>
+      <g class="svg-t" font-size="11.5" fill="currentColor">
+        <text x="304" y="58">衛星本體·酬載</text>
+        <text x="20" y="94">高頻通訊模組</text>
+        <text x="364" y="202">天上板</text>
+        <text x="364" y="240">衛星間雷射</text>
+        <text x="40" y="296">用戶天線·地面設備</text>
+      </g>
+      <g class="svg-l" font-size="9.5" fill="var(--muted)">
+        <text x="304" y="70">SpaceX／國外造</text>
+        <text x="20" y="106">昇達科·穩懋</text>
+        <text x="364" y="214">華通·台燿</text>
+        <text x="364" y="252">光通(聯亞)</text>
+        <text x="40" y="308">信錦·立端·乙盛</text>
+      </g>
+    </svg>
+    <figcaption><b>圖 1 · 低軌衛星系統</b>——衛星本體與火箭是 SpaceX／國外的事；台廠卡在<b>高頻元件、天上板、天線與地面設備</b>這些零件與板子上。</figcaption>
+  </figure>
+
+  <h2 class="h2"><span class="n">2</span>供應鏈：台廠做哪些零件</h2>
+  <p class="h2sub">依功能分 4 塊（🎯＝Notion 熱議；每塊附名詞白話）。</p>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">1</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">📡</span><span class="zone-name">射頻·高頻元件</span><span class="zone-en">RF / Microwave（核心）</span></div>
+      <p class="zone-do">衛星與地面靠<strong>高頻電波</strong>通訊，需要濾波器、波導、功率放大器（PA）等高頻元件——<strong>台廠在衛星最強的一塊</strong>。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3491</span><span class="chip-name">昇達科</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">高頻元件／波導／濾波器／天線，SpaceX V3</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3105</span><span class="chip-name">穩懋</span><span class="chip-hot">🎯</span></div><div class="chip-role">高頻 PA（砷化鎵）main source，V3 頻段增加</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3624</span><span class="chip-name">光頡</span></div><div class="chip-role">精密電阻／電感，航太軍用／SpaceX 佔比升</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>高頻／微波元件</b>：處理衛星通訊用的高頻電波的零件。<b>PA（功率放大器）</b>：把訊號放大才傳得遠，砷化鎵（GaAs）製程做的，穩懋是主要代工。<b>波導／濾波器</b>：導引與篩選特定頻段電波——昇達科的本業。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">2</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🛰️</span><span class="zone-name">天上板·太空 PCB·材料</span><span class="zone-en">Space-grade PCB</span></div>
+      <p class="zone-do">衛星上的電路板要<strong>耐輻射、耐溫、高頻</strong>——「天上板」比地面板貴、毛利高（40-50% vs 25%）。台廠 PCB／CCL 一路吃到太空。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2313</span><span class="chip-name">華通</span><span class="chip-hot">🎯</span></div><div class="chip-role">天上板（太空級 PCB），毛利 40-50%</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6274</span><span class="chip-name">台燿</span><span class="chip-hot">🎯</span></div><div class="chip-role">CCL，泰國廠做天上衛星板</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2383</span><span class="chip-name">台光電</span></div><div class="chip-role">CCL M7／M9 高頻材料</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1303</span><span class="chip-name">南亞</span></div><div class="chip-role">E-glass 低軌衛星板材</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8039</span><span class="chip-name">台虹</span></div><div class="chip-role">PTFE 材料（太空／高速）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3167</span><span class="chip-name">大量</span></div><div class="chip-role">高頻 PCB（CCD 背鑽）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>天上板</b>：裝在衛星上的電路板，要耐太空輻射與溫差、跑高頻——比地面用的板子難做、賣得貴、毛利高。<b>CCL</b>：做 PCB 的原料板材（銅箔＋樹脂），衛星用的是高頻低損耗等級。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z3)"><div class="rail"><div class="num">3</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">📶</span><span class="zone-name">天線·地面設備·機構</span><span class="zone-en">Ground / User Terminal</span></div>
+      <p class="zone-do">用戶端的小天線（相位陣列）、地面站、機構支撐件。<strong>Starlink 用戶終端放量</strong>直接帶動地面設備。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6245</span><span class="chip-name">立端</span><span class="chip-hot">🎯</span></div><div class="chip-role">Starlink 地面設備（Nokia 拉貨、Q3 放量）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1582</span><span class="chip-name">信錦</span></div><div class="chip-role">天線 stiffener 支撐件，SpaceX＋Amazon</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">5243</span><span class="chip-name">乙盛-KY</span></div><div class="chip-role">機殼／低軌機構件</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>相位陣列天線</b>：用一整片電子元件「電子式」轉向對準衛星，不用機械轉動——這是 Starlink 小天線的核心。<b>用戶終端（UT）</b>：用戶家裡那片天線＋數據機；<b>地面站（Gateway）</b>：把衛星流量接回網際網路的大站。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">4</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔗</span><span class="zone-name">衛星間光鏈路</span><span class="zone-en">Inter-Satellite Laser Link</span></div>
+      <p class="zone-do">衛星之間用<strong>雷射</strong>直接互連（不靠地面轉），是低軌星系覆蓋全球的關鍵；台廠光通元件也沾邊。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">3081</span><span class="chip-name">聯亞</span></div><div class="chip-role">光通訊磊晶／雷射（衛星＋光通雙題材）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>衛星間雷射鏈路</b>：衛星彼此用光（雷射）傳資料，訊號不用一路落地再上天，延遲低、覆蓋廣。與 AI 資料中心的「光通訊」技術同源，所以昇達科、聯亞這類公司衛星＋光通兩頭沾。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:20px 0 8px">天上板 vs 地面板——為什麼智囊盯「天上板」</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>　</th><th>天上板（衛星上）</th><th>地面板（用戶端）</th></tr>
+      <tr><td><b>難度</b></td><td>耐輻射／耐溫／高頻</td><td>一般高頻</td></tr>
+      <tr><td><b>毛利</b></td><td><b>40-50%</b></td><td>約 25%</td></tr>
+      <tr><td><b>V3 變化</b></td><td>單位 content 較 V2.5 <b>翻倍</b></td><td>—</td></tr>
+      <tr><td><b>主要台廠</b></td><td>華通、台燿</td><td>華通、多家</td></tr>
+    </table>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 V3 是這波衛星的引擎</span>
+    SpaceX 新一代 <b>V3 衛星</b>更大、單位 content 較 V2.5 <b>翻倍</b>、頻段從 <b>2 band 增到 4</b>、發射顆數也增加——<b>顆數 × 頻段 × ASP 三重成長</b>，直接受惠昇達科、華通、穩懋。時程上 <b>4Q26 開始量產、2027 放量</b>。<b>風險</b>：V3 若 delay 或量不如預期，整個衛星族群的高估值會一起修正——所以「V3 有沒有如期、量夠不夠」是全族群的勝負手。
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：衛星在賭什麼</h2>
+  <p class="h2sub">各家開會／廢想法對衛星股<strong>未來</strong>的多頭論點（含目標價、催化劑）。<strong>智囊觀點與推測、非投資建議</strong>；衛星題材評價偏高，數字看兌現。</p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3491</span><span class="th-name">昇達科</span><span class="th-zone">📡 射頻</span></div>
+      <div class="th-body"><b>SpaceX V3 8 月起小量出貨</b>、收購巨頻科技挹注營收；2027 營收 <b>YoY 50-60%</b>、2028 再翻倍；EPS 26/27 估 <b>16.26／33.13</b>，TP 1660。</div><div class="th-src">— 小魚 · 08/07</div><a class="th-link" href="/search.html?q=3491">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">2313</span><span class="th-name">華通</span><span class="th-zone">🛰️ 天上板</span></div>
+      <div class="th-body">V3 單位 content 較 V2.5 <b>翻倍以上</b>；<b>天上板 27 年營收至少翻倍</b>；天上板毛利 <b>40-50%</b> 遠高於地面板 25%。</div><div class="th-src">— 郁翔·翔哥 · 08/06</div><a class="th-link" href="/search.html?q=2313">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">6274</span><span class="th-name">台燿</span><span class="th-zone">🛰️ 天上板</span></div>
+      <div class="th-body">3Q 毛利 32-33%、EPS 12-13、營收 QOQ +20%；<b>對 LEO 漲價</b>、高階再調漲；明年 TP <b>60→80</b> 上修。</div><div class="th-src">— Ann·Eddie · 07/31</div><a class="th-link" href="/search.html?q=6274">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3105</span><span class="th-name">穩懋</span><span class="th-zone">📡 射頻</span></div>
+      <div class="th-body">高頻 PA <b>main source</b>；V3 頻段 <b>2→4 band</b>、顆數／頻段／ASP 三升；<b>9-10 月起 ASP 一路跳升</b>。</div><div class="th-src">— 布哥 · 08/03</div><a class="th-link" href="/search.html?q=3105">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">6245</span><span class="th-name">立端</span><span class="th-zone">📶 地面</span></div>
+      <div class="th-body"><b>Starlink 地面設備</b>，Nokia 拉了很多設備，<b>Q3 放量出貨</b>；兼 AI server，客戶狀況好、評價便宜。</div><div class="th-src">— 佑哥 · 07/15</div><a class="th-link" href="/search.html?q=6245">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">1582</span><span class="th-name">信錦</span><span class="th-zone">📶 地面</span></div>
+      <div class="th-body">天線 stiffener 支撐件，原大客戶 SpaceX，<b>剛簽第二個 LEO 客戶（傳 Amazon）</b>，明年多一個客戶。</div><div class="th-src">— Sunny · 05/27</div><a class="th-link" href="/search.html?q=1582">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3624</span><span class="th-name">光頡</span><span class="th-zone">📡 射頻</span></div>
+      <div class="th-body">精密電阻／電感，<b>本月起出 SpaceX、毛利 70%</b>；航太軍用佔比升到 7%；Q4 擴產 5 千萬顆，明年中性抓 <b>TP 8</b>。</div><div class="th-src">— 法說 · 06/18</div><a class="th-link" href="/search.html?q=3624">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">1303</span><span class="th-name">南亞</span><span class="th-zone">🛰️ 材料</span></div>
+      <div class="th-body">E-glass <b>低軌衛星板材</b>、CCL ASP 逐季漲；明年新增地面低軌衛星營收，最快下半年貢獻 TPU；明年 EPS 20-25、<b>TP 500</b>。</div><div class="th-src">— 張寬諺 · 07/03</div><a class="th-link" href="/search.html?q=1303">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">5243</span><span class="th-name">乙盛-KY</span><span class="th-zone">📶 地面</span></div>
+      <div class="th-body">低軌衛星機構件占比 <b>不到 10%→今年 20%+</b>；6 月營收跳 20-30%、逐月逐季往上；今年淨利有機會 EPS 10。</div><div class="th-src">— 愛德恩·Cherry · 06/15</div><a class="th-link" href="/search.html?q=5243">查智囊原話 →</a></div>
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音——Notion 也記下了保留意見</span>
+    衛星題材評價高、消息面熱，Notion 也記下了看空與存疑：
+    <br>· <b>昇達科 3491</b>：「營收短期不好大家也知道，法說<b>賭賭看</b>」——強勢股也承認近期基本面弱。<span class="who">（Jacky 08/06）</span>
+    <br>· <b>華通 2313</b>：「<b>不確定衛星版有沒有提升很多</b>」；7 月營收略低於預期。<span class="who">（布哥 08/03）</span>
+    <br>· <b>穩懋 3105</b>：<b>條件式看好</b>——「V3 上去<b>沒爆炸的話</b>會不錯」，且「lite LD 機會不大」。<span class="who">（布哥 08/04）</span>
+    <br>· <b>台虹 8039</b>：「外面吹到 28 年 30 塊，其中 25 塊是<b>亂推的</b>」——對估值的質疑。<span class="who">（YC 07/23）</span>
+    <br>· <b>大量 3167</b>：「前一波<b>處置</b>投信被迫停損」——籌碼面有雷。<span class="who">（Sean 08/05）</span>
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>不是台廠做的（SpaceX／國外）</h3>
+    <p>這幾塊是低軌衛星的核心、但台廠碰不到，避免誤會台廠「什麼都做」：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">火箭·發射</span></div><div class="chip-role">SpaceX Falcon／Starship，可回收火箭</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">衛星本體·酬載</span></div><div class="chip-role">SpaceX 自製，衛星平台與通訊酬載</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">星系營運</span></div><div class="chip-role">Starlink 服務與用戶經營（SpaceX）</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到某支衛星概念股，先問「它做哪一塊？」——高頻元件（昇達科/穩懋）與天上板（華通/台燿）最核心、毛利最高；地面設備次之。<br>
+    <b>資料來源：</b>近 3 個月 MAGI 各家開會／廢想法整理。🎯＝Notion 近期熱議。<br>
+    <b>但書：</b>衛星題材評價偏高、依賴 SpaceX V3 時程；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
