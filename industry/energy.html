@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>能源 · AI 電力 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1><em>能源</em> · AI 電力</h1>
+    <p class="lede">能源是 AI 的<strong>隱藏剛需</strong>——一座 AI 資料中心吃電是傳統的數倍，把<strong>電源、散熱、電網、儲能、綠能</strong>整條拉動。這篇用產業結構打底，並逐股標出<strong>智囊已追（🎯 有 Notion alpha）vs 尚未追（🔭 觀察名單）</strong>：<strong>未追的區塊，正是「未來可能發酵、先卡位觀察」的地方</strong>。（供電/散熱與 <a href="/industry/ai-server.html" style="color:var(--signal)">AI 伺服器</a> 有交集）</p>
+    <div class="meta"><span>資料：結構(general)＋近 3 月 Notion</span><span>⚡ 能源/AI 電力</span><span>🎯 已追 · 🔭 未追</span></div>
+  </header>
+
+  <div class="legend" aria-label="子環節顏色">
+    <div class="lg"><i style="background:var(--z2)"></i>資料中心供電</div>
+    <div class="lg"><i style="background:var(--z5)"></i>散熱·液冷</div>
+    <div class="lg"><i style="background:var(--z7)"></i>太陽能·風電</div>
+    <div class="lg"><i style="background:var(--z4)"></i>電網·重電</div>
+    <div class="lg"><i style="background:var(--z3)"></i>儲能·綠能</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>方法：結構打底，Notion 找 alpha</h2>
+  <p class="h2sub">先用產業知識畫出能源鏈（發電 → 電網 → 儲能 → 綠能 → 資料中心供電 → 散熱），再逐股查 Notion。結果很清楚：<strong>越靠近 AI（供電/散熱）智囊追得越勤，越上游（重電/電網/儲能）智囊還沒追</strong>——後者是觀察名單。</p>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>能源鏈段</th><th>代表股</th><th>Notion 熱度</th><th>定位</th></tr>
+      <tr><td><b>資料中心供電</b></td><td>台達電·順達·光寶</td><td>🎯 高（台達 30、順達 11）</td><td>AI 直接剛需、智囊主追</td></tr>
+      <tr><td><b>散熱·液冷</b></td><td>奇鋐·高力·雙鴻</td><td>🎯 高（奇鋐 48、高力 19）</td><td>AI 剛需、智囊主追</td></tr>
+      <tr><td><b>太陽能</b></td><td>倉和</td><td>🎯 中（倉和 5）</td><td>去中化＋Tesla 題材</td></tr>
+      <tr><td><b>電網·重電</b></td><td>華城·中興電·亞力</td><td>🔭 <b>0 提及</b></td><td>市場很紅但<b>智囊未追</b>·觀察</td></tr>
+      <tr><td><b>儲能·綠能</b></td><td>雲豹·泓德·世紀鋼</td><td>🔭 幾乎 0</td><td>政策＋AI 用電·觀察</td></tr>
+    </table>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 未來能源怎麼走（這篇最想回答的）</span>
+    AI 耗電暴增是主軸，會<b>由近而遠</b>把能源鏈點亮：<b>① 短期＝資料中心供電/散熱</b>（智囊已在追，電源/BBU/液冷）；<b>② 中期＝電網升級/重電</b>——AI 拉高整體用電 → 變壓器、GIS 開關供不應求，但<b>我們智囊還沒開始追</b>，這是下一波；<b>③ 長期＝發電端</b>核能 SMR、綠能、儲能（政策與技術驅動）。<b>關鍵訊號：智囊什麼時候開始講重電/儲能，就是 alpha 浮現的時候</b>——先把觀察名單卡好。
+  </div>
+
+  <h2 class="h2"><span class="n">2</span>能源鏈五段（🎯 已追 / 🔭 觀察）</h2>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">A</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">⚡</span><span class="zone-name">資料中心供電</span><span class="zone-en">🎯 智囊已追</span></div>
+      <p class="zone-do">AI 機櫃一櫃上看 120kW——伺服器電源、電池備援（BBU）、高壓直流（HVDC）。這是能源鏈裡智囊最活躍的一段。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2308</span><span class="chip-name">台達電</span><span class="chip-hot">🎯</span></div><div class="chip-role">伺服器電源龍頭，Meta 3.3KW 轉單（2Q 弱、中長多）</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3211</span><span class="chip-name">順達</span><span class="chip-hot">🎯</span></div><div class="chip-role">BBU＋HVDC，2026 BBU 營收 60-70 億、明年 EPS 估 30</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2301</span><span class="chip-name">光寶科</span><span class="chip-hot">🎯</span></div><div class="chip-role">伺服器電源，2Q GM 24-25%</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">7712</span><span class="chip-name">博盛</span></div><div class="chip-role">BBU power discrete（小型早期）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6282</span><span class="chip-name">康舒</span></div><div class="chip-role">電源供應器（低位階）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6412</span><span class="chip-name">群電</span></div><div class="chip-role">電源供應器</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>BBU</b>：斷電瞬間頂著的緊急電池，AI 每櫃都要。<b>HVDC/800VDC</b>：新一代資料中心供電，比交流省電、2027 導入。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z5)"><div class="rail"><div class="num">B</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">❄️</span><span class="zone-name">散熱·液冷</span><span class="zone-en">🎯 智囊已追</span></div>
+      <p class="zone-do">「電」進去、「熱」出來——幾千瓦的熱靠液冷帶走。散熱主軸見 <a href="/industry/ai-server.html" style="color:var(--signal)">AI 伺服器</a>，這裡放能源/液冷角度。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3017</span><span class="chip-name">奇鋐</span><span class="chip-hot">🎯</span></div><div class="chip-role">散熱模組龍頭，Q2 GM 32%、營收創高</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">8996</span><span class="chip-name">高力</span><span class="chip-hot">🎯</span></div><div class="chip-role">板式熱交換器（液冷/氫能），近期展望樂觀</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3324</span><span class="chip-name">雙鴻</span></div><div class="chip-role">散熱模組（7 月營收含遞延）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2421</span><span class="chip-name">建準</span></div><div class="chip-role">散熱風扇</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>板式熱交換器</b>：液冷系統把 GPU 的熱從冷卻液交換散掉的關鍵件——高力是台廠代表，也用在氫能/燃料電池。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">C</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">☀️</span><span class="zone-name">太陽能·風電</span><span class="zone-en">綠色發電</span></div>
+      <p class="zone-do">綠電供給端——太陽能、離岸風電。<strong>倉和</strong>（太陽能去中化）是這段唯一有 Notion 熱度的。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6538</span><span class="chip-name">倉和</span><span class="chip-hot">🎯</span></div><div class="chip-role">太陽能網版耗材，去中化、非中營收 70%、Tesla 題材</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">9958</span><span class="chip-name">世紀鋼</span></div><div class="chip-role">離岸風電水下基礎（🔭 智囊未追）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6443</span><span class="chip-name">元晶</span></div><div class="chip-role">太陽能電池（🔭 未追）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3576</span><span class="chip-name">聯合再生</span></div><div class="chip-role">太陽能（🔭 未追）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>太陽能去中化</b>：美國/印度不用中國製電池，倉和的網版耗材（每片壽命短、耗量大）在非中市場市佔高。<b>離岸風電水下基礎</b>：把風機固定在海床的鋼結構，世紀鋼是台廠代表。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">D</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔌</span><span class="zone-name">電網·重電</span><span class="zone-en">🔭 觀察名單（智囊未追）</span></div>
+      <p class="zone-do">AI 拉高整體用電 → <strong>變壓器、GIS 開關、電網升級</strong>供不應求。<strong>市場很紅、但我們智囊近 3 月 0 提及</strong>——這是「等智囊開始追＝alpha 訊號」的下一波。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">1519</span><span class="chip-name">華城</span></div><div class="chip-role">變壓器（重電三雄，已大漲）🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1513</span><span class="chip-name">中興電</span></div><div class="chip-role">GIS 開關＋電廠統包＋儲能 🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1514</span><span class="chip-name">亞力</span></div><div class="chip-role">配電盤／重電 🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2371</span><span class="chip-name">大同</span></div><div class="chip-role">重電＋電線電纜＋電廠 🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1503</span><span class="chip-name">士電</span></div><div class="chip-role">變壓器／馬達 🔭</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>重電</b>：發電、輸電、配電用的大型電力設備（變壓器、開關）。<b>GIS</b>：氣體絕緣開關，變電站核心。AI/電動車/再生能源都在拉高用電，全球電網要大升級——這是「重電三雄」（華城/中興電/亞力）的多頭主軸，但目前<b>台廠已大漲、我們智囊反而還沒開始追</b>。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z3)"><div class="rail"><div class="num">E</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔋</span><span class="zone-name">儲能·綠能開發</span><span class="zone-en">🔭 觀察名單</span></div>
+      <p class="zone-do">再生能源不穩，要<strong>儲能（BESS）</strong>調節；綠能開發商蓋案場、賣電。<strong>智囊零星（泓德 1 次）</strong>——觀察中。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">6873</span><span class="chip-name">泓德能源</span></div><div class="chip-role">綠能開發，傳轉型「電力管理平台」（學章魚能源）🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6869</span><span class="chip-name">雲豹能源</span></div><div class="chip-role">綠能開發／儲能 🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">1513</span><span class="chip-name">中興電</span></div><div class="chip-role">儲能系統整合（跨重電）🔭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2308</span><span class="chip-name">台達電</span></div><div class="chip-role">儲能變流器（PCS）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>儲能（BESS）</b>：用大電池把便宜/多餘的電存起來、需要時放出，穩定電網。<b>電力管理平台</b>：像英國「章魚能源」，用軟體調度用電/售電，泓德想轉這方向——是綠能股的新故事。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點（已追的 alpha）</h2>
+  <p class="h2sub">有 Notion 熱度的能源股多頭論點。<strong>智囊觀點與推測、非投資建議</strong>；TP 已 sanity check。</p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3211</span><span class="th-name">順達</span><span class="th-zone">⚡ BBU · 收 338</span></div>
+      <div class="th-body"><b>BBU 電池備援</b>＋HVDC，Q3 AWS、Q4 Meta 訂單；Panasonic 出包→Meta 3.3KW 轉單 +20%；2026 BBU 營收 60-70 億、<b>800VDC 2027 量產</b>；明年 <b>EPS 估 30、PE 僅 ~11x</b>。</div><div class="th-src">— 常恩·順達法說 · 07-08</div><a class="th-link" href="/search.html?q=3211">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z5)"><div class="th-h"><span class="th-code">8996</span><span class="th-name">高力</span><span class="th-zone">❄️ 液冷 · 收 1045</span></div>
+      <div class="th-body"><b>板式熱交換器</b>（AI 液冷＋氫能/燃料電池雙題材）；上週法說「講得很樂觀」，智囊持股名單常客。（股價已高）</div><div class="th-src">— 小魚 · 08/03-06</div><a class="th-link" href="/search.html?q=8996">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">6538</span><span class="th-name">倉和</span><span class="th-zone">☀️ 太陽能 · 收 145</span></div>
+      <div class="th-body">太陽能網版耗材，<b>去中化</b>邏輯：非中市場已占營收 70%、毛利有機會超 50%；<b>最大想像是 Tesla</b>（承接一半需求產能就吃緊）；TP 300（激進）。</div><div class="th-src">— 佑哥 · 08/05</div><a class="th-link" href="/search.html?q=6538">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">2308</span><span class="th-name">台達電</span><span class="th-zone">⚡ 電源龍頭 · 收 1650</span></div>
+      <div class="th-body">伺服器電源龍頭，Meta 3.3KW 轉單受惠；<b>2Q 數字不好但財報後有買盤</b>、第三四季看好、中長期長多。（權值股、近期偏弱）</div><div class="th-src">— 大E·ken · 07-08</div><a class="th-link" href="/search.html?q=2308">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z5)"><div class="th-h"><span class="th-code">3017</span><span class="th-name">奇鋐</span><span class="th-zone">❄️ 散熱 · 收 2785</span></div>
+      <div class="th-body">散熱模組龍頭，Q2 GM 32%、<b>營收創高</b>、實際 QOQ 上看 15-20%；2027 server 功耗上看 4000W。（詳見 AI 伺服器頁）</div><div class="th-src">— Jacky · 08/06</div><a class="th-link" href="/search.html?q=3017">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">6873</span><span class="th-name">泓德能源</span><span class="th-zone">🔭 綠能轉型 · 收 78</span></div>
+      <div class="th-body">綠能開發傳<b>轉型「電力管理平台」</b>（對標英國章魚能源、市值 100 億美元）、目標當亞太區章魚。<b>智囊僅 1 次提及——觀察中</b>。</div><div class="th-src">— 07（單則）</div><a class="th-link" href="/search.html?q=6873">查智囊原話 →</a></div>
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音 ＋ 觀察名單提醒</span>
+    <br>· <b>重電三雄已大漲</b>：華城 653、中興電 157——「智囊未追」不代表沒漲，市場早已反映，追高風險在。
+    <br>· <b>台達電 2308</b>：2Q 數字不好、權值股近期偏弱（永哥「麻煩大了」）。
+    <br>· <b>綠能/儲能靠政策</b>：泓德/雲豹獲利波動大、政策依賴高；電力管理平台仍是「傳、待證實」。
+    <br>· <b>倉和 TP 300</b>：+107% 激進、押 Tesla 訂單兌現。
+    <br>· <b>方法上的提醒</b>：🔭 未追股是<b>觀察名單、不是買進清單</b>——等智囊開始追、或財報/訂單兌現再驗證。
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>台廠碰不到／國外主導</h3>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">核能 SMR 主設備</span></div><div class="chip-role">GE/西屋等國外（台廠僅零件/概念）</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">超大型電網 EPC</span></div><div class="chip-role">國際電力工程商主導</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">台廠定位</span></div><div class="chip-role">資料中心供電/散熱＋重電設備＋綠能開發</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>近 AI 端（供電/散熱）智囊料多、可直接參考；遠端（重電/儲能）是<b>觀察名單</b>——盯「智囊何時開始追」當 alpha 訊號。<br>
+    <b>方法：</b>先用產業結構(general)打底，再逐股查 Notion 標 🎯 已追 / 🔭 未追。<br>
+    <b>但書：</b>能源含景氣/政策循環、重電已大漲；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
