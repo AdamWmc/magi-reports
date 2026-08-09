@@ -291,6 +291,52 @@
 
   <h2 class="h2"><span class="n">1</span>方法：結構打底，Notion 找 alpha</h2>
   <p class="h2sub">先用產業知識畫出能源鏈（發電 → 電網 → 儲能 → 綠能 → 資料中心供電 → 散熱），再逐股查 Notion。結果很清楚：<strong>越靠近 AI（供電/散熱）智囊追得越勤，越上游（重電/電網/儲能）智囊還沒追</strong>——後者是觀察名單。</p>
+  <figure class="fig">
+    <svg viewBox="0 0 500 196" role="img" aria-label="能源流向圖：發電→電網重電→資料中心供電→AI機櫃→散熱；越靠近AI智囊追得越勤(已追)、越上游越沒追(未追)">
+      <g>
+        <rect x="14" y="46" width="82" height="50" rx="7" fill="var(--z7b)" stroke="var(--z7)" stroke-dasharray="5 3"/>
+        <text x="55" y="66" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">☀️ 發電</text>
+        <text x="55" y="82" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">太陽能/風/核</text>
+        <text x="90" y="58" text-anchor="end" font-size="10">🔭</text>
+        <text x="55" y="112" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">倉和·世紀鋼</text>
+        <rect x="110" y="46" width="82" height="50" rx="7" fill="var(--z4b)" stroke="var(--z4)" stroke-dasharray="5 3"/>
+        <text x="151" y="66" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">🔌 電網·重電</text>
+        <text x="151" y="82" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">變壓器/GIS</text>
+        <text x="186" y="58" text-anchor="end" font-size="10">🔭</text>
+        <text x="151" y="112" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">華城·中興電·亞力</text>
+        <rect x="206" y="46" width="82" height="50" rx="7" fill="var(--z2b)" stroke="var(--z2)"/>
+        <text x="247" y="66" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">⚡ 供電</text>
+        <text x="247" y="82" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">電源/BBU</text>
+        <text x="282" y="58" text-anchor="end" font-size="10">🎯</text>
+        <text x="247" y="112" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">台達·順達·光寶</text>
+        <rect x="302" y="42" width="82" height="58" rx="7" fill="var(--z1b)" stroke="var(--accent2)" stroke-width="2"/>
+        <text x="343" y="66" text-anchor="middle" class="svg-t" font-size="11.5" fill="var(--ink)">🧠 AI 機櫃</text>
+        <text x="343" y="82" text-anchor="middle" class="svg-l" font-size="8" fill="var(--accent2)">需求核心·吃電</text>
+        <text x="343" y="118" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">往上游拉動整條鏈</text>
+        <rect x="398" y="46" width="82" height="50" rx="7" fill="var(--z5b)" stroke="var(--z5)"/>
+        <text x="439" y="66" text-anchor="middle" class="svg-t" font-size="11" fill="var(--ink)">❄️ 散熱</text>
+        <text x="439" y="82" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">液冷/熱交換</text>
+        <text x="474" y="58" text-anchor="end" font-size="10">🎯</text>
+        <text x="439" y="112" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">奇鋐·高力·雙鴻</text>
+      </g>
+      <g stroke="var(--z2)" stroke-width="1.6" fill="var(--z2)">
+        <line x1="96" y1="71" x2="108" y2="71"/><polygon points="108,68 114,71 108,74"/>
+        <line x1="192" y1="71" x2="204" y2="71"/><polygon points="204,68 210,71 204,74"/>
+        <line x1="288" y1="71" x2="300" y2="71"/><polygon points="300,68 306,71 300,74"/>
+      </g>
+      <text x="150" y="38" text-anchor="middle" class="svg-l" font-size="9" fill="var(--z2)">電 →</text>
+      <g stroke="var(--z5)" stroke-width="1.6" fill="var(--z5)">
+        <line x1="384" y1="71" x2="396" y2="71"/><polygon points="396,68 402,71 396,74"/>
+      </g>
+      <text x="391" y="38" text-anchor="middle" class="svg-l" font-size="9" fill="var(--z5)">熱 →</text>
+      <line x1="14" y1="132" x2="192" y2="132" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="103" y="146" text-anchor="middle" class="svg-t" font-size="9.5" fill="var(--muted)">🔭 智囊未追·觀察名單</text>
+      <line x1="206" y1="132" x2="480" y2="132" stroke="var(--accent2)" stroke-width="1.2"/>
+      <text x="343" y="146" text-anchor="middle" class="svg-t" font-size="9.5" fill="var(--accent2)">🎯 智囊已追·有 alpha</text>
+    </svg>
+    <figcaption><b>圖 · 能源流向</b>——電從<b>發電 → 電網 → 供電 → AI 機櫃</b>，再變成<b>熱</b>排出。<b>越靠近 AI（供電/散熱）智囊追得越勤（🎯）</b>；<b>越上游（發電/電網）智囊還沒追（🔭）</b>＝未來觀察名單。AI 機櫃是需求核心，往上游拉動整條能源鏈。</figcaption>
+  </figure>
+
   <div class="cmp-wrap">
     <table class="cmp-tbl">
       <tr><th>能源鏈段</th><th>代表股</th><th>Notion 熱度</th><th>定位</th></tr>
