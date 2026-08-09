@@ -332,6 +332,57 @@
     <figcaption><b>圖 · HBM 結構</b>——把多層 DRAM 顆粒<b>堆疊</b>在 base die 上、緊貼 GPU。<b>顆粒</b>是國外三雄的天下；台廠切<b>封測（南茂/京元）、base die 後段（力積電）、載板（景碩）</b>。</figcaption>
   </figure>
 
+  <h2 class="h2">🔬 科普：記憶體怎麼分層、怎麼存資料</h2>
+  <p class="h2sub">電腦的記憶體是<strong>金字塔</strong>——越靠近 CPU 越快、越貴、容量越小；越往下越慢、越便宜、容量越大。AI 之所以缺 HBM，就是要「又快又大」逼近金字塔上層。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 480 236" role="img" aria-label="記憶體金字塔：SRAM快貴小、DRAM主記憶體、NAND儲存、HDD慢便宜大">
+      <!-- 左軸 -->
+      <text x="16" y="70" text-anchor="middle" class="svg-l" font-size="9" fill="var(--muted)" transform="rotate(-90 16 70)">快·貴·小 ▲</text>
+      <text x="16" y="180" text-anchor="middle" class="svg-l" font-size="9" fill="var(--muted)" transform="rotate(-90 16 180)">▼ 慢·便宜·大</text>
+      <!-- 金字塔四層 -->
+      <polygon points="150,40 127.7,75 172.3,75" fill="var(--z1b)" stroke="var(--z1)"/>
+      <polygon points="127.7,75 172.3,75 198,115 102,115" fill="var(--z2b)" stroke="var(--z2)"/>
+      <polygon points="102,115 198,115 226.4,160 73.6,160" fill="var(--z5b)" stroke="var(--z5)"/>
+      <polygon points="73.6,160 226.4,160 255,205 45,205" fill="var(--surface2)" stroke="var(--muted)" stroke-dasharray="4 3"/>
+      <g class="svg-t" text-anchor="middle" fill="var(--ink)">
+        <text x="150" y="66" font-size="9">SRAM</text>
+        <text x="150" y="99" font-size="10.5">DRAM</text>
+        <text x="150" y="142" font-size="10.5">NAND</text>
+        <text x="150" y="187" font-size="10" fill="var(--muted)">HDD 硬碟</text>
+      </g>
+      <!-- 右側 leaders + labels -->
+      <g stroke="currentColor" stroke-width="1" opacity=".3"><line x1="163" y1="58" x2="286" y2="52"/><line x1="185" y1="95" x2="286" y2="96"/><line x1="212" y1="138" x2="286" y2="144"/><line x1="240" y1="183" x2="286" y2="190"/></g>
+      <g class="svg-t" font-size="10.5" fill="var(--ink)">
+        <text x="290" y="52">SRAM（Cache）</text>
+        <text x="290" y="96">DRAM（主記憶體·工作區）</text>
+        <text x="290" y="144">NAND Flash（SSD·儲存）</text>
+        <text x="290" y="190">HDD（機械硬碟）</text>
+      </g>
+      <g class="svg-l" font-size="8.5" fill="var(--muted)">
+        <text x="290" y="64">最快·CPU 內建·台積電做</text>
+        <text x="290" y="108">南亞科·華邦｜🎯 HBM＝堆高給 AI</text>
+        <text x="290" y="156">群聯(控制IC)·威剛/十銓(模組)</text>
+        <text x="290" y="202">最慢最便宜·台廠少</text>
+      </g>
+    </svg>
+    <figcaption><b>圖 · 記憶體金字塔</b>——<b>SRAM</b>（CPU 內建、最快）→ <b>DRAM</b>（主記憶體、工作區）→ <b>NAND</b>（SSD 儲存）→ <b>HDD</b>（最慢最便宜）。<b>HBM 就是把 DRAM 往上「堆高、拉快」逼近 AI 需要的頻寬</b>，所以又貴又缺。</figcaption>
+  </figure>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:18px 0 8px">DRAM vs NAND——最該分清的兩種</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>　</th><th>DRAM</th><th>NAND Flash</th></tr>
+      <tr><td><b>揮發性</b></td><td>揮發（<b>斷電就消失</b>）</td><td>非揮發（<b>斷電資料保留</b>）</td></tr>
+      <tr><td><b>角色</b></td><td>主記憶體·當下工作區</td><td>儲存·SSD/隨身碟</td></tr>
+      <tr><td><b>比喻</b></td><td>桌面（快，但下班清空）</td><td>抽屜/倉庫（慢，但東西留著）</td></tr>
+      <tr><td><b>怎麼存</b></td><td>電容存電荷·要一直充電</td><td>浮閘鎖住電荷</td></tr>
+      <tr><td><b>速度/單價</b></td><td>快·貴</td><td>慢·便宜</td></tr>
+    </table>
+  </div>
+
+  <div class="plain" style="margin-top:10px"><span class="pk">💡 名詞白話</span><b>揮發性</b>：斷電資料就沒了（DRAM）；<b>非揮發性</b>：斷電還留著（NAND、隨身碟）。<b>DDR4/DDR5/LPDDR</b>：DRAM 的世代（越新越快省電，LP＝低功耗給手機）。<b>為什麼 AI 要 HBM</b>：GPU 每秒要吞海量資料，一般 DRAM 頻寬不夠，只好把 DRAM <b>堆很多層、用 TSV 打通、緊貼 GPU</b>＝HBM，這也是記憶體最缺、單價最高的一塊。</div>
+
   <h2 class="h2"><span class="n">2</span>供應鏈：台廠的六段</h2>
   <p class="h2sub">（🎯＝Notion 熱議；每段附名詞白話）</p>
 
