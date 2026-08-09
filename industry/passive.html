@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>被動元件 · MLCC 供應鏈 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1><em>被動元件</em> · MLCC</h1>
+    <p class="lede">被動元件（電容、電阻、電感）是每台電子產品裡「不起眼但不能少」的幾千~幾萬顆小零件。這波多頭有兩個引擎：<strong>AI 伺服器用量暴增</strong>（缺料到 2027）＋<strong>漲價循環</strong>（國巨談併太陽誘電）；還有一個變數——<strong>矽電容 DTC 可能取代部分小 MLCC</strong>。台廠國巨是全球前三，整條鏈都有戲。</p>
+    <div class="meta"><span>資料：近 3 個月各家開會／廢想法</span><span>🔌 被動元件</span><span>🎯＝Notion 熱議</span></div>
+  </header>
+
+  <div class="legend" aria-label="子環節顏色">
+    <div class="lg"><i style="background:var(--z2)"></i>MLCC 電容</div>
+    <div class="lg"><i style="background:var(--z3)"></i>晶片電阻</div>
+    <div class="lg"><i style="background:var(--z5)"></i>電感</div>
+    <div class="lg"><i style="background:var(--z7)"></i>特殊·高壓·超級電容</div>
+    <div class="lg"><i style="background:var(--z1)"></i>矽電容（新變數）</div>
+    <div class="lg"><i style="background:var(--z4)"></i>通路</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>被動元件是什麼？為什麼 AI 讓它缺爆</h2>
+  <p class="h2sub">「被動」＝不放大訊號、只做<strong>儲能／濾波／分壓</strong>的零件。三大類：<strong>電容（MLCC 最大宗）、電阻、電感</strong>。AI 晶片功耗大、供電雜訊多，晶片旁邊要<strong>鋪滿去耦電容</strong>——一台 AI 伺服器的用量是一般的好幾倍。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 440 194" role="img" aria-label="一般伺服器 vs AI 伺服器的 MLCC 用量對比：AI 伺服器晶片周圍鋪滿的被動元件多出數倍">
+      <rect x="18" y="30" width="176" height="130" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+      <rect x="76" y="80" width="60" height="34" rx="3" fill="var(--z1b)" stroke="var(--z1)"/><text x="106" y="101" text-anchor="middle" class="svg-t" font-size="10" fill="var(--ink)">晶片</text>
+      <g fill="var(--z2b)" stroke="var(--z2)"><rect x="60" y="66" width="7" height="7"/><rect x="90" y="60" width="7" height="7"/><rect x="120" y="66" width="7" height="7"/><rect x="146" y="90" width="7" height="7"/><rect x="120" y="120" width="7" height="7"/><rect x="70" y="122" width="7" height="7"/></g>
+      <text x="106" y="176" text-anchor="middle" class="svg-t" font-size="11.5" fill="var(--ink)">一般伺服器</text>
+
+      <rect x="246" y="30" width="176" height="130" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+      <rect x="304" y="80" width="60" height="34" rx="3" fill="var(--z1b)" stroke="var(--z1)"/><text x="334" y="101" text-anchor="middle" class="svg-t" font-size="10" fill="var(--ink)">GPU</text>
+      <g fill="var(--z2b)" stroke="var(--z2)"><rect x="286" y="58" width="7" height="7"/><rect x="300" y="52" width="7" height="7"/><rect x="316" y="56" width="7" height="7"/><rect x="332" y="52" width="7" height="7"/><rect x="348" y="56" width="7" height="7"/><rect x="366" y="60" width="7" height="7"/><rect x="380" y="72" width="7" height="7"/><rect x="384" y="92" width="7" height="7"/><rect x="380" y="112" width="7" height="7"/><rect x="366" y="126" width="7" height="7"/><rect x="348" y="130" width="7" height="7"/><rect x="330" y="132" width="7" height="7"/><rect x="312" y="130" width="7" height="7"/><rect x="296" y="126" width="7" height="7"/><rect x="282" y="112" width="7" height="7"/><rect x="276" y="92" width="7" height="7"/><rect x="280" y="72" width="7" height="7"/><rect x="300" y="120" width="7" height="7"/><rect x="352" y="70" width="7" height="7"/><rect x="360" y="108" width="7" height="7"/></g>
+      <text x="334" y="176" text-anchor="middle" class="svg-t" font-size="11.5" fill="var(--ink)">AI 伺服器（MLCC 用量暴增）</text>
+    </svg>
+    <figcaption><b>圖 · 為什麼 AI 讓被動缺爆</b>——AI 晶片旁要鋪滿<b>去耦電容（MLCC）</b>穩定供電；用量 <b>2027 單位數量 ×2、容值 ×5</b>，MLCC 擴產又慢 → <b>缺料到 2027</b>（日電貿）。小綠點＝MLCC。</figcaption>
+  </figure>
+
+  <h2 class="h2"><span class="n">2</span>供應鏈：台廠的六段</h2>
+  <p class="h2sub">（🎯＝Notion 熱議；每段附名詞白話）</p>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">A</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔵</span><span class="zone-name">MLCC 積層陶瓷電容</span><span class="zone-en">MLCC（最大宗）</span></div>
+      <p class="zone-do">被動元件裡<strong>最大、最關鍵</strong>的一塊。國巨是全球前三（併 KEMET、普思後）；漲價循環＋AI 缺料雙引擎。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2327</span><span class="chip-name">國巨*</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">MLCC＋電阻龍頭，談併太陽誘電、1-10uF 控貨</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2492</span><span class="chip-name">華新科</span><span class="chip-hot">🎯</span></div><div class="chip-role">MLCC，Q3 漲 10-15%、高容停報價</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3026</span><span class="chip-name">禾伸堂</span></div><div class="chip-role">高壓 MLCC／NP0，VR 世代滲透率想像</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6173</span><span class="chip-name">信昌電</span></div><div class="chip-role">高壓 MLCC，AI 伺服器垂直供電受惠</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8043</span><span class="chip-name">蜜望實</span></div><div class="chip-role">MLCC 通路／代理</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2375</span><span class="chip-name">凱美</span></div><div class="chip-role">MLCC／鋁電容</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>MLCC</b>（積層陶瓷電容）：把陶瓷和金屬一層層疊起來的微小電容，手機/AI 板上用成千上萬顆，穩定供電、濾雜訊。<b>高容／高壓 MLCC</b>：容量大或耐高壓的高階規格，AI 伺服器供電最缺這種。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z3)"><div class="rail"><div class="num">B</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🟫</span><span class="zone-name">晶片電阻</span><span class="zone-en">Chip Resistor</span></div>
+      <p class="zone-do">分壓、限流用。AI 伺服器要<strong>抗硫化</strong>高階電阻，ASP 高、交期拉長。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2327</span><span class="chip-name">國巨*</span></div><div class="chip-role">晶片電阻全球龍頭</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2478</span><span class="chip-name">大毅</span><span class="chip-hot">🎯</span></div><div class="chip-role">抗硫化電阻，NV／ODM 驗證中</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3624</span><span class="chip-name">光頡</span></div><div class="chip-role">精密電阻（航太/SpaceX 亦受惠）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>抗硫化電阻</b>：一般電阻在含硫環境會腐蝕斷路，AI 伺服器長時間高溫運轉要用抗硫化的高階電阻，單價更高、交期從 6-8 週拉到 12-16 週。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z5)"><div class="rail"><div class="num">C</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🌀</span><span class="zone-name">電感</span><span class="zone-en">Inductor</span></div>
+      <p class="zone-do">供電/濾波用的線圈元件。台廠家數多，AI 電源設計帶動高階電感需求。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">3236</span><span class="chip-name">千如</span></div><div class="chip-role">電感／被動元件</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6284</span><span class="chip-name">佳邦</span></div><div class="chip-role">電感／突波保護元件</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3357</span><span class="chip-name">臺慶科</span></div><div class="chip-role">電感</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>電感</b>：一圈圈線圈，用來穩定電流、濾波，AI 伺服器的多相供電（VRM）要用很多高階電感。（此段 Notion 討論較少，屬結構補充。）</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">D</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">⚡</span><span class="zone-name">特殊·高壓·超級電容·熱敏</span><span class="zone-en">Specialty</span></div>
+      <p class="zone-do">利基型被動——高壓、超級電容、熱敏/壓敏，避開大宗紅海、毛利較好。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2472</span><span class="chip-name">立隆電</span></div><div class="chip-role">超級電容，google/meta 400V 案</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2428</span><span class="chip-name">興勤</span><span class="chip-hot">🎯</span></div><div class="chip-role">熱敏/壓敏電阻，Q3 漲 20%、松下 EOL 轉單</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6173</span><span class="chip-name">信昌電</span></div><div class="chip-role">高壓 MLCC</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">7824</span><span class="chip-name">智寶</span></div><div class="chip-role">鋁質電解電容</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>超級電容</b>：儲能量遠大於一般電容，AI/資料中心備援供電（如 400V bulk cap）用得到。<b>熱敏／壓敏電阻</b>：感溫、抗突波的保護元件，日本松下退出（EOL）讓台廠興勤接轉單。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z1)"><div class="rail"><div class="num">E</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🧊</span><span class="zone-name">矽電容（新變數）</span><span class="zone-en">Silicon Capacitor / DTC</span></div>
+      <p class="zone-do">用半導體製程做的超薄電容——<strong>傳 NV Rubin Ultra 用 DTC 取代小尺寸 MLCC</strong>。對 MLCC 是長線威脅，對這幾家是新機會。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2344</span><span class="chip-name">華邦電</span><span class="chip-hot">🎯</span></div><div class="chip-role">Semco DTC（深溝槽矽電容）合作夥伴</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6531</span><span class="chip-name">愛普*</span></div><div class="chip-role">矽電容 Gen4 密度 3.8μF/mm²，外資轉多</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6271</span><span class="chip-name">同欣電</span></div><div class="chip-role">矽電容封裝（國巨集團），接美系客戶</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>矽電容（DTC，深溝槽電容）</b>：用晶圓製程在矽上刻出電容，超薄、可整合進中介層/晶片旁。<b>尺寸與厚度遠優於小尺寸 MLCC</b>——若 AI 晶片改用 DTC，會侵蝕部分小 MLCC 市場（台積電 DTC 約 1.5μF、華邦 3μF、愛普 Gen4 3.8μF）。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">F</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔗</span><span class="zone-name">通路</span><span class="zone-en">Distribution</span></div>
+      <p class="zone-do">缺料時<strong>通路商掌握配貨權</strong>，反而受惠——這波 MLCC 缺到 2027，通路獲利明顯。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3090</span><span class="chip-name">日電貿</span><span class="chip-hot">🎯</span></div><div class="chip-role">被動元件通路，AI server MLCC 缺料受惠</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>被動元件通路</b>：代理原廠、配貨給下游的中間商。平時薄利，但<b>缺料時「有貨就是老大」</b>，議價與獲利跳升——日電貿是 AI 伺服器 MLCC 缺料的直接受惠者。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:20px 0 8px">這波在漲什麼、缺什麼——證據</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>項目</th><th>變化</th><th>來源</th></tr>
+      <tr><td><b>MLCC（華新科）</b></td><td>Q3 漲 10-15%、高容停報價、Q4 再漲</td><td>華新科 07/21</td></tr>
+      <tr><td><b>熱敏/壓敏（興勤）</b></td><td>Q3 漲 20%、BB ratio 1.6</td><td>興勤 07/13</td></tr>
+      <tr><td><b>抗硫化電阻</b></td><td>交期 6-8 週 → 12-16 週</td><td>大毅/國巨 06</td></tr>
+      <tr><td><b>AI server MLCC 用量</b></td><td>27 年單位 ×2、容值 ×5、缺到 27</td><td>日電貿 07</td></tr>
+      <tr><td><b>太陽誘電 BB ratio</b></td><td>1.31 → 1.72 歷史新高（國巨常 &gt;2）</td><td>雅婷 08/06</td></tr>
+    </table>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 兩個引擎 ＋ 一個變數</span>
+    <b>引擎①</b> AI 伺服器<b>用量暴增</b>（27 年單位 ×2、容值 ×5，MLCC 擴產又慢＝缺到 2027）；<b>引擎②</b> <b>漲價循環</b> ＋ 國巨談併太陽誘電、日商 BB ratio 創高。<b>變數</b>：<b>矽電容 DTC</b>——NV Rubin Ultra 傳用 DTC 取代小尺寸 MLCC，長線可能侵蝕部分 MLCC，但讓華邦/愛普/同欣電有新機會。短期<b>MLCC 缺料漲價仍是主旋律</b>。<b>風險</b>：被動是景氣<b>循環股</b>，8/7 單日就重挫（國巨 −5.3%、禾伸堂 −9.8%）。
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：被動在賭什麼</h2>
+  <p class="h2sub">各家開會／廢想法對被動股<strong>未來</strong>的多頭論點。<strong>智囊觀點與推測、非投資建議</strong>；被動是循環股、缺料是雙面刃。<span class="who">（TP/EPS 已用收盤價 sanity check：華新科「25」、大毅「15」是 EPS 不是股價）</span></p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">2327</span><span class="th-name">國巨*</span><span class="th-zone">🔵 龍頭</span></div>
+      <div class="th-body">MLCC＋電阻龍頭；<b>太陽誘電 BB ratio 創歷史新高 1.72（國巨常 &gt;2）</b>；談<b>併購太陽誘電</b>、1-10uF 可控貨；明年 EPS 可能是法人估後年的數字。</div><div class="th-src">— 雅婷姊 · 08/06</div><a class="th-link" href="/search.html?q=2327">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">2492</span><span class="th-name">華新科</span><span class="th-zone">🔵 MLCC</span></div>
+      <div class="th-body">MLCC <b>Q3 漲 10-15%、高容停止報價</b>、Q4 還會再漲；<b>明年 EPS 25</b>。</div><div class="th-src">— 07/21</div><a class="th-link" href="/search.html?q=2492">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">2428</span><span class="th-name">興勤</span><span class="th-zone">⚡ 熱敏</span></div>
+      <div class="th-body"><b>Q3 漲 20%、BB ratio 1.6</b>；<b>松下壓敏電阻 EOL</b> 轉單、非 AI（手機/汽車）gain share；EPS 今年 13/明年 23-24，TP 500。</div><div class="th-src">— Jason · 07</div><a class="th-link" href="/search.html?q=2428">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">2478</span><span class="th-name">大毅</span><span class="th-zone">🟫 電阻</span></div>
+      <div class="th-body"><b>抗硫化電阻</b>（AI server 用、ASP 高）；NV／ODM 驗證中，明年貢獻營收 15-20%；<b>明年 EPS 至少 15</b>。</div><div class="th-src">— 永哥 · 06/17</div><a class="th-link" href="/search.html?q=2478">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">6271</span><span class="th-name">同欣電</span><span class="th-zone">🧊 矽電容</span></div>
+      <div class="th-body">國巨集團，接<b>矽電容封裝</b>＋MRVL 光通訊號放大器封測（4Q26 貢獻、27 放量）；EPS 26/27 估 8.5/12.6，TP 380。</div><div class="th-src">— 郁翔 · 06/29</div><a class="th-link" href="/search.html?q=6271">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">3090</span><span class="th-name">日電貿</span><span class="th-zone">🔗 通路</span></div>
+      <div class="th-body">被動通路，AI server 年增 18-20%、<b>MLCC 缺料延續到 2027</b>；下半年獲利明顯增長，目前低個位數 PE。</div><div class="th-src">— Frank Lin · 07</div><a class="th-link" href="/search.html?q=3090">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">6173</span><span class="th-name">信昌電</span><span class="th-zone">🔵 高壓</span></div>
+      <div class="th-body"><b>高壓 MLCC</b> 供應商，AI 伺服器<b>垂直供電</b>需求受惠；高壓 MLCC 族群（信昌電/禾伸堂/風華）需求增溫。</div><div class="th-src">— Frank Lin · 07/09</div><a class="th-link" href="/search.html?q=6173">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3026</span><span class="th-name">禾伸堂</span><span class="th-zone">🔵 NP0</span></div>
+      <div class="th-body">高壓 MLCC／<b>NP0 滲透率 5%→VR 世代 50%</b>；被動看好禾伸堂＋國巨。（惟「NP0 不好漲價」）</div><div class="th-src">— 佑哥 · 08/05</div><a class="th-link" href="/search.html?q=3026">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">2472</span><span class="th-name">立隆電</span><span class="th-zone">⚡ 超級電容</span></div>
+      <div class="th-body">google/meta <b>400V 超級電容案</b>；高壓超級電容「立隆做比較好」，在送樣（搭 TDK bulk cap 方案）。</div><div class="th-src">— 永哥 · 06/16</div><a class="th-link" href="/search.html?q=2472">查智囊原話 →</a></div>
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音——被動是循環股，缺料也是雙面刃</span>
+    <br>· <b>全族群 8/7 單日重挫</b>：國巨 −5.3%、禾伸堂 −9.8%、信昌電 −7.6%、大毅 −6.2%——<b>漲多回檔快</b>。<span class="who">（8/7 盤後）</span>
+    <br>· <b>禾伸堂 3026</b>：NP0 滲透率雖升，但「<b>不好漲價</b>」——量增未必帶動價。<span class="who">（08/05）</span>
+    <br>· <b>矽電容 DTC</b>：對 MLCC 是<b>長線威脅</b>——若 AI 晶片改用 DTC，小尺寸 MLCC 需求被侵蝕。<span class="who">（Ed 08/05）</span>
+    <br>· <b>缺料的另一面</b>：智邦說「跟國巨要料要不到、被動交貨有問題反而拖累營收」——缺料對下游是風險。<span class="who">（愛德恩 07/22）</span>
+    <br>· <b>興勤／同欣電</b>：TP 500／380 都是 <b>+100%／+96% 的激進目標</b>，需完美兌現。<span class="who">（Jason/郁翔）</span>
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>日系原廠仍是龍頭（台廠追趕中）</h3>
+    <p>MLCC 最高階由日系把持，台廠國巨靠併購擠進全球前三：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">MLCC 龍頭</span></div><div class="chip-role">村田 Murata、TDK、太陽誘電（國巨談併）、三星電機</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">2327</span><span class="chip-name">國巨集團</span></div><div class="chip-role">併 KEMET／普思／基美，衝全球前三</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">矽電容 DTC</span></div><div class="chip-role">Semco（三星電機）技術，華邦是合作夥伴</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到被動股先問「它做哪一段？」——MLCC（國巨/華新科）是主戰場、高壓利基（信昌電/禾伸堂）毛利好、缺料時通路（日電貿）也受惠；矽電容是長線變數。<br>
+    <b>資料來源：</b>近 3 個月 MAGI 各家開會／廢想法整理。🎯＝Notion 熱議。TP/EPS 已用收盤價 sanity check。<br>
+    <b>但書：</b>被動元件是景氣<b>循環股</b>、波動大；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
