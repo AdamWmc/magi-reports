@@ -336,6 +336,34 @@
     </figure>
   </div>
 
+  <h2 class="h2">🔬 科普：為什麼 AI 要「用光」不用銅？</h2>
+  <p class="h2sub">資料中心要把<strong>幾萬張 GPU</strong> 高速連起來、距離又長。銅線傳高速訊號<strong>跑不遠又耗電</strong>；改用光，快、遠、省電、還不受電磁干擾——這就是光通訊爆發的根本。</p>
+  <figure class="fig">
+    <svg viewBox="0 0 460 150" role="img" aria-label="銅線訊號衰減 vs 光纖穩定的對照">
+      <text x="60" y="40" class="svg-t" font-size="11" fill="var(--ink)">🟤 銅線（電）</text>
+      <path d="M20 66 q10 -14 20 0 q10 14 20 0 q10 -12 20 0 q10 12 20 0 q10 -9 20 0 q10 9 20 0 q10 -6 20 0 q10 6 20 0 q10 -3 20 0" fill="none" stroke="var(--muted)" stroke-width="2"/>
+      <text x="230" y="66" text-anchor="end" class="svg-l" font-size="8.5" fill="var(--muted)">越傳越弱·耗電</text>
+      <text x="60" y="106" class="svg-t" font-size="11" fill="var(--z7)">🔵 光纖（光）</text>
+      <g stroke="var(--z7)" stroke-width="2"><line x1="20" y1="126" x2="40" y2="126"/><line x1="52" y1="126" x2="72" y2="126"/><line x1="84" y1="126" x2="104" y2="126"/><line x1="116" y1="126" x2="136" y2="126"/><line x1="148" y1="126" x2="168" y2="126"/><line x1="180" y1="126" x2="200" y2="126"/></g>
+      <text x="230" y="126" text-anchor="end" class="svg-l" font-size="8.5" fill="var(--z7)">穩定·快·遠</text>
+      <line x1="250" y1="30" x2="250" y2="140" stroke="var(--line)"/>
+      <text x="355" y="46" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">🌈 WDM 波長多工</text>
+      <g stroke-width="2"><line x1="290" y1="72" x2="420" y2="72" stroke="var(--z2)"/><line x1="290" y1="82" x2="420" y2="82" stroke="var(--z4)"/><line x1="290" y1="92" x2="420" y2="92" stroke="var(--z7)"/><line x1="290" y1="102" x2="420" y2="102" stroke="var(--z5)"/></g>
+      <text x="355" y="124" text-anchor="middle" class="svg-l" font-size="8.5" fill="var(--muted)">一根光纖·多色光同時傳</text>
+    </svg>
+    <figcaption><b>圖 · 銅 vs 光</b>——銅線高速訊號<b>越傳越弱、越快越耗電</b>；光纖穩定、快、遠。還能用 <b>WDM（波長多工）</b>：一根光纖同時傳好幾種顏色的光＝好幾條資料。</figcaption>
+  </figure>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>　</th><th>銅線（電）</th><th>光纖（光）</th></tr>
+      <tr><td><b>距離</b></td><td>短·衰減快</td><td><b>遠·幾乎不衰減</b></td></tr>
+      <tr><td><b>耗電</b></td><td>高（越快越耗）</td><td>低</td></tr>
+      <tr><td><b>干擾</b></td><td>受電磁干擾</td><td>不受干擾</td></tr>
+      <tr><td><b>AI 用途</b></td><td>板內·短距</td><td><b>機櫃間·資料中心互連</b></td></tr>
+    </table>
+  </div>
+  <div class="plain" style="margin-top:10px"><span class="pk">💡 名詞白話</span><b>為什麼換光</b>：AI 要連幾萬張 GPU、距離長、頻寬大，銅線跑不動又耗電。<b>WDM（波長多工）</b>：一根光纖用不同顏色（波長）的光同時傳多路資料，容量倍增。<b>矽光子/CPO</b>：把光元件做進晶片、貼著交換晶片，是把「用光」再往省電推進的下一步。</div>
+
   <h2 class="h2"><span class="n">2</span>供應鏈：整條光鏈拆到最細</h2>
   <p class="h2sub">從最上游的磊晶、雷射，一路到光模塊、CPO、測試，分 6 段。（🎯＝Notion 熱議；每段附名詞白話）</p>
 

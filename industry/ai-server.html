@@ -432,6 +432,32 @@
     <p class="xcap">由下往上：<b>板子(④)</b> → <b>載板(③)</b> → <b>把晶片封上去(②，裡面包著①)</b> → <b>蓋散熱(⑤)</b>；訊號再從板邊經<b>光模塊(⑦)</b>連出去。把幾十個這種節點裝進機櫃，就成了上面那張機櫃圖。</p>
   </div>
 
+  <h2 class="h2">🔬 科普：為什麼 AI 要一堆 GPU？</h2>
+  <p class="h2sub">AI 的運算大多是「<strong>矩陣乘法</strong>」——同一種計算要做上億次。<strong>CPU 少核心、一次算一點（序列）；GPU 上萬小核心、同時算（平行）</strong>——剛好對上 AI 的胃口。</p>
+  <figure class="fig">
+    <svg viewBox="0 0 460 162" role="img" aria-label="CPU少核心序列 vs GPU上萬小核心平行">
+      <rect x="24" y="34" width="170" height="96" rx="8" fill="var(--z1b)" stroke="var(--z1)" stroke-width="1.5"/>
+      <text x="109" y="26" text-anchor="middle" class="svg-t" font-size="12" fill="var(--ink)">CPU</text>
+      <g fill="var(--z1b)" stroke="var(--z1)"><rect x="36" y="46" width="68" height="36" rx="3"/><rect x="114" y="46" width="68" height="36" rx="3"/><rect x="36" y="88" width="68" height="36" rx="3"/><rect x="114" y="88" width="68" height="36" rx="3"/></g>
+      <text x="109" y="148" text-anchor="middle" class="svg-l" font-size="9" fill="var(--muted)">少核心·每個強·序列</text>
+      <text x="230" y="92" text-anchor="middle" class="svg-t" font-size="13" fill="var(--muted)">vs</text>
+      <rect x="266" y="34" width="170" height="96" rx="8" fill="var(--z2b)" stroke="var(--z2)" stroke-width="1.5"/>
+      <text x="351" y="26" text-anchor="middle" class="svg-t" font-size="12" fill="var(--ink)">GPU</text>
+      <g fill="var(--z2)" opacity=".5"><rect x="280" y="50" width="12" height="12" rx="2"/><rect x="298" y="50" width="12" height="12" rx="2"/><rect x="316" y="50" width="12" height="12" rx="2"/><rect x="334" y="50" width="12" height="12" rx="2"/><rect x="352" y="50" width="12" height="12" rx="2"/><rect x="370" y="50" width="12" height="12" rx="2"/><rect x="388" y="50" width="12" height="12" rx="2"/><rect x="406" y="50" width="12" height="12" rx="2"/><rect x="280" y="68" width="12" height="12" rx="2"/><rect x="298" y="68" width="12" height="12" rx="2"/><rect x="316" y="68" width="12" height="12" rx="2"/><rect x="334" y="68" width="12" height="12" rx="2"/><rect x="352" y="68" width="12" height="12" rx="2"/><rect x="370" y="68" width="12" height="12" rx="2"/><rect x="388" y="68" width="12" height="12" rx="2"/><rect x="406" y="68" width="12" height="12" rx="2"/><rect x="280" y="86" width="12" height="12" rx="2"/><rect x="298" y="86" width="12" height="12" rx="2"/><rect x="316" y="86" width="12" height="12" rx="2"/><rect x="334" y="86" width="12" height="12" rx="2"/><rect x="352" y="86" width="12" height="12" rx="2"/><rect x="370" y="86" width="12" height="12" rx="2"/><rect x="388" y="86" width="12" height="12" rx="2"/><rect x="406" y="86" width="12" height="12" rx="2"/><rect x="280" y="104" width="12" height="12" rx="2"/><rect x="298" y="104" width="12" height="12" rx="2"/><rect x="316" y="104" width="12" height="12" rx="2"/><rect x="334" y="104" width="12" height="12" rx="2"/><rect x="352" y="104" width="12" height="12" rx="2"/><rect x="370" y="104" width="12" height="12" rx="2"/><rect x="388" y="104" width="12" height="12" rx="2"/><rect x="406" y="104" width="12" height="12" rx="2"/></g>
+      <text x="351" y="148" text-anchor="middle" class="svg-l" font-size="9" fill="var(--muted)">上萬小核心·同時平行算</text>
+    </svg>
+    <figcaption><b>圖 · CPU vs GPU</b>——CPU 像<b>幾個全能主廚</b>（樣樣行、一次做少樣）；GPU 像<b>一大群學生同時算加減</b>。AI 的矩陣運算可拆成海量同時做的小工，<b>平行核心剛好對味</b>——這就是 NVIDIA 稱霸 AI 的原因。</figcaption>
+  </figure>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>　</th><th>CPU</th><th>GPU</th><th>ASIC</th></tr>
+      <tr><td><b>怎麼算</b></td><td>序列·少核心強</td><td>平行·上萬核心</td><td>客製·只做一件事</td></tr>
+      <tr><td><b>AI 角色</b></td><td>調度/通用</td><td><b>訓練·推論主力</b></td><td>特定模型省電省成本</td></tr>
+      <tr><td><b>誰做</b></td><td>Intel/AMD</td><td>NVIDIA</td><td>創意/世芯設計·台積造</td></tr>
+    </table>
+  </div>
+  <div class="plain" style="margin-top:10px"><span class="pk">💡 名詞白話</span><b>平行運算</b>：把一件大事拆成很多小事同時做，GPU 上萬核心一起算。<b>訓練 vs 推論</b>：訓練＝讓模型「學」（最吃算力）、推論＝拿學好的模型「用」。<b>ASIC</b>：為單一模型客製的晶片（如 Google TPU），比通用 GPU 更省電便宜，但不彈性——這就是創意/世芯的機會。</div>
+
   <h2 class="h2"><span class="n">2</span>誰做哪一塊？7 層供應鏈</h2>
   <p class="h2sub">把上面的架構攤平成 7 層，每一層填進你 Notion 最近的熱門／共識股——這就是「哪支股票靠 AI 伺服器的哪個環節賺錢」。</p>
   <div class="flow-note">▎<b>閱讀方向：</b>由上到下＝從「晶片最核心」一路組裝到「整台機櫃」，越上面越靠近運算，越下面越靠近整機。</div>
