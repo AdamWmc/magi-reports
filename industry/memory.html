@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>記憶體大循環 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1><em>記憶體</em> 大循環</h1>
+    <p class="lede">記憶體正進入「<strong>大循環</strong>」漲價——AI 要 <strong>HBM</strong>、手機/PC 回溫、原廠減產後供不應求，DRAM 現貨漲逾倍、NOR/NAND 陸續調漲。台廠雖非顆粒龍頭（那是三星/海力士/美光），但從<strong>利基原廠、Flash、模組、到 HBM 封測/載板、擴廠設備</strong>全鏈受惠。下面把記憶體整條拆開。</p>
+    <div class="meta"><span>資料：近 3 個月各家開會／廢想法</span><span>💾 記憶體</span><span>🎯＝Notion 熱議</span></div>
+  </header>
+
+  <div class="legend" aria-label="子環節顏色">
+    <div class="lg"><i style="background:var(--z2)"></i>DRAM 原廠·代工</div>
+    <div class="lg"><i style="background:var(--z5)"></i>Flash·控制IC</div>
+    <div class="lg"><i style="background:var(--z3)"></i>利基·矽電容</div>
+    <div class="lg"><i style="background:var(--z7)"></i>模組廠</div>
+    <div class="lg"><i style="background:var(--z1)"></i>HBM 封測·載板</div>
+    <div class="lg"><i style="background:var(--z4)"></i>擴廠·材料設備</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>記憶體有哪幾種？台廠站哪？</h2>
+  <p class="h2sub">記憶體不是一種東西。先分清 <strong>DRAM／NAND／NOR／HBM</strong>，就知道台廠強在哪、弱在哪——顆粒原廠是國外三雄，台廠強在<strong>利基、模組、封測、設備</strong>。</p>
+
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>種類</th><th>是什麼</th><th>用在哪</th><th>台廠角色</th></tr>
+      <tr><td><b>DRAM</b></td><td>揮發性、快，斷電消失</td><td>電腦/手機主記憶體</td><td>南亞科、華邦（利基）、力積電（代工）</td></tr>
+      <tr><td><b>NAND Flash</b></td><td>非揮發、儲存量大</td><td>SSD、隨身碟</td><td>群聯（控制 IC）、模組廠</td></tr>
+      <tr><td><b>NOR Flash</b></td><td>小容量、開機碼</td><td>各種裝置開機</td><td>旺宏、華邦（強項）</td></tr>
+      <tr><td><b>HBM</b></td><td>把 DRAM 堆很高、緊貼 GPU</td><td>AI 加速器（剛需）</td><td>封測/載板/base die（切邊）</td></tr>
+    </table>
+  </div>
+
+  <figure class="fig">
+    <svg viewBox="0 0 430 210" role="img" aria-label="HBM 結構示意：GPU 旁邊堆疊多層 DRAM 顆粒於 base die 上，透過矽中介層與載板連接，標出台廠切入的封測、base die、載板環節">
+      <!-- substrate -->
+      <rect x="30" y="168" width="360" height="22" rx="3" fill="var(--z3b)" stroke="var(--z3)"/>
+      <text x="210" y="184" text-anchor="middle" class="svg-l" font-size="10" fill="var(--z3)">載板（景碩 BT）</text>
+      <!-- interposer -->
+      <rect x="60" y="150" width="300" height="14" rx="2" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-opacity=".3"/>
+      <text x="300" y="146" text-anchor="middle" class="svg-l" font-size="9" fill="var(--muted)">矽中介層</text>
+      <!-- GPU -->
+      <rect x="86" y="98" width="86" height="50" rx="3" fill="var(--z1b)" stroke="var(--z1)" stroke-width="1.4"/>
+      <text x="129" y="127" text-anchor="middle" class="svg-t" font-size="12" fill="var(--ink)">GPU</text>
+      <!-- HBM stack -->
+      <rect x="238" y="130" width="96" height="16" rx="2" fill="var(--z4b)" stroke="var(--z4)"/>
+      <text x="286" y="142" text-anchor="middle" class="svg-l" font-size="8.5" fill="var(--z4)">base die（力積電後段）</text>
+      <g fill="var(--z2b)" stroke="var(--z2)">
+        <rect x="246" y="112" width="80" height="14" rx="1.5"/><rect x="246" y="96" width="80" height="14" rx="1.5"/><rect x="246" y="80" width="80" height="14" rx="1.5"/><rect x="246" y="64" width="80" height="14" rx="1.5"/>
+      </g>
+      <!-- TSV lines -->
+      <g stroke="var(--z2)" opacity=".4"><line x1="262" y1="64" x2="262" y2="130"/><line x1="286" y1="64" x2="286" y2="130"/><line x1="310" y1="64" x2="310" y2="130"/></g>
+      <text x="286" y="56" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">HBM = 堆疊 DRAM</text>
+      <text x="286" y="44" text-anchor="middle" class="svg-l" font-size="8.5" fill="var(--muted)">顆粒：海力士/三星/美光</text>
+      <!-- 封測 label -->
+      <line x1="334" y1="100" x2="382" y2="100" stroke="currentColor" stroke-width="1" opacity=".33"/>
+      <text x="384" y="97" class="svg-t" font-size="10.5" fill="currentColor">封測</text>
+      <text x="384" y="110" class="svg-l" font-size="9" fill="var(--muted)">南茂·京元電</text>
+    </svg>
+    <figcaption><b>圖 · HBM 結構</b>——把多層 DRAM 顆粒<b>堆疊</b>在 base die 上、緊貼 GPU。<b>顆粒</b>是國外三雄的天下；台廠切<b>封測（南茂/京元）、base die 後段（力積電）、載板（景碩）</b>。</figcaption>
+  </figure>
+
+  <h2 class="h2"><span class="n">2</span>供應鏈：台廠的六段</h2>
+  <p class="h2sub">（🎯＝Notion 熱議；每段附名詞白話）</p>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">A</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🏭</span><span class="zone-name">DRAM 原廠·代工</span><span class="zone-en">DRAM Maker / Foundry</span></div>
+      <p class="zone-do">台廠不是主流 DRAM 三雄，但有<strong>利基 DRAM 原廠</strong>與<strong>DRAM 代工</strong>，這波漲價循環直接受惠。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2408</span><span class="chip-name">南亞科</span><span class="chip-hot">🎯</span></div><div class="chip-role">DRAM 原廠，漲價循環＋位階相對低</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2344</span><span class="chip-name">華邦電</span><span class="chip-hot">🎯 最熱</span></div><div class="chip-role">利基 DRAM＋NOR，兼矽電容 DTC 新題材</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6770</span><span class="chip-name">力積電</span><span class="chip-hot">🎯</span></div><div class="chip-role">DRAM 代工，投片漲 45%、切 HBM base die 後段</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>利基 DRAM</b>：不做主流大宗，專攻消費/工控/車用的特殊規格，避開和三雄硬拚。<b>DRAM 代工</b>：幫別人生產 DRAM 晶圓（力積電），漲價直接反映。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z5)"><div class="rail"><div class="num">B</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">⚡</span><span class="zone-name">Flash（NOR/NAND）·控制 IC</span><span class="zone-en">Flash / Controller</span></div>
+      <p class="zone-do">非揮發性記憶體——<strong>NOR</strong>（開機碼）台廠是強項，<strong>NAND</strong> 台廠切控制 IC 與模組。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2337</span><span class="chip-name">旺宏</span></div><div class="chip-role">NOR Flash 龍頭，3Q 對客戶調漲</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">8299</span><span class="chip-name">群聯</span><span class="chip-hot">🎯</span></div><div class="chip-role">NAND 控制 IC，8 月數字＞7 月</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2344</span><span class="chip-name">華邦電</span></div><div class="chip-role">NOR＋DRAM 雙棲</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>NOR vs NAND</b>：NOR 容量小、讀取快，放開機程式碼；NAND 容量大、便宜，做 SSD/隨身碟。<b>控制 IC</b>：管理 NAND 讀寫的晶片，群聯是全球大廠。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z3)"><div class="rail"><div class="num">C</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔋</span><span class="zone-name">利基·矽電容（新題材）</span><span class="zone-en">Silicon Capacitor</span></div>
+      <p class="zone-do">華邦電最熱的新故事——<strong>矽電容（DTC）</strong>：傳 NV Rubin Ultra 用 DTC 取代小尺寸 MLCC，尺寸/厚度更優。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2344</span><span class="chip-name">華邦電</span><span class="chip-hot">🎯</span></div><div class="chip-role">Semco DTC（深溝槽矽電容）合作夥伴</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6531</span><span class="chip-name">愛普*</span></div><div class="chip-role">矽電容題材，外資轉多、單月營收看 10E</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">5351</span><span class="chip-name">鈺創</span></div><div class="chip-role">利基/特殊記憶體</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>矽電容（DTC）</b>：用半導體製程做的超薄電容，塞進晶片/中介層很省空間。AI 晶片旁要放很多去耦電容，<b>DTC 有機會取代部分小 MLCC</b>——這是華邦電被重新評價的原因。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">D</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">📦</span><span class="zone-name">模組廠</span><span class="zone-en">Memory Module</span></div>
+      <p class="zone-do">把顆粒組裝成 DRAM/SSD 模組賣。<strong>漲價時模組廠有庫存增值利益</strong>，但也是漲多回檔最快的一群。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">3260</span><span class="chip-name">威剛</span></div><div class="chip-role">DRAM/SSD 模組龍頭</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">4967</span><span class="chip-name">十銓</span></div><div class="chip-role">記憶體模組</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">5289</span><span class="chip-name">宜鼎</span></div><div class="chip-role">工控/車用記憶體模組（高毛利）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2451</span><span class="chip-name">創見</span></div><div class="chip-role">記憶體模組</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8271</span><span class="chip-name">宇瞻</span></div><div class="chip-role">工控記憶體模組</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>模組廠</b>：跟原廠買顆粒、組裝成一條條記憶體/一顆顆 SSD 賣。<b>庫存增值</b>：漲價時手上便宜買的顆粒變貴＝賺價差，但一旦轉跌，庫存跌價損失也快。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z1)"><div class="rail"><div class="num">E</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🧊</span><span class="zone-name">HBM 封測·載板·通路</span><span class="zone-en">HBM Back-end</span></div>
+      <p class="zone-do">HBM 顆粒是國外三雄，但<strong>堆疊、測試、載板、通路</strong>台廠切得進——這是記憶體沾上 AI 最直接的一段。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">8150</span><span class="chip-name">南茂</span><span class="chip-hot">🎯</span></div><div class="chip-role">記憶體測試漲價、capex 大增擴產</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2449</span><span class="chip-name">京元電</span></div><div class="chip-role">半導體測試（記憶體/邏輯）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3189</span><span class="chip-name">景碩</span></div><div class="chip-role">BT 載板，對美光漲價 60%、10 月再漲</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6770</span><span class="chip-name">力積電</span></div><div class="chip-role">與美光合作 HBM 後段製程（27 年量產）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8096</span><span class="chip-name">擎亞</span></div><div class="chip-role">HBM 通路代理（消息面，見雜音）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>HBM</b>：把多層 DRAM 堆疊、用 TSV（矽穿孔）打通、緊貼 GPU 的高頻寬記憶體，AI 加速器的剛需。<b>BT 載板</b>：承載記憶體顆粒的板子，漲價時景碩對美光報價強勢。<b>base die</b>：HBM 最底層的控制晶片。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">F</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🏗️</span><span class="zone-name">大循環擴廠·材料設備</span><span class="zone-en">Capex Beneficiaries</span></div>
+      <p class="zone-do">記憶體原廠（美光/三星）大擴廠，<strong>矽晶圓、廠務工程</strong>直接吃到資本支出。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">6488</span><span class="chip-name">環球晶</span><span class="chip-hot">🎯</span></div><div class="chip-role">矽晶圓，與美光簽約、12 吋合約漲 46%</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6139</span><span class="chip-name">亞翔</span></div><div class="chip-role">廠務工程，美光新加坡 EPC、在手訂單暴增</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">5483</span><span class="chip-name">中美晶</span></div><div class="chip-role">矽晶圓（環球晶母公司）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>矽晶圓</b>：做晶片的基礎圓盤原料，記憶體/邏輯都要，擴廠＝需求大增、漲價。<b>EPC 廠務工程</b>：幫晶圓廠蓋無塵室與廠務系統（亞翔），接到美光大單。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:20px 0 8px">「大循環」在漲什麼——這波漲價的證據</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>項目</th><th>漲幅／變化</th><th>來源</th></tr>
+      <tr><td><b>DRAM 投片</b></td><td>1.7 月起 +45%，後續逐季漲</td><td>力積電（郁翔 07/15）</td></tr>
+      <tr><td><b>12 吋矽晶圓</b></td><td>合約價 +46%、現貨 +102%</td><td>環球晶（豪哥 07/21）</td></tr>
+      <tr><td><b>BT 載板（記憶體）</b></td><td>對美光 +60%，10 月再談 +40%</td><td>景碩（Ken 06/25）</td></tr>
+      <tr><td><b>NOR/NAND</b></td><td>3Q 對客戶調漲</td><td>旺宏、群聯</td></tr>
+      <tr><td><b>27 年代工 GM</b></td><td>全部晶圓代工廠 &gt; 40%</td><td>力積電</td></tr>
+    </table>
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 HBM 是記憶體沾上 AI 的核心</span>
+    這波記憶體大循環有兩個引擎：① <b>傳統週期回升</b>（減產後供不應求、手機/PC 回溫、現貨漲逾倍）；② <b>AI 的 HBM 剛需</b>——每顆 GPU 都要一堆 HBM。<b>顆粒</b>是海力士/三星/美光的天下，台廠切的是<b>封測（南茂/京元）、base die 後段（力積電 × 美光）、載板（景碩）、通路</b>。這也是為什麼「記憶體＋AI」能同時發酵。<b>風險</b>：記憶體是<b>景氣循環股</b>——漲價循環一旦反轉，跌起來又急又猛（8/7 族群單日就熄火：旺宏 −5.8%、宜鼎 −6.8%）。
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：記憶體在賭什麼</h2>
+  <p class="h2sub">各家開會／廢想法對記憶體股<strong>未來</strong>的多頭論點。<strong>智囊觀點與推測、非投資建議</strong>；記憶體是循環股、波動大。<span class="who">（TP/EPS 已用收盤價 sanity check：旺宏「20」、亞翔「65」是 EPS 不是股價）</span></p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">2344</span><span class="th-name">華邦電</span><span class="th-zone">🔋 最熱</span></div>
+      <div class="th-body">DRAM＋NOR 漲價循環；新故事是 <b>矽電容 DTC</b>——是 Semco 做 interposer DTC 的合作夥伴，傳 <b>NV Rubin Ultra 用 DTC 取代小尺寸 MLCC</b>（尺寸/厚度更優）。</div><div class="th-src">— Ed · 08/05</div><a class="th-link" href="/search.html?q=2344">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">6770</span><span class="th-name">力積電</span><span class="th-zone">🏭 代工</span></div>
+      <div class="th-body">DRAM 投片 <b>漲 45%</b>、後續逐季漲，27 年代工 GM &gt; 40%；<b>與美光合作 HBM 後段</b>（27 年量產）；3D AI fab 占比 5%→20%。TP 150。</div><div class="th-src">— 郁翔 · 07/15</div><a class="th-link" href="/search.html?q=6770">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">6488</span><span class="th-name">環球晶</span><span class="th-zone">🏗️ 材料</span></div>
+      <div class="th-body">矽晶圓漲價循環、<b>與美光簽約</b>；12 吋合約 +46%、現貨 +102%；EPS 26/27 估 <b>21/67</b>，TP 2000。</div><div class="th-src">— 豪哥 · 07/21</div><a class="th-link" href="/search.html?q=6488">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">2408</span><span class="th-name">南亞科</span><span class="th-zone">🏭 DRAM</span></div>
+      <div class="th-body">DRAM 原廠、直接吃漲價；<b>位階相對低</b>（還在 6 月價位）；MSCI 調整關注標的。</div><div class="th-src">— 永哥 · 07/28</div><a class="th-link" href="/search.html?q=2408">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">6139</span><span class="th-name">亞翔</span><span class="th-zone">🏗️ 廠務</span></div>
+      <div class="th-body"><b>美光新加坡 EPC</b>；在手訂單從 1753 億 <b>暴增到 4400 億</b>（80% 半導體）；<b>明年 EPS 上看 65</b>、目前僅 13X 偏低。</div><div class="th-src">— Eddie · 07/24-27</div><a class="th-link" href="/search.html?q=6139">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z5)"><div class="th-h"><span class="th-code">2337</span><span class="th-name">旺宏</span><span class="th-zone">⚡ NOR</span></div>
+      <div class="th-body">NOR Flash 龍頭、<b>3Q 對客戶調漲</b>；<b>今年 EPS 上看 20</b>、PE 僅 10-15x（大E 認為便宜）。</div><div class="th-src">— 大E · 08/03</div><a class="th-link" href="/search.html?q=2337">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">3189</span><span class="th-name">景碩</span><span class="th-zone">🧊 載板</span></div>
+      <div class="th-body">BT 載板<b>對美光漲價 60%</b>，下一次 10 月再談、至少再漲 40%；記憶體需求好，BT upside 比想像大。</div><div class="th-src">— Ken · 06/25</div><a class="th-link" href="/search.html?q=3189">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">8150</span><span class="th-name">南茂</span><span class="th-zone">🧊 測試</span></div>
+      <div class="th-body"><b>記憶體測試漲價</b>、capex 大增（26/27 72/95 億）擴封測產能；EPS 26/27 估 3.8/6.1，TP 150。</div><div class="th-src">— Eddie · 07/16</div><a class="th-link" href="/search.html?q=8150">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z5)"><div class="th-h"><span class="th-code">8299</span><span class="th-name">群聯</span><span class="th-zone">⚡ 控制IC</span></div>
+      <div class="th-body">NAND 控制 IC，<b>8 月數字 &gt; 7 月</b>；跌下來公司有<b>庫藏股回補</b>意願（海力士、鎧俠、群聯都想做）。</div><div class="th-src">— Kevin·龍哥 · 07-08</div><a class="th-link" href="/search.html?q=8299">查智囊原話 →</a></div>
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音——記憶體是「循環股」，記得留一手</span>
+    記憶體漲時很兇、跌時更急，Notion 也記下不少警訊：
+    <br>· <b>全族群 8/7 單日熄火</b>：旺宏 −5.8%、宜鼎 −6.8%、華邦 −4.4%，宇瞻/廣穎/威剛齊挫——<b>漲多回檔快</b>。<span class="who">（8/7 盤後）</span>
+    <br>· <b>群聯 3260…8299</b>：龍哥「外資沿路賣、跌下來公司才想做庫藏股」——<b>下跌中回補</b>，不是已止穩。<span class="who">（龍哥 08/03）</span>
+    <br>· <b>擎亞 8096</b>：「台積電向三星拿記憶體須透過擎亞、EPS 25-30、喊 213-250」——<b>單一消息源、至上財務長已否認</b>，最投機。<span class="who">（WL 07/13）</span>
+    <br>· <b>環球晶／力積電</b>：TP 2000／150 都是<b>+100% 以上的激進目標</b>，需漲價循環完美兌現。<span class="who">（豪哥/郁翔 07）</span>
+    <br>· <b>循環股本質</b>：記憶體是景氣循環股，「高 PE 時買、低 PE 時賣」常反著來——現貨價一旦轉弱，評價會快速下修。
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>顆粒原廠是國外三雄（台廠碰不到主流）</h3>
+    <p>記憶體最大的餅在顆粒原廠，這塊由國外把持，台廠是利基/後段：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">DRAM / HBM 顆粒</span></div><div class="chip-role">三星、SK 海力士、美光（HBM 三雄）</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">NAND Flash 顆粒</span></div><div class="chip-role">三星、鎧俠（Kioxia）、美光、SK</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">台廠定位</span></div><div class="chip-role">利基原廠＋模組＋封測＋載板＋設備受惠</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到記憶體股先問「它做哪一段？」——利基原廠（南亞科/華邦）與代工（力積電）吃漲價；HBM 封測/載板（南茂/景碩）沾 AI；模組廠彈性大但回檔也快。<br>
+    <b>資料來源：</b>近 3 個月 MAGI 各家開會／廢想法整理。🎯＝Notion 熱議。TP/EPS 已用收盤價 sanity check。<br>
+    <b>但書：</b>記憶體是景氣<b>循環股</b>、波動大；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
