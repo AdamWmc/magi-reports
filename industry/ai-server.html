@@ -287,6 +287,7 @@
     <div class="lg"><i style="background:var(--z5)"></i>散熱</div>
     <div class="lg"><i style="background:var(--z6)"></i>機構件</div>
     <div class="lg"><i style="background:var(--z7)"></i>網路互連</div>
+    <div class="lg"><i style="background:var(--copper)"></i>電源·BBU·液冷</div>
   </div>
   <h2 class="h2"><span class="n">1</span>一台 AI 伺服器長什麼樣？</h2>
   <p class="h2sub">先講一個關鍵觀念：<strong>AI 伺服器不是「一台電腦」，是「一整櫃」。</strong>幾十個運算節點 + 交換器 + 電源 + 液冷，用超高速互連綁成一台巨大的機器（NVIDIA 把它叫 GB200 NVL72）。先看它的骨架，再放大看一個節點裡的晶片怎麼疊。</p>
@@ -566,6 +567,21 @@
         </div>
       </div>
     </div>
+
+    <div class="layer" style="--zc:var(--copper)"><div class="rail"><div class="num">8</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">⚡</span><span class="zone-name">電源·BBU·液冷</span><span class="zone-en">Power / BBU / Cooling</span></div>
+      <p class="zone-do">AI 機櫃<strong>吃電暴增（一櫃上看 120kW）</strong>，供電與散熱是隱藏剛需——伺服器電源、電池備援（BBU）、液冷熱交換。<strong>這是 Notion 裡真正有討論的「電」</strong>（重電/電網智囊尚未追）。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">2308</span><span class="chip-name">台達電</span></div><div class="chip-role">伺服器電源龍頭，Meta 3.3KW 轉單（2Q 弱、中長多）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2301</span><span class="chip-name">光寶科</span></div><div class="chip-role">伺服器電源，2Q GM 24-25%、EPS 今明年 10/14-15（位階已高）</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3211</span><span class="chip-name">順達</span><span class="chip-hot">🎯</span></div><div class="chip-role">BBU 電池備援＋HVDC，AWS/Meta 訂單、2026 BBU 營收 60-70 億、明年 EPS 估 30（PE ~11x）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">7712</span><span class="chip-name">博盛</span></div><div class="chip-role">BBU power discrete，佔營收 4%→13%（小型、早期，暫觀察）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8996</span><span class="chip-name">高力</span></div><div class="chip-role">板式熱交換器（AI 液冷）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6412</span><span class="chip-name">群電</span></div><div class="chip-role">電源供應器</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>BBU（電池備援單元）</b>：伺服器瞬間斷電時頂著的緊急電池，AI 機櫃每櫃都要、用量隨 GPU 增。<b>HVDC（高壓直流）／800VDC</b>：資料中心新供電架構，比傳統交流更省電、少轉換損耗，2027 起導入。<b>板式熱交換器</b>：液冷系統把 GPU 的熱從冷卻液交換散掉的關鍵件。</div>
+      </div>
+    </div></div>
 
   </div>
 
