@@ -277,117 +277,143 @@
   <header>
     <div class="eyebrow">MAGI · 機會地圖（快照）</div>
     <h1>機會地圖 · <em>2026 年 8 月</em></h1>
-    <p class="lede">把六大主流題材（AI 伺服器 · 光通訊 · 記憶體 · 被動元件 · 機器人 · 低軌衛星）攤在一張圖上，用<strong>「兌現程度 × 上漲空間」</strong>分層——哪些是<strong>已在賺的實在盤</strong>、哪些是<strong>還沒兌現、有機會再次大漲</strong>的彈性盤。<strong>這是 2026 年 8 月的快照</strong>，會隨產業更新改版；下方每格都連到該產業的深度頁。</p>
-    <div class="meta"><span>快照日期：2026-08-09</span><span>版本 v1</span><span>綜合近 3 個月 Notion</span></div>
+    <p class="lede">判斷機會的方法：<strong>① 找多元股（跨題材＝抗輪動護城河）→ ② 但多元 ≠ 魚肉，要挑「還沒被啃過的」→ ③ 聚焦「賣鏟子 × 低位階」</strong>——測試/代工/載板不管哪個題材、哪個客戶贏都要用它，確定性高、位階又低於龍頭。這是把六篇深度頁交叉分析後的 2026 年 8 月快照，會隨產業更新改版。</p>
+    <div class="meta"><span>快照日期：2026-08-09</span><span>v1.1 · 加入魚肉分析</span><span>收盤位階：8/7</span></div>
   </header>
 
   <h2 class="h2"><span class="n">1</span>機會象限：兌現度 × 上漲空間</h2>
-  <p class="h2sub">橫軸＝<strong>兌現程度</strong>（左：純題材/還沒放量　→　右：已在賺）；縱軸＝<strong>股價上漲空間</strong>（上：低基期/彈性大　→　下：已漲多/空間有限）。<strong>左上＝「再次大漲」候選，右上＝甜蜜點。</strong>（位置是我的綜合判讀，非精算）</p>
+  <p class="h2sub">橫軸＝<strong>兌現程度</strong>（左：純題材　→　右：已在賺）；縱軸＝<strong>上漲空間</strong>（上：低位階/彈性大　→　下：已漲多）。<strong>左上＝再次大漲候選；右上＝甜蜜點；紫框＝「多元×低位階」魚肉區（🐟）。</strong></p>
 
   <figure class="fig">
-    <svg viewBox="0 0 470 430" role="img" aria-label="機會象限圖，橫軸兌現度、縱軸上漲空間，把各題材代表股放在四個象限">
-      <!-- quadrant tints -->
-      <rect x="62" y="44" width="176" height="158" fill="var(--z4b)" opacity=".5"/>
-      <rect x="238" y="44" width="180" height="158" fill="var(--z2b)" opacity=".45"/>
+    <svg viewBox="0 0 470 440" role="img" aria-label="機會象限圖，橫軸兌現度縱軸上漲空間，標出魚肉區的跨題材低位階賣鏟子股">
+      <rect x="62" y="44" width="176" height="158" fill="var(--z4b)" opacity=".45"/>
+      <rect x="238" y="44" width="180" height="158" fill="var(--z2b)" opacity=".4"/>
+      <!-- 魚肉區 highlight -->
+      <rect x="212" y="86" width="150" height="118" rx="12" fill="none" stroke="var(--accent2)" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="287" y="80" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--accent2)">🐟 魚肉區（多元×低位階）</text>
       <!-- axes -->
       <line x1="62" y1="360" x2="430" y2="360" stroke="var(--ink)" stroke-width="1.4"/>
       <line x1="62" y1="44" x2="62" y2="360" stroke="var(--ink)" stroke-width="1.4"/>
-      <line x1="238" y1="44" x2="238" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>
-      <line x1="62" y1="202" x2="430" y2="202" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>
-      <!-- quadrant labels -->
-      <text x="150" y="60" text-anchor="middle" class="svg-t" font-size="11" fill="var(--z4)">題材彈性區（未兌現·空間大）</text>
-      <text x="330" y="60" text-anchor="middle" class="svg-t" font-size="11" fill="var(--z2)">甜蜜點（在賺·還有空間）</text>
-      <text x="150" y="352" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)">早期／投機</text>
-      <text x="336" y="352" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)">主流但漲多</text>
-      <!-- axis end labels -->
+      <line x1="238" y1="44" x2="238" y2="360" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
+      <line x1="62" y1="202" x2="430" y2="202" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
+      <text x="150" y="60" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--z4)">題材彈性區（未兌現·空間大）</text>
       <text x="430" y="376" text-anchor="end" class="svg-l" font-size="10" fill="var(--muted)">已在賺 →</text>
       <text x="70" y="376" class="svg-l" font-size="10" fill="var(--muted)">← 純題材</text>
-      <text x="56" y="52" text-anchor="end" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 56 52)"></text>
       <text x="48" y="120" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 48 120)">空間大 ↑</text>
       <text x="48" y="300" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)" transform="rotate(-90 48 300)">漲多 ↓</text>
-      <!-- dots: cx,cy,color,label -->
-      <g font-size="10.5" class="svg-t">
-        <circle cx="112" cy="110" r="6" fill="var(--z2)"/><text x="122" y="113" fill="var(--ink)">機器人（宇隆）</text>
-        <circle cx="150" cy="150" r="6" fill="var(--z4)"/><text x="160" y="153" fill="var(--ink)">CPO（聯電·大立光）</text>
-        <circle cx="205" cy="120" r="6" fill="var(--z7)"/><text x="215" y="123" fill="var(--ink)">衛星 V3（昇達科）</text>
-        <circle cx="262" cy="128" r="6" fill="var(--z1)"/><text x="272" y="131" fill="var(--ink)">印能（AI 設備）</text>
-        <circle cx="312" cy="150" r="7" fill="var(--copper)"/><text x="322" y="153" fill="var(--ink)">台燿·華通（一魚多吃）</text>
-        <circle cx="300" cy="188" r="6" fill="var(--z5)"/><text x="310" y="191" fill="var(--ink)">記憶體（華邦·南亞科）</text>
-        <circle cx="316" cy="224" r="6" fill="var(--z3)"/><text x="326" y="227" fill="var(--ink)">被動（國巨）</text>
-        <circle cx="352" cy="256" r="6" fill="var(--z4)"/><text x="300" y="272" fill="var(--muted)" font-size="9.5">CCL 龍頭（台光電）</text>
-        <circle cx="392" cy="308" r="6" fill="var(--z1)"/><text x="330" y="322" fill="var(--muted)" font-size="9.5">川湖（已漲停·漲多）</text>
+      <g font-size="10" class="svg-t">
+        <!-- 左上 題材彈性 -->
+        <circle cx="108" cy="112" r="6" fill="var(--z2)"/><text x="118" y="115" fill="var(--ink)">機器人（宇隆）</text>
+        <circle cx="150" cy="152" r="6" fill="var(--z4)"/><text x="160" y="155" fill="var(--ink)">CPO（聯電·大立光）</text>
+        <circle cx="200" cy="122" r="6" fill="var(--z7)"/><text x="150" y="138" fill="var(--muted)" font-size="9.5">衛星V3（昇達科）</text>
+        <!-- 魚肉區：賣鏟子低位階，用 ring 標記 -->
+        <circle cx="288" cy="120" r="7" fill="var(--z1)" stroke="var(--accent2)" stroke-width="2.5"/><text x="298" y="123" fill="var(--ink)">🐟南茂 86</text>
+        <circle cx="250" cy="150" r="6" fill="var(--z7)" stroke="var(--accent2)" stroke-width="2.5"/><text x="196" y="166" fill="var(--ink)" font-size="9.5">🐟穩懋 366</text>
+        <circle cx="300" cy="160" r="6" fill="var(--z4)" stroke="var(--accent2)" stroke-width="2.5"/><text x="310" y="163" fill="var(--ink)">🐟頎邦 146</text>
+        <circle cx="330" cy="186" r="6" fill="var(--z5)" stroke="var(--accent2)" stroke-width="2.5"/><text x="340" y="189" fill="var(--ink)">🐟景碩 823</text>
+        <!-- 右上 甜蜜點 -->
+        <circle cx="348" cy="132" r="6" fill="var(--copper)"/><text x="300" y="126" fill="var(--muted)" font-size="9.5">台燿·華通</text>
+        <circle cx="272" cy="132" r="5" fill="var(--z1)"/><text x="228" y="128" fill="var(--muted)" font-size="9.5">印能</text>
+        <!-- 右下 漲多 -->
+        <circle cx="316" cy="236" r="6" fill="var(--z3)"/><text x="326" y="239" fill="var(--muted)" font-size="9.5">國巨 540</text>
+        <circle cx="360" cy="262" r="5" fill="var(--z4)"/><text x="300" y="278" fill="var(--muted)" font-size="9">CCL龍頭·台光電</text>
+        <circle cx="398" cy="312" r="6" fill="var(--z1)"/><text x="338" y="326" fill="var(--muted)" font-size="9">川湖（已漲停）</text>
       </g>
     </svg>
-    <figcaption><b>圖 · 機會象限</b>——<b>左上</b>（CPO、機器人、衛星 V3）是「還沒兌現、賭催化到位」的<b>再次大漲候選</b>；<b>右上</b>（台燿/華通一魚多吃、印能）是「已在賺又還有空間」的甜蜜點；<b>右下</b>（川湖、CCL 龍頭）已反映不少。</figcaption>
+    <figcaption><b>圖 · 機會象限</b>——<b>🐟 魚肉區</b>＝跨 ≥2 題材（抗輪動）＋位階低（空間大）＋「賣鏟子」（測試/代工/載板，通吃）。<b>左上</b>是未兌現的彈性賭注、<b>右下</b>（川湖/CCL 龍頭）已反映不少。</figcaption>
   </figure>
 
-  <h2 class="h2"><span class="n">2</span>兩層機會：求穩 vs 賭彈性</h2>
-  <div class="sw-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-    <div class="sw-card strong" style="border-radius:12px;padding:15px 17px;border:1px solid var(--line);background:color-mix(in srgb,var(--z2) 8%,transparent)">
+  <h2 class="h2"><span class="n">2</span>🐟 還有魚肉：多元 × 賣鏟子 × 低位階</h2>
+  <p class="h2sub">龍頭與已噴股是「啃過的骨頭」；真正的魚肉＝<strong>跨題材（抗輪動）＋賣鏟子（不管誰贏都要用）＋位階低於同題材龍頭</strong>。8/7 大盤回檔又把位階壓下來，反而是撿的機會。</p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--accent2)"><div class="th-h"><span class="th-code">8150</span><span class="th-name">南茂</span><span class="th-zone">🐟 首選 · 收 86</span></div>
+      <div class="th-body"><b>三引擎測試鏟子</b>：記憶體大循環擴產（capex 26/27 衝 72/95 億）＋ AI ASIC 測試（MTK/AMD AP、後續 TPU）＋ 光電 EIC/PIC 測試。<b>PE 僅 ~14x（FY27 EPS 6.1），TP 150（+74%）</b>；峰哥更喊今年 7 塊。多元＋便宜＋多引擎全中。</div>
+      <div class="th-src">跨 AI·光通·記憶體 3 題材</div><a class="th-link" href="/industry/memory.html">看 記憶體 →</a></div>
+
+    <div class="th-card" style="--tc:var(--accent2)"><div class="th-h"><span class="th-code">3105</span><span class="th-name">穩懋</span><span class="th-zone">🐟 錯殺復甦 · 收 366</span></div>
+      <div class="th-body">GaAs <b>最大代工廠</b>（代工通吃）：光通 ELS/UHP ＋ 衛星 V3 頻段 2→4 ＋ PA。<b>被 NV CPO delay 錯殺過、位階已反映悲觀</b>；「V3 沒爆炸就不錯、ELS 可全用掉有 upside」，催化在 9-10 月 ASP 跳升。</div>
+      <div class="th-src">跨 AI·光通·衛星 3 題材</div><a class="th-link" href="/industry/optical.html">看 光通訊 →</a></div>
+
+    <div class="th-card" style="--tc:var(--accent2)"><div class="th-h"><span class="th-code">6147</span><span class="th-name">頎邦</span><span class="th-zone">🐟 便宜封測 · 收 146</span></div>
+      <div class="th-body">Notion 直接說「<b>便宜</b>」的封測鏟子：AI 驅動 IC 封測 ＋ <b>LPO 測試明年 6m→100m</b>（跳升）＋ 矽光子測試想像。低調、位階低。</div>
+      <div class="th-src">跨 AI·光通 2 題材</div><a class="th-link" href="/industry/optical.html">看 光通訊 →</a></div>
+
+    <div class="th-card" style="--tc:var(--accent2)"><div class="th-h"><span class="th-code">3189</span><span class="th-name">景碩</span><span class="th-zone">🐟 雙漲價 · 收 823</span></div>
+      <div class="th-body"><b>一家吃兩個漲價循環</b>：AI ABF 載板 ＋ <b>記憶體 BT 載板對美光漲 60%、10 月再漲 40%</b>；切光模塊 MSAP。位階中等（沒像南電那麼熱）。</div>
+      <div class="th-src">跨 AI·記憶體 2 題材</div><a class="th-link" href="/industry/memory.html">看 記憶體 →</a></div>
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>跨題材多元股地圖（抗輪動）</h2>
+  <p class="h2sub">六篇交叉出來——只有 5 檔橫跨 3 題材。多元給你「一個冷了還有另一個撐」的護城河；但要分清<strong>已啃（位階高）</strong>與<strong>還有肉（位階低）</strong>。</p>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>股</th><th>跨題材</th><th>收盤</th><th>判讀</th></tr>
+      <tr><td><b>南茂 8150</b></td><td>AI·光通·記憶體</td><td>86</td><td>🐟 <b>魚肉</b>：測試鏟子、PE 14、位階最低</td></tr>
+      <tr><td><b>穩懋 3105</b></td><td>AI·光通·衛星</td><td>366</td><td>🐟 <b>魚肉</b>：GaAs 代工、被 CPO delay 錯殺</td></tr>
+      <tr><td><b>華通 2313</b></td><td>AI·光通·衛星</td><td>208</td><td>甜蜜點：多引擎但已知名、漲一段</td></tr>
+      <tr><td><b>聯亞 3081</b></td><td>AI·光通·衛星</td><td>2305</td><td>已高價，磊晶+衛星雷射</td></tr>
+      <tr><td><b>國巨 2327</b></td><td>AI·機器人·被動</td><td>540</td><td>被動龍頭、循環股、已反映</td></tr>
+      <tr><td>景碩 3189 · 頎邦 6147</td><td>2 題材（含記憶體/光通）</td><td>823 · 146</td><td>🐟 雙漲價 / 便宜封測</td></tr>
+      <tr><td>台燿 6274 · 台光電 2383</td><td>AI·衛星</td><td>1440 · 5240</td><td>啃過的骨頭：多元但已大漲</td></tr>
+    </table>
+  </div>
+
+  <h2 class="h2"><span class="n">4</span>兩層機會：求穩 vs 賭彈性</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div style="border-radius:12px;padding:15px 17px;border:1px solid var(--line);background:color-mix(in srgb,var(--z2) 8%,transparent)">
       <h4 style="margin:0 0 8px;font-size:15px;color:var(--z2)">🟢 確定性主流（已在賺·求穩）</h4>
       <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.85;color:var(--ink2)">
         <li><b>AI CCL/ABF/散熱</b>：台光電、南電、景碩、奇鋐、健策</li>
         <li><b>記憶體漲價循環</b>：南亞科、華邦電、力積電</li>
         <li><b>被動漲價</b>：國巨、華新科</li>
       </ul>
-      <p style="font-size:11.5px;color:var(--muted);margin:9px 0 0">實在、漲價循環在跑；<b>但很多已大漲，注意位階與循環反轉。</b></p>
+      <p style="font-size:11.5px;color:var(--muted);margin:9px 0 0"><b>但很多已大漲，注意位階與循環反轉。</b></p>
     </div>
-    <div class="sw-card weak" style="border-radius:12px;padding:15px 17px;border:1px solid var(--line);background:color-mix(in srgb,var(--z4) 8%,transparent)">
+    <div style="border-radius:12px;padding:15px 17px;border:1px solid var(--line);background:color-mix(in srgb,var(--z4) 8%,transparent)">
       <h4 style="margin:0 0 8px;font-size:15px;color:var(--z4)">🚀 再次大漲的彈性（未兌現·賭催化）</h4>
       <ul style="margin:0;padding-left:18px;font-size:12.5px;line-height:1.85;color:var(--ink2)">
-        <li><b>光通 CPO</b>：聯電、大立光、訊芯、穎崴、南茂（低位階）</li>
+        <li><b>光通 CPO</b>：聯電、大立光、訊芯、穎崴、<b>南茂/頎邦（低位階）</b></li>
         <li><b>人形機器人</b>：宇隆、信邦、直得（2027 放量·長期選擇權）</li>
         <li><b>衛星 V3</b>：昇達科、華通（2H26 放量）</li>
         <li><b>矽電容</b>：華邦電、愛普</li>
       </ul>
-      <p style="font-size:11.5px;color:var(--muted);margin:9px 0 0">彈性最大；<b>但消息驅動、delay 風險高，宜小部位埋伏。</b></p>
+      <p style="font-size:11.5px;color:var(--muted);margin:9px 0 0"><b>彈性最大；消息驅動、delay 風險高，宜小部位埋伏。</b></p>
     </div>
   </div>
 
-  <h2 class="h2"><span class="n">3</span>催化時間軸：什麼時候會有引爆點</h2>
+  <h2 class="h2"><span class="n">5</span>催化時間軸：什麼時候有引爆點</h2>
   <div class="cmp-wrap">
     <table class="cmp-tbl">
       <tr><th>時點</th><th>催化事件</th><th>相關股</th></tr>
-      <tr><td><b>2026 8 月</b></td><td>昇達科 V3 出貨、印能 9 月出 intel、MLCC/熱敏漲價生效</td><td>昇達科·印能·華新科·興勤</td></tr>
-      <tr><td><b>2026 9 月</b></td><td>大立光光通產品送樣 NV、聯電矽光子法說後續</td><td>大立光·聯電</td></tr>
+      <tr><td><b>2026 8 月</b></td><td>昇達科 V3 出貨、印能 9 月出 intel、MLCC/熱敏漲價生效</td><td>昇達科·印能·華新科</td></tr>
+      <tr><td><b>2026 9-10 月</b></td><td>大立光送樣 NV、聯電矽光子法說、<b>穩懋 ASP 跳升</b>、南茂/擎亞財報</td><td>大立光·聯電·穩懋·南茂</td></tr>
       <tr><td><b>4Q26</b></td><td>衛星 V3 量產、1.6T 光模組、CCL 再漲、Rubin Lid</td><td>華通·台燿·健策</td></tr>
       <tr><td><b>2027+</b></td><td>CPO 放量、機器人放量、HBM 後段量產</td><td>聯電·宇隆·力積電</td></tr>
     </table>
   </div>
 
-  <h2 class="h2"><span class="n">4</span>我最偏好：一魚多吃的交集股</h2>
-  <p class="h2sub">同時卡在兩個以上主流題材——<strong>一個冷了還有另一個撐，題材輪動時是資金避風港</strong>，我認為最能持續。</p>
+  <h2 class="h2"><span class="n">6</span>六大題材速覽（點進看深度頁）</h2>
   <div class="thesis-grid">
-    <div class="th-card" style="--tc:var(--copper)"><div class="th-h"><span class="th-code">6274</span><span class="th-name">台燿</span><span class="th-zone">AI＋衛星</span></div><div class="th-body">AI CCL 漲價循環 ＋ 衛星天上板；月月漲價、泰國廠爬坡。</div><a class="th-link" href="/industry/ai-server.html">看 AI 伺服器 →</a></div>
-    <div class="th-card" style="--tc:var(--copper)"><div class="th-h"><span class="th-code">2313</span><span class="th-name">華通</span><span class="th-zone">AI＋衛星＋光通</span></div><div class="th-body">AI PCB ＋ 衛星天上板（毛利 40-50%）＋ 1.6T 光模組 mSAP，三題材匯流。</div><a class="th-link" href="/industry/satellite.html">看 低軌衛星 →</a></div>
-    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">3491</span><span class="th-name">昇達科</span><span class="th-zone">衛星＋光通</span></div><div class="th-body">衛星高頻元件 ＋ 光通；V3 8 月出貨、2H26 放量。</div><a class="th-link" href="/industry/satellite.html">看 低軌衛星 →</a></div>
-    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3105</span><span class="th-name">穩懋</span><span class="th-zone">光通＋衛星</span></div><div class="th-body">高頻 PA main source；光通 ELS ＋ 衛星 V3 頻段增加。</div><a class="th-link" href="/industry/optical.html">看 光通訊 →</a></div>
-    <div class="th-card" style="--tc:var(--z5)"><div class="th-h"><span class="th-code">2344</span><span class="th-name">華邦電</span><span class="th-zone">記憶體＋被動</span></div><div class="th-body">記憶體漲價 ＋ 矽電容 DTC（傳取代小 MLCC），雙題材。</div><a class="th-link" href="/industry/memory.html">看 記憶體 →</a></div>
-    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">3081</span><span class="th-name">聯亞</span><span class="th-zone">光通＋衛星</span></div><div class="th-body">光通訊磊晶 ＋ 自製衛星雷射，上游雙題材。</div><a class="th-link" href="/industry/optical.html">看 光通訊 →</a></div>
-  </div>
-
-  <h2 class="h2"><span class="n">5</span>六大題材速覽（點進看深度頁）</h2>
-  <div class="thesis-grid">
-    <a class="th-card" href="/industry/ai-server.html" style="--tc:#7c3aed;text-decoration:none"><div class="th-h"><span class="th-name">🧠 AI 伺服器</span></div><div class="th-body">主流基本盤、已在賺、漲價循環。CCL/ABF/散熱最實在，但很多漲過了。</div></a>
+    <a class="th-card" href="/industry/ai-server.html" style="--tc:#7c3aed;text-decoration:none"><div class="th-h"><span class="th-name">🧠 AI 伺服器</span></div><div class="th-body">主流基本盤、已在賺。CCL/ABF/散熱最實在，但很多漲過了。</div></a>
     <a class="th-card" href="/industry/optical.html" style="--tc:#0e7a63;text-decoration:none"><div class="th-h"><span class="th-name">🔦 光通訊 / CPO</span></div><div class="th-body">波動大、題材長、<b>彈性最大</b>。CPO 是「再次大漲」想像空間最大的一段。</div></a>
-    <a class="th-card" href="/industry/memory.html" style="--tc:#0369a1;text-decoration:none"><div class="th-h"><span class="th-name">💾 記憶體</span></div><div class="th-body">大循環漲價＋HBM 剛需。循環股，跌起來又急又猛，位階要留意。</div></a>
-    <a class="th-card" href="/industry/passive.html" style="--tc:#b06a10;text-decoration:none"><div class="th-h"><span class="th-name">🔌 被動元件</span></div><div class="th-body">AI 用量暴增＋缺料到 2027，國巨談併太陽誘電；矽電容是長線變數。</div></a>
-    <a class="th-card" href="/industry/robot.html" style="--tc:#c2410c;text-decoration:none"><div class="th-h"><span class="th-name">🤖 人形機器人</span></div><div class="th-body">爆發想像最大、兌現最慢。台廠強在減速機/精密零件。長期選擇權。</div></a>
-    <a class="th-card" href="/industry/satellite.html" style="--tc:#c02674;text-decoration:none"><div class="th-h"><span class="th-name">🛰️ 低軌衛星</span></div><div class="th-body">V3 催化明確、天上板高毛利。2H26 放量前夕；V3 delay 是最大風險。</div></a>
+    <a class="th-card" href="/industry/memory.html" style="--tc:#0369a1;text-decoration:none"><div class="th-h"><span class="th-name">💾 記憶體</span></div><div class="th-body">大循環漲價＋HBM 剛需。循環股，跌起來又急又猛。</div></a>
+    <a class="th-card" href="/industry/passive.html" style="--tc:#b06a10;text-decoration:none"><div class="th-h"><span class="th-name">🔌 被動元件</span></div><div class="th-body">AI 用量暴增＋缺料到 2027；矽電容是長線變數。</div></a>
+    <a class="th-card" href="/industry/robot.html" style="--tc:#c2410c;text-decoration:none"><div class="th-h"><span class="th-name">🤖 人形機器人</span></div><div class="th-body">爆發想像最大、兌現最慢。台廠強在減速機。長期選擇權。</div></a>
+    <a class="th-card" href="/industry/satellite.html" style="--tc:#c02674;text-decoration:none"><div class="th-h"><span class="th-name">🛰️ 低軌衛星</span></div><div class="th-body">V3 催化明確、天上板高毛利。2H26 放量前夕。</div></a>
   </div>
 
   <div class="caveat">
-    <span class="ct">⚠️ 讀這張圖的三個提醒</span>
-    <br>· <b>「已大漲的」空間有限</b>：川湖、CCL 龍頭已反映不少，「再次大漲」空間相對小、回檔風險相對大。
-    <br>· <b>「彈性大的」靠消息</b>：CPO delay、機器人兌現慢、衛星 V3 若延——都會讓高估值一起修正。
-    <br>· <b>循環股會反轉</b>：記憶體、被動是景氣循環股，漲價一旦停，評價下修很快。
-    <br>位置與分層是<b>我的綜合判讀（非精算、非投資建議）</b>；下次產業更新後會出新版機會地圖。
+    <span class="ct">⚠️ 讀這張圖的四個提醒</span>
+    <br>· <b>魚肉股也吃循環</b>：南茂/穩懋/景碩的鏟子需求來自記憶體/被動/GaAs 漲價，一旦反轉同步降。
+    <br>· <b>穩懋是「復甦賭注」</b>：賭 CPO/V3 不再 delay，不是深度價值。
+    <br>· <b>「已大漲的」空間有限</b>：川湖、CCL 龍頭已反映，回檔風險相對大。
+    <br>· 位置與分層是<b>我的綜合判讀（非精算、非投資建議）</b>；下次產業更新後出新版。
   </div>
 
   <footer>
-    <b>這是什麼：</b>六篇產業地圖的綜合入口與機會分層，<b>2026 年 8 月快照</b>。<br>
-    <b>更新方式：</b>產業報告不定期更新後，會出新一版機會地圖（保留舊版）。<br>
-    <b>但書：</b>綜合近 3 個月 MAGI 各家開會／廢想法，多頭方偏樂觀、TP 已 sanity check；<b>非投資建議</b>。
+    <b>這是什麼：</b>六篇產業地圖的綜合入口與機會分層，<b>2026 年 8 月快照 v1.1</b>（加入「多元×賣鏟子×低位階」魚肉分析）。<br>
+    <b>更新方式：</b>產業報告不定期更新後，出新一版機會地圖（保留舊版）。<br>
+    <b>但書：</b>綜合近 3 個月 Notion，多頭方偏樂觀、TP 已 sanity check；<b>非投資建議</b>。
   </footer>
 </div>
 
