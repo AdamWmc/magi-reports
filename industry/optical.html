@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>光通訊 / CPO 供應鏈 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1><em>光通訊</em> / CPO</h1>
+    <p class="lede">AI 資料中心要把<strong>幾萬張 GPU 高速連起來</strong>，電訊號在銅線上跑不遠又耗電——只能改用<strong>光</strong>。速度一路 800G → 1.6T，終局走向 <strong>CPO（把光引擎和交換晶片共封裝）</strong>。這是台股「<strong>短線波動大、長線題材長</strong>」的代表族群，還與衛星（SpaceX V3）同源。下面把整條光鏈拆到最細。</p>
+    <div class="meta"><span>資料：近 3 個月各家開會／廢想法</span><span>🔦 光通訊 / CPO</span><span>🎯＝Notion 熱議</span></div>
+  </header>
+
+  <div class="legend" aria-label="子環節顏色">
+    <div class="lg"><i style="background:var(--z2)"></i>磊晶·化合物</div>
+    <div class="lg"><i style="background:var(--z5)"></i>雷射光源</div>
+    <div class="lg"><i style="background:var(--z7)"></i>光收發模組</div>
+    <div class="lg"><i style="background:var(--z1)"></i>矽光子·CPO·FAU</div>
+    <div class="lg"><i style="background:var(--z4)"></i>PCB·載板·時脈</div>
+    <div class="lg"><i style="background:var(--z3)"></i>測試·封測</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>光是怎麼傳資料的？</h2>
+  <p class="h2sub">一句話：把「電」變成「光」送出去，另一頭再變回「電」。中間這一整套零件就是一個<strong>光收發模組</strong>——台廠做的就是裡面的雷射、模組組裝、感光元件、板子。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 470 196" role="img" aria-label="光收發模組訊號路徑：電訊號經驅動器推動雷射發光，經光纖傳到對端光偵測器轉回電，再經DSP還原">
+      <line x1="52" y1="92" x2="418" y2="92" stroke="var(--line)" stroke-width="1.5"/>
+      <text x="30" y="96" text-anchor="middle" class="svg-m" font-size="11" fill="var(--muted)">電</text>
+      <rect x="46" y="72" width="52" height="40" rx="6" fill="var(--z1b)" stroke="var(--z1)"/>
+      <rect x="110" y="72" width="52" height="40" rx="6" fill="var(--z2b)" stroke="var(--z2)"/>
+      <path d="M 168 92 q 12 -12 24 0 q 12 12 24 0 q 12 -12 24 0 q 12 12 24 0" fill="none" stroke="var(--z7)" stroke-width="2"/>
+      <rect x="290" y="72" width="52" height="40" rx="6" fill="var(--z4b)" stroke="var(--z4)"/>
+      <rect x="354" y="72" width="52" height="40" rx="6" fill="var(--z1b)" stroke="var(--z1)"/>
+      <text x="438" y="96" text-anchor="middle" class="svg-m" font-size="11" fill="var(--muted)">電</text>
+      <polygon points="410,88 418,92 410,96" fill="var(--muted)"/>
+      <g class="svg-t" font-size="11" fill="var(--ink)" text-anchor="middle">
+        <text x="72" y="97">驅動器</text><text x="136" y="97">雷射 TX</text><text x="192" y="76">光纖</text><text x="316" y="97">光偵測 RX</text><text x="380" y="97">DSP</text>
+      </g>
+      <g class="svg-l" font-size="9" fill="var(--muted)" text-anchor="middle">
+        <text x="136" y="130">源傑·聯亞·穩懋</text><text x="192" y="130">光→</text><text x="316" y="130">環宇·穩懋</text><text x="380" y="130">DSP 國外</text>
+      </g>
+      <text x="235" y="160" text-anchor="middle" class="svg-l" font-size="10.5" fill="var(--muted)">模組組裝：聯鈞 · 華星光 · 眾達 · 台表科（把上面全部封成一個可插拔模組）</text>
+    </svg>
+    <figcaption><b>圖 1 · 光收發模組（transceiver）</b>——電→<b>雷射</b>發光→<b>光纖</b>→對端<b>光偵測器</b>轉回電→<b>DSP</b> 還原。台廠強在雷射、感光、模組組裝；DSP 主晶片仍是國外（博通、Marvell）。</figcaption>
+  </figure>
+
+  <div class="fig-row">
+    <figure class="fig">
+      <svg viewBox="0 0 230 168" role="img" aria-label="可插拔光模組：交換晶片在中央，光模組插在板子邊緣，電訊號要跑一段距離">
+        <rect x="88" y="64" width="54" height="44" rx="5" fill="var(--z1b)" stroke="var(--z1)"/><text x="115" y="90" text-anchor="middle" class="svg-t" font-size="10" fill="var(--ink)">交換晶片</text>
+        <rect x="8" y="70" width="26" height="32" rx="3" fill="var(--z7b)" stroke="var(--z7)"/><rect x="196" y="70" width="26" height="32" rx="3" fill="var(--z7b)" stroke="var(--z7)"/>
+        <line x1="34" y1="86" x2="88" y2="86" stroke="var(--z2)" stroke-width="2.5"/><line x1="142" y1="86" x2="196" y2="86" stroke="var(--z2)" stroke-width="2.5"/>
+        <text x="115" y="132" text-anchor="middle" class="svg-l" font-size="10" fill="var(--muted)">電訊號要跑一段（耗電）</text>
+      </svg>
+      <figcaption><b>可插拔 Pluggable（現在）</b>——光模組插在板子邊緣，電訊號從晶片跑到邊緣才轉光。</figcaption>
+    </figure>
+    <figure class="fig">
+      <svg viewBox="0 0 230 168" role="img" aria-label="CPO 共封裝：光引擎緊貼交換晶片，電訊號路徑極短，更省電">
+        <rect x="80" y="64" width="54" height="44" rx="5" fill="var(--z1b)" stroke="var(--z1)"/><text x="107" y="90" text-anchor="middle" class="svg-t" font-size="10" fill="var(--ink)">交換晶片</text>
+        <rect x="46" y="70" width="28" height="32" rx="3" fill="var(--z7b)" stroke="var(--z7)"/><rect x="140" y="70" width="28" height="32" rx="3" fill="var(--z7b)" stroke="var(--z7)"/>
+        <line x1="74" y1="86" x2="80" y2="86" stroke="var(--z2)" stroke-width="2.5"/><line x1="134" y1="86" x2="140" y2="86" stroke="var(--z2)" stroke-width="2.5"/>
+        <text x="107" y="132" text-anchor="middle" class="svg-l" font-size="10" fill="var(--z7)">光引擎貼著晶片·路徑短省電</text>
+      </svg>
+      <figcaption><b>CPO 共封裝（終局）</b>——光引擎搬到晶片旁邊，電訊號幾乎不用跑，省電、頻寬更高。</figcaption>
+    </figure>
+  </div>
+
+  <h2 class="h2"><span class="n">2</span>供應鏈：整條光鏈拆到最細</h2>
+  <p class="h2sub">從最上游的磊晶、雷射，一路到光模塊、CPO、測試，分 6 段。（🎯＝Notion 熱議；每段附名詞白話）</p>
+
+  <div class="flow">
+    <div class="layer" style="--zc:var(--z2)"><div class="rail"><div class="num">A</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔬</span><span class="zone-name">磊晶·化合物半導體</span><span class="zone-en">Epi / Compound Semi</span></div>
+      <p class="zone-do">做雷射與感光元件的「<strong>基材</strong>」，光鏈最上游。砷化鎵（GaAs）、磷化銦（InP）這些化合物半導體是光元件的底。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2455</span><span class="chip-name">全新</span><span class="chip-hot">🎯</span></div><div class="chip-role">光通訊磊晶，7 月營收 &gt;4E、光電子月增 100%</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3081</span><span class="chip-name">聯亞</span><span class="chip-hot">🎯</span></div><div class="chip-role">磊晶＋自製雷射，衛星＋光通雙題材</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">4991</span><span class="chip-name">環宇-KY</span></div><div class="chip-role">磊晶／PD 感光元件，光電子起量</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3105</span><span class="chip-name">穩懋</span><span class="chip-hot">🎯</span></div><div class="chip-role">砷化鎵最大代工廠，代工 NV ELS／UHP 雷射</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>磊晶</b>：在晶圓上長出一層層特殊材料當雷射/感光元件的底。<b>化合物半導體</b>：砷化鎵、磷化銦等——矽不會發光，光元件得用這些。<b>PD（光偵測器）</b>：把光轉回電的元件。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z5)"><div class="rail"><div class="num">B</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔴</span><span class="zone-name">雷射光源</span><span class="zone-en">Laser（CW / DFB / EML / ELS）</span></div>
+      <p class="zone-do">產生光的核心晶片。速度越快、頻段越多，雷射越貴越關鍵。</p>
+      <div class="chips">
+        <div class="chip"><div class="chip-top"><span class="chip-code">興櫃</span><span class="chip-name">源傑</span></div><div class="chip-role">CW laser 光源，聯鈞 800G 以下代工對象（未上市）</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3081</span><span class="chip-name">聯亞</span></div><div class="chip-role">自製高頻雷射</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3105</span><span class="chip-name">穩懋</span></div><div class="chip-role">代工 ELS／UHP，NV CPO 用（delay 過但方向不變）</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>CW／DFB／EML</b>：不同種類的雷射——CW 是連續光、EML 是能高速開關的雷射，速度越高階越難。<b>ELS（外置雷射源）</b>：把雷射從模組裡拉出來獨立放，CPO 常用，NV 在推。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z7)"><div class="rail"><div class="num">C</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">📦</span><span class="zone-name">光收發模組·組裝</span><span class="zone-en">Optical Module</span></div>
+      <p class="zone-do">把雷射、感光、光學元件<strong>封成一個可插拔模組</strong>（AI 交換器的耗材）。這是台廠家數最多的一段。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">3450</span><span class="chip-name">聯鈞</span><span class="chip-hot">🎯 龍頭</span></div><div class="chip-role">台廠唯一整組光模塊，禁中國題材</div></div>
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">4979</span><span class="chip-name">華星光</span><span class="chip-hot">🎯</span></div><div class="chip-role">光收發模組，資金回補光通首選之一</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">4977</span><span class="chip-name">眾達-KY</span></div><div class="chip-role">光收發模組</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3363</span><span class="chip-name">上詮</span></div><div class="chip-role">光模塊組裝／被動元件</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6278</span><span class="chip-name">台表科</span></div><div class="chip-role">光模塊 SMT 打件</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6442</span><span class="chip-name">光聖</span></div><div class="chip-role">光纖／連接器，上游原料緊缺</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>光模塊（transceiver）</b>：把發光、收光、光學全兜成一個插得進交換器的小盒子，是資料中心的「耗材」，速度越高（800G→1.6T）單價越貴。<b>AOC</b>：兩端已接好光纖的主動光纜。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z1)"><div class="rail"><div class="num">D</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🧩</span><span class="zone-name">矽光子·CPO·FAU（下一代）</span><span class="zone-en">Silicon Photonics / CPO</span></div>
+      <p class="zone-do">把光引擎<strong>直接和交換晶片共封裝</strong>（CPO），更省電、頻寬更高。受惠從模組廠往上游擴散。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2303</span><span class="chip-name">聯電</span><span class="chip-hot">🎯</span></div><div class="chip-role">矽光子晶圓代工（7/29 法說提 12／18 吋矽光子）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3008</span><span class="chip-name">大立光</span></div><div class="chip-role">FAU 光纖陣列，傳 9M26 送樣 NV、康寧合作</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3406</span><span class="chip-name">玉晶光</span></div><div class="chip-role">FAU／資料中心光學連接器（另一 FAU 陣營）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3163</span><span class="chip-name">波若威</span></div><div class="chip-role">FAU 貼合（與光聖合作，台積電另一條線）</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6451</span><span class="chip-name">訊芯-KY</span></div><div class="chip-role">CPO 封裝，兩位台積電獨董入列</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6515</span><span class="chip-name">穎崴</span></div><div class="chip-role">CPO 測試探針，FormFactor CPO 上修</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">2409</span><span class="chip-name">友達</span></div><div class="chip-role">玻璃基板／CPO</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">8064</span><span class="chip-name">東捷</span></div><div class="chip-role">玻璃基板雷射改質，UMTC 下單</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>矽光子</b>：用做晶片的矽來做光元件，可以和晶片一起量產、微縮。<b>CPO（共封裝光學）</b>：光引擎直接封在交換晶片旁邊，省掉長電路。<b>FAU（光纖陣列）</b>：把很多根光纖精準對齊貼到晶片上的關鍵零件——大立光、波若威、玉晶光在搶。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z4)"><div class="rail"><div class="num">E</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🔲</span><span class="zone-name">高階 PCB·載板·時脈</span><span class="zone-en">mSAP PCB / Clock</span></div>
+      <p class="zone-do">光模塊要用<strong>mSAP 細線路板</strong>；速度越高，<strong>時脈（石英）</strong>對訊號乾淨度越關鍵。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">2313</span><span class="chip-name">華通</span><span class="chip-hot">🎯</span></div><div class="chip-role">1.6T 光模組 mSAP，光模塊今年 30E→明年 250E</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">4958</span><span class="chip-name">臻鼎-KY</span></div><div class="chip-role">mSAP 光模組板</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">3042</span><span class="chip-name">晶技</span></div><div class="chip-role">高頻石英元件，800G 需 152MHz、發漲價函</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>mSAP</b>：做超細線路 PCB 的高階製程，1.6T 光模組需要。<b>石英元件（時脈）</b>：提供精準時間節拍，速度越高越怕「抖動」，需要更高頻的石英——晶技受惠。</div>
+      </div>
+    </div></div>
+
+    <div class="layer" style="--zc:var(--z3)"><div class="rail"><div class="num">F</div></div><div>
+      <div class="zone"><div class="zone-head"><span class="zone-glyph">🧪</span><span class="zone-name">測試·封測</span><span class="zone-en">Test / OSAT</span></div>
+      <p class="zone-do">光電晶片（EIC／PIC）的測試與封裝，是切入光通「隱形」的一段。</p>
+      <div class="chips">
+        <div class="chip hot"><div class="chip-top"><span class="chip-code">8150</span><span class="chip-name">南茂</span><span class="chip-hot">🎯</span></div><div class="chip-role">光通測試，接 MTK／AMD AP、Marvell EIC/PIC</div></div>
+        <div class="chip"><div class="chip-top"><span class="chip-code">6147</span><span class="chip-name">頎邦</span></div><div class="chip-role">LPO 出貨明年 6m→100m，量能跳升</div></div>
+      </div>
+      <div class="plain"><span class="pk">💡 名詞白話</span><b>EIC／PIC</b>：電子晶片（EIC）與光子晶片（PIC），CPO 要把兩者封在一起、測試。<b>LPO</b>：一種省掉 DSP、更省電的線性光模組方案，頎邦切入其測試。</div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sub-label" style="font-weight:800;font-size:15px;color:var(--ink);margin:20px 0 8px">800G → 1.6T → CPO：這條路怎麼走</div>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>世代</th><th>現況</th><th>新增受惠</th></tr>
+      <tr><td><b>800G（現在）</b></td><td>放量中，AOC 為主</td><td>聯鈞、華星光、穩懋、全新</td></tr>
+      <tr><td><b>1.6T（下一步）</b></td><td>26-27 放量</td><td>+ mSAP（華通／臻鼎）、高頻石英（晶技）</td></tr>
+      <tr><td><b>CPO／矽光子（終局）</b></td><td>27+（NV 曾 delay）</td><td>+ 聯電、大立光、玉晶光、穎崴、友達、東捷</td></tr>
+    </table>
+  </div>
+
+  <div class="caveat" style="border-style:solid;border-color:var(--line)">
+    <span class="ct">🧩 冷知識：FAU 貼合有「兩大陣營」</span>
+    做 CPO 要把光纖精準貼到晶片（FAU），Notion 記到台廠分成兩派——<b>① 康寧＋大立光</b>（沛亨代理康寧）；<b>② 波若威＋光聖＋玉晶光</b>（傳為台積電另一條線）。這種供應鏈細節是 Notion 才有、外面研究報告少見。
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 CPO 是終局，也是最大變數</span>
+    現在光模塊是<b>可插拔</b>（插在交換器旁、電訊號要跑一段）；下一代 <b>CPO</b> 把光引擎搬到交換晶片旁共封裝，省電、頻寬更高。受惠會從「模組廠」往<b>矽光子（聯電）、FAU（大立光／玉晶光／波若威）、CPO 測試（穎崴）、玻璃基板（友達／東捷）</b>擴散。但 <b>NV CPO 一度 delay</b> 讓整族群回檔——<b>CPO 時程</b>就是光通「短線波動大、長線題材長」的根源：消息一變就洗一次，方向卻沒改。
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>🔮 智囊看點：光通在賭什麼</h2>
+  <p class="h2sub">各家開會／廢想法對光通股<strong>未來</strong>的多頭論點。<strong>智囊觀點與推測、非投資建議</strong>；光通評價高、隨 CPO 消息波動大。<span class="who">（收盤價已 sanity check：聯鈞/昇達科的「20/30/80」是 EPS 不是股價）</span></p>
+  <div class="thesis-grid">
+    <div class="th-card" style="--tc:var(--z7)"><div class="th-h"><span class="th-code">3450</span><span class="th-name">聯鈞</span><span class="th-zone">📦 模組</span></div>
+      <div class="th-body"><b>台廠唯一整組光模塊</b>、禁中國題材；明年營收 +150%、Q4 源傑月貢獻 8E、AOC 產能翻倍；明年 <b>EPS 抓 20（有人看 30）</b>。</div><div class="th-src">— Emily·Alan哥 · 08/04-06</div><a class="th-link" href="/search.html?q=3450">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">2303</span><span class="th-name">聯電</span><span class="th-zone">🧩 矽光子</span></div>
+      <div class="th-body"><b>矽光子晶圓代工</b>，7/29 法說提 12／18 吋矽光子產能；3Q 出貨 QOQ +7~9%、GM 34-36%、UTR 拉到 90%。</div><div class="th-src">— Arthur·Eddie · 07</div><a class="th-link" href="/search.html?q=2303">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">2313</span><span class="th-name">華通</span><span class="th-zone">🔲 PCB</span></div>
+      <div class="th-body"><b>1.6T 光模組 mSAP</b>；光模塊今年 30E→明年 250E→28 年 300E+、拿 2-30% share；TP 300。</div><div class="th-src">— 愛德恩 · 07/22</div><a class="th-link" href="/search.html?q=2313">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">8150</span><span class="th-name">南茂</span><span class="th-zone">🧪 測試</span></div>
+      <div class="th-body">光通測試切入 <b>MTK／AMD AP + Marvell EIC/PIC</b>；EPS 26/27 估 3.8/6.1、<b>TP 150</b>（峰哥更樂觀喊今年 7 塊）。</div><div class="th-src">— Eddie · 07/16</div><a class="th-link" href="/search.html?q=8150">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">3008</span><span class="th-name">大立光</span><span class="th-zone">🧩 FAU</span></div>
+      <div class="th-body"><b>FAU 光纖陣列</b>，傳光通訊產品 <b>9M26 送樣 NV</b>；與康寧合作 CPO（Fiber＋Glass bridge）。</div><div class="th-src">— 小魚 · 07/17</div><a class="th-link" href="/search.html?q=3008">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z3)"><div class="th-h"><span class="th-code">6147</span><span class="th-name">頎邦</span><span class="th-zone">🧪 測試</span></div>
+      <div class="th-body"><b>LPO 出貨明年 6m→100m</b>（跳升）；評價便宜，兼矽光子測試想像。</div><div class="th-src">— Ed·Arthur · 07/28</div><a class="th-link" href="/search.html?q=6147">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z2)"><div class="th-h"><span class="th-code">2455</span><span class="th-name">全新</span><span class="th-zone">🔬 磊晶</span></div>
+      <div class="th-body">光通訊磊晶，<b>7 月營收 &gt;4E、光電子月增 100%</b>；美股反彈「第一波是光通」的核心持股。</div><div class="th-src">— Amy·Vic哥 · 08</div><a class="th-link" href="/search.html?q=2455">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z1)"><div class="th-h"><span class="th-code">6451</span><span class="th-name">訊芯-KY</span><span class="th-zone">🧩 CPO</span></div>
+      <div class="th-body">股東會提 <b>800G 與 CPO</b> 方向、<b>兩位台積電獨董入列</b>；大額設備投資案延至 8 月中隨財報公布。</div><div class="th-src">— 06/29</div><a class="th-link" href="/search.html?q=6451">查智囊原話 →</a></div>
+
+    <div class="th-card" style="--tc:var(--z4)"><div class="th-h"><span class="th-code">3042</span><span class="th-name">晶技</span><span class="th-zone">🔲 時脈</span></div>
+      <div class="th-body">速度越高越怕抖動，<b>800G 需 152MHz 高頻石英</b>；已發漲價函、後續陸續漲，往 OCXO 走。</div><div class="th-src">— Amy·麻神 · 07</div><a class="th-link" href="/search.html?q=3042">查智囊原話 →</a></div>
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音——Notion 也記下了看空與存疑</span>
+    光通評價高、隨 CPO 消息大起大落，Notion 記下不少保留意見：
+    <br>· <b>聯電 2303</b>：雅婷「把籌碼集中核心持股、<b>減碼光通</b>」——資金也會輪出。<span class="who">（07/29）</span>
+    <br>· <b>穩懋 3105</b>：「光通 lite 之前跌因 <b>NV CPO delay</b>」——族群深受 CPO 時程牽動。<span class="who">（布哥 08/05）</span>
+    <br>· <b>昇達科 3491</b>：「第三季在手訂單不多，因 <b>V3 還沒放量</b>」。<span class="who">（奕澄 08/04）</span>
+    <br>· <b>華星光 4979</b>：傳「EML 會用誼虹名義直接出，對華星光<b>算利空</b>」。<span class="who">（小魚 06/15）</span>
+    <br>· <b>訊芯 6451</b>：公司主動「<b>先拉掉設備投資案</b>，因市場預期會太高」——自己降溫。<span class="who">（06/29）</span>
+    <br>· <b>柏承 6141／泰合 6467／裕慶 6957</b>：patrick「閉眼買、半年三倍」——<b>無據喊盤的小型股</b>，最需警惕。<span class="who">（07/16）</span>
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>國外主導（台廠碰不到或很弱）</h3>
+    <p>光通這幾塊由國外把持，台廠切入有限：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">DSP 主晶片</span></div><div class="chip-role">Broadcom、Marvell 主導光模組的核心晶片</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">CPO 交換晶片</span></div><div class="chip-role">Broadcom、NVIDIA 的矽光子交換平台</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-code">—</span><span class="chip-name">高階雷射源</span></div><div class="chip-role">Lumentum、Coherent 等（台廠切低階/代工）</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這張圖：</b>看到光通股先問「它在哪一段？」——雷射/磊晶（全新/聯亞/穩懋）與模組（聯鈞/華星光）是核心；CPO 那段（聯電/大立光）是未來、波動最大。<br>
+    <b>資料來源：</b>近 3 個月 MAGI 各家開會／廢想法整理。🎯＝Notion 熱議。TP/EPS 已用收盤價 sanity check。<br>
+    <b>但書：</b>光通評價偏高、與 CPO 時程高度相關；本圖用於理解產業結構，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
