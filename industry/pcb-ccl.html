@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>PCB · CCL · 載板材料 科技樹 · MAGI 產業地圖</title>
+<style>
+  :root{
+    /* neutrals — cool slate with a faint teal bias (circuit-board paper) */
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    /* zone role colors */
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+
+  /* ---- header ---- */
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:64ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .theme-btn{position:absolute;top:2px;right:0;font:600 12px/1 var(--sans);color:var(--ink2);
+    background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:8px 11px;cursor:pointer;
+    display:flex;align-items:center;gap:6px}
+  .theme-btn:hover{border-color:var(--signal);color:var(--ink)}
+  .theme-btn:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+  /* ---- legend ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .flow-note{font-size:12px;color:var(--muted);margin:2px 2px 20px;display:flex;align-items:center;gap:7px}
+  .flow-note b{color:var(--ink2)}
+
+  /* ---- section heading ---- */
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:64ch}
+
+  /* ---- architecture: rack ---- */
+  .rack{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .rack-label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;
+    padding-right:12px;border-right:1px dashed var(--line);text-align:center}
+  .rack-body{display:flex;flex-direction:column;gap:7px}
+  .u-slot{border-radius:8px;padding:9px 12px;background:var(--scb,var(--surface2));
+    border:1px solid var(--line);border-left:4px solid var(--sc,var(--muted));
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 10px}
+  .us-t{font-weight:800;font-size:13.5px;color:var(--ink)}
+  .us-d{font-size:11.5px;color:var(--ink2)}
+  .us-tag,.us-zoom{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .us-zoom{color:var(--z1)}
+  .cool-rail{background:var(--z5b);border:1px solid var(--line);border-radius:8px;width:36px;
+    display:flex;align-items:center;justify-content:center;color:var(--z5);font-weight:800;font-size:12px;letter-spacing:.05em}
+  .cool-rail span{writing-mode:vertical-rl;letter-spacing:.18em}
+  .frame-note{font-size:12px;color:var(--muted);margin:9px 0 0;padding-left:2px}
+  .frame-note b{color:var(--ink2)}
+
+  /* ---- architecture: cross-section ---- */
+  .xsec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px 16px;
+    box-shadow:var(--shadow);margin-top:12px}
+  .xsec-h{font-weight:800;font-size:15px;margin-bottom:4px;color:var(--ink)}
+  .xsec-sub{font-size:12px;color:var(--muted);margin:0 0 13px}
+  .xstack{display:flex;flex-direction:column;gap:6px}
+  .xlayer{border-radius:8px;padding:9px 12px;background:var(--scb);border:1px solid var(--line);
+    border-left:4px solid var(--sc);display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 9px}
+  .xlayer b{font-size:13px;color:var(--ink)}
+  .xlayer .r{font-size:11.5px;color:var(--ink2)}
+  .xlayer .mk{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted);font-weight:700}
+  .xnest{margin-top:7px;width:100%;border-radius:6px;padding:7px 10px;background:var(--surface);
+    border:1px dashed var(--z1);border-left:4px solid var(--z1);font-size:11.5px;color:var(--ink2)}
+  .xnest b{color:var(--ink)}
+  .xcap{font-size:12px;color:var(--muted);margin:13px 0 0;line-height:1.7}
+  .xcap b{color:var(--ink2)}
+
+  /* ---- SVG figures ---- */
+  .fig{margin:6px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 16px 12px;box-shadow:var(--shadow)}
+  .fig svg{display:block;max-width:100%;height:auto;margin:0 auto;color:var(--ink)}
+  figure{margin:0}
+  figcaption{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.65;text-align:center}
+  figcaption b{color:var(--ink2)}
+  .fig-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 4px}
+  .fig-row .fig{margin:0}
+  .svg-t{font-family:var(--sans);font-weight:800}
+  .svg-l{font-family:var(--sans)}
+  .svg-m{font-family:var(--mono)}
+  @media(max-width:640px){.fig-row{grid-template-columns:1fr}}
+
+  /* ---- flow spine ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .layer{display:grid;grid-template-columns:52px 1fr;column-gap:16px}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:0;bottom:-0px;width:2px;
+    background:linear-gradient(var(--zc),var(--zc));left:calc(50% - 1px);opacity:.5}
+  .layer:first-child .rail::before{top:22px}
+  .layer:last-of-type .rail::before{bottom:auto;height:26px}
+  .num{position:relative;z-index:2;margin-top:14px;width:34px;height:34px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:14px;
+    color:#fff;background:var(--zc);box-shadow:0 3px 10px color-mix(in srgb,var(--zc) 40%,transparent)}
+  :root[data-theme="dark"] .num{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .num{color:#0a1116}}
+
+  .zone{margin:12px 0;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--zc);
+    border-radius:12px;padding:15px 17px 16px;box-shadow:var(--shadow)}
+  .zone-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:3px}
+  .zone-glyph{font-size:19px;line-height:1}
+  .zone-name{font-size:18px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .zone-en{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zc);font-weight:700}
+  .zone-do{color:var(--ink2);font-size:13.5px;margin:2px 0 12px}
+
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:700;margin:10px 0 7px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+  .chip{position:relative;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .chip.hot{border-color:color-mix(in srgb,var(--copper) 50%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--copper) 7%,var(--surface2)),var(--surface2))}
+  .chip-top{display:flex;align-items:center;gap:7px;margin-bottom:1px}
+  .chip-code{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+  .chip-name{font-size:14.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .chip-hot{margin-left:auto;font-size:10px;color:var(--copper);font-weight:700;white-space:nowrap}
+  .chip-role{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .plain{margin-top:12px;padding:10px 13px;border-radius:9px;background:var(--surface2);
+    border:1px dashed var(--line);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .plain b{color:var(--ink);font-weight:700}
+  .plain .pk{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--copper);font-weight:700;margin-bottom:4px}
+
+  /* ---- 智囊看點 thesis cards ---- */
+  .thesis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+  .th-card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--copper));
+    border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .th-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+  .th-code{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .th-name{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .th-zone{margin-left:auto;font-size:9.5px;font-weight:700;font-family:var(--mono);padding:2px 7px;
+    border-radius:5px;color:var(--tc);background:color-mix(in srgb,var(--tc) 13%,transparent)}
+  .th-body{font-size:12.5px;color:var(--ink2);line-height:1.72}
+  .th-body b{color:var(--ink);font-weight:700}
+  .th-src{margin-top:9px;font-size:10.5px;color:var(--muted);font-family:var(--mono)}
+  .th-link{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)} .caveat .who{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+
+  /* ---- 光通訊放大鏡 ---- */
+  .opt-seg{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--z7);
+    border-radius:11px;padding:13px 15px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .opt-h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px;flex-wrap:wrap}
+  .opt-n{font-family:var(--mono);font-weight:800;font-size:12px;color:#fff;background:var(--z7);border-radius:5px;padding:1px 8px}
+  .opt-t{font-weight:800;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+  .opt-d{font-size:11.5px;color:var(--muted)}
+  .opt-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:7px}
+  .oc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .oc-top{display:flex;align-items:center;gap:6px;margin-bottom:1px}
+  .oc-code{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .oc-name{font-size:13px;font-weight:700;color:var(--ink)}
+  .oc-heat{margin-left:auto;font-family:var(--mono);font-size:9px;color:var(--z7);font-weight:700;white-space:nowrap}
+  .oc-role{font-size:11px;color:var(--ink2);line-height:1.5}
+  .opt-cpo{margin-top:4px;padding:13px 16px;border-radius:12px;border:1px dashed var(--z7);
+    background:color-mix(in srgb,var(--z7) 8%,transparent);font-size:12.5px;color:var(--ink2);line-height:1.75}
+  .opt-cpo b{color:var(--ink);font-weight:700}
+  .opt-cpo .ct{display:block;font-weight:800;color:var(--z7);margin-bottom:4px;font-size:13.5px}
+
+  /* ---- terminus ---- */
+  .terminus{margin:6px 0 0 68px;padding:15px 18px;border-radius:12px;position:relative;
+    background:linear-gradient(120deg,var(--z1b),var(--z7b));border:1px dashed var(--line);color:var(--ink)}
+  .terminus b{font-size:16px;font-weight:800}
+  .terminus p{margin:3px 0 0;font-size:13px;color:var(--ink2)}
+
+  /* ---- aside ---- */
+  .aside{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;box-shadow:var(--shadow)}
+  .aside h3{margin:0 0 4px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .aside h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .aside p{margin:0 0 11px;font-size:12.5px;color:var(--muted)}
+  .aside .chips{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+
+  @media(max-width:600px){
+    .wrap{padding:24px 14px 48px}
+    .layer{grid-template-columns:40px 1fr;column-gap:11px}
+    .num{width:30px;height:30px;font-size:13px}
+    .chips{grid-template-columns:1fr 1fr}
+    .terminus{margin-left:0}
+    .theme-btn{position:static;margin-bottom:14px}
+    header{display:flex;flex-direction:column}
+    .rack{grid-template-columns:1fr}
+    .rack-label{flex-direction:row;gap:6px;border-right:none;border-bottom:1px dashed var(--line);padding:0 0 9px}
+    .cool-rail{width:auto;height:30px}
+    .cool-rail span{writing-mode:horizontal-tb;letter-spacing:.28em}
+  }
+  @media(max-width:400px){.chips{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 產業地圖</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 全部產業</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 產業地圖</div>
+    <h1>PCB · CCL · <em>載板</em>材料科技樹</h1>
+    <p class="lede">AI 伺服器訊號越跑越快，<strong>「板子」用什麼材料做</strong>就成了勝負關鍵。這篇把 <strong>銅箔 → 玻纖布／樹脂 → 銅箔基板(CCL) → PCB／載板</strong> 這條供應鏈，用<strong>材料世代階梯（M6→M7→M8→M9+→M10）</strong>一次講清楚——為什麼會有「CCL 漲價循環」、又為什麼會冒出「PTFE 新材料」題材（台虹在賭的東西）。持股裡的台燿／台光／聯茂／台虹／金居／欣興／南電／台郡都在這棵樹上。</p>
+    <div class="meta"><span>快照：2026/8/11 收盤</span><span>🎯 Notion 熱議　🔭 智囊未追</span><span>科普向</span><span>非投資建議</span></div>
+  </header>
+
+  <div class="legend" aria-label="子環節顏色">
+    <div class="lg"><i style="background:var(--z3)"></i>上游料·玻纖布·銅箔</div>
+    <div class="lg"><i style="background:var(--z1)"></i>CCL 銅箔基板</div>
+    <div class="lg"><i style="background:var(--z5)"></i>PTFE 新材料</div>
+    <div class="lg"><i style="background:var(--z4)"></i>PCB / HDI</div>
+    <div class="lg"><i style="background:var(--z7)"></i>ABF / BT 載板</div>
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>先搞懂：一塊「板子」是怎麼疊出來的</h2>
+  <p class="h2sub">晶片再強，訊號還是要在「板子」上跑。板子的本體就是<b>銅箔基板（CCL）</b>——兩面銅箔中間夾一層「玻纖布泡樹脂」的絕緣層。把很多層 CCL 壓在一起、鑽孔鍍銅連通，就成了 <b>PCB</b>；做到極細線路承載晶片的，就是 <b>載板</b>。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 250" role="img" aria-label="CCL 與 PCB 疊構剖面示意">
+      <text class="svg-t" x="20" y="26" font-size="14" fill="currentColor">一片 CCL（銅箔基板）＝ 板子的最小積木</text>
+      <!-- single CCL -->
+      <rect x="30" y="46" width="230" height="16" rx="2" fill="var(--z3)"/>
+      <text class="svg-l" x="270" y="58" font-size="11" fill="currentColor">銅箔（走電流／訊號）</text>
+      <rect x="30" y="64" width="230" height="34" rx="2" fill="var(--z1)" opacity="0.85"/>
+      <text class="svg-l" x="270" y="78" font-size="11" fill="currentColor">介電層＝玻纖布 泡 樹脂</text>
+      <text class="svg-l" x="270" y="92" font-size="10" fill="var(--muted)">（絕緣、決定訊號損耗高低）</text>
+      <rect x="30" y="100" width="230" height="16" rx="2" fill="var(--z3)"/>
+      <text class="svg-l" x="270" y="112" font-size="11" fill="currentColor">銅箔</text>
+      <text class="svg-m" x="30" y="138" font-size="10" fill="var(--muted)">做 CCL 的：台光電 · 台燿 · 聯茂 · 南亞 · 台虹(軟板/PTFE)</text>
+
+      <!-- arrow -->
+      <text class="svg-l" x="360" y="82" font-size="22" fill="var(--copper)">→</text>
+
+      <!-- stacked PCB -->
+      <text class="svg-t" x="410" y="26" font-size="14" fill="currentColor">壓很多層 ＝ PCB / HDI / 載板</text>
+      <g>
+        <rect x="420" y="46" width="180" height="8" fill="var(--z3)"/>
+        <rect x="420" y="54" width="180" height="12" fill="var(--z1)" opacity="0.8"/>
+        <rect x="420" y="66" width="180" height="8" fill="var(--z3)"/>
+        <rect x="420" y="74" width="180" height="12" fill="var(--z1)" opacity="0.65"/>
+        <rect x="420" y="86" width="180" height="8" fill="var(--z3)"/>
+        <rect x="420" y="94" width="180" height="12" fill="var(--z1)" opacity="0.8"/>
+        <rect x="420" y="106" width="180" height="8" fill="var(--z3)"/>
+        <!-- via -->
+        <rect x="470" y="46" width="6" height="68" fill="var(--copper)" opacity="0.7"/>
+        <rect x="540" y="46" width="6" height="68" fill="var(--copper)" opacity="0.7"/>
+      </g>
+      <text class="svg-l" x="612" y="66" font-size="11" fill="currentColor">↑ 銅柱(via)</text>
+      <text class="svg-l" x="612" y="82" font-size="10" fill="var(--muted)">鑽孔鍍銅</text>
+      <text class="svg-l" x="612" y="98" font-size="10" fill="var(--muted)">連通各層</text>
+      <text class="svg-m" x="420" y="138" font-size="10" fill="var(--muted)">PCB/HDI：臻鼎 · 華通 · 健鼎 · 欣興　載板：欣興 · 南電 · 景碩</text>
+
+      <line x1="20" y1="162" x2="700" y2="162" stroke="var(--line)"/>
+      <text class="svg-t" x="20" y="186" font-size="13" fill="currentColor">為什麼材料是關鍵？訊號越快 → 玻纖布＋樹脂的「損耗」越致命</text>
+      <text class="svg-l" x="20" y="208" font-size="11.5" fill="var(--ink2)">高速訊號在介電層裡會衰減、失真。世代越高（M6→M10），就得換「更低損耗」的材料——</text>
+      <text class="svg-l" x="20" y="226" font-size="11.5" fill="var(--ink2)">先是升級玻纖布/樹脂配方（CCL 漲價循環），到最頂規再改用 <tspan fill="var(--z5)" font-weight="700">PTFE（鐵氟龍）</tspan> 這種特殊材料。</text>
+    </svg>
+    <figcaption><b>一句話：</b>CCL＝板子的積木、PCB/載板＝積木疊起來。<b>介電層（玻纖布＋樹脂）</b>用什麼料，決定能不能承載高速訊號——這就是整條供應鏈的價值所在。</figcaption>
+  </figure>
+
+  <h2 class="h2"><span class="n">2</span>材料世代階梯：M6 → M10 到底在爬什麼</h2>
+  <p class="h2sub">「M6/M7/M8…」是 CCL 的<b>材料等級</b>（數字越高＝損耗越低＝能跑越快的訊號）。這條階梯就是整個題材的主軸：<b>M6–M8 是「玻纖布 CCL 漲價循環」（現在在賺）、M9+/M10 是「PTFE 新材料」（下一代、還是題材）</b>。</p>
+
+  <figure class="fig">
+    <svg viewBox="0 0 720 320" role="img" aria-label="CCL 材料世代階梯 M6 到 M10">
+      <!-- axes -->
+      <text class="svg-l" x="16" y="24" font-size="11" fill="var(--muted)">訊號越快 · 損耗要求越低 · 材料越貴 · 越少人能做 →</text>
+      <line x1="40" y1="250" x2="700" y2="250" stroke="var(--line)"/>
+      <!-- steps -->
+      <g font-size="12">
+        <!-- M6 -->
+        <rect x="55" y="210" width="110" height="40" rx="3" fill="var(--z1)" opacity="0.55"/>
+        <text class="svg-t" x="110" y="234" font-size="13" text-anchor="middle" fill="currentColor">M6 以下</text>
+        <text class="svg-l" x="110" y="272" font-size="10.5" text-anchor="middle" fill="var(--muted)">中低階·最缺布</text>
+        <!-- M7 -->
+        <rect x="175" y="176" width="110" height="74" rx="3" fill="var(--z1)" opacity="0.7"/>
+        <text class="svg-t" x="230" y="200" font-size="13" text-anchor="middle" fill="currentColor">M7</text>
+        <text class="svg-l" x="230" y="218" font-size="10" text-anchor="middle" fill="currentColor">台光電主力</text>
+        <text class="svg-l" x="230" y="272" font-size="10.5" text-anchor="middle" fill="var(--muted)">特殊料號</text>
+        <!-- M8 -->
+        <rect x="295" y="142" width="110" height="108" rx="3" fill="var(--z1)"/>
+        <text class="svg-t" x="350" y="166" font-size="13" text-anchor="middle" fill="var(--surface)">M8</text>
+        <text class="svg-l" x="350" y="184" font-size="10" text-anchor="middle" fill="var(--surface)">台燿驗證中</text>
+        <text class="svg-l" x="350" y="272" font-size="10.5" text-anchor="middle" fill="var(--muted)">HVLP4 銅箔</text>
+        <!-- M9+ hybrid -->
+        <rect x="415" y="104" width="110" height="146" rx="3" fill="var(--z2)" opacity="0.85"/>
+        <text class="svg-t" x="470" y="128" font-size="13" text-anchor="middle" fill="var(--surface)">M9+</text>
+        <text class="svg-l" x="470" y="146" font-size="9.5" text-anchor="middle" fill="var(--surface)">Hybrid 混合</text>
+        <text class="svg-l" x="470" y="272" font-size="10" text-anchor="middle" fill="var(--muted)">玻纖布+PTFE+銅箔</text>
+        <!-- M10 pure PTFE -->
+        <rect x="535" y="60" width="120" height="190" rx="3" fill="var(--z5)"/>
+        <text class="svg-t" x="595" y="84" font-size="13" text-anchor="middle" fill="var(--surface)">M10</text>
+        <text class="svg-l" x="595" y="102" font-size="10" text-anchor="middle" fill="var(--surface)">純 PTFE</text>
+        <text class="svg-l" x="595" y="120" font-size="9.5" text-anchor="middle" fill="var(--surface)">台虹 / 台郡</text>
+        <text class="svg-l" x="595" y="272" font-size="10" text-anchor="middle" fill="var(--muted)">2027–2029 才貢獻</text>
+      </g>
+      <!-- region brackets -->
+      <line x1="55" y1="292" x2="405" y2="292" stroke="var(--z1)" stroke-width="2"/>
+      <text class="svg-t" x="230" y="308" font-size="11.5" text-anchor="middle" fill="var(--z1)">玻纖布 CCL 世代 · 現在的漲價循環（有業績）</text>
+      <line x1="415" y1="292" x2="655" y2="292" stroke="var(--z5)" stroke-width="2"/>
+      <text class="svg-t" x="535" y="308" font-size="11.5" text-anchor="middle" fill="var(--z5)">PTFE 新材料 · 下一代（題材）</text>
+    </svg>
+    <figcaption><b>看懂這張圖，就看懂 CCL vs 台虹的爭論：</b>強尼說「台虹 2029 才量產、這兩年沒業績」＝<b>它站在階梯最右端（M10）、時間還沒到</b>；Sunny 看好台虹＝<b>它卡住下一代材料的位置</b>。兩人講的是<b>同一條階梯的不同階</b>，不牴觸——CCL（左半）賺現在、PTFE（右半）賭未來。</figcaption>
+  </figure>
+
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>世代</th><th>材料</th><th>用在哪</th><th>誰在做（🎯 持股/熱議）</th><th>現況</th></tr>
+      <tr><td><b>M6 以下</b></td><td>一般玻纖布 CCL</td><td>中低階板</td><td>聯茂 · 台燿 · 南亞</td><td style="color:var(--z2)">最缺布、出貨即漲價</td></tr>
+      <tr><td><b>M7</b></td><td>特殊料號玻纖布 CCL</td><td>AI 板主流</td><td><b>台光電</b> · 台燿</td><td style="color:var(--z2)">台光主力、4Q26 營收跳階</td></tr>
+      <tr><td><b>M8</b></td><td>更低損耗 CCL＋HVLP4 銅箔</td><td>次世代 AI 板</td><td><b>台燿</b>(驗證) · 金居(HVLP)</td><td style="color:var(--z3)">驗證中、2H27 放量</td></tr>
+      <tr><td><b>M9+</b></td><td>Hybrid＝玻纖布＋PTFE＋銅箔</td><td>更高速訊號層</td><td>台虹(料) · 台光/生益(壓合)</td><td>石英太難加工→先上 PTFE</td></tr>
+      <tr><td><b>M10</b></td><td>純 PTFE（鐵氟龍）</td><td>最頂規高速板</td><td><b>台虹</b>(料) · 台郡(堆疊代工) · 欣興(後段)</td><td style="color:var(--z5)">2027–2029 貢獻、純題材</td></tr>
+      <tr><td colspan="5" style="border:none;padding-top:8px;font-size:10px;color:var(--muted)">「M+數字」為 CCL 材料等級的市場俗稱（損耗等級 Loss level），非官方統一命名；世代對應廠商依智囊 2026/8 討論整理。</td></tr>
+    </table>
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>供應鏈分段：從一根玻纖紗到一塊載板</h2>
+  <p class="h2sub">由上游材料 → CCL → PCB/載板，把持股與智囊熱議股放進各自位置。🎯＝Notion 近 3 月熱議、🔭＝智囊未深追。</p>
+
+  <div class="flow">
+
+    <div class="layer" style="--zc:var(--z3)">
+      <div class="rail"><div class="num">1</div></div>
+      <div class="zone">
+        <div class="zone-head"><span class="zone-glyph">🧵</span><span class="zone-name">上游材料</span><span class="zone-en">GLASS · RESIN · COPPER</span></div>
+        <div class="zone-do">玻纖紗／玻纖布、樹脂、銅箔——CCL 的三大原料。這一段「漲價」是整條鏈獲利的源頭。</div>
+        <div class="chips">
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">1303</span><span class="chip-name">南亞</span><span class="chip-hot">🎯</span></div><div class="chip-role">玻纖布＋銅箔，供不應求（聯茂台廠都拿不到南亞玻布）</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">8358</span><span class="chip-name">金居</span><span class="chip-hot">🎯</span></div><div class="chip-role">HVLP4 高階銅箔，M8/M9 用；客戶 FCST 現產能 4-5 倍</div></div>
+          <div class="chip"><div class="chip-top"><span class="chip-code">1815</span><span class="chip-name">富喬</span><span class="chip-hot">🔭</span></div><div class="chip-role">玻纖紗／玻纖布上游</div></div>
+          <div class="chip"><div class="chip-top"><span class="chip-code">4764</span><span class="chip-name">雙鍵</span><span class="chip-hot">🎯</span></div><div class="chip-role">電子級特化，供台光電 CCL 主劑／副劑</div></div>
+        </div>
+        <div class="plain"><span class="pk">白話</span><b>玻纖布</b>＝像紗窗一樣的玻璃纖維編織布，泡進<b>樹脂</b>當絕緣層；<b>銅箔</b>貼兩面走訊號。訊號越快，就要越「純、越平滑」的銅箔（<b>HVLP</b>＝超低稜線銅箔）和越低損耗的樹脂。</div>
+      </div>
+    </div>
+
+    <div class="layer" style="--zc:var(--z1)">
+      <div class="rail"><div class="num">2</div></div>
+      <div class="zone">
+        <div class="zone-head"><span class="zone-glyph">🟫</span><span class="zone-name">CCL 銅箔基板</span><span class="zone-en">COPPER CLAD LAMINATE</span></div>
+        <div class="zone-do">把玻纖布＋樹脂＋銅箔壓合成「板材」。這是整篇的主角、AI 板漲價循環的核心，也是台廠最強的一段。</div>
+        <div class="chips">
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">2383</span><span class="chip-name">台光電</span><span class="chip-hot">🎯 87</span></div><div class="chip-role">M7 特殊料號主力，NV 體系核心 CCL 廠</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">6274</span><span class="chip-name">台燿</span><span class="chip-hot">🎯 110</span></div><div class="chip-role">最熱共識股·自結 GM 37% beat·驗 M8·TP 2800</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">6213</span><span class="chip-name">聯茂</span><span class="chip-hot">🎯</span></div><div class="chip-role">中低階最缺布受惠·無錫擴產·TP 700</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">8039</span><span class="chip-name">台虹</span><span class="chip-hot">🎯 60</span></div><div class="chip-role">軟板(FCCL)＋PTFE 新材料，跨到下一代（見 §PTFE）</div></div>
+        </div>
+        <div class="plain"><span class="pk">白話</span>CCL 廠就是「做板材的」。這一輪 AI 讓高階 CCL <b>供不應求＋漲價</b>，加上材料升級（M6→M7→M8），是台光/台燿/聯茂獲利跳升的原因。台燿是智囊近 3 月<b>最熱的共識股（110 則）</b>。</div>
+      </div>
+    </div>
+
+    <div class="layer" style="--zc:var(--z5)">
+      <div class="rail"><div class="num">3</div></div>
+      <div class="zone">
+        <div class="zone-head"><span class="zone-glyph">⬜</span><span class="zone-name">PTFE 新材料（下一代）</span><span class="zone-en">PTFE · NEXT-GEN</span></div>
+        <div class="zone-do">最頂規高速板要用 PTFE（鐵氟龍）取代玻纖布。台虹卡「材料」、台郡卡「堆疊代工」——這是題材、不是現在的業績。</div>
+        <div class="chips">
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">8039</span><span class="chip-name">台虹</span><span class="chip-hot">🎯 主力</span></div><div class="chip-role">PTFE 材料供應，三 solution：+台郡／+台光／+生益</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">6269</span><span class="chip-name">台郡</span><span class="chip-hot">🎯</span></div><div class="chip-role">純 PTFE 多層堆疊代工（欣興壓不了、交台郡）</div></div>
+        </div>
+        <div class="plain"><span class="pk">白話</span><b>PTFE＝鐵氟龍</b>（不沾鍋那個材料），訊號損耗極低但很難加工（剛性差、要特殊堆疊）。台虹不是要取代 CCL 廠——三個 solution 裡兩個是<b>台虹供料給台光／生益壓合</b>，只有純 PTFE 那條要台郡特殊堆疊。<b>第一個檢查點＝8 月底深藍電路 30 層驗證＋跟生益比一二供。</b></div>
+      </div>
+    </div>
+
+    <div class="layer" style="--zc:var(--z4)">
+      <div class="rail"><div class="num">4</div></div>
+      <div class="zone">
+        <div class="zone-head"><span class="zone-glyph">🟩</span><span class="zone-name">PCB / HDI</span><span class="zone-en">PRINTED CIRCUIT BOARD</span></div>
+        <div class="zone-do">把 CCL 板材鑽孔、鍍銅、蝕刻線路、多層壓合成真正的「電路板」。吃 CCL 漲價成本、但也能往客戶轉嫁。</div>
+        <div class="chips">
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">4958</span><span class="chip-name">臻鼎-KY</span><span class="chip-hot">🎯</span></div><div class="chip-role">PCB/載板龍頭·出 MTK TPU·ABF 漲價·TP 800</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">2313</span><span class="chip-name">華通</span><span class="chip-hot">🎯</span></div><div class="chip-role">衛星天上板(V3 content 翻倍)＋光模塊 PCB</div></div>
+          <div class="chip"><div class="chip-top"><span class="chip-code">3044</span><span class="chip-name">健鼎</span><span class="chip-hot">🔭</span></div><div class="chip-role">PCB 廠，8/11 漲停</div></div>
+          <div class="chip"><div class="chip-top"><span class="chip-code">3715</span><span class="chip-name">定穎投控</span><span class="chip-hot">🐻</span></div><div class="chip-role">法說下修今年 AI 營收目標、量產遞延</div></div>
+          <div class="chip"><div class="chip-top"><span class="chip-code">6141</span><span class="chip-name">柏承</span><span class="chip-hot">🔭</span></div><div class="chip-role">PCB 硬板（被歸光通概念，僅 1 人推）</div></div>
+        </div>
+        <div class="plain"><span class="pk">白話</span>PCB 廠是「加工板材的」。CCL 漲價短期會壓 PCB 毛利（華通 2Q 就 suffer），但智囊認為 AI 板能較快轉嫁漲價、屬「最後利空測試」。</div>
+      </div>
+    </div>
+
+    <div class="layer" style="--zc:var(--z7)">
+      <div class="rail"><div class="num">5</div></div>
+      <div class="zone">
+        <div class="zone-head"><span class="zone-glyph">🟪</span><span class="zone-name">ABF / BT 載板</span><span class="zone-en">IC SUBSTRATE</span></div>
+        <div class="zone-do">最高階的「板子」——線路細到能直接承載晶片（CPU/GPU/ASIC）。用 ABF 樹脂膜，是 CoWoS/先進封裝的關鍵基座。</div>
+        <div class="chips">
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">3037</span><span class="chip-name">欣興</span><span class="chip-hot">🎯 55</span></div><div class="chip-role">ABF 載板龍頭·PTFE 後段鑽孔鍍銅也找它</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">8046</span><span class="chip-name">南電</span><span class="chip-hot">🎯 55</span></div><div class="chip-role">ABF 載板·智囊「買板子」核心持股之一</div></div>
+          <div class="chip hot"><div class="chip-top"><span class="chip-code">3189</span><span class="chip-name">景碩</span><span class="chip-hot">🎯 58</span></div><div class="chip-role">ABF/BT 載板·陳族元題材(帶動盟立)</div></div>
+        </div>
+        <div class="plain"><span class="pk">白話</span><b>載板＝超高階 PCB</b>，介於晶片與主機板之間，線路極細。ABF（味之素味の素的樹脂膜）是做高階載板的材料。載板三雄欣興/南電/景碩是智囊「買板子」的核心組合。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="opt-cpo">
+    <span class="ct">🔮 這波的引擎、變數與風險</span>
+    <b>引擎＝AI 訊號升級＋供不應求雙漲。</b>GB200/Rubin 世代訊號速率暴增，逼板子從 M6 一路升到 M8/M9，<b>「材料升級（規格漲）＋產能吃緊（量漲）」雙重漲價</b>——這是台光/台燿/聯茂 2026–27 獲利跳升的底層邏輯，確定性最高的一段。<br>
+    <b>變數＝PTFE 時程。</b>M9+/M10 何時放量決定台虹題材何時兌現：石英太難加工→可能逼 M9+ 提早上 PTFE（利台虹）；反之 M7/M8 夠用就拖長（強尼的空方）。<b>近期第一個引爆/證偽點＝8 月底深藍電路 30 層驗證。</b><br>
+    <b>風險＝漲價壓 PCB 毛利、載板增資稀釋、台虹純題材位階。</b>CCL 漲價短期壓中游 PCB（華通/臻鼎毛利）；載板廠常增資；台虹這兩年沒業績、追高要有位階意識。
+  </div>
+
+  <h2 class="h2"><span class="n">4</span>🔮 智囊看點（原話 × 誰 × 日期）</h2>
+  <div class="thesis-grid">
+
+    <div class="th-card" style="--tc:var(--z1)">
+      <div class="th-h"><span class="th-code">6274</span><span class="th-name">台燿</span><span class="th-zone">CCL·最熱</span></div>
+      <div class="th-body">近 3 月<b>提及 110 則、共識榜龍頭</b>。<b>7 月自結 EPS 4.36 元、GM beat</b>（反推 GM 36-37%、整季估 38%，遠高於市場最樂觀 33%）；泰國產能提早擴至 420 萬張、2028 目標 530-570 萬。多位智囊 8/11 同步加碼。</div>
+      <div class="th-src">Eddie／強尼（樂林）· 2026/8/11 · <b>明年 EPS 115、TP 2800(25X)</b></div>
+      <a class="th-link" href="/search.html?q=6274">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z1)">
+      <div class="th-h"><span class="th-code">2383</span><span class="th-name">台光電</span><span class="th-zone">CCL·M7</span></div>
+      <div class="th-body"><b>M7 特殊料號主力</b>，NV 體系核心。「表定 M7 但仍可能再往上，<b>4Q26 起衛星族群營收再跳一階、1Q27 CCL 新產能出來再跳一階</b>」。也是台虹 PTFE 的壓合夥伴（台光拿台虹樣品壓成完成品交欣興）。</div>
+      <div class="th-src">郁翔（樂林）· 2026/8/6</div>
+      <a class="th-link" href="/search.html?q=2383">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z5)">
+      <div class="th-h"><span class="th-code">8039</span><span class="th-name">台虹</span><span class="th-zone">PTFE·主力</span></div>
+      <div class="th-body"><b>PTFE 新材料的核心賭注</b>。「M9+＝玻纖布+PTFE+銅箔，M10＝純 PTFE；石英太難加工，快的話 M9+ 先看到 PTFE，2027 貢獻」。三 solution：+台郡(純堆疊)／+台光／+生益。<b>一二供未定，跟生益比、8 月第三週 30 層驗證。</b></div>
+      <div class="th-src">廢想法／Sunny 主力 · 2026/8/11 · ⚖️ 強尼：2029 才量產、純題材</div>
+      <a class="th-link" href="/search.html?q=8039">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z1)">
+      <div class="th-h"><span class="th-code">6213</span><span class="th-name">聯茂</span><span class="th-zone">CCL·缺布</span></div>
+      <div class="th-body">「<b>M6 以下 CCL 漲價、每次出貨漲、中低階最缺布</b>；2Q GM 22% 優於預期，無錫擴產投 100 億」。3Q26 營收 QoQ +20-25%、GM 至少 25%。永哥更看 2027 EPS 超過 50。</div>
+      <div class="th-src">Eddie／永哥（樂林）· 2026/8/10-11 · <b>TP 550-700、明年 EPS 27.5-35</b></div>
+      <a class="th-link" href="/search.html?q=6213">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z3)">
+      <div class="th-h"><span class="th-code">8358</span><span class="th-name">金居</span><span class="th-zone">HVLP 銅箔</span></div>
+      <div class="th-body"><b>HVLP4 高階銅箔，M8/M9 用</b>。「HVLP 今年底佔比 20%、2H27 40%；<b>客戶 FCST 是現產能 4-5 倍</b>，確定要去東南亞擴第四廠」。8/11 漲停。⚖️ 但 2-3Q 夏季電費壓毛利、高階材料今年還沒漲。</div>
+      <div class="th-src">Andrew／Jerry（駿羽/樂林）· 2026/8/7-10 · 明年含漲價 EPS 24</div>
+      <a class="th-link" href="/search.html?q=8358">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">4958</span><span class="th-name">臻鼎-KY</span><span class="th-zone">PCB/載板</span></div>
+      <div class="th-body">「GM &gt;22%、<b>3Q ABF 漲價 90% 對齊欣興、4Q 再漲 40-50%</b>，主出 MTK TPU（佔營收明年約 17%）、APPLE 同意漲價、NV HDI 30%」。8/11 +4.1%。</div>
+      <div class="th-src">元大 Alex（廢想法）· 2026/8/11 · <b>TP 800 最看好</b></div>
+      <a class="th-link" href="/search.html?q=4958">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z4)">
+      <div class="th-h"><span class="th-code">2313</span><span class="th-name">華通</span><span class="th-zone">PCB·衛星</span></div>
+      <div class="th-body">跨題材：<b>V3 衛星「天上板」27 年營收展望翻倍以上</b>（V3 單位 content 較 V2.5 差 1 倍以上）＋光模塊 PCB。⚖️ 2Q 毛利略低於預期（CCL 漲最兇 suffer），智囊視為「最後利空測試」，3Q 續調漲。</div>
+      <div class="th-src">郁翔／Eddie（樂林）· 2026/8/6-7 · 今年目標 880-900 億</div>
+      <a class="th-link" href="/search.html?q=2313">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z3)">
+      <div class="th-h"><span class="th-code">1303</span><span class="th-name">南亞</span><span class="th-zone">玻纖布/銅箔</span></div>
+      <div class="th-body">上游料受惠：「<b>玻纖布客戶太多，聯茂台灣廠都拿不到南亞玻布</b>（供不應求）；從設備商得知明年訂單很好、成長性夠，台塑內部看 250-300」。是 CCL 漲價的最上游受惠者。</div>
+      <div class="th-src">Andy 哥（駿羽）／Surf 哥 · 2026/8/6</div>
+      <a class="th-link" href="/search.html?q=1303">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z7)">
+      <div class="th-h"><span class="th-code">3037</span><span class="th-name">欣興</span><span class="th-zone">ABF 載板</span></div>
+      <div class="th-body"><b>ABF 載板龍頭</b>，智囊「買板子」核心（ABF 南電/欣興/臻鼎、CCL 台燿）。也接 PTFE 後段：純 PTFE 由台郡堆疊完，<b>鑽孔＋鍍銅交欣興</b>，同時在驗純 PTFE／Hybrid PTFE。</div>
+      <div class="th-src">小魚（樂林）· 2026/8/11</div>
+      <a class="th-link" href="/search.html?q=3037">查智囊原話 →</a>
+    </div>
+
+    <div class="th-card" style="--tc:var(--z5)">
+      <div class="th-h"><span class="th-code">6269</span><span class="th-name">台郡</span><span class="th-zone">PTFE 堆疊</span></div>
+      <div class="th-body">台虹 PTFE 供應鏈的「堆疊端」：「<b>欣興沒法做全 PTFE 壓合，給台郡做完純 PTFE 多層堆疊再接回</b>」。Sunny 8/6 買一點。⚖️ 但智囊定調「<b>毛利不會太高、定位是代工仔</b>」，價值鏈位置不如台虹。</div>
+      <div class="th-src">Sunny（樂林）· 2026/8/6</div>
+      <a class="th-link" href="/search.html?q=6269">查智囊原話 →</a>
+    </div>
+
+  </div>
+
+  <div class="caveat">
+    <span class="ct">⚖️ 也有雜音（不是全部看多，這些是智囊原話）</span>
+    <br>· <b>台虹</b>：<span class="who">強尼（樂林）8/10</span>「有機會量產在 2029 年，這兩年沒業績是題材，很多家都在測試」——PTFE 是長線選擇權、非近期業績。
+    <br>· <b>定穎</b>：<span class="who">Sunny（樂林）8/11</span>「法說下修今年 AI 營收目標（原估佔比 20%），因量產時間遞延不如預期」——同族群不是每檔都順。
+    <br>· <b>華通</b>：<span class="who">Eddie（樂林）8/7</span>「2Q 毛利率小幅低於預期，因第二季 CCL 漲最兇、Meiko 就 suffer，勉強撐住」——CCL 漲價短期反壓中游 PCB 毛利。
+    <br>· <b>金居</b>：<span class="who">Jerry 哥 8/10</span>「第三季毛利率受電費影響，勝宏說高階材料沒漲、今年主要漲低階」——銅箔漲價結構未必立刻反映高階。
+    <br>· <b>台郡</b>：<span class="who">廢想法 8/6</span>「台郡毛利不會太高、看起來定位是代工仔」——吃得到 PTFE 題材但賺頭有限。
+    <br>· <b>雙鍵</b>：<span class="who">麻神 8/9</span>「台光希望把副劑產能移到主劑、調整產線，安聯停損」——上游特化的訂單結構在變。
+  </div>
+
+  <div class="aside">
+    <h3><span class="dot"></span>台廠碰不到的本體（誠實標）</h3>
+    <p>高階材料的關鍵原料/專利仍有不少握在國外大廠手上，台廠多為「加工／組裝／次級材料」端：</p>
+    <div class="chips">
+      <div class="chip"><div class="chip-top"><span class="chip-name">生益科技（中國）</span></div><div class="chip-role">中國 CCL 龍頭，台虹 PTFE 一二供的競爭/比較對象</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-name">Rogers / AGC / 中興化成</span></div><div class="chip-role">美日 PTFE 高頻材料老牌大廠，台虹要切入的既有玩家</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-name">Panasonic（日）</span></div><div class="chip-role">高階 CCL（Megtron 系列）標竿，M-grade 命名源頭</div></div>
+      <div class="chip"><div class="chip-top"><span class="chip-name">味之素 Ajinomoto（日）</span></div><div class="chip-role">ABF 載板膜獨家材料，載板廠都得跟它買</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <b>怎麼用這頁：</b>先看 §2 材料階梯理解「CCL 漲價（現在）vs PTFE（未來）」；穩健吃漲價循環＝台光/台燿/聯茂/南亞；載板核心＝欣興/南電/景碩；PTFE 選擇權＝台虹/台郡（盯 8 月底驗證）。<br>
+    <b>資料來源：</b>供應鏈骨架為一般產業知識；🎯 個股觀點與原話來自近 3 個月 MAGI 各家開會／廢想法／小作文智囊發言（含 8/5–8/11）；收盤＝2026/8/11 Fugle。🎯 Notion 熱議、🔭 智囊未追、🐻/⚖️ 雜音。<br>
+    <b>但書：</b>「M6–M10」為市場俗稱的材料損耗等級、非官方統一命名；本頁為科普與持股整理，<b>非投資建議</b>，TP/EPS 為智囊估值、已用收盤價 sanity check。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+</body>
+</html>
