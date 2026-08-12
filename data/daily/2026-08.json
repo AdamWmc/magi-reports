@@ -632,6 +632,29 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-05",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "R research",
+    "host": null,
+    "sector": "CCL",
+    "quote": "CCL 下一代server會從M6上到M7，台光電就算PTFE這邊沒投資，產能還是很緊",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "下一代server CCL規格M6升級至M7",
+      "即使未投資PTFE產能仍吃緊"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "2409",
     "name": "友達",
     "date": "2026-08-05",
@@ -674,6 +697,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-10T22:44:21"
+  },
+  {
+    "code": "2409",
+    "name": "友達",
+    "date": "2026-08-05",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "R research",
+    "host": null,
+    "sector": null,
+    "quote": "台積確實有買友達中科，但應該會是back mental先不是OS",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "台積電確認買下友達中科廠"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "2426",
@@ -1256,6 +1301,28 @@
     "parsed_at": "2026-08-10T22:44:21"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "台光跟欣興說，台光拿台虹樣品，壓成完成品，由台光交貨給欣興",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "拿台虹PTFE樣品壓製完成品交貨欣興"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "2426",
     "name": "鼎元",
     "date": "2026-08-06",
@@ -1351,6 +1418,30 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "2426",
+    "name": "鼎元",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "幾百億大戶",
+    "host": null,
+    "sector": "INP基板",
+    "quote": "2426 明年保底4運氣好到6~7 主要還是INP基板這塊不確定性高 技術本身已經過了",
+    "tp": null,
+    "eps_est": {
+      "2026": "4~7"
+    },
+    "catalysts": [
+      "INP基板技術已過關，量產不確定性仍高"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "2489",
     "name": "瑞軒",
     "date": "2026-08-06",
@@ -1437,6 +1528,28 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "2489",
+    "name": "瑞軒",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "2489 3163設計有改變，所以2489的量不會跟之前預期一樣多了 扯到shuffle box概念股就要注意，設計改變中",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "3163設計改變導致2489出貨量不如預期"
+    ],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "3037",
     "name": "欣興",
     "date": "2026-08-06",
@@ -1501,6 +1614,29 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-10T22:44:21"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "欣興在測台郡全PTFE，多層堆疊，樣品都已出去。台光跟欣興說，台光拿台虹樣品，壓成完成品，由台光交貨給欣興。台光有跟欣興說，其他Solution可以不用走(例如騰輝)，如果要走就是非NV體系",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "測試台郡全PTFE多層堆疊",
+      "主導PTFE供應鏈整合(NV體系)"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "3163",
@@ -1568,6 +1704,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-10T22:44:21"
+  },
+  {
+    "code": "3163",
+    "name": "波若威",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "3163設計有改變，所以2489的量不會跟之前預期一樣多了 扯到shuffle box概念股就要注意，設計改變中",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "shuffle box設計變更中，需留意概念股"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "3374",
@@ -1657,6 +1815,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "先進封裝",
+    "quote": "3374 精材要做WOS 這個，capex有長達2年支出，以後每一季都要公告，支出金額會越來越多",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "WOS資本支出將分兩年逐季揭露，金額遞增"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "3450",
@@ -1771,6 +1951,31 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "3450",
+    "name": "聯鈞",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Emily Hsu(全村)",
+    "host": null,
+    "sector": "光模塊",
+    "quote": "全村 3450聯鈞 唯一台廠可以做整組光模塊 源傑有幫AYARLAB合作一些光模塊的訂單，800g以下給源傑做 禁中國光模塊最有想像空間 做代工出給源傑再給客戶 我們抓明年20塊。Diana Ni 我們有人看30",
+    "tp": null,
+    "eps_est": {
+      "2026": "20~30"
+    },
+    "catalysts": [
+      "唯一台廠可整組光模塊組裝",
+      "禁中國光模塊題材想像空間大"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "3653",
@@ -1907,6 +2112,29 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Emily Hsu(全村)",
+    "host": null,
+    "sector": "散熱",
+    "quote": "散熱3653也可以看看 之前利空是兩片變一片 但後來nv有補貼50塊/片 這部分7-9月會反應 明年Asic tpu v9 會用removable均熱片 asp提高很多",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "NV補貼50元/片將於7-9月反應",
+      "明年Asic TPU v9採removable均熱片，ASP提高"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "6139",
@@ -2063,6 +2291,30 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "6139",
+    "name": "亞翔",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Emily Hsu(全村)/Diana Ni",
+    "host": null,
+    "sector": null,
+    "quote": "亞翔說七月超過會100e。Diana Ni: 會，EPS應該15",
+    "tp": null,
+    "eps_est": {
+      "2026": "15"
+    },
+    "catalysts": [
+      "7月營收估超過100億"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "6269",
     "name": "台郡",
     "date": "2026-08-06",
@@ -2106,6 +2358,29 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-10T22:44:21"
+  },
+  {
+    "code": "6269",
+    "name": "台郡",
+    "date": "2026-08-06",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "欣興在測台郡全PTFE，多層堆疊，樣品都已出去。欣興沒辦法做全PTFE壓合，給台郡做完再接著做。台郡毛利不會太高，台郡看起來定位是代工仔",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "全PTFE多層堆疊樣品已送出",
+      "定位為代工角色，毛利率恐不高"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "6672",
@@ -2547,6 +2822,31 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "3498",
+    "name": "陽程",
+    "date": "2026-08-07",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "阿威(趙君威)",
+    "host": null,
+    "sector": null,
+    "quote": "陽程 也是鴻海家族的 聽說上半年三塊 全年7-8 3q營收往翻倍",
+    "tp": null,
+    "eps_est": {
+      "2026": "7-8"
+    },
+    "catalysts": [
+      "鴻海家族企業",
+      "3Q營收估計翻倍"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "6944",
     "name": "兆聯實業",
     "date": "2026-08-07",
@@ -2595,6 +2895,32 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "6944",
+    "name": "兆聯實業",
+    "date": "2026-08-07",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "公告2Q財報 營收50.8E，QOQ7.9%，毛利率28.4%，QOQ13.1%，YOY35.5%，除權前2Q EPS 11.37、除權後股本計算為8.75。毛利率小增遠優於預期的24%，若8/20市場得知在手訂單由200多億已經增加到400 or 560(取決於公司是否納入美國AZ3案場合約)，應會大beat市場預期，依照上修毛利後明年毛利率由23.4%調整至25.6%，EPS推算至76.94，給予forward河流圖常駐倍數17.3X，76.94*17.3=1,331.06 TP可見至1300，潛在報酬率62%，調整評級為強力買進",
+    "tp": "1300",
+    "eps_est": {
+      "2027": "76.94"
+    },
+    "catalysts": [
+      "2Q毛利率28.4%優於預期24%",
+      "在手訂單8/20恐上修至400~560億",
+      "評級上調為強力買進"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "8210",
@@ -2725,6 +3051,26 @@
     "parsed_at": "2026-08-10T22:44:21"
   },
   {
+    "code": "3211",
+    "name": "順達",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "BBU",
+    "quote": "BBU 3211 4931",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "3231",
     "name": "緯創",
     "date": "2026-08-10",
@@ -2808,6 +3154,29 @@
     "parsed_at": "2026-08-10T22:44:21"
   },
   {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "WENYEN HUANG黃老師",
+    "host": null,
+    "sector": "先進封裝測試",
+    "quote": "李孟珊難得寫著真新聞，已經簽約了，這一季簽約金先付總價30%。友達CEO都換人了。但是她不知道，台積電買友達中科廠是要租給某家公司，那這家公司變成AI先進封裝測試公司。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "已簽約，本季先付總價30%簽約金",
+      "台積電買下友達中科廠將轉租給AI先進封裝測試公司"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "3406",
     "name": "玉晶光",
     "date": "2026-08-10",
@@ -2888,6 +3257,26 @@
     "parsed_at": "2026-08-10T22:44:21"
   },
   {
+    "code": "4931",
+    "name": "新盛力",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "BBU",
+    "quote": "BBU 3211 4931",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "6531",
     "name": "愛普*",
     "date": "2026-08-10",
@@ -2928,6 +3317,50 @@
     "parsed_at": "2026-08-10T22:44:21"
   },
   {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "猴相印",
+    "host": null,
+    "sector": null,
+    "quote": "猴相印8021",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "目前聽材料哥說，一二供還沒確定是誰，因為台虹交出來的樣品品質很好 所以到時候會跟生益去比 快的話應該2027貢獻 因為現在M9+可能考慮用PTFE 因為石英太難加工 所以快的話M9+會先看到PTFE M9+=Hybrid=玻纖布+PTFE+銅箔 M10=純PTFE 純PTFE剛性足夠目前只有台郡有能力做堆疊 後續加工鑽孔+鍍銅給欣興 純PTFE應該也在欣興驗了 欣興目前同時驗純PTFE/Hybrid PTFE 最快是8月第三周會有生益30層的驗證結果",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "樣品品質優，將與生益比較搶一二供",
+      "M9+/M10導入PTFE，快則2027貢獻營收",
+      "8月第三周有生益30層驗證結果"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "8358",
     "name": "金居",
     "date": "2026-08-10",
@@ -2946,6 +3379,76 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-10T22:44:21"
+  },
+  {
+    "code": "2308",
+    "name": "台達電",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Albert(JPM)",
+    "host": null,
+    "sector": null,
+    "quote": "JPM Albert推2308",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "推薦",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "2308",
+    "name": "台達電",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Albert",
+    "host": null,
+    "sector": "800VDC",
+    "quote": "台達9/10月要漲價，800VDC沒有delay+CPU rack也要用800VDC",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "9/10月調漲價",
+      "800VDC進度沒delay",
+      "CPU rack亦採800VDC規格"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "PCB",
+    "quote": "第三季月產值 蘇州30提升到38億 台灣28提升到30億 泰國六億提升到13億 常熟一場8億變十億 常熟蘇州都是額外asp提升本來沒有要上修 第三季零組件商價格會直接反應給客人 產品組合有利 第四季新產能研擬中vs市場預期沒有新產能 費用率維持第二季 毛利向上 稅率自第二季起從32%降到29% 明年也是29%vs2025 32-33% 強調PCB為短料 產品價格都會即時反應給客人",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "Q3各廠月產值全面上修",
+      "ASP額外提升非既定計畫",
+      "Q4新產能研擬中優於市場預期",
+      "稅率降至29%",
+      "PCB短料價格即時反應客戶"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "2486",
@@ -2993,6 +3496,48 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "散熱",
+    "quote": "3Q很好，明年150~160元，2500附近加，水冷板目前沒有因為W數而有升級，3017的CP設計一樣",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "3Q營運良好"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Carol(HSBC)",
+    "host": null,
+    "sector": null,
+    "quote": "HSBC Carol推穩懋",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "推薦",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "3163",
     "name": "波若威",
     "date": "2026-08-11",
@@ -3015,6 +3560,30 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "3163",
+    "name": "波若威",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "光通訊",
+    "quote": "3163:之前OE改設計，18顆變成4顆，現在又改回來18顆，故事回來，先看回1000，明年200萬顆出貨，Rubin Ultra 2Q27進OSAT",
+    "tp": "1000",
+    "eps_est": {},
+    "catalysts": [
+      "OE設計改回18顆(先前砍成4顆)",
+      "明年出貨200萬顆",
+      "Rubin Ultra 2Q27進OSAT"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "3231",
@@ -3057,6 +3626,29 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "3231",
+    "name": "緯創",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": null,
+    "quote": "3231覺得over shoot，4Q會miss，明年算的到30塊但大家覺得xAI加單大部分是被SMCI拿走，240是可以到",
+    "tp": "240",
+    "eps_est": {},
+    "catalysts": [
+      "市場疑慮4Q miss",
+      "xAI加單多被SMCI拿走"
+    ],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "3374",
@@ -3128,6 +3720,32 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "ABF/HDI",
+    "quote": "4958:GM>22%，認識ABF部門副總，3Q漲價90%價格對齊3037，4Q漲40~50%，主要出MTK TPU，佔營收約10%明年約17%,APPLE同意漲價，NV的HDI30%，TP800最看好",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "3Q ABF漲價90%對齊欣興(3037)",
+      "4Q再漲40~50%",
+      "MTK TPU營收占比10%→明年17%",
+      "Apple同意漲價",
+      "NV HDI業務+30%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "6187",
     "name": "萬潤",
     "date": "2026-08-11",
@@ -3146,6 +3764,31 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "6187",
+    "name": "萬潤",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": null,
+    "quote": "6187:財報beat，GM接近55%，SPIL加單但不知道量，7751轉單給6187",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "財報優於預期",
+      "GM近55%",
+      "SPIL加單",
+      "7751轉單給6187"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "6669",
@@ -3168,6 +3811,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": null,
+    "quote": "6669明年600",
+    "tp": "600",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "6805",
@@ -3208,6 +3871,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "7751",
+    "name": "竑騰",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": null,
+    "quote": "7751:不看好，明年就90多塊，想出intel",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "訂單想脫離Intel"
+    ],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   },
   {
     "code": "8021",
@@ -3272,6 +3957,28 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "8210",
+    "name": "勤誠",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": null,
+    "quote": "8210有1000以下就可以買",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "1000以下具吸引力"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
     "code": "8358",
     "name": "金居",
     "date": "2026-08-11",
@@ -3315,5 +4022,145 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "8996",
+    "name": "高力",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "液冷/CDU",
+    "quote": "8996 27Y 60~65EPS 1)BE hot box 2Q缺料營收miss，3Q營收回來，跌過一次現在很便宜 2)SMCI xAI大加單原本3k變成13k 3)台達電Lquid to lquid CDU故事",
+    "tp": null,
+    "eps_est": {
+      "2027": "60~65"
+    },
+    "catalysts": [
+      "BE hot box缺料延遲至3Q回補",
+      "SMCI xAI加單3k→13k",
+      "台達電liquid-to-liquid CDU題材"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "2449",
+    "name": "京元電子",
+    "date": "2026-08-12",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": null,
+    "quote": "2449 聽說NV要入股聽說快公布",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "傳NV入股，消息快公布"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "6223",
+    "name": "旺矽",
+    "date": "2026-08-12",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "全村emily",
+    "host": null,
+    "sector": "探針卡/CPO",
+    "quote": "拉回可以看看6223 AMD GPU CPU跨過了 明年140~150（不含CPO 機台的獲利）2028有tesla的單說可能比amd大很多 cpo之前說500台 算下來可以貢獻30-50 可以另外mark up上去",
+    "tp": null,
+    "eps_est": {
+      "2026": "140~150"
+    },
+    "catalysts": [
+      "AMD GPU/CPU跨足",
+      "2028傳Tesla訂單量可能大於AMD",
+      "CPO 500台可貢獻30-50"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "6451",
+    "name": "訊芯-KY",
+    "date": "2026-08-12",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": null,
+    "quote": "因為朋友那邊蠻確定 Bcom 會跟 訊芯 簽JV 都送到CEO手上（但我覺得看看就好 這一堆人在傳 莫忘鴻海以前賣鴻準）",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "傳與Bcom簽JV送CEO審核（存疑）"
+    ],
+    "customers": [],
+    "sentiment": "存疑觀望",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "6451",
+    "name": "訊芯-KY",
+    "date": "2026-08-12",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "微微",
+    "host": null,
+    "sector": null,
+    "quote": "鴻海應該是想賣訊芯股票了",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "傳鴻海欲出脫訊芯持股"
+    ],
+    "customers": [],
+    "sentiment": "中性偏空",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-08-12",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Diana",
+    "host": null,
+    "sector": null,
+    "quote": "今天我們家算了後年可以看到40",
+    "tp": null,
+    "eps_est": {
+      "2028": "40"
+    },
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-12T21:58:04"
   }
 ]
