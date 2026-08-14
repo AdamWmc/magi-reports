@@ -1,0 +1,209 @@
+{
+  "_meta": {
+    "principal_yi": 2000,
+    "principal_label": "2,000 萬",
+    "position_snapshot_date": "2026-08-14",
+    "note": "部位口數/股數＝券商未平倉/資產截圖，只在用戶告知變動時更新；收盤價每次健檢用 Fugle 重抓。期貨 P&L＝(今收−avg)×口數×每口股數。現股/融資不追成本、只顯示今日漲跌。",
+    "groups": {
+      "z2": "CCL／PTFE 材料",
+      "z1": "封測·封裝",
+      "z6": "散熱·電源",
+      "z3": "權值核心",
+      "z5": "光學·光通/光電",
+      "z7": "興櫃·IC 設計投機",
+      "z4": "小型成長／孤兒"
+    }
+  },
+  "positions": [
+    {
+      "code": "8039",
+      "name": "台虹",
+      "group": "z2",
+      "hold_type": "future",
+      "lots": 12,
+      "per_lot": 2000,
+      "avg": 234.63,
+      "pos_label": "期貨 +12口",
+      "role": "CCL/PTFE 材料",
+      "approx_pct": 34
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "group": "z3",
+      "hold_type": "future",
+      "lots": 13,
+      "per_lot": 100,
+      "avg": 2395.85,
+      "pos_label": "小型期 +13口",
+      "role": "權值核心/先進封裝",
+      "approx_pct": 16
+    },
+    {
+      "code": "8150",
+      "name": "南茂",
+      "group": "z1",
+      "hold_type": "future",
+      "lots": 10,
+      "per_lot": 2000,
+      "avg": 91.24,
+      "pos_label": "期貨 +10口",
+      "role": "記憶體封測/測試",
+      "approx_pct": 10
+    },
+    {
+      "code": "6831",
+      "name": "邁科",
+      "group": "z6",
+      "hold_type": "stock",
+      "shares": 2001,
+      "pos_label": "現股 2,001",
+      "role": "ASIC 散熱/水冷",
+      "approx_pct": 7
+    },
+    {
+      "code": "3406",
+      "name": "玉晶光",
+      "group": "z5",
+      "hold_type": "future",
+      "lots": 18,
+      "per_lot": 100,
+      "avg": 605.56,
+      "pos_label": "小型期 +18口",
+      "role": "光學鏡頭/CPO 光通",
+      "approx_pct": 6
+    },
+    {
+      "code": "4925",
+      "name": "智微",
+      "group": "z7",
+      "hold_type": "stock",
+      "shares": 8000,
+      "pos_label": "現股 8,000(興櫃)",
+      "role": "Flash→BMC(興櫃)",
+      "approx_pct": 5,
+      "flags": [
+        "興櫃",
+        "流動性差"
+      ]
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "group": "z3",
+      "hold_type": "future",
+      "lots": 2,
+      "per_lot": 100,
+      "avg": 4277.5,
+      "pos_label": "小型期 +2口",
+      "role": "IC 設計/TPU ASIC",
+      "approx_pct": 4
+    },
+    {
+      "code": "3211",
+      "name": "順達",
+      "group": "z6",
+      "hold_type": "future",
+      "lots": 1,
+      "per_lot": 2000,
+      "avg": 401,
+      "pos_label": "期貨 +1口",
+      "role": "電源/電池模組(BBU)",
+      "approx_pct": 4
+    },
+    {
+      "code": "3374",
+      "name": "精材",
+      "group": "z1",
+      "hold_type": "stock_margin",
+      "shares": 5001,
+      "pos_label": "現1+融5,000",
+      "role": "晶圓級封裝 WoS",
+      "approx_pct": 4
+    },
+    {
+      "code": "2308",
+      "name": "台達電",
+      "group": "z6",
+      "hold_type": "future",
+      "lots": 3,
+      "per_lot": 100,
+      "avg": 1826.67,
+      "pos_label": "小型期 +3口",
+      "role": "電源/散熱",
+      "approx_pct": 3
+    },
+    {
+      "code": "6141",
+      "name": "柏承",
+      "group": "z2",
+      "hold_type": "stock",
+      "shares": 10000,
+      "pos_label": "現股 10,000",
+      "role": "PCB 硬板(光通概念)",
+      "approx_pct": 2,
+      "flags": [
+        "背書薄"
+      ]
+    },
+    {
+      "code": "6870",
+      "name": "騰雲",
+      "group": "z4",
+      "hold_type": "margin",
+      "shares": 3000,
+      "pos_label": "融資 3,000",
+      "role": "餐飲/零售 AIoT",
+      "approx_pct": 2,
+      "flags": [
+        "流動性差"
+      ]
+    },
+    {
+      "code": "6269",
+      "name": "台郡",
+      "group": "z2",
+      "hold_type": "margin",
+      "shares": 10000,
+      "pos_label": "融資 10,000",
+      "role": "軟板/純PTFE代工",
+      "approx_pct": 1.4
+    },
+    {
+      "code": "8054",
+      "name": "安國",
+      "group": "z7",
+      "hold_type": "margin",
+      "shares": 5000,
+      "pos_label": "融資 5,000",
+      "role": "IC設計/控制IC",
+      "approx_pct": 1
+    },
+    {
+      "code": "2426",
+      "name": "鼎元",
+      "group": "z5",
+      "hold_type": "margin",
+      "shares": 3000,
+      "pos_label": "融資 3,000",
+      "role": "光電二極體/紅外線感測",
+      "approx_pct": 0.5,
+      "flags": [
+        "小型"
+      ]
+    },
+    {
+      "code": "4764",
+      "name": "雙鍵",
+      "group": "z2",
+      "hold_type": "stock",
+      "shares": 1,
+      "pos_label": "現股 1(零股)",
+      "role": "電子級特化(CCL料)",
+      "approx_pct": 0,
+      "flags": [
+        "殘餘"
+      ]
+    }
+  ]
+}
