@@ -3031,6 +3031,28 @@
     "parsed_at": "2026-08-10T22:44:21"
   },
   {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "材料哥",
+    "host": null,
+    "sector": "PCB鑽孔鍍銅",
+    "quote": "後續的加工 鑽孔+鍍銅給欣興 純PTFE應該也在欣興驗了 欣興目前同時驗純PTFE/ Hybrid PTFE",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "同時驗證純PTFE與Hybrid PTFE製程"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "3211",
     "name": "順達",
     "date": "2026-08-10",
@@ -3109,6 +3131,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-10T22:44:21"
+  },
+  {
+    "code": "3231",
+    "name": "緯創",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "peter",
+    "host": null,
+    "sector": "",
+    "quote": "安和路 3231 8358 3443；peter 3231 192塊買300張",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "peter於192元買進300張"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
   },
   {
     "code": "3324",
@@ -3277,6 +3321,28 @@
     "parsed_at": "2026-08-12T21:58:04"
   },
   {
+    "code": "6269",
+    "name": "台郡",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "材料哥",
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "純PTFE剛性足夠 目前只有台郡有能力做堆疊 後續的加工 鑽孔+鍍銅給欣興",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "目前唯一有能力做純PTFE堆疊的廠商"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "6531",
     "name": "愛普*",
     "date": "2026-08-10",
@@ -3361,6 +3427,30 @@
     "parsed_at": "2026-08-12T21:58:04"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-10",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "材料哥",
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "目前一二供還沒確定是誰，因為台虹交出來的樣品品質很好 所以到時候會跟生益去比 快的話應該2027貢獻 現在M9+ 可能考慮用PTFE 因為石英太難加工 M9+ = Hybrid=玻纖布+PTFE+銅箔 M10=純PTFE 最快是8月第三周會有生益30層的驗證結果",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "樣品品質獲肯定將與生益比較",
+      "2027年可望開始貢獻營收",
+      "8月第三週有生益30層驗證結果"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "8358",
     "name": "金居",
     "date": "2026-08-10",
@@ -3425,6 +3515,50 @@
     "parsed_at": "2026-08-12T21:58:04"
   },
   {
+    "code": "2308",
+    "name": "台達電",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Albert",
+    "host": null,
+    "sector": "800VDC電源",
+    "quote": "JPM Albert推 2308；台達9/10月要漲價，800VDC沒有delay+CPU rack也要用800VDC",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "9/10月調漲",
+      "800VDC進度無delay",
+      "CPU rack也將採用800VDC"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "2360",
+    "name": "致茂",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Jimmy",
+    "host": null,
+    "sector": "",
+    "quote": "Jimmy推2360",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "2368",
     "name": "金像電",
     "date": "2026-08-11",
@@ -3451,6 +3585,30 @@
     "parsed_at": "2026-08-12T21:58:04"
   },
   {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "PCB",
+    "quote": "第三季月產值 蘇州30 提升到38億 台灣28提升到30億 泰國六億提升到13億 常熟一場8億變十億 常熟蘇州都是額外asp 提升 第四季新產能研擬中 vs 市場預期沒有新產能 毛利向上 稅率自第二季起從32%降到29% 明年也是29% 強調PCB為短料 產品價格都會即時反應給客人",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "Q3各廠產值全面上修",
+      "稅率降至29%並延續至明年",
+      "PCB短料價格即時反映客戶"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "2486",
     "name": "一詮",
     "date": "2026-08-11",
@@ -3474,6 +3632,31 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "2486",
+    "name": "一詮",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "",
+    "quote": "2486: Rubin 1Q27開始出，有看到測試結果跟PO，明年保底10元",
+    "tp": "",
+    "eps_est": {
+      "2027": "10"
+    },
+    "catalysts": [
+      "Rubin 1Q27開始出貨",
+      "已看到測試結果與PO"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
   },
   {
     "code": "3017",
@@ -3518,6 +3701,30 @@
     "parsed_at": "2026-08-12T21:58:04"
   },
   {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "水冷板",
+    "quote": "3017:3Q很好，明年150~160元，2500附近加",
+    "tp": "",
+    "eps_est": {
+      "2027": "155"
+    },
+    "catalysts": [
+      "3Q表現優異"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "3105",
     "name": "穩懋",
     "date": "2026-08-11",
@@ -3536,6 +3743,26 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-12T21:58:04"
+  },
+  {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Carol",
+    "host": null,
+    "sector": "化合物半導體",
+    "quote": "HSBC Carol推穩懋",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
   },
   {
     "code": "3163",
@@ -3695,6 +3922,31 @@
     "parsed_at": "2026-08-11T22:42:14"
   },
   {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "散熱",
+    "quote": "3653:明年130~140元，2QGM 47%，Rubin Ultra上 removeable lid ASP150，MCL目前不在road map；Rubin Ultra 27Y 1.5~1.7M,功耗分成1.8kw跟2.6kw兩個版本",
+    "tp": "",
+    "eps_est": {
+      "2027": "135"
+    },
+    "catalysts": [
+      "Rubin Ultra removable lid ASP150",
+      "2Q GM 47%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
     "code": "4958",
     "name": "臻鼎-KY",
     "date": "2026-08-11",
@@ -3851,6 +4103,30 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-11T22:42:14"
+  },
+  {
+    "code": "6805",
+    "name": "富世達",
+    "date": "2026-08-11",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "元大Alex",
+    "host": null,
+    "sector": "",
+    "quote": "6805:之前跌rev miss，7月營收回來，明年130，2000以下隨便買",
+    "tp": "",
+    "eps_est": {
+      "2027": "130"
+    },
+    "catalysts": [
+      "7月營收回升"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
   },
   {
     "code": "7751",
@@ -4421,5 +4697,593 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-13T22:02:44"
+  },
+  {
+    "code": "2059",
+    "name": "川湖",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-滑軌",
+    "quote": "NV800VDC白皮書(8/11) 滑軌 2059",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-被動",
+    "quote": "NV800VDC白皮書(8/11) 被動 3026, 3090, 6173, 8042, 2327，主要還是日廠",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/PTFE",
+    "quote": "生益 PTFE 配方領先，良率從 20% 升到 40–50%；深南將作其背板 PCB 夥伴…EMC 給谷歌 CCL 量 2027 中達 NV 的 3 倍…domestic AI CCL supplier was the first to send samples for the M10 solution in February",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "供應谷歌CCL量2027年中達NV的3倍",
+      "M10方案送樣"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "2449",
+    "name": "京元電子",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "半導體測試",
+    "quote": "黛安娜說 2449 聽說NV要入股聽說快公布",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "傳NV將入股，消息快公布"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "2455",
+    "name": "全新",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "全村emily",
+    "host": null,
+    "sector": "化合物半導體/光通",
+    "quote": "2455 全新 GaAs Q2漲價兩次 每次都漲雙位數 InP價格漲幅翻倍 漲價效益主要於Q3反映 財報營收及毛利都會非常好 明年至少12塊；7月營收跳升基本上已經確認基板磊晶片缺貨解決 光電產品占比提高毛利就開始一路往上",
+    "tp": "",
+    "eps_est": {
+      "2027": "12"
+    },
+    "catalysts": [
+      "GaAs Q2連兩次雙位數漲價",
+      "InP價格漲幅翻倍Q3反映",
+      "7月營收跳升確認基板缺貨解決",
+      "光電產品占比提高帶動毛利"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3026",
+    "name": "禾伸堂",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-被動",
+    "quote": "NV800VDC白皮書(8/11) 被動 3026, 3090, 6173, 8042, 2327，主要還是日廠",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3090",
+    "name": "日電貿",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-被動",
+    "quote": "NV800VDC白皮書(8/11) 被動 3026, 3090, 6173, 8042, 2327，主要還是日廠",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3211",
+    "name": "順達",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-BBU",
+    "quote": "NV800VDC白皮書(8/11) SiC元件國內都沒有(通路商不算) BBU 3211 4931",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11) BBU供應"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3406",
+    "name": "玉晶光",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光學/光通",
+    "quote": "問光學研究員玉晶光有沒有搞頭，說出一個塑膠件給3M EBO，用在所有光纖上，EPS明年不含光通46，含的話51，都保守抓，目前確定MSFT會用，8~9M26送驗，1Q27有結果",
+    "tp": "",
+    "eps_est": {
+      "2027": "46"
+    },
+    "catalysts": [
+      "塑膠件供3M EBO用於所有光纖",
+      "MSFT確定採用，8~9M26送驗，1Q27出結果"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3406",
+    "name": "玉晶光",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光通",
+    "quote": "3406 聽說JPM威廉最後一篇要寫這個TP 1000以上，要寫出光通",
+    "tp": "1000",
+    "eps_est": {},
+    "catalysts": [
+      "傳JPM分析師William最後一篇報告TP上看1000以上，聚焦光通題材"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3645",
+    "name": "達邁",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PI材料",
+    "quote": "今天有去找達邁的人 有人說他們的PI幫了生益 在臻鼎那邊測的不錯 不過只是一個Story，應該不會真的驗過 PTFE才是主角",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "PI材料傳供應生益，在臻鼎測試表現不錯(未證實)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "散熱",
+    "quote": "3653 下週一投信會買 可以趁處置先佈局；3653 明年上修到140塊 第三季季增30% 第四季10% 第一季持續季增 Rubin ultra 1Q27開始出 單價200-250 Rubin 80-100 第四季25塊以上 upside 還很大",
+    "tp": "140",
+    "eps_est": {
+      "2027": "140"
+    },
+    "catalysts": [
+      "下週一投信買進，處置期布局機會",
+      "Q3季增30%/Q4+10%/Q1持續季增",
+      "Rubin Ultra 1Q27出貨單價200-250"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "ASIC",
+    "quote": "upside 還很大這裡就是3653 and 3661",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "ASIC",
+    "quote": "3661 說t4 單價五位数美金 vs t3 usd2500 ML just assumed usd 5-6k 結果公司說比5千翻倍以上",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "T4單價五位数美金(vs T3 2500美元)，比市場預期5-6k翻倍以上"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "3665",
+    "name": "貿聯-KY",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-Power束線",
+    "quote": "NV800VDC白皮書(8/11) Power束線 3665",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "4931",
+    "name": "新盛力",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-BBU",
+    "quote": "NV800VDC白皮書(8/11) SiC元件國內都沒有(通路商不算) BBU 3211 4931",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11) BBU供應"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "BMC/ASIC",
+    "quote": "8月比7月營收+3%，9月+12%，10月+21%，Q4 目標65E",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "月營收逐月加速成長(8月+3%/9月+12%/10月+21%)",
+      "Q4目標65E"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "5284",
+    "name": "jpp-KY",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-機殼",
+    "quote": "NV800VDC白皮書(8/11) 機殼 5284",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "6173",
+    "name": "信昌電",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-被動",
+    "quote": "NV800VDC白皮書(8/11) 被動 3026, 3090, 6173, 8042, 2327，主要還是日廠",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "6269",
+    "name": "台郡",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE代工",
+    "quote": "因為機台要等8-14個月 所以會找台郡跟松下代工 台郡13台",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "接台虹PTFE代工訂單13台機台"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "6451",
+    "name": "訊芯-KY",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "Ed",
+    "host": null,
+    "sector": "CIS模組",
+    "quote": "訊芯 Ed:因為朋友那邊蠻確定 Bcom 會跟 訊芯 簽JV 都送到CEO手上 (但我覺得看看就好 這一堆人在傳)",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "傳Bcom將與訊芯簽JV，已送到CEO手上(未證實)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "6805",
+    "name": "富世達",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-QD",
+    "quote": "NV800VDC白皮書(8/11) QD 6805",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL材料",
+    "quote": "要是機台不夠 nv可能會下來協調 他們目前是買Japan Steel work (JSW)這間公司的高溫壓合機已經滿單到2028…下禮拜會跟台虹CFO談增資 應該會增資100E~170E 可能會找台光一起進來投資",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "NV協調機台產能",
+      "JSW高溫壓合機滿單至2028",
+      "增資100E~170E擴充PTFE產能",
+      "可能找台光電一起投資"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "台虹 8月底會有七台機台到港 一台產能月6600平方米 因為機台要等8-14個月 會找台郡跟松下代工 台郡13台 松下10台 大概30台 月產能20萬平方米 Sales price: 2300-2500rmb/張，一張大概0.325 m2",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "8月底7台機台到港，月產能6600平方米",
+      "擴大代工至月產能20萬平方米"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "目前聽起來 NV依然想把台虹PTFE搭SYT PP 這樣每家PCB廠才能量產 下週台虹會另外送PTFE第三代給NV PCB去測試 應該要9月中旬後有結果",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "下週送PTFE第三代給NV PCB測試，9月中旬後有結果"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
+  },
+  {
+    "code": "8042",
+    "name": "金山電",
+    "date": "2026-08-14",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "NV 800VDC供應鏈-被動",
+    "quote": "NV800VDC白皮書(8/11) 被動 3026, 3090, 6173, 8042, 2327，主要還是日廠",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "列名NV 800VDC產業對齊白皮書(8/11)"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-14T22:05:59"
   }
 ]
