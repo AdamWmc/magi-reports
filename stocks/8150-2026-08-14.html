@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>南茂 8150 — MAGI 個股分析</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--warn:#f59e0b;--blue:#3b82f6;--pink:#ec4899;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
+}}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82)}
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:12px;color:var(--muted);text-decoration:none}
+.nav-back:hover{color:var(--text)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:13px;color:var(--muted);line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+.hero{position:relative;overflow:hidden;padding:36px 40px 28px;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;top:-80px;left:30%;width:600px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.stock-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:4px 14px;font-size:11px;color:var(--muted);margin-bottom:14px}
+.stock-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.stock-name{font-size:30px;font-weight:800;color:var(--bright);letter-spacing:-1px}
+.stock-code{font-size:14px;color:var(--muted);font-weight:500}
+.stock-price{font-size:38px;font-weight:800;color:var(--bright);letter-spacing:-2px}
+.price-change{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:700;padding:4px 13px;border-radius:7px;vertical-align:middle;margin-left:10px}
+.price-change.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.price-change.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.75}
+.hero-sub strong{color:var(--text2)}
+.stats-row{display:flex;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:18px;flex-wrap:wrap}
+.stat{padding:10px 16px;text-align:center;flex:1;min-width:80px}
+.stat+.stat{border-left:1px solid var(--border)}
+.stat-label{font-size:10px;color:var(--dimmer);margin-bottom:4px;letter-spacing:.3px}
+.stat-val{font-size:14px;font-weight:700;color:var(--bright)}
+.stat-val.up{color:var(--up)}.stat-val.dn{color:var(--dn)}
+.stat-sub{font-size:10px;color:var(--dimmer);margin-top:2px}
+@media(max-width:580px){.stat{padding:8px 10px}.stat-val{font-size:12px}.stat-sub{display:none}}
+.content{max-width:900px;margin:0 auto;padding:24px 40px 72px}
+@media(max-width:600px){.content{padding:18px 16px 60px}.hero{padding:24px 16px 22px}}
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.section-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
+.callout{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:12.5px;color:var(--text2);line-height:1.8}
+.callout b{color:var(--bright)}
+.callout.warn{border-left-color:var(--warn)}
+.callout.bull{border-left-color:var(--up)}
+.kline-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px 14px}
+.kline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.kline-label{font-size:12px;font-weight:600;color:var(--text2)}
+.kline-legend{display:flex;align-items:center;gap:14px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.legend-dot{width:16px;height:2px;border-radius:1px;flex-shrink:0}
+.kline-svg-wrap{position:relative;width:100%;user-select:none;-webkit-user-select:none}
+.kline-svg-wrap::before{content:'';display:block;padding-bottom:29%}
+#kline-svg{position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair;display:block}
+.k-tooltip{position:absolute;pointer-events:none;opacity:0;transition:opacity .08s;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;min-width:140px;box-shadow:0 4px 20px rgba(0,0,0,.18);z-index:10}
+.tt-date{font-size:10px;font-weight:700;color:var(--text2);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid var(--border);letter-spacing:.3px}
+.tt-table{width:100%;border-collapse:collapse}
+.tt-table td{font-size:11px;padding:1.5px 0;vertical-align:middle}
+.tt-table td:first-child{color:var(--dimmer);padding-right:10px;width:30px}
+.tt-table td:last-child{font-weight:600;color:var(--text);text-align:right}
+.tt-up{color:var(--up)!important}.tt-dn{color:var(--dn)!important}
+.kline-hint{font-size:10px;color:var(--dimmer);margin-top:8px;text-align:right}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:640px){.profile-grid{grid-template-columns:1fr 1fr}}
+.profile-item{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:12px 14px}
+.pi-label{font-size:10px;color:var(--dimmer);margin-bottom:4px;letter-spacing:.3px}
+.pi-val{font-size:13px;font-weight:700;color:var(--bright);line-height:1.4}
+.pi-sub{font-size:10px;color:var(--muted);margin-top:2px}
+.eps-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.eps-table{width:100%;border-collapse:collapse}
+.eps-table th{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.5px;padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);background:var(--bg3)}
+.eps-table th:first-child{text-align:left}
+.eps-table td{font-size:12px;padding:10px 14px;text-align:center;border-bottom:1px solid var(--border2);color:var(--text2)}
+.eps-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
+.eps-table tr:last-child td{border-bottom:none}
+.eps-table .bull{color:var(--up);font-weight:700}
+.eps-table .bear{color:var(--dn)}
+.eps-table .base{color:var(--accent2);font-weight:700}
+.eps-source{font-size:10px;color:var(--dimmer);padding:8px 14px;background:var(--bg3);border-top:1px solid var(--border);line-height:1.6}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border2)}
+.tl-item:last-child{border-bottom:none}
+.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:2px}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0}
+.tl-dot.hot{background:var(--up);box-shadow:0 0 6px var(--up)}
+.tl-dot.med{background:var(--warn)}
+.tl-dot.low{background:var(--accent)}
+.tl-line{width:1px;background:var(--border);flex:1;margin-top:4px}
+.tl-item:last-child .tl-line{display:none}
+.tl-body{flex:1;min-width:0}
+.tl-when{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.3px;margin-bottom:3px}
+.tl-title{font-size:13px;font-weight:600;color:var(--bright);margin-bottom:2px}
+.tl-desc{font-size:12px;color:var(--muted);line-height:1.65}
+.thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.thesis-grid{grid-template-columns:1fr}}
+.thesis-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;overflow:hidden}
+.thesis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.thesis-card.primary::before{background:var(--accent)}
+.thesis-card.secondary::before{background:var(--blue)}
+.thesis-card.tertiary::before{background:var(--warn)}
+.thesis-tag{font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--dimmer);margin-bottom:8px;text-transform:uppercase}
+.thesis-title{font-size:14px;font-weight:700;color:var(--bright);margin-bottom:6px}
+.thesis-body{font-size:12px;color:var(--muted);line-height:1.7}
+.thesis-body strong{color:var(--text2)}
+.thesis-num{font-size:22px;font-weight:800;color:var(--accent2);letter-spacing:-1px;margin-top:8px}
+.thesis-num-label{font-size:10px;color:var(--dimmer)}
+.notion-list{display:flex;flex-direction:column;gap:10px}
+.notion-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.notion-card.bear{border-left:3px solid var(--dn)}
+.notion-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.notion-source{font-size:11px;font-weight:700;color:var(--bright);background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px}
+.notion-date{font-size:11px;color:var(--dimmer)}
+.notion-author{font-size:11px;font-weight:600;color:var(--accent2)}
+.notion-author.bear{color:var(--dn)}
+.notion-quote{font-size:13px;color:var(--text2);line-height:1.75;border-left:3px solid var(--accent);padding-left:12px}
+.notion-quote.bear{border-left-color:var(--dn)}
+.notion-quote strong{color:var(--bright)}
+.notion-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:8px;display:inline-block}
+.tag-mem{background:rgba(124,58,237,.1);color:var(--accent2)}
+.tag-asic{background:rgba(59,130,246,.1);color:var(--blue)}
+.tag-opt{background:rgba(245,158,11,.1);color:var(--warn)}
+.tag-bear{background:rgba(22,163,74,.1);color:var(--dn)}
+.news-list{display:flex;flex-direction:column;gap:8px}
+.news-item{display:flex;align-items:flex-start;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;text-decoration:none;transition:background .12s,border-color .12s}
+.news-item:hover{background:var(--bg3);border-color:var(--accent2)}
+.news-dot{width:3px;border-radius:2px;align-self:stretch;flex-shrink:0;min-height:36px}
+.news-dot.red{background:var(--up)}.news-dot.purple{background:var(--accent)}.news-dot.blue{background:var(--blue)}.news-dot.warn{background:var(--warn)}
+.news-body{flex:1;min-width:0}
+.news-title{font-size:13px;font-weight:600;color:var(--bright);line-height:1.5;margin-bottom:3px}
+.news-desc{font-size:11px;color:var(--muted);line-height:1.6}
+.news-meta{display:flex;gap:8px;margin-top:5px;align-items:center;flex-wrap:wrap}
+.news-source{font-size:10px;color:var(--dimmer);background:var(--bg3);padding:1px 7px;border-radius:3px;border:1px solid var(--border)}
+.news-date{font-size:10px;color:var(--dimmer)}
+.news-link{font-size:11px;color:var(--accent2);margin-left:auto;white-space:nowrap;flex-shrink:0}
+.peers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+@media(max-width:640px){.peers-grid{grid-template-columns:repeat(2,1fr)}}
+.peer-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;text-decoration:none}
+.peer-code{font-size:11px;color:var(--muted);margin-bottom:2px}
+.peer-name{font-size:12px;font-weight:700;color:var(--bright);margin-bottom:6px}
+.peer-price{font-size:16px;font-weight:800;color:var(--bright)}
+.peer-chg{font-size:11px;font-weight:700;margin-top:3px}
+.peer-chg.up{color:var(--up)}.peer-chg.dn{color:var(--dn)}
+.peer-label{font-size:9px;color:var(--dimmer);margin-top:4px;padding:1px 6px;background:var(--bg3);border-radius:3px;display:inline-block}
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.watch-grid{grid-template-columns:1fr}}
+.watch-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.watch-card.bull{border-left:3px solid var(--up)}.watch-card.bear{border-left:3px solid var(--dn)}
+.watch-card-title{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+.watch-card.bull .watch-card-title{color:var(--up)}.watch-card.bear .watch-card-title{color:var(--dn)}
+.watch-item{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border2);line-height:1.6}
+.watch-item:last-child{border-bottom:none}
+.watch-item::before{content:'›';margin-right:6px;color:var(--dimmer)}
+footer{border-top:1px solid var(--border);padding:20px 40px;font-size:11px;color:var(--dimmer);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{color:var(--muted);text-decoration:none}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <a href="/stocks.html" class="nav-back">← 個股分析</a>
+    <button class="theme-btn" id="theme-btn" onclick="magiToggle()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="stock-badge"><span class="dot"></span><span>個股分析 · 2026-08-14 收盤 · Fugle 真實資料</span></div>
+    <div class="hero-title">
+      <span class="stock-name">南茂</span>
+      <span class="stock-code">8150 ｜ TSE 上市 ｜ 記憶體封測 + AI ASIC 測試 + 矽光子</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+      <div class="stock-price">91.9</div>
+      <span class="price-change dn">▼ −1.0 &nbsp;−1.08%</span>
+    </div>
+    <p class="hero-sub">
+      記憶體/驅動IC 封測廠 · 8/11 法說 Q2 EPS 1.28 創四年新高(+267%) · 三獲利引擎：記憶體漲價／AI ASIC 測試／矽光子金凸塊 · UBS 升 TP 166<br>
+      <strong>跟台虹/高力的本夢比不同——南茂是「獲利正在發生、TTM PE 只有 29x、現價貼近下檔」的封測成長股</strong>
+    </p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-label">開盤</div><div class="stat-val">94.5</div></div>
+      <div class="stat"><div class="stat-label">最高</div><div class="stat-val up">95.5</div></div>
+      <div class="stat"><div class="stat-label">最低</div><div class="stat-val">90.5</div></div>
+      <div class="stat"><div class="stat-label">昨收</div><div class="stat-val">92.9</div></div>
+      <div class="stat"><div class="stat-label">成交量</div><div class="stat-val">39,503 張</div><div class="stat-sub">值 36.6 億</div></div>
+      <div class="stat"><div class="stat-label">26日高</div><div class="stat-val up">125</div><div class="stat-sub">7/16</div></div>
+      <div class="stat"><div class="stat-label">26日低</div><div class="stat-val">65.7</div><div class="stat-sub">7/30</div></div>
+      <div class="stat"><div class="stat-label">TTM PE</div><div class="stat-val">~29x</div><div class="stat-sub">EPS 3.21</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- 開場判斷 -->
+<div class="section">
+  <div class="callout bull">
+    南茂跟前面聊的台虹、高力<b>不是同一種東西</b>——它<b>不是本夢比，是「數字已經在跑」的成長股</b>。8/11 法說：Q2'26 EPS <b>1.28 創四年新高（年增 267%）</b>、毛利率 18%（季增 4.2pp）、記憶體漲價正在收進財報。而現價 91.9 的 <b>TTM PE 只有 ~29x，不是 80x 的夢</b>。
+    <br><br>
+    三個引擎、成熟度差很多：<b>① 記憶體封測漲價</b>＝已兌現、是現在的獲利底（記憶體占營收 51%、Q2 漲價 15%）；<b>② AI ASIC／手機 AP 測試</b>＝買 30 台愛德萬 93K、年底裝機、明年貢獻（幫 MTK/AMD 測 AP）；<b>③ 矽光子/光通金凸塊</b>＝台灣只有南茂跟頎邦有黃金製程，MRVL/Google 來談、但貢獻要 2H27，是<b>免費的上檔選擇權</b>。核心引擎已兌現、題材引擎當彩票——這比台虹「全押一個驗證點」穩多了。
+    <br><br>
+    我的判斷：<b>這是我看過持股裡 risk/reward 最好的一檔</b>。估值便宜（29x）、動能明確（Q2 創高、漲價正在收）、現價貼近下檔（保守 ~72）、UBS TP 166／共識 150 有 60–80% 空間。風險是<b>封測本質是循環股</b>（記憶體循環反轉、漲價會停）、光通貢獻遠、股價波動大（7 月 116 崩到 66 再拉回）。但相對台虹賭驗證、高力已貴，<b>南茂是「便宜＋動能＋催化劑」三個都有</b>。
+    <br><br>
+    <b>一句話：台虹賭未來、高力賺現在卻貴，南茂是「現在就在賺、又還沒貴」——這在 AI 題材裡難得。</b>
+  </div>
+</div>
+
+<!-- ① K線 -->
+<div class="section">
+  <div class="section-title">近 26 日走勢（Fugle 真實日K）</div>
+  <div class="kline-wrap">
+    <div class="kline-header">
+      <div class="kline-label">南茂 8150 — 日K ＋ 成交量</div>
+      <div class="kline-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>MA5</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7c3aed;opacity:.6"></div>MA20</div>
+        <div class="legend-item" style="font-size:10px;color:var(--dimmer)">滑動查看細節</div>
+      </div>
+    </div>
+    <div class="kline-svg-wrap" id="kline-container">
+      <svg id="kline-svg" viewBox="0 0 800 232" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="k-tooltip" id="k-tooltip"><div class="tt-date" id="tt-date"></div><table class="tt-table" id="tt-table"></table></div>
+    </div>
+    <div class="kline-hint">觸控 / 滑鼠懸停查看 OHLCV ｜ 資料來源：Fugle Market Data</div>
+  </div>
+</div>
+
+<!-- ② 公司概況 -->
+<div class="section">
+  <div class="section-title">公司概況</div>
+  <div class="profile-grid">
+    <div class="profile-item"><div class="pi-label">主營業務</div><div class="pi-val">記憶體/驅動IC 封測</div><div class="pi-sub">記憶體 51%、驅動IC+金凸塊 39%、混合訊號 10%</div></div>
+    <div class="profile-item"><div class="pi-label">三大引擎</div><div class="pi-val">記憶體漲價·AI測試·矽光子</div><div class="pi-sub">核心已兌現＋題材選擇權</div></div>
+    <div class="profile-item"><div class="pi-label">市值（估）</div><div class="pi-val">約 640 億</div><div class="pi-sub">91.9 × 約 6.97 億股</div></div>
+    <div class="profile-item"><div class="pi-label">FY2025 EPS（實）</div><div class="pi-val">0.70 元</div><div class="pi-sub">Q2'25 曾虧 -0.75（業外），H2 轉強</div></div>
+    <div class="profile-item"><div class="pi-label">H1'26 EPS（實）</div><div class="pi-val" style="color:var(--up)">2.00 元</div><div class="pi-sub">Q1 0.72 + Q2 1.28（創四年新高）</div></div>
+    <div class="profile-item"><div class="pi-label">TTM 實際 PE</div><div class="pi-val">~29x</div><div class="pi-sub">91.9 / TTM EPS 3.21</div></div>
+  </div>
+</div>
+
+<!-- ③ EPS 情境 -->
+<div class="section">
+  <div class="section-title">EPS 情境估算</div>
+  <div class="eps-wrap">
+    <table class="eps-table">
+      <thead><tr><th>情境</th><th>FY2025A</th><th>FY2026E</th><th>FY2027E</th><th>依據</th></tr></thead>
+      <tbody>
+        <tr><td>保守</td><td>0.70</td><td class="bear">~4.0</td><td class="bear">~5</td><td>記憶體漲價循環見頂、AI/光通貢獻有限</td></tr>
+        <tr><td>基本</td><td>0.70</td><td class="base">4.2–4.5</td><td class="base">6.0–6.2</td><td>UBS 4.15/6.19、Eddie 3.8/6.1（漲價＋AI 測試起量）</td></tr>
+        <tr><td>樂觀</td><td>0.70</td><td class="bull">~7</td><td class="bull">9–12</td><td>峰哥框架：SoC/AP 測試＋光通金凸塊全兌現</td></tr>
+      </tbody>
+    </table>
+    <div class="eps-source">FY25A / H1'26 為 FinMind 實際財報（Q2'26 EPS 1.28、H1 2.00）。FY26–27E：基本情境採 UBS/Eddie 法人估；<b>樂觀採峰哥「今年 7 塊、明年 11–12」的積極估、需驗證</b>。三引擎成熟度：記憶體漲價已兌現、AI 測試年底裝機、光通 2H27 起貢獻。</div>
+  </div>
+</div>
+
+<!-- ③b 我的 TP 三檔位 -->
+<div class="section">
+  <div class="section-title">我的目標價（TP）· 三檔位</div>
+  <div class="eps-wrap">
+    <table class="eps-table">
+      <thead><tr><th>情境</th><th>假設</th><th>對應 EPS</th><th>合理 PE</th><th>TP</th><th>相對現價 91.9</th></tr></thead>
+      <tbody>
+        <tr><td>保守（下檔）</td><td>記憶體循環見頂、AI/光通不兌現、封測 de-rate</td><td>FY26 ~4.0</td><td>18x</td><td class="bear">72</td><td class="bear">−22%</td></tr>
+        <tr><td>中性（合理）</td><td>漲價續＋AI ASIC 測試起量（UBS/Eddie base）</td><td>FY27 ~6.0</td><td>24x</td><td class="base">145</td><td class="base">+58%</td></tr>
+        <tr><td>樂觀（全兌現）</td><td>SoC/AP＋光通金凸塊全放量（峰哥框架）</td><td>FY27 ~9</td><td>22x</td><td class="bull">200</td><td class="bull">+118%</td></tr>
+      </tbody>
+    </table>
+    <div class="eps-source"><b>TTM 近四季實際 EPS 3.21 → 現價 trailing PE ~29x</b>（全用 FinMind 財報當錨）。<b>現價 91.9 落在保守與中性之間、偏下檔</b>＝下檔有限（~72、−22%）、往中性 145 有 +58%。<b>對照 UBS TP 166、共識 150：市場已認同中性偏上，但股價還沒追上。</b>加碼扳機＝記憶體漲價續行（10 月/1Q27）＋年底 AI 測試機台裝機貢獻。非投資建議。</div>
+  </div>
+</div>
+
+<!-- ④ 催化劑 -->
+<div class="section">
+  <div class="section-title">催化劑時間表</div>
+  <div class="kline-wrap" style="padding:14px 18px">
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot-wrap"><div class="tl-dot hot"></div><div class="tl-line"></div></div><div class="tl-body">
+        <div class="tl-when">近 1 季（已在發生）</div><div class="tl-title">記憶體封測漲價續行</div>
+        <div class="tl-desc">Q2 已調漲記憶體封測 15%、驅動IC 同步漲；董事長說 10 月、1Q27 還要漲。記憶體占營收 51%、稼動率 72%，部分客戶曾願 2 倍價搶產能。這是現在的獲利底。</div></div></div>
+      <div class="tl-item"><div class="tl-dot-wrap"><div class="tl-dot hot"></div><div class="tl-line"></div></div><div class="tl-body">
+        <div class="tl-when">4Q26（裝機）→ 2027 貢獻</div><div class="tl-title">AI ASIC／手機 AP 測試放量</div>
+        <div class="tl-desc">買 30 台愛德萬 93K、年底裝機、少量生產，幫 MTK/AMD 測 AP，衍生 AI ASIC/TPU。既有 200 台 93K 廠房（測 SoC 起家），毛利率比記憶體高。峰哥：一小時收 300 鎂、貢獻 EPS ~2。</div></div></div>
+      <div class="tl-item"><div class="tl-dot-wrap"><div class="tl-dot med"></div><div class="tl-line"></div></div><div class="tl-body">
+        <div class="tl-when">2H27–1H28（選擇權）</div><div class="tl-title">矽光子/光通訊金凸塊</div>
+        <div class="tl-desc">台灣只有南茂＋頎邦有黃金製程，MRVL/AVGO/Google 來談（EIC/PIC、gold bump），sample 已送。但認證要半年到一年、貢獻較遠——當免費上檔選擇權看。</div></div></div>
+      <div class="tl-item"><div class="tl-dot-wrap"><div class="tl-dot low"></div><div class="tl-line"></div></div><div class="tl-body">
+        <div class="tl-when">持續</div><div class="tl-title">Capex 上調 → 折舊 vs 產能</div>
+        <div class="tl-desc">2026 capex 上調至營收 25%+（過去 &lt;20%），擴記憶體後段封測＋高階測試。留意折舊每季增 1–3%，但也是未來營收的先行指標。</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 三大論點 -->
+<div class="section">
+  <div class="section-title">三大投資論點</div>
+  <div class="thesis-grid">
+    <div class="thesis-card primary">
+      <div class="thesis-tag">核心引擎 · 已兌現</div>
+      <div class="thesis-title">記憶體封測漲價循環</div>
+      <div class="thesis-body">記憶體占營收 <strong>51%</strong>、Q2 漲價 15%、稼動率 72%，帶動 <strong>Q2 EPS 1.28 創四年新高、GM 升到 18%</strong>。這不是題材、是已經收進財報的獲利，10 月/1Q27 還要漲。</div>
+      <div class="thesis-num">1.28<span style="font-size:14px;font-weight:600"> 元</span></div>
+      <div class="thesis-num-label">Q2'26 EPS（+267% YoY、四年新高）</div>
+    </div>
+    <div class="thesis-card secondary">
+      <div class="thesis-tag">成長引擎 · 2027</div>
+      <div class="thesis-title">AI ASIC / AP 測試</div>
+      <div class="thesis-body">買 <strong>30 台愛德萬 93K</strong>、年底裝機，幫 MTK/AMD 測 AP、衍生 AI ASIC/TPU；既有 200 台 SoC 測試廠房，<strong>毛利比記憶體高</strong>。這是明年 EPS 從 4 跳向 6 的關鍵。</div>
+      <div class="thesis-num" style="color:var(--blue)">+2<span style="font-size:14px;font-weight:600"> 元 EPS</span></div>
+      <div class="thesis-num-label">峰哥估 SoC/AP 測試貢獻</div>
+    </div>
+    <div class="thesis-card tertiary">
+      <div class="thesis-tag">選擇權 · 2H27</div>
+      <div class="thesis-title">矽光子金凸塊</div>
+      <div class="thesis-body">台灣<strong>只有南茂＋頎邦</strong>有黃金製程，MRVL/AVGO/Google 來談 gold bump（EIC/PIC）、sample 已送。認證要半年到一年、貢獻遠——<strong>當免費上檔選擇權</strong>，不必為它付估值。</div>
+      <div class="thesis-num" style="color:var(--warn)">2 家<span style="font-size:14px;font-weight:600"> 黃金製程</span></div>
+      <div class="thesis-num-label">南茂 / 頎邦（日月光矽品切不進）</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ Notion 情報 -->
+<div class="section">
+  <div class="section-title">Notion 群組情報 — 原文摘錄（Sunny 主力持股）</div>
+  <div class="notion-list">
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-07-09</span><span class="notion-author">峰哥</span></div>
+      <div class="notion-quote">「昨天跟鄭董碰面，<strong>今年 7 塊，董事長叫他不要說（超大 beat）</strong>；買 30 台 93000、一小時收 300 塊鎂、貢獻 EPS 2 塊，幫 MTK/AMD 測 AP、跟 MRVL 談測 EIC/PIC，光通就 100 億，<strong>這樣明年 11–12 塊</strong>」</div>
+      <span class="notion-tag tag-asic">AI 測試 · 積極看多</span>
+    </div>
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">小作文</span><span class="notion-date">2026-07-16</span><span class="notion-author">Eddie</span></div>
+      <div class="notion-quote">「8150，預估 <strong>2026/27 EPS 3.8/6.1、TP 150（2027 25x）</strong>；capex 大增、對 27 年樂觀，記憶體大循環擴產、對 MTK AP 及後續 ASIC 有信心。<strong>UBS 今出報告 TP 156、今明年 4.15/6.19、給 23x</strong>」</div>
+      <span class="notion-tag tag-mem">法人 TP 150–156</span>
+    </div>
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-06-22</span><span class="notion-author">峰哥</span></div>
+      <div class="notion-quote">「7/1 漲價 15%、10 月與 1Q27 還要漲；明年營收抓 350 億、毛利率 18%，<strong>現有部分 EPS 約 5.5–6</strong>，光通掌握訂單約一年 300 億、明年先抓 1/3 貢獻 3 塊，<strong>加起來明年 8.5–9</strong>。MRVL、Google 都來找。」</div>
+      <span class="notion-tag tag-mem">漲價＋光通</span>
+    </div>
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-07-02</span><span class="notion-author">Eddie / Sunny</span></div>
+      <div class="notion-quote">「南茂積極接觸光通客戶（產能有空），金凸塊＋封裝＋測試都有，8 吋 8 萬片/月 UTR50%、12 吋 5 萬片/月 UTR70%+；<strong>TIA/driver 預計 2 年後導入 12 吋，最快貢獻 2H27~1H28</strong>」／Sunny：「投信買了六千多張」</div>
+      <span class="notion-tag tag-opt">光通貢獻較遠</span>
+    </div>
+    <div class="notion-card bear">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-05-28</span><span class="notion-author bear">小魚（謹慎）</span></div>
+      <div class="notion-quote bear">「8150 南茂：金凸塊只有頎邦跟南茂兩家在做，<strong>但南茂光通剛開始接觸客戶、還談不上客戶的 requirement</strong>」／頎邦：南茂進來可能也要<strong>明年才有貢獻</strong></div>
+      <span class="notion-tag tag-bear">空方 · 光通剛起步</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ 新聞 -->
+<div class="section">
+  <div class="section-title">近期相關新聞</div>
+  <div class="news-list">
+    <a class="news-item" href="https://www.chinatimes.com/realtimenews/20260811003699-260410" target="_blank" rel="noopener">
+      <div class="news-dot red"></div><div class="news-body">
+        <div class="news-title">南茂 Q2 獲利年增 267%、EPS 1.28 元 創四年單季新高</div>
+        <div class="news-desc">Q2 淨利 8.91 億、季增 76.6%、年增 267.3%，EPS 1.28 創四年新高；下半年受惠記憶體優於上半年，上調 2026 capex，跨入手機/AI ASIC 及光通訊矽光子。</div>
+        <div class="news-meta"><span class="news-source">中時</span><span class="news-date">2026-08-11</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://www.ctee.com.tw/news/20260812701743-430201" target="_blank" rel="noopener">
+      <div class="news-dot red"></div><div class="news-body">
+        <div class="news-title">財報報喜外資送禮！南茂擁三獲利引擎 瑞銀升 TP 至 166</div>
+        <div class="news-desc">南茂擁記憶體、ASIC、矽光子三引擎，UBS 蘇厚合將目標價升至 166；Q2 毛利率升 18%、EPS 超預期；capex 拉到營收 25%+ 擴記憶體封測，邏輯測試從 SoC 拓展到 AP 與 AI ASIC。</div>
+        <div class="news-meta"><span class="news-source">工商時報</span><span class="news-date">2026-08-12</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://ec.ltn.com.tw/article/breakingnews/5536201" target="_blank" rel="noopener">
+      <div class="news-dot purple"></div><div class="news-body">
+        <div class="news-title">南茂加碼啟動大擴產 今明兩年資本支出均超過營收 25%</div>
+        <div class="news-desc">董事長鄭世杰：記憶體客戶備貨積極、下半年穩健樂觀，capex 上調至營收 25%+；已布局手機晶片/ASIC/AI ASIC 測試，年底新一批高階測試機台到位少量生產；跨足光通訊矽光子。</div>
+        <div class="news-meta"><span class="news-source">自由財經</span><span class="news-date">2026-08-11</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://money.udn.com/money/story/5710/9342323" target="_blank" rel="noopener">
+      <div class="news-dot blue"></div><div class="news-body">
+        <div class="news-title">南茂記憶體封測再漲價 客戶願以兩倍價爭取產能</div>
+        <div class="news-desc">（2 月法說）產能緊俏、部分客戶願 2 倍價搶產能，本季再調升記憶體封測價、要求客戶簽三年合約；記憶體庫存回補穩健、DRAM 動能優於 Flash。</div>
+        <div class="news-meta"><span class="news-source">經濟日報</span><span class="news-date">2026-02-24</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://hk.finance.yahoo.com/news/%E5%8D%97%E8%8C%82%E6%B3%95%E8%AA%AA-q2%E7%8D%B2%E5%88%A9%E5%A4%A7%E5%A2%9E2-6%E5%80%8D-eps-1-074341012.html" target="_blank" rel="noopener">
+      <div class="news-dot warn"></div><div class="news-body">
+        <div class="news-title">〈南茂法說〉Q2 獲利大增 2.6 倍、EPS 1.28 元 創四年新高</div>
+        <div class="news-desc">受惠記憶體漲價、車用需求強，Q2 淨利 8.92 億、季增 76.6%；產品線 Flash 29.5%、DRAM/SRAM 21.5%、金凸塊 21.1%、驅動IC 18.1%、混合訊號 9.8%。</div>
+        <div class="news-meta"><span class="news-source">Yahoo 財經</span><span class="news-date">2026-08-11</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ⑧ 同族群 -->
+<div class="section">
+  <div class="section-title">同族群個股（封測 / 測試 / 金凸塊 · 8/14 收盤）</div>
+  <div class="peers-grid">
+    <div class="peer-card"><div class="peer-code">6147</div><div class="peer-name">頎邦</div><div class="peer-price">157.5</div><div class="peer-chg dn">−4.26%</div><div class="peer-label">金凸塊·同業龍頭</div></div>
+    <div class="peer-card"><div class="peer-code">6239</div><div class="peer-name">力成</div><div class="peer-price">278</div><div class="peer-chg dn">−1.77%</div><div class="peer-label">記憶體封測</div></div>
+    <div class="peer-card"><div class="peer-code">2449</div><div class="peer-name">京元電子</div><div class="peer-price">247</div><div class="peer-chg dn">−2.56%</div><div class="peer-label">測試代工</div></div>
+    <div class="peer-card"><div class="peer-code">3374</div><div class="peer-name">精材</div><div class="peer-price">325</div><div class="peer-chg" style="color:var(--dimmer)">0.00%</div><div class="peer-label">先進封裝(自家持股)</div></div>
+    <div class="peer-card"><div class="peer-code">2329</div><div class="peer-name">華泰</div><div class="peer-price">45.1</div><div class="peer-chg up">+1.12%</div><div class="peer-label">記憶體封測</div></div>
+  </div>
+</div>
+
+<!-- ⑨ 觀察重點 -->
+<div class="section">
+  <div class="section-title">觀察重點 / 催化劑 / 風險</div>
+  <div class="watch-grid">
+    <div class="watch-card bull">
+      <div class="watch-card-title">催化劑（多方）</div>
+      <div class="watch-item">記憶體封測 10 月/1Q27 再漲價，稼動率續升</div>
+      <div class="watch-item">年底 30 台愛德萬 93K 裝機 → 2027 AI ASIC/AP 測試放量</div>
+      <div class="watch-item">矽光子金凸塊拿下 MRVL/Google 訂單（2H27 選擇權）</div>
+      <div class="watch-item">UBS TP 166／共識 150，現價 92 落後、有補漲空間</div>
+    </div>
+    <div class="watch-card bear">
+      <div class="watch-card-title">風險（空方）</div>
+      <div class="watch-item">封測本質是循環股——記憶體循環反轉、漲價就會停</div>
+      <div class="watch-item">光通/AI 測試貢獻較遠（2H27），近期靠記憶體單引擎</div>
+      <div class="watch-item">股價波動大：7 月 116 崩到 66（−43%）再拉回，籌碼浮動</div>
+      <div class="watch-item">Capex 拉高→折舊每季增，若營收沒跟上會壓毛利</div>
+    </div>
+  </div>
+</div>
+
+<!-- 收斂 -->
+<div class="section">
+  <div class="callout bull">
+    <b>一句話收斂：</b>南茂是持股裡<b>「現在就在賺、估值又還沒貴」</b>的那一檔——TTM PE 29x（vs 台虹/高力 85x）、Q2 EPS 創四年新高、記憶體漲價已收進財報，AI 測試＋矽光子是免費上檔。<b>現價 92 貼近下檔（保守 72、−22%）、中性 145 有 +58%、UBS TP 166。</b>它不是無風險（封測循環股、波動大），但<b>相對台虹要賭驗證、高力已太貴，南茂的賠率結構最健康。加碼扳機＝漲價續行＋年底測試機台裝機。</b>（綜合自家 Notion 智囊原話＋Fugle/FinMind 判讀，<b>非投資建議</b>；峰哥「明年 11–12」為積極估、需驗證。）
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <span>資料來源：Fugle Market Data · FinMind 財報 · Notion 每日廢想法/小作文 · Exa 新聞搜尋 · 2026-08-14 收盤</span>
+  <a href="/stocks.html">← 個股分析</a>
+</footer>
+
+<script>
+function magiToggle(){var h=document.documentElement;var c=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var n=c==='dark'?'light':'dark';h.setAttribute('data-theme',n);localStorage.setItem('magi-theme',n);document.getElementById('theme-btn').textContent=n==='dark'?'☀':'🌙';render();}
+(function(){var btn=document.getElementById('theme-btn');if(!btn)return;var c=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');btn.textContent=c==='dark'?'☀':'🌙';})();
+
+const raw=[
+  {d:'7/9',o:108.5,h:117,l:108.5,c:117,v:65744153},
+  {d:'7/13',o:121.5,h:123,l:112.5,c:115,v:106971602},
+  {d:'7/14',o:113.5,h:115.5,l:103.5,c:104,v:62368590},
+  {d:'7/15',o:107,h:114,l:105,c:114,v:57303876},
+  {d:'7/16',o:114,h:125,l:114,c:122.5,v:180436796},
+  {d:'7/17',o:116,h:119,l:110.5,c:110.5,v:76481631},
+  {d:'7/20',o:108,h:108,l:100,c:103,v:49833726},
+  {d:'7/21',o:106,h:106,l:97.3,c:104,v:76392212},
+  {d:'7/22',o:106.5,h:109.5,l:100,c:100,v:101449863},
+  {d:'7/23',o:103,h:108,l:95.7,c:98.2,v:76771855},
+  {d:'7/24',o:96.5,h:97,l:90.5,c:90.8,v:48956287},
+  {d:'7/27',o:90,h:90.8,l:85.8,c:89.9,v:34517562},
+  {d:'7/28',o:85,h:85.5,l:81,c:81,v:23397197},
+  {d:'7/29',o:78.6,h:79.6,l:72.9,c:72.9,v:23399658},
+  {d:'7/30',o:66.2,h:72.3,l:65.7,c:66,v:43913300},
+  {d:'7/31',o:72.6,h:72.6,l:72.5,c:72.6,v:8999473},
+  {d:'8/3',o:73,h:78.9,l:73,c:77.6,v:48689772},
+  {d:'8/4',o:78,h:85,l:77.7,c:82.5,v:39268066},
+  {d:'8/5',o:86.7,h:90.4,l:85.4,c:86.5,v:41209713},
+  {d:'8/6',o:85.8,h:88.7,l:83.5,c:86.9,v:30369153},
+  {d:'8/7',o:87.3,h:91.9,l:84.6,c:86.3,v:32784824},
+  {d:'8/10',o:89.4,h:94.2,l:89.4,c:92.9,v:39296241},
+  {d:'8/11',o:93.1,h:99.4,l:91,c:99,v:100567458},
+  {d:'8/12',o:96.6,h:97.4,l:92,c:92.2,v:86136843},
+  {d:'8/13',o:93.5,h:98.5,l:92.8,c:92.9,v:72593049},
+  {d:'8/14',o:94.5,h:95.5,l:90.5,c:91.9,v:39986859},
+];
+const annotations=[
+  {idx:4, label:'法說衝高 122', color:'#dc2626'},
+  {idx:14, label:'崩到 66', color:'#16a34a'},
+  {idx:22, label:'8/11法說反彈', color:'#7c3aed'},
+];
+const VBW=800, VBH=232, AX=50, ARX=797, AY=6, ABY=158, VT=168, VB=222;
+const CW=ARX-AX, CH=ABY-AY, N=raw.length, stepX=CW/N, barW=stepX*0.62;
+function isDark(){var t=document.documentElement.getAttribute('data-theme');if(t)return t==='dark';return matchMedia('(prefers-color-scheme:dark)').matches;}
+function render(){
+  const dark=isDark();
+  const upC=dark?'#e05252':'#dc2626', dnC=dark?'#2ec27a':'#16a34a';
+  const gridC=dark?'rgba(33,38,45,1)':'rgba(226,232,240,1)', axisTextC=dark?'#475569':'#94a3b8';
+  const ma5C='#f59e0b', ma20C=dark?'rgba(192,132,252,.55)':'rgba(124,58,237,.4)';
+  const prices=raw.flatMap(d=>[d.h,d.l]);
+  const pmin=Math.min(...prices), pmax=Math.max(...prices), prng=pmax-pmin||1;
+  const py=p=>AY+CH*(1-(p-pmin)/prng);
+  const vmax=Math.max(...raw.map(d=>d.v));
+  const vy=v=>VT+(VB-VT)*(1-v/vmax);
+  const ma=(arr,n)=>arr.map((_,i)=>i<n-1?null:arr.slice(i-n+1,i+1).reduce((s,x)=>s+x.c,0)/n);
+  const ma5=ma(raw,5), ma20=ma(raw,20);
+  let s='';
+  for(let i=0;i<=4;i++){const p=pmin+prng*i/4;const y=py(p);
+    s+=`<line x1="${AX}" y1="${y.toFixed(1)}" x2="${ARX}" y2="${y.toFixed(1)}" stroke="${gridC}" stroke-width="0.6"/>`;
+    s+=`<text x="${(AX-4)}" y="${(y+3.5).toFixed(1)}" text-anchor="end" font-size="7.5" fill="${axisTextC}" font-family="system-ui,sans-serif">${p.toFixed(0)}</text>`;}
+  s+=`<line x1="${AX}" y1="${(VT-2)}" x2="${ARX}" y2="${(VT-2)}" stroke="${gridC}" stroke-width="0.6"/>`;
+  annotations.forEach(a=>{const cx=AX+(a.idx+0.5)*stepX;
+    s+=`<line x1="${cx.toFixed(1)}" y1="${AY}" x2="${cx.toFixed(1)}" y2="${VB}" stroke="${a.color}" stroke-width="0.7" stroke-dasharray="2,3" opacity="0.45"/>`;
+    s+=`<text x="${cx.toFixed(1)}" y="${(VB+10)}" text-anchor="middle" font-size="7" fill="${a.color}" font-family="system-ui,sans-serif" opacity="0.85">${a.label}</text>`;});
+  const lastClose=raw[N-1].c, ly=py(lastClose);
+  s+=`<line x1="${AX}" y1="${ly.toFixed(1)}" x2="${ARX}" y2="${ly.toFixed(1)}" stroke="${upC}" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.5"/>`;
+  s+=`<rect x="${ARX}" y="${(ly-6).toFixed(1)}" width="3" height="12" fill="${upC}" opacity="0.6"/>`;
+  let p20='';ma20.forEach((m,i)=>{if(m===null)return;const x=(AX+(i+0.5)*stepX).toFixed(1),y=py(m).toFixed(1);p20+=p20?` L${x},${y}`:`M${x},${y}`;});
+  if(p20)s+=`<path d="${p20}" stroke="${ma20C}" stroke-width="1.1" fill="none"/>`;
+  let p5='';ma5.forEach((m,i)=>{if(m===null)return;const x=(AX+(i+0.5)*stepX).toFixed(1),y=py(m).toFixed(1);p5+=p5?` L${x},${y}`:`M${x},${y}`;});
+  if(p5)s+=`<path d="${p5}" stroke="${ma5C}" stroke-width="1.1" fill="none"/>`;
+  raw.forEach((d,i)=>{const cx=AX+(i+0.5)*stepX;const up=d.c>=d.o;const col=up?upC:dnC;
+    s+=`<line x1="${cx.toFixed(1)}" y1="${py(d.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${py(d.l).toFixed(1)}" stroke="${col}" stroke-width="0.9" opacity="0.55"/>`;
+    const bt=py(Math.max(d.o,d.c)),bb=py(Math.min(d.o,d.c)),bh=Math.max(bb-bt,0.9);
+    s+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${bt.toFixed(1)}" width="${barW.toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"/>`;
+    const vtop=vy(d.v);
+    s+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${vtop.toFixed(1)}" width="${barW.toFixed(1)}" height="${(VB-vtop).toFixed(1)}" fill="${col}" opacity="0.45"/>`;});
+  const labelIdxs=[0,5,10,14,18,22,25];
+  labelIdxs.forEach(i=>{if(i>=N)return;const cx=AX+(i+0.5)*stepX;
+    s+=`<text x="${cx.toFixed(1)}" y="${(VB+10)}" text-anchor="middle" font-size="7" fill="${axisTextC}" font-family="system-ui,sans-serif">${raw[i].d}</text>`;});
+  s+=`<line id="ch-v" x1="0" y1="${AY}" x2="0" y2="${VB}" stroke="${axisTextC}" stroke-width="0.6" stroke-dasharray="2,2" opacity="0" pointer-events="none"/>`;
+  s+=`<line id="ch-h" x1="${AX}" y1="0" x2="${ARX}" y2="0" stroke="${axisTextC}" stroke-width="0.6" stroke-dasharray="2,2" opacity="0" pointer-events="none"/>`;
+  s+=`<circle id="ch-dot" cx="0" cy="0" r="3" fill="${upC}" opacity="0" pointer-events="none"/>`;
+  s+=`<rect id="chart-overlay" x="${AX}" y="${AY}" width="${CW}" height="${VB-AY}" fill="transparent" style="cursor:crosshair"/>`;
+  document.getElementById('kline-svg').innerHTML=s;
+  setupInteraction(py);
+}
+function setupInteraction(py){
+  const svg=document.getElementById('kline-svg'),tooltip=document.getElementById('k-tooltip'),ttDate=document.getElementById('tt-date'),ttTable=document.getElementById('tt-table'),container=document.getElementById('kline-container');
+  function getIdx(clientX){const rect=svg.getBoundingClientRect();const vbX=(clientX-rect.left)*VBW/rect.width;return Math.max(0,Math.min(N-1,Math.floor((vbX-AX)/stepX)));}
+  function onMove(e){
+    const touch=e.touches?e.touches[0]:e;const rect=svg.getBoundingClientRect();const vbX=(touch.clientX-rect.left)*VBW/rect.width;
+    if(vbX<AX||vbX>ARX)return;
+    const idx=getIdx(touch.clientX),d=raw[idx],cx=AX+(idx+0.5)*stepX;
+    const chv=document.getElementById('ch-v'),chh=document.getElementById('ch-h'),dot=document.getElementById('ch-dot');
+    if(chv){chv.setAttribute('x1',cx.toFixed(1));chv.setAttribute('x2',cx.toFixed(1));chv.setAttribute('opacity','1')}
+    if(chh){const cy=py(d.c).toFixed(1);chh.setAttribute('y1',cy);chh.setAttribute('y2',cy);chh.setAttribute('opacity','1')}
+    if(dot){dot.setAttribute('cx',cx.toFixed(1));dot.setAttribute('cy',py(d.c).toFixed(1));dot.setAttribute('opacity','1')}
+    const up=d.c>=d.o,chg=(d.c-d.o).toFixed(1),chgPct=((d.c-d.o)/d.o*100).toFixed(2),vol=(d.v/10000).toFixed(0);
+    ttDate.textContent=`南茂 8150  ${d.d}`;
+    ttTable.innerHTML=`<tr><td>開</td><td>${d.o}</td></tr><tr><td>高</td><td class="tt-up">${d.h}</td></tr><tr><td>低</td><td class="tt-dn">${d.l}</td></tr><tr><td>收</td><td class="${up?'tt-up':'tt-dn'}">${d.c}</td></tr><tr><td>漲跌</td><td class="${up?'tt-up':'tt-dn'}">${up?'+':''}${chg} (${up?'+':''}${chgPct}%)</td></tr><tr><td>量</td><td>${vol} 萬股</td></tr>`;
+    const cRect=container.getBoundingClientRect();const screenCX=rect.left+(cx/VBW)*rect.width;const relX=screenCX-cRect.left;const relY=touch.clientY-cRect.top;const toRight=cx<VBW*0.58;
+    tooltip.style.opacity='1';tooltip.style.top=Math.max(4,relY-80)+'px';
+    if(toRight){tooltip.style.left=(relX+12)+'px';tooltip.style.right='auto'}else{tooltip.style.right=(cRect.width-relX+12)+'px';tooltip.style.left='auto'}
+  }
+  function onLeave(){tooltip.style.opacity='0';['ch-v','ch-h','ch-dot'].forEach(id=>{const el=document.getElementById(id);if(el)el.setAttribute('opacity','0');});}
+  const overlay=document.getElementById('chart-overlay');
+  if(overlay){overlay.addEventListener('mousemove',onMove);overlay.addEventListener('mouseleave',onLeave);overlay.addEventListener('touchmove',e=>{e.preventDefault();onMove(e)},{passive:false});overlay.addEventListener('touchend',onLeave);}
+}
+document.addEventListener('DOMContentLoaded',render);
+const obs=new MutationObserver(render);
+obs.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',render);
+</script>
+</body>
+</html>
