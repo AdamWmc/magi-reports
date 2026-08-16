@@ -433,6 +433,62 @@
     BE 做<b>固態氧化物燃料電池（SOFC）</b>——一台一台的「發電機箱」，用<b>天然氣或氫氣直接電化學發電</b>（非燃燒），裝在資料中心/工廠旁邊<b>就地供電、幾個月就上線</b>。對比美國電網要接電得排隊 <b>3～7 年</b>，這是少數能「立刻、就地、基載」供電的解方。客戶：Google、Apple、Walmart、Equinix（裝置量破 100MW）、AEP（<b>1GW 全球最大燃料電池商業採購案</b>）；連台廠<b>廣達美國廠、欣興</b>都裝 BE。Q1 2026 營收 <b>YoY +130%</b>、拿下 Project Jupiter <b>2.45GW</b> 獨家供電——這就是 Leopold Aschenbrenner 重押它的理由（AI 的瓶頸不只晶片，是「電、與拿到電的速度」）。
   </div>
 
+  <figure class="fig">
+    <svg viewBox="0 0 500 232" role="img" aria-label="電網 vs BE 兩條供電路線對照：傳統電網送電但要排併網3-7年；BE走天然氣管、就地把氣變電、幾個月上線，兩者都供給資料中心">
+      <!-- lane A: traditional grid -->
+      <text x="14" y="28" class="svg-t" font-size="10.5" fill="var(--z4)">🔌 傳統電網 · 集中式</text>
+      <rect x="16" y="36" width="94" height="46" rx="7" fill="var(--z4b)" stroke="var(--z4)"/>
+      <text x="63" y="56" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">大型電廠</text>
+      <text x="63" y="71" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">核·氣·再生</text>
+      <rect x="150" y="36" width="110" height="46" rx="7" fill="var(--z4b)" stroke="var(--z4)"/>
+      <text x="205" y="56" text-anchor="middle" class="svg-t" font-size="10" fill="var(--ink)">輸電·變電·配電</text>
+      <text x="205" y="71" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">拉很遠的電網</text>
+      <rect x="300" y="31" width="96" height="56" rx="7" fill="var(--z2b)" stroke="var(--copper)" stroke-width="1.6" stroke-dasharray="5 3"/>
+      <text x="348" y="52" text-anchor="middle" font-size="13">⏳</text>
+      <text x="348" y="68" text-anchor="middle" class="svg-t" font-size="9.5" fill="var(--copper)">併網排隊</text>
+      <text x="348" y="80" text-anchor="middle" class="svg-t" font-size="10" fill="var(--copper)">3–7 年</text>
+      <!-- lane A arrows (electricity all the way) -->
+      <g stroke="var(--z4)" stroke-width="1.6" fill="var(--z4)">
+        <line x1="110" y1="59" x2="148" y2="59"/><polygon points="148,56 154,59 148,62"/>
+        <line x1="260" y1="59" x2="298" y2="59"/><polygon points="298,56 304,59 298,62"/>
+      </g>
+      <text x="129" y="52" text-anchor="middle" class="svg-l" font-size="8" fill="var(--z4)">⚡電</text>
+      <text x="279" y="52" text-anchor="middle" class="svg-l" font-size="8" fill="var(--z4)">⚡電</text>
+
+      <!-- lane B: BE on-site -->
+      <text x="14" y="158" class="svg-t" font-size="10.5" fill="var(--z2)">🔥 BE 燃料電池 · 就地分散式</text>
+      <rect x="16" y="166" width="94" height="46" rx="7" fill="var(--surface2)" stroke="var(--muted)"/>
+      <text x="63" y="186" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">天然氣管線</text>
+      <text x="63" y="201" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">走沒塞的瓦斯管</text>
+      <rect x="150" y="163" width="110" height="52" rx="7" fill="var(--z2b)" stroke="var(--z2)" stroke-width="2"/>
+      <text x="205" y="184" text-anchor="middle" class="svg-t" font-size="10.5" fill="var(--ink)">BE 燃料電池箱</text>
+      <text x="205" y="198" text-anchor="middle" class="svg-l" font-size="8" fill="var(--z2)">就地把氣變電·幾個月上線</text>
+      <text x="205" y="209" text-anchor="middle" class="svg-l" font-size="7.5" fill="var(--muted)">🇹🇼 高力 Hotbox ×6</text>
+      <!-- lane B arrows: gas then electricity -->
+      <g stroke="var(--z2)" stroke-width="1.6" fill="var(--z2)">
+        <line x1="110" y1="189" x2="148" y2="189"/><polygon points="148,186 154,189 148,192"/>
+      </g>
+      <text x="129" y="182" text-anchor="middle" class="svg-l" font-size="8" fill="var(--copper)">🔥氣</text>
+
+      <!-- data center (shared destination) -->
+      <rect x="408" y="98" width="80" height="66" rx="8" fill="var(--z1b)" stroke="var(--z1)" stroke-width="2"/>
+      <text x="448" y="126" text-anchor="middle" class="svg-t" font-size="12" fill="var(--ink)">🧠 資料中心</text>
+      <text x="448" y="142" text-anchor="middle" class="svg-l" font-size="8.5" fill="var(--z1)">AI 機櫃·吃電</text>
+      <text x="448" y="155" text-anchor="middle" class="svg-l" font-size="8" fill="var(--muted)">兩條路都能供電</text>
+
+      <!-- converging arrows into DC -->
+      <g fill="none">
+        <path d="M396,66 C 420,72 400,104 406,116" stroke="var(--copper)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <polygon points="403,110 407,119 411,111" fill="var(--copper)"/>
+        <path d="M260,189 C 340,189 360,150 406,142" stroke="var(--z2)" stroke-width="1.8"/>
+        <polygon points="402,137 411,141 403,146" fill="var(--z2)"/>
+      </g>
+      <text x="345" y="108" text-anchor="middle" class="svg-l" font-size="8" fill="var(--copper)">慢·塞車</text>
+      <text x="330" y="164" text-anchor="middle" class="svg-l" font-size="8" fill="var(--z2)">快·繞道 ⚡電</text>
+    </svg>
+    <figcaption><b>圖 · 電網 vs BE 走不同「管」</b>——兩條路線解同一件事（供電），但走不同基礎設施。電網直接送<b>電</b>、卻要排 <b>3–7 年併網</b>；BE 改走<b>天然氣管</b>、<b>就地</b>把氣變電、幾個月上線。<b>BE 繞過的是電網塞車，不是脫離基礎設施</b>——只要「AI 建置速度 &gt; 電網擴建速度」，這條繞道就有生意。</figcaption>
+  </figure>
+
   <div class="cmp-wrap">
     <table class="cmp-tbl">
       <tr><th>台廠</th><th>在 BE / SOFC 供應鏈的角色</th><th>本頁定位</th></tr>
