@@ -5355,6 +5355,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "2376",
+    "name": "技嘉",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "伺服器/主機板",
+    "quote": "技嘉Neibus講很好、明年也樂觀,感覺是profit taking而已",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Nebius訂單"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3374",
     "name": "精材",
     "date": "2026-08-17",
@@ -5373,6 +5395,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓級封測",
+    "quote": "3374跌沒有承認OS,只說back side metal",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "3443",
@@ -5397,6 +5439,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "ASIC設計",
+    "quote": "創意漲,我跟你講的CPU多拿一萬片傳出去了",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "CPU多拿一萬片"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3529",
     "name": "力旺",
     "date": "2026-08-17",
@@ -5417,6 +5481,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3529",
+    "name": "力旺",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽智財IP",
+    "quote": "力旺不知道跌什麼,越跌越有興趣加,之後會有外資cover",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "外資cover"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "3653",
@@ -5442,6 +5528,29 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "均熱片/散熱",
+    "quote": "健策開財報47%符合預期,禮拜五投信場做多講Rubin ultra提前",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Rubin ultra提前",
+      "投信做多"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "6223",
     "name": "旺矽",
     "date": "2026-08-17",
@@ -5460,6 +5569,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "6223",
+    "name": "旺矽",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "探針卡/測試",
+    "quote": "旺矽跌沒有上修產能跟營收,我覺得還好但很多人覺得跌停基本",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "6640",
@@ -5484,6 +5613,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "6640",
+    "name": "均華",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "6640有美光的die bond",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "美光die bond"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "6831",
     "name": "邁科",
     "date": "2026-08-17",
@@ -5502,6 +5653,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "6831",
+    "name": "邁科",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "被動/材料",
+    "quote": "剛剛邁科副總來講的很樂觀,數字也有給,算一算明天跟你說",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "副總釋樂觀展望"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "8021",
@@ -5524,6 +5697,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB鑽針",
+    "quote": "尖點禮拜五上修產能但價格說漲不動,之後要現增,覺得又在壓吧",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "上修產能"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "8039",
@@ -5587,5 +5782,167 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "8069說今天會議:長期目標160萬片/月產能,2028下半年開始大量產,到時產能跟台光M10差不多、是Kyber 50-60%需求量;PTFE設備一台3千萬台幣、交期一年以上;400度以上高溫壓機是新興技術(板廠現用310-320度,PTFE要340度),全球有實績日本JSW(亞洲alltech指定)、德國(台郡用)、西班牙(臻鼎用),台虹訂到七台,北川也在開發;想用元太leverage降台虹風險,Johnson希望台灣3泰國1",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "160萬片產能2028放量",
+      "高溫壓機七台",
+      "Kyber 50-60%需求"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "百億大戶",
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "CANON說8039目標先看600;Canon是黃嘉能、長華前董事長,長華也是台虹8%大股東",
+    "tp": "600",
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黃偉傑",
+    "host": null,
+    "sector": "PTFE/CCL",
+    "quote": "黃偉傑看8039 TP 1000;Ed:Removable Lid ASP上修",
+    "tp": "1000",
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "有cowos的案子最近會公告;今年第三季毛利率會上35、第四季40、明年穩穩40;明年營收YoY 20-25%(不含漲價,但明年會漲價);今年本業6明年8-9(不含業外);TFLN年底產能2k明年10k後年40k;interposer+SiPho",
+    "tp": null,
+    "eps_est": {
+      "2026": "6",
+      "2027": "8-9"
+    },
+    "catalysts": [
+      "cowos案",
+      "毛利率回升",
+      "TFLN放量",
+      "明年漲價"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "被動元件/MLCC",
+    "quote": "鴻海的朋友說今天突然又收到國巨第四季要漲價100%,謝董說是要漲200%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Q4漲價"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "3455",
+    "name": "由田",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體檢測設備",
+    "quote": "由田update:7月差一台南茂不然營收更高,8月起每月站穩2E;LCD單已不接產能全給半導體/PCB(LCD<5%);OSAT黃光拿10幾億訂單,群創五廠、矽品+日月光狀況好,今年半導體營收YoY+100%;NV/AMD/Marvell黃光機台都有出;台積NTSC機台搬進2周for前段foundry對標倍利柯ASP60萬美元,若過2Q27開始出;2027半導體成長50%目標(2026 ABF capex YoY+90%),載板AVI市佔第一(景碩100%、南電100%、欣興50%);4Q26出COPOS給力成;CPO 6面檢for OSAT,11月日月光發布後才對外說;半導體+載板營收佔比>80%,2026毛利率目標維持55%以上,2H26毛利率55-60%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "半導體營收YoY+100%",
+      "載板AVI市佔第一",
+      "CPO 6面檢 for OSAT",
+      "台積NTSC 2Q27出貨"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "5434",
+    "name": "崇越",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓通路",
+    "quote": "崇越法說:矽晶圓市場熱絡客戶積極搶貨,全球晶圓需求旺盛,先進晶圓代工廠與記憶體廠稼動率平均達95-100%處高檔,出貨價格持續依LTA進度調整",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "矽晶圓供需吃緊",
+      "LTA調價"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   }
 ]

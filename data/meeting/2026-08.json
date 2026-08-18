@@ -13105,6 +13105,30 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-13",
+    "source_type": "meeting",
+    "source_page": "20260813_台光電",
+    "speaker": null,
+    "host": "台光電法說",
+    "sector": "CCL",
+    "quote": "2025 CCL總市佔16.2%全球第一,高速材料市佔38.6%;載板材料切入5年市佔1.6%,Q3若過認證Q4出貨,明年產能120萬張;M7以上佔比55-60%(2Q 60-65%),下半年65-70%;M9上半年低個位數下半年中個位數,M10送驗,每升一級毛利+3-5ppt;下游PCB擴產快於CCL,短缺至少1-2年;Q3有機會季增20%,Q4>Q3;2027 M7以上70-80%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "載板材料Q4出貨明年產能翻倍",
+      "M9明年雙位數營收貢獻",
+      "高階材料佔比續升"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "2455",
     "name": "全新",
     "date": "2026-08-13",
@@ -14657,6 +14681,30 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-08-14",
+    "source_type": "meeting",
+    "source_page": "20260814_精材",
+    "speaker": null,
+    "host": "精材法說",
+    "sector": "晶圓級封測/CIS",
+    "quote": "2Q26營收21.85億QoQ+14.2%YoY+42.2%,EPS1.46,毛利率27.7%(-2ppt,測試稼動率僅持平+夏季電價+3D感測-20%);測試服務占62%QoQ+25%YoY+103%;無塵室2Q底完工8月底進機完畢;2H26>1H26、全年>去年、2027>2026;12吋Q3底擴至月2000片;12吋IVR晶背銅加工年底完成認證、年底至明年初試量產、2H27放量,有機會成12吋主要貢獻;澄清非晶背供電,對台積OSAT外包傳言不評論",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "測試服務YoY+103%",
+      "12吋IVR晶背銅2H27放量",
+      "8吋光感測新專案量產"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3443",
     "name": "創意",
     "date": "2026-08-14",
@@ -14745,6 +14793,31 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-08-14",
+    "source_type": "meeting",
+    "source_page": "20260814_世芯",
+    "speaker": null,
+    "host": "世芯法說",
+    "sector": "ASIC設計",
+    "quote": "2Q26營收2.42億美元QoQ+82.6%,EPS20.0,毛利率34.8%(量產占比升);N3 AI加速器6月進量產QoQ營收增逾80%、production營收創歷史新高,次世代年底tape-out;3Q營收獲利創高、4Q再環比增,動能延續3-4年;全年blended GM約low-to-mid twenties,規模到位目標OPM high teens;有信心近期再拿一家hyperscaler CSP;N2定價遠貴於N3、出貨量亦更高,規模可能落在800-1000億美元SAM區間;ARM CPU兩專案量產受惠全球CPU短缺",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "N3量產3Q放量",
+      "次世代N2年底tape-out明年底量產",
+      "新增hyperscaler CSP客戶",
+      "COT模式趨勢"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "4931",
@@ -15141,6 +15214,30 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-08-14",
+    "source_type": "meeting",
+    "source_page": "20260814_尖點",
+    "speaker": null,
+    "host": "尖點法說",
+    "sector": "PCB鑽針",
+    "quote": "2Q26毛利率41.8%(+5.2ppt)、營益率28.1%(+8.0ppt),量價齊揚;高階鍍膜產品1H26占比升至56%(2025:48%);鑽針月產能2026底4500萬支→2027底7000萬→2028底9000萬,新增以高階為主(Q3/Q4釋出更明顯);應用HLC高層板40%/傳統+HDI 35%/ABF載板25%;縱橫比往30-40-50倍以上,ASP大幅調升;鎢粉上漲上半年已完成一波漲價,下半年暫不全面漲改優化;TGV玻璃基板估2030後才普及、中短期影響有限;Q3逐月提升逐季上升",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "高階鍍膜佔比升ASP",
+      "高縱橫比鑽針需求",
+      "產能2027-2028翻倍"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "8046",
     "name": "南電",
     "date": "2026-08-14",
@@ -15385,6 +15482,30 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "2345",
+    "name": "智邦",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Aaron哥",
+    "host": "駿羽",
+    "sector": "網通",
+    "quote": "到昨天營收接近250,第三季缺料問題不會解決,但第四季會把少做的補回來,第四季單月營收有機會500E以上,明年110-120,長線不錯",
+    "tp": null,
+    "eps_est": {
+      "2027": "110-120"
+    },
+    "catalysts": [
+      "Q4單月營收上看500E"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "2368",
     "name": "金像電",
     "date": "2026-08-17",
@@ -15443,6 +15564,26 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Aaron哥",
+    "host": "駿羽",
+    "sector": "CCL",
+    "quote": "明年280,整個CCL族群評價來看比較喜歡台耀、聯茂",
+    "tp": "280",
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "2454",
@@ -15528,6 +15669,29 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "2455",
+    "name": "全新",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Andy哥",
+    "host": "駿羽",
+    "sector": "化合物半導體/光通訊",
+    "quote": "這禮拜很多外資論壇,有接到lite CW代工單,想像空間大,未來光通訊單月3-4E以上;記憶體樂觀,美光9-10月有機會創新高",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "lite CW代工單",
+      "光通訊單月3-4E"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "2467",
     "name": "志聖",
     "date": "2026-08-17",
@@ -15551,6 +15715,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "2467",
+    "name": "志聖",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Surf哥",
+    "host": "駿羽",
+    "sector": "ABF壓模設備",
+    "quote": "明年ABF需求大,缺壓模機首選長廣;志聖樣機出給TOPPAN跟三星,南電、臻鼎在談,長廣交期長,志聖有滿大機率取得一定份額",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "ABF壓模機樣機給TOPPAN/三星"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3017",
     "name": "奇鋐",
     "date": "2026-08-17",
@@ -15571,6 +15757,28 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "jerry哥",
+    "host": "駿羽",
+    "sector": "散熱",
+    "quote": "長期看好,明年市場抓150,之後CP規格提升ASP再往上走",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "CP規格提升ASP"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "3037",
@@ -15682,6 +15890,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "布哥",
+    "host": "駿羽",
+    "sector": "ABF載板",
+    "quote": "EMIB會一直gain share,cowos ABF良率要99%以上,EMIB量大ABF會越來越缺,主要是ibiden跟欣興,但會排擠其他ABF產能",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "EMIB放量ABF缺"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3081",
     "name": "聯亞",
     "date": "2026-08-17",
@@ -15704,6 +15934,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3081",
+    "name": "聯亞",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "布哥",
+    "host": "駿羽",
+    "sector": "光通訊/雷射",
+    "quote": "lite在台灣有兩間供應商,全新、聯亞(間接受惠,出給cloudlight)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "lite間接供應"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3167",
     "name": "大量",
     "date": "2026-08-17",
@@ -15722,6 +15974,29 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3167",
+    "name": "大量",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Sean",
+    "host": "駿羽",
+    "sector": "機器人/自動化",
+    "quote": "後天會有泰國論壇,8月general產能到400台,年底協力廠商往50台增加,之後會正向對外資講;被動相對落後,電阻相關有在看",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "泰國論壇",
+      "產能爬升"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "3189",
@@ -15953,6 +16228,79 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "峰哥",
+    "host": "駿羽",
+    "sector": "ASIC設計",
+    "quote": "營收2000E以上,600萬顆CPU配600-1200萬顆發哥TPU,信驊wafer明年45000片,EPS 200-220,要長期持有;機器人用AI5晶片年底前出60k,組1-3萬台",
+    "tp": null,
+    "eps_est": {
+      "2026": "200-220"
+    },
+    "catalysts": [
+      "TPU/CPU投片放大",
+      "信驊wafer明年4.5萬片",
+      "機器人AI5晶片"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "布哥",
+    "host": "駿羽",
+    "sector": "ASIC設計",
+    "quote": "以CPU來看arm base在server會過50%,台灣只有創意可以看;高價股散戶不買,覺得還會rerate一次,籌碼乾淨",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "arm server CPU"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "永哥",
+    "host": "駿羽",
+    "sector": "ASIC設計",
+    "quote": "周末有人從台積電那邊確認投片增加,N3 16-18萬片、N5 7-8萬片(應有8萬片以上),明年營收有機會碰到3000E,EPS 220-250之間",
+    "tp": null,
+    "eps_est": {
+      "2027": "220-250"
+    },
+    "catalysts": [
+      "台積投片N3 16-18萬片/N5 8萬片",
+      "明年營收上看3000E"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3455",
     "name": "由田",
     "date": "2026-08-17",
@@ -15997,6 +16345,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3455",
+    "name": "由田",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "jerry哥",
+    "host": "駿羽",
+    "sector": "半導體檢測設備",
+    "quote": "營收從第四季開始明顯貢獻,到3Q27訂單貢獻EPS 15-20塊,做RDL檢測設備,有回可以考慮",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "RDL檢測設備Q4貢獻"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3491",
     "name": "昇達科",
     "date": "2026-08-17",
@@ -16037,6 +16407,26 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "3583",
+    "name": "辛耘",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Amy",
+    "host": "駿羽",
+    "sector": "半導體設備",
+    "quote": "半導體設備8-9月開始認(洪騰、萬潤、辛耘)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "3653",
     "name": "健策",
     "date": "2026-08-17",
@@ -16060,6 +16450,32 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "jerry哥",
+    "host": "駿羽",
+    "sector": "均熱片/散熱",
+    "quote": "投信今天買,7月自結回推毛利率49-50%,8月營收比7月好,第三季EPS 23塊以上(原報告抓20);明年三片式均熱片用在rubin ultra單價200以上,市場抓明年EPS 120-130但應超過150;永哥補充Spectrum CPO均熱片改ASP較高、良率改善,Q4量上來",
+    "tp": null,
+    "eps_est": {
+      "2026": ">150"
+    },
+    "catalysts": [
+      "三片式均熱片rubin ultra",
+      "Q3 EPS 23+",
+      "Spectrum CPO均熱片ASP升"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "3665",
@@ -16202,6 +16618,26 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "6187",
+    "name": "萬潤",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Amy",
+    "host": "駿羽",
+    "sector": "半導體設備",
+    "quote": "半導體設備8-9月開始認(洪騰、萬潤、辛耘)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "6213",
     "name": "聯茂",
     "date": "2026-08-17",
@@ -16308,6 +16744,52 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "6213",
+    "name": "聯茂",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Aaron哥",
+    "host": "駿羽",
+    "sector": "CCL",
+    "quote": "第三季7塊,明年30幾塊起跳",
+    "tp": null,
+    "eps_est": {
+      "2027": "30+"
+    },
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "6213",
+    "name": "聯茂",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Corrine",
+    "host": "駿羽",
+    "sector": "CCL",
+    "quote": "明年獲利上修,第四季毛利率30-35%,一季度可以賺10塊,明年EPS 40塊起跳,M6以上明年比重40%以上",
+    "tp": null,
+    "eps_est": {
+      "2027": "40+"
+    },
+    "catalysts": [
+      "M6以上比重40%+"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   },
   {
     "code": "6223",
@@ -16514,6 +16996,28 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Amy",
+    "host": "駿羽",
+    "sector": "伺服器",
+    "quote": "AWS相關營收會慢慢跟上,有專家說他確定拿到TPU;半導體設備3455由田Q4營收開出,洪騰、萬潤、辛耘8-9月開始認",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS TPU"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "6727",
     "name": "亞泰金屬",
     "date": "2026-08-17",
@@ -16688,6 +17192,30 @@
     "parsed_at": "2026-08-17T23:40:32"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-17",
+    "source_type": "meeting",
+    "source_page": "20260817_駿羽",
+    "speaker": "Surf哥",
+    "host": "駿羽",
+    "sector": "PTFE/CCL",
+    "quote": "NV 2028要求調高非中PCB比重,PTFE題材持續;現四家全部用生益CCL+台虹PP,深南測試ok要進第二階段大批量試作,9月會有樣品產出;台虹跟台光合作較密切但台光中間加玻纖布第一階測不好,台虹改配方要重送",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "NV提高非中PCB比重",
+      "9月PTFE樣品",
+      "深南第二階段大批量試作"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
     "code": "8046",
     "name": "南電",
     "date": "2026-08-17",
@@ -16726,5 +17254,50 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-17T23:40:32"
+  },
+  {
+    "code": "3450",
+    "name": "聯鈞",
+    "date": "2026-08-18",
+    "source_type": "meeting",
+    "source_page": "20260818_聯鈞",
+    "speaker": null,
+    "host": "聯鈞法說",
+    "sector": "CPO光通訊/光模組",
+    "quote": "2Q26營收29.76億QoQ+42.6%、毛利率32%QoQ+6ppts;COSA稼動90-95%全球領先,與Coherent共同開發EML/CW雷射(70-400mW);ELSFP支援CPO/NPO,單一CPO模組需18顆外部光源,仍共同開發小量試產;AOC稼動約70%持續爬升,未來切入800G;Hi power雷射幾近獨家供應,Q4起小量出貨、價格較一般貴30%;將發約30億CB用於CapEx(2026F 16億)及償還借款;新增日本客戶Sumitomo",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "ELSFP CPO外部光源18顆/模組",
+      "COSA產能2024-2026逐年倍增",
+      "800G AOC放量",
+      "Hi power雷射近獨家Q4小量出"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "6525",
+    "name": "捷敏-KY",
+    "date": "2026-08-18",
+    "source_type": "meeting",
+    "source_page": "20260818_聯鈞",
+    "speaker": null,
+    "host": "聯鈞法說",
+    "sector": "功率半導體封測",
+    "quote": "聯鈞子公司,功率元件模組封測,2Q26毛利近30%,營收持續成長但占比因光通訊成長更快而下滑",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-18T20:23:23"
   }
 ]
