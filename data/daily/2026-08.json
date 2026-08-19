@@ -5848,6 +5848,26 @@
     "parsed_at": "2026-08-18T20:23:23"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-17",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "PCB材料",
+    "quote": "百億大戶:CANON 說8039目標先看600 Canon是黃嘉能 長華的前董事長 長華也是台虹8%大股東",
+    "tp": "600",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
     "code": "2303",
     "name": "聯電",
     "date": "2026-08-18",
@@ -5876,6 +5896,49 @@
     "parsed_at": "2026-08-18T20:23:23"
   },
   {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "聯電 有cow的案子最近會公告 今年第三季毛利率會上35第四季40明年穩穩40 明年營收20-25% yoy，不含漲價幅度，但明年會漲價 今年本業6明年8-9，不含業外 TFLN年底產能2k明年10k後年40k interposer + SiPho",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "TFLN矽光子產能擴充",
+      "明年營收+20-25%且將漲價"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "2317",
+    "name": "鴻海",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "",
+    "quote": "鴻海的朋友跟我說 今天突然又收到國巨第四季要漲價100%，謝董說是要漲200%",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
     "code": "2327",
     "name": "國巨*",
     "date": "2026-08-18",
@@ -5896,6 +5959,136 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "被動元件",
+    "quote": "鴻海的朋友跟我說 今天突然又收到國巨第四季要漲價100%，謝董說是要漲200%",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "Q4大幅漲價100-200%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "台積NTSC，目前機台已搬進2周，用在前段foundry，for autoOM，對標7822倍利柯，asp 60萬美元，抓2季後會開始出，如果有過，2Q27開始出",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "NTSC設備2Q27開始出貨"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "峰哥",
+    "host": null,
+    "sector": "IC設計",
+    "quote": "MTK採購炒完股票了!?",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "載板",
+    "quote": "F資本支出YOY 90%，ABF載板AVI市佔第一，景碩100%、南電100%、欣興50%(50%牧德)、AT&S出部分",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "ABF載板AVI市占"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "峰哥",
+    "host": null,
+    "sector": "IC設計/ASIC",
+    "quote": "3443有AWS inference 3nm，不知道會不會量產",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "AWS inference 3nm potential"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "IC設計/ASIC",
+    "quote": "這個也是GUC的案子 地平線新晶片J7對標Tesla AI5 2027年量產攻高階智駕",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "地平線J7 2027量產案"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
   },
   {
     "code": "3455",
@@ -5923,6 +6116,28 @@
     "parsed_at": "2026-08-18T20:23:23"
   },
   {
+    "code": "3711",
+    "name": "日月光投控",
+    "date": "2026-08-18",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "封測",
+    "quote": "半導體集中火力，OSAT 黃光就拿了10幾億訂單，後面還有群創五廠、矽品+日月光狀況就很好，今年半導體營收YOY+100% UP目標不變",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "半導體黃光機台訂單暢旺"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
     "code": "5434",
     "name": "崇越",
     "date": "2026-08-18",
@@ -5944,5 +6159,96 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-18T20:23:23"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-08-19",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "PCB材料/CCL",
+    "quote": "6274好像又雷了 Tn4第一波驗證沒過 但6274並沒有被disqualify 目前是台光跟斗山過 公司目前對下次驗證還是有信心 但要等到1Q27才知道第二次驗證結果",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "Tn4驗證延至1Q27"
+    ],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-19",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "PCB材料/CCL",
+    "quote": "目前以 Nvidia roadmap 來看，Kyber 機櫃架構已正式確定延期，不會在 Rubin Ultra 導入...台光電已正式與台虹簽訂 PTFE 供應合作，由台虹出貨 PTFE 材料，再交由台光電加工，終端產品將會用於 Rubin Ultra NVL 576 架構的 switch tray，採用 M9+PTFE 交錯混層的形式。Rubin Ultra 新的 NVL 576 架構，switch tray 由先前的 9 層倍增至 18 層...台虹當前 PTFE 產能約 15k sheet/月，計劃在明年第二季擴充 10x 產能至 150k sheet/月，當前台虹的 PTFE 報價為 400 USD/sheet，整體毛利率高達 60%-70%，可推估僅全新的 PTFE 產品需求即可貢獻台虹全年 EPS 40-42 元",
+    "tp": "",
+    "eps_est": {
+      "2026": "40-42"
+    },
+    "catalysts": [
+      "Rubin Ultra NVL576 switch tray PTFE導入",
+      "PTFE產能明年Q2擴10倍至150k sheet/月"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-19",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "PCB材料/CCL",
+    "quote": "8039（今天8039財務長跟8069開會）1. 目前三種Solution (1)生益PTFE+生益PP，已走到module驗證。(2)生益PTFE+台虹PP，目前在Vehicle驗證。(3)台虹PTFE+台虹PP，目前在Vehicle驗證。2. module驗證過後，PCB板才會開始大量使用，module test大概3000小時以上。3. 台光有找台虹合作。4. 總需求一年大概200-300萬片/月 5. PTFE CCL上線後大概還可以用3-5年，才會進階到玻璃基板。6. NV的策略是至少有兩家供應商，目前只有生益跟台虹。",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "NV要求至少兩家PTFE供應商(生益/台虹)"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-19",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "PCB材料",
+    "quote": "東岳是PTFE顆粒 產能都被生益包走 台虹都是跟日本拿 台虹是PTFE膜 跟生益是競爭對手 同時也是生益的PP供應商 然後生益現在給深南電路驗30層跟給滬電驗 8039現在深南 景旺 滬電 欣興 四家驗",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "深南/景旺/滬電/欣興四家客戶驗證中"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-19T23:50:41"
   }
 ]
