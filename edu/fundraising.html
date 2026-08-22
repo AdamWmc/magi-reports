@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>公司怎麼跟市場要錢 — MAGI 學堂</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--cyan:#0891b2;
+  --up:#dc2626;--dn:#16a34a;--warn:#d97706;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--warn-bg:rgba(217,119,6,.08);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--warn-bd:rgba(217,119,6,.25);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2);
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--cyan:#22d3ee;
+  --up:#e05252;--dn:#2ec27a;--warn:#f0a44b;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--warn-bg:rgba(240,164,75,.1);
+  --up-bd:rgba(224,82,82,.24);--dn-bd:rgba(46,194,122,.24);--warn-bd:rgba(240,164,75,.28);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3);
+}}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--cyan:#0891b2;--up:#dc2626;--dn:#16a34a;--warn:#d97706;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--warn-bg:rgba(217,119,6,.08);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--warn-bd:rgba(217,119,6,.25);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--cyan:#22d3ee;--up:#e05252;--dn:#2ec27a;--warn:#f0a44b;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--warn-bg:rgba(240,164,75,.1);--up-bd:rgba(224,82,82,.24);--dn-bd:rgba(46,194,122,.24);--warn-bd:rgba(240,164,75,.28);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3)}
+
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;
+  min-height:100vh;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;line-height:1.6}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;position:sticky;top:0;z-index:100;
+  background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px;text-decoration:none}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent2)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+@media(max-width:600px){.nav-links{display:none}}
+
+/* ---- Head ---- */
+.head{position:relative;overflow:hidden;padding:56px 40px 26px;max-width:820px;margin:0 auto}
+.head::before{content:'';position:absolute;top:-80px;left:8%;width:520px;height:340px;
+  background:radial-gradient(ellipse at 40% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:18px}
+.crumb a{color:var(--accent2);text-decoration:none}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:700;font-family:var(--mono)}
+.head h1{font-size:clamp(27px,5vw,38px);font-weight:850;letter-spacing:-.02em;color:var(--bright);margin:.3em 0 .35em;text-wrap:balance;line-height:1.2}
+.head .sub{color:var(--text2);font-size:16px;max-width:60ch;line-height:1.75}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.meta .m{font-size:11px;font-weight:700;font-family:var(--mono);padding:3px 10px;border-radius:6px;background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
+
+.wrap{max-width:820px;margin:0 auto;padding:8px 40px 70px}
+
+/* ---- Section ---- */
+.sec{margin-top:44px}
+.sec-head{display:flex;align-items:center;gap:11px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);position:relative}
+.sec-head::after{content:'';position:absolute;left:0;bottom:-1px;width:66px;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan))}
+.sec-no{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent2);background:var(--glow);border:1px solid var(--border);padding:2px 8px;clip-path:polygon(0 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%)}
+.sec-h{font-size:21px;font-weight:800;color:var(--bright);letter-spacing:-.01em}
+.sec p{color:var(--text2);font-size:15px;line-height:1.8;margin:12px 0}
+.sec p strong{color:var(--bright);font-weight:700}
+.sec .lead{font-size:16.5px;color:var(--text);line-height:1.85}
+
+/* ---- Callout (誤解 / 重點) ---- */
+.callout{background:var(--warn-bg);border:1px solid var(--warn-bd);border-radius:12px;padding:16px 18px;margin:18px 0;font-size:14.5px;line-height:1.75}
+.callout .lbl{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);font-family:var(--mono);display:block;margin-bottom:6px}
+.callout.key{background:color-mix(in srgb,var(--accent2) 8%,transparent);border-color:color-mix(in srgb,var(--accent2) 26%,transparent)}
+.callout.key .lbl{color:var(--accent2)}
+.callout strong{color:var(--bright)}
+
+/* ---- Taxonomy table ---- */
+.ttable{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.ttable th{background:var(--bg3);color:var(--muted);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:10px 13px;border-bottom:1px solid var(--border)}
+.ttable td{padding:12px 13px;border-bottom:1px solid var(--border2);color:var(--text2);vertical-align:top;line-height:1.65}
+.ttable tr:last-child td{border-bottom:none}
+.ttable td:first-child{color:var(--bright);font-weight:700;white-space:nowrap}
+.ttable .yes{color:var(--dn);font-weight:800;font-family:var(--mono)}
+.ttable .no{color:var(--up);font-weight:800;font-family:var(--mono)}
+.ttable .wrap-td{overflow-x:auto}
+@media(max-width:600px){.ttable{display:block;overflow-x:auto;white-space:nowrap}}
+
+/* ---- Case cards ---- */
+.case{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin:18px 0;position:relative;overflow:hidden}
+.case::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cc,var(--accent2))}
+.case-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.case-code{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--cc,var(--accent2));background:color-mix(in srgb,var(--cc,var(--accent2)) 12%,transparent);border:1px solid color-mix(in srgb,var(--cc,var(--accent2)) 26%,transparent);padding:2px 9px;border-radius:6px}
+.case-name{font-size:19px;font-weight:800;color:var(--bright)}
+.case-type{font-size:11px;font-weight:700;font-family:var(--mono);letter-spacing:.05em;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:2px 9px;border-radius:6px;margin-left:auto}
+.case h3{font-size:14.5px;color:var(--text2);font-weight:600;margin:2px 0 12px}
+.case p{font-size:14px;color:var(--text2);line-height:1.78;margin:10px 0}
+.case p strong{color:var(--bright)}
+.mech{display:flex;gap:0;margin:14px 0;flex-wrap:wrap;align-items:stretch}
+.mech .step{flex:1;min-width:120px;background:var(--bg3);border:1px solid var(--border2);border-radius:9px;padding:11px 13px;margin:4px}
+.mech .step .n{font-family:var(--mono);font-size:10px;font-weight:800;color:var(--accent2);letter-spacing:.1em}
+.mech .step .t{font-size:13px;color:var(--text);font-weight:600;margin-top:3px;line-height:1.5}
+.mech .step .d{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+
+/* ---- 智囊語錄 ---- */
+.quote{background:var(--bg3);border-left:3px solid var(--accent2);border-radius:0 9px 9px 0;padding:12px 16px;margin:14px 0;font-size:13.5px;color:var(--text2);font-style:italic;line-height:1.75}
+.quote .who{display:block;font-style:normal;font-size:11px;font-weight:700;font-family:var(--mono);color:var(--accent2);margin-top:8px;letter-spacing:.03em}
+
+/* ---- Formula / 數字 ---- */
+.formula{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:16px 0;font-family:var(--mono);font-size:13px;line-height:2;color:var(--text)}
+.formula .hl{color:var(--dn);font-weight:800}
+.formula .dim{color:var(--muted)}
+.formula .sep{display:block;border-top:1px dashed var(--border);margin:6px 0}
+.formula .lbl{color:var(--muted);font-size:11px}
+
+/* ---- Steps checklist ---- */
+.steps{list-style:none;counter-reset:s;margin:16px 0;padding:0}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 46px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-bottom:9px;font-size:14px;color:var(--text2);line-height:1.7}
+.steps li::before{content:counter(s);position:absolute;left:13px;top:12px;width:22px;height:22px;border-radius:6px;background:var(--glow);border:1px solid color-mix(in srgb,var(--accent2) 30%,transparent);color:var(--accent2);font-family:var(--mono);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
+.steps li strong{color:var(--bright)}
+
+/* ---- Disclaimer ---- */
+.disc{margin-top:36px;padding:14px 16px;background:var(--bg2);border:1px dashed var(--border);border-radius:10px;font-size:12px;color:var(--muted);line-height:1.7}
+
+footer{max-width:820px;margin:0 auto;padding:22px 40px 48px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);line-height:1.7}
+footer a{color:var(--accent2);text-decoration:none}
+@media(max-width:600px){.head,.wrap,footer{padding-left:20px;padding-right:20px}nav{padding:14px 20px}}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/">首頁</a>
+      <a href="/archive.html">報告庫</a>
+      <a href="/search.html">知識庫</a>
+      <a href="/industry.html">產業地圖</a>
+      <a href="/edu.html" class="active">學堂</a>
+    </div>
+    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="head">
+  <div class="crumb"><a href="/edu.html">MAGI 學堂</a> &nbsp;/&nbsp; 籌資概念</div>
+  <div class="eyebrow">Concept · 新手教學</div>
+  <h1>公司怎麼跟市場要錢？<br>現增 · 私募 · 可轉債，三種籌資拆給你看</h1>
+  <p class="sub">「上市籌到 4000 億」「增資發股票」「定價 135」——這些話你常聽到，但公司到底真正拿到多少錢？用聯電、尖點、台虹三個<strong>正在發生</strong>的真實案例，把三種籌資方式一次講清楚。</p>
+  <div class="meta">
+    <span class="m">難度 · 入門</span>
+    <span class="m">閱讀 · 8 分鐘</span>
+    <span class="m">案例 · 2303 / 8021 / 8039</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- 00 核心誤解 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">00</span><span class="sec-h">先破除一個最大的誤解</span></div>
+    <p class="lead">很多人看到「某公司估值 4000 億上市」，直覺是「這間公司籌到 4000 億」。<strong>這錯得離譜。</strong></p>
+    <p>「估值」是「全部股本 × 每股價格」的紙面總市值。但上市／增資<strong>不會把整間公司賣掉</strong>，只釋出一小塊股票，通常是股本的 10～20%。真正有現金交割的只有這一小塊——其餘 80% 以上的股票還鎖在原股東手裡，只是被市場「重新估價」讓他們帳面變富，沒有一毛落袋。</p>
+    <div class="callout key">
+      <span class="lbl">一句話心法</span>
+      <strong>市值是「市場願意用什麼價格重估你」，公司實際入袋的，只有「新發行那一小塊 × 發行價 − 費用」。</strong> 剩下的熱鬧，都是原股東的紙面財富與變現機會。
+    </div>
+  </div>
+
+  <!-- 01 三種籌資 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">01</span><span class="sec-h">「增資＝發股票」對，但「發股票＝拿到錢」不一定</span></div>
+    <p>增資（擴大股本）分好幾種，只有其中兩種<strong>真的把外面的現金拿進公司</strong>。這是理解一切的起點：</p>
+    <table class="ttable">
+      <thead><tr><th>類型</th><th>做什麼</th><th>公司拿到現金？</th><th>稀釋股本？</th></tr></thead>
+      <tbody>
+        <tr><td>現金增資<br><span style="font-weight:400;color:var(--muted);font-size:12px">（現增 / SPO）</span></td><td>發「新股」向市場或原股東換現金</td><td><span class="yes">✓ 進公司</span></td><td>✓</td></tr>
+        <tr><td>私募增資</td><td>發新股，但只賣給<strong>特定人</strong>（策略股東 / 大股東）</td><td><span class="yes">✓ 進公司</span></td><td>✓</td></tr>
+        <tr><td>盈餘 / 公積<br>轉增資<br><span style="font-weight:400;color:var(--muted);font-size:12px">（配股票股利）</span></td><td>把保留盈餘、資本公積轉成股本，發股票給股東</td><td><span class="no">✗ 一毛沒進</span></td><td>✓（純稀釋）</td></tr>
+        <tr><td>可轉債<br><span style="font-weight:400;color:var(--muted);font-size:12px">（CB / ECB）</span></td><td>先發債「借」現金，未來債主可選擇轉成股票</td><td><span class="yes">✓ 借到現金</span></td><td>轉股時才稀釋</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <span class="lbl">最常被誤會的一種</span>
+      <strong>盈餘轉增資（配股票股利）</strong>：公司發一堆股票給你，股本變大、看起來「增資」了，但那是<strong>會計科目左手換右手</strong>——把口袋裡的盈餘變成股本，公司沒從外面拿到任何新錢，每股價值反而被稀釋。真正「發股票籌到錢」的只有<strong>現增</strong>和<strong>私募</strong>。
+    </div>
+  </div>
+
+  <!-- 02 CASE 聯電 ECB -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">02</span><span class="sec-h">案例一 · 可轉債（ECB）＝先借後轉</span></div>
+    <div class="case" style="--cc:#0891b2">
+      <div class="case-top">
+        <span class="case-code">2303</span>
+        <span class="case-name">聯電</span>
+        <span class="case-type">ECB · 海外可轉債</span>
+      </div>
+      <h3>「募到錢、但當下先不稀釋」的折衷工具</h3>
+      <p>ECB＝海外可轉換公司債。它<strong>不是馬上發股票</strong>，順序是：公司先發債借到現金 → 未來債主可以「選擇」把債轉成股票。</p>
+      <div class="mech">
+        <div class="step"><div class="n">STEP 1 · 發行當下</div><div class="t">拿到借款本金</div><div class="d">現金進帳，當下不發新股、不稀釋</div></div>
+        <div class="step"><div class="n">STEP 2 · 未來轉股</div><div class="t">債換成新股</div><div class="d">股價漲過「轉換價」，債主才會轉，這時才稀釋</div></div>
+      </div>
+      <p><strong>轉換價</strong>通常設在市價的<strong>溢價</strong>（例如當時市價 × 1.1）——股價要漲上去，債主轉股才划算。好處是「募到錢又暫不稀釋」，代價是未來股價走強時會被轉股。</p>
+      <div class="quote">
+        「2303 聯電⋯⋯下週 or 最近會再宣布 <strong>ECB</strong>，主要用於<strong>先進封裝＋先進製程</strong>。AI 回測過去 3 年，ECB 發行在 500 億以上多數是好的，少數像緯穎的股價表現是差的。」
+        <span class="who">— 樂林開會・龍｜2026-08-21（智囊知識庫）</span>
+      </div>
+      <p style="font-size:13px;color:var(--muted)">💡 延伸：龍同場還提到聯電的「業外」玄機——旗下兩間投資公司持有 50 多萬張聯電自家股票，股價每變動 10 元、就影響 EPS 約 0.7 元。這是另一個「帳面 vs 實質」的例子：業外損益隨股價浮動，跟本業賺不賺錢是兩回事。</p>
+    </div>
+  </div>
+
+  <!-- 03 CASE 尖點 私募 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">03</span><span class="sec-h">案例二 · 策略私募＝募的不只是錢，是「關係」</span></div>
+    <div class="case" style="--cc:#7c3aed">
+      <div class="case-top">
+        <span class="case-code">8021</span>
+        <span class="case-name">尖點</span>
+        <span class="case-type">私募 · 策略投資人</span>
+      </div>
+      <h3>把下游龍頭綁成股東兼客戶</h3>
+      <p>私募＝發新股，但<strong>只賣給特定對象</strong>，不公開對散戶。錢一樣進公司，但重點常常不是錢本身，而是<strong>把誰拉進來當股東</strong>。</p>
+      <p>法規對私募有<strong>價格下限</strong>：私募普通股認購價<strong>不得低於「定價日前一段期間均價的 80%」</strong>——這是為了防止大股東用超低價偷塞股票給自己人。</p>
+      <div class="quote">
+        「尖點高階鍍膜鑽針報價是傳統白針的 3～16 倍、毛利率 &gt;50%⋯⋯<strong>金像電、欣興、臻鼎三大龍頭廠親自參與私募籌資</strong>。目前公司評價顯著低於國際同業（PE 30～50X）。」
+        <span class="who">— 小作文｜2026-08-21（智囊知識庫）</span>
+      </div>
+      <p>看懂沒有？金像電、欣興、臻鼎是台灣 PCB 三大龍頭，也是尖點鑽針的<strong>下游客戶</strong>。它們掏錢參與私募，等於「用股權把料源綁住」——這種私募的訊號價值，遠大於募到的那筆現金，因為它間接證明<strong>大客戶對未來需求有把握、願意上車</strong>。</p>
+    </div>
+  </div>
+
+  <!-- 04 CASE 台虹 私募擴產 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">04</span><span class="sec-h">案例三 · 為了擴產去籌資＝進攻型募資</span></div>
+    <div class="case" style="--cc:#dc2626">
+      <div class="case-top">
+        <span class="case-code">8039</span>
+        <span class="case-name">台虹</span>
+        <span class="case-type">私募 / 增資 · 買設備</span>
+      </div>
+      <h3>大股東主導、為新產品線 all-in</h3>
+      <p>當一家公司看到一個大到「產能不夠」的新機會，會去籌資買設備、擴產。這種籌資的用途是<strong>擴張</strong>，不是補洞——市場通常會給比較正面的解讀（前提是那個需求是真的）。</p>
+      <div class="quote">
+        「元太董事長說要把 OU 跟 RD 調去支援台虹⋯⋯他覺得<strong>設備現在就該全買下來</strong>⋯⋯要台虹開一個董事會，過一個<strong>投資設備的 BOD</strong>，之後<strong>發重訊</strong>，九月初會開。」
+        <span class="who">— 每日廢想法（轉述元太董座）｜2026-08-21（智囊知識庫）</span>
+      </div>
+      <p>台虹的 PTFE 新材料切入 NVIDIA 下一代 switch tray／正交背板，大股東元太主導設備投資、要開董事會過案子。<strong>「發重訊」</strong>就是關鍵——重大的投資／籌資案依規定要對外公告，這也是散戶第一時間能看到真實數字（發行張數、定價、募資金額、用途）的地方。</p>
+      <div class="callout">
+        <span class="lbl">為什麼「用途」很重要</span>
+        同樣是籌資，<strong>擴產（台虹買設備）、先進製程（聯電 ECB）＝進攻</strong>；如果是<strong>還債、補營運虧損＝補血</strong>，訊號完全相反。看到籌資新聞，先問「這筆錢拿去幹嘛」。
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 定價 vs 到手 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">05</span><span class="sec-h">「定價 135」到底代表什麼？公司拿到多少？</span></div>
+    <p><strong>定價（承銷價 / 認購價）</strong>是認購的人每股用多少錢跟公司買，掛牌<strong>前</strong>由承銷商透過「詢價圈購」跟法人問出來。它<strong>不是</strong>掛牌後的市價——掛牌後價格就交給市場決定，跟定價脫鉤了。</p>
+    <p>你的直覺「135 × 發行股數 = 公司拿到的錢」方向對，但漏了<strong>三個漏水點</strong>：</p>
+    <div class="formula">
+      <span class="lbl">// 假設：訂價基準日均價 150 × 9 折 = 認購價 135，發行新股 2,000 萬股</span><br>
+      毛募資　135 × 2,000萬 <span class="dim">＝</span> <span class="hl">27 億</span> <span class="dim">← 帳面「募到 27 億」</span><br>
+      扣承銷 / 簽證 / 規費（抓 2–3%）<span class="dim">約 −0.7 億</span>
+      <span class="sep"></span>
+      淨募資（實際進公司帳）<span class="dim">≈</span> <span class="hl">26.3 億</span> <span class="dim">← 這才是真正到手</span>
+    </div>
+    <table class="ttable">
+      <thead><tr><th>漏水點</th><th>意思</th></tr></thead>
+      <tbody>
+        <tr><td>① 老股不算</td><td>發行股數裡若有「老股」（原股東拿出來賣），那部分錢進<strong>股東個人口袋</strong>，公司拿不到。只有「新股（primary）」的錢進公司。</td></tr>
+        <tr><td>② 扣費用</td><td>要扣承銷商佣金、上市規費、律師會計費。<strong>淨額永遠 &lt; 毛額</strong>。</td></tr>
+        <tr><td>③ 首日漲幅拿不到</td><td>定價 135、若掛牌首日漲到 200，那 65 元價差 × 股數是<strong>認購的人賺走</strong>的，公司只收到 135。這叫「留在桌上的錢」。</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <span class="lbl">反直覺的一點</span>
+      <strong>首日漲太兇（+50%、+100%）對公司其實不是好事</strong>——代表當初定價太保守、把股票賤賣、把錢送給了認購的法人。真正定價高效的案子，首日只小漲 10～20%。
+    </div>
+  </div>
+
+  <!-- 06 面額 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">06</span><span class="sec-h">那「很多股票都是 10 塊」是怎麼回事？</span></div>
+    <p>那個「10 塊」多半是<strong>面額（票面價值）</strong>，不是發行價。台灣股票長年有一個固定的票面面額＝<strong>每股 10 元</strong>，跟公司募到多少錢、市價多少<strong>沒有直接關係</strong>。三個數字一定要拆開：</p>
+    <table class="ttable">
+      <thead><tr><th>名詞</th><th>是什麼</th><th>例子</th></tr></thead>
+      <tbody>
+        <tr><td>面額（par）</td><td>法律 / 會計上的票面單位，<span style="font-family:var(--mono);font-size:12px">股本 = 面額 × 股數</span></td><td>台股幾乎都 10 元</td></tr>
+        <tr><td>發行價 / 承銷價</td><td>IPO / 增資真正賣給認購人的價格（詢價圈購定出來）</td><td>可能 50、135、上千</td></tr>
+        <tr><td>市價</td><td>掛牌後公開買賣的價格</td><td>每天跳動</td></tr>
+      </tbody>
+    </table>
+    <p>面額 10 元只是「票面」。一家搶手的公司，面額還是 10 元，但承銷價能定到幾百、市價能到幾千。你在知識庫看到的台光電 5,680、創意 5,600、信驊 15,350——面額全是 10 元，就是這個道理。</p>
+    <div style="font-size:12px;color:var(--muted);margin-top:6px">註：2014 年後台灣開放「彈性面額」（可不是 10 元，甚至無面額），但多數公司仍沿用 10 元傳統，所以「10 塊」的印象特別深。</div>
+  </div>
+
+  <!-- 07 判讀框架 -->
+  <div class="sec">
+    <div class="sec-head"><span class="sec-no">07</span><span class="sec-h">收斂：看到任何籌資新聞，照這四步問下去</span></div>
+    <ol class="steps">
+      <li><strong>是哪一種？</strong> 現增 / 私募＝真拿現金；盈餘轉增資＝沒拿到錢只稀釋；可轉債（ECB）＝先借後轉。</li>
+      <li><strong>定價 vs 市價？</strong> 現增看打幾折、私募看有沒有貼近 8 折下限、ECB 看轉換溢價。</li>
+      <li><strong>實際到手 ＝</strong> 認購價 × <strong>新股數</strong> − 承銷費用。（老股不算、盈餘轉增資不算）</li>
+      <li><strong>錢拿去幹嘛？</strong> 擴產 / 先進製程＝進攻；還債 / 補虧損＝補血。用途決定這次籌資的性質。</li>
+    </ol>
+    <div class="callout key">
+      <span class="lbl">今天的三個案子各是一種典型</span>
+      <strong>聯電＝ECB（先借後轉）</strong>、<strong>尖點＝策略私募（綁客戶）</strong>、<strong>台虹＝私募擴產（大股東主導）</strong>。下次它們正式發重訊時，把公告裡的「發行張數、定價、募資金額、資金用途」四個數字抓出來，對照本文的框架，你就看得懂它到底在做什麼。
+    </div>
+  </div>
+
+  <div class="disc">
+    本頁為投資概念教學，所有個股（2303 聯電、8021 尖點、8039 台虹）僅作為說明籌資機制的真實情境案例，引用自 MAGI 智囊知識庫的開會 / 廢想法 / 小作文原始討論（日期如標註），<strong>不構成任何買賣建議</strong>。實際籌資的張數、定價與募資金額，一律以公司對外公告之重大訊息與公開說明書為準。投資有風險，決策前請詳閱公開說明書。
+  </div>
+
+</div>
+
+<footer>
+  MAGI 學堂 · 概念筆記 &nbsp;|&nbsp; 資料引用：智囊知識庫（<a href="/search.html">搜尋</a>）&nbsp;|&nbsp; <a href="/edu.html">← 回學堂</a> &nbsp;·&nbsp; <a href="/">回首頁</a>
+</footer>
+
+<script>
+function magiToggleTheme(){
+  var cur=document.documentElement.getAttribute('data-theme')||'light';
+  var next=cur==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  document.getElementById('theme-btn').textContent=next==='dark'?'☀️':'🌙';
+}
+(function(){var t=localStorage.getItem('magi-theme')||'light';var b=document.getElementById('theme-btn');if(b)b.textContent=t==='dark'?'☀️':'🌙';})();
+</script>
+
+</body>
+</html>

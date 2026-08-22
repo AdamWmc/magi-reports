@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MAGI 學堂 — 投資概念筆記</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;--cyan:#0891b2;
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2);
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;--cyan:#22d3ee;
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3);
+}}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--cyan:#0891b2;--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--cyan:#22d3ee;--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3)}
+
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;
+  min-height:100vh;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;position:sticky;top:0;z-index:100;
+  background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px;text-decoration:none}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--accent2)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+@media(max-width:600px){.nav-links{display:none}}
+
+.head{position:relative;overflow:hidden;padding:64px 40px 30px;max-width:1080px;margin:0 auto}
+.head::before{content:'';position:absolute;top:-80px;left:12%;width:520px;height:340px;
+  background:radial-gradient(ellipse at 40% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:700;font-family:ui-monospace,Menlo,monospace}
+.head h1{font-size:clamp(28px,5vw,40px);font-weight:850;letter-spacing:-.02em;color:var(--bright);margin:.28em 0 .3em;text-wrap:balance}
+.head p{color:var(--text2);font-size:16px;max-width:62ch;line-height:1.7}
+
+.wrap{max-width:1080px;margin:0 auto;padding:8px 40px 64px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);
+  border-radius:16px;padding:22px;text-decoration:none;color:inherit;overflow:hidden;transition:border-color .15s,box-shadow .15s,transform .15s}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--accent2));opacity:.9}
+.card.live:hover{border-color:var(--c);box-shadow:0 10px 30px -12px var(--card-hover);transform:translateY(-3px)}
+.card.soon{opacity:.6;cursor:default}
+.ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:23px;
+  background:color-mix(in srgb,var(--c) 12%,transparent);border:1px solid color-mix(in srgb,var(--c) 22%,transparent);margin-bottom:14px}
+.card h2{font-size:19px;font-weight:800;color:var(--bright);letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+.card .desc{font-size:13.5px;color:var(--text2);line-height:1.7;margin:8px 0 16px}
+.foot{margin-top:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;background:var(--bg3);color:var(--muted);border:1px solid var(--border)}
+.badge.on{background:color-mix(in srgb,var(--cyan) 13%,transparent);color:var(--cyan);border-color:color-mix(in srgb,var(--cyan) 30%,transparent)}
+.badge.soon{background:color-mix(in srgb,var(--accent2) 10%,transparent);color:var(--accent2);border-color:color-mix(in srgb,var(--accent2) 26%,transparent)}
+.arrow{margin-left:auto;font-size:20px;color:var(--c);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 14px}
+.tag{font-size:11px;color:var(--muted);background:var(--bg3);border:1px solid var(--border2);border-radius:5px;padding:2px 8px;font-family:ui-monospace,Menlo,monospace}
+
+footer{max-width:1080px;margin:0 auto;padding:22px 40px 48px;font-size:12px;color:var(--muted);
+  border-top:1px solid var(--border);line-height:1.7}
+footer a{color:var(--accent2);text-decoration:none}
+@media(max-width:600px){.head,.wrap,footer{padding-left:20px;padding-right:20px}nav{padding:14px 20px}}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="/">首頁</a>
+      <a href="/archive.html">報告庫</a>
+      <a href="/recent.html">近日熱點</a>
+      <a href="/search.html">知識庫</a>
+      <a href="/industry.html">產業地圖</a>
+      <a href="/edu.html" class="active">學堂</a>
+    </div>
+    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="head">
+  <div class="eyebrow">MAGI Academy · 概念筆記</div>
+  <h1>MAGI 學堂</h1>
+  <p>把「看報告時常聽到、卻沒人好好解釋」的投資概念，用當下正在發生的真實案例拆給你看。常青內容，看懂一次、受用一直。</p>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+
+    <a href="/edu/fundraising.html" class="card live" style="--c:#7c3aed">
+      <div class="ic">💰</div>
+      <h2>公司怎麼跟市場要錢</h2>
+      <div class="desc">現增、私募、可轉債（ECB）三種籌資一次講清楚——「定價 135」代表什麼、公司實際到手多少、「10 塊」其實是面額。用聯電 / 尖點 / 台虹三個正在發生的案例拆解。</div>
+      <div class="tags"><span class="tag">2303 聯電</span><span class="tag">8021 尖點</span><span class="tag">8039 台虹</span></div>
+      <div class="foot"><span class="badge on">● 已上線</span><span class="badge">入門 · 8 分鐘</span><span class="arrow">→</span></div>
+    </a>
+
+    <div class="card soon" style="--c:#0891b2">
+      <div class="ic">📐</div>
+      <h2>估值怎麼看</h2>
+      <div class="desc">本益比（PE）、trailing vs forward、成長股為什麼能給高 PE、便宜與貴的差距＝押放量幅度。用持股實例把「安全目標價」算法走一遍。</div>
+      <div class="foot"><span class="badge soon">規劃中</span><span class="arrow">→</span></div>
+    </div>
+
+    <div class="card soon" style="--c:#f59e0b">
+      <div class="ic">🏦</div>
+      <h2>法人籌碼怎麼讀</h2>
+      <div class="desc">外資、投信、自營商各在想什麼；「現多期空」是什麼結構；期貨未平倉、融資維持率、小外資公式——把每天報告裡的籌碼數字讀成一個故事。</div>
+      <div class="foot"><span class="badge soon">規劃中</span><span class="arrow">→</span></div>
+    </div>
+
+    <div class="card soon" style="--c:#16a34a">
+      <div class="ic">🔄</div>
+      <h2>可轉債套利與稀釋</h2>
+      <div class="desc">CB / ECB 進一步——轉換價、轉換溢價、CBAS、可轉債怎麼影響股價與未來 EPS，接續籌資篇的深入版。</div>
+      <div class="foot"><span class="badge soon">規劃中</span><span class="arrow">→</span></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  MAGI 學堂 · 投資概念筆記　|　案例引用自 <a href="/search.html">智囊知識庫</a>，僅為概念教學、不構成投資建議　|　<a href="/">← 回首頁</a>
+</footer>
+
+<script>
+function magiToggleTheme(){
+  var cur=document.documentElement.getAttribute('data-theme')||'light';
+  var next=cur==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('magi-theme',next);
+  document.getElementById('theme-btn').textContent=next==='dark'?'☀️':'🌙';
+}
+(function(){var t=localStorage.getItem('magi-theme')||'light';var b=document.getElementById('theme-btn');if(b)b.textContent=t==='dark'?'☀️':'🌙';})();
+</script>
+
+</body>
+</html>
