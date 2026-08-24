@@ -6336,5 +6336,422 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-21T23:39:48"
+  },
+  {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "用intel目前對umc F32產能規劃",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "intel對聯電F32產能規劃"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "台光電(EMC)版本PTFE膠搭配自己的Substrate，電性測試比生益純PTFE差但加工性非常好；CCL三家都有給PP膠給台虹送驗，進度較快的可能是台光Solution",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "台虹PTFE送驗版本之一加工性佳",
+      "PP膠送驗進度領先"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "2426",
+    "name": "鼎元",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "化合物半導體",
+    "quote": "百億大戶說2426 GM>50%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "毛利率超過50%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "2464",
+    "name": "盟立",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "自動化/機器人",
+    "quote": "拜訪盟立長線很好，載板廠跟封測廠都下單給他，明年抓10塊，機器人敘事性很好，可以看300，200以上沒問題",
+    "tp": "300",
+    "eps_est": {
+      "2027": "10"
+    },
+    "catalysts": [
+      "載板廠封測廠下單",
+      "機器人題材敘事強"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "2489",
+    "name": "瑞軒",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "面板組裝",
+    "quote": "瑞軒已經過了shuffle box，然後等公告",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Shuffle Box驗證已過等公告"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "3008",
+    "name": "大立光",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "光學鏡頭",
+    "quote": "玉晶光會走第二個大立光模式",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "被引用為玉晶光成長對標"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "3163",
+    "name": "波若威",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光通訊",
+    "quote": "波若威Shuffle Box出貨遞延到1Q27，零件跟良率問題",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Shuffle Box遞延至1Q27",
+      "零件供應與良率問題"
+    ],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "3406",
+    "name": "玉晶光",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "光學鏡頭",
+    "quote": "黃老師問玉晶光，覺得會走第二個大立光模式",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "對標大立光成長模式"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "BMC IC",
+    "quote": "信驊12月漲價全線漲20%，還沒正式公告給客戶、和客戶談",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "12月全線產品漲價20%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "太陽能",
+    "quote": "倉和自結0.85元優於預期毛利率應49%，主因韓華開始積極拉貨、美國地區高獲利率營收占比提升；2027年EPS 23，17x可往三百到四百靠近還有一倍",
+    "tp": "400",
+    "eps_est": {
+      "2027": "23"
+    },
+    "catalysts": [
+      "韓華積極拉貨",
+      "美國高獲利率營收占比提升"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "6805",
+    "name": "富世達",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "連接器/散熱",
+    "quote": "6805後面狀況應該很好，我想找點位來買",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "後續看好考慮找點位進場"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "6831",
+    "name": "邁科",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "IC設計",
+    "quote": "邁科第三季QOQ下修到60%，原本100%，TR3缺料記憶體不夠",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "TR3記憶體缺料致Q3 QOQ下修"
+    ],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": "黛安娜",
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "台虹8/25跟9/8會辦公開場次；27年農曆年前PTFE月產能約15萬張可擴至40萬張，第一階段下訂7台高溫壓合機(單台月產<2萬張)，據傳生益第一波訂30台；標準21*24吋PTFE PP單價>US$130，短期供不應求毛利率60-70%，長期合理40-50%；首批full PTFE可靠度驗證預計26年底完成，電性/鑽孔/鍍銅已大致通過，終端客戶27年中決定是否納入28年設計，若28年Nvidia正交背板採full PTFE年需求至少2千萬張+",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "8/25、9/8公開法說",
+      "PTFE月產能15萬張可擴至40萬張",
+      "Nvidia 28年正交背板需求2千萬張+"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE材料",
+    "quote": "承勢資本：台虹PTFE膠全新製程，亞太壓合貼合設備已排滿到2028底，因NVIDIA 2027底2028初量產請日本設備廠趕工已做出量產設備；用於NV NVL574規格,Rubin Ultra R系列switch tray從9層翻倍到18層,Pitch 1降到0.75；送樣兩版本:生益純PTFE搭中國板廠(深南很爛/勝宏良率僅30%)、台光電版搭自己Substrate電性差但加工性佳；sample報價一米400-500美金量產保守300美金,4萬米月產能擴5倍到20萬米每月多貢獻18億營收(現單月8億的2.2倍),2028年多貢獻EPS 32.4元,加本業3元合計35.4元,給25倍",
+    "tp": null,
+    "eps_est": {
+      "2028": "35.4"
+    },
+    "catalysts": [
+      "NVL574 switch tray導入純PTFE",
+      "月產能擴5倍至20萬米",
+      "2028年EPS上看35.4"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-08-22",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "電子紙/PTFE",
+    "quote": "元太董事長要把OU跟RD調去支援台虹，覺得設備現在就該全買下來，這是新材料元太有經驗知道不好Run，擔心台虹能力，觀音廠原本放電子紙可調整讓給台虹高溫壓合機，要台虹開董事會過投資設備BOD後發重訊，九月初開",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "調OU/RD支援台虹PTFE",
+      "觀音廠讓位高溫壓合機",
+      "9月初台虹董事會+重訊"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "2379",
+    "name": "瑞昱",
+    "date": "2026-08-24",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "SoC",
+    "quote": "JMicron新NAS SOC產品，競爭對手瑞昱",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "被列為JMicron NAS SOC競爭對手"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-08-24",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/機殼",
+    "quote": "Base case 2027 EPS 150*40x PER=TP 6000；短期三片式(Removable lid)用在VR不可能，要重送的是兩片式Lid而非三件式，健策已有量產能力，當初Fail卡在板子跟ODM組裝，改用新板子；若認證重送過，明年獲利可能上修至EPS 170-180(Q4量產出貨至2Q27,ASP US$150)",
+    "tp": "6000",
+    "eps_est": {
+      "2027": "150"
+    },
+    "catalysts": [
+      "Rubin Ultra兩片式Lid重新認證",
+      "健策已具量產能力",
+      "Q4量產出貨至2Q27"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:28"
+  },
+  {
+    "code": "4925",
+    "name": "智微",
+    "date": "2026-08-24",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "SoC/儲存控制IC",
+    "quote": "跟JMicron聊，新產品還在規劃會是SoC產品，競爭對手瑞昱，9成就是NAS SOC，11月可多聊一點",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "新SoC產品規劃中,11月揭露更多",
+      "鎖定NAS SOC市場"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-24T21:22:59"
   }
 ]
