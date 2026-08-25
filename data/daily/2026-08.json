@@ -6753,5 +6753,51 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-08-24T21:22:59"
+  },
+  {
+    "code": "3231",
+    "name": "緯創",
+    "date": "2026-08-25",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "AI伺服器/Vera CPU Rack",
+    "quote": "漲緯創原因 之前大家的模型沒有放進去vera CPU rack的估值，剛剛緯創說27年已經有一位CSP下單5000 rack vera CPU rack了，然後xAI正在談是另外得上修案件，保守抓27年5000 rack就好，緯創出廠的單價目前大概80萬美金一櫃，匯率31，5000*0.8*31=124,000，大概1200-1300億營收，佔27年營收0~5%，偏題材性質對實際數字的挹注有限，但就是新故事",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "27年已有一CSP下單5000 rack Vera CPU rack",
+      "xAI另在談上修案件",
+      "保守估計貢獻27年營收約1200-1300億(佔0~5%)"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-25T21:04:30"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-08-25",
+    "source_type": "daily",
+    "source_page": "2026-08_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "9/4(下週五) 台虹會開董事會，會後重訊公告買機台",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "9/4董事會後重訊公告買機台(擴產訊號)"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-25T21:04:30"
   }
 ]
