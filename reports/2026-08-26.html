@@ -249,6 +249,8 @@ details.arch>summary .cnt{color:var(--muted);font-weight:600;font-size:11px}
 .ctab-delta{white-space:nowrap;font-size:11px;font-weight:700;font-family:var(--mono)}
 .dl-up{color:var(--up)}.dl-dn{color:var(--dn)}.dl-eq{color:var(--dimmer)}.dl-new{color:var(--accent2)}
 .ctab-traj{font-size:10px;color:var(--muted);letter-spacing:.4px;white-space:nowrap;font-family:var(--mono)}
+.ctab-pct{font-family:var(--mono);font-size:11px;font-weight:700;white-space:nowrap;text-align:right}
+.ctab-pct .pct-na{color:var(--dimmer);font-weight:400}
 .ctab-tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle;white-space:nowrap}
 .tag-up{background:var(--up-bg);color:var(--up)}.tag-dn{background:var(--dn-bg);color:var(--dn)}.tag-new{background:rgba(139,92,246,.14);color:var(--accent2)}
 .ctab-hint{font-size:10px;color:var(--dimmer);margin-top:6px}
@@ -2909,7 +2911,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
     <div class="ctab-panel" id="ctab-today">
       <div class="ctab-date">2026-08-26 · ▲▼＝較前 1 交易日名次</div>
       <table class="consensus-tbl">
-        <thead><tr><th>#</th><th>變化</th><th>股票</th><th>分數</th><th>名次軌跡</th><th>推薦人</th></tr></thead>
+        <thead><tr><th>#</th><th>變化</th><th>股票</th><th style="text-align:right">昨日</th><th style="text-align:right">今日</th><th>分數</th><th>名次軌跡</th><th>推薦人</th></tr></thead>
         <tbody>
           <tr>
             <td style="color:var(--up);font-weight:700">1</td>
@@ -2920,6 +2922,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 <span class="badge-limitup">漲停</span>              </span>
               <span class="stk-code">8039</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+10.00↑</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.95↑</span></td>
             <td><span class="score-badge">25.05</span></td>
             <td class="ctab-traj">1·1·1·1·1</td>
             <td class="pushers-cell">Sunny（樂林）、公司（騰輝法說）、Vic哥（駿羽）⋯27人</td>
@@ -2933,6 +2937,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 <span class="badge-limitup">漲停</span>              </span>
               <span class="stk-code">3443</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+3.82</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.96↑</span></td>
             <td><span class="score-badge">17.12</span></td>
             <td class="ctab-traj">3·2·2·2·2</td>
             <td class="pushers-cell">雅婷（樂林）、峰哥（駿羽）、Jason（駿羽）⋯26人</td>
@@ -2946,6 +2952,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 <span class="badge-limitup">漲停</span>              </span>
               <span class="stk-code">3653</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+0.97</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.99↑</span></td>
             <td><span class="score-badge">13.38</span></td>
             <td class="ctab-traj">2·3·3·3·3</td>
             <td class="pushers-cell">麻神（麻神）、小魚（樂林）、郁翔（樂林）⋯21人</td>
@@ -2960,6 +2968,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 <span class="badge-limitup">漲停</span><span class="ctab-tag tag-up">🔥竄升</span>              </span>
               <span class="stk-code">6213</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.84↑</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+10.00↑</span></td>
             <td><span class="score-badge">13.3</span></td>
             <td class="ctab-traj">8·8·7·5·4</td>
             <td class="pushers-cell">Eddie（樂林）、Johnny（樂林）、強尼哥（駿羽）⋯13人</td>
@@ -2974,6 +2984,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
               </span>
               <span class="stk-code">6274</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+2.06</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+3.03</span></td>
             <td><span class="score-badge">12.65</span></td>
             <td class="ctab-traj">4·4·4·4·5</td>
             <td class="pushers-cell">Eddie（樂林）、郁翔（樂林）、強尼（樂林）⋯30人</td>
@@ -2987,6 +2999,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
               </span>
               <span class="stk-code">2303</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+1.21</span></td>
+            <td class="ctab-pct"><span style="color:var(--dn)">-1.20</span></td>
             <td><span class="score-badge">11.25</span></td>
             <td class="ctab-traj">6·5·8·6·6</td>
             <td class="pushers-cell">Eddie（樂林）、郁翔（樂林）、小魚（樂林）⋯21人</td>
@@ -3001,6 +3015,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
               </span>
               <span class="stk-code">2383</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+3.04</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+5.36</span></td>
             <td><span class="score-badge">10.12</span></td>
             <td class="ctab-traj">7·7·6·8·7</td>
             <td class="pushers-cell">雅婷（樂林）、Bobo（樂林）、Andrew哥（駿羽）⋯22人</td>
@@ -3015,6 +3031,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 <span class="badge-punish">⚠處置</span>              </span>
               <span class="stk-code">2455</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.96↑</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+2.03</span></td>
             <td><span class="score-badge">9.99</span></td>
             <td class="ctab-traj">5·6·5·7·8</td>
             <td class="pushers-cell">常恩（駿羽）、Amy（駿羽）、常恩哥（駿羽）⋯17人</td>
@@ -3028,6 +3046,8 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
               </span>
               <span class="stk-code">1815</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+1.40</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+8.26</span></td>
             <td><span class="score-badge">8.84</span></td>
             <td class="ctab-traj">17·9·9·9·9</td>
             <td class="pushers-cell">豪哥（駿羽）、愛德恩（愛德恩）、ann（駿羽）⋯7人</td>
@@ -3041,13 +3061,15 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 <span class="badge-limitup">漲停</span><span class="ctab-tag tag-up">🔥竄升</span>              </span>
               <span class="stk-code">2426</span>
             </td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.93↑</span></td>
+            <td class="ctab-pct"><span style="color:var(--up)">+9.91↑</span></td>
             <td><span class="score-badge">7.39</span></td>
             <td class="ctab-traj">21·14·10·10·10</td>
             <td class="pushers-cell">Amy（駿羽）、Andrew哥（駿羽）、Steven哥（駿羽）⋯8人</td>
           </tr>
         </tbody>
       </table>
-<div class="ctab-hint">名次軌跡＝前10·前5·前3·前1·今 各時點排名（— 表示當時未進前 40）</div>    </div>
+<div class="ctab-hint">昨日／今日＝該股前一交易日與今日漲跌%（↑＝漲停，紅漲綠跌）——看被推的股票市場買不買單；名次軌跡＝前10·前5·前3·前1·今 各時點排名（— 表示當時未進前 40）</div>    </div>
     <div class="ctab-panel" id="ctab-d1" style="display:none">
       <div class="ctab-date">2026-08-25 排名快照</div>
       <table class="consensus-tbl">
