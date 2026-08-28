@@ -57,5 +57,98 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-21T23:40:13"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-08-28",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "AI PCB",
+    "quote": "金像電、欣興、臻鼎三大龍頭廠親自參與尖點私募籌資，加快擴產因應客戶需求，背後將間接參與NVIDIA、Google、Amazon以及網通大廠的PCB製造",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "參與尖點私募籌資、間接卡位NVIDIA/Google/Amazon PCB供應鏈"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-28T23:42:15"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-28",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "AI PCB",
+    "quote": "金像電、欣興、臻鼎三大龍頭廠親自參與尖點私募籌資，加快擴產因應客戶需求，背後將間接參與NVIDIA、Google、Amazon以及網通大廠的PCB製造",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "參與尖點私募籌資、間接卡位NVIDIA/Google/Amazon PCB供應鏈"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-28T23:42:15"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-08-28",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "AI PCB",
+    "quote": "金像電、欣興、臻鼎三大龍頭廠親自參與尖點私募籌資，加快擴產因應客戶需求，背後將間接參與NVIDIA、Google、Amazon以及網通大廠的PCB製造",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "參與尖點私募籌資、間接卡位NVIDIA/Google/Amazon PCB供應鏈"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-28T23:42:15"
+  },
+  {
+    "code": "6141",
+    "name": "柏承",
+    "date": "2026-08-28",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "光通訊PCB",
+    "quote": "2026年7月營收2.55億元年增79.5%創近年高點；Q2毛利率由Q1的6.96%提升至13.33%…若2027年EPS達8～10元給18～20倍PE，減資後合理價約144～200元。催化劑是柏承可能與天孚通信、東山精密及索爾思體系洽談策略參股",
+    "tp": "200",
+    "eps_est": {
+      "2027": "8-10"
+    },
+    "catalysts": [
+      "南通廠稼動率提升跨過損益兩平點，營運槓桿發酵",
+      "切入光模組800G/1.6T高速PCB市場",
+      "潛在光通訊客戶策略參股+大訂單導入南通廠",
+      "3000萬股私募額度引入策略投資人降負債"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-28T23:42:15"
   }
 ]
