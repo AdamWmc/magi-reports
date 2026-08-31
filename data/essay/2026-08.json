@@ -150,5 +150,124 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-28T23:42:15"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-08-31",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "PCB",
+    "quote": "金像電、欣興、臻鼎三大龍頭廠親自參與尖點私募籌資，鎖定高階鑽針供應。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "參與尖點私募籌資，鎖定高階鑽針供應保障"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-31T22:49:48"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-31",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "PCB",
+    "quote": "金像電、欣興、臻鼎三大龍頭廠親自參與尖點私募籌資，背後將間接參與NVIDIA、Google、Amazon以及網通大廠的PCB製造。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "參與尖點私募籌資，鎖定高階鑽針供應保障"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-08-31T22:49:48"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-08-31",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "PCB",
+    "quote": "金像電、欣興、臻鼎三大龍頭廠親自參與尖點私募籌資，鎖定高階鑽針供應。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "參與尖點私募籌資，鎖定高階鑽針供應保障"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-08-31T22:49:48"
+  },
+  {
+    "code": "6141",
+    "name": "柏承",
+    "date": "2026-08-31",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "光通訊PCB",
+    "quote": "2026年7月營收2.55億元，年增79.5%；Q2毛利率由Q1的6.96%提升至13.33%。若2027年EPS達8~10元，給18~20倍，減資後合理價約144~200元。催化劑是可能與天孚通信、東山精密及索爾思相關體系洽談策略參股。",
+    "tp": "200",
+    "eps_est": {
+      "2027": "8~10"
+    },
+    "catalysts": [
+      "南通廠稼動率提升、營運槓桿發酵",
+      "切入光模組800G/1.6T高速PCB",
+      "策略投資人參股+光模組大單導入南通廠",
+      "3,000萬股私募降低負債"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-31T22:49:48"
+  },
+  {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-08-31",
+    "source_type": "essay",
+    "source_page": "2026-08_小作文_monthly",
+    "speaker": null,
+    "host": "小作文",
+    "sector": "PCB鑽針/設備",
+    "quote": "高階鍍膜鑽針報價是傳統白針的3~16倍，毛利率高於50%；月產能約4,000萬支→2026年底4,500萬支→2027年破7,000萬支→2028年上看9,000萬支，金像電、欣興、臻鼎三大龍頭廠親自參與私募籌資。評價顯著低於國際同業(PE 30~50X)。",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "高階鍍膜鑽針出貨占比提升帶動ASP與毛利率",
+      "2026Q2毛利率優於預期",
+      "三大PCB龍頭參與私募籌資加速擴產",
+      "2027客戶放量、高縱橫比鑽針使用量提升",
+      "評價向國際同業靠攏"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-08-31T22:49:48"
   }
 ]
