@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>持股健檢 · MAGI</title>
+<style>
+  :root{
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:66ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:66ch}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)}
+  .th-link{display:inline-block;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+  /* summary table */
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+  .cmp-tbl td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+  .pos{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .wt{font-family:var(--mono);font-weight:700}
+  /* holdings checkup cards */
+  .hc{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hc,var(--copper));
+    border-radius:12px;padding:16px 18px;margin:14px 0;box-shadow:var(--shadow)}
+  .hc-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 10px}
+  .hc-code{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:700}
+  .hc-name{font-size:19px;font-weight:850;color:var(--ink);letter-spacing:-.01em}
+  .hc-badge{font-family:var(--mono);font-size:12.5px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--surface2);color:var(--ink2)}
+  .hc-badge.up{color:#fff;background:var(--z2)}
+  .hc-badge.dn{color:#fff;background:var(--z4)}
+  .hc-badge.flat{color:#fff;background:var(--muted)}
+  .hc-pos{font-family:var(--mono);font-size:11px;color:var(--ink2);background:var(--surface2);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+  .hc-tag{margin-left:auto;font-size:12px;color:var(--copper);font-weight:800;white-space:nowrap}
+  .hc-tag.warn{color:var(--z3)}
+  .hc-tag.cool{color:var(--muted)}
+  .hc-role{font-size:13px;color:var(--ink2);margin:7px 0 12px;font-weight:600}
+  .hc-grid{display:grid;grid-template-columns:1fr;gap:9px}
+  @media(min-width:700px){.hc-grid{grid-template-columns:1fr 1fr 1fr}}
+  .hc-grid>div{background:var(--surface2);border-radius:8px;padding:10px 12px;font-size:12.8px;line-height:1.62;color:var(--ink2)}
+  .hc-grid b.hl{display:block;color:var(--ink);font-size:11.5px;margin-bottom:4px;font-weight:800;letter-spacing:.02em}
+  .hc-grid .k{color:var(--ink);font-weight:700}
+  .hc-quote{margin-top:11px;font-size:12.3px;color:var(--ink2);border-left:2px solid var(--hc,var(--line));padding-left:11px}
+  .hc-quote b{color:var(--ink)}
+  .hc-foot{display:flex;justify-content:flex-end;margin-top:6px}
+  .grp{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    margin:26px 0 2px;padding-bottom:5px;border-bottom:1px solid var(--line);color:var(--gc,var(--copper))}
+  @media(max-width:600px){.wrap{padding:24px 14px 48px}.theme-btn{position:static}}
+  /* gate */
+  #gate{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
+  #gate.hide{display:none}
+  .gate-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px 28px;max-width:320px;width:100%;text-align:center;box-shadow:var(--shadow)}
+  .gate-emoji{font-size:32px;margin-bottom:8px}
+  .gate-title{font-size:20px;font-weight:850;color:var(--ink);letter-spacing:-.01em}
+  .gate-sub{font-size:13px;color:var(--muted);margin:4px 0 18px}
+  #gate-pw{width:100%;font-size:22px;text-align:center;letter-spacing:.4em;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);color:var(--ink);font-family:var(--mono)}
+  #gate-pw:focus{outline:2px solid var(--copper);border-color:var(--copper)}
+  .gate-card button{margin-top:14px;width:100%;padding:12px;border:none;border-radius:10px;background:var(--copper);color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+  .gate-card button:hover{opacity:.9}
+  .gate-err{color:var(--z2);font-size:12.5px;margin-top:10px;min-height:16px;visibility:hidden}
+  .gate-err.show{visibility:visible}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<div id="gate" role="dialog" aria-label="請輸入密碼" aria-modal="true">
+  <form id="gate-form">
+    <div class="gate-card">
+      <div class="gate-emoji">🔒</div>
+      <div class="gate-title">持股健檢</div>
+      <div class="gate-sub">請輸入密碼</div>
+      <input id="gate-pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" aria-label="密碼">
+      <button type="submit">進入</button>
+      <div class="gate-err" id="gate-err">密碼不對，再試一次</div>
+    </div>
+  </form>
+</div>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 持股健檢</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 產業地圖</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 持股健檢</div>
+    <h1>我的<em>持股</em>健檢</h1>
+    <p class="lede">完整實際部位盤點——<strong>個股期貨（7 檔）＋現股／融資（6 檔）共 13 檔</strong>，用 MAGI 近 3 個月 Notion 智囊討論交叉，每檔標出<strong>做什麼、智囊看什麼、部位與點位</strong>。本金約 <strong>2,000 萬</strong>、總曝險 ≈ 1,778 萬 → <strong>水位約 89%</strong>（融資／個股期貨為資金效率工具，背後有現金撐）。收盤＝<strong>2026/9/1</strong>（週二）。<strong>個人持股整理、非投資建議。</strong></p>
+    <div class="meta"><span>快照：2026/9/1 部位・收盤</span><span>13 檔 / 期貨7·現股融資6</span><span>期貨浮動損益 ≈ +3.8萬</span><span>大盤 +1.78% 創新高、台虹逆風</span><span>🎯 Notion 熱議　🔭 智囊未追</span></div>
+  </header>
+
+  <div class="legend" aria-label="組合分區">
+    <div class="lg"><i style="background:var(--z2)"></i>CCL／PTFE 材料</div>
+    <div class="lg"><i style="background:var(--z1)"></i>封測·封裝</div>
+    <div class="lg"><i style="background:var(--z6)"></i>散熱·電源·軟板</div>
+    <div class="lg"><i style="background:var(--z3)"></i>權值核心·晶圓·ASIC</div>
+    <div class="lg"><i style="background:var(--z5)"></i>化合物半導體·光通/光電</div>
+    <div class="lg"><i style="background:var(--z7)"></i>興櫃·IC 設計投機</div>
+    <div class="lg"><i style="background:var(--z4)"></i>小型成長／孤兒</div>
+  </div>
+
+  <div class="caveat" style="border-style:solid;border-color:var(--z2);margin-bottom:4px">
+    <span class="ct" style="color:var(--z2)">🟢 9/1 當日結算：大盤創新高，你砍對了台虹一半、但也錯過聯發科漲停</span>
+    輝達 35 億美元認購聯發科 ECB 點火，加權<b>暴漲 820 點收 46,948 創新高（+1.78%）、逼近 47,000</b>，量爆 1.08 兆。你的組合<b>順風但不算大贏</b>：撐盤的是 <b>南茂 +4.60%（期貨 +6.2 萬）、台達電 +1.36%（+4.1 萬）、台積電 +1.46%（+3.6 萬）、聯電 +2.71%（+2.9 萬）</b>；兩檔亮燈漲停——<b>穩懋 +9.94%（低軌衛星，但只 5 口小型期、僅 +0.72 萬）、騰雲 +9.92%（融資小注）</b>。但<b>最大注台虹逆風 −2.45% 收 319、單口拖 −10.9 萬</b>，把整帳浮盈壓到只剩 <b>+3.8 萬</b>（vs 上次 −2.0 萬）。真正的痛點是<b>智微 −12.31%（興櫃、Q3 未見新催化）</b>。<b>本次大異動（帳戶大改組）：台虹減碼近半（12→5 口）、台積加碼（10→17 口）、南茂加碼（10→13 口）、台達加碼（4→7 口）、精材融資大減（5,000→1,000）、智微減（8,000→7,000）；新進聯電（期 6 口）、穩懋（小型期 5 口）、創意（小型期 2 口）、台郡（融 6,000）、環宇-KY（現+融 2,000）；出清玉晶光、聯發科、柏承、環球晶。</b>值得記一筆：<b>你在聯發科 ECB 漲停「前一天」把它平倉出清了，剛好錯過今天 +9.94% 那根</b>。全部部位在 09 合約、9 月第三週結算前無轉倉壓力。
+  </div>
+
+  <h2 class="h2"><span class="n">1</span>組合快照：13 檔一次看完</h2>
+  <p class="h2sub">按「佔本金%」由大到小排序（曝險＝現股市值或期貨名目 ÷ 2,000 萬）。熱度＝近 3 個月 Notion 提及則數（9/1 sync 後重算）。全部期貨已在 09 合約。</p>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>股</th><th>題材角色</th><th>部位</th><th class="num">佔本金</th><th class="num">收盤(9/1)</th><th class="num">今日</th><th>熱度</th><th>一句話定調</th></tr>
+      <tr><td><b>台積電 2330</b></td><td>權值核心/先進封裝</td><td class="pos">小型期 +17口</td><td class="num wt" style="color:var(--z3)">~20.7%</td><td class="num">2,440</td><td class="num" style="color:var(--z2)">▲1.46%</td><td>🎯 85</td><td><b>大加碼 10→17 口</b>、均價 2,419 由套轉小賺 +3.6 萬；尾盤 5,004 張大單拉上最高、最穩 beta 底倉，永哥「等 10 月中攻擊訊號、明年 140-150」</td></tr>
+      <tr><td><b>台虹 8039</b></td><td>CCL/PTFE 材料</td><td class="pos">期貨 +5口</td><td class="num wt" style="color:var(--z2)">~16%</td><td class="num">319</td><td class="num" style="color:var(--z4)">▼2.45%</td><td>🎯 118</td><td><b>減碼近半 12→5 口</b>——正好躲過「大哥要開始賣」傳聞＋良率疑慮；今 −2.45% 拖 −10.9 萬仍是最大單口虧損；9/4 董事會公告買機台是下個催化，但「NV 一定要上但技術很爛、生益混搭台虹」的雜訊要盯</td></tr>
+      <tr><td><b>南茂 8150</b></td><td>記憶體封測/測試</td><td class="pos">期貨 +13口</td><td class="num wt" style="color:var(--z1)">~12.1%</td><td class="num">93.2</td><td class="num" style="color:var(--z2)">▲4.60%</td><td>🎯 21</td><td><b>加碼 10→13 口</b>、均價 90.83 今轉正 +6.2 萬（全帳最大貢獻）；kevin「南茂買愛得萬機台、聯發科放手機測試單給南茂」，測試鏟子 PE 低位階</td></tr>
+      <tr><td><b>聯電 2303</b></td><td>晶圓代工/成熟製程</td><td class="pos">期貨 +6口</td><td class="num wt" style="color:var(--z3)">~7.9%</td><td class="num">132.5</td><td class="num" style="color:var(--z2)">▲2.71%</td><td>🎯 177</td><td><b>新部位</b>、均價 130.08 小賺 +2.9 萬；智囊近月最熱（177 則）：龍哥「2Q27 台積成熟製程轉單、GM 4Q26 上 40%、有跌要買」、TFLN 三年計畫；上翔今逢低接</td></tr>
+      <tr><td><b>台達電 2308</b></td><td>AI 電源/散熱</td><td class="pos">小型期 +7口</td><td class="num wt" style="color:var(--z6)">~6.5%</td><td class="num">1,865</td><td class="num" style="color:var(--z2)">▲1.36%</td><td>🎯 34</td><td><b>加碼 4→7 口</b>、均價 1,806 賺 +4.1 萬；郁翔「4Q26 營收 GM 跳階、TR3/GB300/GOOG TPU 拉貨、27 年 server +50-100%」；但 jason「google 想降台達 share 導新供應商」要留意</td></tr>
+      <tr><td><b>創意 3443</b></td><td>ASIC 設計</td><td class="pos">小型期 +2口</td><td class="num wt" style="color:var(--z3)">~6%</td><td class="num">5,995</td><td class="num" style="color:var(--z4)">▼1.72%</td><td>🎯 122</td><td><b>新部位</b>、均價 6,138 小套 −2.85 萬；智囊天王股：峰哥「Google 2026 產出 +40%、10 月出貨、明年營收上修近 3,000 億」、黃老師今「Graviton5 傳言假但續推、每季創高」；布哥提醒高 PE 要小心</td></tr>
+      <tr><td><b>環宇-KY 4991</b></td><td>化合物半導體/VCSEL</td><td class="pos">現股1,000+融資1,000</td><td class="num wt" style="color:var(--z5)">~5.4%</td><td class="num">544</td><td class="num" style="color:var(--z2)">▲0.93%</td><td>🔭 14</td><td><b>新部位</b>（現股＋融資各 1,000）；jerry「CW 雷射環宇有遞延、LITE 會自己帶基板來」、小魚「鼎元由聯亞扶植所以 4991 較弱」——光通供應鏈但相對弱勢，觀察倉</td></tr>
+      <tr><td><b>騰雲 6870</b></td><td>餐飲/零售 AIoT</td><td class="pos">融資 3,000</td><td class="num wt" style="color:var(--z4)">~4.2%</td><td class="num">277</td><td class="num" style="color:var(--z2)">▲9.92%</td><td>🔭 3</td><td>沿用融資 3,000、<b>今亮燈漲停 +9.92%</b>但日量僅 229 張（流動性極差）；GM 跳升題材、現增/CB 稀釋在即，高賠率小注</td></tr>
+      <tr><td><b>智微 4925</b></td><td>Flash→BMC</td><td class="pos">現股 7,000</td><td class="num wt" style="color:var(--z7)">~4.2%</td><td class="num">120</td><td class="num" style="color:var(--z4)">▼12.31%</td><td>⚠️ 2</td><td>減 1,000 至 7,000、<b>今重挫 −12.31%</b>；BMC 3Q26 驗證生死線、8/24 後智囊近乎零討論（熱度 2），流動性差難進出，孤兒待檢討</td></tr>
+      <tr><td><b>台郡 6269</b></td><td>軟板 FPC/PTFE 壓料</td><td class="pos">融資 6,000</td><td class="num wt" style="color:var(--z6)">~2.3%</td><td class="num">75.2</td><td class="num" style="color:var(--z2)">▲0.40%</td><td>🎯 15</td><td><b>新部位</b>（融資）；智囊近日提案：「台虹出料給台郡壓 PTFE、壓 400 度只有台郡有機台、不會只賺代工費」＝台虹題材的衍生受惠；但 Sunny 9/1 已「出台郡」——你與 Sunny 部位分歧，盯後續</td></tr>
+      <tr><td><b>精材 3374</b></td><td>晶圓級封裝 WoS</td><td class="pos">融資 1,000</td><td class="num wt" style="color:var(--z1)">~2.1%</td><td class="num">421.5</td><td class="num" style="color:var(--muted)">▼0.24%</td><td>🎯 73</td><td><b>融資大減 5,000→1,000</b>；黃老師「一定 hold、台積 WOS 是秦工決定、NDA 要 sign 回」、永哥「3 倍空間等台積公告」；但 Sunny 9/1「出精材」、且列 upcoming 快進處置，你已大幅減碼</td></tr>
+      <tr><td><b>穩懋 3105</b></td><td>砷化鎵/CPO 雷射</td><td class="pos">小型期 +5口</td><td class="num wt" style="color:var(--z5)">~1.2%</td><td class="num">492</td><td class="num" style="color:var(--z2)">▲9.94%</td><td>🎯 39</td><td><b>新部位·今亮燈漲停 +9.94%</b>（僅 5 口小型期、+0.72 萬）；布哥「買 ASML 機台、受惠 SpaceX 低軌衛星 content 3X、星艦試射 10 月漲」、光通買 lite 供應鏈點名</td></tr>
+      <tr><td><b>邁科 6831</b></td><td>散熱/水冷(AWS TR3)</td><td class="pos">現股 1（近乎出清）</td><td class="num wt" style="color:var(--muted)">~0%</td><td class="num">609</td><td class="num" style="color:var(--z4)">▼1.46%</td><td>🎯 22</td><td>維持剩 1 股（先前讀到 Q3 下修已出清）；近日智囊零新討論，殘值部位、無操作意義</td></tr>
+      <tr><td colspan="8" style="border:none;padding-top:8px;font-size:10px;color:var(--muted)">佔本金%＝曝險÷2,000萬（期貨用名目：大型2000股/口、小型100股/口）。收盤＝9/1 Fugle。🎯 Notion熱議·🔭 智囊未追·⚠️ 興櫃/投機。非投資建議。</td></tr>
+    </table>
+  </div>
+
+  <h2 class="h2"><span class="n">2</span>逐檔健檢：做什麼 × 智囊看什麼 × 部位點位</h2>
+
+  <div class="grp" style="--gc:var(--z2)">CCL／PTFE 材料 — 台虹</div>
+
+  <div class="hc" style="--hc:var(--z2)">
+    <div class="hc-top"><span class="hc-code">8039</span><span class="hc-name">台虹</span><span class="hc-badge dn">319　▼2.45%</span><span class="hc-pos">期貨 +5口 @329.9 · 名目~3.19M · ~16%</span><span class="hc-tag">🎯 118 則·最大注</span></div>
+    <div class="hc-role">CCL／軟性銅箔基板·PTFE 材料 — AI 高速板「新規格」題材（帳戶最大注、母公司元太主導）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>做軟板／高頻材料，卡 AI 高速板的 PP／PTFE「新規格」。<span class="k">元太（8069）是大股東＋同集團</span>，用集團資源主導 PTFE 擴產。三個 solution：台虹 PTFE CCL+PP、或配生益／台光。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>多方催化極密：<span class="k">8/26 法說樂觀（Eddie 估 2027 EPS 20.5、TP 400；ASP 初期&gt;300 USD 放量後 150）、9/4 董事會公告買機台、9 月送 gen3 CCL 到深南、9 月起在欣興/滬士/深南/勝宏第二階段大量驗證</span>；台光+台虹+欣興 PTFE 混壓策略合作、立項 NV SPEC 下一代 80% 機率。<span class="k">空方警訊（關鍵）</span>：<span class="k">8/28、8/31 廢想法「大哥要開始賣了叫我小心，禮拜三那根是他拉的、大哥禮拜五要買南亞」</span>；Surf「製造良率現階段都不好、信賴性 11 月才出」；9/1「NV 態度一定要上但台虹技術很爛、目前兩間生益跟深南、混搭台虹」；Sunny 8/28 已減碼一點換股。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">已減碼近半 12→5 口 @329.9、今 −2.45% 收 319、單口拖 −10.9 萬（全帳最大單口虧損）</span>。這次減碼時機對——正好在「大哥出貨」傳聞與良率疑慮浮現、且今天逆大盤走弱之際降了風險。<span class="k">仍是最大注（16%），9/4 董事會＋9~11 月驗證進度是多空分水嶺</span>；Sunny 策略是「漲減碼、跌加碼」可參考。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 8/28：</b>「台虹那邊大哥要開始賣了叫我自己小心，說禮拜三那根是他拉的，那個大哥禮拜五要買南亞。」<b>Eddie 8/26：</b>「台虹法說態度樂觀，2027 EPS 估 20.5、TP 400，PTFE CCL ASP 初期&gt;300 美金、放量後 150。」<b>廢想法 9/1：</b>「親戚在 NV 負責 PTFE，說 NV 態度就是一定要上，但台虹技術很爛，混搭生益。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=8039">查智囊原話 →</a></div>
+  </div>
+
+  <div class="grp" style="--gc:var(--z1)">封測·封裝 — 南茂 · 精材</div>
+
+  <div class="hc" style="--hc:var(--z1)">
+    <div class="hc-top"><span class="hc-code">8150</span><span class="hc-name">南茂</span><span class="hc-badge up">93.2　▲4.60%</span><span class="hc-pos">期貨 +13口 @90.83 · 名目~2.42M · ~12.1%</span><span class="hc-tag">🎯 21 則</span></div>
+    <div class="hc-role">記憶體封測／測試 — 跨 AI/光通/封裝/記憶體 的測試鏟子</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>記憶體封測＋測試，典型「<span class="k">測試鏟子</span>」，跨 AI·光通·封裝·記憶體最多元。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">kevin 8/24：南茂開始買愛得萬機台、聯發科放一些手機測試單給南茂</span>；先前智囊長期點名先進封裝/測試鏟子、明年 EPS 6.8、TP 150、PE~14 位階低。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">加碼 10→13 口 @90.83、今 +4.60% 收 93.2、期貨轉正 +6.2 萬（全帳最大貢獻）</span>。均價已翻正、基本面最穩、位階仍低，是這次加碼加對的一檔。</div>
+    </div>
+    <div class="hc-quote"><b>kevin 8/24：</b>「南茂開始買愛得萬機台，聯發科放一些手機測試的單給南茂。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=8150">查智囊原話 →</a></div>
+  </div>
+
+  <div class="hc" style="--hc:var(--z1)">
+    <div class="hc-top"><span class="hc-code">3374</span><span class="hc-name">精材</span><span class="hc-badge flat">421.5　▼0.24%</span><span class="hc-pos">融資 1,000 @426.11 · ~0.42M · ~2.1%</span><span class="hc-tag">🎯 73 則</span></div>
+    <div class="hc-role">晶圓級封裝(WoS) — 台積電持股集團子公司（本次大減碼）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>台積集團<span class="k">晶圓級封裝(WLP)</span>獨立玩家，做 WoS 先進封裝，CoWoS 外溢承接。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>多方：<span class="k">黃老師 8/26「一定 hold，台積電相關人明天前要 sign 回 NDA、精材做台積 WOS 是秦工決定」；永哥 8/31「這價位還有 3 倍空間、等台積公告」</span>；百億大戶「有 T 訂單風聲、要用到 RDL」。空方：布哥「2Q28 才起量」、Sunny 9/1「昨天出精材」、且列<span class="k">快進處置（upcoming）</span>。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資大減 5,000→1,000 @426.11、今 −0.24% 收 421.5</span>。你已把這檔從主力降成觀察小注——與 Sunny 出場方向一致；<span class="k">題材遠（CoWoS 2027 才有營收）＋已列快進處置，保留小倉等台積公告</span>。</div>
+    </div>
+    <div class="hc-quote"><b>黃老師 8/26：</b>「3374 精材我一定繼續 hold，台積電接觸到的人都要在明天前把 NDA sign 回來，精材做台積 WOS 是秦工決定的。」<b>Sunny 9/1：</b>「昨天出精材、台郡，還沒想到要換什麼。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=3374">查智囊原話 →</a></div>
+  </div>
+
+  <div class="grp" style="--gc:var(--z6)">散熱·電源·軟板 — 台達電 · 台郡 · 邁科</div>
+
+  <div class="hc" style="--hc:var(--z6)">
+    <div class="hc-top"><span class="hc-code">2308</span><span class="hc-name">台達電</span><span class="hc-badge up">1,865　▲1.36%</span><span class="hc-pos">小型期 +7口 @1,806 · 名目~1.31M · ~6.5%</span><span class="hc-tag">🎯 34 則</span></div>
+    <div class="hc-role">AI 電源／散熱龍頭 — 800VDC power rack + BBU 主受惠</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>全球電源／散熱龍頭，AI 機櫃走 <span class="k">800V DC power rack</span> 的核心受惠（電源＋散熱雙卡位）。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>多方：<span class="k">郁翔 8/24「4Q26 營收 GM 跳階、GOOG/Meta/AWS 5.5kw PSU for TR3、GB300 與 GOOG TPU 拉貨、27 年 server +50-100%、明年 70-75 元最壞已過」；curtis 8/25「跟台達朋友吃飯、AI server 散熱 power BBU 料況 YoY 50-100%」</span>。空方：jason「google 想降台達 share、明年導新供應商」、常恩「meta BBU delay 到 2Q27」。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">加碼 4→7 口 @1,806、今 +1.36% 收 1,865、賺 +4.1 萬</span>。龍頭＋好流動性的穩健受惠倉、放量在 2H27；<span class="k">share 被稀釋的雜訊是唯一要盯的變數</span>。</div>
+    </div>
+    <div class="hc-quote"><b>郁翔 8/24：</b>「台達 4Q26 營收跟 GM 會跳升一階段，GOOG/Meta/AWS 5.5kw PSU for TR3、GB300 跟 GOOG 的 TPU 都開始拉貨，27 年 server 相關 YoY +50-100%。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2308">查智囊原話 →</a></div>
+  </div>
+
+  <div class="hc" style="--hc:var(--z6)">
+    <div class="hc-top"><span class="hc-code">6269</span><span class="hc-name">台郡</span><span class="hc-badge flat">75.2　▲0.40%</span><span class="hc-pos">融資 6,000 @75.29 · ~0.45M · ~2.3%</span><span class="hc-tag new">🎯 15 則·新部位</span></div>
+    <div class="hc-role">軟板 FPC — 台虹 PTFE 壓料獨家機台的衍生受惠</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>軟板 FPC 廠。這波被智囊當作<span class="k">台虹 PTFE 題材的下游衍生：台虹出料給台郡去壓材料</span>。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">8/27-31 廢想法：「想提案買台郡、算下一道製程、問台虹財務長說台郡的設備不會只賺代工費」；全村 emily：「台虹出料給台郡去壓材料，壓 PTFE 要 400 度只有台郡有機台」</span>——獨家機台是賣點。但 <span class="k">Sunny 8/28 才加碼、9/1 就「出台郡」</span>，智囊自己也快進快出。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">新部位·融資 6,000 @75.29、今 +0.40% 收 75.2（幾乎持平成本）</span>。故事是「台虹題材的獨家壓料受惠」，但<span class="k">Sunny 已出場、你與智囊最新部位分歧</span>——這是跟著台虹一起賭 PTFE 落地的衛星倉，盯台虹驗證進度與台郡是否真接到料。</div>
+    </div>
+    <div class="hc-quote"><b>全村 emily 8/27：</b>「台虹出料給台郡讓台郡去壓材料，壓 PTFE 要 400 度只有台郡有機台。」<b>Sunny 9/1：</b>「昨天出精材、台郡。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6269">查智囊原話 →</a></div>
+  </div>
+
+  <div class="hc" style="--hc:var(--z6);opacity:.82">
+    <div class="hc-top"><span class="hc-code">6831</span><span class="hc-name">邁科</span><span class="hc-badge dn">609　▼1.46%</span><span class="hc-pos">現股 1（近乎出清）· ~0%</span><span class="hc-tag cool">🎯 22 則·殘值</span></div>
+    <div class="hc-role">伺服器散熱／水冷板 — AWS TR3 水冷主供（先前已讀 Q3 下修出清）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>AI 伺服器<span class="k">散熱主供</span>，切 AWS 自研 TR3 水冷板。先前因讀到 Q3 展望下修（TR3 記憶體缺料）出清剩 1 股。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>先前由多轉空（8/19-21 雅婷示警 Q3 QOQ 下修到 60%）。<span class="k">近日智囊無新討論</span>，題材待 TR3 記憶體到位後才有回補理由。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">殘值 1 股、無操作意義</span>；當初讀到利空及時出清是漂亮決策，維持觀察、有回升訊號再評估。</div>
+    </div>
+    <div class="hc-quote"><b>雅婷 8/19：</b>「6831 邁科有稍微下修 3Q 展望，想空的可以空。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6831">查智囊原話 →</a></div>
+  </div>
+
+  <div class="grp" style="--gc:var(--z3)">權值核心·晶圓·ASIC — 台積電 · 聯電 · 創意</div>
+
+  <div class="hc" style="--hc:var(--z3)">
+    <div class="hc-top"><span class="hc-code">2330</span><span class="hc-name">台積電</span><span class="hc-badge up">2,440　▲1.46%</span><span class="hc-pos">小型期 +17口 @2,418.9 · 名目~4.15M · ~20.7%</span><span class="hc-tag">🎯 85 則·底倉</span></div>
+    <div class="hc-role">晶圓代工龍頭／先進封裝核心 — 帳戶最大權值 beta 底倉（本次大加碼）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>護國神山。<span class="k">先進製程＋先進封裝(CoWoS/SoIC)</span>核心，所有 AI 供應鏈部位的最上游。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">永哥 8/24「等 TSMC 十月中的攻擊訊號、明年 140-150 找買點」；小胖 8/26「台積、美光、封測廠生意都很好、評價便宜」</span>；矽光子 2027 市占 &gt;50%、CPO 下半年量產是新題材。今尾盤 5,004 張大單拉上最高。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">大加碼 10→17 口 @2,418.9、今 +1.46% 收 2,440、由套轉小賺 +3.6 萬</span>。把權值底倉加重、當成新高行情的壓艙石＝合理；<span class="k">最穩、波動最低，但別期待它領漲（資金外溢到 ASIC）</span>。</div>
+    </div>
+    <div class="hc-quote"><b>永哥 8/24：</b>「等 TSMC 十月中的攻擊訊號，TSMC 明年就 140-150，找買點買台積電。」<b>小胖 8/26：</b>「台積、美光、封測廠的生意都很好，這邊評價便宜。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2330">查智囊原話 →</a></div>
+  </div>
+
+  <div class="hc" style="--hc:var(--z3)">
+    <div class="hc-top"><span class="hc-code">2303</span><span class="hc-name">聯電</span><span class="hc-badge up">132.5　▲2.71%</span><span class="hc-pos">期貨 +6口 @130.08 · 名目~1.59M · ~7.9%</span><span class="hc-tag new">🎯 177 則·新部位·最熱</span></div>
+    <div class="hc-role">晶圓代工／成熟製程 — 2Q27 台積成熟製程轉單 + TFLN 新題材</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>成熟製程晶圓代工。兩大題材：<span class="k">台積電成熟製程 2Q27 起轉單給聯電、以及 TFLN（薄膜鈮酸鋰）光通新製程</span>。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>智囊近月最熱（177 則）、幾乎全多：<span class="k">龍哥 8/24-26「2Q27 台積成熟製程正式轉過來、單月 EPS 8-9 毛、GM 3Q26 37-38% beat、4Q26 40%、2027 全年 40%，有跌要買」；峰哥 8/31「TFLN 明年 1 萬片、28 年 3-4 萬、29 年單月 8 萬，內部立三年計畫」</span>；頎邦「三星 DDIC 轉單」。上翔今逢低接聯電。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">新部位·期貨 +6 口 @130.08、今 +2.71% 收 132.5、小賺 +2.9 萬</span>。題材紮實（轉單＋TFLN 雙引擎）、智囊背書最厚、位階不高——這次新進買在對的敘事上；<span class="k">2Q27 轉單是主催化、屬中長線續抱倉</span>。</div>
+    </div>
+    <div class="hc-quote"><b>龍哥 8/25：</b>「聯電 2027 TFLN 8 吋單月 10K、ASP 4000USD、GM 60-70%；3Q26 GM 應 beat 到 37-38%、4Q26 看 40%、2027 全年都有 40%，2Q27 台積客人要轉過來很重要。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2303">查智囊原話 →</a></div>
+  </div>
+
+  <div class="hc" style="--hc:var(--z3)">
+    <div class="hc-top"><span class="hc-code">3443</span><span class="hc-name">創意</span><span class="hc-badge dn">5,995　▼1.72%</span><span class="hc-pos">小型期 +2口 @6,137.5 · 名目~1.20M · ~6%</span><span class="hc-tag new">🎯 122 則·新部位</span></div>
+    <div class="hc-role">ASIC 設計 — Google TPU/CPU ASIC 主力（智囊天王股）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>台積集團 <span class="k">ASIC 設計（GUC）</span>龍頭，主攻 Google TPU/CPU、特斯拉 AI5、NV LPU 等客製晶片。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>智囊天王股、多方極濃：<span class="k">峰哥 8/26-27「Google 要求 2026 產出 +40%、10 月出貨、2027/1/1 Google CPU +200%」；8/31「3nm 19 萬片、明年出百萬顆 CPU、營收上修接近 3,000 億（共識 2,000 億）」；黃老師 8/26「GUC 技術面 Q4 挑戰 8,000」、9/1「Graviton5 傳言假但這位置還推、每季創高」</span>。空方：布哥「高 PE 要小心、覺得會降 5」。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">新部位·小型期 +2 口 @6,138、今 −1.72% 收 5,995、小套 −2.85 萬</span>。買在智囊最擁擠的天王股、敘事強但估值高；<span class="k">2 口小注控制風險合理，留意高 PE 修正風險與 10 月出貨落地</span>。</div>
+    </div>
+    <div class="hc-quote"><b>峰哥 8/31（轉述）：</b>「創意 3nm 共 19 萬片，明年 1Q 出一百萬顆 CPU 是現在 10 倍（叫我只講 3 倍），明年營收實際上修到接近 3,000 億、共識在 2,000 億。」<b>黃老師 9/1：</b>「3443 這位置還會推，到明年每一季營收都會創歷史新高。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=3443">查智囊原話 →</a></div>
+  </div>
+
+  <div class="grp" style="--gc:var(--z5)">化合物半導體·光通/光電 — 穩懋 · 環宇-KY</div>
+
+  <div class="hc" style="--hc:var(--z5)">
+    <div class="hc-top"><span class="hc-code">3105</span><span class="hc-name">穩懋</span><span class="hc-badge up">492　▲9.94%</span><span class="hc-pos">小型期 +5口 @477.6 · 名目~0.25M · ~1.2%</span><span class="hc-tag new">🎯 39 則·新部位·漲停</span></div>
+    <div class="hc-role">砷化鎵 GaAs 代工 — 低軌衛星 + CPO 雷射受惠</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>全球最大<span class="k">砷化鎵 GaAs 晶圓代工</span>，做 RF PA／VCSEL 雷射，卡低軌衛星與 CPO 光通雷射源。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">布哥 8/27-28「穩懋重訊跟 ASML 買機台、受惠 SpaceX 低軌衛星 content 3X、機台一個月做一萬多片高單價、星艦試射 10 月才漲」；Andrew 8/28「光通買 lite 供應鏈：LITE、穩懋、鼎元、全新、聯鈞」</span>。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">新部位·今亮燈漲停 +9.94% 收 492（僅 5 口小型期、+0.72 萬）</span>。題材對（低軌衛星＋CPO 雷射）、今日強勢；<span class="k">但口數小、貢獻有限，真正的催化在 10 月星艦試射</span>，可視強度決定是否加碼。</div>
+    </div>
+    <div class="hc-quote"><b>布哥 8/28：</b>「穩懋主要受惠 SpaceX、低軌衛星抓 content 3X、重訊買 ASML 機台一個月可做一萬多片，星艦試射 10 月才會漲，低軌衛星就是穩懋、昇達科、華通。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=3105">查智囊原話 →</a></div>
+  </div>
+
+  <div class="hc" style="--hc:var(--z5)">
+    <div class="hc-top"><span class="hc-code">4991</span><span class="hc-name">環宇-KY</span><span class="hc-badge up">544　▲0.93%</span><span class="hc-pos">現股1,000+融資1,000 @539 · ~1.09M · ~5.4%</span><span class="hc-tag cool">🔭 14 則·新部位</span></div>
+    <div class="hc-role">化合物半導體／VCSEL — CW 雷射光通供應鏈（相對弱勢）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>化合物半導體代工，做 <span class="k">VCSEL／CW 雷射</span>，切光通訊光源供應鏈。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">jerry 8/24「CW 雷射環宇有遞延、LITE 會自己帶基板來、對營收有幫助但還在談」；小魚 8/24「鼎元由聯亞扶植，所以 4991 較弱」</span>——光通供應鏈成員但被點名相對弱勢、案子還在談。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">新部位·現股 1,000＋融資 1,000 @約 539、今 +0.93% 收 544</span>。光通雷射有題材但智囊評價偏保守（遞延、較弱）；<span class="k">屬跟著 CPO/光通大方向布局的觀察倉，等 LITE 案子談定的實質進展</span>。</div>
+    </div>
+    <div class="hc-quote"><b>jerry 8/24：</b>「CW 雷射環宇有遞延，LITE 有來找、他們會自己帶基板來，對營收有幫助但還在談。」<b>小魚 8/24：</b>「鼎元由聯亞扶植，所以 4991 較弱。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=4991">查智囊原話 →</a></div>
+  </div>
+
+  <div class="grp" style="--gc:var(--z7)">興櫃·IC 設計投機 — 智微</div>
+
+  <div class="hc" style="--hc:var(--z7)">
+    <div class="hc-top"><span class="hc-code">4925</span><span class="hc-name">智微</span><span class="hc-badge dn">120　▼12.31%</span><span class="hc-pos">現股 7,000 @125.68 · ~0.84M · ~4.2%</span><span class="hc-tag warn">⚠️ 流動性·熱度2</span></div>
+    <div class="hc-role">Flash controller 轉攻 BMC / NAS SoC — 對標信驊 5274</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>本業<span class="k">快閃記憶體控制 IC</span>，轉攻 <span class="k">BMC（伺服器管理晶片）＋ NAS SoC</span>，對標信驊、瑞昱。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">8/24 廢想法：「跟 JMicron 聊、新產品還在規劃會是 SoC、對手瑞昱、9 成是 NAS SOC、11 月可多聊」</span>；BMC 3Q26 驗證、成功可看 300-400。<span class="k">但 8/24 後智囊近乎零討論（熱度僅 2）、無新催化</span>。</div>
+      <div><b class="hl">📍 部位/點位</b>減 1,000 至 7,000、<span class="k">今重挫 −12.31% 收 120</span>。<span class="k">3Q26 BMC 驗證是生死線、11 月才有更多資訊</span>；興櫃流動性差＋今日大跌，想調整未必出得掉——這是它最實在的風險，孤兒部位、建議認真檢討去留。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 8/24：</b>「跟 JMicron 聊，新產品還在規劃會是 SoC 產品，競爭對手瑞昱，9 成就是 NAS SOC，11 月可多聊一點。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=4925">查智囊原話 →</a></div>
+  </div>
+
+  <div class="grp" style="--gc:var(--z4)">小型成長／孤兒 — 騰雲</div>
+
+  <div class="hc" style="--hc:var(--z4)">
+    <div class="hc-top"><span class="hc-code">6870</span><span class="hc-name">騰雲</span><span class="hc-badge up">277　▲9.92%</span><span class="hc-pos">融資 3,000 @261.37 · 名目~0.83M · ~4.2%</span><span class="hc-tag cool">🔭 3 則·流動性極差</span></div>
+    <div class="hc-role">餐飲/零售 AIoT 系統（點餐·POS）— 東南亞擴張</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>餐飲零售 <span class="k">AIoT（點餐/POS/商辦酒店）</span>平台。智囊零星追（熱度 3）的小型成長股。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>先前小魚 8/14：<span class="k">2Q26 GM 從 66.3% 跳 73.9%、公司長期 GM 維持 70%、營收 YoY 50% 起、主攻東南亞</span>；現增 3 億＋CB 5 億稀釋在即。近日無新討論。</div>
+      <div><b class="hl">📍 部位/點位</b>沿用融資 3,000、<span class="k">今亮燈漲停 +9.92% 收 277、但日量僅 229 張（流動性極差）</span>。GM 跳升是亮點、今日噴出；<span class="k">但故事早期＋現增稀釋＋想出未必出得掉，維持高賠率小注</span>。</div>
+    </div>
+    <div class="hc-quote"><b>小魚 8/14：</b>「騰雲 2Q26 開 1.4 多，GM 從 1Q26 66.3% 跳到 73.9%，公司長期 GM 維持在 70%。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6870">查智囊原話 →</a></div>
+  </div>
+
+  <h2 class="h2"><span class="n">3</span>組合體檢：集中度、事件、流動性</h2>
+  <div class="caveat">
+    <span class="ct">⚖️ 五個體檢重點（2,000 萬本金 · 水位~89% · 9/1 期貨浮盈 ≈ +3.8萬）</span>
+    <br>· <b>這次是大改組：砍題材雜訊、往「智囊背書最厚＋位階不高」集中</b>：出清<b>玉晶光、聯發科、柏承、環球晶</b>，新進<b>聯電（177 則最熱、轉單＋TFLN）、創意（ASIC 天王）、穩懋（低軌衛星）、台郡（台虹衍生）、環宇（光通）</b>，並把<b>台積加到 17 口、南茂加到 13 口</b>。方向是往「主流 AI 硬體＋強敘事」靠攏——聯電、創意、台積都是智囊近月最擁擠的多頭，順風但也意味擁擠。
+    <br>· <b>台虹減碼近半是這次最關鍵的風控決策</b>：從 12 口砍到 5 口，正好卡在廢想法連續示警「<b>大哥要開始賣、禮拜三那根是他拉的</b>」＋「<b>NV 一定要上但台虹技術很爛、良率不好、11 月才驗完</b>」之際，且今天台虹逆大盤 −2.45%。權重從 37% 降到 16%＝把最大的單一風險主動壓下來。<b>但它仍是最大注、且是槓桿期貨，9/4 董事會與 9~11 月驗證進度是多空分水嶺，Sunny「漲減碼跌加碼」的節奏可參考。</b>
+    <br>· <b>浮盈由 −2.0 萬翻正到 +3.8 萬，但結構是「多數小賺、台虹一口大虧」</b>：南茂 +6.2、台達 +4.1、台積 +3.6、聯電 +2.9、穩懋 +0.72，被台虹 −10.9、創意 −2.85 抵掉大半。<b>加對的是南茂（加碼後大漲）、台積（底倉墊高賺 beta）；台虹是唯一的重傷口</b>——好在已經減到 5 口。
+    <br>· <b>你和智囊出現「部位分歧」，值得盯</b>：Sunny 9/1 已「出精材、出台郡」，但你仍持台郡（融 6,000）、精材（融 1,000，且已列快進處置）。<b>你錯過聯發科今天 ECB 漲停（出清在前一天）</b>——這兩點提醒：跟單要跟到「最新一手」，智囊的加減碼節奏比首次推薦更重要。台郡、精材可考慮跟上 Sunny 的減碼。
+    <br>· <b>流動性尾巴與孤兒仍在</b>：智微（興櫃、今 −12.31%、熱度 2）、騰雲（日量 229 張、雖今漲停）、環宇（智囊評「較弱」）想調整時進出困難，風險在「掌控度」。<b>智微今天大跌、題材又冷，是最該認真檢討去留的一檔</b>；邁科剩 1 股殘值無妨。
+  </div>
+
+  <footer>
+    <b>怎麼用這頁：</b>穩健底倉（台積/台達電/聯電）＝有基本面＋流動性、beta 與轉單定錨；積極核心（台虹/南茂/創意）＝波段操作＋事件驅動，逐一驗證；衛星（穩懋/環宇/台郡/精材/智微/騰雲）＝題材小注或待決部位，控好口數。<br>
+    <b>催化日曆：</b>台虹 9/4 董事會公告買機台 → 台虹 9 月第二階段驗證（欣興/滬士/深南/勝宏，信賴性 11 月出）→ 聯發科 ECB 9/8 新加坡掛牌 → 創意 10 月出貨放量 → 穩懋 10 月星艦試射 → 聯電 2Q27 台積成熟製程轉單 → 智微 3Q26 BMC 驗證/11 月 NAS SoC 更新 → 台積 10 月中攻擊訊號。<br>
+    <b>資料來源：</b>部位＝2026/9/1 券商未平倉/資產截圖（口數/股數以此為準、以最新價重算浮盈）；收盤＝<b>2026/9/1</b> Fugle；熱度＝近 3 個月 MAGI 各家開會／廢想法／小作文智囊 mention 數（9/1 sync 後重算）。🎯 Notion 熱議、🔭 智囊未追、⚠️ 興櫃/投機。<br>
+    <b>但書：</b>個人持股整理，<b>非投資建議</b>；多為波動大的題材/循環/興櫃股，位階與流動性風險自行評估。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+<script>
+(function(){
+  var PW="0000";
+  var g=document.getElementById('gate');
+  if(sessionStorage.getItem('hc-ok')==='1'){g.classList.add('hide');return;}
+  var pw=document.getElementById('gate-pw');
+  try{pw.focus();}catch(e){}
+  document.getElementById('gate-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(pw.value===PW){sessionStorage.setItem('hc-ok','1');g.classList.add('hide');}
+    else{document.getElementById('gate-err').classList.add('show');pw.value='';pw.focus();}
+  });
+})();
+</script>
+</body>
+</html>
