@@ -1,323 +1,833 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>處置生命週期研究 — MAGI 台股智能分析</title>
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>處置生命週期研究 · MAGI</title>
 <style>
+:root{--bg:#f6f8fc;--bg2:#ffffff;--bg3:#eef1f8;--border:#dde3ee;--border2:#e8ecf4;
+--text:#232936;--text2:#49536a;--muted:#707a92;--dimmer:#a8b1c4;--bright:#0e1424;
+--accent:#6d28d9;--accent2:#7c3aed;--cyan:#0891b2;--up:#dc2626;--dn:#16a34a;
+--up-bg:rgba(220,38,38,.06);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.22);--dn-bd:rgba(22,163,74,.24);
+--glow:rgba(124,58,237,.08);--nav-bg:rgba(246,248,252,.85);--warn:#d97706;--warn-bg:rgba(217,119,6,.08);
+--card-shadow:0 1px 2px rgba(15,23,42,.05);--mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+:root[data-theme="dark"]{--bg:#070a13;--bg2:rgba(148,163,255,.045);--bg3:rgba(148,163,255,.09);
+--border:rgba(148,163,214,.17);--border2:rgba(148,163,214,.09);--text:#d7dced;--text2:#98a2bd;--muted:#68718a;--dimmer:#454e66;--bright:#f6f8ff;
+--accent:#8b5cf6;--accent2:#a78bfa;--cyan:#22d3ee;--up:#ef6262;--dn:#31d08a;
+--up-bg:rgba(239,98,98,.1);--dn-bg:rgba(49,208,138,.1);--up-bd:rgba(239,98,98,.28);--dn-bd:rgba(49,208,138,.28);
+--glow:rgba(139,92,246,.2);--nav-bg:rgba(7,10,19,.72);--warn:#f0a44b;--card-shadow:none}
+:root[data-theme="dark"] body{background-image:radial-gradient(ellipse 70% 32% at 50% -4%,rgba(120,60,220,.16) 0%,transparent 60%),radial-gradient(ellipse 46% 40% at 100% 14%,rgba(34,211,238,.05) 0%,transparent 55%),radial-gradient(ellipse 60% 50% at 0% 90%,rgba(88,40,200,.08) 0%,transparent 55%);background-attachment:fixed}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;
-  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
-  --accent:#7c3aed;--accent2:#7c3aed;--cyan:#0891b2;
-  --up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.08);--dn-bg:rgba(22,163,74,.09);
-  --warn:#d97706;--warn-bg:rgba(217,119,6,.09);
-  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2);
-  --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
-}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;
-  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
-  --accent:#7c3aed;--accent2:#c084fc;--cyan:#22d3ee;
-  --up:#ef6262;--dn:#31d08a;--up-bg:rgba(239,98,98,.12);--dn-bg:rgba(49,208,138,.12);
-  --warn:#f0a44b;--warn-bg:rgba(240,164,75,.12);
-  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3);
-}}
-:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--cyan:#0891b2;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.08);--dn-bg:rgba(22,163,74,.09);--warn:#d97706;--warn-bg:rgba(217,119,6,.09);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);--card-hover:rgba(124,58,237,.2)}
-:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--cyan:#22d3ee;--up:#ef6262;--dn:#31d08a;--up-bg:rgba(239,98,98,.12);--dn-bg:rgba(49,208,138,.12);--warn:#f0a44b;--warn-bg:rgba(240,164,75,.12);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);--card-hover:rgba(124,58,237,.3)}
-
-body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;
-  min-height:100vh;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;line-height:1.6}
+body{font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.6;
+background:var(--bg);color:var(--text);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
 .mono{font-family:var(--mono)}
 .up{color:var(--up)} .dn{color:var(--dn)}
-
-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;position:sticky;top:0;z-index:100;
-  background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{font-size:15px;font-weight:800;color:var(--bright);letter-spacing:-.3px;text-decoration:none}
-.nav-logo em{color:var(--accent2);font-style:normal}
-.nav-right{display:flex;align-items:center;gap:28px}
-.nav-links{display:flex;gap:24px}
-.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
-.nav-links a:hover{color:var(--text)}
-.nav-links a.active{color:var(--accent2)}
-.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);transition:border-color .15s,color .15s;line-height:1}
-.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
-@media(max-width:600px){.nav-links{display:none}}
-
-.head{position:relative;overflow:hidden;padding:60px 40px 26px;max-width:1000px;margin:0 auto}
-.head::before{content:'';position:absolute;top:-80px;left:10%;width:520px;height:340px;
-  background:radial-gradient(ellipse at 40% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
-.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700;font-family:var(--mono)}
-.head h1{font-size:clamp(27px,5vw,40px);font-weight:850;letter-spacing:-.02em;color:var(--bright);margin:.3em 0 .34em;text-wrap:balance}
-.head .sub{color:var(--text2);font-size:16px;max-width:64ch;line-height:1.75}
-.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);font-family:var(--mono)}
-.chip.hot{background:var(--up-bg);color:var(--up);border-color:transparent}
-
-.wrap{max-width:1000px;margin:0 auto;padding:8px 40px 60px}
-
-.verdict{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin:22px 0 8px;overflow:hidden}
-.verdict::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--accent2),var(--cyan))}
-.verdict h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);font-weight:800;margin-bottom:8px;font-family:var(--mono)}
-.verdict p{font-size:15.5px;color:var(--text);line-height:1.85}
-.verdict strong{color:var(--bright);font-weight:800}
-
-.sec{margin-top:48px}
-.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:11px;margin-bottom:20px;border-bottom:1px solid var(--border);position:relative}
-.sec-head::after{content:'';position:absolute;left:0;bottom:-1px;width:64px;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan))}
-.sec-no{font-family:var(--mono);font-size:12px;font-weight:800;color:var(--accent2)}
-.sec-title{font-size:21px;font-weight:850;color:var(--bright);letter-spacing:-.01em}
-.sec-sum{font-size:12px;color:var(--muted);margin-left:auto;font-family:var(--mono)}
-
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.tile{background:var(--bg2);border:1px solid var(--border);border-radius:13px;padding:16px 16px 14px;position:relative;overflow:hidden}
-.tile::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--tc,var(--accent2))}
-.tile.t-up{--tc:var(--up)} .tile.t-dn{--tc:var(--dn)} .tile.t-warn{--tc:var(--warn)}
-.tile .k{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em;line-height:1.4;min-height:2.8em}
-.tile .v{font-size:26px;font-weight:850;color:var(--bright);font-family:var(--mono);margin-top:6px;letter-spacing:-.02em}
-.tile.t-up .v{color:var(--up)} .tile.t-dn .v{color:var(--dn)} .tile.t-warn .v{color:var(--warn)}
-.tile .s{font-size:11px;color:var(--dimmer);margin-top:3px;font-family:var(--mono)}
-
-.finding{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:14px}
-.finding h4{font-size:16.5px;font-weight:800;color:var(--bright);margin-bottom:4px;display:flex;align-items:center;gap:9px}
-.finding h4 .fno{font-family:var(--mono);font-size:12px;color:#fff;background:var(--accent);width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-.finding .lead{font-size:13.5px;color:var(--text2);margin-bottom:14px;line-height:1.7}
-.finding .lead b{color:var(--bright)}
-
-.cmp{display:flex;flex-direction:column;gap:9px}
-.cmp-row{display:grid;grid-template-columns:66px 1fr 62px;align-items:center;gap:10px}
-.cmp-lab{font-size:11.5px;font-weight:700;color:var(--text2);font-family:var(--mono)}
-.cmp-lab .tag{display:block;font-size:9.5px;color:var(--dimmer);font-weight:600}
-.cmp-track{height:16px;background:var(--bg3);border-radius:8px;overflow:hidden;position:relative}
-.cmp-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent2),var(--cyan));min-width:2px;transition:width .3s}
-.cmp-fill.old{background:var(--dimmer);opacity:.55}
-.cmp-fill.pos{background:linear-gradient(90deg,#ef6262,var(--up))}
-.cmp-fill.neg{background:linear-gradient(90deg,#31d08a,var(--dn))}
-.cmp-val{font-size:12.5px;font-weight:800;font-family:var(--mono);text-align:right;color:var(--bright)}
-.judge{margin-top:13px;padding:11px 14px;background:var(--bg3);border-radius:9px;font-size:13px;color:var(--text);border-left:3px solid var(--accent2)}
-.judge b{color:var(--bright)}
-
-.dist{display:flex;gap:6px;align-items:flex-end;height:120px;margin:6px 0 4px}
-.dist-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%}
-.dist-bar{width:100%;max-width:44px;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--accent2),color-mix(in srgb,var(--cyan) 60%,transparent));min-height:3px}
-.dist-bar.hot{background:linear-gradient(180deg,var(--up),#ef8a5a)}
-.dist-cap{font-size:10.5px;color:var(--muted);font-family:var(--mono)}
-.dist-n{font-size:11px;font-weight:800;color:var(--bright);font-family:var(--mono)}
-
-.timeline{position:relative;padding:6px 0}
-.tl-item{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:12px 0;border-bottom:1px dashed var(--border)}
-.tl-item:last-child{border-bottom:none}
-.tl-when{font-size:12px;font-weight:800;color:var(--accent2);font-family:var(--mono);padding-top:2px}
-.tl-what{font-size:13.5px;color:var(--text)}
-.tl-what b{color:var(--bright)}
-.tl-stat{font-family:var(--mono);font-weight:800}
-
-.ops{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.op{background:var(--bg2);border:1px solid var(--border);border-radius:13px;padding:17px 18px;border-top:3px solid var(--accent2)}
-.op h5{font-size:14.5px;font-weight:800;color:var(--bright);margin-bottom:6px}
-.op p{font-size:13px;color:var(--text2);line-height:1.72}
-.op p b{color:var(--bright)}
-
-.note{background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);border-radius:13px;padding:18px 20px;margin-top:20px}
-.note h5{font-size:14px;font-weight:800;color:var(--warn);margin-bottom:8px;display:flex;gap:8px;align-items:center}
-.note ul{margin:0;padding-left:18px}
-.note li{font-size:12.8px;color:var(--text2);line-height:1.75;margin-bottom:4px}
-.note li b{color:var(--text)}
-
-footer{max-width:1000px;margin:0 auto;padding:22px 40px 48px;font-size:12px;color:var(--muted);border-top:1px solid var(--border)}
-footer a{color:var(--accent2);text-decoration:none}
-footer strong{color:var(--text2)}
-
-@media(max-width:720px){
-  .tiles{grid-template-columns:1fr 1fr}
-  .ops{grid-template-columns:1fr}
-  .tl-item{grid-template-columns:88px 1fr;gap:11px}
-  .cmp-row{grid-template-columns:60px 1fr 56px}
+.topbar{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:12px 32px;max-width:1200px;margin:0 auto}
+.nav-logo{font-weight:800;font-size:16px;letter-spacing:.02em}
+.nav-logo em{font-style:normal;background:linear-gradient(120deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:14px;align-items:center}
+.nav-links a,.theme-btn{font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:5px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg2);cursor:pointer}
+.nav-links a:hover,.theme-btn:hover{color:var(--accent2);border-color:var(--accent2)}
+.hero-wrap{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:radial-gradient(ellipse 60% 80% at 30% 0%,#000,transparent 70%);opacity:.5;pointer-events:none}
+.hero{position:relative;max-width:1200px;margin:0 auto;padding:40px 32px 32px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);background:var(--glow);border:1px solid var(--border);padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,4vw,38px);font-weight:800;color:var(--bright);letter-spacing:-.02em;line-height:1.25;margin-bottom:14px}
+.hero h1 .hl{background:linear-gradient(120deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-lede{font-size:15.5px;color:var(--text2);max-width:820px;line-height:1.75}
+.hero-lede strong{color:var(--bright)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.kpi-c{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:15px 16px;overflow:hidden;box-shadow:var(--card-shadow)}
+.kpi-c::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan) 60%,transparent)}
+.kpi-k{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.kpi-v{font-family:var(--mono);font-size:26px;font-weight:800;color:var(--bright);margin:5px 0 2px;letter-spacing:-1px}
+.kpi-s{font-size:11px;color:var(--text2)}
+.content{max-width:1200px;margin:0 auto;padding:8px 32px 60px}
+section{margin-top:40px;scroll-margin-top:80px}
+.sec-head{position:relative;display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.sec-head::after{content:'';position:absolute;left:0;bottom:-1px;width:72px;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan))}
+.sec-no{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent2);background:var(--glow);border:1px solid var(--border);padding:2px 8px;clip-path:polygon(0 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%)}
+.sec-title{font-size:19px;font-weight:800;color:var(--bright)}
+.sec-sum{font-size:11px;color:var(--muted);margin-left:auto}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:var(--card-shadow)}
+/* comparison table */
+.ct{width:100%;border-collapse:collapse}
+.ct thead th{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:8px 12px;border-bottom:1px solid var(--border)}
+.ct thead th:first-child{text-align:left}
+.ct thead th.h-new{color:var(--accent2)}
+.ct td{padding:9px 12px;border-bottom:1px solid var(--border2);font-family:var(--mono);text-align:right;font-size:13px}
+.ct td.ct-lbl{font-family:inherit;text-align:left;color:var(--text2);font-weight:600}
+.ct-hint{display:block;font-size:10.5px;color:var(--dimmer);font-weight:400}
+.ct td.ct-new{color:var(--bright);font-weight:700;background:var(--glow)}
+.ct td.ct-old{color:var(--muted)}
+/* lifecycle */
+.lifecycle{display:flex;align-items:stretch;gap:6px;overflow-x:auto;padding:6px 2px 12px}
+.lc-node{flex:1;min-width:110px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 10px;text-align:center}
+.lc-lbl{font-size:11px;font-weight:800;color:var(--text2);line-height:1.3;min-height:30px;display:flex;align-items:center;justify-content:center}
+.lc-val{font-family:var(--mono);font-size:19px;font-weight:800;color:var(--bright);margin:4px 0 2px}
+.lc-prob{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.lc-note{font-size:10.5px;color:var(--dimmer);margin-top:5px}
+.lc-arrow{display:flex;align-items:center;color:var(--dimmer);font-size:18px;flex-shrink:0}
+/* dist bars */
+.dist-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.db-cap{font-size:11px;font-weight:800;letter-spacing:.05em;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.db-cap::before{content:'';width:3px;height:12px;border-radius:1px;background:linear-gradient(180deg,var(--accent2),var(--cyan))}
+.db-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.db-k{font-family:var(--mono);font-size:11px;color:var(--muted);width:30px}
+.db-track{flex:1;height:14px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.db-fill{display:block;height:100%;border-radius:4px}
+.db-fill.up{background:linear-gradient(90deg,var(--up),var(--up-bd))}
+.db-fill.dn{background:linear-gradient(90deg,var(--dn),var(--dn-bd))}
+.db-n{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--text);width:56px;text-align:right}
+.db-share{color:var(--dimmer);font-weight:400;font-size:10px;margin-left:4px}
+/* takeaways */
+.tk{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tk-c{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent2);border-radius:10px;padding:15px 17px}
+.tk-c.warn{border-left-color:var(--warn)}
+.tk-h{font-size:14px;font-weight:800;color:var(--bright);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.tk-tag{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.tk-tag.wait{background:var(--warn-bg);color:var(--warn)}
+.tk-b{font-size:13px;color:var(--text2);line-height:1.7}
+.tk-b strong{color:var(--bright)}
+/* episode table */
+.ep-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--bg2)}
+.ep{width:100%;border-collapse:collapse;min-width:820px}
+.ep thead th{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap;position:sticky;top:0;background:var(--bg2)}
+.ep thead th:nth-child(-n+3){text-align:left}
+.ep td{padding:8px 10px;border-bottom:1px solid var(--border2);text-align:right;font-size:12.5px;white-space:nowrap}
+.ep td.nm{text-align:left;font-weight:600;width:99%}
+.ep tbody tr:hover{background:var(--bg3)}
+.mk{font-family:var(--mono);font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.mk-tse{background:var(--glow);color:var(--accent2);border:1px solid var(--border)}
+.mk-otc{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-bd)}
+.atd{font-family:var(--mono);font-size:9px;color:var(--dimmer);margin-left:5px}
+.method{font-size:12px;color:var(--muted);line-height:1.8;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:14px}
+.method b{color:var(--text2)}
+footer{max-width:1200px;margin:0 auto;padding:26px 32px 50px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+@media(max-width:760px){
+ nav{padding:12px 18px} .hero{padding:30px 18px 24px} .content{padding:8px 18px 40px}
+ .kpi{grid-template-columns:1fr 1fr} .dist-grid,.tk{grid-template-columns:1fr}
+ .sec-sum{margin-left:0;flex-basis:100%}
 }
-@media(max-width:600px){.head,.wrap,footer{padding-left:20px;padding-right:20px}nav{padding:14px 20px}}
-</style>
-<script>(function(){var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
-</head>
+</style></head>
 <body>
+<div class="topbar"><nav>
+  <div class="nav-logo">MAGI <em>處置研究</em></div>
+  <div class="nav-links">
+    <a href="/">← 首頁</a>
+    <button class="theme-btn" onclick="tg()">☾ 主題</button>
+  </div>
+</nav></div>
 
-<nav>
-  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="/">首頁</a>
-      <a href="/archive.html">報告庫</a>
-      <a href="/recent.html">近日熱點</a>
-      <a href="/search.html">知識庫</a>
-      <a href="/industry.html">產業地圖</a>
+<div class="hero-wrap"><div class="hero">
+  <div class="hero-pill">處置新制觀察 · 2分盤 · 更新 2026-09-02</div>
+  <h1>處置新制上路後，<span class="hl">行情不再被洗掉</span>——<br>前一天偷跑、D1 洗盤、<span class="hl">高點壓在解禁前</span></h1>
+  <p class="hero-lede">2026-08-10 起處置新制上路（處置期縮短為 <strong>5 個交易日</strong>、撮合改 <strong>每 2 分鐘一盤</strong>）。累積 <strong>41 檔完整生命週期樣本</strong>後，一組跟舊制（10 日盤）截然不同的行為浮現：進處置<strong>前一天平均噴 +3.08%</strong>（上漲率 67%、逾四分之一直接漲停），第一天洗盤探底，之後<strong>波段最高點高度集中在 D5（解禁前最後一天，71%）</strong>，整段進處置到解禁淨漲 <strong>+6.06%</strong>——舊制同期幾乎白忙（中位數 +0.2%）。出關後反而轉平淡偏弱，追出關不划算。</p>
+  <div class="kpi">
+    <div class="kpi-c"><div class="kpi-k">完整樣本</div><div class="kpi-v">41</div><div class="kpi-s">新制 episode（另 22 檔進行中）</div></div>
+    <div class="kpi-c"><div class="kpi-k">進處置前1日</div><div class="kpi-v up">+3.08%</div><div class="kpi-s">上漲率 67% · 漲停率 27%</div></div>
+    <div class="kpi-c"><div class="kpi-k">波段高點集中</div><div class="kpi-v">D5</div><div class="kpi-s">29/41 檔 ≈ 71% 壓解禁前</div></div>
+    <div class="kpi-c"><div class="kpi-k">進處置→解禁</div><div class="kpi-v up">+6.06%</div><div class="kpi-s">舊制 +2.87%（中位 +0.2%）</div></div>
+  </div>
+</div></div>
+
+<div class="content">
+
+<section id="lifecycle">
+  <div class="sec-head"><span class="sec-no">01</span><span class="sec-title">生命週期（新制平均）</span>
+    <span class="sec-sum">前1日噴 → D1 洗 → 高點壓 D5 → 出關轉弱</span></div>
+  <div class="lifecycle"><div class="lc-node">
+      <div class="lc-lbl">進處置<br>前1日</div>
+      <div class="lc-val up">+3.08%</div>
+      <div class="lc-prob">上漲率 67%</div>
+      <div class="lc-note">派發味濃卻偏強</div>
     </div>
-    <button id="theme-btn" class="theme-btn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
-  </div>
-</nav>
+<div class="lc-arrow">→</div>
+<div class="lc-node">
+      <div class="lc-lbl">進處置<br>D1</div>
+      <div class="lc-val dn">+0.16%</div>
+      <div class="lc-prob">上漲率 43%</div>
+      <div class="lc-note">首日洗盤探底</div>
+    </div>
+<div class="lc-arrow">→</div>
+<div class="lc-node">
+      <div class="lc-lbl">波段<br>最高</div>
+      <div class="lc-val up">+7.43%</div>
+      <div class="lc-prob">—</div>
+      <div class="lc-note">集中 D5(71%)</div>
+    </div>
+<div class="lc-arrow">→</div>
+<div class="lc-node">
+      <div class="lc-lbl">解禁<br>前1日</div>
+      <div class="lc-val up">+2.26%</div>
+      <div class="lc-prob">上漲率 68%</div>
+      <div class="lc-note">解禁前再噴</div>
+    </div>
+<div class="lc-arrow">→</div>
+<div class="lc-node">
+      <div class="lc-lbl">出關<br>D+1</div>
+      <div class="lc-val ">+0.02%</div>
+      <div class="lc-prob">上漲率 50%</div>
+      <div class="lc-note">轉平淡</div>
+    </div>
+<div class="lc-arrow">→</div>
+<div class="lc-node">
+      <div class="lc-lbl">出關<br>D+2</div>
+      <div class="lc-val dn">-1.33%</div>
+      <div class="lc-prob">上漲率 40%</div>
+      <div class="lc-note">最弱一天</div>
+    </div>
+<div class="lc-arrow">→</div>
+<div class="lc-node">
+      <div class="lc-lbl">出關<br>D+3</div>
+      <div class="lc-val ">+1.18%</div>
+      <div class="lc-prob">上漲率 56%</div>
+      <div class="lc-note">小幅回穩</div>
+    </div></div>
+  <p class="method">數字＝各時點相對「進處置前基準收盤」的<b>累積漲跌%</b>（波段最高／解禁前／出關為累積；D1 為當日）；上漲率＝該時點收正的樣本比例。波段最高列的「集中 D5」指 41 檔中有 29 檔的波段高點落在處置第 5 日。</p>
+</section>
 
-<div class="head">
-  <div class="eyebrow">DISPOSAL LIFECYCLE · 籌碼研究</div>
-  <h1>處置新制上路後，處置股不再是殺盤——反而是多方友善的洗盤</h1>
-  <p class="sub">2026-08-10 起處置期縮短至 5 日、撮合改 2 分盤。上路三週多，用 FinMind 逐檔 OHLC 回測所有處置 episode，發現新制下處置股的籌碼行為與舊制幾乎相反：<strong>進處置前一天噴、收盤下檔極淺（盤中最深約 −4.8%）、解禁前再噴、抱到解禁平均賺 +6.5%</strong>。</p>
-  <div class="meta-row">
-    <span class="chip hot">新制樣本 57 檔 · 37 檔完整生命週期</span>
-    <span class="chip">舊制對照 323 檔</span>
-    <span class="chip">資料截至 2026-09-01</span>
-    <span class="chip">新制界定 start ≥ 2026-08-10</span>
+<section id="compare">
+  <div class="sec-head"><span class="sec-no">02</span><span class="sec-title">新制 vs 舊制 核心對照</span>
+    <span class="sec-sum">新制 41 檔 · 舊制 323 檔</span></div>
+  <div class="card"><table class="ct">
+    <thead><tr><th>指標</th><th class="h-new">新制（2分盤·5日）</th><th>舊制（10日）</th></tr></thead>
+    <tbody><tr><td class="ct-lbl">進處置前一天 平均漲跌<span class="ct-hint">偷跑卡位訊號</span></td>
+      <td class="ct-new">+3.08%</td><td class="ct-old">+1.18%</td></tr>
+<tr><td class="ct-lbl">進處置前一天 上漲機率</td>
+      <td class="ct-new">66.7%</td><td class="ct-old">55.1%</td></tr>
+<tr><td class="ct-lbl">進處置前一天 漲停機率</td>
+      <td class="ct-new">27.0%</td><td class="ct-old">20.7%</td></tr>
+<tr><td class="ct-lbl">進處置第一天(D1) 平均<span class="ct-hint">首日常探底</span></td>
+      <td class="ct-new">+0.16%</td><td class="ct-old">-0.91%</td></tr>
+<tr><td class="ct-lbl">處置期間 波段最高(累積)</td>
+      <td class="ct-new">+7.43%</td><td class="ct-old">+13.20%</td></tr>
+<tr><td class="ct-lbl">處置期間 波段最低(累積)<span class="ct-hint">新制回檔小</span></td>
+      <td class="ct-new">-1.14%</td><td class="ct-old">-11.85%</td></tr>
+<tr><td class="ct-lbl">進處置→解禁 淨漲跌<span class="ct-hint">有沒有被洗掉</span></td>
+      <td class="ct-new">+6.06%</td><td class="ct-old">+2.87%</td></tr>
+<tr><td class="ct-lbl">解禁前一天 平均</td>
+      <td class="ct-new">+2.26%</td><td class="ct-old">+0.25%</td></tr>
+<tr><td class="ct-lbl">出關 D+1 平均 / 上漲率</td>
+      <td class="ct-new">+0.02% / 50%</td><td class="ct-old">-0.64% / 42%</td></tr>
+<tr><td class="ct-lbl">出關 D+2 平均 / 上漲率</td>
+      <td class="ct-new">-1.33% / 40%</td><td class="ct-old">-0.58% / 42%</td></tr>
+<tr><td class="ct-lbl">出關 D+3 平均 / 上漲率</td>
+      <td class="ct-new">+1.18% / 56%</td><td class="ct-old">-0.33% / 46%</td></tr></tbody>
+  </table></div>
+  <p class="method"><b>怎麼讀：</b>新制「波段最低」僅 -1.14%（舊制 -11.8%）——處置縮短＋2分盤讓主力沒空間用長黑洗貨，<b>行情不再被處置澆熄</b>；相對地，前一天與解禁前一天的偏強更明顯，形成「卡前一天、抱到解禁前」的節奏。</p>
+</section>
+
+<section id="dist">
+  <div class="sec-head"><span class="sec-no">03</span><span class="sec-title">波段高／低點 出現在第幾天</span>
+    <span class="sec-sum">新制 · 高點壓 D5、低點壓 D1</span></div>
+  <div class="dist-grid">
+    <div class="card"><div class="db-cap">波段最高點出現日（越高＝越晚見高）</div><div class="db-row"><span class="db-k">D1</span>
+          <span class="db-track"><span class="db-fill up" style="width:41%"></span></span>
+          <span class="db-n">12<span class="db-share">19%</span></span></div>
+<div class="db-row"><span class="db-k">D2</span>
+          <span class="db-track"><span class="db-fill up" style="width:28%"></span></span>
+          <span class="db-n">8<span class="db-share">13%</span></span></div>
+<div class="db-row"><span class="db-k">D3</span>
+          <span class="db-track"><span class="db-fill up" style="width:21%"></span></span>
+          <span class="db-n">6<span class="db-share">10%</span></span></div>
+<div class="db-row"><span class="db-k">D4</span>
+          <span class="db-track"><span class="db-fill up" style="width:21%"></span></span>
+          <span class="db-n">6<span class="db-share">10%</span></span></div>
+<div class="db-row"><span class="db-k">D5</span>
+          <span class="db-track"><span class="db-fill up" style="width:100%"></span></span>
+          <span class="db-n">29<span class="db-share">46%</span></span></div>
+<div class="db-row"><span class="db-k">D6+</span>
+          <span class="db-track"><span class="db-fill up" style="width:7%"></span></span>
+          <span class="db-n">2<span class="db-share">3%</span></span></div></div>
+    <div class="card"><div class="db-cap">波段最低點出現日（越高＝越早探底）</div><div class="db-row"><span class="db-k">D1</span>
+          <span class="db-track"><span class="db-fill dn" style="width:100%"></span></span>
+          <span class="db-n">38<span class="db-share">60%</span></span></div>
+<div class="db-row"><span class="db-k">D2</span>
+          <span class="db-track"><span class="db-fill dn" style="width:39%"></span></span>
+          <span class="db-n">15<span class="db-share">24%</span></span></div>
+<div class="db-row"><span class="db-k">D3</span>
+          <span class="db-track"><span class="db-fill dn" style="width:11%"></span></span>
+          <span class="db-n">4<span class="db-share">6%</span></span></div>
+<div class="db-row"><span class="db-k">D4</span>
+          <span class="db-track"><span class="db-fill dn" style="width:16%"></span></span>
+          <span class="db-n">6<span class="db-share">10%</span></span></div>
+<div class="db-row"><span class="db-k">D5</span>
+          <span class="db-track"><span class="db-fill dn" style="width:0%"></span></span>
+          <span class="db-n">0<span class="db-share">0%</span></span></div>
+<div class="db-row"><span class="db-k">D6+</span>
+          <span class="db-track"><span class="db-fill dn" style="width:0%"></span></span>
+          <span class="db-n">0<span class="db-share">0%</span></span></div></div>
   </div>
+  <p class="method">最高點壓在 <b>D5（29 檔）</b>、最低點壓在 <b>D1（38 檔）</b>——這是新制最鮮明的形狀：<b>先低後高、末日見高</b>。操作上偏向「D1 探底找買點、續抱到解禁前一天」。</p>
+</section>
+
+<section id="takeaway">
+  <div class="sec-head"><span class="sec-no">04</span><span class="sec-title">可操作結論</span>
+    <span class="sec-sum">樣本 41 檔，非投資建議</span></div>
+  <div class="tk">
+    <div class="tk-c"><div class="tk-h">① 前一天偷跑最甜 <span class="tk-tag">勝率 67%</span></div>
+      <div class="tk-b">進處置<strong>前一天平均 +3.08%</strong>、27% 直接漲停。若能在「快進處置」名單（連續注意次數異常）中提前一天卡位，是賠率最好的一段。</div></div>
+    <div class="tk-c"><div class="tk-h">② D1 探底、別追高 <span class="tk-tag">D1低點 38/41</span></div>
+      <div class="tk-b">第一天平均僅 <strong>+0.16%</strong>、上漲率 43%，波段最低多落在 D1。首日跳空沖高常拉回，<strong>接刀點在 D1 而非 preday 追價</strong>。</div></div>
+    <div class="tk-c"><div class="tk-h">③ 抱到解禁前一天 <span class="tk-tag">高點壓 D5</span></div>
+      <div class="tk-b">波段最高 71% 集中 <strong>D5</strong>，解禁前一天再平均 <strong>+2.26%</strong>（上漲率 68%）。續抱到解禁前一天出場，勝過中途下車。</div></div>
+    <div class="tk-c warn"><div class="tk-h">④ 別追出關 <span class="tk-tag wait">D+2 -1.33%</span></div>
+      <div class="tk-b">出關後轉平淡：D+1 +0.02%、<strong>D+2 -1.33%（上漲率僅 40%）</strong>、D+3 +1.18%。籌碼已在處置期消化，出關無明顯續強溢價。</div></div>
+  </div>
+</section>
+
+<section id="episodes">
+  <div class="sec-head"><span class="sec-no">05</span><span class="sec-title">完整樣本明細（新制 41 檔）</span>
+    <span class="sec-sum">依進處置日新→舊</span></div>
+  <div class="ep-scroll"><table class="ep">
+    <thead><tr>
+      <th>進處置</th><th>代號</th><th>名稱</th>
+      <th>前1日</th><th>D1</th><th>波段高<span class="atd">@日</span></th>
+      <th>進→解禁</th><th>解禁前</th><th>出關+1</th><th>+2</th><th>+3</th>
+    </tr></thead>
+    <tbody><tr>
+      <td class="mono">08-24</td>
+      <td class="mono">5314</td>
+      <td class="nm">世紀*<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+9.94%</td>
+      <td class="mono up">+10.00%</td>
+      <td class="mono up">+46.15%<span class="atd">D4</span></td>
+      <td class="mono up">+31.54%</td>
+      <td class="mono dn">-10.00%</td>
+      <td class="mono up">+5.26%</td>
+      <td class="mono dn">-1.94%</td>
+      <td class="mono dn">-3.12%</td>
+    </tr>
+<tr>
+      <td class="mono">08-24</td>
+      <td class="mono">5321</td>
+      <td class="nm">美而快<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+1.39%</td>
+      <td class="mono up">+7.68%</td>
+      <td class="mono up">+16.60%<span class="atd">D4</span></td>
+      <td class="mono up">+16.60%</td>
+      <td class="mono ">+0.00%</td>
+      <td class="mono up">+2.00%</td>
+      <td class="mono dn">-9.80%</td>
+      <td class="mono dn">-1.53%</td>
+    </tr>
+<tr>
+      <td class="mono">08-24</td>
+      <td class="mono">2455</td>
+      <td class="nm">全新<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-1.46%</td>
+      <td class="mono dn">-6.03%</td>
+      <td class="mono up">+6.90%<span class="atd">D5</span></td>
+      <td class="mono up">+6.90%</td>
+      <td class="mono up">+0.23%</td>
+      <td class="mono up">+9.91%</td>
+      <td class="mono up">+9.85%</td>
+      <td class="mono up">+3.44%</td>
+    </tr>
+<tr>
+      <td class="mono">08-24</td>
+      <td class="mono">3498</td>
+      <td class="nm">陽程<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+4.63%</td>
+      <td class="mono dn">-3.65%</td>
+      <td class="mono up">+5.99%<span class="atd">D3</span></td>
+      <td class="mono dn">-1.30%</td>
+      <td class="mono dn">-6.88%</td>
+      <td class="mono up">+9.76%</td>
+      <td class="mono dn">-2.16%</td>
+      <td class="mono dn">-0.98%</td>
+    </tr>
+<tr>
+      <td class="mono">08-20</td>
+      <td class="mono">3490</td>
+      <td class="nm">單井<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+5.17%</td>
+      <td class="mono up">+5.02%</td>
+      <td class="mono up">+16.67%<span class="atd">D4</span></td>
+      <td class="mono up">+14.53%</td>
+      <td class="mono dn">-1.83%</td>
+      <td class="mono up">+0.75%</td>
+      <td class="mono dn">-6.85%</td>
+      <td class="mono dn">-9.54%</td>
+    </tr>
+<tr>
+      <td class="mono">08-20</td>
+      <td class="mono">5475</td>
+      <td class="nm">德宏<span class="mk mk-otc">OTC</span></td>
+      <td class="mono dn">-1.37%</td>
+      <td class="mono dn">-2.22%</td>
+      <td class="mono up">+0.56%<span class="atd">D5</span></td>
+      <td class="mono up">+0.56%</td>
+      <td class="mono up">+4.62%</td>
+      <td class="mono up">+9.94%</td>
+      <td class="mono up">+1.01%</td>
+      <td class="mono up">+1.74%</td>
+    </tr>
+<tr>
+      <td class="mono">08-20</td>
+      <td class="mono">6225</td>
+      <td class="nm">天瀚<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+9.84%</td>
+      <td class="mono up">+9.89%</td>
+      <td class="mono up">+32.65%<span class="atd">D3</span></td>
+      <td class="mono up">+27.80%</td>
+      <td class="mono up">+3.63%</td>
+      <td class="mono dn">-3.65%</td>
+      <td class="mono dn">-9.85%</td>
+      <td class="mono up">+0.84%</td>
+    </tr>
+<tr>
+      <td class="mono">08-19</td>
+      <td class="mono">3498</td>
+      <td class="nm">陽程<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+9.78%</td>
+      <td class="mono up">+9.48%</td>
+      <td class="mono up">+14.94%<span class="atd">D5</span></td>
+      <td class="mono up">+14.94%</td>
+      <td class="mono up">+8.11%</td>
+      <td class="mono up">+1.75%</td>
+      <td class="mono ">+0.00%</td>
+      <td class="mono dn">-6.88%</td>
+    </tr>
+<tr>
+      <td class="mono">08-18</td>
+      <td class="mono">7795</td>
+      <td class="nm">長廣<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+2.43%</td>
+      <td class="mono up">+4.19%</td>
+      <td class="mono up">+4.19%<span class="atd">D1</span></td>
+      <td class="mono up">+3.46%</td>
+      <td class="mono up">+0.53%</td>
+      <td class="mono dn">-2.99%</td>
+      <td class="mono up">+5.26%</td>
+      <td class="mono dn">-6.03%</td>
+    </tr>
+<tr>
+      <td class="mono">08-18</td>
+      <td class="mono">8033</td>
+      <td class="nm">雷虎<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-4.96%</td>
+      <td class="mono dn">-2.87%</td>
+      <td class="mono dn">-2.09%<span class="atd">D3</span></td>
+      <td class="mono dn">-3.39%</td>
+      <td class="mono dn">-0.27%</td>
+      <td class="mono dn">-3.24%</td>
+      <td class="mono up">+7.54%</td>
+      <td class="mono up">+3.38%</td>
+    </tr>
+<tr>
+      <td class="mono">08-17</td>
+      <td class="mono">5475</td>
+      <td class="nm">德宏<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+4.60%</td>
+      <td class="mono dn">-0.88%</td>
+      <td class="mono up">+7.04%<span class="atd">D2</span></td>
+      <td class="mono up">+2.35%</td>
+      <td class="mono dn">-0.85%</td>
+      <td class="mono dn">-8.60%</td>
+      <td class="mono up">+8.46%</td>
+      <td class="mono up">+4.62%</td>
+    </tr>
+<tr>
+      <td class="mono">08-17</td>
+      <td class="mono">6716</td>
+      <td class="nm">應廣<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+5.11%</td>
+      <td class="mono up">+5.26%</td>
+      <td class="mono up">+11.34%<span class="atd">D2</span></td>
+      <td class="mono up">+7.69%</td>
+      <td class="mono ">+0.00%</td>
+      <td class="mono dn">-7.89%</td>
+      <td class="mono up">+4.08%</td>
+      <td class="mono dn">-0.78%</td>
+    </tr>
+<tr>
+      <td class="mono">08-17</td>
+      <td class="mono">6225</td>
+      <td class="nm">天瀚<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+9.93%</td>
+      <td class="mono up">+9.90%</td>
+      <td class="mono up">+60.15%<span class="atd">D5</span></td>
+      <td class="mono up">+60.15%</td>
+      <td class="mono up">+9.85%</td>
+      <td class="mono up">+9.89%</td>
+      <td class="mono dn">-7.03%</td>
+      <td class="mono up">+3.63%</td>
+    </tr>
+<tr>
+      <td class="mono">08-14</td>
+      <td class="mono">4979</td>
+      <td class="nm">華星光<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+0.53%</td>
+      <td class="mono dn">-7.45%</td>
+      <td class="mono up">+1.06%<span class="atd">D5</span></td>
+      <td class="mono up">+1.06%</td>
+      <td class="mono up">+7.75%</td>
+      <td class="mono up">+1.23%</td>
+      <td class="mono dn">-5.20%</td>
+      <td class="mono up">+9.87%</td>
+    </tr>
+<tr>
+      <td class="mono">08-14</td>
+      <td class="mono">4991</td>
+      <td class="nm">環宇-KY<span class="mk mk-otc">OTC</span></td>
+      <td class="mono dn">-1.34%</td>
+      <td class="mono dn">-3.77%</td>
+      <td class="mono up">+8.79%<span class="atd">D5</span></td>
+      <td class="mono up">+8.79%</td>
+      <td class="mono up">+6.89%</td>
+      <td class="mono dn">-7.50%</td>
+      <td class="mono dn">-9.56%</td>
+      <td class="mono up">+2.30%</td>
+    </tr>
+<tr>
+      <td class="mono">08-14</td>
+      <td class="mono">3026</td>
+      <td class="nm">禾伸堂<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+0.88%</td>
+      <td class="mono dn">-6.37%</td>
+      <td class="mono up">+2.75%<span class="atd">D5</span></td>
+      <td class="mono up">+2.75%</td>
+      <td class="mono up">+2.90%</td>
+      <td class="mono dn">-10.00%</td>
+      <td class="mono up">+0.63%</td>
+      <td class="mono dn">-2.33%</td>
+    </tr>
+<tr>
+      <td class="mono">08-14</td>
+      <td class="mono">6213</td>
+      <td class="nm">聯茂<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+1.08%</td>
+      <td class="mono up">+2.35%</td>
+      <td class="mono up">+8.74%<span class="atd">D5</span></td>
+      <td class="mono up">+8.74%</td>
+      <td class="mono up">+5.37%</td>
+      <td class="mono up">+0.59%</td>
+      <td class="mono dn">-5.95%</td>
+      <td class="mono up">+9.84%</td>
+    </tr>
+<tr>
+      <td class="mono">08-13</td>
+      <td class="mono">7711</td>
+      <td class="nm">永擎<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+9.95%</td>
+      <td class="mono up">+9.83%</td>
+      <td class="mono up">+9.94%<span class="atd">D4</span></td>
+      <td class="mono up">+9.50%</td>
+      <td class="mono dn">-0.41%</td>
+      <td class="mono dn">-7.35%</td>
+      <td class="mono up">+1.65%</td>
+      <td class="mono up">+7.80%</td>
+    </tr>
+<tr>
+      <td class="mono">08-13</td>
+      <td class="mono">3163</td>
+      <td class="nm">波若威<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+5.12%</td>
+      <td class="mono dn">-0.14%</td>
+      <td class="mono up">+9.05%<span class="atd">D7</span></td>
+      <td class="mono up">+9.05%</td>
+      <td class="mono up">+6.39%</td>
+      <td class="mono dn">-7.15%</td>
+      <td class="mono up">+5.91%</td>
+      <td class="mono up">+0.91%</td>
+    </tr>
+<tr>
+      <td class="mono">08-13</td>
+      <td class="mono">4931</td>
+      <td class="nm">新盛力<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+4.71%</td>
+      <td class="mono dn">-2.25%</td>
+      <td class="mono up">+4.87%<span class="atd">D7</span></td>
+      <td class="mono up">+4.87%</td>
+      <td class="mono up">+2.56%</td>
+      <td class="mono dn">-10.00%</td>
+      <td class="mono dn">-2.78%</td>
+      <td class="mono up">+4.29%</td>
+    </tr>
+<tr>
+      <td class="mono">08-12</td>
+      <td class="mono">6426</td>
+      <td class="nm">統新<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+0.23%</td>
+      <td class="mono up">+1.83%</td>
+      <td class="mono up">+11.93%<span class="atd">D5</span></td>
+      <td class="mono up">+11.93%</td>
+      <td class="mono up">+1.88%</td>
+      <td class="mono dn">-5.33%</td>
+      <td class="mono up">+8.23%</td>
+      <td class="mono dn">-3.60%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">1815</td>
+      <td class="nm">富喬<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+3.73%</td>
+      <td class="mono dn">-0.45%</td>
+      <td class="mono up">+8.31%<span class="atd">D5</span></td>
+      <td class="mono up">+8.31%</td>
+      <td class="mono up">+5.46%</td>
+      <td class="mono dn">-1.24%</td>
+      <td class="mono up">+2.83%</td>
+      <td class="mono up">+9.18%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">3081</td>
+      <td class="nm">聯亞<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+9.98%</td>
+      <td class="mono dn">-2.17%</td>
+      <td class="mono up">+10.06%<span class="atd">D5</span></td>
+      <td class="mono up">+10.06%</td>
+      <td class="mono up">+9.84%</td>
+      <td class="mono up">+4.84%</td>
+      <td class="mono dn">-8.38%</td>
+      <td class="mono up">+3.73%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">4971</td>
+      <td class="nm">IET-KY<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+9.01%</td>
+      <td class="mono dn">-7.37%</td>
+      <td class="mono up">+5.18%<span class="atd">D5</span></td>
+      <td class="mono up">+5.18%</td>
+      <td class="mono up">+10.00%</td>
+      <td class="mono up">+5.30%</td>
+      <td class="mono dn">-5.04%</td>
+      <td class="mono up">+9.85%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">5351</td>
+      <td class="nm">鈺創<span class="mk mk-otc">OTC</span></td>
+      <td class="mono up">+9.62%</td>
+      <td class="mono up">+4.82%</td>
+      <td class="mono up">+18.86%<span class="atd">D5</span></td>
+      <td class="mono up">+18.86%</td>
+      <td class="mono up">+1.88%</td>
+      <td class="mono dn">-9.96%</td>
+      <td class="mono up">+3.69%</td>
+      <td class="mono dn">-6.72%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">2491</td>
+      <td class="nm">吉祥全<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+9.92%</td>
+      <td class="mono dn">-2.01%</td>
+      <td class="mono up">+8.31%<span class="atd">D5</span></td>
+      <td class="mono up">+8.31%</td>
+      <td class="mono up">+9.88%</td>
+      <td class="mono up">+3.70%</td>
+      <td class="mono dn">-2.68%</td>
+      <td class="mono dn">-4.06%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">3006</td>
+      <td class="nm">晶豪科<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+7.41%</td>
+      <td class="mono dn">-2.90%</td>
+      <td class="mono up">+0.73%<span class="atd">D3</span></td>
+      <td class="mono dn">-0.91%</td>
+      <td class="mono dn">-0.18%</td>
+      <td class="mono dn">-9.16%</td>
+      <td class="mono dn">-1.01%</td>
+      <td class="mono up">+2.04%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">3450</td>
+      <td class="nm">聯鈞<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+9.85%</td>
+      <td class="mono dn">-9.64%</td>
+      <td class="mono up">+4.96%<span class="atd">D5</span></td>
+      <td class="mono up">+4.96%</td>
+      <td class="mono up">+7.84%</td>
+      <td class="mono up">+5.27%</td>
+      <td class="mono dn">-2.07%</td>
+      <td class="mono dn">-2.47%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">6213</td>
+      <td class="nm">聯茂<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+9.90%</td>
+      <td class="mono up">+5.73%</td>
+      <td class="mono up">+12.51%<span class="atd">D5</span></td>
+      <td class="mono up">+12.51%</td>
+      <td class="mono up">+0.21%</td>
+      <td class="mono up">+1.46%</td>
+      <td class="mono dn">-0.82%</td>
+      <td class="mono up">+5.37%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">6451</td>
+      <td class="nm">訊芯-KY<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+8.31%</td>
+      <td class="mono dn">-5.04%</td>
+      <td class="mono up">+0.55%<span class="atd">D5</span></td>
+      <td class="mono up">+0.55%</td>
+      <td class="mono up">+7.76%</td>
+      <td class="mono dn">-8.18%</td>
+      <td class="mono dn">-1.66%</td>
+      <td class="mono up">+5.56%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">8021</td>
+      <td class="nm">尖點<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+10.00%</td>
+      <td class="mono up">+1.04%</td>
+      <td class="mono up">+1.04%<span class="atd">D1</span></td>
+      <td class="mono dn">-1.50%</td>
+      <td class="mono dn">-1.38%</td>
+      <td class="mono dn">-4.56%</td>
+      <td class="mono dn">-3.67%</td>
+      <td class="mono up">+3.81%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">6217</td>
+      <td class="nm">中探針<span class="mk mk-otc">OTC</span></td>
+      <td class="mono ">+0.00%</td>
+      <td class="mono dn">-7.27%</td>
+      <td class="mono up">+3.64%<span class="atd">D5</span></td>
+      <td class="mono up">+3.64%</td>
+      <td class="mono up">+1.18%</td>
+      <td class="mono dn">-8.19%</td>
+      <td class="mono dn">-2.55%</td>
+      <td class="mono up">+0.33%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">3167</td>
+      <td class="nm">大量<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-5.21%</td>
+      <td class="mono dn">-3.05%</td>
+      <td class="mono up">+6.87%<span class="atd">D5</span></td>
+      <td class="mono up">+6.87%</td>
+      <td class="mono up">+3.70%</td>
+      <td class="mono up">+10.00%</td>
+      <td class="mono dn">-10.00%</td>
+      <td class="mono up">+9.96%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">6531</td>
+      <td class="nm">愛普*<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-2.94%</td>
+      <td class="mono dn">-9.97%</td>
+      <td class="mono up">+0.98%<span class="atd">D4</span></td>
+      <td class="mono dn">-5.42%</td>
+      <td class="mono dn">-6.33%</td>
+      <td class="mono dn">-1.15%</td>
+      <td class="mono dn">-3.01%</td>
+      <td class="mono up">+5.38%</td>
+    </tr>
+<tr>
+      <td class="mono">08-11</td>
+      <td class="mono">7610</td>
+      <td class="nm">聯友金屬-創<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+5.41%</td>
+      <td class="mono dn">-4.10%</td>
+      <td class="mono dn">-2.82%<span class="atd">D2</span></td>
+      <td class="mono dn">-5.13%</td>
+      <td class="mono up">+5.71%</td>
+      <td class="mono dn">-5.95%</td>
+      <td class="mono dn">-7.76%</td>
+      <td class="mono dn">-4.36%</td>
+    </tr>
+<tr>
+      <td class="mono">08-10</td>
+      <td class="mono">6274</td>
+      <td class="nm">台燿<span class="mk mk-otc">OTC</span></td>
+      <td class="mono dn">-5.88%</td>
+      <td class="mono up">+1.39%</td>
+      <td class="mono up">+16.32%<span class="atd">D5</span></td>
+      <td class="mono up">+16.32%</td>
+      <td class="mono up">+4.69%</td>
+      <td class="mono dn">-4.48%</td>
+      <td class="mono dn">-3.44%</td>
+      <td class="mono dn">-2.91%</td>
+    </tr>
+<tr>
+      <td class="mono">08-10</td>
+      <td class="mono">2059</td>
+      <td class="nm">川湖<span class="mk mk-tse">TSE</span></td>
+      <td class="mono up">+10.00%</td>
+      <td class="mono up">+7.16%</td>
+      <td class="mono up">+12.51%<span class="atd">D5</span></td>
+      <td class="mono up">+12.51%</td>
+      <td class="mono up">+2.17%</td>
+      <td class="mono up">+10.00%</td>
+      <td class="mono up">+4.51%</td>
+      <td class="mono dn">-1.91%</td>
+    </tr>
+<tr>
+      <td class="mono">08-10</td>
+      <td class="mono">2455</td>
+      <td class="nm">全新<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-2.15%</td>
+      <td class="mono up">+5.63%</td>
+      <td class="mono up">+5.63%<span class="atd">D1</span></td>
+      <td class="mono up">+4.26%</td>
+      <td class="mono dn">-1.17%</td>
+      <td class="mono up">+9.88%</td>
+      <td class="mono up">+0.12%</td>
+      <td class="mono dn">-5.03%</td>
+    </tr>
+<tr>
+      <td class="mono">08-10</td>
+      <td class="mono">3037</td>
+      <td class="nm">欣興<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-1.85%</td>
+      <td class="mono up">+3.87%</td>
+      <td class="mono up">+6.81%<span class="atd">D5</span></td>
+      <td class="mono up">+6.81%</td>
+      <td class="mono up">+2.00%</td>
+      <td class="mono up">+9.80%</td>
+      <td class="mono up">+2.23%</td>
+      <td class="mono dn">-1.31%</td>
+    </tr>
+<tr>
+      <td class="mono">08-10</td>
+      <td class="mono">3189</td>
+      <td class="nm">景碩<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-3.52%</td>
+      <td class="mono up">+1.58%</td>
+      <td class="mono up">+4.74%<span class="atd">D5</span></td>
+      <td class="mono up">+4.74%</td>
+      <td class="mono up">+1.29%</td>
+      <td class="mono up">+4.99%</td>
+      <td class="mono dn">-4.42%</td>
+      <td class="mono dn">-1.85%</td>
+    </tr>
+<tr>
+      <td class="mono">08-10</td>
+      <td class="mono">3653</td>
+      <td class="nm">健策<span class="mk mk-tse">TSE</span></td>
+      <td class="mono dn">-1.57%</td>
+      <td class="mono dn">-5.59%</td>
+      <td class="mono up">+10.84%<span class="atd">D5</span></td>
+      <td class="mono up">+10.84%</td>
+      <td class="mono up">+4.75%</td>
+      <td class="mono up">+9.99%</td>
+      <td class="mono dn">-3.56%</td>
+      <td class="mono up">+6.02%</td>
+    </tr></tbody>
+  </table></div>
+  <p class="method"><b>欄位：</b>「前1日」＝進處置前一交易日漲跌%；「D1」＝進處置第一天；「波段高」＝處置期間相對進場基準的累積最高%與出現日；「進→解禁」＝進處置到解禁日累積%；「解禁前」＝解禁前一交易日；「出關+1/+2/+3」＝解禁後第 1/2/3 交易日單日漲跌%。</p>
+</section>
+
+<div class="method"><b>方法與資料源：</b>樣本取自 MAGI <b>warning_history</b> 每日處置快照 × FinMind 日 OHLC（TSE/OTC 同路徑）。新制＝開始處置日 ≥ 2026-08-10（處置期 5 日、每 2 分撮合）；舊制＝其前。僅「完整生命週期」（已走完解禁後 3 日）樣本納入平均。每日盤後自動累積（<b>disposal_study.py</b>），已完成 episode 凍結快取、近 0 API。<b>統計描述非投資建議，樣本仍在累積、極端值會影響平均，請搭配個股基本面與當日籌碼判讀。</b></div>
+
 </div>
-
-<div class="wrap">
-
-  <div class="verdict">
-    <h3>一句話結論</h3>
-    <p>舊制處置＝「主力用撮合限制殺散戶」，進場後<b>盤中</b>最大回檔平均 <strong class="dn">−15.1%</strong>；新制處置＝「加速器」：<strong>進處置前一天有 70.2% 機率上漲、28.1% 直接漲停</strong>，進場後<b>盤中</b>最大回檔只剩 <strong class="dn">−4.8%</strong>（收盤看更只有 −1.1%），最高點集中在 <strong>進處置後第 5 個交易日（D5，接近最後處置日）</strong>，抱到解禁的中位報酬從舊制的 <strong class="mono">+0.2%</strong> 跳到 <strong class="up">+5.1%</strong>。白話：<strong>新制把「處置」從利空變成了偏多的籌碼沉澱訊號</strong>——盤中雖仍會洗到近 −5%，但殺傷力比舊制小得多。強題材多頭期的小樣本，別當鐵律。</p>
-  </div>
-
-  <!-- 01 制度背景 -->
-  <div class="sec">
-    <div class="sec-head"><span class="sec-no">01</span><span class="sec-title">為什麼要重測？制度變了</span><span class="sec-sum">2026-08-10 新制</span></div>
-    <div class="tiles">
-      <div class="tile"><div class="k">處置期間</div><div class="v">5 日</div><div class="s">舊制最長 10 日 →縮短</div></div>
-      <div class="tile"><div class="k">撮合頻率</div><div class="v">2 分</div><div class="s">舊制 5／20 分盤 →放寬</div></div>
-      <div class="tile t-warn"><div class="k">千金股注意門檻</div><div class="v">放寬</div><div class="s">高價股較不易被列注意</div></div>
-      <div class="tile t-up"><div class="k">淨效果</div><div class="v">友善</div><div class="s">流動性懲罰大幅減輕</div></div>
-    </div>
-    <p style="font-size:13.5px;color:var(--text2);margin-top:14px;line-height:1.75">處置的本意是對過熱股「降溫」——拉長撮合間隔（成交變難）＋要求全額圈存，逼短線資金退場。舊制 20 分盤一天只撮 13 次、行情基本被鎖死。<strong style="color:var(--bright)">新制 2 分盤等於把流動性懲罰砍到剩零頭</strong>，撮合幾乎接近正常盤，「進處置」的實質殺傷力大減。制度一改，過去那套「進處置＝該跑」的直覺就得重新驗證——這正是這份研究的動機。</p>
-  </div>
-
-  <!-- 02 六大發現 -->
-  <div class="sec">
-    <div class="sec-head"><span class="sec-no">02</span><span class="sec-title">六個新制 vs 舊制的行為對比</span><span class="sec-sum">紫＝新制 · 灰＝舊制</span></div>
-
-    <div class="finding">
-      <h4><span class="fno">1</span>進處置「前一天」是派對高潮</h4>
-      <div class="lead">處置公告後隔日才開始，所以「宣布進處置的當天（＝前一交易日）」往往還在噴。新制這天上漲機率 <b>70.2%</b>、漲停機率 <b>28.1%</b>，均值 <b class="up">+3.28%</b>，全面高於舊制。</div>
-      <div class="cmp">
-        <div class="cmp-row"><div class="cmp-lab">上漲率<span class="tag">新制</span></div><div class="cmp-track"><div class="cmp-fill" style="width:70.2%"></div></div><div class="cmp-val up">70.2%</div></div>
-        <div class="cmp-row"><div class="cmp-lab"><span class="tag">舊制</span></div><div class="cmp-track"><div class="cmp-fill old" style="width:55.1%"></div></div><div class="cmp-val">55.1%</div></div>
-        <div class="cmp-row"><div class="cmp-lab">漲停率<span class="tag">新制</span></div><div class="cmp-track"><div class="cmp-fill" style="width:28.1%"></div></div><div class="cmp-val up">28.1%</div></div>
-        <div class="cmp-row"><div class="cmp-lab"><span class="tag">舊制</span></div><div class="cmp-track"><div class="cmp-fill old" style="width:20.7%"></div></div><div class="cmp-val">20.7%</div></div>
-      </div>
-      <div class="judge"><b>判讀：</b>被列處置的前一天，七成機率收紅、三成直接漲停——這天的強勢是「即將被關進處置」的資金搶帽子，反而是題材最曖昧、最漂亮的階段。</div>
-    </div>
-
-    <div class="finding">
-      <h4><span class="fno">2</span>進場後下檔明顯變淺——盤中最大回檔 −4.8%（收盤僅 −1.1%）</h4>
-      <div class="lead"><b>改用盤中最低（含盤中影線，非收盤）</b>衡量進處置後走到波段最低的累積跌幅：舊制平均 <b class="dn">−15.1%</b>（處置＝盤中真殺）、新制降到 <b class="dn">−4.8%</b>（中位 −4.5%）；若只看收盤，新制更只有 <b class="dn">−1.1%</b>。回檔多半在<b>第一天</b>（57 檔有 31 檔盤中最低落在 D1）就打完。<span style="color:var(--muted)">＊老闆需求：抓盤中最深點，避免只看收盤低估洗盤幅度。</span></div>
-      <div class="cmp">
-        <div class="cmp-row"><div class="cmp-lab">盤中最大回檔<span class="tag">新制</span></div><div class="cmp-track"><div class="cmp-fill neg" style="width:32%"></div></div><div class="cmp-val dn">−4.8%</div></div>
-        <div class="cmp-row"><div class="cmp-lab"><span class="tag">舊制</span></div><div class="cmp-track"><div class="cmp-fill neg" style="width:100%"></div></div><div class="cmp-val dn">−15.1%</div></div>
-      </div>
-      <div class="judge"><b>判讀：</b>殺盤效果大減、但沒消失——收盤幾乎不跌（−1.1%），盤中卻仍常見近 −5% 的影線洗盤。實務上這代表：<b>盤中恐慌殺低反而是撿貨窗口，停損別掛在盤中最低</b>；且首日（D1）沒被洗下去，後面盤中回檔空間也有限。</div>
-    </div>
-
-    <div class="finding">
-      <h4><span class="fno">3</span>最高點集中在「D5」——接近最後處置日才見頂</h4>
-      <div class="lead">新制 57 檔中，進場後走勢的最高點有 <b>27 檔（47%）落在第 5 個交易日</b>，D1~D4 都少、D6+ 幾乎沒有。因為處置期縮到 5 日，行情在處置期內就走完，頂部被壓在期末。舊制則分散、且 D6+（解禁後）最多。</div>
-      <div class="dist">
-        <div class="dist-col"><div class="dist-n">11</div><div class="dist-bar" style="height:41%"></div><div class="dist-cap">D1</div></div>
-        <div class="dist-col"><div class="dist-n">7</div><div class="dist-bar" style="height:26%"></div><div class="dist-cap">D2</div></div>
-        <div class="dist-col"><div class="dist-n">4</div><div class="dist-bar" style="height:15%"></div><div class="dist-cap">D3</div></div>
-        <div class="dist-col"><div class="dist-n">6</div><div class="dist-bar" style="height:22%"></div><div class="dist-cap">D4</div></div>
-        <div class="dist-col"><div class="dist-n">27</div><div class="dist-bar hot" style="height:100%"></div><div class="dist-cap">D5</div></div>
-        <div class="dist-col"><div class="dist-n">2</div><div class="dist-bar" style="height:7%"></div><div class="dist-cap">D6+</div></div>
-      </div>
-      <div class="judge"><b>判讀：</b>新制處置股「見頂日」高度集中 D5。抱波段的人，心裡的目標賣點可以放在接近最後處置日／解禁前，而不是進場沒幾天就急著跑。</div>
-    </div>
-
-    <div class="finding">
-      <h4><span class="fno">4</span>解禁「前一天」再噴一次</h4>
-      <div class="lead">解禁前最後一個處置日，新制上漲機率 <b>66.7%</b>、均值 <b class="up">+2.35%</b>；舊制這天只有 51.4%、近乎平盤。對應發現 3 的「D5 見頂」，這是同一件事的兩個切面——期末反而是強勢收尾。</div>
-      <div class="cmp">
-        <div class="cmp-row"><div class="cmp-lab">解禁前日<br>上漲率<span class="tag">新制</span></div><div class="cmp-track"><div class="cmp-fill" style="width:66.7%"></div></div><div class="cmp-val up">66.7%</div></div>
-        <div class="cmp-row"><div class="cmp-lab"><span class="tag">舊制</span></div><div class="cmp-track"><div class="cmp-fill old" style="width:51.4%"></div></div><div class="cmp-val">51.4%</div></div>
-      </div>
-      <div class="judge"><b>判讀：</b>「解禁前會先軟」在新制不成立，反而是解禁前一天強收。要減碼的話，這天的強勢是出貨窗口，不是加碼理由。</div>
-    </div>
-
-    <div class="finding">
-      <h4><span class="fno">5</span>抱「進場→解禁」的期望值，新制是正的</h4>
-      <div class="lead">從進處置抱到解禁當天的累積報酬：舊制中位數 <b class="mono">+0.2%</b>（幾乎白玩、還得吃流動性風險），新制中位數 <b class="up">+5.1%</b>、均值 <b class="up">+6.5%</b>。配合下檔淺（發現 2），風險報酬比明顯改善。</div>
-      <div class="cmp">
-        <div class="cmp-row"><div class="cmp-lab">進場→解禁<br>報酬中位<span class="tag">新制</span></div><div class="cmp-track"><div class="cmp-fill pos" style="width:60%"></div></div><div class="cmp-val up">+5.1%</div></div>
-        <div class="cmp-row"><div class="cmp-lab"><span class="tag">舊制</span></div><div class="cmp-track"><div class="cmp-fill pos" style="width:2%"></div></div><div class="cmp-val">+0.2%</div></div>
-      </div>
-      <div class="judge"><b>判讀：</b>新制下「進處置＝該跑」的舊直覺失效。若標的本身有題材（這波多是 AI 材料鏈），抱過處置期到解禁，統計上是正期望值。</div>
-    </div>
-
-    <div class="finding">
-      <h4><span class="fno">6</span>解禁後 D+1／D+2 偏弱，D+3 才回神</h4>
-      <div class="lead">解禁當下不是好買點：新制解禁後第 1 天均值 <b class="dn">−0.1%</b>（上漲率 49%）、第 2 天 <b class="dn">−1.4%</b>（37%），但<b>第 3 天翻正 <span class="up">+1.4%</span>（上漲率 60%）</b>——洗完解禁那兩天的浮額後才回穩。</div>
-      <div class="cmp">
-        <div class="cmp-row"><div class="cmp-lab">解禁 D+1<span class="tag">均值</span></div><div class="cmp-track" style="direction:rtl"><div class="cmp-fill neg" style="width:8%"></div></div><div class="cmp-val dn">−0.1%</div></div>
-        <div class="cmp-row"><div class="cmp-lab">解禁 D+2<span class="tag">均值</span></div><div class="cmp-track" style="direction:rtl"><div class="cmp-fill neg" style="width:40%"></div></div><div class="cmp-val dn">−1.4%</div></div>
-        <div class="cmp-row"><div class="cmp-lab">解禁 D+3<span class="tag">均值</span></div><div class="cmp-track"><div class="cmp-fill pos" style="width:40%"></div></div><div class="cmp-val up">+1.4%</div></div>
-      </div>
-      <div class="judge"><b>判讀：</b>想在解禁後接的人，別追解禁當天／隔天的行情，等 D+2 洗完、D+3 回穩再介入勝率較高（60% 上漲）。</div>
-    </div>
-  </div>
-
-  <!-- 03 生命週期地圖 -->
-  <div class="sec">
-    <div class="sec-head"><span class="sec-no">03</span><span class="sec-title">新制處置生命週期地圖</span><span class="sec-sum">一眼看完整節奏</span></div>
-    <div class="finding" style="padding-top:8px">
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-when">進處置前1日</div><div class="tl-what"><b>派對高潮</b>：70.2% 上漲、28.1% 漲停，均值 <span class="tl-stat up">+3.28%</span>。搶帽子資金衝最後一棒。</div></div>
-        <div class="tl-item"><div class="tl-when">D1 首日</div><div class="tl-what"><b>洗一下</b>：均值僅 <span class="tl-stat">+0.24%</span>、上漲率 43.9%。若要回檔，多半就在這天（盤中最大回檔 57 檔中 31 檔落 D1），但收盤幅度淺。</div></div>
-        <div class="tl-item"><div class="tl-when">D2 ~ D4</div><div class="tl-what"><b>沉澱盤整</b>：下檔空間收斂，等量能重新聚集。盤中最大回檔均值全期 <span class="tl-stat dn">−4.84%</span>（收盤僅 −1.1%）。</div></div>
-        <div class="tl-item"><div class="tl-when">D5（近最後處置日）</div><div class="tl-what"><b>見頂日</b>：47% 的最高點落在此。解禁前一天上漲率 <span class="tl-stat up">66.7%</span>、均值 <span class="tl-stat up">+2.35%</span>，強勢收尾。</div></div>
-        <div class="tl-item"><div class="tl-when">解禁 D+1 / D+2</div><div class="tl-what"><b>洗浮額</b>：均值 <span class="tl-stat dn">−0.1%</span> / <span class="tl-stat dn">−1.4%</span>，上漲率 49% / 37%。解禁不是買點。</div></div>
-        <div class="tl-item"><div class="tl-when">解禁 D+3</div><div class="tl-what"><b>回神</b>：翻正 <span class="tl-stat up">+1.37%</span>、上漲率 59.5%。樣本最乾淨的再進場點。</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 04 操作意涵 -->
-  <div class="sec">
-    <div class="sec-head"><span class="sec-no">04</span><span class="sec-title">操作意涵（假設，非建議）</span></div>
-    <div class="ops">
-      <div class="op"><h5>① 進處置前一天：偏多對待</h5><p>70.2% 上漲、28.1% 漲停的分布，代表這天的強勢不是雜訊。<b>手上有的別急著因為「要進處置了」就砍</b>，統計上隔日進場首日也只微幅波動。</p></div>
-      <div class="op"><h5>② 進場後：抱波段勝於殺出</h5><p>盤中最大回檔均值 <b class="dn">−4.8%</b>（收盤僅 −1.1%）、見頂集中 D5、抱到解禁中位 <b class="up">+5.1%</b>。<b>盤中殺低多是影線洗盤而非趨勢轉空，別停損在盤中最低；首日沒破線則續抱到接近解禁的期望值優於砍在初期。</b></p></div>
-      <div class="op"><h5>③ 解禁前一天：出貨窗口</h5><p>66.7% 上漲，是強勢收尾不是轉弱。<b>要減碼就用這天的量價強勢分批出</b>，別等解禁後 D+1/D+2 被洗才走。</p></div>
-      <div class="op"><h5>④ 想接解禁股：等 D+3</h5><p>解禁 D+1/D+2 均值皆負、上漲率不到 50%。<b>D+3 才翻正（+1.4%、60% 上漲）</b>，是浮額洗完後較乾淨的再進場點。</p></div>
-    </div>
-  </div>
-
-  <!-- 05 方法與免責 -->
-  <div class="sec">
-    <div class="sec-head"><span class="sec-no">05</span><span class="sec-title">方法與樣本</span></div>
-    <p style="font-size:13.5px;color:var(--text2);line-height:1.8">
-      <b style="color:var(--bright)">資料源</b>：MAGI 每日盤後累積的 <span class="mono">warning_history</span> 處置清單 × FinMind 逐檔日 OHLC（TaiwanStockPrice 公開 API）。每一檔處置視為一個 episode，用進處置日、每日收盤、解禁日重建「進場前一天 → 處置期間逐日 → 解禁前後」的完整生命週期。<b>最大回檔採「盤中最低」（含盤中影線）計算</b>，另附收盤版對照，避免只看收盤低估洗盤幅度（老闆需求）。<br>
-      <b style="color:var(--bright)">新制界定</b>：處置開始日 <span class="mono">start_date ≥ 2026-08-10</span>（處置期縮 5 日、2 分撮合上路日）。已完成生命週期（走到解禁 D+3）才計入「完整」統計。<br>
-      <b style="color:var(--bright)">樣本</b>：新制 57 episode（37 檔完整）、舊制 323 episode。資料截至 2026-09-01，每個交易日自動增補。
-    </p>
-    <div class="note">
-      <h5>⚠️ 重要限制 — 別把這當鐵律</h5>
-      <ul>
-        <li><b>樣本小、期間短</b>：新制完整生命週期僅 37 檔、上路才三週多，統計會隨樣本增加而變動。</li>
-        <li><b>題材偏誤</b>：這兩週被處置的股票，高度集中在正在噴的 AI 材料鏈（CCL／PTFE／ASIC）強勢股。觀察到的「處置友善」很可能同時反映「當前多頭題材環境」，未必是純制度效果——若大盤轉空，同一套機制的結果可能完全不同。</li>
-        <li><b>倖存者／自選偏誤</b>：會被列處置的本來就是短線超漲的強勢股，本身動能偏強，不能推論到一般個股。</li>
-        <li>本頁為籌碼行為的<b>統計描述</b>，非投資建議；過去分布不代表未來績效。</li>
-      </ul>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  處置生命週期研究為理解籌碼制度變化之用途，<strong>非投資建議</strong>；資料來自 MAGI warning_history × FinMind 回測，每日自動增補。&nbsp;·&nbsp;<a href="/">回首頁</a>
-</footer>
+<footer>MAGI 盤後系統 · 處置生命週期研究 · 資料截至 2026-09-02 · 新制樣本 41 檔完整 / 63 檔追蹤中</footer>
 
 <script>
-function magiToggleTheme(){
-  var h=document.documentElement;
-  var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  var next=cur==='dark'?'light':'dark';
-  h.setAttribute('data-theme',next);
-  localStorage.setItem('magi-theme',next);
-  var btn=document.getElementById('theme-btn'); if(btn) btn.textContent=next==='dark'?'☀️':'🌙';
-}
-(function(){var c=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var b=document.getElementById('theme-btn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+function tg(){var r=document.documentElement,d=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',d);try{localStorage.setItem('magi-theme',d)}catch(e){}}
+(function(){try{var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}catch(e){}})();
 </script>
-</body>
-</html>
+</body></html>
