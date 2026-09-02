@@ -26727,6 +26727,185 @@
     "parsed_at": "2026-08-28T23:41:56"
   },
   {
+    "code": "2308",
+    "name": "台達電",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "電源/BBU",
+    "quote": "Bbu 有專家來講aws台達又fail，但聽說這是舊聞，所以有買回。有買bbu",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AWS BBU專案傳言再度fail(舊聞已消化)"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": true,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "PCB",
+    "quote": "原本大家比較擔心t4改hdi會覺得掉share，但現在疑慮消失，產值上修10% 80多->90多e，明年70~80 便宜",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "T4改HDI掉share疑慮消失",
+      "產值上修10%(80多億→90多億)"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "PCB/CCL材料",
+    "quote": "台光有人在講南亞搶單，也有人在講ptfe利空。但趁弱買一點。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "南亞搶單傳言(利空)",
+      "PTFE利空傳言"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": true,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "散熱模組",
+    "quote": "Vr 水冷版用量會翻倍。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "VR水冷板用量翻倍"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "3406",
+    "name": "玉晶光",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "光學鏡頭/光通訊",
+    "quote": "上週私訪，目前幾個案子再跑，fau上全跟康寧。另外是mt(要插在光纖的連接器)跟3m合作，出鏡片，如果開始量產一個月會有3000w片，明年光通營收比重雙位數，看驗證時程。明年本業36~37把光通拉進來有機會50，pe跟3008比不高，用明年25~27倍看還有機會。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "與3M合作塑膠鏡片插入式光纖連接器(MT)，月產能3000萬片，最快10月ODM驗證",
+      "明年光通訊營收占比雙位數"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "IC設計/ASIC矽智財",
+    "quote": "8月105e mom 40%，明年看到tr4投片，明年200後年400，現在便宜",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "TR4投片(明年)"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "6515",
+    "name": "穎崴",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "半導體測試",
+    "quote": "8月 17e",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "7751",
+    "name": "竑騰",
+    "date": "2026-08-30",
+    "source_type": "meeting",
+    "source_page": "20260830_麻神",
+    "speaker": "麻神",
+    "host": "麻神",
+    "sector": "半導體設備",
+    "quote": "特斯拉接下來自製晶片，都會用7751機台，明年eps100",
+    "tp": null,
+    "eps_est": {
+      "2027": "100"
+    },
+    "catalysts": [
+      "特斯拉自製晶片將採用其機台"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
     "code": "1303",
     "name": "南亞",
     "date": "2026-08-31",
@@ -26774,6 +26953,52 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-31T22:49:14"
+  },
+  {
+    "code": "1815",
+    "name": "富喬",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "玻纖/散熱",
+    "quote": "上半年毛利有開出，e glass營收比重20%，其他ldk 2、ldk。7月e漲價30%。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "7月e-glass漲價30%",
+      "e-glass營收占比20%"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "2059",
+    "name": "川湖",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "精密機械/滑軌",
+    "quote": "8~9月需求強勁，一路上去的機率很高。市場預期持平~小衰退。等8月開出beat市場會上修。如果用700看現在也是20x，不貴。成長性也比5274高，gm也是。當股王很可以。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "8~9月需求強勁",
+      "Q3若beat估值上修"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
   },
   {
     "code": "2303",
@@ -26861,6 +27086,100 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-31T22:49:14"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "被動元件",
+    "quote": "8月國巨開始漲代理商，高容漲價30~200%，電阻標準品漲30%，特殊品漲50%。目前8月漲價9月生效。原本國巨直營代理6:4，聽說現在把直營客戶減量，出給代理。後面營收會變成5:5。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "高容漲30~200%、電阻標準品漲30%、特殊品漲50%",
+      "直營轉代理6:4→5:5"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "被動元件",
+    "quote": "已經開始走18年模式對代理商競標。9月開始對直營客戶漲價。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "重演18年模式競標",
+      "9月起對直營客戶漲價"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "2351",
+    "name": "順德",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "導線架",
+    "quote": "導線架跟原本差不多，ai類需求強，q2 ai 占比6% q3 雙位數，比原本講得提前到。客戶需求很急，都有加價提前出貨。均熱片是比較大的想像空間，sisco、anker等等。跟客戶開發mcl。今年7~8明年12~13",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AI占比Q2 6%→Q3雙位數",
+      "客戶加價提前出貨",
+      "均熱片新應用(Cisco/Anker)"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "PCB",
+    "quote": "目前資本支出190e明年更高。今年40明年65",
+    "tp": null,
+    "eps_est": {
+      "2027": "65"
+    },
+    "catalysts": [
+      "資本支出190億，明年更高"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
   },
   {
     "code": "2383",
@@ -26997,6 +27316,28 @@
     "parsed_at": "2026-08-31T22:49:14"
   },
   {
+    "code": "2492",
+    "name": "華新科",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "被動元件",
+    "quote": "也是對客戶瘋狂漲價，客戶一直靠夭也是在漲。電阻國巨說了算，8月開始對客戶瘋狂漲電阻。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "跟進國巨漲電阻價"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
     "code": "3008",
     "name": "大立光",
     "date": "2026-08-31",
@@ -27018,6 +27359,26 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-08-31T22:49:14"
+  },
+  {
+    "code": "3008",
+    "name": "大立光",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "光學鏡頭",
+    "quote": "Fau康寧找大立光、玉晶光，share上來說不獨供，這兩家都會是1、2供。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
   },
   {
     "code": "3017",
@@ -27068,6 +27429,50 @@
     "parsed_at": "2026-08-31T22:49:14"
   },
   {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "PCB",
+    "quote": "被搜索所以只能賣不能買。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "公司遭搜索調查"
+    ],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "3211",
+    "name": "順達",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "電池模組/散熱",
+    "quote": "Bbu meta hvdc，遞延到2q27，不影響到3211，因為原本就是4931。Q4 3211開始出meta 12kw。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Q4出貨Meta 12kw BBU"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
     "code": "3374",
     "name": "精材",
     "date": "2026-08-31",
@@ -27113,6 +27518,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-31T22:49:14"
+  },
+  {
+    "code": "3406",
+    "name": "玉晶光",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "光學鏡頭",
+    "quote": "Fau康寧找大立光、玉晶光，share上來說不獨供，這兩家都會是1、2供。比較推玉晶光。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
   },
   {
     "code": "3455",
@@ -27166,6 +27591,28 @@
     "parsed_at": "2026-08-31T22:49:14"
   },
   {
+    "code": "3624",
+    "name": "光頡",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "被動元件/薄膜電阻",
+    "quote": "比較看好天二、光頡。聽說光頡bbr已經到5。天二、光頡都做薄膜電阻都可以看。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "薄膜電阻bbr已到5"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
     "code": "3653",
     "name": "健策",
     "date": "2026-08-31",
@@ -27211,6 +27658,72 @@
     "parsed_at": "2026-08-31T22:49:14"
   },
   {
+    "code": "4931",
+    "name": "新盛力",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "電源模組",
+    "quote": "Bbu meta hvdc，遞延到2q27，不影響到3211，因為原本就是4931。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "4979",
+    "name": "華星光",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "光通訊/光元件",
+    "quote": "現在8000平方呎擴到28年23000平方呎。後面會陸續增加inp產能，eml產品下半年放向。28年會有1.6t產品。今年24明年35",
+    "tp": null,
+    "eps_est": {
+      "2027": "35"
+    },
+    "catalysts": [
+      "產能自8000擴至28年23000",
+      "InP/EML下半年放量",
+      "28年1.6T產品"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "IC設計",
+    "quote": "成長性也比5274高，gm也是。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
     "code": "5347",
     "name": "世界",
     "date": "2026-08-31",
@@ -27233,6 +27746,28 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-08-31T22:49:14"
+  },
+  {
+    "code": "5439",
+    "name": "高技",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "PCB",
+    "quote": "8、9月以後每個月本業2。下個月聽說會有報告。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "8、9月起單月本業獲利2元"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
   },
   {
     "code": "6147",
@@ -27304,6 +27839,26 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-08-31T22:49:14"
+  },
+  {
+    "code": "6834",
+    "name": "天二科技",
+    "date": "2026-08-31",
+    "source_type": "meeting",
+    "source_page": "20260831_愛德恩",
+    "speaker": "愛德恩",
+    "host": "愛德恩",
+    "sector": "被動元件/薄膜電阻",
+    "quote": "比較看好天二、光頡。天二、光頡都做薄膜電阻都可以看。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-02T23:40:44"
   },
   {
     "code": "8039",
