@@ -65,6 +65,29 @@
     "parsed_at": "2026-09-02T23:40:44"
   },
   {
+    "code": "2421",
+    "name": "建準",
+    "date": "2026-09-01",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/液冷",
+    "quote": "基本面包裝是4q開始有水冷板for AMD + Dell，源頭應該是想嘎空+複製一點sector落後補漲(有點像6213)",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "4Q水冷板AMD+Dell",
+      "軋空+補漲題材"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
+  },
+  {
     "code": "3443",
     "name": "創意",
     "date": "2026-09-01",
@@ -105,6 +128,29 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-09-01",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "ASIC設計服務",
+    "quote": "黃老師：聽說GUC會有微軟、Meta and AWS CPU案子...是真的嗎？回：AWS是消費性的，聽到是Graviton 5不知真假，這個我覺得是假的雖然我有創意持股，因為Graviton目前AWS直接下給tsmc。問：所以3443這個位置你還會推嗎？答：會啊，再來到明年，每一季的營收都會創歷史新高",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "市場傳聞Graviton5案(黃老師認為假)",
+      "每季營收預期創歷史新高"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
   },
   {
     "code": "5274",
@@ -151,6 +197,30 @@
     "parsed_at": "2026-09-02T23:40:44"
   },
   {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-09-01",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "BMC IC",
+    "quote": "信驊2027年EPS 380~400；信驊漲價",
+    "tp": "",
+    "eps_est": {
+      "2027": "380~400"
+    },
+    "catalysts": [
+      "產品漲價"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
+  },
+  {
     "code": "6213",
     "name": "聯茂",
     "date": "2026-09-01",
@@ -169,6 +239,26 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "6213",
+    "name": "聯茂",
+    "date": "2026-09-01",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL",
+    "quote": "（建準話題內提及對照）源頭應該是想嘎空+複製一點sector落後補漲(有點像6213)",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
   },
   {
     "code": "8039",
@@ -233,6 +323,30 @@
     "parsed_at": "2026-09-02T23:40:44"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-01",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "軟板/PTFE基材",
+    "quote": "我老闆今天基金買台虹，他週末跟親戚吃飯，親戚在NV，這次聊到PTFE結果那個親戚剛好負責，跟我老闆說NV現在態度就是一定要上，但是他說台虹技術很爛，他說目前兩間是生益跟深南。(8069講8039)現在都是我們董事長過去親自談，生益的東西不太行，所以混搭台虹的",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "NV要求PTFE材料須導入(技術評價仍弱)",
+      "生益品質不佳、訂單混搭轉台虹",
+      "董事長親自談單"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
+  },
+  {
     "code": "2449",
     "name": "京元電子",
     "date": "2026-09-02",
@@ -255,6 +369,28 @@
     "parsed_at": "2026-09-02T23:40:44"
   },
   {
+    "code": "6187",
+    "name": "萬潤",
+    "date": "2026-09-02",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體設備/點膠機",
+    "quote": "萬潤大做多明年7X塊，原本OS點膠機現在COW開始出",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "COW點膠機開始出貨"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
+  },
+  {
     "code": "6451",
     "name": "訊芯-KY",
     "date": "2026-09-02",
@@ -275,5 +411,29 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-02T23:40:44"
+  },
+  {
+    "code": "8046",
+    "name": "南電",
+    "date": "2026-09-03",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB/ABF載板",
+    "quote": "是供應商還沒發漲價函，所以才沒喊，認為供需不會一夕反轉；大環境跟8/11 GS那場一樣沒有變化，維持每年GM還是維持成長。南電BT CCL向MGC拿，ABF向Resonac拿；和博通跟TOPPCAN合資生產載板不影響整體供需，因為產能很小且早已決定。",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "BT第四季報價未如市場預期調漲",
+      "CCL/ABF供應鏈(MGC/Resonac)",
+      "與博通/TOPPCAN合資載板產能"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-03T19:10:37"
   }
 ]
