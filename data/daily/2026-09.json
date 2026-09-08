@@ -965,5 +965,140 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-08T01:06:28"
+  },
+  {
+    "code": "1583",
+    "name": "程泰",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "PCB設備/背鑽機",
+    "quote": "聽到東台新機種 會超過五千軸 背鑽機拿到金像電大單，大概800台訂單 超過產能，出給金像電",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "新機種背鑽機拿到金像電約800台大單超過自身產能"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-08T22:00:55"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "PCB",
+    "quote": "聽到東台新機種 會超過五千軸 背鑽機拿到金像電大單，大概800台訂單 超過產能，出給金像電",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "向東台採購約800台新款背鑽機擴充產能布局"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-08T22:00:55"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "CCL",
+    "quote": "台虹是聯手台光電一起打，鎖定輝達次世代正交背板，據說認證已經走到最後階段，進度非常快",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "與台虹聯手鎖定輝達次世代正交背板PTFE認證,進度快已到最後階段"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-08T22:00:55"
+  },
+  {
+    "code": "4925",
+    "name": "智微",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "智通",
+    "host": null,
+    "sector": "IC設計/BMC",
+    "quote": "Update JMicron溝通紀事：1.美國投資案：發言人確認投資ScaleFlux，澄清上市計畫(不確定掛牌地點)，為單純財務性投資非子公司，因對方規模遠大於我方絕無併購可能，歷史背景源於過去SSD產品線尋求技術合作，隨SSD業務終止現轉為單純投資標的。JMicron剩158萬股(原300萬股)後續不會再賣。2.BMC：發言人對送測一事毫無所聞，強調對外從未正式宣告Open BMC專案，官方口徑仍是隸屬更廣泛SOC策略下且仍在評估方向階段，預計Q4才會釋出更多資訊",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "ScaleFlux為財務性投資非子公司無併購可能,持股300萬降至158萬股且不再賣",
+      "Open BMC專案仍在SOC策略下評估,Q4才有更多資訊"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-08T22:00:55"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "",
+    "host": null,
+    "sector": "CCL/軟板",
+    "quote": "公司內部預估放量後 EPS 50~70是合理的，而且還是保守版XD。2027 H2小量，貢獻$1~$2，就等盤好一點了",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "內部估放量後EPS 50-70(保守版)",
+      "2027H2開始小量貢獻EPS $1~$2"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-08T22:00:55"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "CCL/軟板/PTFE",
+    "quote": "台虹身為軟板龍頭是走無布化填料型薄膜，完全跳過玻纖布跟半固化片，追求極致的超低損耗。而且台虹是聯手台光電一起打，鎖定輝達次世代正交背板，據說認證已經走到最後階段，進度非常快。但要小心對手，老共的CCL巨頭生益科技已默默跟輝達合作開發PTFE超過一年在後面追很兇。長線看PTFE真的會引發CCL供應鏈大洗牌",
+    "tp": "",
+    "eps_est": {},
+    "catalysts": [
+      "無布化填料型薄膜PTFE技術路線,聯手台光電鎖定輝達次世代正交背板,認證進入最後階段",
+      "對手生益科技已與輝達合作開發PTFE逾一年,存在競爭風險"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-08T22:00:55"
   }
 ]
