@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>台虹 8039 — MAGI 個股分析</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+  --border:#e2e8f0;--border2:#edf0f4;
+  --text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;
+  --accent:#7c3aed;--accent2:#7c3aed;
+  --up:#dc2626;--dn:#16a34a;
+  --up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);
+  --up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);
+  --glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85);
+  --warn:#f59e0b;--blue:#3b82f6;--pink:#ec4899;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;
+  --border:#21262d;--border2:#1a1f2a;
+  --text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;
+  --accent:#7c3aed;--accent2:#c084fc;
+  --up:#e05252;--dn:#2ec27a;
+  --up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);
+  --up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);
+  --glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82);
+}}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;--border:#e2e8f0;--border2:#edf0f4;--text:#1e293b;--text2:#475569;--muted:#64748b;--dimmer:#94a3b8;--bright:#0f172a;--accent:#7c3aed;--accent2:#7c3aed;--up:#dc2626;--dn:#16a34a;--up-bg:rgba(220,38,38,.07);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.2);--dn-bd:rgba(22,163,74,.2);--glow:rgba(124,58,237,.07);--nav-bg:rgba(255,255,255,.85)}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#1a1f2a;--border:#21262d;--border2:#1a1f2a;--text:#e2e8f0;--text2:#94a3b8;--muted:#64748b;--dimmer:#475569;--bright:#f8fafc;--accent:#7c3aed;--accent2:#c084fc;--up:#e05252;--dn:#2ec27a;--up-bg:rgba(224,82,82,.12);--dn-bg:rgba(46,194,122,.12);--up-bd:rgba(224,82,82,.22);--dn-bd:rgba(46,194,122,.22);--glow:rgba(124,58,237,.18);--nav-bg:rgba(13,17,23,.82)}
+
+body{background:var(--bg);color:var(--text);font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:800;color:var(--bright);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{font-size:12px;color:var(--muted);text-decoration:none;transition:color .15s}
+.nav-back:hover{color:var(--text)}
+.theme-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:13px;color:var(--muted);line-height:1}
+.theme-btn:hover{border-color:var(--accent2);color:var(--accent2)}
+
+.hero{position:relative;overflow:hidden;padding:36px 40px 28px;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;top:-80px;left:30%;width:600px;height:400px;background:radial-gradient(ellipse at 50% 30%,var(--glow) 0%,transparent 68%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.stock-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:4px 14px;font-size:11px;color:var(--muted);margin-bottom:14px}
+.stock-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.stock-name{font-size:30px;font-weight:800;color:var(--bright);letter-spacing:-1px}
+.stock-code{font-size:14px;color:var(--muted);font-weight:500}
+.stock-price{font-size:38px;font-weight:800;color:var(--bright);letter-spacing:-2px}
+.price-change{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:700;padding:4px 13px;border-radius:7px;vertical-align:middle;margin-left:10px}
+.price-change.up{background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.price-change.dn{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.hero-sub{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.75}
+.hero-sub strong{color:var(--text2)}
+
+.stats-row{display:flex;gap:0;background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:18px;flex-wrap:wrap}
+.stat{padding:10px 16px;text-align:center;flex:1;min-width:80px}
+.stat+.stat{border-left:1px solid var(--border)}
+.stat-label{font-size:10px;color:var(--dimmer);margin-bottom:4px;letter-spacing:.3px}
+.stat-val{font-size:14px;font-weight:700;color:var(--bright)}
+.stat-val.up{color:var(--up)}.stat-val.dn{color:var(--dn)}
+.stat-sub{font-size:10px;color:var(--dimmer);margin-top:2px}
+@media(max-width:580px){.stat{padding:8px 10px}.stat-val{font-size:12px}.stat-sub{display:none}}
+
+.content{max-width:900px;margin:0 auto;padding:24px 40px 72px}
+@media(max-width:600px){.content{padding:18px 16px 60px}.hero{padding:24px 16px 22px}}
+
+.section{margin-bottom:26px}
+.section-title{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.section-title::before{content:'';display:inline-block;width:3px;height:10px;border-radius:2px;background:var(--accent);flex-shrink:0}
+
+.callout{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px;font-size:12.5px;color:var(--text2);line-height:1.8}
+.callout b{color:var(--bright)}
+.callout.warn{border-left-color:var(--warn)}
+
+.kline-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px 18px 14px}
+.kline-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.kline-label{font-size:12px;font-weight:600;color:var(--text2)}
+.kline-legend{display:flex;align-items:center;gap:14px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.legend-dot{width:16px;height:2px;border-radius:1px;flex-shrink:0}
+.kline-svg-wrap{position:relative;width:100%;user-select:none;-webkit-user-select:none}
+.kline-svg-wrap::before{content:'';display:block;padding-bottom:29%}
+#kline-svg{position:absolute;top:0;left:0;width:100%;height:100%;cursor:crosshair;display:block}
+.k-tooltip{position:absolute;pointer-events:none;opacity:0;transition:opacity .08s;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;min-width:140px;box-shadow:0 4px 20px rgba(0,0,0,.18);z-index:10}
+.tt-date{font-size:10px;font-weight:700;color:var(--text2);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid var(--border);letter-spacing:.3px}
+.tt-table{width:100%;border-collapse:collapse}
+.tt-table td{font-size:11px;padding:1.5px 0;vertical-align:middle}
+.tt-table td:first-child{color:var(--dimmer);padding-right:10px;width:30px}
+.tt-table td:last-child{font-weight:600;color:var(--text);text-align:right}
+.tt-up{color:var(--up)!important}.tt-dn{color:var(--dn)!important}
+.kline-hint{font-size:10px;color:var(--dimmer);margin-top:8px;text-align:right}
+
+.profile-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:640px){.profile-grid{grid-template-columns:1fr 1fr}}
+.profile-item{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:12px 14px}
+.pi-label{font-size:10px;color:var(--dimmer);margin-bottom:4px;letter-spacing:.3px}
+.pi-val{font-size:13px;font-weight:700;color:var(--bright);line-height:1.4}
+.pi-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+.eps-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.eps-table{width:100%;border-collapse:collapse}
+.eps-table th{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.5px;padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);background:var(--bg3)}
+.eps-table th:first-child{text-align:left}
+.eps-table td{font-size:12px;padding:10px 14px;text-align:center;border-bottom:1px solid var(--border2);color:var(--text2)}
+.eps-table td:first-child{text-align:left;font-weight:600;color:var(--text)}
+.eps-table tr:last-child td{border-bottom:none}
+.eps-table .bull{color:var(--up);font-weight:700}
+.eps-table .bear{color:var(--dn)}
+.eps-table .base{color:var(--accent2);font-weight:700}
+.eps-source{font-size:10px;color:var(--dimmer);padding:8px 14px;background:var(--bg3);border-top:1px solid var(--border);line-height:1.6}
+
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border2)}
+.tl-item:last-child{border-bottom:none}
+.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:2px}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0}
+.tl-dot.hot{background:var(--up);box-shadow:0 0 6px var(--up)}
+.tl-dot.med{background:var(--warn)}
+.tl-dot.low{background:var(--accent)}
+.tl-line{width:1px;background:var(--border);flex:1;margin-top:4px}
+.tl-item:last-child .tl-line{display:none}
+.tl-body{flex:1;min-width:0}
+.tl-when{font-size:10px;font-weight:700;color:var(--dimmer);letter-spacing:.3px;margin-bottom:3px}
+.tl-title{font-size:13px;font-weight:600;color:var(--bright);margin-bottom:2px}
+.tl-desc{font-size:12px;color:var(--muted);line-height:1.65}
+
+.thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.thesis-grid{grid-template-columns:1fr}}
+.thesis-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;overflow:hidden}
+.thesis-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.thesis-card.primary::before{background:var(--accent)}
+.thesis-card.secondary::before{background:var(--blue)}
+.thesis-card.tertiary::before{background:var(--warn)}
+.thesis-tag{font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--dimmer);margin-bottom:8px;text-transform:uppercase}
+.thesis-title{font-size:14px;font-weight:700;color:var(--bright);margin-bottom:6px}
+.thesis-body{font-size:12px;color:var(--muted);line-height:1.7}
+.thesis-body strong{color:var(--text2)}
+.thesis-num{font-size:22px;font-weight:800;color:var(--accent2);letter-spacing:-1px;margin-top:8px}
+.thesis-num-label{font-size:10px;color:var(--dimmer)}
+
+.notion-list{display:flex;flex-direction:column;gap:10px}
+.notion-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.notion-card.bear{border-left:3px solid var(--dn)}
+.notion-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.notion-source{font-size:11px;font-weight:700;color:var(--bright);background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px}
+.notion-date{font-size:11px;color:var(--dimmer)}
+.notion-author{font-size:11px;font-weight:600;color:var(--accent2)}
+.notion-author.bear{color:var(--dn)}
+.notion-quote{font-size:13px;color:var(--text2);line-height:1.75;border-left:3px solid var(--accent);padding-left:12px}
+.notion-quote.bear{border-left-color:var(--dn)}
+.notion-quote strong{color:var(--bright)}
+.notion-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:8px;display:inline-block}
+.tag-ptfe{background:rgba(124,58,237,.1);color:var(--accent2)}
+.tag-cap{background:rgba(59,130,246,.1);color:var(--blue)}
+.tag-bear{background:rgba(22,163,74,.1);color:var(--dn)}
+
+.news-list{display:flex;flex-direction:column;gap:8px}
+.news-item{display:flex;align-items:flex-start;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;text-decoration:none;transition:background .12s,border-color .12s}
+.news-item:hover{background:var(--bg3);border-color:var(--accent2)}
+.news-dot{width:3px;border-radius:2px;align-self:stretch;flex-shrink:0;min-height:36px}
+.news-dot.red{background:var(--up)}.news-dot.purple{background:var(--accent)}.news-dot.blue{background:var(--blue)}.news-dot.warn{background:var(--warn)}
+.news-body{flex:1;min-width:0}
+.news-title{font-size:13px;font-weight:600;color:var(--bright);line-height:1.5;margin-bottom:3px}
+.news-desc{font-size:11px;color:var(--muted);line-height:1.6}
+.news-meta{display:flex;gap:8px;margin-top:5px;align-items:center;flex-wrap:wrap}
+.news-source{font-size:10px;color:var(--dimmer);background:var(--bg3);padding:1px 7px;border-radius:3px;border:1px solid var(--border)}
+.news-date{font-size:10px;color:var(--dimmer)}
+.news-link{font-size:11px;color:var(--accent2);margin-left:auto;white-space:nowrap;flex-shrink:0}
+
+.peers-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+@media(max-width:640px){.peers-grid{grid-template-columns:repeat(2,1fr)}}
+.peer-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;text-decoration:none;transition:border-color .12s}
+.peer-card:hover{border-color:var(--accent2)}
+.peer-code{font-size:11px;color:var(--muted);margin-bottom:2px}
+.peer-name{font-size:12px;font-weight:700;color:var(--bright);margin-bottom:6px}
+.peer-price{font-size:16px;font-weight:800;color:var(--bright)}
+.peer-chg{font-size:11px;font-weight:700;margin-top:3px}
+.peer-chg.up{color:var(--up)}.peer-chg.dn{color:var(--dn)}
+.peer-label{font-size:9px;color:var(--dimmer);margin-top:4px;padding:1px 6px;background:var(--bg3);border-radius:3px;display:inline-block}
+
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.watch-grid{grid-template-columns:1fr}}
+.watch-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.watch-card.bull{border-left:3px solid var(--up)}.watch-card.bear{border-left:3px solid var(--dn)}
+.watch-card-title{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}
+.watch-card.bull .watch-card-title{color:var(--up)}.watch-card.bear .watch-card-title{color:var(--dn)}
+.watch-item{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border2);line-height:1.6}
+.watch-item:last-child{border-bottom:none}
+.watch-item::before{content:'›';margin-right:6px;color:var(--dimmer)}
+
+footer{border-top:1px solid var(--border);padding:20px 40px;font-size:11px;color:var(--dimmer);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{color:var(--muted);text-decoration:none}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><em>MAGI</em> &nbsp;智能分析</a>
+  <div class="nav-right">
+    <a href="/industry/pcb-ccl.html" class="nav-back">← PCB/CCL 產業圖</a>
+    <button class="theme-btn" id="theme-btn" onclick="magiToggle()">🌙</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="stock-badge">
+      <span class="dot"></span>
+      <span>個股分析 · 2026-09-08 收盤 · Fugle 真實資料</span>
+    </div>
+    <div class="hero-title">
+      <span class="stock-name">台虹</span>
+      <span class="stock-code">8039 ｜ TSE 上市 ｜ 軟板材料(FCCL) → PTFE 高頻材料</span>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">
+      <div class="stock-price">294.5</div>
+      <span class="price-change dn">▼ −32.5 &nbsp;−9.94%（跌停）</span>
+    </div>
+    <p class="hero-sub">
+      軟性銅箔基板(FCCL)龍頭 · 開發「無玻纖純 PTFE 填充型 CCL」跨足 AI 高頻硬板 · NVIDIA Rubin 正交背板<strong>二供認證中</strong><br>
+      <strong>今日重點：週五 +9.92% 亮燈漲停、隔日直接摜跌停——「昨噴今倒」的一日來回。本業 TTM EPS 3.18 元、現價 trailing PE ~93x，買的是 PTFE 事件機率，不是現在的業績。</strong>
+    </p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-label">開盤</div><div class="stat-val">327.5</div></div>
+      <div class="stat"><div class="stat-label">最高</div><div class="stat-val">327.5</div></div>
+      <div class="stat"><div class="stat-label">最低</div><div class="stat-val dn">294.5</div></div>
+      <div class="stat"><div class="stat-label">昨收</div><div class="stat-val">327.0</div></div>
+      <div class="stat"><div class="stat-label">成交量</div><div class="stat-val">39,537 張</div><div class="stat-sub">值 121 億</div></div>
+      <div class="stat"><div class="stat-label">波段高</div><div class="stat-val up">364</div><div class="stat-sub">8/28</div></div>
+      <div class="stat"><div class="stat-label">距波段高</div><div class="stat-val dn">−19.1%</div><div class="stat-sub">364→294.5</div></div>
+      <div class="stat"><div class="stat-label">TTM PE</div><div class="stat-val" style="color:var(--warn)">~93x</div><div class="stat-sub">近四季 EPS 3.18</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- 開場判斷 -->
+<div class="section">
+  <div class="callout">
+    先把今天講清楚：台虹的跌停<b>不是故事破了，是「最擁擠交易」的隔日結帳</b>。上週五它才 +9.92% 亮燈漲停、今天直接 −9.94% 摜到跌停，一天來回——這正是整個 CCL／軟板族群「昨噴今倒」的縮影（台光電、聯茂、台燿同步走弱）。它<b>本來就不是用基本面估值的股票，是一張選擇權</b>：押注「AI 世代走向 PTFE 無布化、而台虹拿到 NVIDIA 訂單」。本業年賺 ~3 元、TTM EPS 3.18，現價 294.5 等於 <b>trailing PE ~93x</b>——這 93 倍裡，<b>約 90 倍是夢、3 倍是現實</b>。
+    <br><br>
+    多空我都認真追過自家 Notion（136 筆智囊原話），<b>兩邊都紮實</b>：多方是 NV 正式立項 PTFE spec、台光×台虹戰略合作、元太(8069)真金白銀主導擴產＋增資買 7 台高溫壓合機、券商「強力買進 TP 650」、公司內部喊「放量後 EPS 50–70」；空方也句句見骨——<b>生益跑更前搶一供</b>、NV 端親口說「<b>台虹技術很爛</b>」、良率極差（「200 套產 3 套」）、「這兩年沒業績」，甚至 8/28 有人自曝「<b>大哥要開始賣了叫我小心</b>」。
+    <br><br>
+    我的判斷：台虹是<b>卡位型賠率股</b>——真拿到主供就是十倍、卡關就打回軟板股。今天的跌停是<b>過熱籌碼的正常洗盤，不是基本面破壞</b>；但它是你持股裡最重（37%）、又配期貨槓桿的部位，這天正是「太重、只控不加」風險兌現的一天。<b>不追跌、不在良率/信賴性(11 月)出爐前重壓加碼；跌破關鍵支撐先減重降集中度，加碼等 4Q26 驗證里程碑。</b>要確定性去看賺現在的台光／台燿；<b>台虹是賭未來、台光台燿是賺現在，兩種別混。</b>
+  </div>
+</div>
+
+<!-- ① K線 -->
+<div class="section">
+  <div class="section-title">近 22 日走勢（Fugle 真實日K）</div>
+  <div class="kline-wrap">
+    <div class="kline-header">
+      <div class="kline-label">台虹 8039 — 日K ＋ 成交量</div>
+      <div class="kline-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>MA5</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7c3aed;opacity:.6"></div>MA20</div>
+        <div class="legend-item" style="font-size:10px;color:var(--dimmer)">滑動查看細節</div>
+      </div>
+    </div>
+    <div class="kline-svg-wrap" id="kline-container">
+      <svg id="kline-svg" viewBox="0 0 800 232" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="k-tooltip" id="k-tooltip">
+        <div class="tt-date" id="tt-date"></div>
+        <table class="tt-table" id="tt-table"></table>
+      </div>
+    </div>
+    <div class="kline-hint">觸控 / 滑鼠懸停查看 OHLCV ｜ 資料來源：Fugle Market Data</div>
+  </div>
+</div>
+
+<!-- ② 公司概況 -->
+<div class="section">
+  <div class="section-title">公司概況</div>
+  <div class="profile-grid">
+    <div class="profile-item">
+      <div class="pi-label">主營業務</div>
+      <div class="pi-val">軟性銅箔基板(FCCL)</div>
+      <div class="pi-sub">覆蓋膜/電磁遮蔽膜 → 延伸 PTFE 硬板</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">成長題材</div>
+      <div class="pi-val">PTFE 高頻 CCL</div>
+      <div class="pi-sub">NV Rubin 正交背板「二供」認證中</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">市值（估）</div>
+      <div class="pi-val">約 777 億</div>
+      <div class="pi-sub">294.5 元 × 約 2.64 億股</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">FY2025 EPS（實）</div>
+      <div class="pi-val">2.07 元</div>
+      <div class="pi-sub">本業，Q3'25 單季 0.88 最強</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">H1'26 EPS（實）</div>
+      <div class="pi-val">1.56 元</div>
+      <div class="pi-sub">Q1 0.65 + Q2 0.91（含業外）</div>
+    </div>
+    <div class="profile-item">
+      <div class="pi-label">TTM 本益比</div>
+      <div class="pi-val" style="color:var(--warn)">~93x</div>
+      <div class="pi-sub">294.5 / 近四季 EPS 3.18＝本夢比</div>
+    </div>
+  </div>
+</div>
+
+<!-- 大股東 -->
+<div class="section">
+  <div class="callout">
+    <b>股權結構亮點：</b><b>元太（8069）</b>四年前起買進、2026 Q2 正式入主，推選元太董事長<b>李政昊出任台虹副董事長</b>；智囊 9/7：「台虹資本支出大增是因為要買設備（熱壓合機），<b>元太要派 RD 去幫他們 run 新材料</b>」。元太用集團資源主導 PTFE 擴產、不排除再加碼投資——這是「母公司背書＋資金奧援」的加分項，但增資也意味<b>股本稀釋</b>。
+  </div>
+</div>
+
+<!-- ③ EPS 情境 -->
+<div class="section">
+  <div class="section-title">EPS 情境估算</div>
+  <div class="eps-wrap">
+    <table class="eps-table">
+      <thead>
+        <tr><th>情境</th><th>FY2025A</th><th>FY2026E</th><th>FY2027E</th><th>FY2028E</th><th>假設</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>悲觀</td><td>2.07</td><td class="bear">~3.3</td><td class="bear">~4</td><td class="bear">~5</td>
+          <td>PTFE 落榜/延到 2029，只剩本業 → 回歸軟板股恐大修正</td>
+        </tr>
+        <tr>
+          <td>基本</td><td>2.07</td><td class="base">~3.3</td><td class="base">8–16</td><td class="base">20–25</td>
+          <td>拿二供、2027H2 小量、2028 放量，本業＋PTFE 初期（券商 Eddie FY27 20.5）</td>
+        </tr>
+        <tr>
+          <td>樂觀</td><td>2.07</td><td class="bull">~3.5</td><td class="bull">16–20</td><td class="bull">37–50+</td>
+          <td>拿主供/市佔 20% PTFE 放量（券商 FY28 37、公司內部「放量後 50–70」）</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="eps-source">FY25A / H1'26 為 FinMind 實際財報（近四季 TTM EPS 3.18）；FY26–28E 為情境推估。<b>樂觀情境的 FY28 37–50+ 元與「十倍股／TP 650–1000」來自 Notion 智囊與券商積極估算（市佔 20% 假設），非市場共識</b>，重度依賴 PTFE 認證、良率與放量兌現。空方觀點：良率「200 套產 3 套」、2029 才量產。</div>
+  </div>
+</div>
+
+<!-- ③b 我的 TP 三檔位 -->
+<div class="section">
+  <div class="section-title">我的目標價（TP）· 三檔位</div>
+  <div class="eps-wrap">
+    <table class="eps-table">
+      <thead>
+        <tr><th>情境</th><th>假設</th><th>對應 EPS</th><th>合理 PE</th><th>TP</th><th>相對現價 294.5</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>保守（下檔）</td><td>PTFE 落榜/輸生益、延到 2029，de-rate 回軟板股＋題材殘值</td><td>本業 ~3.5</td><td>45–60x</td>
+          <td class="bear">150–210</td><td class="bear">−49～−29%</td>
+        </tr>
+        <tr>
+          <td>中性（現價區）</td><td>拿二供、2027H2 小量＋2028 初放量，故事延續非獨吃</td><td>FY27 ~12 / FY28 ~20</td><td>18–30x</td>
+          <td class="base">350–420</td><td class="base">+19～+43%</td>
+        </tr>
+        <tr>
+          <td>樂觀（全兌現）</td><td>拿主供/市佔 20% PTFE 放量（券商 FY28 37、公司「一年賺 50」）</td><td>FY28 37–50</td><td>15–20x</td>
+          <td class="bull">650–1000</td><td class="bull">+121～+240%</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="eps-source"><b>TTM 近四季實際 EPS 3.18（2025Q3–2026Q2）→ 現價 trailing PE ~93x</b>（全用 FinMind 財報當錨，非智囊遠期估）。<b>現價 294.5 ≈ 中性偏下</b>＝市場已 price 進「拿二供＋2027/28 部分貢獻」；<b>上檔賭「獨吃主供、放量」（→650+）、下檔賭「驗證失敗／良率過不了關」（→150–210）</b>。<b>加碼扳機：9 月 26 層大量試做良率 → 11 月信賴性結果 → NV 正式 spec 定案 → 4Q26 驗證里程碑。</b>二元事件股，非投資建議。</div>
+  </div>
+</div>
+
+<!-- ④ 催化劑 -->
+<div class="section">
+  <div class="section-title">催化劑時間表</div>
+  <div class="kline-wrap" style="padding:14px 18px">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot hot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">9 月（最高優先）</div>
+          <div class="tl-title">26 層板大量試做 · 良率驗證</div>
+          <div class="tl-desc">智囊 Surf 9/3：「9 月 26 層板大批量試做，測電信、製造良率、信賴性，現階段先休息」；9/2：「200 套中產出 3 套，良率很差」。良率能否拉起是題材「引爆或證偽」的第一關。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot hot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">9 月中～11 月（最高優先）</div>
+          <div class="tl-title">NV PTFE 第三代測試 ＋ 信賴性結果</div>
+          <div class="tl-desc">智囊：台虹另送 PTFE 第三代給 NV PCB 測試、應 9 月中後有結果；深南/勝宏/欣興/滬士電四家第二階段大量驗證，<strong>信賴性結果 11 月才會出</strong>——這是決定一/二供定案的關鍵窗口。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot med"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">近 1 季（產能/增資）</div>
+          <div class="tl-title">7 台壓合機到港 ＋ 增資 ~100–170 億</div>
+          <div class="tl-desc">智囊：8 月底 7 台 JSW 高溫壓合機到港（JSW 滿單到 2028）、找台郡/松下代工，目標 ~30 台、月產能 20 萬平方米；擬增資約 100–170 億買機台（設備卡位，但股本稀釋）。長期目標月產能 160 萬片、2028H2 大量產。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot low"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-when">2027H2–2028（長線兌現）</div>
+          <div class="tl-title">PTFE 導入量產、營收貢獻</div>
+          <div class="tl-desc">多方：2027H2 小量（貢獻 EPS $1–2）、2028 放量，用於 NV Rubin Ultra NVL576 switch tray／正交背板；空方：外資與部分智囊看 2029 才量產。一/二供最終定案 vs 生益是勝負分水嶺。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 三大論點 -->
+<div class="section">
+  <div class="section-title">三大投資論點</div>
+  <div class="thesis-grid">
+    <div class="thesis-card primary">
+      <div class="thesis-tag">核心題材 · 二供卡位</div>
+      <div class="thesis-title">NV Rubin PTFE 全球二供</div>
+      <div class="thesis-body">NV 已「<strong>正式為 PTFE 立項 spec</strong>」，下一代 Rubin/Rubin Ultra 正交背板改走「PTFE＋無布化」；台虹電性接近 M9，<strong>檯面上僅有的兩家之一（另一家生益）</strong>，從軟板廠跨進 AI 硬板核心鏈。台光×台虹戰略合作（台虹出料、台光加工）。</div>
+      <div class="thesis-num">2nd<span style="font-size:14px;font-weight:600"> Source</span></div>
+      <div class="thesis-num-label">Rubin 正交背板材料（認證中）</div>
+    </div>
+    <div class="thesis-card secondary">
+      <div class="thesis-tag">護城河 · 設備卡位</div>
+      <div class="thesis-title">先搶壓合機＋全 Solution</div>
+      <div class="thesis-body">護城河偏「<strong>卡位型</strong>」：先搶 JSW 高溫壓合機（滿單到 2028、對手要等 8–14 個月）、三個 Solution（+台郡/+台光/+生益）<strong>都用台虹的料</strong>＝分散賭注、母公司元太資金奧援。但非技術壟斷。</div>
+      <div class="thesis-num" style="color:var(--blue)">30<span style="font-size:14px;font-weight:600"> 台機台</span></div>
+      <div class="thesis-num-label">目標月產能 20 萬平方米</div>
+    </div>
+    <div class="thesis-card tertiary">
+      <div class="thesis-tag">最大變數 · 對手＋良率</div>
+      <div class="thesis-title">生益領先＋良率未過＋去單一化</div>
+      <div class="thesis-body">陸廠<strong>生益跑更前</strong>（走一供）；NV 端直言「<strong>台虹技術很爛</strong>」、目前良率「200 套產 3 套」；且智囊指「PTFE 綁死台虹？NV 沒這麼傻」——去單一化＝就算做得好也會被分單，獨吃才有十倍股。</div>
+      <div class="thesis-num" style="color:var(--warn)">3/200<span style="font-size:14px;font-weight:600"> 良率</span></div>
+      <div class="thesis-num-label">生益一供領先、時程壓力</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ Notion 情報 -->
+<div class="section">
+  <div class="section-title">Notion 群組情報 — 原文摘錄（含空方）</div>
+  <div class="notion-list">
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">樂林開會</span><span class="notion-date">2026-08-26</span><span class="notion-author">Eddie（券商法說）</span></div>
+      <div class="notion-quote">「8039 台虹昨天第一場比較大場的，態度樂觀……<strong>預估 2027 年 EPS 20.5 元、TP 400</strong>。PTFE CCL ASP 初期 &gt;300 USD、放量後 150–200，<strong>初期 GM 70%、放量後 40–50%</strong>」</div>
+      <span class="notion-tag tag-ptfe">法說 · 數字交代清楚</span>
+    </div>
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-09-08</span><span class="notion-author">阿威 / 內部</span></div>
+      <div class="notion-quote">「公司內部預估<strong>放量後 EPS 50–70 是合理的，而且還是保守版</strong>。2027 H2 小量、貢獻 $1–2」／「台虹聯手台光電鎖定輝達次世代正交背板，<strong>認證已走到最後階段</strong>；但小心對手生益已跟輝達合作 PTFE 逾一年」</div>
+      <span class="notion-tag tag-ptfe">內部 EPS · 認證最後階段</span>
+    </div>
+    <div class="notion-card">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-08</span><span class="notion-author">材料哥 / 承勢資本</span></div>
+      <div class="notion-quote">「一二供還沒確定是誰，台虹樣品品質很好會跟生益比，<strong>快的話 2027 貢獻</strong>」／「7 台 JSW 壓合機到港、目標 30 台月產 20 萬平方米、<strong>擬增資 100–170 億</strong>」（承勢：<strong>FY28 EPS 35.4</strong>、短期毛利率 60–70%）</div>
+      <span class="notion-tag tag-cap">設備卡位 · 增資</span>
+    </div>
+    <div class="notion-card bear">
+      <div class="notion-meta"><span class="notion-source">每日廢想法</span><span class="notion-date">2026-09-01</span><span class="notion-author bear">NV 內部（空方）</span></div>
+      <div class="notion-quote bear">「老闆親戚在 NV 剛好負責 PTFE，說 NV 態度就是一定要上，<strong>但台虹技術很爛</strong>，目前兩間是生益跟深南；董事長過去親自談，生益的東西不太行所以<strong>混搭台虹的</strong>」</div>
+      <span class="notion-tag tag-bear">空方 · 技術被質疑</span>
+    </div>
+    <div class="notion-card bear">
+      <div class="notion-meta"><span class="notion-source">駿羽開會</span><span class="notion-date">2026-09-02</span><span class="notion-author bear">Surf 哥（空方）</span></div>
+      <div class="notion-quote bear">「8039 可以暫時不用看，板子在台郡組合後出貨，<strong>200 套中產出 3 套、良率很差</strong>，大陸地區良率也大概是個位數」／8/28：「台虹那邊<strong>大哥要開始賣了叫我小心</strong>，說禮拜三那根是他拉的」</div>
+      <span class="notion-tag tag-bear">空方 · 良率差＋主力派發</span>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ 新聞 -->
+<div class="section">
+  <div class="section-title">近期相關新聞</div>
+  <div class="news-list">
+    <a class="news-item" href="https://www.setn.com/news/1903493" target="_blank" rel="noopener">
+      <div class="news-dot warn"></div>
+      <div class="news-body">
+        <div class="news-title">它苦吞跌停！CCL 三雄齊疲軟——台虹昨漲停今跌停</div>
+        <div class="news-desc">9/8 盤面焦點：昨日才亮燈漲停的台虹(8039)今日苦吞跌停(−9.94%、294.5)，CCL 三雄台光電、聯茂、台燿同步走弱，族群一片綠；南亞、宏泰、律勝逆勢紅撐盤。獲利了結殺的是前一日噴出的漲多股。</div>
+        <div class="news-meta"><span class="news-source">三立新聞網</span><span class="news-date">2026-09-08</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://www.ctee.com.tw/news/20260908700812-430201" target="_blank" rel="noopener">
+      <div class="news-dot red"></div>
+      <div class="news-body">
+        <div class="news-title">台股震盪跌 220 點 老 AI 成重災區 記憶體、金融抗跌</div>
+        <div class="news-desc">9/8 加權收 47,105.78(−0.47%)，收盤跌幅前十名：永擎、沛爾生醫、川湖、台虹、聯鈞、松翰……台虹名列跌幅前段班；美股勞工節休市、量縮，權值電子與 AI 代工技術性拉回。</div>
+        <div class="news-meta"><span class="news-source">工商時報</span><span class="news-date">2026-09-08</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://www.ctee.com.tw/news/20260905700145-439901" target="_blank" rel="noopener">
+      <div class="news-dot blue"></div>
+      <div class="news-body">
+        <div class="news-title">AI、漲價雙引擎點火 CCL 三雄 8 月營收齊創新高</div>
+        <div class="news-desc">CCL 三雄 8 月營收年月雙增創高（台光電首破 200 億、台燿 59 億、聯茂 50 億）。法人：漲價效應下半年遞延反映，成長趨勢延續至 2027–2028。CCL 族群基本面撐腰、與台虹「純題材無業績」形成對照。</div>
+        <div class="news-meta"><span class="news-source">工商時報</span><span class="news-date">2026-09-04</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://money.udn.com/money/story/5612/9658878" target="_blank" rel="noopener">
+      <div class="news-dot purple"></div>
+      <div class="news-body">
+        <div class="news-title">元太董座李政昊 出任台虹副董事長</div>
+        <div class="news-desc">元太 Q2 入主台虹後深化合作，推選李政昊任副董；PTFE 量產需資金投入，元太不排除再加碼投資台虹。技術仍在驗證、預計 2027 量產——母公司背書＋資金奧援的關鍵一步。</div>
+        <div class="news-meta"><span class="news-source">經濟日報</span><span class="news-date">2026-07-29</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+    <a class="news-item" href="https://ec.ltn.com.tw/article/breakingnews/5506947" target="_blank" rel="noopener">
+      <div class="news-dot red"></div>
+      <div class="news-body">
+        <div class="news-title">焦點股》台虹：PTFE 有望取代玻纖布！狂飆天價</div>
+        <div class="news-desc">台虹 Df 值已達萬分之八以下、接近 M9；生益 40 層改性 PTFE 據傳已過 NV 終端認可、進深度驗證；台虹送樣中、預計 2027 導入量產。二供卡位題材點火的起點。</div>
+        <div class="news-meta"><span class="news-source">自由財經</span><span class="news-date">2026-07-16</span><span class="news-link">閱讀 →</span></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ⑧ 同族群 -->
+<div class="section">
+  <div class="section-title">同族群個股（PTFE / CCL / 壓合 · 9/8 收盤）</div>
+  <div class="peers-grid">
+    <div class="peer-card">
+      <div class="peer-code">2383</div><div class="peer-name">台光電</div>
+      <div class="peer-price">5340</div><div class="peer-chg dn">−2.82%</div>
+      <div class="peer-label">PTFE 壓合夥伴/M9</div>
+    </div>
+    <div class="peer-card">
+      <div class="peer-code">6274</div><div class="peer-name">台燿</div>
+      <div class="peer-price">1345</div><div class="peer-chg dn">−1.82%</div>
+      <div class="peer-label">CCL·確定性護城河</div>
+    </div>
+    <div class="peer-card">
+      <div class="peer-code">6269</div><div class="peer-name">台郡</div>
+      <div class="peer-price">65.8</div><div class="peer-chg dn">−2.95%</div>
+      <div class="peer-label">純 PTFE 堆疊代工</div>
+    </div>
+    <div class="peer-card">
+      <div class="peer-code">8069</div><div class="peer-name">元太</div>
+      <div class="peer-price">147</div><div class="peer-chg dn">−2.33%</div>
+      <div class="peer-label">母公司/主導擴產</div>
+    </div>
+    <div class="peer-card">
+      <div class="peer-code">6213</div><div class="peer-name">聯茂</div>
+      <div class="peer-price">510</div><div class="peer-chg dn">−0.58%</div>
+      <div class="peer-label">CCL·漲價循環</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑨ 觀察重點 -->
+<div class="section">
+  <div class="section-title">觀察重點 / 催化劑 / 風險</div>
+  <div class="watch-grid">
+    <div class="watch-card bull">
+      <div class="watch-card-title">催化劑（多方）</div>
+      <div class="watch-item">9 月 26 層板大量試做良率能否拉起（題材第一個引爆點）</div>
+      <div class="watch-item">9 月中後 NV PTFE 三代測試結果、11 月信賴性定案</div>
+      <div class="watch-item">元太（母公司）主導擴產、再加碼投資、派 RD 協助</div>
+      <div class="watch-item">石英太難加工 → M9+ 提早上 PTFE，量產提前到 2027</div>
+    </div>
+    <div class="watch-card bear">
+      <div class="watch-card-title">風險（空方）</div>
+      <div class="watch-item">生益一供領先、良率「200 套產 3 套」、NV 稱台虹技術爛</div>
+      <div class="watch-item">NV 去單一化 → 就算做得好也被分單，難獨吃十倍股</div>
+      <div class="watch-item">純題材、本業 TTM EPS 3.18、trailing PE ~93x，驗證失敗恐大修正</div>
+      <div class="watch-item">增資 100–170 億買機台＝股本稀釋；8/28 智囊自曝主力派發</div>
+    </div>
+  </div>
+</div>
+
+<!-- 評斷 -->
+<div class="section">
+  <div class="callout warn">
+    <b>一句話收斂：</b>台虹是<b>「賭 NVIDIA 訂單的選擇權」，不是價值股</b>——今天跌停是過熱籌碼的隔日結帳、不是故事破掉；但 9 月良率、11 月信賴性沒過，trailing PE ~93x 的本夢比就要現形；過了、又贏過生益，十倍股才有燃料。<b>它是你最重（37%）＋帶期貨槓桿的部位：不追跌、跌破支撐先減重降集中度、加碼等驗證里程碑；要確定性去看賺現在的台光台燿。</b>（綜合自家 Notion 智囊 136 筆原話＋公開資訊判讀，非投資建議）
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <span>資料來源：Fugle Market Data · FinMind 財報 · Notion 各家開會/每日廢想法 · Exa 新聞搜尋 · 2026-09-08 收盤</span>
+  <a href="/industry/pcb-ccl.html">← PCB/CCL 產業圖</a>
+</footer>
+
+<script>
+function magiToggle(){
+  var h=document.documentElement;
+  var c=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  var n=c==='dark'?'light':'dark';
+  h.setAttribute('data-theme',n);
+  localStorage.setItem('magi-theme',n);
+  document.getElementById('theme-btn').textContent=n==='dark'?'☀':'🌙';
+  render();
+}
+(function(){
+  var btn=document.getElementById('theme-btn');
+  if(!btn)return;
+  var c=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  btn.textContent=c==='dark'?'☀':'🌙';
+})();
+
+// K-line Data (Fugle 22-day OHLCV, ascending)
+const raw=[
+  {d:'8/10',o:250,h:254,l:224.5,c:226,v:44723032},
+  {d:'8/11',o:226,h:229,l:215,c:216,v:13319589},
+  {d:'8/12',o:215,h:231,l:210.5,c:227,v:30336296},
+  {d:'8/13',o:228,h:249.5,l:227.5,c:249.5,v:22824959},
+  {d:'8/14',o:259.5,h:274,l:246.5,c:272.5,v:55936944},
+  {d:'8/17',o:274,h:286.5,l:253,c:259,v:32146039},
+  {d:'8/18',o:258,h:284.5,l:258,c:277.5,v:31881009},
+  {d:'8/19',o:270,h:284,l:266,c:271.5,v:42064679},
+  {d:'8/20',o:286,h:298.5,l:271.5,c:283,v:43646872},
+  {d:'8/21',o:274,h:306,l:261,c:282,v:68745448},
+  {d:'8/24',o:282,h:295,l:265,c:265,v:50659016},
+  {d:'8/25',o:265,h:291.5,l:259,c:291.5,v:60294147},
+  {d:'8/26',o:302,h:320.5,l:294,c:320.5,v:45654657},
+  {d:'8/27',o:340.5,h:352.5,l:340,c:352.5,v:22503166},
+  {d:'8/28',o:363.5,h:364,l:335,c:343.5,v:58749504},
+  {d:'8/31',o:343,h:347,l:309.5,c:327,v:38783903},
+  {d:'9/1',o:328,h:334.5,l:309.5,c:319,v:37385107},
+  {d:'9/2',o:319,h:325,l:311,c:313.5,v:22914063},
+  {d:'9/3',o:316,h:318.5,l:291,c:293,v:39244963},
+  {d:'9/4',o:307,h:321,l:295.5,c:297.5,v:40392394},
+  {d:'9/7',o:324,h:327,l:306,c:327,v:22298940},
+  {d:'9/8',o:327.5,h:327.5,l:294.5,c:294.5,v:40437247},
+];
+
+const annotations=[
+  {idx:12, label:'8/26法說', color:'#7c3aed'},
+  {idx:14, label:'波段高 364', color:'#dc2626'},
+  {idx:21, label:'跌停 294.5', color:'#16a34a'},
+];
+
+const VBW=800, VBH=232;
+const AX=50, ARX=797;
+const AY=6, ABY=158;
+const VT=168, VB=222;
+const CW=ARX-AX;
+const CH=ABY-AY;
+const N=raw.length;
+const stepX=CW/N;
+const barW=stepX*0.62;
+
+function isDark(){
+  var t=document.documentElement.getAttribute('data-theme');
+  if(t) return t==='dark';
+  return matchMedia('(prefers-color-scheme:dark)').matches;
+}
+
+function render(){
+  const dark=isDark();
+  const upC=dark?'#e05252':'#dc2626';
+  const dnC=dark?'#2ec27a':'#16a34a';
+  const gridC=dark?'rgba(33,38,45,1)':'rgba(226,232,240,1)';
+  const axisTextC=dark?'#475569':'#94a3b8';
+  const ma5C='#f59e0b';
+  const ma20C=dark?'rgba(192,132,252,.55)':'rgba(124,58,237,.4)';
+
+  const prices=raw.flatMap(d=>[d.h,d.l]);
+  const pmin=Math.min(...prices), pmax=Math.max(...prices), prng=pmax-pmin||1;
+  const py=p=>AY+CH*(1-(p-pmin)/prng);
+
+  const vmax=Math.max(...raw.map(d=>d.v));
+  const vy=v=>VT+(VB-VT)*(1-v/vmax);
+
+  const ma=(arr,n)=>arr.map((_,i)=>i<n-1?null:arr.slice(i-n+1,i+1).reduce((s,x)=>s+x.c,0)/n);
+  const ma5=ma(raw,5), ma20=ma(raw,20);
+
+  let s='';
+
+  for(let i=0;i<=4;i++){
+    const p=pmin+prng*i/4;
+    const y=py(p);
+    s+=`<line x1="${AX}" y1="${y.toFixed(1)}" x2="${ARX}" y2="${y.toFixed(1)}" stroke="${gridC}" stroke-width="0.6"/>`;
+    s+=`<text x="${(AX-4)}" y="${(y+3.5).toFixed(1)}" text-anchor="end" font-size="7.5" fill="${axisTextC}" font-family="system-ui,sans-serif">${p.toFixed(0)}</text>`;
+  }
+
+  s+=`<line x1="${AX}" y1="${(VT-2)}" x2="${ARX}" y2="${(VT-2)}" stroke="${gridC}" stroke-width="0.6"/>`;
+
+  annotations.forEach(a=>{
+    const cx=AX+(a.idx+0.5)*stepX;
+    s+=`<line x1="${cx.toFixed(1)}" y1="${AY}" x2="${cx.toFixed(1)}" y2="${VB}" stroke="${a.color}" stroke-width="0.7" stroke-dasharray="2,3" opacity="0.45"/>`;
+    s+=`<text x="${cx.toFixed(1)}" y="${(VB+10)}" text-anchor="middle" font-size="7" fill="${a.color}" font-family="system-ui,sans-serif" opacity="0.85">${a.label}</text>`;
+  });
+
+  const lastClose=raw[N-1].c;
+  const ly=py(lastClose);
+  s+=`<line x1="${AX}" y1="${ly.toFixed(1)}" x2="${ARX}" y2="${ly.toFixed(1)}" stroke="${dnC}" stroke-width="0.6" stroke-dasharray="3,3" opacity="0.5"/>`;
+  s+=`<rect x="${ARX}" y="${(ly-6).toFixed(1)}" width="3" height="12" fill="${dnC}" opacity="0.6"/>`;
+
+  let p20='';
+  ma20.forEach((m,i)=>{
+    if(m===null)return;
+    const x=(AX+(i+0.5)*stepX).toFixed(1), y=py(m).toFixed(1);
+    p20+=p20?` L${x},${y}`:`M${x},${y}`;
+  });
+  if(p20) s+=`<path d="${p20}" stroke="${ma20C}" stroke-width="1.1" fill="none"/>`;
+
+  let p5='';
+  ma5.forEach((m,i)=>{
+    if(m===null)return;
+    const x=(AX+(i+0.5)*stepX).toFixed(1), y=py(m).toFixed(1);
+    p5+=p5?` L${x},${y}`:`M${x},${y}`;
+  });
+  if(p5) s+=`<path d="${p5}" stroke="${ma5C}" stroke-width="1.1" fill="none"/>`;
+
+  raw.forEach((d,i)=>{
+    const cx=AX+(i+0.5)*stepX;
+    const up=d.c>=d.o;
+    const col=up?upC:dnC;
+    s+=`<line x1="${cx.toFixed(1)}" y1="${py(d.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${py(d.l).toFixed(1)}" stroke="${col}" stroke-width="0.9" opacity="0.55"/>`;
+    const bt=py(Math.max(d.o,d.c)), bb=py(Math.min(d.o,d.c)), bh=Math.max(bb-bt,0.9);
+    s+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${bt.toFixed(1)}" width="${barW.toFixed(1)}" height="${bh.toFixed(1)}" fill="${col}"/>`;
+    const vtop=vy(d.v);
+    s+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${vtop.toFixed(1)}" width="${barW.toFixed(1)}" height="${(VB-vtop).toFixed(1)}" fill="${col}" opacity="0.45"/>`;
+  });
+
+  const labelIdxs=[0,4,8,12,16,21];
+  labelIdxs.forEach(i=>{
+    if(i>=N)return;
+    const cx=AX+(i+0.5)*stepX;
+    s+=`<text x="${cx.toFixed(1)}" y="${(VB+10)}" text-anchor="middle" font-size="7" fill="${axisTextC}" font-family="system-ui,sans-serif">${raw[i].d}</text>`;
+  });
+
+  s+=`<line id="ch-v" x1="0" y1="${AY}" x2="0" y2="${VB}" stroke="${axisTextC}" stroke-width="0.6" stroke-dasharray="2,2" opacity="0" pointer-events="none"/>`;
+  s+=`<line id="ch-h" x1="${AX}" y1="0" x2="${ARX}" y2="0" stroke="${axisTextC}" stroke-width="0.6" stroke-dasharray="2,2" opacity="0" pointer-events="none"/>`;
+  s+=`<circle id="ch-dot" cx="0" cy="0" r="3" fill="${dnC}" opacity="0" pointer-events="none"/>`;
+  s+=`<rect id="chart-overlay" x="${AX}" y="${AY}" width="${CW}" height="${VB-AY}" fill="transparent" style="cursor:crosshair"/>`;
+
+  document.getElementById('kline-svg').innerHTML=s;
+  setupInteraction(py);
+}
+
+function setupInteraction(py){
+  const svg=document.getElementById('kline-svg');
+  const tooltip=document.getElementById('k-tooltip');
+  const ttDate=document.getElementById('tt-date');
+  const ttTable=document.getElementById('tt-table');
+  const container=document.getElementById('kline-container');
+
+  function getIdx(clientX){
+    const rect=svg.getBoundingClientRect();
+    const vbX=(clientX-rect.left)*VBW/rect.width;
+    return Math.max(0,Math.min(N-1,Math.floor((vbX-AX)/stepX)));
+  }
+
+  function onMove(e){
+    const touch=e.touches?e.touches[0]:e;
+    const rect=svg.getBoundingClientRect();
+    const vbX=(touch.clientX-rect.left)*VBW/rect.width;
+    if(vbX<AX||vbX>ARX)return;
+
+    const idx=getIdx(touch.clientX);
+    const d=raw[idx];
+    const cx=AX+(idx+0.5)*stepX;
+
+    const chv=document.getElementById('ch-v');
+    const chh=document.getElementById('ch-h');
+    const dot=document.getElementById('ch-dot');
+    if(chv){chv.setAttribute('x1',cx.toFixed(1));chv.setAttribute('x2',cx.toFixed(1));chv.setAttribute('opacity','1')}
+    if(chh){const cy=py(d.c).toFixed(1);chh.setAttribute('y1',cy);chh.setAttribute('y2',cy);chh.setAttribute('opacity','1')}
+    if(dot){dot.setAttribute('cx',cx.toFixed(1));dot.setAttribute('cy',py(d.c).toFixed(1));dot.setAttribute('opacity','1')}
+
+    const up=d.c>=d.o;
+    const chg=(d.c-d.o).toFixed(1);
+    const chgPct=((d.c-d.o)/d.o*100).toFixed(2);
+    const vol=(d.v/10000).toFixed(0);
+    ttDate.textContent=`台虹 8039  ${d.d}`;
+    ttTable.innerHTML=`
+      <tr><td>開</td><td>${d.o}</td></tr>
+      <tr><td>高</td><td class="tt-up">${d.h}</td></tr>
+      <tr><td>低</td><td class="tt-dn">${d.l}</td></tr>
+      <tr><td>收</td><td class="${up?'tt-up':'tt-dn'}">${d.c}</td></tr>
+      <tr><td>漲跌</td><td class="${up?'tt-up':'tt-dn'}">${up?'+':''}${chg} (${up?'+':''}${chgPct}%)</td></tr>
+      <tr><td>量</td><td>${vol} 萬股</td></tr>
+    `;
+
+    const cRect=container.getBoundingClientRect();
+    const screenCX=rect.left+(cx/VBW)*rect.width;
+    const relX=screenCX-cRect.left;
+    const relY=touch.clientY-cRect.top;
+    const toRight=cx<VBW*0.58;
+    tooltip.style.opacity='1';
+    tooltip.style.top=Math.max(4,relY-80)+'px';
+    if(toRight){tooltip.style.left=(relX+12)+'px';tooltip.style.right='auto'}
+    else{tooltip.style.right=(cRect.width-relX+12)+'px';tooltip.style.left='auto'}
+  }
+
+  function onLeave(){
+    tooltip.style.opacity='0';
+    const chv=document.getElementById('ch-v');
+    const chh=document.getElementById('ch-h');
+    const dot=document.getElementById('ch-dot');
+    if(chv)chv.setAttribute('opacity','0');
+    if(chh)chh.setAttribute('opacity','0');
+    if(dot)dot.setAttribute('opacity','0');
+  }
+
+  const overlay=document.getElementById('chart-overlay');
+  if(overlay){
+    overlay.addEventListener('mousemove',onMove);
+    overlay.addEventListener('mouseleave',onLeave);
+    overlay.addEventListener('touchmove',e=>{e.preventDefault();onMove(e)},{passive:false});
+    overlay.addEventListener('touchend',onLeave);
+  }
+}
+
+document.addEventListener('DOMContentLoaded',render);
+const obs=new MutationObserver(render);
+obs.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',render);
+</script>
+</body>
+</html>
