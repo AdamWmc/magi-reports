@@ -1723,6 +1723,28 @@
     "parsed_at": "2026-09-08T22:00:55"
   },
   {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "PCB",
+    "quote": "背鑽機拿到金像電大單 大概800台訂單 超過產能 出給金像電",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "向東台下約800台背鑽機大單"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
     "code": "2383",
     "name": "台光電",
     "date": "2026-09-08",
@@ -1765,6 +1787,28 @@
     "parsed_at": "2026-09-09T21:42:03"
   },
   {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "CCL",
+    "quote": "台虹聯手台光電一起打，鎖定輝達次世代正交背板，認證走到最後階段進度很快",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "聯手台虹攻輝達正交背板"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
     "code": "4925",
     "name": "智微",
     "date": "2026-09-08",
@@ -1786,6 +1830,75 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-08T22:00:55"
+  },
+  {
+    "code": "6229",
+    "name": "研通",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "IC設計",
+    "quote": "智通Update JMicron：確認投資ScaleFlux為單純財務性投資非子公司絕無併購，源於過去SSD產品線；JMicron剩158萬股(原300萬)後續不再賣。BMC發言人對送測毫無所聞，從未正式宣告Open BMC，仍評估方向，預計Q4釋出更多資訊",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "澄清ScaleFlux為財務投資",
+      "BMC Q4釋出資訊"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
+    "code": "6426",
+    "name": "統新",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "光通訊",
+    "quote": "趙君威 統新 好像跟暗光纖有關 這家明年營收會很好 單月營收可以一兩塊",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "暗光纖題材",
+      "明年單月營收看一兩塊"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "設備機械",
+    "quote": "東台新機種會超過五千軸，背鑽機拿到金像電大單 大概800台訂單 超過產能",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "新機種超過五千軸",
+      "背鑽機金像電800台大單"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   },
   {
     "code": "8039",
@@ -1854,6 +1967,30 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-09T21:42:03"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-08",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "CCL軟板",
+    "quote": "台虹軟板龍頭走無布化填料型薄膜，跳過玻纖布跟半固化片，追求極致超低損耗，聯手台光電鎖定輝達次世代正交背板，認證走到最後階段進度很快；對手生益科技已跟輝達合作PTFE超過一年追很兇",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "無布化填料薄膜獨家",
+      "聯手台光電攻輝達正交背板",
+      "認證最後階段"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   },
   {
     "code": "2303",
@@ -1958,6 +2095,26 @@
     "parsed_at": "2026-09-09T21:42:03"
   },
   {
+    "code": "2426",
+    "name": "鼎元",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光學元件",
+    "quote": "2426 可以出 (百億大戶)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
     "code": "2454",
     "name": "聯發科",
     "date": "2026-09-09",
@@ -1976,6 +2133,28 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-09-09T21:42:03"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "IC設計",
+    "quote": "臧鐸他們在講humu下修 但那個2028年的事情 因為intel產能不足 但2028還有時間可以解決",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Humu 2028展望下修疑慮"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   },
   {
     "code": "2481",
@@ -2000,6 +2179,31 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-09T21:42:03"
+  },
+  {
+    "code": "3017",
+    "name": "奇鋐",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "Frank lin",
+    "host": null,
+    "sector": "水冷散熱",
+    "quote": "AVC在大和說水冷板漲價，出Apple foldable hinge VC 50%份額；3Q qoq 15-20%甚至更高；Sep做Rubin board、Nov rack出貨；明年AMD/ASIC 1Q27起量；雙面水冷板明後年越來越多；水冷板3Q26月產能1m vs 2Q26 200k；液冷占2026營收30-40%，ASIC液冷占6-70%；明年NVDA外AWS/Google成水冷大客，Meta/Microsoft/AMD/OpenAI/XAI陸續加入；TPU下一代也會開始自己設計",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "水冷板產能3Q26擴5倍",
+      "Rubin/Meta rack放量",
+      "客戶多元化",
+      "毛利率季增至35%"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   },
   {
     "code": "3661",
@@ -2106,6 +2310,28 @@
     "parsed_at": "2026-09-09T21:42:03"
   },
   {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB軟板",
+    "quote": "臻鼎拿到VR的主板變三供 by臻鼎特助",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "VR主板轉三供"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
     "code": "5007",
     "name": "三星",
     "date": "2026-09-09",
@@ -2146,6 +2372,29 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-09T21:42:03"
+  },
+  {
+    "code": "6269",
+    "name": "台郡",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "cliff",
+    "host": null,
+    "sector": "CCL軟板",
+    "quote": "Nv通常都是第四季announce新材料 但6269可能要等到2028。6269他們就是做純氟 全世界沒人做得出來",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "純氟製程獨家",
+      "新材料恐延至2028"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   },
   {
     "code": "6274",
@@ -2208,6 +2457,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-09T21:42:03"
+  },
+  {
+    "code": "8021",
+    "name": "尖點",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威",
+    "host": null,
+    "sector": "設備機械",
+    "quote": "有人說東台拿到達航掉單",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "達航轉單"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   },
   {
     "code": "8039",
@@ -2275,6 +2546,53 @@
     "parsed_at": "2026-09-09T21:42:03"
   },
   {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL材料",
+    "quote": "8039+8069+NV+台郡開會：switch board 90%確定用hybrid PTFE，生益先量產，Midplane還在驗(72層/140層)。接近量產的Hybrid方案是生益PTFE CCL+生益PP；台虹在驗方案台虹PTFE CCL+生益PP(First priority已驗到後期)；全氟部分生益PTFE CCL+台虹PTFE PP，若台虹PTFE CCL驗過可望全氟版全拿。高度確信switch board會用Hybrid",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "switch board確定Hybrid PTFE",
+      "台虹PTFE CCL驗證領先",
+      "全氟版潛在全拿"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "廠務產能",
+    "quote": "8039：高雄放不了幾台，後來把觀音一二樓給他，製程我們也在幫忙調整，前段兩道烤爐製程想辦法弄成一道",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "觀音廠擴產",
+      "製程優化"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
     "code": "8064",
     "name": "東捷",
     "date": "2026-09-09",
@@ -2293,5 +2611,73 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-09T21:42:03"
+  },
+  {
+    "code": "8064",
+    "name": "東捷",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "Rex",
+    "host": null,
+    "sector": "設備",
+    "quote": "8064韓國 美國日本好像都有進度 我聽熟設備的朋友說的",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "韓美日設備進度推進"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-09-09",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL供應",
+    "quote": "8039+8069+NV+台郡開會：switch board 90%確定用hybrid PTFE，生益先量產",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-09-10",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "先進封裝",
+    "quote": "3374 2026 EPS 8，2027 EPS 15、2028 EPS 50。現在股價已經快500了，不知道再來股價要怎麼走",
+    "tp": null,
+    "eps_est": {
+      "2026": "8",
+      "2027": "15",
+      "2028": "50"
+    },
+    "catalysts": [
+      "EPS快速成長至2028"
+    ],
+    "customers": [],
+    "sentiment": "多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-10T22:28:50"
   }
 ]
