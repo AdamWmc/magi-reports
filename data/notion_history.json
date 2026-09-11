@@ -7811,6 +7811,28 @@
     {
       "code": "2409",
       "name": "友達",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "面板/玻璃基板",
+      "quote": "台積友達廠確定是自己用不是給3374，他們正在考慮要做CoW還是CoP\n不知道3374到底用哪個廠XD",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "台積於友達廠產能確認自用,非供應3374"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
+    {
+      "code": "2409",
+      "name": "友達",
       "date": "2026-09-09",
       "source_type": "meeting",
       "source_page": "20260909_駿宇",
@@ -8599,6 +8621,29 @@
     }
   ],
   "3037": [
+    {
+      "code": "3037",
+      "name": "欣興",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "達航",
+      "host": null,
+      "sector": "PCB載板",
+      "quote": "達航\n新接到3037的200台訂單(原先150)，還有120台沒出，光3037就有320台待交\n聽說月產能之後會上修\n會噴爛!?",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "達航追加訂單至200台(原150台)+尚有120台待出,合計320台待交",
+        "傳月產能後續將上修"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
     {
       "code": "3037",
       "name": "欣興",
@@ -40153,6 +40198,28 @@
     {
       "code": "6510",
       "name": "精測",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "Rex",
+      "host": null,
+      "sector": null,
+      "quote": "6683 聽起來5922有機會slt會從6510轉到6683",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "SLT業務可能被6683搶走(轉單風險)"
+      ],
+      "customers": [],
+      "sentiment": "中性偏空",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
+    {
+      "code": "6510",
+      "name": "精測",
       "date": "2026-09-08",
       "source_type": "meeting",
       "source_page": "20260908_樂林",
@@ -40413,6 +40480,28 @@
     }
   ],
   "6683": [
+    {
+      "code": "6683",
+      "name": "雍智科技",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "Rex",
+      "host": null,
+      "sector": null,
+      "quote": "6683 聽起來5922有機會slt會從6510轉到6683",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "5922 SLT測試業務可能從6510轉單至6683"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
     {
       "code": "6683",
       "name": "雍智科技",
@@ -52926,6 +53015,28 @@
     {
       "code": "3374",
       "name": "精材",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CoWoS/先進封裝",
+      "quote": "台積友達廠確定是自己用不是給3374，他們正在考慮要做CoW還是CoP\n不知道3374到底用哪個廠XD",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "台積友達廠確認自用非供應3374,台積內部考慮CoW或CoP方案,3374代工廠尚不明"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
+    {
+      "code": "3374",
+      "name": "精材",
       "date": "2026-09-10",
       "source_type": "daily",
       "source_page": "2026-09_廢想法_monthly",
@@ -52948,6 +53059,30 @@
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-09-10T22:28:50"
+    },
+    {
+      "code": "3374",
+      "name": "精材",
+      "date": "2026-09-10",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "黃老師",
+      "host": null,
+      "sector": "CoWoS/先進封裝",
+      "quote": "3374 2026 EPS 8 ，2027 EPS 15 、2028 EPS 50 。現在股價已經快500了，不知道再來股價要怎麼走",
+      "tp": null,
+      "eps_est": {
+        "2026": "8",
+        "2027": "15",
+        "2028": "50"
+      },
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "觀望",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
     },
     {
       "code": "3374",
@@ -59472,6 +59607,28 @@
     {
       "code": "8039",
       "name": "台虹",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "vivi",
+      "host": null,
+      "sector": "PCB/CCL",
+      "quote": "vivi(=4958 IR)說鵬鼎正式上日程要做了\n鵬鼎應該是拿台虹的料來做",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "鵬鼎(中國PCB廠)PTFE料件正式排入量產日程,料源疑似採用台虹材料"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
       "date": "2026-09-10",
       "source_type": "meeting",
       "source_page": "20260910_樂林",
@@ -64148,6 +64305,31 @@
     }
   ],
   "6538": [
+    {
+      "code": "6538",
+      "name": "倉和",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": null,
+      "quote": "6538 9/9(三)群益、10(四)中信座談、9/15第一金、9/16 富邦 9/22座談 元富* 9/24 國票\n2027 40 2028 60",
+      "tp": null,
+      "eps_est": {
+        "2027": "40",
+        "2028": "60"
+      },
+      "catalysts": [
+        "9月密集法說座談：群益/中信/第一金/富邦/元富/國票"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
+    },
     {
       "code": "6538",
       "name": "倉和",
@@ -80662,6 +80844,30 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-09-09T21:42:03"
+    }
+  ],
+  "6706": [
+    {
+      "code": "6706",
+      "name": "惠特",
+      "date": "2026-09-11",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "Johnny",
+      "host": null,
+      "sector": null,
+      "quote": "6706 09:58 Johnny 金儀 惠特耦光機出貨",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "金儀採購惠特耦光機出貨"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-11T22:23:56"
     }
   ]
 }
