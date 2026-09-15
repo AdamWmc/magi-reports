@@ -4197,6 +4197,26 @@
     "parsed_at": "2026-09-14T21:42:15"
   },
   {
+    "code": "2489",
+    "name": "瑞軒",
+    "date": "2026-09-14",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "百億大戶",
+    "host": null,
+    "sector": null,
+    "quote": "2489最近有人說是真的了(百億大戶)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏多(傳聞)",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
     "code": "3665",
     "name": "貿聯-KY",
     "date": "2026-09-14",
@@ -4217,6 +4237,29 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-14T21:42:15"
+  },
+  {
+    "code": "8033",
+    "name": "雷虎",
+    "date": "2026-09-14",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "寬彥",
+    "host": null,
+    "sector": null,
+    "quote": "寬彥聽說陳足元買很多雷虎，6%大股東，但9/15後中國會通緝持股軍工股超過5%的大股東",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "大股東買超6%",
+      "9/15後中國通緝軍工股大股東>5%持股(風險)"
+    ],
+    "customers": [],
+    "sentiment": "中性偏空(法規風險)",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
   },
   {
     "code": "8227",
@@ -4243,6 +4286,30 @@
     "parsed_at": "2026-09-14T21:42:15"
   },
   {
+    "code": "8227",
+    "name": "巨有科技",
+    "date": "2026-09-14",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "8227 明年開始出N12 明年EPS9 不含QCOM",
+    "tp": null,
+    "eps_est": {
+      "2027": "9"
+    },
+    "catalysts": [
+      "明年開始出N12"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
     "code": "8358",
     "name": "金居",
     "date": "2026-09-14",
@@ -4264,5 +4331,138 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-14T21:42:15"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-09-15",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "均熱片/Lid",
+    "quote": "Rubin ultra 第四季定版，預計會採用 removable，今年第四季會出測試量 for ultra，明年第一季出量。而且9月才剛測試TL ring 不會現在馬上知道不用",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Rubin Ultra Q4定版removable lid",
+      "2026Q4測試量/2027Q1出量"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-09-15",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "蘿蔔",
+    "host": null,
+    "sector": null,
+    "quote": "蘿蔔說3661講9月營收不到一百億(應該目前只有他問到)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "9月營收預估不到100億(單一消息來源)"
+    ],
+    "customers": [],
+    "sentiment": "保留/存疑",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
+    "code": "3665",
+    "name": "貿聯-KY",
+    "date": "2026-09-15",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "Curtis Chen",
+    "host": null,
+    "sector": "CPO",
+    "quote": "他剛問貿聯Jimmy，他說你講的那個下週有CPO要公布是真的 而且是厲害的 可以逢低買...Jimmy提示下週的前段 感覺是週一週二吧；ms OSRAM合作周一公告",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "下週CPO重大公告(週一週二)",
+      "與OSRAM合作周一公告"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
+    "code": "6182",
+    "name": "合晶",
+    "date": "2026-09-15",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "SiC",
+    "quote": "6182不知道要不要講哈哈哈哈 覺得可以看看 sic上修不少 然後cpo那塊比3016便宜多了lol",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "SiC上修",
+      "CPO估值比3016便宜"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
+    "code": "6291",
+    "name": "沛亨",
+    "date": "2026-09-15",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "(僅貼一張圖，無文字說明)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": null,
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
+  },
+  {
+    "code": "6683",
+    "name": "雍智科技",
+    "date": "2026-09-15",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "6683 傳認證過關 (MTK/TSM)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "傳MTK/TSM認證過關"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-15T22:43:49"
   }
 ]
