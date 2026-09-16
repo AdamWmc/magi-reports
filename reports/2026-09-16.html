@@ -148,6 +148,21 @@ details.arch>summary .cnt{color:var(--muted);font-weight:600;font-size:11px}
 .theme-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd);white-space:nowrap;font-family:var(--mono)}
 .theme-card.dn-theme .theme-count{background:var(--dn-bg);color:var(--dn);border-color:var(--dn-bd)}
 .theme-stocks{display:flex;flex-direction:column;gap:2px}
+/* 廢想法重點總結 */
+.digest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.digest-card{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:13px 15px;box-shadow:var(--card-shadow);overflow:hidden}
+.digest-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan));opacity:.55}
+.digest-card.recurring{border-color:var(--accent2);box-shadow:0 0 12px var(--glow)}
+.digest-theme{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.dg-tag{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);background:var(--glow);border:1px solid var(--border);border-radius:5px;padding:2px 8px}
+.dg-badge{font-size:9.5px;font-weight:700;color:var(--accent2);border:1px solid var(--accent2);border-radius:4px;padding:1px 6px;letter-spacing:.05em}
+.digest-stock{font-size:14px;font-weight:800;color:var(--bright);margin-bottom:7px}
+.dg-track{font-size:12px}
+.digest-points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.digest-points li{position:relative;font-size:12px;line-height:1.6;color:var(--text2);padding-left:13px}
+.digest-points li::before{content:'·';position:absolute;left:2px;top:-1px;color:var(--accent2);font-weight:800}
+.digest-judge{margin-top:9px;padding-top:8px;border-top:1px dashed var(--border2);font-size:12px;font-weight:700;color:var(--text);line-height:1.6}
+.empty-note{font-size:12px;color:var(--muted);text-align:center;padding:10px}
 .theme-meta{display:flex;gap:10px;font-size:10px;color:var(--muted);margin-bottom:6px;font-family:var(--mono)}
 .theme-tag{font-size:9px;color:var(--muted);font-weight:700;padding:1px 5px;border-radius:3px;background:var(--bg3);margin-left:4px;font-family:'PingFang TC','Noto Sans TC',sans-serif}
 
@@ -183,6 +198,7 @@ details.arch>summary .cnt{color:var(--muted);font-weight:600;font-size:11px}
 .mc-list.mc-list-single{column-count:1}
 @media(max-width:760px){
   .mc-list{column-count:1}
+  .digest-grid{grid-template-columns:1fr}
 }
 
 /* ── 法人 ── */
@@ -386,6 +402,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 </nav>
 <div class="jumpbar">
   <a class="jump" href="#sec-market">市場方向</a>
+  <a class="jump" href="#sec-daily">廢想法重點</a>
   <a class="jump" href="#sec-inst">法人</a>
   <a class="jump" href="#sec-margin">信用</a>
   <a class="jump" href="#sec-stance">多空水位</a>
@@ -2422,9 +2439,68 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 </div>
 </section>
 
-<section id="sec-inst">
+<section id="sec-daily">
 <div class="sec-head">
   <span class="sec-no">02</span>
+  <span class="sec-title">廢想法重點總結</span>
+  <span class="sec-sum">2026-09-16 · <b>6</b> 條主線 · 訊號累積 <b>2</b></span>
+</div>
+<p class="hero-headline" style="margin:0 0 16px">今日廢想法主軸圍在<strong>資金換手</strong>上——一般伺服器降溫、矽光與 CPO 事件卡位、光通訊產能拐點，跟盤面「棄權值、追有新數字」的輪動完全同調。</p><div class="digest-grid">
+  <div class="digest-card recurring">
+    <div class="digest-theme">
+      <span class="dg-tag">矽光·晶圓代工</span>
+<span class="dg-badge">訊號累積</span>    </div>
+    <div class="digest-stock">聯電 2303 <span class="dg-track">🎯</span></div>
+    <ul class="digest-points">
+<li>WL：矽光有搞頭、一直在上修，聯電不是漲『漲價』而是漲『轉型』</li><li>前面先 rerate，後面 deliver、profitability beat，再進 beat and raise</li><li>9/9 已提 9/12 GDR 定價（近日連續出現）</li>    </ul>
+<div class="digest-judge">→ 故事從『報價漲價』升級成『轉型評價重估』，今日 +2.53%、共識分數登王，是這波資金換手最直接的受惠者；重點看 2027-28 矽光放量能不能兌現。</div>  </div>
+  <div class="digest-card recurring">
+    <div class="digest-theme">
+      <span class="dg-tag">CPO·連接器</span>
+<span class="dg-badge">訊號累積</span>    </div>
+    <div class="digest-stock">貿聯-KY 3665</div>
+    <ul class="digest-points">
+<li>Curtis Chen（9/15）：下週有 CPO 要公布是真的、而且是厲害的，可以逢低買、周一公告</li><li>Diana Ni（9/14）：基本面本來就好，下週還有 CPO 相關合作要公布</li>    </ul>
+<div class="digest-judge">→ 兩個獨立來源、連兩日指向同一催化＝訊號累積，屬事件驅動；留意周一公告是否如期兌現，沒兌現要小心利多出盡。</div>  </div>
+  <div class="digest-card">
+    <div class="digest-theme">
+      <span class="dg-tag">光通訊·耦光</span>
+    </div>
+    <div class="digest-stock">光環 3234</div>
+    <ul class="digest-points">
+<li>百億大戶：光環到明年底產能要擴 4-5 倍到 1500-1700 片</li><li>7 月損平、8 月開始賺錢（毛利率 30%）</li>    </ul>
+<div class="digest-judge">→ 產能拐點＋獲利拐點雙確認，正好對上今日光通訊漲停潮（光環／IET／聯鈞／眾達同亮燈），是族群噴出的基本面註腳。</div>  </div>
+  <div class="digest-card">
+    <div class="digest-theme">
+      <span class="dg-tag">AI伺服器</span>
+    </div>
+    <div class="digest-stock">緯穎 6669</div>
+    <ul class="digest-points">
+<li>UBS 1x1：general server 下修，4Q general server QoQ decline（但應非他們砍出來的）</li>    </ul>
+<div class="digest-judge">→ 一般伺服器降溫的雜訊，但緯穎今日剛好被外資賣超 60 億、重挫 6.48%，訊號與股價對得上；AI 伺服器內部『一般 vs AI』分化要盯緊。</div>  </div>
+  <div class="digest-card">
+    <div class="digest-theme">
+      <span class="dg-tag">封測·持股</span>
+    </div>
+    <div class="digest-stock">南茂 8150 <span class="dg-track">🎯</span></div>
+    <ul class="digest-points">
+<li>Rex 問我南茂的客戶是誰（被點名關注，無新事證）</li>    </ul>
+<div class="digest-judge">→ 持股中，今日只是被智囊點名探詢、沒有實質新進展，續抱觀察題材發酵。</div>  </div>
+  <div class="digest-card">
+    <div class="digest-theme">
+      <span class="dg-tag">塑化·轉機</span>
+    </div>
+    <div class="digest-stock">1727 中華化</div>
+    <ul class="digest-points">
+<li>明天 CB 生效，之後應會跟台塑有重訊</li><li>主要是明年後年成長至少翻倍以上</li>    </ul>
+<div class="digest-judge">→ CB 生效＋重訊＋翻倍成長的組合拳，屬未驗證的傳聞級別，先列觀察、等重訊落地再評估可信度。</div>  </div>
+</div>
+<div class="hint">🎯=智囊追蹤／持股中的標的　「訊號累積」=近 2 交易日重複被提及。原話摘自每日廢想法，判斷為 MAGI 觀點。</div>
+</section>
+
+<section id="sec-inst">
+<div class="sec-head">
+  <span class="sec-no">03</span>
   <span class="sec-title">法人動向</span>
   <span class="sec-sum">三大合計 <b class="val-dn">−203.1億</b></span>
 </div>
@@ -2624,7 +2700,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-margin">
 <div class="sec-head">
-  <span class="sec-no">03</span>
+  <span class="sec-no">04</span>
   <span class="sec-title">信用交易</span>
   <span class="sec-sum">上市融資 <b class="val-up">+39.3億</b> · 維持率 <b>175.74%</b></span>
 </div>
@@ -2720,7 +2796,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-stance">
 <div class="sec-head">
-  <span class="sec-no">04</span>
+  <span class="sec-no">05</span>
   <span class="sec-title">智囊多空・水位</span>
   <span class="sec-sum">全體 <b style="color:var(--text2)">中性</b> · 4 偏多／9 偏空 · 6 家 17 人</span>
 </div>
@@ -2830,7 +2906,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-radar">
 <div class="sec-head">
-  <span class="sec-no">05</span>
+  <span class="sec-no">06</span>
   <span class="sec-title">Notion 智囊雷達</span>
   <span class="sec-sum">共識 #1 <b style="color:var(--accent2)">聯電</b> · 今日 17 位發言</span>
 </div>
@@ -6509,7 +6585,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-stocks">
 <div class="sec-head">
-  <span class="sec-no">06</span>
+  <span class="sec-no">07</span>
   <span class="sec-title">精選個股</span>
   <span class="sec-sum">共識排行前 10 · 點「查看走勢」連到搜尋頁</span>
 </div>
@@ -6791,7 +6867,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-warn">
 <div class="sec-head">
-  <span class="sec-no">07</span>
+  <span class="sec-no">08</span>
   <span class="sec-title">警示股看板</span>
   <span class="sec-sum">處置中 <b>8</b> 檔 · 今日新進 <b style="color:var(--warn)">0</b> · 快進處置 <b style="color:var(--warn)">5</b></span>
 </div>
@@ -6910,7 +6986,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-disposal">
 <div class="sec-head">
-  <span class="sec-no">08</span>
+  <span class="sec-no">09</span>
   <span class="sec-title">處置進程</span>
   <span class="sec-sum">初期（第1–5日）→ 倒數（D0–D-3）→ 出關（1–3天）</span>
 </div>
@@ -7081,7 +7157,7 @@ footer{border-top:1px solid var(--border);padding:24px 32px;font-size:11px;color
 
 <section id="sec-outlook">
 <div class="sec-head">
-  <span class="sec-no">09</span>
+  <span class="sec-no">10</span>
   <span class="sec-title">明日前瞻</span>
 </div>
 <div class="grid2">
