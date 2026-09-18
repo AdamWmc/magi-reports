@@ -6084,5 +6084,227 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-17T22:09:20"
+  },
+  {
+    "code": "2327",
+    "name": "國巨*",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "猴子",
+    "host": null,
+    "sector": null,
+    "quote": "猴子出3026買2327/500",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "賣出禾伸堂換買500張國巨"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "3026",
+    "name": "禾伸堂",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "猴子",
+    "host": null,
+    "sector": null,
+    "quote": "猴子出3026買2327/500",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "賣出換股至國巨"
+    ],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "全村emily",
+    "host": null,
+    "sector": null,
+    "quote": "今天有加3105，他衛星那塊gm超級高，gan on si可以抓到70-80%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "衛星應用GaN on Si毛利率高達70-80%，今日加碼"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "Diana Ni",
+    "host": null,
+    "sector": null,
+    "quote": "雙鴻大陸供應鏈近來應該很好，但九月營收船很好(40還是20忘了)，等開來買因為船很開；但又有產業人跟林董吃飯說九月營收不好",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "大陸供應鏈需求佳，但九月營收市場看法分歧"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "3605",
+    "name": "宏致",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "智民哥",
+    "host": null,
+    "sector": null,
+    "quote": "3605 智民哥好像又繼續買 盤前掛單",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "持續加碼，盤前掛單買進"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "4979",
+    "name": "華星光",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "WL",
+    "host": null,
+    "sector": null,
+    "quote": "4979：WL說NV要找4979，各種，這兩週以色列來很多人在找尋合適的供應鏈，明年supply還少很多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "NV積極尋求合作，以色列客戶密集尋找供應鏈，明年供給吃緊"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": null,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "6168",
+    "name": "宏齊",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": null,
+    "quote": "6168聽過嗎，好像現在大家把他跟聯電做聯想 幫他搞CPO",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "市場聯想與聯電合作CPO業務"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": null,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "6274明年內部算120-130",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "內部估算明年EPS區間120-130"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": null,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "6426",
+    "name": "統新",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "統新 應該是共識明年15 PE30第一批",
+    "tp": null,
+    "eps_est": {
+      "2027": "15"
+    },
+    "catalysts": [
+      "市場共識明年EPS估15，PE30，屬第一波起漲"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": null,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
+  },
+  {
+    "code": "6488",
+    "name": "環球晶",
+    "date": "2026-09-18",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": null,
+    "quote": "6488 GDR今天過證期局",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "GDR今日通過證期局審核"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": null,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-18T23:01:18"
   }
 ]
