@@ -8224,6 +8224,28 @@
     {
       "code": "2368",
       "name": "金像電",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "Curtis Chen",
+      "host": null,
+      "sector": "PCB",
+      "quote": "AWS很積極去找供應鏈要談私募，對象有金像電 and 勤誠",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "AWS私募"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "2368",
+      "name": "金像電",
       "date": "2026-09-23",
       "source_type": "daily",
       "source_page": "2026-09_廢想法_monthly",
@@ -9075,6 +9097,46 @@
     }
   ],
   "2409": [
+    {
+      "code": "2409",
+      "name": "友達",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "黛安娜",
+      "host": null,
+      "sector": "面板",
+      "quote": "友達那個廠 後面不會給他(精材)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "2409",
+      "name": "友達",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "面板",
+      "quote": "就看友達什麼時候把賣廠的事情搞好（精材接手）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "2409",
       "name": "友達",
@@ -10156,6 +10218,48 @@
     }
   ],
   "3037": [
+    {
+      "code": "3037",
+      "name": "欣興",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "ABF載板",
+      "quote": "原本Ibiden跟欣興留給Intel的大量產能閒置，所以只好接AMD CPU訂單補稼動率，現在Intel開始回來真的下單",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "3037",
+      "name": "欣興",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "ABF載板",
+      "quote": "8月gm應該也有3x% 景碩有的欣興也都有，可能也有機會上修",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "8月毛利率3x%"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "3037",
       "name": "欣興",
@@ -11727,6 +11831,33 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-09-23T22:33:36"
+    },
+    {
+      "code": "3189",
+      "name": "景碩",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "ABF載板",
+      "quote": "今天公布8月自結1.59，回推稅前淨利23%都本業，費用率12~13回推的話gm有接近35。NV CPU這個月開始出貨還在ramp up中應該是vera貢獻大。明年abf月產能多1000w顆在六廠mix會變更好。今年11上修到14明年至少40+，30x的話可以到1300~1400，明天一根還是有肉",
+      "tp": "1350",
+      "eps_est": {
+        "2026": "14",
+        "2027": "40"
+      },
+      "catalysts": [
+        "8月自結EPS 1.59",
+        "NV Vera CPU出貨ramp",
+        "明年六廠ABF月產能+1000萬顆"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
     },
     {
       "code": "3189",
@@ -15504,6 +15635,26 @@
     }
   ],
   "6274": [
+    {
+      "code": "6274",
+      "name": "台燿",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL",
+      "quote": "6274 CB 時程（圖）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "6274",
       "name": "台燿",
@@ -22421,6 +22572,50 @@
     {
       "code": "8046",
       "name": "南電",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "ABF載板",
+      "quote": "原本Ibiden跟欣興留給Intel的大量產能閒置，所以他們只好接一些AMD CPU的訂單來補稼動率，現在Intel開始回來真的下單 AMD CPU這些單開始往南電轉",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "AMD CPU載板轉單南電"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "8046",
+      "name": "南電",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "ABF載板",
+      "quote": "南電因為switch崑山那邊所以就比較弱，等3Q財報公布後可以回來看 最差就那時候，後面4Q switch yield起來就沒問題",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "4Q switch良率提升"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "8046",
+      "name": "南電",
       "date": "2026-09-22",
       "source_type": "meeting",
       "source_page": "20260922_樂林",
@@ -24144,6 +24339,29 @@
     }
   ],
   "8996": [
+    {
+      "code": "8996",
+      "name": "高力",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "散熱",
+      "quote": "10/1定價完接著三天都排場，今天又剛好閃過處置，感覺就是要出來大做多，至少往2000走，最晚9/30要買",
+      "tp": "2000",
+      "eps_est": null,
+      "catalysts": [
+        "10/1定價",
+        "法說排場三天"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "8996",
       "name": "高力",
@@ -25974,6 +26192,28 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-09-23T22:33:36"
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "晶圓代工",
+      "quote": "台積協助精材搞無塵室、20% oS產能給精材。10/15法說 權值股攤開來看他還是漲最少",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "10/15法說"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
     },
     {
       "code": "2330",
@@ -31637,6 +31877,28 @@
       "code": "3042",
       "name": "晶技",
       "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "石英元件",
+      "quote": "今天說有做進天伏，一個看光通厲害的在喊",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "打進天孚"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "3042",
+      "name": "晶技",
+      "date": "2026-09-23",
       "source_type": "daily",
       "source_page": "2026-09_廢想法_monthly",
       "speaker": null,
@@ -32635,6 +32897,31 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-09-23T22:33:36"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "ASIC",
+      "quote": "玩站上800/8000策略，回測後30天內會上10000，大概20-25% upside；看創意的基本面也像萬元股，過去回測勝率53%賺賠比2.5:1停損抓10%。同事明年抓到320左右，28年有機會做到400+",
+      "tp": "10000",
+      "eps_est": {
+        "2027": "320",
+        "2028": "400"
+      },
+      "catalysts": [
+        "站上8000萬元股策略"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
     },
     {
       "code": "3443",
@@ -46495,6 +46782,28 @@
     {
       "code": "8210",
       "name": "勤誠",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "Curtis Chen",
+      "host": null,
+      "sector": "機殼",
+      "quote": "AWS很積極去找供應鏈要談私募，對象有金像電 and 勤誠",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "AWS私募"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "8210",
+      "name": "勤誠",
       "date": "2026-09-02",
       "source_type": "meeting",
       "source_page": "20260902_駿羽",
@@ -50954,6 +51263,26 @@
     {
       "code": "2454",
       "name": "聯發科",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "ASIC",
+      "quote": "之前說5922 v9可能會轉cowos但現在應該不轉，V10部分有可能轉回cowosL因為載板良率太低只有30%，發科內部目標量產良率是5x%，現在5921 lifecycle可能會拉長",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
       "date": "2026-09-22",
       "source_type": "meeting",
       "source_page": "20260922_樂林",
@@ -53337,6 +53666,30 @@
     {
       "code": "3081",
       "name": "聯亞",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "光通訊",
+      "quote": "轉：聯亞大跌 是在傳Google罰錢，實際上是與Google簽訂的合約條款中有罰款協議。並未實際被罰到錢。聯亞今年明年後年狀況非常好，營收季季高，4Q26單月可看到6億以上。2027年Mocvd產能相對2026年增加快30%，3Q27 奈米壓印機開始貢獻",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "4Q26單月營收6億+",
+        "2027 MOCVD產能+30%",
+        "3Q27奈米壓印機貢獻"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "3081",
+      "name": "聯亞",
       "date": "2026-09-23",
       "source_type": "daily",
       "source_page": "2026-09_廢想法_monthly",
@@ -55378,6 +55731,50 @@
     }
   ],
   "3653": [
+    {
+      "code": "3653",
+      "name": "健策",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "均熱片",
+      "quote": "之前大家說removable 價格是1piece 跟2之間 公司說高於2 piece，一片50 兩片200 removable 250",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "removable均熱片單價高於2 piece"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "3653",
+      "name": "健策",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "Ed",
+      "host": null,
+      "sector": "均熱片",
+      "quote": "Ed:剛剛台積說 Rubin 就會上三片式 3653 gogo",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Rubin上三片式"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "3653",
       "name": "健策",
@@ -58185,6 +58582,30 @@
     {
       "code": "6257",
       "name": "矽格",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "測試",
+      "quote": "推TIA的單 mrvl要測20個小時，明年17",
+      "tp": null,
+      "eps_est": {
+        "2027": "17"
+      },
+      "catalysts": [
+        "MRVL TIA測試單"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "6257",
+      "name": "矽格",
       "date": "2026-09-10",
       "source_type": "meeting",
       "source_page": "20260910_樂林",
@@ -60315,6 +60736,28 @@
     {
       "code": "2493",
       "name": "揚博",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "PCB設備",
+      "quote": "上週法說講很好但被凱基城中砸掉，用PCB保守的角度來看還是便宜，續推360",
+      "tp": "360",
+      "eps_est": null,
+      "catalysts": [
+        "法說佳"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "2493",
+      "name": "揚博",
       "date": "2026-08-12",
       "source_type": "meeting",
       "source_page": "20260812_駿羽",
@@ -60592,6 +61035,52 @@
     }
   ],
   "3374": [
+    {
+      "code": "3374",
+      "name": "精材",
+      "date": "2026-09-24",
+      "source_type": "daily",
+      "source_page": "2026-09_廢想法_monthly",
+      "speaker": "黛安娜",
+      "host": null,
+      "sector": "CoWoS封測",
+      "quote": "精材(黛安娜) 現在有兩個我滿可信的朋友都來提醒說友達那個廠 後面不會給他 然後CB會持續遞延 我覺得市場還沒有開始傳這個 可能下周會傳 不管是不是真的，是比較靠市場派的人說的",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "友達廠可能不給精材",
+        "CB持續遞延"
+      ],
+      "customers": [],
+      "sentiment": "謹慎",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "3374",
+      "name": "精材",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "CoWoS封測",
+      "quote": "台積那邊有協助他們搞無塵室 之後20% oS產能要給他們做，台積甚至把自己的產線先放掉去幫精材弄，就看友達什麼時候把賣廠的事情搞好",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "台積20% oS產能轉給精材",
+        "友達賣廠"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "3374",
       "name": "精材",
@@ -63684,6 +64173,28 @@
     {
       "code": "2360",
       "name": "致茂",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "測試設備",
+      "quote": "5kw SLT有切入 之後有一半可能是他",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "切入5kW SLT"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "2360",
+      "name": "致茂",
       "date": "2026-09-22",
       "source_type": "meeting",
       "source_page": "20260922_樂林",
@@ -65743,6 +66254,28 @@
     }
   ],
   "7734": [
+    {
+      "code": "7734",
+      "name": "印能科技",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "半導體設備",
+      "quote": "9月出機比7月多20%，明年3月營收會跳非常多但不知道是出什麼機台",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "9月出機較7月+20%"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
     {
       "code": "7734",
       "name": "印能科技",
@@ -87182,6 +87715,26 @@
     {
       "code": "3406",
       "name": "玉晶光",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "光學",
+      "quote": "上一個站上800/8000案例是3406也是蠻快就跑上去",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
+    },
+    {
+      "code": "3406",
+      "name": "玉晶光",
       "date": "2026-09-22",
       "source_type": "meeting",
       "source_page": "20260922_樂林",
@@ -93593,6 +94146,30 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-09-22T22:17:22"
+    }
+  ],
+  "2241": [
+    {
+      "code": "2241",
+      "name": "艾姆勒",
+      "date": "2026-09-23",
+      "source_type": "meeting",
+      "source_page": "20260923_愛德恩",
+      "speaker": "愛德恩",
+      "host": "愛德恩",
+      "sector": "散熱/光通",
+      "quote": "有送800g光模塊的殼給aaoi，客戶目前都談定 看什麼時候開始做",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "800G光模塊外殼送樣AAOI"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-09-24T20:12:04"
     }
   ],
   "3675": [
