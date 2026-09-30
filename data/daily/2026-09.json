@@ -7926,6 +7926,28 @@
     "parsed_at": "2026-09-29T22:48:34"
   },
   {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-09-29",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工/矽光",
+    "quote": "聽說Aletheia聯電報告會延後 太多人在等",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Aletheia聯電報告延後"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
     "code": "2409",
     "name": "友達",
     "date": "2026-09-29",
@@ -8057,6 +8079,26 @@
     "parsed_at": "2026-09-29T22:48:34"
   },
   {
+    "code": "3665",
+    "name": "貿聯-KY",
+    "date": "2026-09-29",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "百億大戶",
+    "host": null,
+    "sector": "線材/CPO",
+    "quote": "百億大戶說 3665不再是獨家 自用",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
     "code": "3711",
     "name": "日月光投控",
     "date": "2026-09-29",
@@ -8121,6 +8163,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-29T22:48:34"
+  },
+  {
+    "code": "4925",
+    "name": "智微",
+    "date": "2026-09-29",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "BMC/伺服器晶片",
+    "quote": "4925我朋友說11月sample會展出",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11月sample展出"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
   },
   {
     "code": "5274",
@@ -8277,5 +8341,93 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-29T22:48:34"
+  },
+  {
+    "code": "4526",
+    "name": "東台",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "東台 東捷 跟g2c好像說都有一些新機台在送台積驗證",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "新機台送台積電驗證"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
+    "code": "6683",
+    "name": "雍智科技",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": "凱哥",
+    "host": null,
+    "sector": "半導體測試/SLT",
+    "quote": "凱哥 我覺得6683還不錯 明天總經理會出來凱基做多 他平常不常出來 剛好股價也有回(這樣算股價有回嗎??)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "總經理明天出席凱基法說做多"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PTFE/軟板材料",
+    "quote": "8039 SCC(深南電路)回覆：驗證還來不及做完，預計十一連假後能完成，目前製作上都ok",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "PTFE驗證預計十一連假後完成"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
+    "code": "8064",
+    "name": "東捷",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "東台 東捷 跟g2c好像說都有一些新機台在送台積驗證",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "新機台送台積電驗證"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-09-30T21:54:21"
   }
 ]
