@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>持股健檢 · MAGI</title>
+<style>
+  :root{
+    --bg:#e9eef0; --surface:#ffffff; --surface2:#f2f6f7;
+    --ink:#132029; --ink2:#44535e; --muted:#78868f; --line:#d2dbe0; --hair:#e2e9ec;
+    --copper:#a15c22; --signal:#0b7c92;
+    --z1:#7c3aed; --z2:#c2410c; --z3:#b06a10; --z4:#0e7a63;
+    --z5:#0369a1; --z6:#566677; --z7:#c02674;
+    --z1b:rgba(124,58,237,.10); --z2b:rgba(194,65,12,.10); --z3b:rgba(176,106,16,.12);
+    --z4b:rgba(14,122,99,.11); --z5b:rgba(3,105,161,.10); --z6b:rgba(86,102,119,.12); --z7b:rgba(192,38,116,.10);
+    --shadow:0 1px 2px rgba(15,30,40,.05),0 6px 22px rgba(15,30,40,.05);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,"PingFang TC","Noto Sans TC",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+      --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+      --copper:#d69a5b; --signal:#38c5dd;
+      --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+      --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+      --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+      --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#070d12; --surface:rgba(150,180,195,.045); --surface2:rgba(150,180,195,.07);
+    --ink:#d8e5ea; --ink2:#93a5ad; --muted:#63737c; --line:rgba(150,180,195,.16); --hair:rgba(150,180,195,.09);
+    --copper:#d69a5b; --signal:#38c5dd;
+    --z1:#a78bfa; --z2:#f08950; --z3:#e0ac52; --z4:#35c8a5;
+    --z5:#4bb6e8; --z6:#93a6b8; --z7:#ec5b9e;
+    --z1b:rgba(167,139,250,.13); --z2b:rgba(240,137,80,.13); --z3b:rgba(224,172,82,.14);
+    --z4b:rgba(53,200,165,.13); --z5b:rgba(75,182,232,.13); --z6b:rgba(147,166,184,.13); --z7b:rgba(236,91,158,.13);
+    --shadow:none;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+  .wrap{max-width:940px;margin:0 auto;padding:34px 22px 60px}
+  header{position:relative;margin-bottom:26px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--copper);font-weight:700;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--copper),var(--signal))}
+  h1{font-size:clamp(27px,5.4vw,42px);line-height:1.08;letter-spacing:-.022em;font-weight:850;
+    margin:.34em 0 .28em;text-wrap:balance}
+  h1 em{font-style:normal;background:linear-gradient(115deg,var(--signal),var(--copper));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--ink2);font-size:16px;max-width:66ch;margin:0}
+  .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);border-radius:5px;padding:3px 9px;background:var(--surface)}
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;padding:13px 16px;margin:22px 0 8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:11px;box-shadow:var(--shadow)}
+  .lg{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink2);font-weight:600}
+  .lg i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .h2{font-size:21px;font-weight:850;letter-spacing:-.02em;margin:34px 0 6px;display:flex;align-items:baseline;gap:10px;text-wrap:balance}
+  .h2 .n{font-family:var(--mono);font-size:13px;font-weight:700;color:#fff;background:var(--copper);
+    border-radius:6px;padding:2px 8px;align-self:center}
+  :root[data-theme="dark"] .h2 .n{color:#0a1116}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .h2 .n{color:#0a1116}}
+  .h2sub{color:var(--ink2);font-size:14px;margin:0 0 16px;max-width:66ch}
+  .caveat{margin:2px 0 4px;padding:14px 16px;border-radius:12px;border:1px dashed var(--muted);
+    background:var(--surface2);font-size:12.5px;color:var(--ink2);line-height:1.8}
+  .caveat .ct{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:13.5px}
+  .caveat b{color:var(--ink)}
+  .th-link{display:inline-block;font-size:11px;font-weight:700;color:var(--signal);text-decoration:none}
+  .th-link:hover{text-decoration:underline}
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--muted);line-height:1.7}
+  footer b{color:var(--ink2)}
+  .site-nav{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--line)}
+  .site-nav .logo{font-weight:800;color:var(--ink);text-decoration:none;font-size:15px;letter-spacing:-.3px}
+  .site-nav .logo em{font-style:normal;color:var(--copper)}
+  .site-nav .nl{display:flex;align-items:center;gap:15px}
+  .site-nav .nl a{font-size:13px;color:var(--muted);text-decoration:none}
+  .site-nav .nl a:hover{color:var(--ink)}
+  .site-nav .nl a.back{color:var(--signal);font-weight:600}
+  .site-nav .tbtn{background:none;border:1px solid var(--line);border-radius:6px;padding:5px 8px;cursor:pointer;font-size:14px;color:var(--muted);line-height:1}
+  .site-nav .tbtn:hover{color:var(--copper);border-color:var(--copper)}
+  @media(max-width:520px){.site-nav .nl a:not(.back){display:none}}
+  /* summary table */
+  .cmp-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px 8px;box-shadow:var(--shadow);margin:2px 0 8px}
+  .cmp-tbl{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+  .cmp-tbl th,.cmp-tbl td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp-tbl tr:last-child td{border-bottom:none}
+  .cmp-tbl th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+  .cmp-tbl td b{color:var(--ink)}
+  .cmp-tbl td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+  .pos{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .wt{font-family:var(--mono);font-weight:700}
+  /* holdings checkup cards */
+  .hc{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--hc,var(--copper));
+    border-radius:12px;padding:16px 18px;margin:14px 0;box-shadow:var(--shadow)}
+  .hc-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 10px}
+  .hc-code{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:700}
+  .hc-name{font-size:19px;font-weight:850;color:var(--ink);letter-spacing:-.01em}
+  .hc-badge{font-family:var(--mono);font-size:12.5px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--surface2);color:var(--ink2)}
+  .hc-badge.up{color:#fff;background:var(--z2)}
+  .hc-badge.dn{color:#fff;background:var(--z4)}
+  .hc-badge.flat{color:#fff;background:var(--muted)}
+  .hc-pos{font-family:var(--mono);font-size:11px;color:var(--ink2);background:var(--surface2);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+  .hc-tag{margin-left:auto;font-size:12px;color:var(--copper);font-weight:800;white-space:nowrap}
+  .hc-tag.warn{color:var(--z3)}
+  .hc-tag.cool{color:var(--muted)}
+  .hc-role{font-size:13px;color:var(--ink2);margin:7px 0 12px;font-weight:600}
+  .hc-grid{display:grid;grid-template-columns:1fr;gap:9px}
+  @media(min-width:700px){.hc-grid{grid-template-columns:1fr 1fr 1fr}}
+  .hc-grid>div{background:var(--surface2);border-radius:8px;padding:10px 12px;font-size:12.8px;line-height:1.62;color:var(--ink2)}
+  .hc-grid b.hl{display:block;color:var(--ink);font-size:11.5px;margin-bottom:4px;font-weight:800;letter-spacing:.02em}
+  .hc-grid .k{color:var(--ink);font-weight:700}
+  .hc-quote{margin-top:11px;font-size:12.3px;color:var(--ink2);border-left:2px solid var(--hc,var(--line));padding-left:11px}
+  .hc-quote b{color:var(--ink)}
+  .hc-foot{display:flex;justify-content:flex-end;margin-top:6px}
+  .grp{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    margin:26px 0 2px;padding-bottom:5px;border-bottom:1px solid var(--line);color:var(--gc,var(--copper))}
+  @media(max-width:600px){.wrap{padding:24px 14px 48px}.theme-btn{position:static}}
+  /* gate */
+  #gate{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
+  #gate.hide{display:none}
+  .gate-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:34px 28px;max-width:320px;width:100%;text-align:center;box-shadow:var(--shadow)}
+  .gate-emoji{font-size:32px;margin-bottom:8px}
+  .gate-title{font-size:20px;font-weight:850;color:var(--ink);letter-spacing:-.01em}
+  .gate-sub{font-size:13px;color:var(--muted);margin:4px 0 18px}
+  #gate-pw{width:100%;font-size:22px;text-align:center;letter-spacing:.4em;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);color:var(--ink);font-family:var(--mono)}
+  #gate-pw:focus{outline:2px solid var(--copper);border-color:var(--copper)}
+  .gate-card button{margin-top:14px;width:100%;padding:12px;border:none;border-radius:10px;background:var(--copper);color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+  .gate-card button:hover{opacity:.9}
+  .gate-err{color:var(--z2);font-size:12.5px;margin-top:10px;min-height:16px;visibility:hidden}
+  .gate-err.show{visibility:visible}
+</style>
+<script>(function(){var t=localStorage.getItem('magi-theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
+</head>
+<body>
+<div id="gate" role="dialog" aria-label="請輸入密碼" aria-modal="true">
+  <form id="gate-form">
+    <div class="gate-card">
+      <div class="gate-emoji">🔒</div>
+      <div class="gate-title">持股健檢</div>
+      <div class="gate-sub">請輸入密碼</div>
+      <input id="gate-pw" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" aria-label="密碼">
+      <button type="submit">進入</button>
+      <div class="gate-err" id="gate-err">密碼不對，再試一次</div>
+    </div>
+  </form>
+</div>
+<nav class="site-nav">
+  <a href="/" class="logo"><em>MAGI</em>&nbsp; 持股健檢</a>
+  <div class="nl">
+    <a href="/industry.html" class="back">← 產業地圖</a>
+    <a href="/">首頁</a>
+    <button class="tbtn" onclick="magiToggleTheme()" aria-label="切換主題">🌙</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MAGI · 持股健檢</div>
+    <h1>我的<em>持股</em>健檢</h1>
+    <p class="lede">完整實際部位盤點——<strong>個股期貨（10 檔）＋現股／融資（10 檔）共 20 檔</strong>，用 MAGI 近 3 個月 Notion 智囊討論（含 8–9 月補進的 72 篇公司拜訪/法說筆記）交叉，每檔標出<strong>做什麼、智囊看什麼、部位與點位</strong>。本金約 <strong>2,000 萬</strong>、總曝險 ≈ 2,622 萬 → <strong>水位約 131%</strong>（融資／個股期貨為資金效率工具）。收盤＝<strong>2026/10/1 盤中 12:40</strong>。<strong>個人持股整理、非投資建議。</strong></p>
+    <div class="meta"><span>快照：2026/10/1 盤中 12:40 部位・收盤</span><span>20 檔 / 期貨10·現股融資10</span><span>期貨浮動損益 ≈ +72.4萬</span><span>現股融資浮動損益 ≈ +36.9萬</span><span>帳戶大改組：出清 4 檔、新增 11 檔</span><span>🎯 Notion 熱議　🔭 智囊未追</span></div>
+  </header>
+  <div class="legend" aria-label="組合分區">
+    <div class="lg"><i style="background:var(--z2)"></i>CCL／PTFE 材料</div>
+    <div class="lg"><i style="background:var(--z1)"></i>封測·封裝</div>
+    <div class="lg"><i style="background:var(--z6)"></i>散熱·電源·軟板</div>
+    <div class="lg"><i style="background:var(--z3)"></i>權值核心·晶圓·ASIC</div>
+    <div class="lg"><i style="background:var(--z5)"></i>化合物半導體·光通/光電</div>
+    <div class="lg"><i style="background:var(--z7)"></i>興櫃·IC 設計投機</div>
+    <div class="lg"><i style="background:var(--z4)"></i>小型成長／孤兒</div>
+  </div>
+  <div class="caveat" style="border-style:solid;border-color:var(--z2);margin-bottom:4px">
+    <span class="ct" style="color:var(--z2)">🟠 10/1 部位大改組後的第一張體檢：台虹變成 4 成的單一大注、玻璃基板一口氣買了 4 檔</span>
+    這次是 9/1 以來最大的換股。<b>出清創意、精材、穩懋、台郡</b>；新增期貨<b>合晶、國巨、群創、華通、晶豪科</b>，現股／融資新增<b>東捷、柏承、華星光、達邁、東台、川寶</b>；<b>台虹從 5 口加到 14 口（均價從 329.9 攤到 273.5）</b>、智微加到 9,000 股、騰雲加到融資 5,000、環宇加到 3,000；南茂 13→9 口、台積 17→9 口、台達 7→5 口減碼。結果是兩個集中：<b>① 台虹 14 口名目約 800 萬、佔本金約 4 成</b>，整個帳戶的浮盈幾乎由它決定（期貨浮盈的一半以上來自台虹）；<b>② 玻璃基板一條線買了群創、東捷、東台、川寶 4 檔</b>，同一個題材、高度連動，今天群創、川寶、東捷都回檔。好消息是賺錢的部位都有基本面撐：<b>南茂自結毛利 22.9% 超預期、台虹 PTFE 驗證連假後出結果、合晶 8 吋 10/1 起漲價</b>。
+  </div>
+  <h2 class="h2"><span class="n">1</span>組合快照：20 檔一次看完</h2>
+  <p class="h2sub">按「佔本金%」由大到小排序（曝險＝現股市值或期貨名目 ÷ 2,000 萬）。浮盈＝(收盤−券商均價)×股數。熱度＝近 3 個月 Notion 提及則數（10/1 補完勞碌產物後重算）。期貨全在 2610 合約。</p>
+  <div class="cmp-wrap">
+    <table class="cmp-tbl">
+      <tr><th>股</th><th>題材角色</th><th>部位</th><th class="num">佔本金</th><th class="num">收盤(10/1 盤中 12:40)</th><th class="num">今日</th><th class="num">浮盈</th><th>熱度</th><th>一句話定調</th></tr>
+      <tr><td><b>台虹 8039</b></td><td>CCL/PTFE 材料</td><td class="pos">期貨 +14口</td><td class="num wt" style="color:var(--z2)">~40.2%</td><td class="num">287.5</td><td class="num" style="color:var(--z4)">▼4.33%</td><td class="num"><span style="color:var(--z2)">+39.2萬</span></td><td>🎯 186 則·最大注</td><td><b>加碼到 14 口、均價攤到 273.5</b>，佔本金約 4 成；押的是 PTFE 驗證——深南「連假後驗完」、公司「4Q26 有進一步消息」</td></tr>
+      <tr><td><b>台積電 2330</b></td><td>權值核心/先進封裝</td><td class="pos">小型期 +9口</td><td class="num wt" style="color:var(--z3)">~11.3%</td><td class="num">2,505</td><td class="num" style="color:var(--z2)">▲1.01%</td><td class="num"><span style="color:var(--z2)">+1.9萬</span></td><td>🎯 135 則</td><td><b>減到 9 口 @2,484</b>、beta 底倉；10/15 法說前，Aletheia 說 2028 EPS 200+、CoWoS 還會大幅上修</td></tr>
+      <tr><td><b>南茂 8150</b></td><td>記憶體封測/測試</td><td class="pos">期貨 +9口</td><td class="num wt" style="color:var(--z1)">~10.4%</td><td class="num">115.5</td><td class="num" style="color:var(--z2)">▲0.87%</td><td class="num"><span style="color:var(--z2)">+26.7萬</span></td><td>🎯 29 則</td><td><b>9/30 自結毛利 22.9% 超預期、漲停</b>；減到 9 口 @100.64 仍是浮盈大戶；今明年 EPS 5.8/10、新梗 TPU 測試</td></tr>
+      <tr><td><b>聯電 2303</b></td><td>晶圓代工/成熟製程</td><td class="pos">期貨 +6口</td><td class="num wt" style="color:var(--z3)">~9.6%</td><td class="num">159.5</td><td class="num" style="color:var(--z2)">▲3.24%</td><td class="num"><span style="color:var(--z4)">-1.1萬</span></td><td>🎯 299 則·最熱</td><td>智囊<b>近 3 月最熱（299 則）</b>；1Q27 全面漲價、Intel 12nm、TFLN 三條線；期貨 6 口 @160.42 接近平盤</td></tr>
+      <tr><td><b>騰雲 6870</b></td><td>餐飲/零售 AIoT</td><td class="pos">融資 5,000</td><td class="num wt" style="color:var(--z4)">~7.9%</td><td class="num">317.5</td><td class="num" style="color:var(--z4)">▼1.85%</td><td class="num"><span style="color:var(--z2)">+17.9萬</span></td><td>🔭 15 則·流動性</td><td><b>加到融資 5,000 @281.70</b>、浮盈不錯；公司估 26/27 EPS 10.3/19.2、TP 575；10/19 臨時股東會一拆四</td></tr>
+      <tr><td><b>環宇-KY 4991</b></td><td>化合物半導體/VCSEL</td><td class="pos">融資 3,000</td><td class="num wt" style="color:var(--z5)">~7.3%</td><td class="num">485.5</td><td class="num" style="color:var(--z4)">▼0.51%</td><td class="num"><span style="color:var(--z4)">-5.3萬</span></td><td>🎯 35 則</td><td><b>加到融資 3,000 @503.05</b>、小套；在手訂單 9,000 萬美元、瓶頸是基板，4Q 毛利回 50%+、2027 營收有機會 4 億美元</td></tr>
+      <tr><td><b>智微 4925</b></td><td>Flash→BMC</td><td class="pos">現股 9,000</td><td class="num wt" style="color:var(--z7)">~7.1%</td><td class="num">158.5</td><td class="num" style="color:var(--z4)">▼5.06%</td><td class="num"><span style="color:var(--z2)">+27.7萬</span></td><td>⚠️ 17 則·興櫃</td><td><b>加到 9,000 股 @127.74</b>、浮盈最大的現股；但智囊「BMC 超前半年」和公司「SoC 要 2029–2030」說法打架</td></tr>
+      <tr><td><b>東捷 8064</b></td><td>玻璃基板/面板設備</td><td class="pos">融資 9,000</td><td class="num wt" style="color:var(--z4)">~6.5%</td><td class="num">143.5</td><td class="num" style="color:var(--z4)">▼1.37%</td><td class="num"><span style="color:var(--z2)">+13.1萬</span></td><td>🎯 17 則</td><td><b>新部位·融資 9,000 @128.96</b>，玻璃基板設備；廢想法「東台、東捷有新機台送台積驗證」、Sunny 也在加</td></tr>
+      <tr><td><b>華星光 4979</b></td><td>光通訊模組/CPO</td><td class="pos">融資 2,000</td><td class="num wt" style="color:var(--z5)">~5.5%</td><td class="num">547</td><td class="num" style="color:var(--z4)">▼3.87%</td><td class="num"><span style="color:var(--z4)">-15.9萬</span></td><td>🎯 65 則</td><td><b>新部位·融資 2,000 @626.39</b>、套約 13%；MRVL DCI 訂單 2027 傳 200 億、EML 200G 2027 量產，但現在正在籌資擴產</td></tr>
+      <tr><td><b>台達電 2308</b></td><td>AI 電源/散熱</td><td class="pos">小型期 +5口</td><td class="num wt" style="color:var(--z6)">~4.7%</td><td class="num">1,890</td><td class="num" style="color:var(--muted)">0.00%</td><td class="num"><span style="color:var(--z2)">+1.8萬</span></td><td>🎯 73 則</td><td><b>減到 5 口 @1,855</b>；Alan 哥「Q4 訂單 2,400 億、10 月營收跳 700 億」，公司說 3Q 最差、4Q 明顯成長</td></tr>
+      <tr><td><b>華通 2313</b></td><td>PCB/HDI·低軌衛星</td><td class="pos">期貨 +2口</td><td class="num wt" style="color:var(--z2)">~4.5%</td><td class="num">224.5</td><td class="num" style="color:var(--z4)">▼0.88%</td><td class="num"><span style="color:var(--muted)">+0.0萬</span></td><td>🎯 71 則</td><td><b>新部位</b> 2 口 @224.5；衛星板明年翻倍＋光模塊明年 250 億＋Apple ASIC 伺服器 4Q 量產</td></tr>
+      <tr><td><b>柏承 6141</b></td><td>PCB</td><td class="pos">現股 16,001</td><td class="num wt" style="color:var(--z4)">~4.2%</td><td class="num">52.4</td><td class="num" style="color:var(--z2)">▲1.16%</td><td class="num"><span style="color:var(--z2)">+0.8萬</span></td><td>🔭 6 則·孤兒</td><td><b>現股 16,001 @51.88</b>（9 月曾出清又買回）；近一個月智囊零討論，持有理由要自己確認</td></tr>
+      <tr><td><b>合晶 6182</b></td><td>矽晶圓（8 吋漲價）</td><td class="pos">期貨 +3口</td><td class="num wt" style="color:var(--z3)">~3.9%</td><td class="num">130</td><td class="num" style="color:var(--z4)">▼2.26%</td><td class="num"><span style="color:var(--z2)">+6.1萬</span></td><td>🎯 29 則</td><td><b>新部位</b> 3 口 @119.83；大陸 8 吋 10/1 起新單漲 10–15%、公司說 8 吋稼動率 90–100%</td></tr>
+      <tr><td><b>晶豪科 3006</b></td><td>利基型記憶體</td><td class="pos">期貨 +1口</td><td class="num wt" style="color:var(--z7)">~2.8%</td><td class="num">282</td><td class="num" style="color:var(--z4)">▼1.40%</td><td class="num"><span style="color:var(--z4)">-0.7萬</span></td><td>🔭 10 則</td><td><b>新部位</b> 1 口 @285.5；利基型記憶體跟漲，Bobo「子公司 8–9 月買 4,000 多張、企圖心強」</td></tr>
+      <tr><td><b>群創 3481</b></td><td>面板→玻璃基板/FOPLP</td><td class="pos">期貨 +3口</td><td class="num wt" style="color:var(--z5)">~1.6%</td><td class="num">52.2</td><td class="num" style="color:var(--z4)">▼4.57%</td><td class="num"><span style="color:var(--z4)">-1.1萬</span></td><td>🔭 7 則</td><td><b>新部位</b> 3 口 @54.1，追在 9/30 漲停附近；玻璃基板題材，智囊討論少（7 則）</td></tr>
+      <tr><td><b>國巨 2327</b></td><td>被動元件 MLCC</td><td class="pos">小型期 +4口</td><td class="num wt" style="color:var(--z6)">~1.2%</td><td class="num">602</td><td class="num" style="color:var(--z2)">▲9.85%</td><td class="num"><span style="color:var(--z4)">-0.3萬</span></td><td>🎯 56 則</td><td><b>新部位</b> 小型期 4 口 @609；被動元件漲價領頭羊，光頡說「等國巨開第一槍才跟漲」</td></tr>
+      <tr><td><b>東台 4526</b></td><td>工具機/半導體設備</td><td class="pos">融資 5,000</td><td class="num wt" style="color:var(--z4)">~0.9%</td><td class="num">34.3</td><td class="num" style="color:var(--z2)">▲0.73%</td><td class="num"><span style="color:var(--z4)">-0.3萬</span></td><td>🔭 5 則</td><td><b>新部位·融資 5,000 @34.89</b>；廢想法「新機台送台積驗證」，玻璃基板設備題材的低價股</td></tr>
+      <tr><td><b>川寶 1595</b></td><td>PCB 設備/玻璃基板加工</td><td class="pos">融資 2,000</td><td class="num wt" style="color:var(--z4)">~0.8%</td><td class="num">81.6</td><td class="num" style="color:var(--z4)">▼4.34%</td><td class="num"><span style="color:var(--z4)">-1.1萬</span></td><td>🔭 1 則</td><td><b>新部位·融資 2,000 @87.22</b>、套約 6%；唯一的智囊文章給的 TP 是 36 元，遠低於現價</td></tr>
+      <tr><td><b>達邁 3645</b></td><td>PI 膜</td><td class="pos">融資 2,000</td><td class="num wt" style="color:var(--z2)">~0.7%</td><td class="num">73.9</td><td class="num" style="color:var(--z4)">▼1.86%</td><td class="num"><span style="color:var(--z4)">-0.1萬</span></td><td>🔭 7 則·孤兒</td><td><b>新部位·融資 2,000 @74.21</b>；PI 膜，近一個月智囊零討論</td></tr>
+      <tr><td><b>邁科 6831</b></td><td>散熱/水冷(AWS TR3)</td><td class="pos">現股 1(近乎出清)</td><td class="num wt" style="color:var(--z6)">~0.0%</td><td class="num">474</td><td class="num" style="color:var(--z2)">▲0.53%</td><td class="num"><span style="color:var(--z4)">-0.0萬</span></td><td>🔭 23 則</td><td>現股剩 1 股（殘值）</td></tr>
+      <tr><td colspan="9" style="border:none;padding-top:8px;font-size:10px;color:var(--muted)">佔本金%＝曝險÷2,000萬（期貨名目：大型2000股/口、小型100股/口）。收盤＝10/1 盤中 12:40 Fugle。🎯 Notion熱議·🔭 智囊未追·⚠️ 興櫃/投機/流動性。非投資建議。</td></tr>
+    </table>
+  </div>
+  <h2 class="h2"><span class="n">2</span>逐檔健檢：做什麼 × 智囊看什麼 × 部位點位</h2>
+  <div class="grp" style="--gc:var(--z2)">CCL／PTFE 材料 — 台虹 · 華通 · 達邁</div>
+  <div class="hc" style="--hc:var(--z2)">
+    <div class="hc-top"><span class="hc-code">8039</span><span class="hc-name">台虹</span><span class="hc-badge dn">287.5　▼4.33%</span><span class="hc-pos">期貨 +14口 @273.5 · 曝險~8.05M · ~40.2% · 浮盈 +39.2萬</span><span class="hc-tag">🎯 186 則·最大注</span></div>
+    <div class="hc-role">CCL／軟板材料 · PTFE 高速板新規格（帳戶最大注、母公司元太）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>本業是消費性軟板材料 FCCL（佔營收約 9 成），新題材是 AI 高速板用的 <span class="k">PTFE CCL</span>（M10 等級、無玻纖布），瞄準 NV Rubin Ultra 的 Switch tray／mid plane。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">8/25–26 法說（潘副總）</span>：PTFE CCL 初期 ASP &gt;300 美元、初期毛利 70%、1Q27 擴到每月 10 萬張，2027 PTFE 營收接近 100 億、EPS 26/27 估 3.8/20.5、TP 400；混壓板（PTFE CCL＋碳氫 PP）2027 先上、全 PTFE 要 2028 後。<span class="k">9/30 廢想法</span>：深南電路回覆驗證來不及做完、十一連假後能完成、製作上都 ok；<span class="k">Sunny 9/29 加碼台虹</span>。空方：<span class="k">Surf 9/17「軟板掉單很嚴重、9 月業績掉，現在不用看，11 月之後 78 層板做出來的結果」</span>；公司自己也說下半年消費性營收年減。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 14 口 @273.5（從 5 口 @329.9 加碼攤平）</span>，9/30 漲停 300.5 後今天回檔。名目約 800 萬、佔本金約 4 成，<span class="k">每口每 1 元＝2,000 元，14 口每跌 10 元就是 −28 萬</span>。這是押驗證結果的部位：連假後深南結果、11 月 78 層板、4Q26 NV 消息三個時間點。建議事先決定驗證不順時要砍回幾口。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 9/30：</b>「8039 SCC(深南電路)回覆：驗證還來不及做完，預計十一連假後能完成，目前製作上都 ok。」<b>潘副總 8/26：</b>「PTFE CCL ASP 初期&gt;300 USD，放量後 150~200 USD，預計 1Q27 將產能擴至 10 萬張/月。」<b>Surf 9/17：</b>「軟板掉單很嚴重，9 月業績掉，現在不用看，11 月之後 78 層板做出來的結果。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=8039">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z2)">
+    <div class="hc-top"><span class="hc-code">2313</span><span class="hc-name">華通</span><span class="hc-badge dn">224.5　▼0.88%</span><span class="hc-pos">期貨 +2口 @224.5 · 曝險~0.90M · ~4.5% · 浮盈 +0.0萬</span><span class="hc-tag">🎯 71 則</span></div>
+    <div class="hc-role">PCB／HDI · 低軌衛星＋光模塊＋Apple ASIC</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>HDI 與衛星板龍頭（SpaceX 主要供應商），新擴光模塊與 AI 伺服器板。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">華通 8/27 拜訪</span>：衛星業務 2026 年 190 億、2027 年 250–300 億，天上衛星板明年翻倍到 140 億；V3 產值是 V2 兩倍以上；光模塊明年 250 億、可能超越衛星；今年 capex 200 億。<span class="k">郁翔 9/21</span>：Apple ASIC 4Q26 pilot run，板子主要是華通受惠。<span class="k">Eddie 9/22</span> 新增持股華通。空方：Sean 9/14 第三季營收有點差、缺料。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 2 口 @224.5</span>，名目約 90 萬、目前平盤附近。<span class="k">催化是 V3 衛星量產（4Q26～1Q27）與光模塊月營收爬坡</span>，公司自己說光模塊今年底目標恐難達標（估 7–8 億），短期營收可能不夠快。</div>
+    </div>
+    <div class="hc-quote"><b>華通 8/27：</b>「天上衛星板今年估 70 億元，但明年可望翻倍到 140 億元……明年估伺服器/交換器 100 億+光模塊 250 億，光模塊屆時可能超越衛星業務。」<b>郁翔 9/21：</b>「APPL ASIC 4Q26 開始 pilot run，板子這邊主要是華通受惠。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2313">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z2)">
+    <div class="hc-top"><span class="hc-code">3645</span><span class="hc-name">達邁</span><span class="hc-badge dn">73.9　▼1.86%</span><span class="hc-pos">融資 2,000 @74.21 · 曝險~0.15M · ~0.7% · 浮盈 -0.1萬</span><span class="hc-tag cool">🔭 7 則·孤兒</span></div>
+    <div class="hc-role">PI 膜（軟板／半導體材料）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>聚醯亞胺（PI）膜廠，用在軟板與部分半導體製程。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">近一個月 Notion 智囊沒有新討論</span>（近 3 月僅 7 則）。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 2,000 @74.21</span>，曝險約 15 萬、小注、接近平盤。不在智囊雷達上，屬孤兒部位；如果是跟台虹軟板材料相關的布局，持有理由要自己確認。</div>
+    </div>
+    <div class="hc-quote">（近一個月智囊無新討論）</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=3645">查智囊原話 →</a></div>
+  </div>
+  <div class="grp" style="--gc:var(--z1)">封測·封裝 — 南茂</div>
+  <div class="hc" style="--hc:var(--z1)">
+    <div class="hc-top"><span class="hc-code">8150</span><span class="hc-name">南茂</span><span class="hc-badge up">115.5　▲0.87%</span><span class="hc-pos">期貨 +9口 @100.64 · 曝險~2.08M · ~10.4% · 浮盈 +26.7萬</span><span class="hc-tag">🎯 29 則</span></div>
+    <div class="hc-role">記憶體／DDIC 封測＋測試 — 低位階的測試鏟子</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>DDIC 與記憶體封測、測試；新開邏輯混合訊號測試（幫聯發科測 AP），台南五廠建置中。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">郁青姐 9/30</span>：自結毛利率 22.9% 比預期高、第三季獲利跳、手機本月開始貢獻、4Q 5G SLC，今明年 EPS 5.8/10。<span class="k">郁翔 9/24</span>：南茂座談新梗是要做 TPU 測試（FT、BI），擴廠與機台採購已預留。<span class="k">9/23 國票副總</span>：DDIC 第二季漲價、幫 MTK 測 AP、ASIC 測試明年上半年開始談。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 9 口 @100.64（從 13 口減碼、換到 2610 合約）</span>，9/30 漲停後今天續強。以明年 EPS 10 元算 forward PE 約 11 倍，仍不貴；外資 9/30 買超 25 億。<span class="k">有硬數字撐、可續抱</span>，觀察 10 月初 9 月營收是否跟上自結的毛利。</div>
+    </div>
+    <div class="hc-quote"><b>郁青姐 9/30：</b>「8150 昨天公佈自結，毛利率 22.9%，比預期高，第三季獲利跳，手機這個月開始作貢獻營收，第四季 5G SLC，今明年 EPS 5.8/10 塊。」<b>郁翔 9/24：</b>「南茂座談提到新梗就是他未來預計要去做 TPU 的測試，包含 FT 跟 BI。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=8150">查智囊原話 →</a></div>
+  </div>
+  <div class="grp" style="--gc:var(--z6)">散熱·電源·軟板 — 台達電 · 國巨 · 邁科</div>
+  <div class="hc" style="--hc:var(--z6)">
+    <div class="hc-top"><span class="hc-code">2308</span><span class="hc-name">台達電</span><span class="hc-badge flat">1,890　0.00%</span><span class="hc-pos">小型期 +5口 @1,855 · 曝險~0.94M · ~4.7% · 浮盈 +1.8萬</span><span class="hc-tag">🎯 73 則</span></div>
+    <div class="hc-role">AI 電源／散熱龍頭 · 800V＋水冷＋SOFC</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>全球電源與散熱龍頭，資料中心已佔營收過半；水冷、HVDC、SOFC 燃料電池是新成長線。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">台達電 9/15 拜訪</span>：缺料讓營收進來比預期慢、9 月開始明顯往上、4Q 有明顯成長、明年 1Q 不輸 4Q；水冷出貨遠超預期（佔營收 11–12%）；capex 從 500 億上調到近 700 億。<span class="k">Alan 哥 9/29</span>：月營收最差就 8、9 月，Q4 訂單 2,400 億、10 月營收跳上 700 億。<span class="k">郁翔 9/29</span>：NV DSX 工廠認證受惠的是台達電、光寶。空方：BBU 的記憶體成本從 3% 升到 10%、利潤被原廠拿走。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">小型期 5 口 @1,855（從 7 口減碼）</span>，名目約 95 萬、小賺。<span class="k">10 月初的 9 月營收是驗證點</span>：若真如公司說 9 月明顯往上，就印證 3Q 是谷底。</div>
+    </div>
+    <div class="hc-quote"><b>Alan 哥 9/29：</b>「2308 台達電月營收最差就 8 or 9 月，Q3 GM 跟 Q2 差不多，基本面最差狀況已反應，Q4 訂單 2400E，10 月營收跳上 700E。」<b>台達電 9/15：</b>「水冷表現遠優於原先預期……2Q 與 3Q 出貨遠超預期。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2308">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z6)">
+    <div class="hc-top"><span class="hc-code">2327</span><span class="hc-name">國巨</span><span class="hc-badge up">602　▲9.85%</span><span class="hc-pos">小型期 +4口 @609 · 曝險~0.24M · ~1.2% · 浮盈 -0.3萬</span><span class="hc-tag">🎯 56 則</span></div>
+    <div class="hc-role">被動元件龍頭 · MLCC／電阻漲價循環</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>全球被動元件龍頭（MLCC、電阻、鉭電），近年併購入主茂達、大中、富鼎等。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">光頡 9/8 拜訪</span>：國巨、華新科 4Q26 至少會對代理商調漲，其他來源說 MLCC 漲 35%、電阻鉭電 20–30%；光頡要等國巨開第一槍才跟漲。<span class="k">日電貿 8/26</span>：固態電容交期 24 週、B/B 比超過 17–18 年那波。<span class="k">侯哥 9/22</span>：最近都在加國巨，七月前強勢的矽晶圓、被動、聯電後面還是會最強。空方：<span class="k">Jacky 9/18 國巨華新科想漲價但成功機率不高</span>。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">小型期 4 口 @609</span>，名目約 24 萬、是小注。<span class="k">漲價是否真的落地是唯一變數</span>：國巨若正式發漲價通知，整個被動族群（光頡、華新科）都會跟；若沒發，Jacky 的空方說法就成立。</div>
+    </div>
+    <div class="hc-quote"><b>光頡 9/8：</b>「之後會漲價嗎？等 2327/2492 喊。漲幅通常比大廠高 3~5%……國巨/華新科 4Q26 漲幅，公司自己推估 10~15%。」<b>侯哥 9/22：</b>「最近都在加國巨，七月前強勢族群矽晶圓、被動、聯電，覺得後面這些還是會最強。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2327">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z6)">
+    <div class="hc-top"><span class="hc-code">6831</span><span class="hc-name">邁科</span><span class="hc-badge up">474　▲0.53%</span><span class="hc-pos">現股 1(近乎出清) @675 · 曝險~0.00M · ~0.0% · 浮盈 -0.0萬</span><span class="hc-tag cool">🔭 23 則</span></div>
+    <div class="hc-role">散熱／水冷（已近乎出清）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>散熱、水冷模組（AWS TR3 供應鏈）。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>近一個月智囊無新討論。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">現股 1 股 @675</span>，殘值部位、無操作意義。</div>
+    </div>
+    <div class="hc-quote">（殘值部位）</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6831">查智囊原話 →</a></div>
+  </div>
+  <div class="grp" style="--gc:var(--z3)">權值核心·晶圓·ASIC — 台積電 · 聯電 · 合晶</div>
+  <div class="hc" style="--hc:var(--z3)">
+    <div class="hc-top"><span class="hc-code">2330</span><span class="hc-name">台積電</span><span class="hc-badge up">2,505　▲1.01%</span><span class="hc-pos">小型期 +9口 @2,484 · 曝險~2.25M · ~11.3% · 浮盈 +1.9萬</span><span class="hc-tag">🎯 135 則</span></div>
+    <div class="hc-role">權值核心 · 先進製程＋CoWoS／SoIC</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>全球晶圓代工龍頭，N2／A16 先進製程＋CoWoS、SoIC 先進封裝，台股 beta 的核心。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">Aletheia 9/15</span>：2026–28 capex 上看 2,500 億美元，2028 EPS 已超過 200 元、三年翻倍；CoWoS 原估 2027 月產能 18 萬片就停，現在高雄 AP8 多蓋 4 座、還會大幅往上。<span class="k">中砂 9/14</span>：N2 4Q26 約 8–10 萬片、4Q27 13–15 萬片。<span class="k">上翔 9/30</span>：看台積電法說後股價過高，持股續抱。<span class="k">永哥 9/29</span>：UBS 估的 capex 過度樂觀、今年因缺料約 60。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">小型期 9 口 @2,484.22（從 17 口減碼）</span>，名目約 225 萬。10/15 法說是下一個事件，智囊對法說後的看法分歧（上翔：法說後股價過高；龍哥：10 月中下旬指數相對高點）。<span class="k">定位是 beta 底倉，不是攻擊部位</span>。</div>
+    </div>
+    <div class="hc-quote"><b>Aletheia 9/15：</b>「2028 EPS 已經超過新台幣 200 元，今年大概 100 元多一些，需求沒有太大改變的話三年內 EPS 翻倍。」<b>上翔 9/30：</b>「看台積電法說後股價過高，持股續抱。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2330">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z3)">
+    <div class="hc-top"><span class="hc-code">2303</span><span class="hc-name">聯電</span><span class="hc-badge up">159.5　▲3.24%</span><span class="hc-pos">期貨 +6口 @160.42 · 曝險~1.91M · ~9.6% · 浮盈 -1.1萬</span><span class="hc-tag">🎯 299 則·最熱</span></div>
+    <div class="hc-role">晶圓代工 · 成熟製程漲價＋Intel 12nm＋矽光子 TFLN</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>第二梯隊晶圓代工，22/28nm 與 specialty（BCD、eHV）為主；新動能是 Intel 12nm 合作、矽光子 PIC、TFLN 調變器、矽電容。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">聯電 9/17 拜訪</span>：稼動率 85%→89%、明年 Q1 合約全部到期一定全面漲價、12nm 2027 接單、毛利率可到 45%。<span class="k">聯電專家 8/25</span>：1Q27 平均漲 20–30%、本業 EPS 26/27/28 估 6／&gt;8／&gt;10。<span class="k">峰哥 9/30</span>：NV 要求台積明年做矽光 PIC、MZM 用 TFLN，出貨廠商是聯電。空方：<span class="k">Eddie 9/30 業外 −15～−30 億、EPS −0.12～−0.24</span>；小魚 9/29 已出聯電。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 6 口 @160.42</span>，今天上漲後接近平盤。上翔說外資會發聯電報告、廢想法說 Aletheia 報告延後——<span class="k">報告是短線催化</span>；真正的數字要等 1Q27 漲價與 2H27 轉單。智囊最擁擠的多頭，順風但也擁擠。</div>
+    </div>
+    <div class="hc-quote"><b>聯電 9/17：</b>「明年 Q1 一定全面漲價，因為合約無論如何到明年 Q1 一定都到期。」<b>峰哥 9/30：</b>「NV 要求台積電明年要做 silicon photonic PIC……用 TFLN，出貨廠商是聯電。」<b>Eddie 9/30：</b>「聯電業外預估大概 −15~−30 億，影響 EPS −0.12~−0.24 元。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=2303">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z3)">
+    <div class="hc-top"><span class="hc-code">6182</span><span class="hc-name">合晶</span><span class="hc-badge dn">130　▼2.26%</span><span class="hc-pos">期貨 +3口 @119.83 · 曝險~0.78M · ~3.9% · 浮盈 +6.1萬</span><span class="hc-tag">🎯 29 則</span></div>
+    <div class="hc-role">矽晶圓 · 8 吋漲價＋12 吋擴產＋矽光 SOI</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>矽晶圓廠，8 吋為主、擴 12 吋（二林、鄭州），並開發 SOI wafer 與矽光子用基板。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">Aaron 哥 9/30</span>：大陸 8 吋 10/1 新接訂單漲 10–15%，合晶 8 吋也會漲、後面 foundry 應該會漲價。<span class="k">合晶 9/2 拜訪</span>：8 吋稼動率 2026 年中已 90–100%、6 吋年初就協調漲價；27 年中二林 12 吋達 10 萬片；矽光子營收佔比 5%、長期目標 10%；12 吋供需大致平衡、較難漲。<span class="k">Sunny 9/29</span>：新買點合晶觀察看看。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 3 口 @119.83</span>，9/30 漲停後今天小回。這是<span class="k">漲價循環的部位</span>：要看 8 吋漲價能不能從大陸擴散到台廠報價、以及 4Q 營收是否反映。公司自己講 12 吋難漲，所以上檔主要靠 8 吋。</div>
+    </div>
+    <div class="hc-quote"><b>Aaron 哥 9/30：</b>「大陸 8 吋基本明天 10/1 新接訂單漲 10-15%，6182 合晶 8 吋也會漲，後面 foundry 應該會漲價。」<b>合晶 9/2：</b>「8 吋 UTR 在 26 年中已達 90-100%……12 吋供需大致平衡，較難漲價。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6182">查智囊原話 →</a></div>
+  </div>
+  <div class="grp" style="--gc:var(--z5)">化合物半導體·光通/光電 — 環宇-KY · 華星光 · 群創</div>
+  <div class="hc" style="--hc:var(--z5)">
+    <div class="hc-top"><span class="hc-code">4991</span><span class="hc-name">環宇-KY</span><span class="hc-badge dn">485.5　▼0.51%</span><span class="hc-pos">融資 3,000 @503.05 · 曝險~1.46M · ~7.3% · 浮盈 -5.3萬</span><span class="hc-tag">🎯 35 則</span></div>
+    <div class="hc-role">光通訊 PD／CW 雷射（化合物半導體）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>光通訊接收端 PD 龍頭（800G 模組 PD 去年市佔逾 7 成），新做 200G PD 與 CW 雷射。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">環宇 9/15 拜訪</span>：在手訂單從 4 月底 4,800 萬美元增至 7 月底逾 9,000 萬、瓶頸在基板不在需求；3Q 營收 2,600–2,800 萬美元、9 月需約 1,300 萬；4Q 毛利可望回到 50% 以上；2027 若基板到位營收有機會 4 億美元；但 <span class="k">CW 雷射改 3 吋要重做、認證遞延到 2027 Q1–Q2</span>。<span class="k">小魚 9/21</span>：傳 200G PD 10 月會過；Amy：9 月營收接近 4 億台幣。<span class="k">Sunny 9/21–22 買進並加碼環宇</span>。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 3,000 @503.05</span>，曝險約 146 萬、小套約 3%。<span class="k">10 月有兩個驗證點：9 月營收能否做到約 1,300 萬美元、200G PD 是否 10 月過關</span>；CW 雷射已確定遞延，別期待短期貢獻。</div>
+    </div>
+    <div class="hc-quote"><b>環宇 9/15：</b>「在手訂單自 4 月底 4,800 萬美元增至 7 月底逾 9,000 萬美元……出貨瓶頸在基板而非需求。」<b>小魚 9/21：</b>「傳 200G PD 10M26 會過。CW Laser 在明年初，9M26 營收創高。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=4991">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z5)">
+    <div class="hc-top"><span class="hc-code">4979</span><span class="hc-name">華星光</span><span class="hc-badge dn">547　▼3.87%</span><span class="hc-pos">融資 2,000 @626.39 · 曝險~1.09M · ~5.5% · 浮盈 -15.9萬</span><span class="hc-tag">🎯 65 則</span></div>
+    <div class="hc-role">光通訊 · DCI 模組＋CW／EML 雷射晶粒</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>光通訊模組（ZR DCI 佔營收 89%、全球市佔約 5 成）＋InP 雷射晶粒（16 波長 CW 雷射全球最大）。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">華星光 9/3 拜訪</span>：EML 200G 明年量產、InP fab 擴產 5 倍、capex 今年 20 億明年 30 億；16 波長 CW 是全世界最大供應商；transceiver 明年營收翻倍。<span class="k">廢想法 9/23</span>：MRVL 給華星光的 DCI 訂單 2027 年 200 億、2028 年 300–400 億，但華星光缺人缺廠房所以要籌資。<span class="k">郁翔、龍、上翔都持有</span>（龍 9/29 加碼較多在華星光）。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 2,000 @626.39</span>，曝險約 110 萬、目前套約 13%（現價 540 幾）。智囊背書很厚，但<span class="k">籌資（GDR）＋擴產期毛利波動</span>是短線壓力；9/21 和 Sunny 同一天買進，月營收「不到 6 億但月月高」是要追蹤的數字。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 9/23：</b>「MRVL 給華星光的訂單 2027 年 200 億、2028 年 300-400 億，機台都是 MRVL consign 給華星光，但是華星光缺人、缺廠房，所以才要籌資。」<b>華星光 9/3：</b>「EML 明年 200G 會量產……INP 合江廠回做成 FAB 廠，產能五倍。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=4979">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z5)">
+    <div class="hc-top"><span class="hc-code">3481</span><span class="hc-name">群創</span><span class="hc-badge dn">52.2　▼4.57%</span><span class="hc-pos">期貨 +3口 @54.1 · 曝險~0.31M · ~1.6% · 浮盈 -1.1萬</span><span class="hc-tag">🔭 7 則</span></div>
+    <div class="hc-role">面板 → 玻璃基板／FOPLP（題材股）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>面板雙虎之一，題材是把面板廠產能轉做玻璃基板、面板級封裝（FOPLP）。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">AI 產業趨勢 9/16</span>：TSMC／Ibiden／Innolux 合作玻璃基板，5.5x SoIC 翹曲嚴重、玻璃基板是解方之一，供應鏈開始分流（南亞、SEMCO、欣興、群創等）。<span class="k">黃老師 9/23</span>：鴻海群創集團覺得台灣只要一家 panel 廠就夠，想把友達吞掉。市場說法是輝達導入玻璃基板最快 2028 年。外資 9/30 買超群創 54.2 億。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 3 口 @54.1</span>——買在 9/30 漲停（收 54.7）附近，今天回檔已小套。<span class="k">這是籌碼＋本夢比行情</span>，外資一天買 54 億推上去的，題材退燒時面板股跌最快。智囊討論很少，建議設好停損。</div>
+    </div>
+    <div class="hc-quote"><b>AI 產業趨勢 9/16：</b>「TSMC／Ibiden／Innolux 合作中。5.5x SoIC warpage 嚴重，玻璃基板是解方之一（NV、BRCM 都積極）。」<b>黃老師 9/23：</b>「鴻海群創集團覺得台灣只要有一家 panel 廠就夠了，想把友達吞掉。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=3481">查智囊原話 →</a></div>
+  </div>
+  <div class="grp" style="--gc:var(--z7)">興櫃·IC 設計投機 — 智微 · 晶豪科</div>
+  <div class="hc" style="--hc:var(--z7)">
+    <div class="hc-top"><span class="hc-code">4925</span><span class="hc-name">智微</span><span class="hc-badge dn">158.5　▼5.06%</span><span class="hc-pos">現股 9,000 @127.74 · 曝險~1.43M · ~7.1% · 浮盈 +27.7萬</span><span class="hc-tag">⚠️ 17 則·興櫃</span></div>
+    <div class="hc-role">Bridge IC → BMC／NAS SoC（興櫃、對標信驊）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>USB bridge IC 為本業（月營收約 5,000–6,000 萬、毛利 50–53%），想轉型 BMC／NAS SoC。</div>
+      <div><b class="hl">🚀 智囊看什麼</b>多方：<span class="k">9/29 Ed、Arthur 哥：Open BMC 進度提前半年、大陸 TikTok 與阿里驗證中</span>；龍哥：現增 58 元很低、之後有一顆新的直接對比信驊；<span class="k">Sunny 9/30：朋友說 11 月 sample 會展出</span>。<span class="k">但公司 8/11 拜訪自己說</span>：今年營收主要是傳統產品；591 磁碟陣列 1H27 才有營收、595 要 2H27 量產；<span class="k">系統級 SoC 最終成品可能要等 2029–2030，目前沒聽到 BMC 3Q26 tape out 的事情</span>；2026 年不會轉虧為盈。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">現股 9,000 @127.74</span>，從 9/29 大漲 18% 後開始回檔，仍是浮盈最大的現股部位。<span class="k">智囊消息面和公司自己的說法差很多</span>，股價在交易 11 月 sample 的預期；興櫃量大但波動也大。浮盈不小，可以考慮先收一部分。</div>
+    </div>
+    <div class="hc-quote"><b>Ed 9/29：</b>「Open BMC 進度提前半年，大陸 TikTok and 阿里正在驗證……認為可以逢低買進。」<b>智微 8/11（公司）：</b>「最終成品 SoC 可能要等 2029-2030；目前沒聽到 BMC 3Q26 tape out 的事情。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=4925">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z7)">
+    <div class="hc-top"><span class="hc-code">3006</span><span class="hc-name">晶豪科</span><span class="hc-badge dn">282　▼1.40%</span><span class="hc-pos">期貨 +1口 @285.5 · 曝險~0.56M · ~2.8% · 浮盈 -0.7萬</span><span class="hc-tag">🔭 10 則</span></div>
+    <div class="hc-role">利基型記憶體 IC 設計 · DRAM 漲價循環</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>利基型 DRAM／Flash IC 設計，跟著記憶體報價循環走。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">Bobo 9/11</span>：晶豪科公告轉換價 308，子公司 8–9 月買了 3 次共 4,000 多張，認為公司企圖心強。<span class="k">Michael 9/29</span> 持股含晶豪科。外資 9/30 大買華邦電、南亞科，記憶體族群有資金。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">期貨 1 口 @285.5</span>，小注。<span class="k">CB 轉換價 308 是參考價位</span>（公司派有誘因把股價推過轉換價）；智囊討論少，屬跟記憶體循環的衛星倉。</div>
+    </div>
+    <div class="hc-quote"><b>Bobo 9/11：</b>「晶豪科公告轉換價 308，子公司 8~9 月買了 3 次共 4000 多張，認為公司企圖心強。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=3006">查智囊原話 →</a></div>
+  </div>
+  <div class="grp" style="--gc:var(--z4)">小型成長／孤兒 — 騰雲 · 東捷 · 柏承 · 東台 · 川寶</div>
+  <div class="hc" style="--hc:var(--z4)">
+    <div class="hc-top"><span class="hc-code">6870</span><span class="hc-name">騰雲</span><span class="hc-badge dn">317.5　▼1.85%</span><span class="hc-pos">融資 5,000 @281.7 · 曝險~1.59M · ~7.9% · 浮盈 +17.9萬</span><span class="hc-tag cool">🔭 15 則·流動性</span></div>
+    <div class="hc-role">餐飲／商場 AIoT 系統 · 東南亞擴張</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>商場、酒店、餐飲的 AIoT 系統平台（台灣商場約 7 成用騰雲），經常性收入佔 6 成、毛利約 70%。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">騰雲 8/6 拜訪</span>：營收 2026 年起 YoY 50% 起跳、在手訂單 5 億以上、能見度到 2031；預估 2026/2027 EPS 10.31/19.17、PE 30x、TP 575；現增 3 億＋CB 稀釋；前十大股東佔 7 成、流通才 6,000–7,000 張，不排除拆股。<span class="k">小魚 9/18</span>：10/19 臨時股東會修章程，約兩三個月後一拆四。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 5,000 @281.70</span>，曝險約 160 萬、浮盈不錯。<span class="k">流動性是最大風險</span>：日量常常不到百張，5,000 股融資想出場未必出得掉；一拆四後流動性會改善，10/19 股東會是事件點。</div>
+    </div>
+    <div class="hc-quote"><b>騰雲 8/6（張婷婷）：</b>「預估 2026/2027 EPS 10.31/19.17，PE 30X，TP 575。」<b>小魚 9/18：</b>「公司 10/19 臨時股東會修章程，預計約兩~三個月後完成股票面額更改，一拆四。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6870">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z4)">
+    <div class="hc-top"><span class="hc-code">8064</span><span class="hc-name">東捷</span><span class="hc-badge dn">143.5　▼1.37%</span><span class="hc-pos">融資 9,000 @128.96 · 曝險~1.29M · ~6.5% · 浮盈 +13.1萬</span><span class="hc-tag">🎯 17 則</span></div>
+    <div class="hc-role">面板／玻璃基板設備（友達集團）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>面板與半導體設備廠（友達集團），題材是玻璃基板、雷射加工設備。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">廢想法 9/30</span>：東台、東捷跟 G2C 好像都有一些新機台在送台積驗證；<span class="k">9/29</span>：玻璃基板設備由田、鈦昇、東捷表現都起來；友達 510×515mm 面板級良率進度提前。<span class="k">Sunny 9/10 接一點東捷、9/21 加碼東捷</span>。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 9,000 @128.96</span>，曝險約 130 萬，是玻璃基板 4 檔中最大、也有浮盈的一檔。<span class="k">設備股是玻璃基板裡「送驗證就有訂單想像」的一段</span>，比面板股紮實；但仍是題材，要等台積驗證結果。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 9/30：</b>「東台 東捷 跟 g2c 好像說都有一些新機台在送台積驗證。」<b>Sunny 9/21：</b>「買了環宇、華星光，加碼東捷，其他維持。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=8064">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z4)">
+    <div class="hc-top"><span class="hc-code">6141</span><span class="hc-name">柏承</span><span class="hc-badge up">52.4　▲1.16%</span><span class="hc-pos">現股 16,001 @51.88 · 曝險~0.84M · ~4.2% · 浮盈 +0.8萬</span><span class="hc-tag cool">🔭 6 則·孤兒</span></div>
+    <div class="hc-role">PCB（中小型板廠）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>中小型 PCB 板廠。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">近一個月 Notion 智囊沒有任何新討論</span>（近 3 月僅 6 則）。9/1 健檢時你曾出清，這次又買回 16,001 股。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">現股 16,001 @51.88</span>，曝險約 84 萬、接近平盤。<span class="k">不在智囊雷達上的孤兒部位</span>，量也不大；如果是跟 PCB 漲價族群的布局，建議自己寫下持有理由與出場條件。</div>
+    </div>
+    <div class="hc-quote">（近一個月智囊無新討論）</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=6141">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z4)">
+    <div class="hc-top"><span class="hc-code">4526</span><span class="hc-name">東台</span><span class="hc-badge up">34.3　▲0.73%</span><span class="hc-pos">融資 5,000 @34.89 · 曝險~0.17M · ~0.9% · 浮盈 -0.3萬</span><span class="hc-tag">🔭 5 則</span></div>
+    <div class="hc-role">工具機／半導體設備（玻璃基板題材）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>工具機廠，題材是切入半導體、玻璃基板加工設備。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">廢想法 9/30</span>：東台、東捷跟 G2C 好像都有一些新機台在送台積驗證。除此之外近 3 月智囊討論只有 5 則。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 5,000 @34.89</span>，曝險約 17 萬、小注。和東捷同一個題材、同一則消息，<span class="k">等於玻璃基板部位的一部分，不是分散</span>。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 9/30：</b>「東台 東捷 跟 g2c 好像說都有一些新機台在送台積驗證。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=4526">查智囊原話 →</a></div>
+  </div>
+  <div class="hc" style="--hc:var(--z4)">
+    <div class="hc-top"><span class="hc-code">1595</span><span class="hc-name">川寶</span><span class="hc-badge dn">81.6　▼4.34%</span><span class="hc-pos">融資 2,000 @87.22 · 曝險~0.16M · ~0.8% · 浮盈 -1.1萬</span><span class="hc-tag">🔭 1 則</span></div>
+    <div class="hc-role">PCB 設備 → 玻璃基板鑽孔填孔（題材股）</div>
+    <div class="hc-grid">
+      <div><b class="hl">📖 做什麼</b>PCB 設備廠，題材是玻璃基板鑽孔與填孔加工（比價大陸沃格光電）。</div>
+      <div><b class="hl">🚀 智囊看什麼</b><span class="k">9/29 廢想法（唯一一篇）</span>：比價沃格光電、最強玻璃基板加工概念股；5 月開始量產玻璃基板鑽孔填孔、4Q 第一條產線滿載單季可貢獻 4 億；初期客戶是中系 Mini-LED 廠，長期經欣興出 NV 與南電產品送驗中；<span class="k">保守估 2027/2028 EPS 8/12、30 倍 PE、TP 36</span>。</div>
+      <div><b class="hl">📍 部位/點位</b><span class="k">融資 2,000 @87.22</span>，曝險約 16 萬、小套約 6%。<span class="k">要注意：唯一的智囊文章算出來的目標價是 36 元</span>，現價 80 幾元已遠超過——除非該文的 EPS 或股本基準不同，否則這檔的估值支撐很弱，是玻璃基板 4 檔中最投機的一檔。</div>
+    </div>
+    <div class="hc-quote"><b>廢想法 9/29：</b>「1595 川寶：比價沃格光電，最強玻璃基板加工概念股……保守估計 2027/2028 EPS 8/12，給予 30 倍 PE，TP 36。」</div>
+    <div class="hc-foot"><a class="th-link" href="/search.html?q=1595">查智囊原話 →</a></div>
+  </div>
+  <h2 class="h2"><span class="n">3</span>組合體檢：集中度、事件、流動性</h2>
+  <div class="caveat">
+    <span class="ct">⚖️ 體檢重點（2,000 萬本金 · 水位~131% · 期貨浮盈 ≈ +72.4萬）</span>
+    <br>· <b>單一最大風險＝台虹（約 4 成本金、14 口期貨）</b>：均價 273.5 現在有賺，但這是「押驗證結果」的部位——深南電路說連假後驗完、Surf 說要看 11 月 78 層板結果、公司說 4Q26 才有進一步消息。<b>結果出來前，台虹的波動就是整個帳戶的波動</b>（漲停一天 +5.6 萬/口×14＝約 +80 萬，反過來也一樣）。建議先想好：驗證不如預期時要砍到幾口。<br>· <b>玻璃基板 4 檔是同一個題材、同一個時間點進場</b>：群創、東捷、東台、川寶是同一個題材，9/29–9/30 一起噴、今天群創與川寶跌逾 4%。市場自己也說輝達導入玻璃基板最快 2028 年，這是早期本夢比題材。4 檔加起來曝險不大（約 190 萬），但相關性極高，等於一個部位，不是分散。<br>· <b>智囊與公司說法打架的兩檔要特別小心</b>：<b>智微</b>——9/29 Ed、Arthur、龍哥說 BMC 進度超前半年、阿里驗證中，但 <b>8/11 公司自己說「沒聽到 BMC 3Q26 tape out」、系統級 SoC 要到 2029–2030</b>；<b>川寶</b>——9/29 廢想法給的目標價是 36 元，現價 80 幾元。<br>· <b>孤兒部位</b>：柏承（現股 16,001、近一個月智囊零討論）、達邁（零討論）、邁科剩 1 股，持有理由要自己確認，不在智囊雷達上。<br>· <b>流動性</b>：騰雲（日量常在百張以下、10/19 臨時股東會拆股一拆四）、智微（興櫃量大但波動大）、柏承，想出場時未必出得掉。<br>· <b>水位約 130%</b>：個股期貨＋融資把曝險拉到本金的 1.3 倍，比 9/1 的 89% 高很多，大盤若回檔，槓桿會放大回撤。
+  </div>
+  <footer>
+    <b>怎麼用這頁：</b>核心（台虹/南茂/聯電/台積/台達電）＝有基本面或驗證時程撐；週期／漲價（合晶/國巨/晶豪科/華通）＝跟漲價循環走；題材（玻璃基板 4 檔、華星光、環宇、智微、騰雲）＝小注、要設停損；孤兒（柏承/達邁/邁科）＝自己確認持有理由。<br><b>催化日曆：</b>10/1 大陸 8 吋晶圓漲價生效（合晶）→ 十一後 台虹 PTFE 深南驗證結果 → 10/8 前後 9 月營收（南茂/台達/華星光/環宇）→ 10/15 台積電法說 → 10/19 騰雲臨時股東會（一拆四）→ 10 月 環宇 200G PD 驗證 → 10 月底 穩懋法說（光通供應鏈參考）→ 11 月 智微 sample 展出、台虹 78 層板結果 → 4Q26 台虹 NV 驗證進一步消息。<br><b>資料來源：</b>部位＝2026/10/1 12:30 券商庫存與期權帳務截圖（股數/口數/均價以此為準）；價格＝Fugle；智囊＝MAGI 各家開會／廢想法／勞碌產物（公司拜訪/法說，10/1 補進 8–9 月 72 篇）。🎯 Notion 熱議、🔭 智囊未追、⚠️ 興櫃/投機/流動性。<br><b>但書：</b>個人持股整理，<b>非投資建議</b>。
+  </footer>
+</div>
+
+<script>
+function magiToggleTheme(){var h=document.documentElement;var cur=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');var next=cur==='dark'?'light':'dark';h.setAttribute('data-theme',next);localStorage.setItem('magi-theme',next);var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=next==='dark'?'☀️':'🌙';}
+(function(){var c=document.documentElement.getAttribute('data-theme');var b=document.querySelector('.site-nav .tbtn');if(b)b.textContent=c==='dark'?'☀️':'🌙';})();
+</script>
+<script>
+(function(){
+  var PW="0000";
+  var g=document.getElementById('gate');
+  if(sessionStorage.getItem('hc-ok')==='1'){g.classList.add('hide');return;}
+  var pw=document.getElementById('gate-pw');
+  try{pw.focus();}catch(e){}
+  document.getElementById('gate-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(pw.value===PW){sessionStorage.setItem('hc-ok','1');g.classList.add('hide');}
+    else{document.getElementById('gate-err').classList.add('show');pw.value='';pw.focus();}
+  });
+})();
+</script>
+</body>
+</html>
