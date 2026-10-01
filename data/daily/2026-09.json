@@ -8343,6 +8343,28 @@
     "parsed_at": "2026-09-29T22:48:34"
   },
   {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "台積接受矽晶圓全面漲價是真的 平常台積的價很難談 這次是真的缺",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "矽晶圓全面漲價"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-01T22:37:16"
+  },
+  {
     "code": "4526",
     "name": "東台",
     "date": "2026-09-30",
@@ -8363,6 +8385,29 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
+    "code": "6488",
+    "name": "環球晶",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "轉 環球晶等大廠第二波調價，標準 12 吋約漲 5%～8%，AI/HPC 專用高階 12 吋則約漲 18%～22%。另外，市場目前正在談 2027 年新 LTA，報導顯示 12 吋 EPI wafer 新約可能上漲 15%～25%，polished wafer 的新約甚至有 40%+ 的漲幅",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "第二波調價",
+      "2027新LTA漲15-25%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-01T22:37:16"
   },
   {
     "code": "6683",
@@ -8407,6 +8452,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-09-30T21:54:21"
+  },
+  {
+    "code": "8046",
+    "name": "南電",
+    "date": "2026-09-30",
+    "source_type": "daily",
+    "source_page": "2026-09_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "ABF載板",
+    "quote": "明天8046邏輯上應該是講第四季BT會漲價",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "第四季BT漲價"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-01T22:37:16"
   },
   {
     "code": "8064",
