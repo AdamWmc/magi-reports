@@ -16550,30 +16550,6 @@
     {
       "code": "3017",
       "name": "奇鋐",
-      "date": "2026-10-02",
-      "source_type": "daily",
-      "source_page": "2026-10_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "散熱/水冷",
-      "quote": "3017 越南訪廠 9月營收210億，第三季QoQ超過20%。 10月11月月月增。營收逐季成長到2Q27。 越南廠水冷，for AMZN跟GOOGL，11月開始放量。 明年擴產50%，所以營收成長50%不是不可能。 最近開始開發NV request的鑽石銅設計，材料多20-30%，加工費疊上去，ASP上漲幅度更高。",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "越南廠水冷11月放量",
-        "明年擴產50%",
-        "NV鑽石銅設計"
-      ],
-      "customers": [],
-      "sentiment": "積極看多",
-      "holding": false,
-      "code_source": "explicit",
-      "validated": true,
-      "parsed_at": "2026-10-05T22:45:41"
-    },
-    {
-      "code": "3017",
-      "name": "奇鋐",
       "date": "2026-10-01",
       "source_type": "meeting",
       "source_page": "20261001_樂林",
@@ -22895,30 +22871,6 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-10-02T22:44:53"
-    },
-    {
-      "code": "3211",
-      "name": "順達",
-      "date": "2026-10-02",
-      "source_type": "daily",
-      "source_page": "2026-10_廢想法_monthly",
-      "speaker": null,
-      "host": null,
-      "sector": "BBU/電池",
-      "quote": "順達 meta那塊應該可以補上AWS暫緩拉貨的缺口 +11月台達HVDC要開始大拉貨 玩個400v BBU滲透率上升?",
-      "tp": null,
-      "eps_est": null,
-      "catalysts": [
-        "meta補AWS缺口",
-        "11月台達HVDC大拉貨",
-        "400V BBU滲透率上升"
-      ],
-      "customers": [],
-      "sentiment": "看多",
-      "holding": false,
-      "code_source": "name_exact",
-      "validated": true,
-      "parsed_at": "2026-10-05T22:45:41"
     },
     {
       "code": "3211",
