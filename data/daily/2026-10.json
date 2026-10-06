@@ -898,6 +898,30 @@
     "parsed_at": "2026-10-05T22:45:41"
   },
   {
+    "code": "1815",
+    "name": "富喬",
+    "date": "2026-10-05",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "玻纖布",
+    "quote": "富喬 2026/27/28 5/10/14元",
+    "tp": null,
+    "eps_est": {
+      "2026": "5",
+      "2027": "10",
+      "2028": "14"
+    },
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "knowledge",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
     "code": "2301",
     "name": "光寶科",
     "date": "2026-10-05",
@@ -941,6 +965,29 @@
     "parsed_at": "2026-10-05T22:45:41"
   },
   {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-10-05",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "聯電4Q沒漲牌價但逼客戶普通單跑super hot run不然不給投，super hot run+15% 1Q27再漲價15% 算起來約等於1Q27對比3Q26漲30%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "super hot run加價15%",
+      "1Q27再漲15%，1Q27對3Q26約漲30%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": true,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
     "code": "2454",
     "name": "聯發科",
     "date": "2026-10-05",
@@ -981,6 +1028,28 @@
     "parsed_at": "2026-10-05T22:45:41"
   },
   {
+    "code": "2493",
+    "name": "揚博",
+    "date": "2026-10-05",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "百億大戶",
+    "host": null,
+    "sector": null,
+    "quote": "百億大戶：2493 有人買500",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "有人買500張"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
     "code": "3008",
     "name": "大立光",
     "date": "2026-10-05",
@@ -1003,6 +1072,31 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-05T22:45:41"
+  },
+  {
+    "code": "3661",
+    "name": "世芯-KY",
+    "date": "2026-10-05",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "IC設計服務",
+    "quote": "世芯9月營收接近百億，明年投片佔AWS比重從20%→25%，EPS從200→250",
+    "tp": null,
+    "eps_est": {
+      "2027": "250"
+    },
+    "catalysts": [
+      "9月營收近百億",
+      "明年AWS投片占比20%升至25%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
   },
   {
     "code": "4720",
@@ -1028,6 +1122,31 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-05T22:45:41"
+  },
+  {
+    "code": "4720",
+    "name": "德淵",
+    "date": "2026-10-05",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "特用化學",
+    "quote": "轉 4720 德淵，我們這裡買進，他跟Lumtum 合作，因此我們要佈局。德淵目前積極搶攻AI與高階電子材料市場，其中AI光電相關特用化學品今年前7月營收年增119%，主要應用涵蓋光通訊、矽光子、FAU、Mini LED、CMOS鏡頭及AI伺服器等。其中，伺服器BBU採用三防膠，Mini LED封裝膜則以UV固化技術取代傳統環氧樹脂烘烤，可縮短製程並降低能源消耗，目前訂單已超過既有供應能力，廣州廠預計今年新增小型產線。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "與Lumentum合作",
+      "AI光電特化品前7月營收年增119%",
+      "訂單超過供應能力",
+      "廣州廠新增產線"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
   },
   {
     "code": "4772",
@@ -1078,6 +1197,30 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-05T22:45:41"
+  },
+  {
+    "code": "4977",
+    "name": "眾達-KY",
+    "date": "2026-10-05",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光通訊",
+    "quote": "轉 眾達4977會發低軌衛星，明年會跟博通合資開公司 老闆陸續收購市場上他們自家的股票，我朋友也陸續在買，可留意",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "發低軌衛星",
+      "明年與博通合資開公司",
+      "老闆收購自家股票"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
   },
   {
     "code": "4979",
@@ -1145,5 +1288,233 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-05T22:45:41"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "台積營收月減1% 第四季low teens",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "第四季營收成長low teens"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "百億大戶",
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "台積2330 4Q QoQ +10-15%、GM gui維持65-67% 3Q GPM接近68%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "4Q營收QoQ+10-15%",
+      "毛利率維持65-67%",
+      "3Q毛利率近68%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "2409",
+    "name": "友達",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "面板",
+    "quote": "友達等賣廠重訊和減資利多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "賣廠重訊",
+      "減資"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "knowledge",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "半導體封測",
+    "quote": "精材12月CB凱基 明年台積派人進去 明年下半年還要發CB",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "12月發行CB",
+      "明年台積派人進駐",
+      "明年下半年再發CB"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "knowledge",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "IC設計服務",
+    "quote": "創意明年開始都一百多億營收 今年不到七百 明年兩千以上",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "明年單月營收百億以上",
+      "全年營收預期2000億以上"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "3702",
+    "name": "大聯大",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "電子通路",
+    "quote": "大聯大也要發CB 因為拿到google連工帶料單",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "拿到google連工帶料單",
+      "發行CB"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "knowledge",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "6182",
+    "name": "合晶",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "Emily Hsu",
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "6182 9月10.11e 我覺得很普lol 10:07 Emily Hsu 全村 前兩個月有拉急單 這個月沒了 10:07 Emily Hsu 全村 那塊有掉",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "9月營收預估10.11億普通",
+      "前兩月急單這個月消失"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "CCL",
+    "quote": "台燿第四季毛利率會上來 因為前面一直打虧損",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "第四季毛利率回升（前期打虧損）"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "knowledge",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "6488",
+    "name": "環球晶",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽晶圓",
+    "quote": "6488 9月營收增幅會比6182好不少 有矽晶圓的話可以參考",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "9月營收增幅優於合晶"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-10-06",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "軟板材料",
+    "quote": "8039增資預計明年2-3月宣布",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "增資案預計明年2-3月宣布"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-06T22:10:15"
   }
 ]
