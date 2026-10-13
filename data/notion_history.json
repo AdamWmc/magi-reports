@@ -673,6 +673,26 @@
     {
       "code": "2303",
       "name": "聯電",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "侯明孝上周一直砍UMC 也叫一些HF空\n今天放毒說MTK被三星砍單所以跑來砍UMC的PMIC投片\n(double嚴正駁斥砍單傳言)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
       "date": "2026-10-12",
       "source_type": "meeting",
       "source_page": "20261012_樂林",
@@ -733,6 +753,31 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-10-12T21:28:42"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "成熟製程晶圓代工",
+      "quote": "UMC成熟製程唯一Overweight，明年樂觀情境EPS可達NT$9(需ASP漲10-15%)，基本情境5-10%漲幅對應EPS NT$7+；有AI相關需求(前期PDA需outsource)可漲價5-10%；相較台積，UMC對產能利用率與ASP提升更sensitive；美國投資人不喜歡，認為AI vs non-AI比重不相稱；Samsung outsourcing 20萬片對UMC影響不大；PC已開始砍單，smartphone可能很快跟進，明年上半年成熟製程可能較辛苦",
+      "tp": null,
+      "eps_est": {
+        "2027": "7-9"
+      },
+      "catalysts": [
+        "ASP漲價5-15%",
+        "AI相關需求"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     },
     {
       "code": "2303",
@@ -7637,6 +7682,30 @@
     {
       "code": "2330",
       "name": "台積電",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "晶圓代工/先進封裝",
+      "quote": "TSMC OE明年仍可達6百萬顆，SOIC良率已達95%以上(之前假設50-60%)，這是最大assumption變化；可支撐明年5K Rubin Ultra(576 SKU) shipment；台積明年CoWoS booking 200-220K，其中80K支援AMD CPU，意味其他OSAT擴產進度低於預期；Rubin出貨Q4每日目標15K，單季1.3M，全年接近2.6M",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "SoIC良率95%+",
+        "CoWoS 200-220K，80K支援AMD",
+        "Rubin Q4放量"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "2330",
+      "name": "台積電",
       "date": "2026-10-08",
       "source_type": "meeting",
       "source_page": "20261008_樂林",
@@ -9991,6 +10060,26 @@
       "code_source": "alias",
       "validated": true,
       "parsed_at": "2026-10-12T21:28:42"
+    },
+    {
+      "code": "2360",
+      "name": "致茂",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "測試設備",
+      "quote": "致茂(Chroma ATE)良率較好但tester較弱，漢測(Ficontec)反之；Ficontec台灣新產線規劃細節未聽說",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     },
     {
       "code": "2360",
@@ -13190,6 +13279,71 @@
     }
   ],
   "2454": [
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "MS Charlie",
+      "host": null,
+      "sector": "IC設計/ASIC",
+      "quote": "MS Charlie在香港Road show第一天內容\n1.MTK5922 dealy to 1M27\n2.byte dance 27年500~1M，28年3M\n3.28年MTK 3M的humufish\n6.OPENAI沒有第二顆，不知道安戳屁有下RFQ這件事\n8.MTK  v9不假設拿CoWoS了",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "5922 delay to 1M27",
+        "ByteDance 27年500K~1M、28年3M"
+      ],
+      "customers": [],
+      "sentiment": "中性偏空",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "IC設計/ASIC",
+      "quote": "MTK EMIB-T曾經考慮過改CoWoS要改兩層，但最後沒拿，目前EMIB良率卡在ABF要疊22層，目前良率10~15%而已",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "EMIB-T良率10~15%"
+      ],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "Double",
+      "host": null,
+      "sector": "IC設計/ASIC",
+      "quote": "今天放毒說MTK被三星砍單所以跑來砍UMC的PMIC投片\n(double嚴正駁斥砍單傳言)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "2454",
       "name": "聯發科",
@@ -22582,6 +22736,29 @@
     {
       "code": "3105",
       "name": "穩懋",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "化合物半導體",
+      "quote": "Win Semi：SpaceX衛星業務明年成長2-2.5倍(D3衛星9月底成功發射)，但仍未達Overweight：Broadcom laser diode導入明年下半年或年底才有機會；GaN產能非常小(月產能不到1K片)，ASP migration有限",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "SpaceX衛星明年2-2.5倍成長",
+        "Broadcom laser diode導入"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "3105",
+      "name": "穩懋",
       "date": "2026-10-08",
       "source_type": "meeting",
       "source_page": "20261008_樂林",
@@ -26136,6 +26313,29 @@
       "code": "3374",
       "name": "精材",
       "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "先進封裝",
+      "quote": "精材明年CoWoS擴10K wpm，2028年擴至40-50K wpm，採用台積outsource技術，設備與台積一致；精材CoWoS擴產對O-Ring(萬潤)是利多",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "CoWoS擴產10K wpm(2027)",
+        "2028年擴至40-50K wpm"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "3374",
+      "name": "精材",
+      "date": "2026-10-12",
       "source_type": "daily",
       "source_page": "2026-10_廢想法_monthly",
       "speaker": "百億大戶",
@@ -27605,6 +27805,48 @@
     {
       "code": "3443",
       "name": "創意",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "MS Charlie",
+      "host": null,
+      "sector": "IC設計/ASIC",
+      "quote": "4.Alchip有機會拿TPUv10，Alab是SpaceX案子\n5.V10 AMD/MARVELL都不是做TPU，Merope是V10",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "TPU v10"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "黃老師",
+      "host": null,
+      "sector": "IC設計/ASIC",
+      "quote": "黃老師:\n今天3443 下跌原因，MS Charlie 傳的。哈哈，全部都是瞎雞巴胡說八道。Kevin 管技術，又不管產能。 客戶去找GUC，基本就是台積電建議的，笑死，什麼GUC低價搶單。\n- GUC背景複雜:台積電內部兩大山頭代理人戰爭(Cliff vs Kevin Zhang),GUC取得過多wafer allocation影響其他競爭者\n- GUC低價搶單(AIDO、Meta)影響市場,整體setup不穩健\n- 所有upside來自台積電分配多少產能,foundation不夠扎實",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
       "date": "2026-10-12",
       "source_type": "meeting",
       "source_page": "20261012_樂林",
@@ -27621,6 +27863,26 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-10-12T21:28:42"
+    },
+    {
+      "code": "3443",
+      "name": "創意",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "ASIC設計服務",
+      "quote": "GUC背景複雜：台積電內部兩大山頭代理人戰爭(Cliff vs Kevin Zhang)，GUC取得過多wafer allocation影響其他競爭者；低價搶單(AIDO、Meta)影響市場，整體setup不穩健；所有upside來自台積電分配多少產能，foundation不夠扎實",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     },
     {
       "code": "3443",
@@ -35812,6 +36074,29 @@
     {
       "code": "5347",
       "name": "世界",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "成熟製程晶圓代工",
+      "quote": "Vanguard：短線可交易但不建議long short太久；明年Q1新加坡新廠量產，初期折舊會壓毛利；市場會提前trade新加坡CoWoS ramp up與interposer需求",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "新加坡新廠明年Q1量產",
+        "interposer需求"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "5347",
+      "name": "世界",
       "date": "2026-10-07",
       "source_type": "meeting",
       "source_page": "20261007_樂林",
@@ -37477,6 +37762,28 @@
     }
   ],
   "6223": [
+    {
+      "code": "6223",
+      "name": "旺矽",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "MS Charlie",
+      "host": null,
+      "sector": "測試介面",
+      "quote": "7.MPI漲NV10~15%??",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "NV 漲價10~15%(帶問號)"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "6223",
       "name": "旺矽",
@@ -43816,6 +44123,28 @@
     }
   ],
   "6683": [
+    {
+      "code": "6683",
+      "name": "雍智科技",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "測試/燒機板",
+      "quote": "雍智確定5922應該不會有main die/sub main die，都是台積自己turnkey\n只會有i/o會有跟FT(ASP 100W)/SLT(ASP 50W)的board，burn in board是6510的因為採MCC的方案",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "5922 FT/SLT board"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "6683",
       "name": "雍智科技",
@@ -55446,6 +55775,28 @@
     {
       "code": "3711",
       "name": "日月光投控",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "封測",
+      "quote": "ASE、SPIL、Amkor的CoWoS擴產進度不順，AMD CoWoS support完全不足需回頭找台積電；對ASE影響有限，ASE仍有Insertion 3/4 coupling等新業務；KYEC估值與ASE相當甚至更便宜",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "Insertion 3/4 coupling新業務"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "3711",
+      "name": "日月光投控",
       "date": "2026-10-06",
       "source_type": "meeting",
       "source_page": "20261006_樂林",
@@ -61229,6 +61580,28 @@
     }
   ],
   "6488": [
+    {
+      "code": "6488",
+      "name": "環球晶",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "矽晶圓",
+      "quote": "Global Wafers：Funding short，明年矽晶圓漲價10-35%已pricing（foundry邏輯端10-15%、second tier 15-20%、memory 25-35%）；最大downside風險是Shin-Etsu或SUMCO宣布greenfield擴產，消息一出股價就跌",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "2027矽晶圓漲價10-35%"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "6488",
       "name": "環球晶",
@@ -71490,6 +71863,28 @@
     {
       "code": "6531",
       "name": "愛普*",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "記憶體/interposer",
+      "quote": "愛普的interposer是幫博通做，沒有幫台積做\ninterposer年底重回量產",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "interposer年底重回量產"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6531",
+      "name": "愛普*",
       "date": "2026-10-06",
       "source_type": "meeting",
       "source_page": "20261006_駿羽",
@@ -72032,6 +72427,30 @@
     }
   ],
   "6770": [
+    {
+      "code": "6770",
+      "name": "力積電",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "力積電到年底營收可以看到90E，毛利率4x%\n愛普的interposer是幫博通做，沒有幫台積做\ninterposer年底重回量產\nMPS在力積快要變成最大客戶",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "年底營收90E、毛利率4x%",
+        "interposer年底重回量產",
+        "MPS成最大客戶"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "6770",
       "name": "力積電",
@@ -73589,6 +74008,30 @@
     }
   ],
   "2449": [
+    {
+      "code": "2449",
+      "name": "京元電子",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "半導體測試",
+      "quote": "CPU代理偏好KYEC勝過GUC。KYEC明年CPU營收貢獻可達15-20%（Vera與Axion 2，Axion 2明年至少4-5百萬顆），AI營收約50%，未來兩年營收成長20-40%，估值與ASE相當甚至更便宜；Q4 QoQ guidance從15%下修至10-15%，主因Hynix HBM4問題；有Vera CPU、GUC的、Google CPU及Tesla AI chip業務",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "Vera/Axion 2 CPU測試",
+        "AI營收約50%",
+        "未來兩年營收成長20-40%"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "2449",
       "name": "京元電子",
@@ -76766,6 +77209,29 @@
     }
   ],
   "7856": [
+    {
+      "code": "7856",
+      "name": "漢測",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "漢測業務 Hantsun",
+      "host": null,
+      "sector": "散熱/液冷測試",
+      "quote": "漢測\n今天外面在傳\n1. 散熱模組下修傳 2000套\n2. Ficontec 在台灣建廠\n然後 H哥說還是估2500-3000套 然後 Ficontec 也沒有計劃在台灣建廠，目前在矽品ins 3 進機驗機非常順利\n漢測業務 Hantsun 錯的；今天我一整天都在確認forecast；內部跟客戶 都確認了一輪；沒下修；還是2500-3000",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "散熱模組forecast 2500-3000套未下修",
+        "矽品ins 3 驗機順利"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "7856",
       "name": "漢測",
@@ -80910,6 +81376,30 @@
     {
       "code": "6187",
       "name": "萬潤",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "半導體/CPO設備",
+      "quote": "O-Ring/Allring：Near-term upside顯著，CPO設備今年不到10台optical coupling設備，明年目標出貨150-200台，10-15倍成長；公司CPO TAM market share目標10-20%，target rate達50%以上；主要競爭者AESR與M-RT，優勢在throughput較高；精材CoWoS對O-Ring content value遠高於ASE：台積製程1K CoWoS對應O-Ring 130-150M，ASE僅15-20M",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "CPO設備明年出貨150-200台",
+        "精材CoWoS擴產",
+        "Intel Unity"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6187",
+      "name": "萬潤",
       "date": "2026-10-08",
       "source_type": "meeting",
       "source_page": "20261008_樂林",
@@ -83140,6 +83630,26 @@
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-10-06T22:10:15"
+    },
+    {
+      "code": "4925",
+      "name": "智微",
+      "date": "2026-10-04",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "趙君威",
+      "host": null,
+      "sector": "IC設計",
+      "quote": "21:03 阿威 趙君威 新唐 跟 智微 是不是在漲 小信驊",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": true,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     },
     {
       "code": "4925",
@@ -88463,6 +88973,122 @@
     }
   ],
   "6515": [
+    {
+      "code": "6515",
+      "name": "穎崴",
+      "date": "2026-10-13",
+      "source_type": "meeting",
+      "source_page": "20261013_穎威",
+      "speaker": "穎威",
+      "host": "穎威",
+      "sector": "半導體測試介面",
+      "quote": "UBS 余茂 10人場。第四季營收因為探針卡出貨在3Q出完，QoQ會衰退，但毛利會好over38~40%的區間；今年產能優於去年，整年socket加工能力比去年多一倍，明年目標是今年的一倍；test socket inhouse比例增加所以毛利會更好；今年~明年主要客群都一樣；hyper socket不要期待能佔營收超過5%；不管socket或probe card明年都有新訂單",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "socket加工產能翻倍",
+        "test socket inhouse比例提升帶動毛利",
+        "不論socket或probe card明年都有新訂單"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6515",
+      "name": "穎崴",
+      "date": "2026-10-13",
+      "source_type": "meeting",
+      "source_page": "20261013_穎威",
+      "speaker": "穎威",
+      "host": "穎威",
+      "sector": "半導體測試介面",
+      "quote": "今年投1b的CAPEX，仁武二期大概會落在1.2~1.3b，明年還會有2b在仁武新廠；額外規劃35E給新廠(仁武二)，15億設備20億廠建；成本上升都會反應給客人，現在多少有一點增加",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "仁武二期擴廠",
+        "成本轉嫁"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6515",
+      "name": "穎崴",
+      "date": "2026-10-13",
+      "source_type": "meeting",
+      "source_page": "20261013_穎威",
+      "speaker": "穎威",
+      "host": "穎威",
+      "sector": "半導體測試介面",
+      "quote": "韓國同業罷工被問有沒有機會轉單，但是短時間內不會發酵因為沒有產能；韓國同業只要掉一點點share對穎威就很補；AMD過去營收佔25%左右，明年除非AMD自己share loss否則沒有衰退的感覺；AMD XPU有delay socket覺得還好；博通的socket應該都用韓國的isc因為量不大",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "韓國同業罷工潛在轉單",
+        "AMD客群維持"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6515",
+      "name": "穎崴",
+      "date": "2026-10-13",
+      "source_type": "meeting",
+      "source_page": "20261013_穎威",
+      "speaker": "穎威",
+      "host": "穎威",
+      "sector": "半導體測試介面",
+      "quote": "明年下半年會有費曼的test chip出來；下一代GPU(費曼)規格都還沒出來，所以談甚麼share都是空談；Rosa(CPU)規格也還沒出來，穎威不會自製針所以還是會跟TPI拿；TPI簽約採購量達到後毛利有改善空間但不會太誇張；TPI拿針問題已經謠傳很久，但大家都在擴廠，所以不擔心(啊不就是真的拿不到針)",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [
+        "費曼test chip 2H27",
+        "TPI採購量達標毛利改善"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6515",
+      "name": "穎崴",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "測試介面",
+      "quote": "穎威9月營收爆炸因為拿不到針，RTX60系列4Q才可能開案\nT4明年中開始開工程卡",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "RTX60系列4Q開案",
+        "T4明年中開工程卡"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
     {
       "code": "6515",
       "name": "穎崴",
@@ -94504,6 +95130,28 @@
     {
       "code": "6510",
       "name": "精測",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "測試介面",
+      "quote": "burn in board是6510的因為採MCC的方案",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "burn in board"
+      ],
+      "customers": [],
+      "sentiment": "中性偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
+    },
+    {
+      "code": "6510",
+      "name": "精測",
       "date": "2026-10-02",
       "source_type": "meeting",
       "source_page": "20261002_駿羽",
@@ -95704,6 +96352,26 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-10-12T21:28:42"
+    },
+    {
+      "code": "3008",
+      "name": "大立光",
+      "date": "2026-10-12",
+      "source_type": "meeting",
+      "source_page": "20261012_MS Charlie Roadshow meeting",
+      "speaker": "Charlie",
+      "host": "MS Charlie Roadshow meeting",
+      "sector": "光學",
+      "quote": "大立光自製機台：供應商不明，對O-Ring影響預估不大，因optical coupling solutions供應商眾多(Semi-Con可見3-5家以上)",
+      "tp": null,
+      "eps_est": {},
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     },
     {
       "code": "3008",
@@ -99749,6 +100417,26 @@
       "code_source": "explicit",
       "validated": true,
       "parsed_at": "2026-10-07T23:20:59"
+    },
+    {
+      "code": "1569",
+      "name": "濱川",
+      "date": "2026-10-04",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": "趙君威",
+      "host": null,
+      "sector": "矽光/特用化學",
+      "quote": "21:04 阿威 趙君威 濱川最近好像又起來了 籌碼很強很急",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     },
     {
       "code": "1569",
@@ -105060,6 +105748,28 @@
       "code_source": "name_exact",
       "validated": true,
       "parsed_at": "2026-10-12T21:28:59"
+    }
+  ],
+  "3483": [
+    {
+      "code": "3483",
+      "name": "力致",
+      "date": "2026-10-13",
+      "source_type": "daily",
+      "source_page": "2026-10_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "散熱/水冷",
+      "quote": "力致水冷（附圖）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-10-13T23:01:18"
     }
   ],
   "6141": [
