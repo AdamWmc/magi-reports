@@ -2787,6 +2787,30 @@
     "parsed_at": "2026-10-13T23:01:18"
   },
   {
+    "code": "6278",
+    "name": "台表科",
+    "date": "2026-10-13",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "Frank Lin",
+    "host": null,
+    "sector": "光模組PCBA",
+    "quote": "台表科 PCBA站BOM 很大 upside China is a trend 最近來問的中國廠商很多 以前中國人價格不好不想做 現在中國人搶產能價格不一定低於美國單；AAOI 要台表科Tw 蘇州；Coherent in 馬來西亞 現在找台表科越南；索爾斯目前台灣之後也會有越南 越南擴完台表科很大空間做中國訂單；Innolight 本來是要越南 後來說墨西哥；越南是一期三倍 可以放20幾條線；現在越南10多條線 有需求可以20-30條線；越南還有衛星",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "PCBA移出中國",
+      "越南擴產20-30條線",
+      "AAOI/Coherent/Innolight訂單"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-14T22:13:21"
+  },
+  {
     "code": "6510",
     "name": "精測",
     "date": "2026-10-13",
@@ -2921,5 +2945,73 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-13T23:01:18"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-10-13",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB材料/CCL",
+    "quote": "台虹獨董反對修章程 又要花時間溝通了 還沒仔細看 可能是擔心增資太多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "增資修章程受阻"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-14T22:13:21"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-10-14",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "ASIC/IC設計服務",
+    "quote": "MSFT 明年2027 貢獻GUC ，yoy 400%  而且毛利率不錯",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "MSFT 2027貢獻 yoy 400%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-14T22:13:21"
+  },
+  {
+    "code": "8086",
+    "name": "宏捷科",
+    "date": "2026-10-14",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "砷化鎵/光通訊代工",
+    "quote": "8086 爭取 200G PD 整段代工訂單：Lumentum (LITE) 原先由內部生產搭配 GCS 部分代工，但因產能吃緊且希望將「Epi、完整製程到測試並交付成品」的整段 Process 外包，目前正向傳統三五族代工廠 Survey，宏捷科對此非常有承接意願。具備設備優勢（對比鼎元）：製作 200G PD 的 Backside Lens 需要 Wafer 翻轉與 Mounting 機台。宏捷科過去與 Lumentum 即有合作關係，本身已具備相關機台設備；相較之下，鼎元缺乏翻轉與 Mounting 機台，設備到位與量產時程大幅落後（最快需至 2028 年）。競爭同業狀況（穩懋綁約排他）：穩懋因已與 Broadcom 簽訂 3 年合約，無法再接其他客戶的 200G PD；因此 LITE 在台灣的三五族代工選項主要聚焦於宏捷科。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Lumentum 200G PD 整段代工",
+      "具Wafer翻轉與Mounting設備",
+      "穩懋與Broadcom綁約排他"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-14T22:13:21"
   }
 ]
