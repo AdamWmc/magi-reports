@@ -3377,5 +3377,28 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-16T22:06:08"
+  },
+  {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-10-19",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "電子紙",
+    "quote": "10/28 台弘會跟8069簽LOI，會有新聞稿\n11/6  8069 BOD會通過觀音購地案，會說明跟台弘合作",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "10/28 與台弘簽LOI",
+      "11/6 董事會通過觀音購地案"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-19T21:54:09"
   }
 ]
