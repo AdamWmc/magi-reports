@@ -3379,6 +3379,26 @@
     "parsed_at": "2026-10-16T22:06:08"
   },
   {
+    "code": "3595",
+    "name": "山太士",
+    "date": "2026-10-19",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "材料",
+    "quote": "山太士的末日",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
     "code": "8069",
     "name": "元太",
     "date": "2026-10-19",
@@ -4012,6 +4032,29 @@
     "parsed_at": "2026-10-20T21:52:44"
   },
   {
+    "code": "2345",
+    "name": "智邦",
+    "date": "2026-10-21",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "網通/交換器",
+    "quote": "聽說智邦今天傳換MLCC影響60萬顆氣冷 跟meta 800G delay",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "換MLCC影響60萬顆氣冷",
+      "Meta 800G delay"
+    ],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
     "code": "2383",
     "name": "台光電",
     "date": "2026-10-21",
@@ -4032,6 +4075,52 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-10-21T23:02:32"
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "date": "2026-10-21",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/水冷",
+    "quote": "Liquid cooling enter MP in Oct; T3 liquid cooling owns 25-30% share; Total t3 content usd75k; 4Q 20% qoq up and 1Q27 up qoq; 2027 revised from 50% yoy to 70% yoy; Chairman come out in mid Nov",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "10月水冷進入MP",
+      "2027年成長由50% yoy上修至70% yoy",
+      "11月中董事長出面說明"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "date": "2026-10-21",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/水冷",
+    "quote": "3324 在上修明天有個富邦閉門拜訪",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "富邦閉門拜訪"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
   },
   {
     "code": "4958",
@@ -4055,6 +4144,28 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-21T23:02:32"
+  },
+  {
+    "code": "5274",
+    "name": "信驊",
+    "date": "2026-10-21",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "李洋承",
+    "host": null,
+    "sector": "BMC/伺服器晶片",
+    "quote": "我剛剛在看FCST 發現明年Celestica 明年超! 極! 強! 2026 所有的BMC 拿了大概450K 2027年光上半年就超過550K...800G和1.6T是主量, 在這前提下我覺得應該可以買一下",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Celestica 2027上半年BMC用量超過550K，改拿新世代BMC"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
   },
   {
     "code": "6213",
@@ -4190,5 +4301,116 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-21T23:02:32"
+  },
+  {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-10-22",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "如果以今天台積電跟NV的開會，現在股票跌下來，你是要買股票的 就這樣",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "台積電與NV開會"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": true,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
+    "code": "2345",
+    "name": "智邦",
+    "date": "2026-10-22",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "網通/交換器",
+    "quote": "公司昨天澄清Meta 智邦昨天說BRCM ship shortage so use marvel chip to replace 沒有下修只是換晶片；智邦因為Meta拿不到博通晶片，該型號下修，但NVDA跟MRVL多拿整體拿的晶片量變多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Meta改用Marvell晶片替換博通，公司澄清沒有下修"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "date": "2026-10-22",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "AI晶片",
+    "quote": "因為Intel EMIB那邊載板良率一直起不來 所以brcm的tpu allocation會慢慢拿回來。但反駁方說Emibt 明年第二季才知道",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Intel EMIB載板良率起不來，博通TPU allocation慢慢拿回"
+    ],
+    "customers": [],
+    "sentiment": "看空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-10-22",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "Diana",
+    "host": null,
+    "sector": "AI伺服器",
+    "quote": "聽到緯穎出胖胖櫃 然後meta 8K",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "出胖胖櫃",
+      "meta 8K"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
+    "code": "6669",
+    "name": "緯穎",
+    "date": "2026-10-22",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "AI伺服器",
+    "quote": "我目前自己問起來 AWS T3 Liquid cooling rack確實沒有緯穎專家說的那麼少 ...目前看起來4Q26整個T3水冷應該會在1500 rack左右 沒有一開始想的差",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "4Q26 AWS T3水冷約1500 rack，優於專家先前700 rack說法"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-22T23:48:27"
   }
 ]
