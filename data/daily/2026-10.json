@@ -4347,6 +4347,28 @@
     "parsed_at": "2026-10-22T23:48:27"
   },
   {
+    "code": "2345",
+    "name": "智邦",
+    "date": "2026-10-22",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "網通",
+    "quote": "智邦因為Meta拿不到博通晶片，該型號下修，但NVDA跟MRVL多拿整體拿的晶片量變多",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Meta型號因BRCM缺貨下修，NVDA/MRVL晶片量增加"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "alias",
+    "validated": true,
+    "parsed_at": "2026-10-27T22:03:55"
+  },
+  {
     "code": "2454",
     "name": "聯發科",
     "date": "2026-10-22",
@@ -4412,5 +4434,81 @@
     "code_source": "alias",
     "validated": true,
     "parsed_at": "2026-10-22T23:48:27"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/AI",
+    "quote": "下跌 要留意3653 健策的買點，Removable LID 上週已經在Rubin Ultra 驗證過了，一片ASP 增加大概150 美金。 3653 健策的量產單，tsmc 準備這週下出去 一片wafer 健策多5000 美金",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Removable LID 已在Rubin Ultra驗證，ASP +150美金/片",
+      "TSMC量產單本週下單，每片wafer多5000美金"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-27T22:03:55"
+  },
+  {
+    "code": "6278",
+    "name": "台表科",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCBA/光通",
+    "quote": "TSMT 6278 2027 revenue more than 20% YoY growth 如果不缺料毛利可以看全年17-18%或更高 EPS可以看到30塊 配息率維持50% ... 第一個美系客人AAOI 我們份額有80% 第二個美國客人coherent 出貨量高於第一個客人 在明年第三季度coherent will surpass AAOI ... 光通上半年10-15%佔比 下半年逐季往上走 ... Tesla 機器人camera module 明年機會很大 ... Space X 衛星 2Q27 量產 ... LITE在洽談中 希望從越南出到泰國 越南有機會1.6T 接到一些陸系訂單",
+    "tp": null,
+    "eps_est": {
+      "2027": "30"
+    },
+    "catalysts": [
+      "2027營收YoY>20%、EPS可到30",
+      "光通佔比上半年10-15%逐季上升",
+      "AAOI份額80%、2027Q3 Coherent超越AAOI",
+      "Space X衛星2Q27量產",
+      "Tesla機器人camera module明年備貨"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-27T22:03:55"
+  },
+  {
+    "code": "7856",
+    "name": "漢測",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "測試介面",
+    "quote": "漢測11/11公告財報，11/13上傳，11/16法說辦在永豐金大樓 Ficontech回信說ins3可以簽約，同時會警告中國人別再跟投資人散播錯誤消息禁止他出來講，合約中會談保量，如果量沒達到要額外漲價 第三季IR消毒認股費用影響EPS-32，最後出來就是利空出盡，財報GM%很好 庫藏股是為了要讓公司新進員工之後可以領股票，公司希望員工都能賺到錢，同時覺得股價低",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11/16法說",
+      "Ficontech ins3可簽約且談保量",
+      "Q3認股費用影響EPS-32利空出盡",
+      "庫藏股"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-27T22:03:55"
   }
 ]
