@@ -4436,6 +4436,50 @@
     "parsed_at": "2026-10-22T23:48:27"
   },
   {
+    "code": "2330",
+    "name": "台積電",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工/先進封裝",
+    "quote": "受AI需求爆發、半導體供應鏈產能全面緊張影響，台積電計劃上調先進芯片封裝服務價格，最高漲幅可達20%。CoWos封裝報價將迎上調？報道稱，台積電等晶圓代工及封測（OSAT）從業者正醖釀新一輪提價，準備將CoWoS封裝的報價上調10%至20%。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "CoWoS報價上調10-20%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "2455",
+    "name": "全新",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "磊晶/光通",
+    "quote": "VPEC 2455 匯豐座談 中國客人索爾斯訂單不受美國禁令影響 因為客人把PCBA/L6製程外包給台表科越南 墨西哥廠 避開65%光模塊產值不得在中國製造禁令 之後其他中國客人旭創新易盛可能也會跟進外包PCBA給台廠",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "中國客戶PCBA/L6外包台廠避禁令"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
     "code": "3653",
     "name": "健策",
     "date": "2026-10-27",
@@ -4457,6 +4501,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-27T22:03:55"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/CoWoS Lid",
+    "quote": "這個可能有點誤導，但是如果是用TL LiD的Cowos L，比原來Single LiD的Cowos L，一片wafer漲幅會超過50%，原因是3653 健策，就醬子。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "TL LID CoWoS-L一片wafer漲幅>50%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
   },
   {
     "code": "6278",
@@ -4487,6 +4553,32 @@
     "parsed_at": "2026-10-27T22:03:55"
   },
   {
+    "code": "6278",
+    "name": "台表科",
+    "date": "2026-10-27",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCBA/光通",
+    "quote": "TSMT 6278 大和座談2027 revenue 20-30% or even higher YoY growth 毛利從全年15-16% 上修到上半年15-17%下半年20%+ EPS可以看到30塊 配息率維持50% 2027 Tesla space x XAI10-15%佔比 optical 20-30% 2028 Tesla 15-20%佔比 optical 至少30-40%",
+    "tp": null,
+    "eps_est": {
+      "2027": "30"
+    },
+    "catalysts": [
+      "2027營收YoY+20-30%",
+      "毛利1H27 15-17%、2H 20%+",
+      "Tesla/SpaceX/XAI占比10-15%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
     "code": "7856",
     "name": "漢測",
     "date": "2026-10-27",
@@ -4510,5 +4602,248 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-27T22:03:55"
+  },
+  {
+    "code": "2301",
+    "name": "光寶科",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "電源供應器",
+    "quote": "2301 明年有15以上 算便宜",
+    "tp": null,
+    "eps_est": {
+      "2027": "15+"
+    },
+    "catalysts": [
+      "明年EPS 15以上"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "2360",
+    "name": "致茂",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": "測試設備",
+    "quote": "10:11 阿威 趙君威 明天換致茂",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "致茂法說"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "2368",
+    "name": "金像電",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PCB",
+    "quote": "2368財報毛利率應該有40%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "財報毛利率約40%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "3037",
+    "name": "欣興",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "ABF載板",
+    "quote": "3037 Q4毛利率會超過30%",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Q4毛利率>30%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "3081",
+    "name": "聯亞",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "光通訊/磊晶",
+    "quote": "聯亞 不用多說，請研究團隊研究一下中際旭創的股價！旭創是聯亞的大客戶，基本上是陸廠產能不足就外溢。現在需求端出了一些問題，也有美國政策的關係，理論上會出現短期業績還不錯，但是展望變差的情況。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "中際旭創股價走弱",
+      "陸廠外溢減少、展望變差"
+    ],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/CoWoS Lid",
+    "quote": "3653原本removeable 250塊 現在變400塊了 一片wafer用8-9顆",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Removable LID單價250→400",
+      "一片wafer用8-9顆"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "6179",
+    "name": "亞通",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "連接器/其他",
+    "quote": "亞通6179仁新6696 聽說frank在喊不知道真的假的",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL",
+    "quote": "6274這次應該會補進msci 上次被處置",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "MSCI納入"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "6696",
+    "name": "仁新",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "其他",
+    "quote": "亞通6179仁新6696 聽說frank在喊不知道真的假的",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "7769",
+    "name": "鴻勁",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "阿威 趙君威",
+    "host": null,
+    "sector": "測試設備",
+    "quote": "10:11 阿威 趙君威 今天鴻勁法說 / 說近期要發表insersion 4 oe handler 準備出貨了 但明年才會大量 是NV 一直在修設計 算是鴻勁在等NV",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "insertion 4 OE handler近期發表",
+      "明年才大量，等NV修設計"
+    ],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/軟板",
+    "quote": "11/27訪高雄台虹RD",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11/27訪高雄台虹RD"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-28T22:50:34"
   }
 ]
