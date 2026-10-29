@@ -4845,5 +4845,353 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL",
+    "quote": "傳台光說Ccl 載板材料驗證通過",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "CCL載板材料驗證通過"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "2383",
+    "name": "台光電",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL",
+    "quote": "EMC Q4 guide qoq 15%-20%；Q4會再談一次漲價 10-20% depends on customers；LTA簽的量已經已經超過預期新擴產的量，有釋出2030新產能的計畫；15.35nm sheet/month in2030（2383下午會講的 自用）",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Q4漲價10-20%",
+      "LTA量超過新擴產",
+      "2030新產能計畫"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "2454",
+    "name": "聯發科",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "AI晶片",
+    "quote": "261029_盤前整理 2. 聯發科2454：櫃買反彈仍沒碰到季線，資金偏向大股票，mtk討論度最高，GS sales trade推日月光、發哥。4Q開始出TPU v8，另有百度、字節案子；v9 tape out傳遞延到1Q27屬小雜音",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "4Q開始出TPU v8",
+      "百度、字節案子"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "砷化鎵/PA",
+    "quote": "261029_盤前整理 1. 穩懋3105：10/28法說，3Q營收58.9億、QoQ+11%符合展望，合併GM 37.4%、QoQ+10ppts，提前達成原估2028年毛利率。主因是產品組合，infra占比近40%，其中LEO／國防首次過半，UTR拉到70-75%，折舊逐年下降，另有聯茂23%權益法業外貢獻。4Q展望營收QoQ低個位數、GM維持high-30s。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "GM提前達2028目標",
+      "LEO/國防占比過半"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "3189",
+    "name": "景碩",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "載板",
+    "quote": "11月底的msci 目前預計進入名單是8046 3189 6274",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11月底MSCI預計納入"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": "Daiwa",
+    "host": null,
+    "sector": "散熱/水冷",
+    "quote": "3324雙鴻，Daiwa出買進報告，調整2026 / 2027 EPS至55.1 / 99.1元，其中針對明年獲利較前次報告調升幅度約33%。給予明年獲利22倍PER、TP = 2180。這邊同樣看好營收自11月起受惠水冷客戶開始放量帶動營收往上跳。",
+    "tp": "2180",
+    "eps_est": {
+      "2026": "55.1",
+      "2027": "99.1"
+    },
+    "catalysts": [
+      "11月起水冷客戶放量"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "散熱/水冷",
+    "quote": "3324 11月營收50E(也可能放40E)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11月營收50E"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "3691",
+    "name": "碩禾",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "太陽能",
+    "quote": "太陽能（碩禾3691／倉和6538）：11/3美國期中選舉，太陽能題材可以留意。碩禾法說：美國45X法案要求非中材料比例，杜邦、三星、賀利氏退出後，碩禾是唯一可量產的非中銀漿供應商。Qcells美國廠11月起出貨，ES Foundry、Silfab本月下單，加州銀漿廠12月投產。子公司Amerisun 1GW新線12月試產，2025年產量的45X補助已全額收到。27年完全稀釋EPS 19.05（其中45X補助10.63），給15x，TP 285，以10/28收盤131計upside 118%。",
+    "tp": "285",
+    "eps_est": {
+      "2027": "19.05"
+    },
+    "catalysts": [
+      "11/3美國期中選舉",
+      "45X法案非中銀漿",
+      "Qcells 11月起出貨",
+      "Amerisun 1GW新線12月試產"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "3711",
+    "name": "日月光投控",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "封測",
+    "quote": "261029_盤前整理 2. ……GS sales trade推日月光、發哥（櫃買反彈仍沒碰到季線，資金偏向大股票）",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "4989",
+    "name": "榮科",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL/銅箔",
+    "quote": "Daiwa寫TPCA展場人員提到HVLP未來1/2將受到嚴重的產能排擠，有點像DRAM跟被動一樣的高階排擠低階，榮科??",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "HVLP產能排擠"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "CCL",
+    "quote": "11月底的msci 目前預計進入名單是8046 3189 6274",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11月底MSCI預計納入"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "6510",
+    "name": "精測",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "測試介面",
+    "quote": "精測/6510/261028法說會 Comments：1. 持有到10月營收公布。3Q26 毛利率 57.3% 優於指引和sellside預期（因探針卡提前認列），探針卡營收中 HPC 首度超過 AP，探針卡新增美國衛星客戶（SpaceX）、TPU v9 FT；但 BIB 9 月開始出貨，4Q26 起毛利率將往下掉，可以在 10 月營收公布前獲利了結，不建議積極追價。2. 3Q26 營收 19 億（QoQ +16%、YoY +53%），公司稱目前探針卡訂單全部是 AI HPC。3. 預估 2026/2027/2028 EPS 62.7/120.9/172.0，給予 2027 PE 35x，目標價 4,232，32% upside",
+    "tp": "4232",
+    "eps_est": {
+      "2026": "62.7",
+      "2027": "120.9",
+      "2028": "172.0"
+    },
+    "catalysts": [
+      "10月營收公布前可獲利了結",
+      "BIB 9月出貨、4Q毛利率下滑"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "太陽能",
+    "quote": "太陽能（碩禾3691／倉和6538）：11/3美國期中選舉，太陽能題材可以留意。碩禾法說：美國45X法案要求非中材料比例，杜邦、三星、賀利氏退出後，碩禾是唯一可量產的非中銀漿供應商。Qcells美國廠11月起出貨，ES Foundry、Silfab本月下單，加州銀漿廠12月投產。子公司Amerisun 1GW新線12月試產，2025年產量的45X補助已全額收到。27年完全稀釋EPS 19.05（其中45X補助10.63），給15x，TP 285，以10/28收盤131計upside 118%。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11/3美國期中選舉",
+      "太陽能題材"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "6805",
+    "name": "富世達",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "水冷/接頭",
+    "quote": "我們算 6805 AMD那一塊算進去的話 PBMC +UQD 可以大概多個3e營收/月 這樣明年EPS 可以多10-15。市場估明年120-150，如果加上amd 就是150。MQD and ZQD 這二塊 獲利貢獻成長也很多",
+    "tp": null,
+    "eps_est": {
+      "2027": "150"
+    },
+    "catalysts": [
+      "AMD PBMC+UQD 月增3e營收"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
+  },
+  {
+    "code": "8046",
+    "name": "南電",
+    "date": "2026-10-29",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "載板",
+    "quote": "11月底的msci 目前預計進入名單是8046 3189 6274",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "11月底MSCI預計納入"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-10-29T21:58:21"
   }
 ]
