@@ -1,0 +1,469 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>融資維持率 × 指數 · MAGI</title>
+<script>(function(){try{var t=localStorage.getItem('magi-theme');if(t)document.documentElement.setAttribute('data-theme',t);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')}catch(e){}})();</script>
+<style>
+:root{--bg:#f6f8fc;--bg2:#ffffff;--bg3:#eef1f8;--border:#dde3ee;--border2:#e8ecf4;
+--text:#232936;--text2:#49536a;--muted:#707a92;--dimmer:#a8b1c4;--bright:#0e1424;
+--accent:#6d28d9;--accent2:#7c3aed;--cyan:#0891b2;--up:#dc2626;--dn:#16a34a;
+--up-bg:rgba(220,38,38,.06);--dn-bg:rgba(22,163,74,.07);--up-bd:rgba(220,38,38,.22);--dn-bd:rgba(22,163,74,.24);
+--glow:rgba(124,58,237,.08);--nav-bg:rgba(246,248,252,.85);--warn:#d97706;--warn-bg:rgba(217,119,6,.08);
+--card-shadow:0 1px 2px rgba(15,23,42,.05);--mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+:root[data-theme="dark"]{--bg:#070a13;--bg2:rgba(148,163,255,.045);--bg3:rgba(148,163,255,.09);
+--border:rgba(148,163,214,.17);--border2:rgba(148,163,214,.09);--text:#d7dced;--text2:#98a2bd;--muted:#68718a;--dimmer:#454e66;--bright:#f6f8ff;
+--accent:#8b5cf6;--accent2:#a78bfa;--cyan:#22d3ee;--up:#ef6262;--dn:#31d08a;
+--up-bg:rgba(239,98,98,.1);--dn-bg:rgba(49,208,138,.1);--up-bd:rgba(239,98,98,.28);--dn-bd:rgba(49,208,138,.28);
+--glow:rgba(139,92,246,.2);--nav-bg:rgba(7,10,19,.72);--warn:#f0a44b;--card-shadow:none}
+:root[data-theme="dark"] body{background-image:radial-gradient(ellipse 70% 32% at 50% -4%,rgba(120,60,220,.16) 0%,transparent 60%),radial-gradient(ellipse 46% 40% at 100% 14%,rgba(34,211,238,.05) 0%,transparent 55%),radial-gradient(ellipse 60% 50% at 0% 90%,rgba(88,40,200,.08) 0%,transparent 55%);background-attachment:fixed}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang TC','Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.6;
+background:var(--bg);color:var(--text);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--mono)}
+.up{color:var(--up)} .dn{color:var(--dn)}
+.topbar{position:sticky;top:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:12px 32px;max-width:1200px;margin:0 auto}
+.nav-logo{font-weight:800;font-size:16px;letter-spacing:.02em}
+.nav-logo em{font-style:normal;background:linear-gradient(120deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:14px;align-items:center}
+.nav-links a,.theme-btn{font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:5px 11px;border:1px solid var(--border);border-radius:7px;background:var(--bg2);cursor:pointer}
+.nav-links a:hover,.theme-btn:hover{color:var(--accent2);border-color:var(--accent2)}
+.hero-wrap{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-wrap::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:radial-gradient(ellipse 60% 80% at 30% 0%,#000,transparent 70%);opacity:.5;pointer-events:none}
+.hero{position:relative;max-width:1200px;margin:0 auto;padding:40px 32px 32px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);background:var(--glow);border:1px solid var(--border);padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,4vw,38px);font-weight:800;color:var(--bright);letter-spacing:-.02em;line-height:1.25;margin-bottom:14px}
+.hero h1 .hl{background:linear-gradient(120deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-lede{font-size:15.5px;color:var(--text2);max-width:820px;line-height:1.75}
+.hero-lede strong{color:var(--bright)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.kpi-c{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:15px 16px;overflow:hidden;box-shadow:var(--card-shadow)}
+.kpi-c::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan) 60%,transparent)}
+.kpi-k{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.kpi-v{font-family:var(--mono);font-size:26px;font-weight:800;color:var(--bright);margin:5px 0 2px;letter-spacing:-1px}
+.kpi-s{font-size:11px;color:var(--text2)}
+.content{max-width:1200px;margin:0 auto;padding:8px 32px 60px}
+section{margin-top:40px;scroll-margin-top:80px}
+.sec-head{position:relative;display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.sec-head::after{content:'';position:absolute;left:0;bottom:-1px;width:72px;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan))}
+.sec-no{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent2);background:var(--glow);border:1px solid var(--border);padding:2px 8px;clip-path:polygon(0 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%)}
+.sec-title{font-size:19px;font-weight:800;color:var(--bright)}
+.sec-sum{font-size:11px;color:var(--muted);margin-left:auto}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:var(--card-shadow)}
+/* comparison table */
+.ct{width:100%;border-collapse:collapse}
+.ct thead th{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:8px 12px;border-bottom:1px solid var(--border)}
+.ct thead th:first-child{text-align:left}
+.ct thead th.h-new{color:var(--accent2)}
+.ct td{padding:9px 12px;border-bottom:1px solid var(--border2);font-family:var(--mono);text-align:right;font-size:13px}
+.ct td.ct-lbl{font-family:inherit;text-align:left;color:var(--text2);font-weight:600}
+.ct-hint{display:block;font-size:10.5px;color:var(--dimmer);font-weight:400}
+.ct td.ct-new{color:var(--bright);font-weight:700;background:var(--glow)}
+.ct td.ct-old{color:var(--muted)}
+/* lifecycle */
+.lifecycle{display:flex;align-items:stretch;gap:6px;overflow-x:auto;padding:6px 2px 12px}
+.lc-node{flex:1;min-width:110px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 10px;text-align:center}
+.lc-lbl{font-size:11px;font-weight:800;color:var(--text2);line-height:1.3;min-height:30px;display:flex;align-items:center;justify-content:center}
+.lc-val{font-family:var(--mono);font-size:19px;font-weight:800;color:var(--bright);margin:4px 0 2px}
+.lc-prob{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.lc-note{font-size:10.5px;color:var(--dimmer);margin-top:5px}
+.lc-arrow{display:flex;align-items:center;color:var(--dimmer);font-size:18px;flex-shrink:0}
+/* dist bars */
+.dist-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.db-cap{font-size:11px;font-weight:800;letter-spacing:.05em;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.db-cap::before{content:'';width:3px;height:12px;border-radius:1px;background:linear-gradient(180deg,var(--accent2),var(--cyan))}
+.db-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.db-k{font-family:var(--mono);font-size:11px;color:var(--muted);width:30px}
+.db-track{flex:1;height:14px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.db-fill{display:block;height:100%;border-radius:4px}
+.db-fill.up{background:linear-gradient(90deg,var(--up),var(--up-bd))}
+.db-fill.dn{background:linear-gradient(90deg,var(--dn),var(--dn-bd))}
+.db-n{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--text);width:56px;text-align:right}
+.db-share{color:var(--dimmer);font-weight:400;font-size:10px;margin-left:4px}
+/* takeaways */
+.tk{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tk-c{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent2);border-radius:10px;padding:15px 17px}
+.tk-c.warn{border-left-color:var(--warn)}
+.tk-h{font-size:14px;font-weight:800;color:var(--bright);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.tk-tag{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:var(--up-bg);color:var(--up);border:1px solid var(--up-bd)}
+.tk-tag.wait{background:var(--warn-bg);color:var(--warn)}
+.tk-b{font-size:13px;color:var(--text2);line-height:1.7}
+.tk-b strong{color:var(--bright)}
+/* episode table */
+.ep-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:var(--bg2)}
+.ep{width:100%;border-collapse:collapse;min-width:820px}
+.ep thead th{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:10px 10px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap;position:sticky;top:0;background:var(--bg2)}
+.ep thead th:nth-child(-n+3){text-align:left}
+.ep td{padding:8px 10px;border-bottom:1px solid var(--border2);text-align:right;font-size:12.5px;white-space:nowrap}
+.ep td.nm{text-align:left;font-weight:600;width:99%}
+.ep tbody tr:hover{background:var(--bg3)}
+.mk{font-family:var(--mono);font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.mk-tse{background:var(--glow);color:var(--accent2);border:1px solid var(--border)}
+.mk-otc{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-bd)}
+.atd{font-family:var(--mono);font-size:9px;color:var(--dimmer);margin-left:5px}
+.method{font-size:12px;color:var(--muted);line-height:1.8;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:16px 18px;margin-top:14px}
+.method b{color:var(--text2)}
+footer{max-width:1200px;margin:0 auto;padding:26px 32px 50px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+@media(max-width:760px){
+ nav{padding:12px 18px} .hero{padding:30px 18px 24px} .content{padding:8px 18px 40px}
+ .kpi{grid-template-columns:1fr 1fr} .dist-grid,.tk{grid-template-columns:1fr}
+ .sec-sum{margin-left:0;flex-basis:100%}
+}
+
+.chart-card{padding:16px 16px 10px}
+.chart-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.chart-head .card-title{margin:0}
+.chart-read{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--text2);min-height:18px;text-align:right}
+.chart-read b{color:var(--bright)}
+.chart{position:relative;width:100%;user-select:none;touch-action:pan-y}
+.chart svg{display:block;width:100%;overflow:visible}
+.chart text{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+.chart .ax-lbl{font-size:10px;font-weight:700;letter-spacing:.08em;fill:var(--muted)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--text2);margin:2px 0 4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:2px solid;vertical-align:middle;margin-right:6px}
+.legend i.dash{border-top-style:dashed}
+.legend i.band{height:8px;border:none;border-radius:2px}
+.read-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rd{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:15px 16px;position:relative;overflow:hidden}
+.rd::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--cyan) 60%,transparent)}
+.rd-d{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em}
+.rd-i{font-family:var(--mono);font-size:13px;color:var(--text2);margin-top:4px}
+.rd-m{font-family:var(--mono);font-size:30px;font-weight:800;color:var(--bright);letter-spacing:-1px;line-height:1.2}
+.rd-s{font-size:11.5px;color:var(--muted)}
+.prose{font-size:14.5px;line-height:1.85;color:var(--text2);max-width:900px}
+.prose p{margin:10px 0} .prose strong{color:var(--bright)}
+table.tb{width:100%;border-collapse:collapse;font-size:12px}
+table.tb th{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:right;padding:7px 10px;border-bottom:1px solid var(--border)}
+table.tb td{font-family:var(--mono);text-align:right;padding:7px 10px;border-bottom:1px solid var(--border2);white-space:nowrap}
+table.tb th:first-child,table.tb td:first-child{text-align:left}
+table.tb sup{color:var(--warn);font-size:9px;margin-left:2px}
+.lv{font-family:'PingFang TC',sans-serif;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:4px}
+.lv-red{background:var(--dn-bg);color:var(--dn);border:1px solid var(--dn-bd)}
+.lv-warn{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-bd)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.q{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--dimmer);border-radius:8px;padding:10px 14px}
+.q-dn{border-left-color:var(--dn)} .q-up{border-left-color:var(--up)} .q-warn{border-left-color:var(--warn)}
+.q-meta{font-size:11px;color:var(--muted)} .q-meta b{color:var(--text)} .q-host{color:var(--dimmer)}
+.q-txt{font-size:13.5px;color:var(--text);margin-top:3px}
+.tbl-wrap{max-height:460px;overflow:auto;margin-top:10px}
+details.arch>summary{cursor:pointer;list-style:none;display:flex;gap:8px;font-size:12px;font-weight:700;padding:9px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text)}
+details.arch>summary::before{content:'▸';color:var(--accent2)} details.arch[open]>summary::before{content:'▾'}
+.notes{font-size:12.5px;color:var(--muted);line-height:1.8} .notes li{margin-left:18px}
+@media(max-width:760px){table.tb td,table.tb th{padding:6px 6px} .read-grid,.quotes{grid-template-columns:1fr} .chart-read{margin-left:0;text-align:left;width:100%}}
+</style></head>
+<body>
+<div class="topbar"><nav>
+  <div class="nav-logo">MAGI <em>融資維持率</em></div>
+  <div class="nav-links">
+    <a href="/">← 首頁</a>
+    <button class="theme-btn" onclick="tg()">☾ 主題</button>
+  </div>
+</nav></div>
+
+<div class="hero-wrap"><div class="hero">
+  <div class="hero-pill">特別報告 · 融資維持率 × 指數 · 2026-05-06 → 2026-10-30 · 121 個交易日</div>
+  <h1>指數還在 4.5 萬，<span class="hl">維持率已經退回 7 月崩盤前</span><br>同樣的點位，散戶的槓桿墊得更高了</h1>
+  <p class="hero-lede">MAGI 從 2026-05-06 開始每天記錄融資維持率，到今天共 121 個交易日。10/30 上市融資維持率是 <strong>151.16%</strong>，在這段期間排第 <strong>7</strong> 百分位，比它低的只有 7 月下旬去槓桿那幾天。上櫃是 <strong>146.57%</strong>（第 11 百分位）。加權指數的位置跟 6/1、8/21 差不多，但那兩天的維持率是 183.8% 和 165.4%，今天只剩 151.2%，同樣的點位少了 <strong>32 個百分點</strong>的緩衝。原因是融資餘額從 5,658 億增加到 <strong>6,235 億</strong>，而且增加的部分多是在 4.6–4.9 萬的高檔買進的。用這段期間的歷史彈性推估，加權再跌 <strong>5.9%</strong>（約 42,543）上市維持率就會回到 140%；上櫃再跌 <strong>4.0%</strong> 就會到 140%。</p>
+  <div class="kpi">
+    <div class="kpi-c"><div class="kpi-k">上市維持率 10/30</div><div class="kpi-v">151.16%</div><div class="kpi-s">區間第 7 百分位 · 高點 185.0%（05-25）</div></div>
+    <div class="kpi-c"><div class="kpi-k">上櫃維持率 10/30</div><div class="kpi-v">146.57%</div><div class="kpi-s">區間第 11 百分位 · 單日 −7.2 pt</div></div>
+    <div class="kpi-c"><div class="kpi-k">區間低點 07-30</div><div class="kpi-v dn">132.5%</div><div class="kpi-s">加權 39,933 · 上櫃 122.5%（推估）</div></div>
+    <div class="kpi-c"><div class="kpi-k">上市回到 140% 推估</div><div class="kpi-v dn">42,543</div><div class="kpi-s">加權再跌 5.9% · 130% ≈ 40,115（-11.3%）</div></div>
+  </div>
+</div></div>
+
+<div class="content">
+
+<section id="tse">
+  <div class="sec-head"><span class="sec-no">01</span><span class="sec-title">上市｜加權指數 × 融資維持率</span>
+    <span class="sec-sum">今日 <b>151.16%</b> · 加權 <b>45,211.83</b> · 彈性 β=1.26（r=0.92）</span></div>
+  <div class="card chart-card">
+    <div class="chart-head"><span class="card-title">加權指數（收盤）</span><span class="chart-read" id="read-tse-i"></span></div>
+    <div class="chart" id="c-tse-i"></div>
+    <div class="chart-head" style="margin-top:8px"><span class="card-title">上市融資維持率（%）</span><span class="chart-read" id="read-tse-m"></span></div>
+    <div class="legend"><span><i style="border-color:var(--accent2)"></i>CMoney 大盤融資維持率</span><span><i class="band" style="background:var(--warn-bg);border:1px solid var(--warn-bd)"></i>130–140% 7/30 級別</span><span><i class="band" style="background:var(--dn-bg);border:1px solid var(--dn-bd)"></i>&lt;130% 斷頭區</span></div>
+    <div class="chart" id="c-tse-m"></div>
+  </div>
+</section>
+
+<section id="otc">
+  <div class="sec-head"><span class="sec-no">02</span><span class="sec-title">上櫃｜櫃買指數 × 融資維持率</span>
+    <span class="sec-sum">今日 <b>146.57%</b> · 櫃買 <b>370.26</b> · 彈性 β=1.11（r=0.98）</span></div>
+  <div class="card chart-card">
+    <div class="chart-head"><span class="card-title">櫃買指數（收盤）</span><span class="chart-read" id="read-otc-i"></span></div>
+    <div class="chart" id="c-otc-i"></div>
+    <div class="chart-head" style="margin-top:8px"><span class="card-title">上櫃融資維持率（%）</span><span class="chart-read" id="read-otc-m"></span></div>
+    <div class="legend"><span><i style="border-color:var(--accent2)"></i>CMoney 實值</span><span><i class="dash" style="border-color:var(--accent2)"></i>推估值（7/29–10/14，自算×校正因子 0.8467）</span><span><i class="band" style="background:var(--warn-bg);border:1px solid var(--warn-bd)"></i>130–140%</span><span><i class="band" style="background:var(--dn-bg);border:1px solid var(--dn-bd)"></i>&lt;130%</span></div>
+    <div class="chart" id="c-otc-m"></div>
+  </div>
+</section>
+
+<section id="read">
+  <div class="sec-head"><span class="sec-no">03</span><span class="sec-title">怎麼讀這張圖</span>
+    <span class="sec-sum">同一個指數 · 三個不同的維持率</span></div>
+  <div class="read-grid">
+    <div class="rd"><div class="rd-d">2026-06-01</div><div class="rd-i">加權 45,338</div><div class="rd-m">183.8%</div><div class="rd-s">上市融資餘額 5,658 億</div></div><div class="rd"><div class="rd-d">2026-08-21</div><div class="rd-i">加權 45,224</div><div class="rd-m">165.3%</div><div class="rd-s">上市融資餘額 5,469 億</div></div><div class="rd"><div class="rd-d">2026-10-30</div><div class="rd-i">加權 45,212</div><div class="rd-m">151.2%</div><div class="rd-s">上市融資餘額 6,235 億</div></div>
+  </div>
+  <div class="prose">
+    <p><strong>維持率跟著指數走，不過幅度比指數大。</strong>用 66 個日資料回歸，加權每跌 1%，上市維持率平均跌 1.26%，相關係數 0.92。上櫃更明顯，β=1.11、r=0.98，兩者幾乎是同一條線。所以這張圖最有用的地方不在於「兩條線很像」，而在於<strong>同樣的指數點位，對應的維持率在往下移</strong>。</p>
+    <p>上面三格就是證據。6/1 和 8/21 的加權都在 4.5 萬上下，維持率分別是 183.8% 和 165.4%；今天同樣的點位只剩 151.2%。8 月後融資餘額從 5,470 億一路增加到 10 月中的 6,500 億以上，新增的部位主要在 4.6–4.9 萬建立，所以指數只要回到 4.5 萬，這批部位就是虧損的。<strong>指數離 7/30 低點還有 13%，維持率卻只比低點高 18.6 個百分點</strong>，已經沒有多少緩衝。</p>
+    <p>上櫃的狀況更差：櫃買 370 跟 7/20 的 368.5 差不多，當時維持率 133.5%，今天 146.6%。差距主要來自 7–8 月已經斷頭出場的部位（上櫃融資餘額 7/20 是 1,882 億，8/4 降到 1,690 億）。不過 10 月上櫃融資一度加回 2,290 億，今天是 2,053 億，<strong>7–8 月清掉的 190 億已經全部加回來，還多了 170 億</strong>。</p>
+    <p><strong>7/30 是這段期間唯一一次真正的低點</strong>：上市 132.5%、上櫃推估 122.5%，隔天 7/31 加權反彈 +8.0%。智囊當時的發言從「斷頭潮要撐著」轉成 8/4 的「最差已過」。如果這個模式重複，<strong>140% 以下才會開始出現被迫賣壓，130% 附近才是洗完的訊號</strong>。目前兩市都在 145–151%，還在中間，不是可以抄底的位置。</p>
+  </div>
+</section>
+
+<section id="scenario">
+  <div class="sec-head"><span class="sec-no">04</span><span class="sec-title">情境推估：指數再走多少，維持率到哪</span>
+    <span class="sec-sum">以 10/30 為基準 · 用歷史 β 推估 · 假設融資餘額不變</span></div>
+  <div class="card" style="overflow-x:auto">
+    <table class="tb">
+      <thead><tr><th>指數變動</th><th>加權</th><th>上市維持率</th><th>櫃買</th><th>上櫃維持率</th></tr></thead>
+      <tbody><tr><td class="up">+3%</td><td>46,568</td><td><b>156.9%</b></td><td>381.4</td><td><b>151.5%</b></td></tr>
+<tr><td class="dn">-3%</td><td>43,855</td><td><b>145.5%</b></td><td>359.2</td><td><b>141.7%</b></td></tr>
+<tr><td class="dn">-5%</td><td>42,951</td><td><b>141.7%</b></td><td>351.7</td><td><b>138.5%</b> <span class="lv lv-warn">7/30 級</span></td></tr>
+<tr><td class="dn">-8%</td><td>41,595</td><td><b>136.1%</b> <span class="lv lv-warn">7/30 級</span></td><td>340.6</td><td><b>133.6%</b> <span class="lv lv-warn">7/30 級</span></td></tr>
+<tr><td class="dn">-10%</td><td>40,691</td><td><b>132.4%</b> <span class="lv lv-warn">7/30 級</span></td><td>333.2</td><td><b>130.4%</b> <span class="lv lv-warn">7/30 級</span></td></tr>
+<tr><td class="dn">-12%</td><td>39,786</td><td><b>128.7%</b> <span class="lv lv-red">斷頭區</span></td><td>325.8</td><td><b>127.2%</b> <span class="lv lv-red">斷頭區</span></td></tr></tbody>
+    </table>
+    <p class="notes" style="margin-top:10px">推估方法：維持率 × (1+指數變動%)^β。實際上跌到 140% 以下會出現追繳和斷頭，融資餘額會下降，維持率的跌幅反而會被止住，7/30 就是這樣。所以這張表比較適合當作「哪個點位開始有壓力」的參考，不適合拿來預測。</p>
+  </div>
+</section>
+
+<section id="voice">
+  <div class="sec-head"><span class="sec-no">05</span><span class="sec-title">智囊怎麼看維持率</span>
+    <span class="sec-sum">7 月底去槓桿 → 8/4 最差已過 → 10 月「融資沒降到舒服水位」</span></div>
+  <div class="quotes"><div class="q q-dn"><div class="q-meta"><span class="mono">2026-07-20</span> · <b>Bobo</b> <span class="q-host">樂林</span></div><div class="q-txt">「盤破季線，融資維持已經到 130% 附近」</div></div>
+<div class="q q-dn"><div class="q-meta"><span class="mono">2026-07-28</span> · <b>Aaron</b> <span class="q-host">駿羽</span></div><div class="q-txt">「指數認為會跌破四萬，融資維持率 150% 位置尷尬」</div></div>
+<div class="q q-dn"><div class="q-meta"><span class="mono">2026-07-28</span> · <b>上翔</b> <span class="q-host">樂林</span></div><div class="q-txt">「持股維持，接下來可能有斷頭潮，要撐著。」</div></div>
+<div class="q q-dn"><div class="q-meta"><span class="mono">2026-07-29</span> · <b>強尼</b> <span class="q-host">樂林</span></div><div class="q-txt">「全部去槓桿，等融資下降完再加碼」</div></div>
+<div class="q q-dn"><div class="q-meta"><span class="mono">2026-07-30</span> · <b>布哥</b> <span class="q-host">駿羽</span></div><div class="q-txt">「認為指數尚未止跌、一定會破底但不會破太多，融資去化不完」</div></div>
+<div class="q q-up"><div class="q-meta"><span class="mono">2026-08-04</span> · <b>龍哥</b> <span class="q-host">駿羽</span></div><div class="q-txt">「最差已過，籌碼對長線是好的，持股不變續抱，券商放寬融資額度近一倍」</div></div>
+<div class="q q-warn"><div class="q-meta"><span class="mono">2026-10-19</span> · <b>小魚</b> <span class="q-host">樂林</span></div><div class="q-txt">「融資維持率 180% 多，到 150% 前不太想新買股票，等 11/3 期中選舉後再說」</div></div>
+<div class="q q-warn"><div class="q-meta"><span class="mono">2026-10-19</span> · <b>Ed</b> <span class="q-host">樂林</span></div><div class="q-txt">「這波結構最像 2018 Q4……殺到融資下來開始反彈到 12 月 FOMC 前」</div></div>
+<div class="q q-warn"><div class="q-meta"><span class="mono">2026-10-19</span> · <b>Jerry哥</b> <span class="q-host">駿羽</span></div><div class="q-txt">「融資水位高，持續降槓桿，看好的都跟之前一樣」</div></div>
+<div class="q q-warn"><div class="q-meta"><span class="mono">2026-10-28</span> · <b>雅婷姊</b> <span class="q-host">樂林</span></div><div class="q-txt">「持股維持 100% 沒預期這麼快往上，融資尚未降到舒服水位」</div></div></div>
+  <p class="notes" style="margin-top:12px">⚠️ 口徑差異：智囊口中的「150%」多半是<strong>證交所口徑或自己的帳戶</strong>。MAGI 的自算值（逐檔融資張數 × 收盤價，接近官方口徑）比 CMoney 高約 8–10%，例如 10/30 上市自算 163.2% 對 CMoney 151.2%。小魚 10/19 說「到 150% 前不太想新買股票」，如果是 CMoney 口徑，<strong>10/30 上市 151.2%、上櫃 146.6% 已經到了</strong>；如果是自算口徑，上市 163.2% 還差一段。</p>
+</section>
+
+<section id="data">
+  <div class="sec-head"><span class="sec-no">06</span><span class="sec-title">資料說明與逐日明細</span>
+    <span class="sec-sum">121 日 · 上櫃缺值 5 日</span></div>
+  <ul class="notes">
+    <li><b>維持率</b>：CMoney 大盤融資維持率（2026-10-16 起老闆指定的主值）。上市全期都是 CMoney 實值。</li>
+    <li><b>上櫃推估段</b>：CMoney 沒有上櫃歷史端點，7/29–10/14 用 MAGI 自算值 × 校正因子 0.8467 推估（圖上虛線，表格標「估」）。5/7、8/18、9/3、9/24、10/13 因為端點回空或數值異常而留空。</li>
+    <li><b>指數</b>：加權與櫃買收盤都對過 FinMind 官方收盤。其中 8/5、8/18 兩天 chips 快照的收盤是前一天的舊值，已經改用 FinMind 的數字。</li>
+    <li><b>融資餘額</b>：chips_history 每日快照（億元）。少數幾天融資尚未公告時沿用前一天的數字。</li>
+  </ul>
+  <details class="arch" style="margin-top:12px"><summary>逐日明細表（121 筆，新→舊）</summary>
+    <div class="tbl-wrap"><table class="tb">
+      <thead><tr><th>日期</th><th>加權</th><th>上市維持率</th><th>上市融資(億)</th><th>櫃買</th><th>上櫃維持率</th><th>上櫃融資(億)</th></tr></thead>
+      <tbody><tr><td>2026-10-30</td><td>45,211.83</td><td>151.16</td><td>6,234.7</td><td>370.26</td><td>146.57</td><td>2,053.0</td></tr>
+<tr><td>2026-10-29</td><td>46,368.33</td><td>157.48</td><td>6,339.1</td><td>387.37</td><td>153.79</td><td>2,099.6</td></tr>
+<tr><td>2026-10-28</td><td>47,035.58</td><td>161.74</td><td>6,323.0</td><td>394.61</td><td>155.95</td><td>2,112.4</td></tr>
+<tr><td>2026-10-27</td><td>46,096.23</td><td>155.11</td><td>6,233.9</td><td>379.20</td><td>147.99</td><td>2,092.6</td></tr>
+<tr><td>2026-10-22</td><td>46,041.43</td><td>156.04</td><td>6,338.8</td><td>381.69</td><td>148.85</td><td>2,126.3</td></tr>
+<tr><td>2026-10-21</td><td>46,887.77</td><td>161.32</td><td>6,443.7</td><td>395.42</td><td>155.55</td><td>2,159.7</td></tr>
+<tr><td>2026-10-20</td><td>46,292.93</td><td>157.54</td><td>6,381.0</td><td>387.88</td><td>151.66</td><td>2,150.1</td></tr>
+<tr><td>2026-10-19</td><td>46,822.08</td><td>159.60</td><td>6,406.2</td><td>394.05</td><td>154.08</td><td>2,152.2</td></tr>
+<tr><td>2026-10-16</td><td>47,111.26</td><td>161.65</td><td>6,455.9</td><td>400.26</td><td>156.28</td><td>2,182.5</td></tr>
+<tr><td>2026-10-15</td><td>46,969.87</td><td>160.13</td><td>6,464.2</td><td>396.90</td><td>155.22</td><td>2,189.6</td></tr>
+<tr><td>2026-10-14</td><td>48,625.83</td><td>168.93</td><td>6,515.7</td><td>420.13</td><td>158.71<sup>估</sup></td><td>2,255.3</td></tr>
+<tr><td>2026-10-13</td><td>48,341.31</td><td>167.22</td><td>6,449.8</td><td>414.31</td><td>—</td><td>2,232.0</td></tr>
+<tr><td>2026-10-12</td><td>49,301.96</td><td>173.02</td><td>6,533.3</td><td>427.90</td><td>161.76<sup>估</sup></td><td>2,283.5</td></tr>
+<tr><td>2026-10-08</td><td>49,313.44</td><td>173.73</td><td>6,464.1</td><td>426.71</td><td>162.27<sup>估</sup></td><td>2,278.7</td></tr>
+<tr><td>2026-10-07</td><td>49,806.37</td><td>175.21</td><td>6,400.0</td><td>430.46</td><td>164.23<sup>估</sup></td><td>2,289.6</td></tr>
+<tr><td>2026-10-06</td><td>49,822.55</td><td>175.39</td><td>6,376.6</td><td>430.86</td><td>164.76<sup>估</sup></td><td>2,261.5</td></tr>
+<tr><td>2026-10-05</td><td>49,712.04</td><td>176.78</td><td>6,333.5</td><td>432.48</td><td>167.55<sup>估</sup></td><td>2,241.7</td></tr>
+<tr><td>2026-10-02</td><td>48,475.74</td><td>173.81</td><td>6,351.0</td><td>426.93</td><td>165.65<sup>估</sup></td><td>2,215.4</td></tr>
+<tr><td>2026-10-01</td><td>48,353.49</td><td>172.06</td><td>6,298.7</td><td>418.82</td><td>161.57<sup>估</sup></td><td>2,188.7</td></tr>
+<tr><td>2026-09-30</td><td>47,940.13</td><td>170.84</td><td>6,222.5</td><td>417.07</td><td>161.95<sup>估</sup></td><td>2,158.8</td></tr>
+<tr><td>2026-09-29</td><td>47,631.96</td><td>169.11</td><td>6,186.5</td><td>412.25</td><td>159.46<sup>估</sup></td><td>2,136.8</td></tr>
+<tr><td>2026-09-24</td><td>48,024.60</td><td>170.92</td><td>6,063.7</td><td>412.99</td><td>—</td><td>2,108.5</td></tr>
+<tr><td>2026-09-23</td><td>48,157.29</td><td>170.39</td><td>6,063.7</td><td>413.76</td><td>160.19<sup>估</sup></td><td>2,108.5</td></tr>
+<tr><td>2026-09-22</td><td>47,800.17</td><td>170.10</td><td>6,048.6</td><td>415.17</td><td>161.58<sup>估</sup></td><td>2,085.2</td></tr>
+<tr><td>2026-09-21</td><td>47,718.84</td><td>168.47</td><td>6,030.4</td><td>412.57</td><td>161.34<sup>估</sup></td><td>2,067.3</td></tr>
+<tr><td>2026-09-18</td><td>47,180.75</td><td>166.92</td><td>5,940.4</td><td>412.68</td><td>161.71<sup>估</sup></td><td>2,046.2</td></tr>
+<tr><td>2026-09-17</td><td>46,288.00</td><td>161.62</td><td>5,894.0</td><td>398.17</td><td>155.67<sup>估</sup></td><td>2,019.3</td></tr>
+<tr><td>2026-09-16</td><td>45,848.90</td><td>161.46</td><td>5,861.7</td><td>399.21</td><td>157.29<sup>估</sup></td><td>1,997.2</td></tr>
+<tr><td>2026-09-15</td><td>45,511.49</td><td>157.96</td><td>5,822.4</td><td>388.73</td><td>151.84<sup>估</sup></td><td>1,974.9</td></tr>
+<tr><td>2026-09-14</td><td>45,862.52</td><td>160.75</td><td>5,838.8</td><td>394.67</td><td>154.29<sup>估</sup></td><td>1,977.1</td></tr>
+<tr><td>2026-09-11</td><td>46,184.85</td><td>162.41</td><td>5,878.7</td><td>395.52</td><td>154.41<sup>估</sup></td><td>1,995.7</td></tr>
+<tr><td>2026-09-10</td><td>46,940.49</td><td>166.29</td><td>5,919.0</td><td>405.24</td><td>159.27<sup>估</sup></td><td>2,012.7</td></tr>
+<tr><td>2026-09-09</td><td>47,183.36</td><td>167.10</td><td>5,871.7</td><td>408.09</td><td>160.50<sup>估</sup></td><td>2,005.8</td></tr>
+<tr><td>2026-09-08</td><td>47,105.78</td><td>165.95</td><td>5,862.7</td><td>407.19</td><td>159.62<sup>估</sup></td><td>2,000.7</td></tr>
+<tr><td>2026-09-07</td><td>47,326.27</td><td>168.39</td><td>5,882.7</td><td>409.33</td><td>161.28<sup>估</sup></td><td>2,004.6</td></tr>
+<tr><td>2026-09-04</td><td>46,551.13</td><td>166.66</td><td>5,818.9</td><td>402.48</td><td>159.65<sup>估</sup></td><td>1,982.4</td></tr>
+<tr><td>2026-09-03</td><td>45,857.66</td><td>163.12</td><td>5,856.8</td><td>395.25</td><td>—</td><td>1,981.7</td></tr>
+<tr><td>2026-09-02</td><td>46,164.72</td><td>168.44</td><td>5,856.8</td><td>406.96</td><td>161.43<sup>估</sup></td><td>1,981.7</td></tr>
+<tr><td>2026-09-01</td><td>46,948.72</td><td>171.78</td><td>5,781.2</td><td>410.77</td><td>164.11<sup>估</sup></td><td>1,973.0</td></tr>
+<tr><td>2026-08-31</td><td>46,128.47</td><td>170.17</td><td>5,698.8</td><td>401.70</td><td>160.71<sup>估</sup></td><td>1,946.6</td></tr>
+<tr><td>2026-08-28</td><td>46,331.45</td><td>172.13</td><td>5,671.8</td><td>402.83</td><td>160.70<sup>估</sup></td><td>1,926.9</td></tr>
+<tr><td>2026-08-27</td><td>45,975.22</td><td>171.10</td><td>5,599.2</td><td>400.38</td><td>160.59<sup>估</sup></td><td>1,910.2</td></tr>
+<tr><td>2026-08-26</td><td>45,832.62</td><td>170.49</td><td>5,548.0</td><td>395.66</td><td>158.07<sup>估</sup></td><td>1,876.6</td></tr>
+<tr><td>2026-08-25</td><td>45,169.46</td><td>165.95</td><td>5,469.4</td><td>389.41</td><td>154.02<sup>估</sup></td><td>1,839.2</td></tr>
+<tr><td>2026-08-24</td><td>44,762.32</td><td>163.68</td><td>5,452.6</td><td>386.10</td><td>151.28<sup>估</sup></td><td>1,840.3</td></tr>
+<tr><td>2026-08-21</td><td>45,224.29</td><td>165.35</td><td>5,469.4</td><td>387.27</td><td>153.15<sup>估</sup></td><td>1,852.1</td></tr>
+<tr><td>2026-08-20</td><td>44,933.74</td><td>166.74</td><td>5,484.1</td><td>389.96</td><td>153.43<sup>估</sup></td><td>1,840.8</td></tr>
+<tr><td>2026-08-19</td><td>44,719.35</td><td>165.29</td><td>5,481.9</td><td>384.79</td><td>151.38<sup>估</sup></td><td>1,824.2</td></tr>
+<tr><td>2026-08-18</td><td>45,308.68</td><td>167.98</td><td>5,501.0</td><td>390.83</td><td>—</td><td>1,828.2</td></tr>
+<tr><td>2026-08-17</td><td>45,857.27</td><td>172.00</td><td>5,501.0</td><td>398.32</td><td>157.15<sup>估</sup></td><td>1,828.2</td></tr>
+<tr><td>2026-08-14</td><td>45,811.01</td><td>171.22</td><td>5,470.6</td><td>400.95</td><td>156.31<sup>估</sup></td><td>1,816.1</td></tr>
+<tr><td>2026-08-13</td><td>46,021.48</td><td>171.73</td><td>5,497.8</td><td>406.12</td><td>159.85<sup>估</sup></td><td>1,807.4</td></tr>
+<tr><td>2026-08-12</td><td>45,518.07</td><td>169.72</td><td>5,480.8</td><td>402.02</td><td>158.38<sup>估</sup></td><td>1,790.6</td></tr>
+<tr><td>2026-08-11</td><td>45,120.72</td><td>167.59</td><td>5,441.5</td><td>391.68</td><td>153.92<sup>估</sup></td><td>1,781.8</td></tr>
+<tr><td>2026-08-10</td><td>44,928.76</td><td>167.17</td><td>5,453.0</td><td>391.61</td><td>153.74<sup>估</sup></td><td>1,770.0</td></tr>
+<tr><td>2026-08-07</td><td>44,225.91</td><td>162.15</td><td>5,376.6</td><td>384.19</td><td>149.89<sup>估</sup></td><td>1,752.1</td></tr>
+<tr><td>2026-08-06</td><td>44,396.70</td><td>164.70</td><td>5,328.0</td><td>391.37</td><td>153.51<sup>估</sup></td><td>1,752.1</td></tr>
+<tr><td>2026-08-05</td><td>44,611.60</td><td>162.75</td><td>5,211.3</td><td>383.75</td><td>151.47<sup>估</sup></td><td>1,689.7</td></tr>
+<tr><td>2026-08-04</td><td>43,360.66</td><td>157.31</td><td>5,211.3</td><td>375.03</td><td>146.04<sup>估</sup></td><td>1,689.7</td></tr>
+<tr><td>2026-08-03</td><td>43,386.41</td><td>151.64</td><td>5,147.6</td><td>362.89</td><td>138.96<sup>估</sup></td><td>1,670.1</td></tr>
+<tr><td>2026-07-31</td><td>43,119.75</td><td>144.23</td><td>5,074.6</td><td>347.85</td><td>131.58<sup>估</sup></td><td>1,670.1</td></tr>
+<tr><td>2026-07-30</td><td>39,933.30</td><td>132.54</td><td>4,938.7</td><td>326.23</td><td>122.53<sup>估</sup></td><td>1,630.1</td></tr>
+<tr><td>2026-07-29</td><td>40,039.18</td><td>133.82</td><td>5,070.1</td><td>334.24</td><td>126.01<sup>估</sup></td><td>1,674.1</td></tr>
+<tr><td>2026-07-28</td><td>41,603.36</td><td>140.38</td><td>5,455.3</td><td>352.42</td><td>130.45</td><td>1,809.8</td></tr>
+<tr><td>2026-07-27</td><td>43,634.19</td><td>150.23</td><td>5,686.6</td><td>378.09</td><td>140.75</td><td>1,883.5</td></tr>
+<tr><td>2026-07-24</td><td>43,654.84</td><td>149.96</td><td>5,770.6</td><td>377.63</td><td>139.66</td><td>1,901.6</td></tr>
+<tr><td>2026-07-23</td><td>44,850.81</td><td>155.71</td><td>5,826.3</td><td>392.11</td><td>145.01</td><td>1,927.5</td></tr>
+<tr><td>2026-07-22</td><td>44,825.78</td><td>156.59</td><td>5,828.2</td><td>395.18</td><td>145.48</td><td>1,927.0</td></tr>
+<tr><td>2026-07-21</td><td>44,232.87</td><td>150.79</td><td>5,765.0</td><td>381.96</td><td>139.71</td><td>1,902.9</td></tr>
+<tr><td>2026-07-20</td><td>42,449.70</td><td>143.49</td><td>5,690.4</td><td>368.53</td><td>133.53</td><td>1,881.9</td></tr>
+<tr><td>2026-07-17</td><td>42,671.27</td><td>147.05</td><td>5,879.6</td><td>378.44</td><td>137.22</td><td>1,962.0</td></tr>
+<tr><td>2026-07-16</td><td>45,624.98</td><td>158.59</td><td>6,155.8</td><td>407.01</td><td>148.50</td><td>2,102.2</td></tr>
+<tr><td>2026-07-15</td><td>45,631.59</td><td>161.96</td><td>6,153.7</td><td>416.41</td><td>153.13</td><td>2,105.2</td></tr>
+<tr><td>2026-07-14</td><td>44,737.95</td><td>156.27</td><td>6,040.3</td><td>407.41</td><td>150.04</td><td>2,064.2</td></tr>
+<tr><td>2026-07-13</td><td>45,380.52</td><td>159.75</td><td>6,183.0</td><td>419.90</td><td>155.12</td><td>2,125.3</td></tr>
+<tr><td>2026-07-09</td><td>45,354.61</td><td>161.81</td><td>6,196.5</td><td>424.99</td><td>157.35</td><td>2,123.9</td></tr>
+<tr><td>2026-07-08</td><td>45,734.41</td><td>161.55</td><td>6,138.2</td><td>421.39</td><td>156.18</td><td>2,115.1</td></tr>
+<tr><td>2026-07-07</td><td>45,479.11</td><td>160.73</td><td>6,109.5</td><td>419.47</td><td>154.01</td><td>2,103.2</td></tr>
+<tr><td>2026-07-06</td><td>46,556.39</td><td>168.43</td><td>6,313.4</td><td>439.80</td><td>162.08</td><td>2,145.6</td></tr>
+<tr><td>2026-07-03</td><td>46,780.62</td><td>171.15</td><td>6,308.1</td><td>445.38</td><td>163.69</td><td>2,128.9</td></tr>
+<tr><td>2026-07-02</td><td>46,744.16</td><td>170.88</td><td>6,208.4</td><td>439.51</td><td>160.84</td><td>2,103.4</td></tr>
+<tr><td>2026-07-01</td><td>47,018.99</td><td>171.36</td><td>6,095.0</td><td>431.23</td><td>159.17</td><td>2,084.2</td></tr>
+<tr><td>2026-06-30</td><td>46,125.91</td><td>172.13</td><td>6,116.5</td><td>426.97</td><td>159.00</td><td>2,070.8</td></tr>
+<tr><td>2026-06-29</td><td>44,999.90</td><td>165.95</td><td>5,942.3</td><td>412.93</td><td>152.89</td><td>2,036.0</td></tr>
+<tr><td>2026-06-26</td><td>44,571.76</td><td>164.84</td><td>5,909.3</td><td>415.26</td><td>153.64</td><td>2,048.5</td></tr>
+<tr><td>2026-06-25</td><td>46,255.26</td><td>174.57</td><td>6,110.0</td><td>439.84</td><td>163.45</td><td>2,111.1</td></tr>
+<tr><td>2026-06-24</td><td>46,043.60</td><td>173.93</td><td>6,074.6</td><td>442.09</td><td>164.80</td><td>2,101.1</td></tr>
+<tr><td>2026-06-23</td><td>47,100.65</td><td>175.06</td><td>5,939.3</td><td>440.81</td><td>165.46</td><td>2,083.3</td></tr>
+<tr><td>2026-06-22</td><td>47,741.51</td><td>181.40</td><td>6,050.4</td><td>453.50</td><td>172.10</td><td>2,084.5</td></tr>
+<tr><td>2026-06-18</td><td>46,465.20</td><td>178.57</td><td>5,930.5</td><td>447.06</td><td>170.02</td><td>2,054.7</td></tr>
+<tr><td>2026-06-17</td><td>45,877.39</td><td>175.14</td><td>5,839.1</td><td>433.34</td><td>164.11</td><td>2,036.3</td></tr>
+<tr><td>2026-06-16</td><td>45,809.19</td><td>173.27</td><td>5,713.1</td><td>430.26</td><td>163.11</td><td>2,003.0</td></tr>
+<tr><td>2026-06-15</td><td>45,396.99</td><td>173.26</td><td>5,719.1</td><td>429.37</td><td>163.42</td><td>1,991.9</td></tr>
+<tr><td>2026-06-12</td><td>44,169.04</td><td>167.32</td><td>5,570.3</td><td>419.72</td><td>158.93</td><td>1,953.6</td></tr>
+<tr><td>2026-06-11</td><td>43,149.46</td><td>163.09</td><td>5,491.8</td><td>407.09</td><td>153.90</td><td>1,927.7</td></tr>
+<tr><td>2026-06-10</td><td>43,225.54</td><td>162.74</td><td>5,468.1</td><td>405.91</td><td>154.17</td><td>1,948.8</td></tr>
+<tr><td>2026-06-09</td><td>44,704.44</td><td>171.46</td><td>5,638.8</td><td>424.71</td><td>163.37</td><td>2,027.9</td></tr>
+<tr><td>2026-06-08</td><td>43,502.78</td><td>164.91</td><td>5,510.1</td><td>412.57</td><td>158.01</td><td>2,010.9</td></tr>
+<tr><td>2026-06-05</td><td>45,070.94</td><td>172.67</td><td>5,666.5</td><td>431.07</td><td>166.68</td><td>2,102.9</td></tr>
+<tr><td>2026-06-04</td><td>45,677.46</td><td>176.56</td><td>5,726.4</td><td>440.10</td><td>170.15</td><td>2,113.0</td></tr>
+<tr><td>2026-06-03</td><td>46,459.16</td><td>181.84</td><td>5,684.0</td><td>446.82</td><td>175.42</td><td>2,127.5</td></tr>
+<tr><td>2026-06-02</td><td>45,557.31</td><td>181.55</td><td>5,669.7</td><td>440.64</td><td>174.71</td><td>2,086.0</td></tr>
+<tr><td>2026-06-01</td><td>45,337.91</td><td>183.82</td><td>5,657.8</td><td>446.02</td><td>178.44</td><td>2,088.3</td></tr>
+<tr><td>2026-05-29</td><td>44,732.94</td><td>180.93</td><td>5,563.6</td><td>443.64</td><td>176.94</td><td>2,068.5</td></tr>
+<tr><td>2026-05-28</td><td>43,636.44</td><td>177.39</td><td>5,350.3</td><td>432.48</td><td>172.91</td><td>2,007.7</td></tr>
+<tr><td>2026-05-27</td><td>44,256.80</td><td>182.83</td><td>5,362.7</td><td>440.19</td><td>177.43</td><td>2,027.3</td></tr>
+<tr><td>2026-05-26</td><td>43,525.37</td><td>184.07</td><td>5,345.9</td><td>439.30</td><td>180.84</td><td>2,040.4</td></tr>
+<tr><td>2026-05-25</td><td>43,644.40</td><td>185.03</td><td>5,304.8</td><td>434.99</td><td>179.66</td><td>2,016.7</td></tr>
+<tr><td>2026-05-22</td><td>42,267.97</td><td>180.02</td><td>5,222.9</td><td>423.25</td><td>174.98</td><td>1,989.4</td></tr>
+<tr><td>2026-05-21</td><td>41,368.21</td><td>174.16</td><td>5,111.5</td><td>409.80</td><td>169.00</td><td>1,970.3</td></tr>
+<tr><td>2026-05-20</td><td>40,020.82</td><td>166.94</td><td>5,020.8</td><td>396.42</td><td>162.73</td><td>1,936.6</td></tr>
+<tr><td>2026-05-19</td><td>40,175.56</td><td>167.35</td><td>4,968.9</td><td>398.18</td><td>163.75</td><td>1,947.7</td></tr>
+<tr><td>2026-05-18</td><td>40,891.82</td><td>171.96</td><td>5,016.2</td><td>409.63</td><td>169.79</td><td>1,965.0</td></tr>
+<tr><td>2026-05-15</td><td>41,172.36</td><td>172.08</td><td>4,928.0</td><td>411.18</td><td>169.47</td><td>1,950.3</td></tr>
+<tr><td>2026-05-14</td><td>41,751.75</td><td>177.20</td><td>4,991.3</td><td>426.57</td><td>177.78</td><td>1,992.5</td></tr>
+<tr><td>2026-05-13</td><td>41,374.50</td><td>177.28</td><td>4,944.2</td><td>420.54</td><td>176.96</td><td>1,975.5</td></tr>
+<tr><td>2026-05-12</td><td>41,898.32</td><td>181.32</td><td>4,911.9</td><td>425.71</td><td>181.81</td><td>1,985.0</td></tr>
+<tr><td>2026-05-11</td><td>41,790.06</td><td>181.88</td><td>4,845.9</td><td>422.01</td><td>181.83</td><td>1,985.7</td></tr>
+<tr><td>2026-05-08</td><td>41,603.94</td><td>177.68</td><td>4,771.8</td><td>409.44</td><td>176.83</td><td>1,954.8</td></tr>
+<tr><td>2026-05-07</td><td>41,933.78</td><td>182.14</td><td>4,826.6</td><td>416.41</td><td>—</td><td>1,985.2</td></tr>
+<tr><td>2026-05-06</td><td>41,138.85</td><td>180.63</td><td>4,756.5</td><td>410.29</td><td>181.33</td><td>1,985.2</td></tr></tbody></table></div>
+  </details>
+</section>
+
+</div>
+<footer>MAGI 盤後系統 · 融資維持率 × 指數特別報告 · 資料 2026-05-06 – 2026-10-30 · 來源 CMoney / FinMind / TWSE / TPEX</footer>
+
+<script>
+const D=[{"d": "2026-05-06", "ti": 41138.85, "oi": 410.29, "tm": 180.63, "om": 181.33, "e": false, "bt": 4756.5, "bo": 1985.2}, {"d": "2026-05-07", "ti": 41933.78, "oi": 416.41, "tm": 182.14, "om": null, "e": false, "bt": 4826.6, "bo": 1985.2}, {"d": "2026-05-08", "ti": 41603.94, "oi": 409.44, "tm": 177.68, "om": 176.83, "e": false, "bt": 4771.8, "bo": 1954.8}, {"d": "2026-05-11", "ti": 41790.06, "oi": 422.01, "tm": 181.88, "om": 181.83, "e": false, "bt": 4845.9, "bo": 1985.7}, {"d": "2026-05-12", "ti": 41898.32, "oi": 425.71, "tm": 181.32, "om": 181.81, "e": false, "bt": 4911.9, "bo": 1985.0}, {"d": "2026-05-13", "ti": 41374.5, "oi": 420.54, "tm": 177.28, "om": 176.96, "e": false, "bt": 4944.2, "bo": 1975.5}, {"d": "2026-05-14", "ti": 41751.75, "oi": 426.57, "tm": 177.2, "om": 177.78, "e": false, "bt": 4991.3, "bo": 1992.5}, {"d": "2026-05-15", "ti": 41172.36, "oi": 411.18, "tm": 172.08, "om": 169.47, "e": false, "bt": 4928.0, "bo": 1950.3}, {"d": "2026-05-18", "ti": 40891.82, "oi": 409.63, "tm": 171.96, "om": 169.79, "e": false, "bt": 5016.2, "bo": 1965.0}, {"d": "2026-05-19", "ti": 40175.56, "oi": 398.18, "tm": 167.35, "om": 163.75, "e": false, "bt": 4968.9, "bo": 1947.7}, {"d": "2026-05-20", "ti": 40020.82, "oi": 396.42, "tm": 166.94, "om": 162.73, "e": false, "bt": 5020.8, "bo": 1936.6}, {"d": "2026-05-21", "ti": 41368.21, "oi": 409.8, "tm": 174.16, "om": 169.0, "e": false, "bt": 5111.5, "bo": 1970.3}, {"d": "2026-05-22", "ti": 42267.97, "oi": 423.25, "tm": 180.02, "om": 174.98, "e": false, "bt": 5222.9, "bo": 1989.4}, {"d": "2026-05-25", "ti": 43644.4, "oi": 434.99, "tm": 185.03, "om": 179.66, "e": false, "bt": 5304.8, "bo": 2016.7}, {"d": "2026-05-26", "ti": 43525.37, "oi": 439.3, "tm": 184.07, "om": 180.84, "e": false, "bt": 5345.9, "bo": 2040.4}, {"d": "2026-05-27", "ti": 44256.8, "oi": 440.19, "tm": 182.83, "om": 177.43, "e": false, "bt": 5362.7, "bo": 2027.3}, {"d": "2026-05-28", "ti": 43636.44, "oi": 432.48, "tm": 177.39, "om": 172.91, "e": false, "bt": 5350.3, "bo": 2007.7}, {"d": "2026-05-29", "ti": 44732.94, "oi": 443.64, "tm": 180.93, "om": 176.94, "e": false, "bt": 5563.6, "bo": 2068.5}, {"d": "2026-06-01", "ti": 45337.91, "oi": 446.02, "tm": 183.82, "om": 178.44, "e": false, "bt": 5657.8, "bo": 2088.3}, {"d": "2026-06-02", "ti": 45557.31, "oi": 440.64, "tm": 181.55, "om": 174.71, "e": false, "bt": 5669.7, "bo": 2086.0}, {"d": "2026-06-03", "ti": 46459.16, "oi": 446.82, "tm": 181.84, "om": 175.42, "e": false, "bt": 5684.0, "bo": 2127.5}, {"d": "2026-06-04", "ti": 45677.46, "oi": 440.1, "tm": 176.56, "om": 170.15, "e": false, "bt": 5726.4, "bo": 2113.0}, {"d": "2026-06-05", "ti": 45070.94, "oi": 431.07, "tm": 172.67, "om": 166.68, "e": false, "bt": 5666.5, "bo": 2102.9}, {"d": "2026-06-08", "ti": 43502.78, "oi": 412.57, "tm": 164.91, "om": 158.01, "e": false, "bt": 5510.1, "bo": 2010.9}, {"d": "2026-06-09", "ti": 44704.44, "oi": 424.71, "tm": 171.46, "om": 163.37, "e": false, "bt": 5638.8, "bo": 2027.9}, {"d": "2026-06-10", "ti": 43225.54, "oi": 405.91, "tm": 162.74, "om": 154.17, "e": false, "bt": 5468.1, "bo": 1948.8}, {"d": "2026-06-11", "ti": 43149.46, "oi": 407.09, "tm": 163.09, "om": 153.9, "e": false, "bt": 5491.8, "bo": 1927.7}, {"d": "2026-06-12", "ti": 44169.04, "oi": 419.72, "tm": 167.32, "om": 158.93, "e": false, "bt": 5570.3, "bo": 1953.6}, {"d": "2026-06-15", "ti": 45396.99, "oi": 429.37, "tm": 173.26, "om": 163.42, "e": false, "bt": 5719.1, "bo": 1991.9}, {"d": "2026-06-16", "ti": 45809.19, "oi": 430.26, "tm": 173.27, "om": 163.11, "e": false, "bt": 5713.1, "bo": 2003.0}, {"d": "2026-06-17", "ti": 45877.39, "oi": 433.34, "tm": 175.14, "om": 164.11, "e": false, "bt": 5839.1, "bo": 2036.3}, {"d": "2026-06-18", "ti": 46465.2, "oi": 447.06, "tm": 178.57, "om": 170.02, "e": false, "bt": 5930.5, "bo": 2054.7}, {"d": "2026-06-22", "ti": 47741.51, "oi": 453.5, "tm": 181.4, "om": 172.1, "e": false, "bt": 6050.4, "bo": 2084.5}, {"d": "2026-06-23", "ti": 47100.65, "oi": 440.81, "tm": 175.06, "om": 165.46, "e": false, "bt": 5939.3, "bo": 2083.3}, {"d": "2026-06-24", "ti": 46043.6, "oi": 442.09, "tm": 173.93, "om": 164.8, "e": false, "bt": 6074.6, "bo": 2101.1}, {"d": "2026-06-25", "ti": 46255.26, "oi": 439.84, "tm": 174.57, "om": 163.45, "e": false, "bt": 6110.0, "bo": 2111.1}, {"d": "2026-06-26", "ti": 44571.76, "oi": 415.26, "tm": 164.84, "om": 153.64, "e": false, "bt": 5909.3, "bo": 2048.5}, {"d": "2026-06-29", "ti": 44999.9, "oi": 412.93, "tm": 165.95, "om": 152.89, "e": false, "bt": 5942.3, "bo": 2036.0}, {"d": "2026-06-30", "ti": 46125.91, "oi": 426.97, "tm": 172.13, "om": 159.0, "e": false, "bt": 6116.5, "bo": 2070.8}, {"d": "2026-07-01", "ti": 47018.99, "oi": 431.23, "tm": 171.36, "om": 159.17, "e": false, "bt": 6095.0, "bo": 2084.2}, {"d": "2026-07-02", "ti": 46744.16, "oi": 439.51, "tm": 170.88, "om": 160.84, "e": false, "bt": 6208.4, "bo": 2103.4}, {"d": "2026-07-03", "ti": 46780.62, "oi": 445.38, "tm": 171.15, "om": 163.69, "e": false, "bt": 6308.1, "bo": 2128.9}, {"d": "2026-07-06", "ti": 46556.39, "oi": 439.8, "tm": 168.43, "om": 162.08, "e": false, "bt": 6313.4, "bo": 2145.6}, {"d": "2026-07-07", "ti": 45479.11, "oi": 419.47, "tm": 160.73, "om": 154.01, "e": false, "bt": 6109.5, "bo": 2103.2}, {"d": "2026-07-08", "ti": 45734.41, "oi": 421.39, "tm": 161.55, "om": 156.18, "e": false, "bt": 6138.2, "bo": 2115.1}, {"d": "2026-07-09", "ti": 45354.61, "oi": 424.99, "tm": 161.81, "om": 157.35, "e": false, "bt": 6196.5, "bo": 2123.9}, {"d": "2026-07-13", "ti": 45380.52, "oi": 419.9, "tm": 159.75, "om": 155.12, "e": false, "bt": 6183.0, "bo": 2125.3}, {"d": "2026-07-14", "ti": 44737.95, "oi": 407.41, "tm": 156.27, "om": 150.04, "e": false, "bt": 6040.3, "bo": 2064.2}, {"d": "2026-07-15", "ti": 45631.59, "oi": 416.41, "tm": 161.96, "om": 153.13, "e": false, "bt": 6153.7, "bo": 2105.2}, {"d": "2026-07-16", "ti": 45624.98, "oi": 407.01, "tm": 158.59, "om": 148.5, "e": false, "bt": 6155.8, "bo": 2102.2}, {"d": "2026-07-17", "ti": 42671.27, "oi": 378.44, "tm": 147.05, "om": 137.22, "e": false, "bt": 5879.6, "bo": 1962.0}, {"d": "2026-07-20", "ti": 42449.7, "oi": 368.53, "tm": 143.49, "om": 133.53, "e": false, "bt": 5690.4, "bo": 1881.9}, {"d": "2026-07-21", "ti": 44232.87, "oi": 381.96, "tm": 150.79, "om": 139.71, "e": false, "bt": 5765.0, "bo": 1902.9}, {"d": "2026-07-22", "ti": 44825.78, "oi": 395.18, "tm": 156.59, "om": 145.48, "e": false, "bt": 5828.2, "bo": 1927.0}, {"d": "2026-07-23", "ti": 44850.81, "oi": 392.11, "tm": 155.71, "om": 145.01, "e": false, "bt": 5826.3, "bo": 1927.5}, {"d": "2026-07-24", "ti": 43654.84, "oi": 377.63, "tm": 149.96, "om": 139.66, "e": false, "bt": 5770.6, "bo": 1901.6}, {"d": "2026-07-27", "ti": 43634.19, "oi": 378.09, "tm": 150.23, "om": 140.75, "e": false, "bt": 5686.6, "bo": 1883.5}, {"d": "2026-07-28", "ti": 41603.36, "oi": 352.42, "tm": 140.38, "om": 130.45, "e": false, "bt": 5455.3, "bo": 1809.8}, {"d": "2026-07-29", "ti": 40039.18, "oi": 334.24, "tm": 133.82, "om": 126.01, "e": true, "bt": 5070.1, "bo": 1674.1}, {"d": "2026-07-30", "ti": 39933.3, "oi": 326.23, "tm": 132.54, "om": 122.53, "e": true, "bt": 4938.7, "bo": 1630.1}, {"d": "2026-07-31", "ti": 43119.75, "oi": 347.85, "tm": 144.23, "om": 131.58, "e": true, "bt": 5074.6, "bo": 1670.1}, {"d": "2026-08-03", "ti": 43386.41, "oi": 362.89, "tm": 151.64, "om": 138.96, "e": true, "bt": 5147.6, "bo": 1670.1}, {"d": "2026-08-04", "ti": 43360.66, "oi": 375.03, "tm": 157.31, "om": 146.04, "e": true, "bt": 5211.3, "bo": 1689.7}, {"d": "2026-08-05", "ti": 44611.6, "oi": 383.75, "tm": 162.75, "om": 151.47, "e": true, "bt": 5211.3, "bo": 1689.7}, {"d": "2026-08-06", "ti": 44396.7, "oi": 391.37, "tm": 164.7, "om": 153.51, "e": true, "bt": 5328.0, "bo": 1752.1}, {"d": "2026-08-07", "ti": 44225.91, "oi": 384.19, "tm": 162.15, "om": 149.89, "e": true, "bt": 5376.6, "bo": 1752.1}, {"d": "2026-08-10", "ti": 44928.76, "oi": 391.61, "tm": 167.17, "om": 153.74, "e": true, "bt": 5453.0, "bo": 1770.0}, {"d": "2026-08-11", "ti": 45120.72, "oi": 391.68, "tm": 167.59, "om": 153.92, "e": true, "bt": 5441.5, "bo": 1781.8}, {"d": "2026-08-12", "ti": 45518.07, "oi": 402.02, "tm": 169.72, "om": 158.38, "e": true, "bt": 5480.8, "bo": 1790.6}, {"d": "2026-08-13", "ti": 46021.48, "oi": 406.12, "tm": 171.73, "om": 159.85, "e": true, "bt": 5497.8, "bo": 1807.4}, {"d": "2026-08-14", "ti": 45811.01, "oi": 400.95, "tm": 171.22, "om": 156.31, "e": true, "bt": 5470.6, "bo": 1816.1}, {"d": "2026-08-17", "ti": 45857.27, "oi": 398.32, "tm": 172.0, "om": 157.15, "e": true, "bt": 5501.0, "bo": 1828.2}, {"d": "2026-08-18", "ti": 45308.68, "oi": 390.83, "tm": 167.98, "om": null, "e": false, "bt": 5501.0, "bo": 1828.2}, {"d": "2026-08-19", "ti": 44719.35, "oi": 384.79, "tm": 165.29, "om": 151.38, "e": true, "bt": 5481.9, "bo": 1824.2}, {"d": "2026-08-20", "ti": 44933.74, "oi": 389.96, "tm": 166.74, "om": 153.43, "e": true, "bt": 5484.1, "bo": 1840.8}, {"d": "2026-08-21", "ti": 45224.29, "oi": 387.27, "tm": 165.35, "om": 153.15, "e": true, "bt": 5469.4, "bo": 1852.1}, {"d": "2026-08-24", "ti": 44762.32, "oi": 386.1, "tm": 163.68, "om": 151.28, "e": true, "bt": 5452.6, "bo": 1840.3}, {"d": "2026-08-25", "ti": 45169.46, "oi": 389.41, "tm": 165.95, "om": 154.02, "e": true, "bt": 5469.4, "bo": 1839.2}, {"d": "2026-08-26", "ti": 45832.62, "oi": 395.66, "tm": 170.49, "om": 158.07, "e": true, "bt": 5548.0, "bo": 1876.6}, {"d": "2026-08-27", "ti": 45975.22, "oi": 400.38, "tm": 171.1, "om": 160.59, "e": true, "bt": 5599.2, "bo": 1910.2}, {"d": "2026-08-28", "ti": 46331.45, "oi": 402.83, "tm": 172.13, "om": 160.7, "e": true, "bt": 5671.8, "bo": 1926.9}, {"d": "2026-08-31", "ti": 46128.47, "oi": 401.7, "tm": 170.17, "om": 160.71, "e": true, "bt": 5698.8, "bo": 1946.6}, {"d": "2026-09-01", "ti": 46948.72, "oi": 410.77, "tm": 171.78, "om": 164.11, "e": true, "bt": 5781.2, "bo": 1973.0}, {"d": "2026-09-02", "ti": 46164.72, "oi": 406.96, "tm": 168.44, "om": 161.43, "e": true, "bt": 5856.8, "bo": 1981.7}, {"d": "2026-09-03", "ti": 45857.66, "oi": 395.25, "tm": 163.12, "om": null, "e": false, "bt": 5856.8, "bo": 1981.7}, {"d": "2026-09-04", "ti": 46551.13, "oi": 402.48, "tm": 166.66, "om": 159.65, "e": true, "bt": 5818.9, "bo": 1982.4}, {"d": "2026-09-07", "ti": 47326.27, "oi": 409.33, "tm": 168.39, "om": 161.28, "e": true, "bt": 5882.7, "bo": 2004.6}, {"d": "2026-09-08", "ti": 47105.78, "oi": 407.19, "tm": 165.95, "om": 159.62, "e": true, "bt": 5862.7, "bo": 2000.7}, {"d": "2026-09-09", "ti": 47183.36, "oi": 408.09, "tm": 167.1, "om": 160.5, "e": true, "bt": 5871.7, "bo": 2005.8}, {"d": "2026-09-10", "ti": 46940.49, "oi": 405.24, "tm": 166.29, "om": 159.27, "e": true, "bt": 5919.0, "bo": 2012.7}, {"d": "2026-09-11", "ti": 46184.85, "oi": 395.52, "tm": 162.41, "om": 154.41, "e": true, "bt": 5878.7, "bo": 1995.7}, {"d": "2026-09-14", "ti": 45862.52, "oi": 394.67, "tm": 160.75, "om": 154.29, "e": true, "bt": 5838.8, "bo": 1977.1}, {"d": "2026-09-15", "ti": 45511.49, "oi": 388.73, "tm": 157.96, "om": 151.84, "e": true, "bt": 5822.4, "bo": 1974.9}, {"d": "2026-09-16", "ti": 45848.9, "oi": 399.21, "tm": 161.46, "om": 157.29, "e": true, "bt": 5861.7, "bo": 1997.2}, {"d": "2026-09-17", "ti": 46288.0, "oi": 398.17, "tm": 161.62, "om": 155.67, "e": true, "bt": 5894.0, "bo": 2019.3}, {"d": "2026-09-18", "ti": 47180.75, "oi": 412.68, "tm": 166.92, "om": 161.71, "e": true, "bt": 5940.4, "bo": 2046.2}, {"d": "2026-09-21", "ti": 47718.84, "oi": 412.57, "tm": 168.47, "om": 161.34, "e": true, "bt": 6030.4, "bo": 2067.3}, {"d": "2026-09-22", "ti": 47800.17, "oi": 415.17, "tm": 170.1, "om": 161.58, "e": true, "bt": 6048.6, "bo": 2085.2}, {"d": "2026-09-23", "ti": 48157.29, "oi": 413.76, "tm": 170.39, "om": 160.19, "e": true, "bt": 6063.7, "bo": 2108.5}, {"d": "2026-09-24", "ti": 48024.6, "oi": 412.99, "tm": 170.92, "om": null, "e": false, "bt": 6063.7, "bo": 2108.5}, {"d": "2026-09-29", "ti": 47631.96, "oi": 412.25, "tm": 169.11, "om": 159.46, "e": true, "bt": 6186.5, "bo": 2136.8}, {"d": "2026-09-30", "ti": 47940.13, "oi": 417.07, "tm": 170.84, "om": 161.95, "e": true, "bt": 6222.5, "bo": 2158.8}, {"d": "2026-10-01", "ti": 48353.49, "oi": 418.82, "tm": 172.06, "om": 161.57, "e": true, "bt": 6298.7, "bo": 2188.7}, {"d": "2026-10-02", "ti": 48475.74, "oi": 426.93, "tm": 173.81, "om": 165.65, "e": true, "bt": 6351.0, "bo": 2215.4}, {"d": "2026-10-05", "ti": 49712.04, "oi": 432.48, "tm": 176.78, "om": 167.55, "e": true, "bt": 6333.5, "bo": 2241.7}, {"d": "2026-10-06", "ti": 49822.55, "oi": 430.86, "tm": 175.39, "om": 164.76, "e": true, "bt": 6376.6, "bo": 2261.5}, {"d": "2026-10-07", "ti": 49806.37, "oi": 430.46, "tm": 175.21, "om": 164.23, "e": true, "bt": 6400.0, "bo": 2289.6}, {"d": "2026-10-08", "ti": 49313.44, "oi": 426.71, "tm": 173.73, "om": 162.27, "e": true, "bt": 6464.1, "bo": 2278.7}, {"d": "2026-10-12", "ti": 49301.96, "oi": 427.9, "tm": 173.02, "om": 161.76, "e": true, "bt": 6533.3, "bo": 2283.5}, {"d": "2026-10-13", "ti": 48341.31, "oi": 414.31, "tm": 167.22, "om": null, "e": false, "bt": 6449.8, "bo": 2232.0}, {"d": "2026-10-14", "ti": 48625.83, "oi": 420.13, "tm": 168.93, "om": 158.71, "e": true, "bt": 6515.7, "bo": 2255.3}, {"d": "2026-10-15", "ti": 46969.87, "oi": 396.9, "tm": 160.13, "om": 155.22, "e": false, "bt": 6464.2, "bo": 2189.6}, {"d": "2026-10-16", "ti": 47111.26, "oi": 400.26, "tm": 161.65, "om": 156.28, "e": false, "bt": 6455.9, "bo": 2182.5}, {"d": "2026-10-19", "ti": 46822.08, "oi": 394.05, "tm": 159.6, "om": 154.08, "e": false, "bt": 6406.2, "bo": 2152.2}, {"d": "2026-10-20", "ti": 46292.93, "oi": 387.88, "tm": 157.54, "om": 151.66, "e": false, "bt": 6381.0, "bo": 2150.1}, {"d": "2026-10-21", "ti": 46887.77, "oi": 395.42, "tm": 161.32, "om": 155.55, "e": false, "bt": 6443.7, "bo": 2159.7}, {"d": "2026-10-22", "ti": 46041.43, "oi": 381.69, "tm": 156.04, "om": 148.85, "e": false, "bt": 6338.8, "bo": 2126.3}, {"d": "2026-10-27", "ti": 46096.23, "oi": 379.2, "tm": 155.11, "om": 147.99, "e": false, "bt": 6233.9, "bo": 2092.6}, {"d": "2026-10-28", "ti": 47035.58, "oi": 394.61, "tm": 161.74, "om": 155.95, "e": false, "bt": 6323.0, "bo": 2112.4}, {"d": "2026-10-29", "ti": 46368.33, "oi": 387.37, "tm": 157.48, "om": 153.79, "e": false, "bt": 6339.1, "bo": 2099.6}, {"d": "2026-10-30", "ti": 45211.83, "oi": 370.26, "tm": 151.16, "om": 146.57, "e": false, "bt": 6234.7, "bo": 2053.0}];
+const EV=[{"d": "2026-07-17", "t": "加權 −6.5%"}, {"d": "2026-07-30", "t": "區間低點"}, {"d": "2026-10-05", "t": "加權 49,712"}, {"d": "2026-10-30", "t": "今日"}];
+function tg(){var r=document.documentElement,d=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',d);try{localStorage.setItem('magi-theme',d)}catch(e){}drawAll()}
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS='http://www.w3.org/2000/svg';
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+const fmtD=d=>d.slice(5).replace('-','/');
+const GROUPS={
+  tse:[{id:'c-tse-i',read:'read-tse-i',key:'ti',fmt:v=>v.toLocaleString('en',{minimumFractionDigits:2,maximumFractionDigits:2}),color:'--cyan',h:170},
+       {id:'c-tse-m',read:'read-tse-m',key:'tm',fmt:v=>v.toFixed(2)+'%',color:'--accent2',h:200,bands:true,bal:'bt'}],
+  otc:[{id:'c-otc-i',read:'read-otc-i',key:'oi',fmt:v=>v.toFixed(2),color:'--cyan',h:170},
+       {id:'c-otc-m',read:'read-otc-m',key:'om',fmt:v=>v.toFixed(2)+'%',color:'--accent2',h:200,bands:true,est:true,bal:'bo'}]
+};
+const M={l:52,r:14,t:10,b:22};
+function niceTicks(lo,hi,n){const s=(hi-lo)/n,p=Math.pow(10,Math.floor(Math.log10(s))),f=s/p,st=(f<1.5?1:f<3?2:f<7?5:10)*p;const out=[];for(let v=Math.ceil(lo/st)*st;v<=hi+1e-9;v+=st)out.push(+v.toFixed(6));return out}
+function draw(g){
+  const panels=GROUPS[g];const n=D.length;
+  panels.forEach(P=>{
+    const host=document.getElementById(P.id);host.innerHTML='';
+    const W=Math.max(320,host.clientWidth),H=P.h,iw=W-M.l-M.r,ih=H-M.t-M.b;
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,height:H,role:'img','aria-label':P.id},host);
+    const vals=D.map(r=>r[P.key]).filter(v=>v!=null);
+    let lo=Math.min(...vals),hi=Math.max(...vals);
+    if(P.bands){lo=Math.min(lo,125);}
+    const pad=(hi-lo)*.06;lo-=pad;hi+=pad;
+    const x=i=>M.l+iw*i/(n-1),y=v=>M.t+ih*(1-(v-lo)/(hi-lo));
+    P._x=x;P._y=y;P._W=W;P._H=H;
+    const border=css('--border2'),muted=css('--muted');
+    if(P.bands){
+      el('rect',{x:M.l,y:y(Math.min(130,hi)),width:iw,height:Math.max(0,y(lo)-y(130)),fill:css('--dn-bg')},svg);
+      el('rect',{x:M.l,y:y(140),width:iw,height:y(130)-y(140),fill:css('--warn-bg')},svg);
+    }
+    niceTicks(lo,hi,4).forEach(v=>{el('line',{x1:M.l,x2:W-M.r,y1:y(v),y2:y(v),stroke:border,'stroke-width':1},svg);
+      const t=el('text',{x:M.l-8,y:y(v)+3,'text-anchor':'end'},svg);t.textContent=P.bands?v.toFixed(0)+'%':v.toLocaleString('en')});
+    // x 軸：每月第一個交易日
+    let lastM='';D.forEach((r,i)=>{const m=r.d.slice(5,7);if(m!==lastM){lastM=m;
+      el('line',{x1:x(i),x2:x(i),y1:M.t,y2:M.t+ih,stroke:border,'stroke-width':1},svg);
+      const t=el('text',{x:x(i)+3,y:H-6},svg);t.textContent=(+m)+'月'}});
+    // 事件標記
+    EV.forEach(e=>{const i=D.findIndex(r=>r.d===e.d);if(i<0)return;
+      el('line',{x1:x(i),x2:x(i),y1:M.t,y2:M.t+ih,stroke:css('--dimmer'),'stroke-width':1,'stroke-dasharray':'2 3'},svg);
+      if(P===panels[0]&&W>=620){const t=el('text',{x:x(i)+(i>n-8?-4:4),y:M.t+10,'text-anchor':i>n-8?'end':'start'},svg);t.textContent=e.t}});
+    // 線段：null 斷開；est 段虛線
+    const color=css(P.color);
+    const segs=[];let cur=null;
+    D.forEach((r,i)=>{const v=r[P.key];const est=!!(P.est&&r.e);
+      if(v==null){cur=null;return}
+      if(!cur||cur.est!==est){const prev=cur&&cur.pts.length?cur.pts[cur.pts.length-1]:null;cur={est,pts:prev?[prev]:[]};segs.push(cur)}
+      cur.pts.push([x(i),y(v)])});
+    segs.forEach(s=>{if(s.pts.length<2)return;el('path',{d:'M'+s.pts.map(p=>p.map(q=>q.toFixed(1)).join(',')).join('L'),fill:'none',stroke:color,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round','stroke-dasharray':s.est?'5 4':'none'},svg)});
+    // 最新值標記 + 直接標籤
+    const li=n-1,lv=D[li][P.key];
+    el('circle',{cx:x(li),cy:y(lv),r:4,fill:color,stroke:css('--bg'),'stroke-width':2},svg);
+    if(P.bands){const mi=D.reduce((a,r,i)=>r[P.key]!=null&&(a<0||r[P.key]<D[a][P.key])?i:a,-1);
+      el('circle',{cx:x(mi),cy:y(D[mi][P.key]),r:4,fill:css('--dn'),stroke:css('--bg'),'stroke-width':2},svg);
+      const t=el('text',{x:x(mi),y:y(D[mi][P.key])+15,'text-anchor':'middle'},svg);t.textContent=D[mi][P.key].toFixed(1)+'%'}
+    // crosshair 層
+    P._cross=el('line',{x1:0,x2:0,y1:M.t,y2:M.t+ih,stroke:css('--text2'),'stroke-width':1,visibility:'hidden'},svg);
+    P._dot=el('circle',{r:4,fill:color,stroke:css('--bg'),'stroke-width':2,visibility:'hidden'},svg);
+    const hit=el('rect',{x:M.l,y:0,width:iw,height:H,fill:'transparent'},svg);
+    const move=ev=>{const b=svg.getBoundingClientRect();const px=(ev.touches?ev.touches[0].clientX:ev.clientX)-b.left;const sx=px*W/b.width;
+      const i=Math.max(0,Math.min(n-1,Math.round((sx-M.l)/iw*(n-1))));show(g,i)};
+    hit.addEventListener('mousemove',move);hit.addEventListener('touchmove',move,{passive:true});hit.addEventListener('touchstart',move,{passive:true});
+    hit.addEventListener('mouseleave',()=>show(g,n-1));
+  });
+  show(g,n-1);
+}
+function show(g,i){
+  const r=D[i];
+  GROUPS[g].forEach(P=>{
+    const v=r[P.key];const vis=v==null?'hidden':'visible';
+    P._cross.setAttribute('x1',P._x(i));P._cross.setAttribute('x2',P._x(i));P._cross.setAttribute('visibility',i===D.length-1?'hidden':'visible');
+    if(v!=null){P._dot.setAttribute('cx',P._x(i));P._dot.setAttribute('cy',P._y(v))}P._dot.setAttribute('visibility',vis);
+    const prev=D.slice(0,i).reverse().find(q=>q[P.key]!=null);
+    let ch='';if(v!=null&&prev){const d=v-prev[P.key];ch=P.bands?` <span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${d.toFixed(2)} pt</span>`:` <span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${(d/prev[P.key]*100).toFixed(2)}%</span>`}
+    let extra='';if(P.bal)extra=` · 融資 ${r[P.bal].toLocaleString('en')} 億`+(P.est&&r.e?' · <span style="color:var(--warn)">推估</span>':'');
+    document.getElementById(P.read).innerHTML=`${r.d} · <b>${v==null?'—':P.fmt(v)}</b>${ch}${extra}`;
+  });
+}
+function drawAll(){draw('tse');draw('otc')}
+drawAll();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(drawAll,120)});
+</script>
+</body></html>
