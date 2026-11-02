@@ -4604,6 +4604,29 @@
     "parsed_at": "2026-10-27T22:03:55"
   },
   {
+    "code": "1815",
+    "name": "富喬",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "玻纖布/E-glass",
+    "quote": "電子級玻布：不排除大循環，織布機沒辨法解決，PCB層數變多，良率越低，對於E-GLASS用量變多，逐月漲價到2027年中，E布缺口2027年來到30%，漲幅超越大家想像，1815富喬、5475德宏，可以看。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "E布逐月漲價到2027年中",
+      "2027年E布缺口30%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
+  },
+  {
     "code": "2301",
     "name": "光寶科",
     "date": "2026-10-28",
@@ -4628,6 +4651,29 @@
     "parsed_at": "2026-10-28T22:50:34"
   },
   {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "晶圓代工",
+    "quote": "2303聯電今天有提到矽電容開出，他是key player在裡面，聯電法說提到矽電容會出2w片左右（不知道只有矽電容，還是有包含別的），但整體還是出乎想像，正向看到這塊產能有新的出海口。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "矽電容出貨約2萬片",
+      "聯電投片量增加(矽力PMIC)"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
+  },
+  {
     "code": "2360",
     "name": "致茂",
     "date": "2026-10-28",
@@ -4648,6 +4694,29 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "2360",
+    "name": "致茂",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "測試設備",
+    "quote": "Santec：即將要接到大單，做矽光子測試設備，會搭配2360致茂機台出In3，致茂出給Santec，再到矽品。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Santec矽光子測試設備大單",
+      "In3機台"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
   },
   {
     "code": "2368",
@@ -4740,6 +4809,29 @@
     "parsed_at": "2026-10-28T22:50:34"
   },
   {
+    "code": "5475",
+    "name": "德宏",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "玻纖布/E-glass",
+    "quote": "電子級玻布：不排除大循環，織布機沒辨法解決，PCB層數變多，良率越低，對於E-GLASS用量變多，逐月漲價到2027年中，E布缺口2027年來到30%，漲幅超越大家想像，1815富喬、5475德宏，可以看。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "E布逐月漲價到2027年中",
+      "2027年E布缺口30%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
+  },
+  {
     "code": "6179",
     "name": "亞通",
     "date": "2026-10-28",
@@ -4758,6 +4850,28 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "6187",
+    "name": "萬潤",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "先進封裝設備",
+    "quote": "萬潤在CoPoS跟CoWoS點膠有機會拿到更多單",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "CoPoS/CoWoS點膠"
+    ],
+    "customers": [],
+    "sentiment": "偏多",
+    "holding": false,
+    "code_source": "name_exact",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
   },
   {
     "code": "6274",
@@ -4780,6 +4894,52 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "6415",
+    "name": "矽力*-KY",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "PMIC",
+    "quote": "6415矽力*-KY 1.杭州自己Foundry要自製PMIC，2303聯電投片量也在增加，AI這塊佔比2027年有機會到30%。2.4Q26 AMD會跟6415矽力*KY談一些明年產能，目前封裝漲價，3Q26矽力GM不一定好，12吋上海復興廠產能會慢慢起來，持續看好。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "AI佔比2027年有機會到30%",
+      "AMD談明年產能",
+      "12吋上海復興廠產能開出"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
+  },
+  {
+    "code": "6531",
+    "name": "愛普*",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "矽電容/記憶體IP",
+    "quote": "6531愛普* 1.2303聯電今天有提到矽電容開出，他是key player在裡面，聯電法說提到矽電容會出2w片左右，但整體還是出乎想像，正向看到這塊產能有新的出海口。",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "聯電矽電容開出，愛普為key player"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
   },
   {
     "code": "6696",
@@ -4823,6 +4983,28 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-28T22:50:34"
+  },
+  {
+    "code": "7856",
+    "name": "漢測",
+    "date": "2026-10-28",
+    "source_type": "daily",
+    "source_page": "2026-10_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "半導體測試設備",
+    "quote": "羅博特科 2027 In2~In3維持500~1000台設備，In3佔比2/3，In 2會給7856漢測做OEM/ODM，羅博特科在香港說不會給漢測In3，上週漢測有跟羅博特科說，In3不給漢測做，漢測也可以不要合作In2，目前羅博特科改口In3不排除給漢測做",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "In3是否給漢測做"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:00:52"
   },
   {
     "code": "8039",

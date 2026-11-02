@@ -23087,6 +23087,159 @@
     "parsed_at": "2026-10-20T21:52:44"
   },
   {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "林口廠走二期裝修拼 2Q27 底投產。印度拼 3Q27 投產，目前做廠改，預期 1Q27 底 - 2Q27 試產",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "林口廠2Q27底投產",
+      "印度廠3Q27投產"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "有機會接到最大美國客戶SPCX？一直都在接觸，觀察他的進度。初期 10-20GW 看可不可以做到，因為覺得 100GW 有點太大；TSLA 是成本導向公司，倉和不會是獨家供應商，倉和目標拿到最高佔比，只是 100GW 配額拿多少 %",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "TSLA/SpaceX 美國太陽能cell 20GW建置",
+      "非紅供應鏈"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "PFE 政策條件來自非紅才夠佔比逐年往上升，2026 現在 50% 預期 2029 要到 70%。倉和絕對具有非紅保護；買非中的產品可以申請補助，用的比例越多拿到補助越高",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "PFE非中供應鏈比例2029要到70%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "非中印刷壽命無法跟中國比，30萬刷現在就是非中的TOP；中國50萬刷是基本，100萬刷是BC製程；2Q26 開始中國佔比低於 40%，1Q26 還有 50%",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "2027 美國客戶毛利率還是會有 50% 水準；龜山廠產能到第四季拿到 8000片；年底可能因為美國客戶聖誕節（少10天）等12M26 營收趨緩；台灣廠一年網版約12GW產能",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "美國客戶毛利率50%",
+      "龜山廠4Q 8000片"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "2027 中國成長持平差不多，成長動能在海外，難抓是時間點，Q集團明確投產但其他都在進行中，最近美國 data center 比較逆風，現在cell 廠跟銀行端融資進度有些停滯；美國融資問題導致cell廠商遞延拉貨",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性偏多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-20",
+    "source_type": "meeting",
+    "source_page": "20261020_倉和",
+    "speaker": "倉和",
+    "host": "倉和",
+    "sector": "太陽能網版",
+    "quote": "印度市場2027市佔率拼30%。客戶2-3家是已經有生產cell 的客戶；台灣在印度投資設立公司可 100% 持有，中國只能 49%",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "印度2027市佔拼30%"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
     "code": "6669",
     "name": "緯穎",
     "date": "2026-10-20",
@@ -30696,6 +30849,26 @@
     "parsed_at": "2026-10-30T23:27:46"
   },
   {
+    "code": "2303",
+    "name": "聯電",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "峰哥",
+    "host": "駿羽",
+    "sector": "晶圓代工",
+    "quote": "IC設計現在砍2303聯電投片，每個禮拜少4000片wafer(8、12吋的，各種應用都有)，但他一個月有100萬片，佔比不多，但是怕之後這狀況會擴大",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "謹慎偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
     "code": "2308",
     "name": "台達電",
     "date": "2026-10-30",
@@ -30876,6 +31049,83 @@
     "parsed_at": "2026-10-30T23:27:46"
   },
   {
+    "code": "3105",
+    "name": "穩懋",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "布哥",
+    "host": "駿羽",
+    "sector": "砷化鎵/PA",
+    "quote": "3105逐季毛利、獲利往上，PA、LNA是主業，content dollar持續提升",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "PA/LNA content dollar提升",
+      "毛利逐季上升"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "3324",
+    "name": "雙鴻",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Ann",
+    "host": "駿羽",
+    "sector": "散熱",
+    "quote": "喜歡散熱，CPU rack明年之後的設計也要有水冷板，連台達要進來做都沒有那麼容易，Risk-Reward最好的是3324，一櫃9萬美金，拿25% share 有7-8千櫃，明年就多150-200E，明年EPS 120",
+    "tp": null,
+    "eps_est": {
+      "2027": "120"
+    },
+    "catalysts": [
+      "CPU rack水冷板",
+      "一櫃9萬美金、25% share 7-8千櫃",
+      "明年多150-200E營收"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "3374",
+    "name": "精材",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "永哥",
+    "host": "駿羽",
+    "sector": "先進封裝",
+    "quote": "3374 友達昨天下午公告，台積電怕內線，一個小時後也趕快公告，精材可能11/10以前會開臨時董事會，4Q27量產OS，第三季要把所有設備跟廠房規劃用好，2H28蘋果AP會進入一奈米製程，本業也會增加，28年EPS 45-50塊，明年13-15塊，1H28還會有一次募資，29年還會擴27年併產能的一倍，29年變成世界最大先進封裝後段廠商",
+    "tp": null,
+    "eps_est": {
+      "2027": "13-15",
+      "2028": "45-50"
+    },
+    "catalysts": [
+      "友達/台積電公告併購案",
+      "11/10前臨時董事會",
+      "4Q27量產OS",
+      "2H28蘋果AP 1奈米"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
     "code": "3443",
     "name": "創意",
     "date": "2026-10-30",
@@ -30894,6 +31144,56 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-10-30T23:27:46"
+  },
+  {
+    "code": "3443",
+    "name": "創意",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "永哥",
+    "host": "駿羽",
+    "sector": "IC設計服務",
+    "quote": "3443 聯貸400-500E，ECB 8E美金，加起來650，年底帳上現金150E，1M27現金會有800E，可以做3-4倍的生意，明年營收落在2500-3000E之間",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "聯貸+ECB籌資650E",
+      "可做3-4倍生意",
+      "明年營收2500-3000E"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "3605",
+    "name": "宏致",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Steven哥",
+    "host": "駿羽",
+    "sector": "連接器/BBU",
+    "quote": "3605 要做BE櫃內、櫃外、connector，明年不只30E，有擴1.5倍廠，1Q27開始好，在中壢有繼續找地，明年AI+BE會超過50%",
+    "tp": null,
+    "eps_est": {
+      "2027": "30"
+    },
+    "catalysts": [
+      "BBU櫃內外+connector",
+      "擴廠1.5倍",
+      "1Q27開始轉好"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
   },
   {
     "code": "3653",
@@ -30940,6 +31240,75 @@
     "parsed_at": "2026-10-30T23:27:46"
   },
   {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Mark哥",
+    "host": "駿羽",
+    "sector": "散熱",
+    "quote": "3653驗證狀況順利，ASP聽到330，rubin可能全上，貢獻可能3-400E營收(永哥:明年rubin生產800萬顆，假設上量抓80%，640萬*330美金)",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "rubin驗證順利、ASP 330美金",
+      "貢獻營收300-400E"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "3691",
+    "name": "碩禾",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Mark哥",
+    "host": "駿羽",
+    "sector": "太陽能材料",
+    "quote": "美國太陽能cell市場在上來，之前都拿中國的，這市場看起來真的上來，明年有15-18GW，3691碩和明年15塊以上，有銀漿、模組",
+    "tp": null,
+    "eps_est": {
+      "2027": "15+"
+    },
+    "catalysts": [
+      "美國太陽能cell市場明年15-18GW"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "4958",
+    "name": "臻鼎-KY",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Surf哥",
+    "host": "駿羽",
+    "sector": "PCB",
+    "quote": "4958接下來擴廠速度維持很大",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "擴廠速度大"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
     "code": "6274",
     "name": "台燿",
     "date": "2026-10-30",
@@ -30980,5 +31349,144 @@
     "code_source": "explicit",
     "validated": true,
     "parsed_at": "2026-10-30T23:27:46"
+  },
+  {
+    "code": "6274",
+    "name": "台燿",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "永哥",
+    "host": "駿羽",
+    "sector": "CCL",
+    "quote": "6274昨天下午有兩場座談，2H27 spaceX跟他簽M8合約，一個月要200萬片，價格是現在M8基礎上漲25%，量要很大",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "2H27 spaceX簽M8合約月需200萬片",
+      "價格較現M8漲25%"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6415",
+    "name": "矽力*-KY",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Ann",
+    "host": "駿羽",
+    "sector": "電源IC",
+    "quote": "power 現在真的很缺，英飛凌都拿不到了，6415 SPS華為明年貢獻50E、google案子明年陸續發生，google案子開在聯電，從投片看明年貢獻25-30E台幣不難，抓明年22塊左右，PE抓不準",
+    "tp": null,
+    "eps_est": {
+      "2027": "22"
+    },
+    "catalysts": [
+      "SPS華為明年貢獻50E",
+      "google案子明年貢獻25-30E",
+      "電源缺貨"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "6538",
+    "name": "倉和",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Mark哥",
+    "host": "駿羽",
+    "sector": "太陽能網版",
+    "quote": "6538倉和做網版，明年25塊以上",
+    "tp": null,
+    "eps_est": {
+      "2027": "25+"
+    },
+    "catalysts": [
+      "美國太陽能cell網版需求"
+    ],
+    "customers": [],
+    "sentiment": "看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "8039",
+    "name": "台虹",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Surf哥",
+    "host": "駿羽",
+    "sector": "軟板材料",
+    "quote": "8039 PTFE的量可能是原來1/10，或是低於",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "偏空",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "8155",
+    "name": "博智",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Ann",
+    "host": "駿羽",
+    "sector": "PCB/衛星",
+    "quote": "接下來五年要追馬斯克所有布局，一直有把8155放在名單，有衛星但沒機會漲",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "馬斯克衛星布局"
+    ],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
+  },
+  {
+    "code": "8996",
+    "name": "高力",
+    "date": "2026-10-30",
+    "source_type": "meeting",
+    "source_page": "20261030_駿羽",
+    "speaker": "Steven哥",
+    "host": "駿羽",
+    "sector": "散熱/液冷",
+    "quote": "最近8996高力接到滿大訂單，特斯拉+spaceX內部資料中心，過去用水冷RDHX，隨GPU越熱spec改變，會用冷媒，spaceX大舉明年要用，數量滿大...明年rubin ultra都用冷媒式散熱背板，4Q26會有一些出貨，第四季營收創歷史新高，1Q27更好，訂單看到1H27，風險是供應鏈料夠不夠，10月營收稍微爛一點，因為工作天只有18天",
+    "tp": null,
+    "eps_est": {},
+    "catalysts": [
+      "特斯拉+spaceX資料中心冷媒式RDHX",
+      "rubin ultra冷媒式散熱背板",
+      "4Q26營收創高、1Q27更好"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-03T00:01:26"
   }
 ]
