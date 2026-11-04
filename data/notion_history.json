@@ -33544,6 +33544,127 @@
     {
       "code": "6269",
       "name": "台郡",
+      "date": "2026-11-04",
+      "source_type": "meeting",
+      "source_page": "20261104_台郡",
+      "speaker": "台郡",
+      "host": "台郡",
+      "sector": "軟板/PTFE",
+      "quote": "3Q26毛利率由前季4.3%提升至10.8%，單季虧損明顯收斂；3Q26合併營收61.41億，QoQ+14.2%、YoY+0.8%，AI伺服器營收YoY+300%；母公司淨損1.79億，EPS -0.56元（2Q26 -1.68、3Q25 -1.92）；前三季累計EPS -4.83元",
+      "tp": null,
+      "eps_est": {
+        "2026": "-5.45",
+        "2027": "-0.38"
+      },
+      "catalysts": [
+        "AI伺服器/資料中心/智慧眼鏡高毛利產品出貨",
+        "非主力客戶占比2026提升至30%",
+        "Q4營收與Q3相當",
+        "2027年有機會單季轉虧為盈"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "6269",
+      "name": "台郡",
+      "date": "2026-11-04",
+      "source_type": "meeting",
+      "source_page": "20261104_台郡",
+      "speaker": "台郡",
+      "host": "台郡",
+      "sector": "軟板/PTFE",
+      "quote": "不動新廠的前提下已備妥約50億元PTFE產能；若全新投資50-100億廠房，一年產值可達300億以上；大規模擴產需客戶簽LTA才啟動。台郡自己做PTFE良率還好，高溫壓機已具量產能力，客戶要的數量還是要額外投資，初期可供應客戶",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "PTFE客戶驗證(多家)",
+        "NV OCP展示NVLink/PTFE方案",
+        "Backplane/Midplane導入"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "6269",
+      "name": "台郡",
+      "date": "2026-11-04",
+      "source_type": "meeting",
+      "source_page": "20261104_台郡",
+      "speaker": "台郡",
+      "host": "台郡",
+      "sector": "軟板/PTFE",
+      "quote": "非主力客戶占比2024年個位數、2025年10-15%、2026年30%；未來2-3年非消費性產品營收有機會壓過消費性；新產品毛利率是傳統軟板(個位數)的2-3倍，傳統消費性軟板毛利率single digit，持續淘汰低毛利產品，今年減得差不多了",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "客戶去集中化",
+        "產品組合優化"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "6269",
+      "name": "台郡",
+      "date": "2026-11-04",
+      "source_type": "meeting",
+      "source_page": "20261104_台郡",
+      "speaker": "台郡",
+      "host": "台郡",
+      "sector": "軟板/PTFE",
+      "quote": "PTFE是電傳輸最後一個里程碑，純PTFE無玻纖、不受玻纖缺料限制，可做15層以上(高層數24-36層)並具HDI能力；M10要求Df萬分之4以下，唯一可解決高速傳輸的solution之一是PTFE；PTFE若順利推廣，光傳輸導入時程可能被延後（光傳輸佈局目標2028年）",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "M10 PTFE規格",
+        "電光轉換時程延後"
+      ],
+      "customers": [],
+      "sentiment": "偏多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "6269",
+      "name": "台郡",
+      "date": "2026-11-04",
+      "source_type": "meeting",
+      "source_page": "20261104_台郡",
+      "speaker": "台郡",
+      "host": "台郡",
+      "sector": "軟板/PTFE",
+      "quote": "研究部：台郡營運已逐步走出谷底，惟PTFE仍處客戶驗證階段，短期獲利改善幅度仍受產能利用率及固定費用影響，預估2026至2027年EPS分別為-5.45元與-0.38元，2027年每股淨值61.88元，看法維持中性",
+      "tp": null,
+      "eps_est": {
+        "2026": "-5.45",
+        "2027": "-0.38"
+      },
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "6269",
+      "name": "台郡",
       "date": "2026-10-28",
       "source_type": "meeting",
       "source_page": "20261028_駿羽",
@@ -56314,6 +56435,28 @@
     {
       "code": "3653",
       "name": "健策",
+      "date": "2026-11-04",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": "黃老師",
+      "host": null,
+      "sector": "AI散熱",
+      "quote": "黃老師說3653在rubin上一片就多USD3800元(多打一個零吧!?)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Rubin單片content增加"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": true,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "3653",
+      "name": "健策",
       "date": "2026-11-03",
       "source_type": "meeting",
       "source_page": "20261103_樂林",
@@ -70355,6 +70498,26 @@
     {
       "code": "8069",
       "name": "元太",
+      "date": "2026-11-04",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "電子紙",
+      "quote": "8069 Q3單季 收入99.4e GM 51.9e (52%) OPM 26.4e (26%) NI 26.4e (26%) EPS $2.3；Q3累積 收入 287.9e GM 163.4e (57%) OPM 89.98e (31%) NI 91.95e( 32%) EPS 7.94",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
+    {
+      "code": "8069",
+      "name": "元太",
       "date": "2026-10-30",
       "source_type": "daily",
       "source_page": "2026-10_廢想法_monthly",
@@ -78192,6 +78355,29 @@
     }
   ],
   "6877": [
+    {
+      "code": "6877",
+      "name": "鏵友益",
+      "date": "2026-11-04",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": "Inchia 英嘉",
+      "host": null,
+      "sector": "半導體設備",
+      "quote": "6877 [截圖] 20:27 Inchia 英嘉 全村 我自己覺得數字很好啦 / 20:27 Inchia 英嘉 全村 Q3 0.77毛利52% / 20:27 Inchia 英嘉 全村 Q4我覺得毛利還會再往上 因為台積鷹眼計劃認列那個毛利有75",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "台積鷹眼計劃認列高毛利(75%)",
+        "Q4毛利率續升"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": false,
+      "code_source": "explicit",
+      "validated": true,
+      "parsed_at": "2026-11-04T22:02:05"
+    },
     {
       "code": "6877",
       "name": "鏵友益",

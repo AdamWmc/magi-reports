@@ -411,5 +411,70 @@
     "code_source": "name_exact",
     "validated": true,
     "parsed_at": "2026-11-03T22:11:22"
+  },
+  {
+    "code": "3653",
+    "name": "健策",
+    "date": "2026-11-04",
+    "source_type": "daily",
+    "source_page": "2026-11_廢想法_monthly",
+    "speaker": "黃老師",
+    "host": null,
+    "sector": "AI散熱",
+    "quote": "黃老師說3653在rubin上一片就多USD3800元(多打一個零吧!?)",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "Rubin單片content增加"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": true,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-04T22:02:05"
+  },
+  {
+    "code": "6877",
+    "name": "鏵友益",
+    "date": "2026-11-04",
+    "source_type": "daily",
+    "source_page": "2026-11_廢想法_monthly",
+    "speaker": "Inchia 英嘉",
+    "host": null,
+    "sector": "半導體設備",
+    "quote": "6877 [截圖] 20:27 Inchia 英嘉 全村 我自己覺得數字很好啦 / 20:27 Inchia 英嘉 全村 Q3 0.77毛利52% / 20:27 Inchia 英嘉 全村 Q4我覺得毛利還會再往上 因為台積鷹眼計劃認列那個毛利有75",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [
+      "台積鷹眼計劃認列高毛利(75%)",
+      "Q4毛利率續升"
+    ],
+    "customers": [],
+    "sentiment": "積極看多",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-04T22:02:05"
+  },
+  {
+    "code": "8069",
+    "name": "元太",
+    "date": "2026-11-04",
+    "source_type": "daily",
+    "source_page": "2026-11_廢想法_monthly",
+    "speaker": null,
+    "host": null,
+    "sector": "電子紙",
+    "quote": "8069 Q3單季 收入99.4e GM 51.9e (52%) OPM 26.4e (26%) NI 26.4e (26%) EPS $2.3；Q3累積 收入 287.9e GM 163.4e (57%) OPM 89.98e (31%) NI 91.95e( 32%) EPS 7.94",
+    "tp": null,
+    "eps_est": null,
+    "catalysts": [],
+    "customers": [],
+    "sentiment": "中性",
+    "holding": false,
+    "code_source": "explicit",
+    "validated": true,
+    "parsed_at": "2026-11-04T22:02:05"
   }
 ]
