@@ -1533,6 +1533,28 @@
     {
       "code": "2303",
       "name": "聯電",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "晶圓代工",
+      "quote": "13.联电(UMC)实际已涨不动价(与其公开指引2027年混合ASP同比提升10%背离)，功率晶圆代工厂年底或面临降价压力。",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "功率晶圓代工年底降價壓力"
+      ],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
+    {
+      "code": "2303",
+      "name": "聯電",
       "date": "2026-11-02",
       "source_type": "meeting",
       "source_page": "20261102_駿羽",
@@ -14051,6 +14073,28 @@
     }
   ],
   "3008": [
+    {
+      "code": "3008",
+      "name": "大立光",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "光學/CPO",
+      "quote": "6.大立光CPO光引擎(OE)项目进度推迟。(供應鏈砍單16點清單之一)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "CPO光引擎OE項目進度推遲"
+      ],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
     {
       "code": "3008",
       "name": "大立光",
@@ -29025,6 +29069,29 @@
     {
       "code": "5274",
       "name": "信驊",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "AI伺服器BMC",
+      "quote": "信驊: 客戶現在有push out的狀況(他們說是長短料 MSFT, Meta 大陸CSP 但我覺得是真的需求沒那麼強 之前每天追著跑 現在可能也沒那麼多錢可以燒 真得不缺的",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "客戶push out(MSFT/Meta/大陸CSP)",
+        "需求不如預期"
+      ],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
+    {
+      "code": "5274",
+      "name": "信驊",
       "date": "2026-11-03",
       "source_type": "daily",
       "source_page": "2026-11_廢想法_monthly",
@@ -42657,6 +42724,77 @@
     {
       "code": "8039",
       "name": "台虹",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/PTFE",
+      "quote": "160萬片每月產能，約莫可供應一半，用那個BASE 800K/月產能，要補足20億的機台。現在這個10萬片，終端有明確給出，Switch CCL一年160幾萬片 (5000k一年，一個月400k)，全機種都上。Google/金像電也是用在switch board，小片層數少，目前機台是堪用",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Switch CCL一年160幾萬片",
+        "補足20億機台"
+      ],
+      "customers": [],
+      "sentiment": "積極看多",
+      "holding": true,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/PTFE",
+      "quote": "真正重要的是量產，2027下半年就要定板，2028就要上，不太可能重新開一個Solution，同一家最好，但現在同一家只能用生益，這樣有兩個風險，一個是單一source，出了問題他就完蛋，第二個是他沒有非紅供應鏈的選擇，後來他找了台虹，雖然電性沒過，但終端評價不低，板廠做起來良率也很好。他們已經把台虹材料定義可以使用，希望是台虹+聯茂成為一個解決方案。",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "2027下半年定板、2028量產",
+        "台虹+聯茂成為一個解決方案",
+        "非紅供應鏈需求"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": true,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "CCL/PTFE",
+      "quote": "第二個是issue，生益每次跟終端說有過，到第三方那邊卻出問題，生益跟大陸板廠關係都很好，都拿自己的data來使用，自己出具的檢測報告，nv對這個有質疑，NV對生益的驗證方式有concern，台虹不能拿台郡的檢測報告當做資料，要拿其他如深南/景旺/欣興的資料為準。這些都沒問題之後，會讓終端有信心開始重新開始打樣。這種hybrid版本電性極限不夠midplane要求，差那麼一點點，這些都沒問題後，只是讓他知道PTFE跟板廠的結合是可操作。",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "NV質疑生益驗證方式",
+        "需以深南/景旺/欣興資料為準",
+        "終端重新打樣"
+      ],
+      "customers": [],
+      "sentiment": "看多",
+      "holding": true,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
+    {
+      "code": "8039",
+      "name": "台虹",
       "date": "2026-11-05",
       "source_type": "daily",
       "source_page": "2026-11_廢想法_monthly",
@@ -47430,6 +47568,28 @@
     }
   ],
   "2345": [
+    {
+      "code": "2345",
+      "name": "智邦",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "網通交換器",
+      "quote": "1.Meta砍减了智邦(Accton)的800G交换机订单。 2.Meta同步下修了传统CPU服务器采购订单。(供應鏈砍單16點清單之一)",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Meta砍800G交換機訂單"
+      ],
+      "customers": [],
+      "sentiment": "偏空",
+      "holding": false,
+      "code_source": "alias",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
     {
       "code": "2345",
       "name": "智邦",
@@ -55575,6 +55735,28 @@
     }
   ],
   "2368": [
+    {
+      "code": "2368",
+      "name": "金像電",
+      "date": "2026-11-06",
+      "source_type": "daily",
+      "source_page": "2026-11_廢想法_monthly",
+      "speaker": null,
+      "host": null,
+      "sector": "PCB",
+      "quote": "Google/金像電也是用在switch board，小片層數少，目前機台是堪用",
+      "tp": null,
+      "eps_est": null,
+      "catalysts": [
+        "Google switch board"
+      ],
+      "customers": [],
+      "sentiment": "中性",
+      "holding": false,
+      "code_source": "name_exact",
+      "validated": true,
+      "parsed_at": "2026-11-06T22:05:20"
+    },
     {
       "code": "2368",
       "name": "金像電",
